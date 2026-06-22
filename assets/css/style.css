@@ -758,10 +758,11 @@ hr {
 }
 
 /* 文章页二维码 — 读完引导 */
+/* ─── 文章底部二维码 — 居中，干净 ─── */
 .article-qrcode {
   max-width: var(--article-width);
   margin: var(--space-2xl) auto 0;
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
   border-top: 1px solid var(--line);
 }
@@ -772,26 +773,27 @@ hr {
   line-height: 1.6;
 }
 .article-qrcode img {
-  width: 140px;
+  width: 150px;
   height: auto;
-  margin: var(--space-md) auto;
-  border-radius: 6px;
+  margin: 0 auto;
+  border-radius: 8px;
   border: 1px solid var(--line);
+  display: inline-block;
 }
 .qr-hint {
   font-size: 0.82rem;
   color: var(--text-muted);
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
 }
 .qr-hint code {
   font-size: 0.82em;
   background: var(--bg-warm);
-  padding: 0.1em 0.35em;
-  border-radius: 3px;
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
   color: var(--accent);
 }
 
-/* 相关推荐 */
+/* 相关推荐 — 双栏：内链+公众号原文 */
 .article-related {
   max-width: var(--article-width);
   margin: var(--space-2xl) auto 0;
@@ -799,30 +801,69 @@ hr {
   border-top: 1px solid var(--line);
 }
 .article-related h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: var(--space-lg);
+  color: var(--text);
 }
 .related-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-md);
 }
-.related-grid a {
-  display: block;
+.related-grid a,
+.related-grid .related-card {
+  display: flex;
+  flex-direction: column;
   padding: var(--space-md);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
   color: var(--text);
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   text-decoration: none;
-  border-bottom: none;
-  transition: border-color 0.2s;
+  transition: all 0.2s var(--ease);
 }
-.related-grid a:hover {
-  border-color: var(--line-strong);
-  color: var(--accent);
-  border-bottom: none;
+.related-grid a:hover,
+.related-grid .related-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(44,94,168,0.08);
+  transform: translateY(-1px);
+}
+.related-title {
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.related-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+/* 公众号原文链接特殊样式 */
+.related-wechat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: #fafafa;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+.related-wechat:hover {
+  border-color: #07c160;
+  background: #f0faf5;
+  color: #07c160;
+}
+.related-wechat-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.7;
 }
 
 /* ─── 四引擎卡片 — 无彩色顶边，统一处理 ─── */
