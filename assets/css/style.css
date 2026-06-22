@@ -581,25 +581,38 @@ hr {
   border-radius: 0 6px 6px 0;
 }
 
-/* 微信公众号二维码 — 极致克制 */
+/* 文章页二维码 — 读完引导 */
 .article-qrcode {
   max-width: var(--article-width);
   margin: var(--space-2xl) auto 0;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-xl) 0;
   text-align: center;
   border-top: 1px solid var(--line);
 }
 .article-qrcode p {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: var(--space-md);
+  line-height: 1.6;
 }
 .article-qrcode img {
   width: 140px;
   height: auto;
-  margin: 0 auto;
+  margin: var(--space-md) auto;
   border-radius: 6px;
   border: 1px solid var(--line);
+}
+.qr-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+}
+.qr-hint code {
+  font-size: 0.82em;
+  background: var(--bg-warm);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  color: var(--accent);
 }
 
 /* 相关推荐 */
