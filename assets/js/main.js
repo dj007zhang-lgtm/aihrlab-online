@@ -1,30 +1,266 @@
-/* AIHR数智引擎 — 交互脚本 */
+/* AIHR数智引擎 — 数据埋点 + A/B Test 框架 */
 
-// ---- GA4 event helper ----
-function trackEvent(eventName, params) {
+// ============ GA4 事件辅助 ============
+function trackEvent(name, params = {}) {
   if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, params);
+    gtag('event', name, {
+      ...params,
+      send_to: 'G-BWLGRVRRGN'
+    });
   }
 }
-// ---- / GA4 event helper ----
 
+// ============ 滚动深度埋点 ============
+(function initScrollTracking() {
+  const milestones = [25, 50, 75, 90, 100];
+  const fired = new Set();
+  let maxDepth = 0;
+
+  function getScrollPct() {
+    const h = document.documentElement;
+    const scrollTop = window.scrollY || h.scrollTop;
+    const scrollHeight = h.scrollHeight - h.clientHeight;
+    if (scrollHeight <= 0) return 0;
+    return Math.round((scrollTop / scrollHeight) * 100);
+  }
+
+  function checkScroll() {
+    const pct = getScrollPct();
+    if (pct > maxDepth) maxDepth = pct;
+    for (const m of milestones) {
+      if (pct >= m && !fired.has(m)) {
+        fired.add(m);
+        trackEvent('scroll_depth', {
+          percent: m,
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+      }
+    }
+  }
+
+  // 用 IntersectionObserver 监听文章正文底部（更精准）
+  function initArticleBottomTracking() {
+    const bottom = document.querySelector('.article-qrcode, .article-body');
+    if (!bottom) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !fired.has('article_end')) {
+          fired.add('article_end');
+          trackEvent('article_end_view', {
+            page_path: window.location.pathname,
+            max_scroll_depth: maxDepth
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(bottom);
+  }
+
+  window.addEventListener('scroll', throttle(checkScroll, 500), { passive: true });
+  window.addEventListener('load', () => {
+    checkScroll();
+    initArticleBottomTracking();
+  });
+
+  // 页面离开时发送最大深度
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      trackEvent('page_engagement', {
+        page_path: window.location.pathname,
+        max_scroll_depth: maxDepth,
+        engaged_time_sec: Math.round((Date.now() - loadTime) / 1000)
+      });
+    }
+  });
+})();
+
+// ============ 停留时长埋点 ============
+const loadTime = Date.now();
+let engagedSeconds = 0;
+let engagementTimer = null;
+
+function startEngagementTimer() {
+  if (engagementTimer) return;
+  engagementTimer = setInterval(() => {
+    engagedSeconds++;
+    // 每 30 秒打点一次，避免高频
+    if (engagedSeconds % 30 === 0) {
+      trackEvent('engagement_ping', {
+        page_path: window.location.pathname,
+        engaged_seconds: engagedSeconds
+      });
+    }
+  }, 1000);
+}
+
+function stopEngagementTimer() {
+  clearInterval(engagementTimer);
+  engagementTimer = null;
+}
+
+// 页面可见时计时
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    startEngagementTimer();
+  } else {
+    stopEngagementTimer();
+    trackEvent('engagement_pause', {
+      page_path: window.location.pathname,
+      total_engaged_seconds: engagedSeconds
+    });
+  }
+});
+
+window.addEventListener('load', startEngagementTimer);
+window.addEventListener('beforeunload', () => {
+  stopEngagementTimer();
+  trackEvent('page_exit', {
+    page_path: window.location.pathname,
+    total_engaged_seconds: engagedSeconds,
+    max_scroll_depth: Math.round(
+      (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100
+    ) || 0
+  });
+});
+
+// ============ 二维码区域埋点 ============
+function initQRCTATracking() {
+  // 文章页二维码区域
+  const qrSection = document.querySelector('.article-qrcode');
+  if (qrSection) {
+    // 曝光追踪
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          trackEvent('qr_code_view', {
+            page_path: window.location.pathname,
+            cta_variant: localStorage.getItem('qr_cta_variant') || 'A'
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(qrSection);
+
+    // 点击二维码图片
+    const qrImg = qrSection.querySelector('img');
+    if (qrImg) {
+      qrImg.style.cursor = 'pointer';
+      qrImg.addEventListener('click', () => {
+        trackEvent('qr_code_click', {
+          page_path: window.location.pathname,
+          cta_variant: localStorage.getItem('qr_cta_variant') || 'A'
+        });
+      });
+    }
+  }
+
+  // 首页订阅区二维码
+  const followSection = document.getElementById('follow');
+  if (followSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          trackEvent('follow_section_view', { page_path: window.location.pathname });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(followSection);
+  }
+}
+
+// ============ A/B Test 框架 ============
+const ABTests = {
+  // 测试：文章页二维码 CTA 文案
+  qr_cta: {
+    name: 'qr_cta',
+    variants: [
+      {
+        id: 'A',
+        // 当前版本
+        cta: '这篇文章的分析框架，会在公众号持续更新。',
+        hint: '关注后回复 <code>关键词</code> 获取配套工具'
+      },
+      {
+        id: 'B',
+        // 测试版本：更直接的价值承诺
+        cta: '同类深度分析，公众号每周更新。',
+        hint: '关注后回复 <code>关键词</code> 获取文章配套工具'
+      }
+    ],
+    getVariant() {
+      let stored = localStorage.getItem('ab_qr_cta');
+      if (stored) return JSON.parse(stored);
+      const variant = this.variants[Math.random() < 0.5 ? 0 : 1];
+      localStorage.setItem('ab_qr_cta', JSON.stringify(variant));
+      return variant;
+    },
+    apply() {
+      const v = this.getVariant();
+      localStorage.setItem('qr_cta_variant', v.id);
+      const qrSection = document.querySelector('.article-qrcode');
+      if (qrSection) {
+        const ctaP = qrSection.querySelector('p:first-child');
+        const hintP = qrSection.querySelector('.qr-hint');
+        if (ctaP) ctaP.innerHTML = v.cta;
+        if (hintP) hintP.innerHTML = v.hint;
+      }
+      // 发送 A/B 曝光事件
+      trackEvent('ab_test_exposure', {
+        test_name: 'qr_cta',
+        variant: v.id,
+        page_path: window.location.pathname
+      });
+    }
+  }
+};
+
+// ============ 文章卡片点击埋点 ============
+function initArticleCardTracking() {
+  document.querySelectorAll('.article-card a[href]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const articleCard = card.closest('.article-card');
+      const title = articleCard?.querySelector('h3')?.textContent || '';
+      trackEvent('article_card_click', {
+        article_title: title,
+        page_path: window.location.pathname,
+        link_url: card.href || card.getAttribute('href')
+      });
+    });
+  });
+}
+
+// ============ 工具函数 ============
+function throttle(fn, wait) {
+  let last = 0;
+  return function(...args) {
+    const now = Date.now();
+    if (now - last >= wait) {
+      last = now;
+      fn.apply(this, args);
+    }
+  };
+}
+
+// ============ 初始化 ============
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile nav toggle
+  // Mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.querySelector('.site-nav');
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', () => {
       siteNav.classList.toggle('open');
     });
-    // Close nav on link click
     siteNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        siteNav.classList.remove('open');
-      });
+      link.addEventListener('click', () => siteNav.classList.remove('open'));
     });
   }
 
-  // Highlight current page in nav
+  // Highlight current page
   const currentPath = window.location.pathname;
   siteNav?.querySelectorAll('a').forEach(link => {
     const href = link.getAttribute('href');
@@ -36,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
@@ -47,115 +283,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- QR Code Modal System ---
-  initGateModal();
-  initGateButtons();
-  initGateExposureTracking();
+  // --- 埋点初始化 ---
+  initQRCTATracking();
+  initArticleCardTracking();
+
+  // --- A/B Test 应用（仅文章页）---
+  if (document.querySelector('.article-qrcode')) {
+    ABTests.qr_cta.apply();
+  }
+
+  // 首次访问标记
+  if (!localStorage.getItem('returning_visitor')) {
+    trackEvent('first_visit', { page_path: window.location.pathname });
+    localStorage.setItem('returning_visitor', 'true');
+  }
 });
-
-/* Create and manage QR code modal */
-function initGateModal() {
-  // Check if modal already exists
-  if (document.getElementById('qr-gate-modal')) return;
-
-  const overlay = document.createElement('div');
-  overlay.id = 'qr-gate-modal';
-  overlay.className = 'qr-modal-overlay';
-  overlay.innerHTML = `
-    <div class="qr-modal">
-      <button class="modal-close" aria-label="关闭">&times;</button>
-      <h3 id="qr-modal-title">扫码解锁完整内容</h3>
-      <img src="/assets/images/wechat-qrcode.jpg" alt="AIHR数智引擎公众号二维码" id="qr-modal-img" width="180" height="180">
-      <p class="modal-instruction" id="qr-modal-instruction">
-        微信扫一扫，关注「AIHR数智引擎」
-      </p>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-
-  // Close on overlay click
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeGateModal();
-  });
-
-  // Close on button click
-  overlay.querySelector('.modal-close').addEventListener('click', closeGateModal);
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeGateModal();
-  });
-}
-
-function closeGateModal() {
-  const modal = document.getElementById('qr-gate-modal');
-  if (modal) modal.classList.remove('show');
-}
-
-function openGateModal(config) {
-  const modal = document.getElementById('qr-gate-modal');
-  if (!modal) return;
-
-  const title = modal.querySelector('#qr-modal-title');
-  const instruction = modal.querySelector('#qr-modal-instruction');
-
-  if (config && config.title) title.textContent = config.title;
-  else title.textContent = '扫码解锁完整内容';
-
-  if (config && config.instruction) instruction.innerHTML = config.instruction;
-  else instruction.textContent = '微信扫一扫，关注「AIHR数智引擎」';
-
-  modal.classList.add('show');
-
-  // Track modal open
-  const gateId = config && config.gateId ? config.gateId : 'unknown';
-  trackEvent('qr_modal_open', {
-    gate_id: gateId,
-    page_path: window.location.pathname
-  });
-}
-
-/* Bind all gate buttons */
-function initGateButtons() {
-  document.querySelectorAll('.btn-gate, .gate-trigger').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const title = btn.getAttribute('data-gate-title') || '扫码解锁完整内容';
-      const instruction = btn.getAttribute('data-gate-instruction') || '微信扫一扫，关注「AIHR数智引擎」公众号，回复关键词获取完整资源。';
-      const gateId = btn.getAttribute('data-gate-id') || btn.closest('.gate-card, .asset-card')?.querySelector('h3')?.textContent || 'unknown';
-
-      // Track gate button click
-      trackEvent('gate_click', {
-        gate_id: gateId,
-        page_path: window.location.pathname.toString(),
-        gate_type: btn.closest('.asset-card') ? 'asset_download' : 'content_unlock'
-      });
-
-      openGateModal({ title, instruction, gateId });
-    });
-  });
-}
-
-/* Track gate card exposure via IntersectionObserver */
-function initGateExposureTracking() {
-  const tracked = new Set();
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !tracked.has(entry.target)) {
-        tracked.add(entry.target);
-        const gateCard = entry.target.closest('.gate-card, .asset-card');
-        const gateId = gateCard?.querySelector('h3')?.textContent || 'unknown';
-        const gateType = entry.target.closest('.asset-card') ? 'asset_card' : 'content_gate';
-
-        trackEvent('gate_view', {
-          gate_id: gateId,
-          gate_type: gateType,
-          page_path: window.location.pathname.toString()
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  document.querySelectorAll('.gate-card, .asset-card').forEach(el => observer.observe(el));
-}
