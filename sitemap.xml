@@ -206,4 +206,12 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- AI裁员7%飙到40%：减法vs乘法 -->
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-layoff-subtraction-vs-multiplication.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
