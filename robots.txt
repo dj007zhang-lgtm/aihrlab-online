@@ -1,0 +1,33 @@
+# robots.txt for AIHR数智引擎
+# Updated: 2026-06-05
+
+User-agent: *
+Allow: /
+Disallow: /seo-monitor.html
+
+# Sitemap
+Sitemap: https://www.aihrlab.online/sitemap.xml
+
+# Crawl-delay (polite crawling)
+Crawl-delay: 5
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 5
+
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 5

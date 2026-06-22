@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="./assets/images/avatar.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识卡片系列 | AIHR数智引擎</title>
+  <meta name="description" content="从V2到V14共13个系列86张知识卡片。DRI方法论、百度职级改革、Meta Pod、德勤2026、美世2026等核心主题的高清视觉卡片。">
+  <meta property="og:title" content="知识卡片系列 | AIHR数智引擎">
+  <meta property="og:description" content="13个系列86张知识卡片，覆盖DRI、百度职级、Meta Pod等核心主题。1080×1920高清设计。">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="canonical" href="https://www.aihrlab.online/cards/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "知识卡片", "item": "https://www.aihrlab.online/cards/"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"AIHR数智引擎知识卡片系列","description":"从V2到V14共13个系列86张知识卡片","url":"https://www.aihrlab.online/cards/","inLanguage":"zh-CN","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"V14 — 裁员真相 · 回旋镖效应","url":"https://www.aihrlab.online/cards/#v14"},{"@type":"ListItem","position":2,"name":"V13 — AI信任危机 · 组织硬止损","url":"https://www.aihrlab.online/cards/#v13"},{"@type":"ListItem","position":3,"name":"V12 — 美世2026 · 人机协作方程式","url":"https://www.aihrlab.online/cards/#v12"},{"@type":"ListItem","position":4,"name":"V11 — 德勤2026 · 战略损耗率","url":"https://www.aihrlab.online/cards/#v11"},{"@type":"ListItem","position":5,"name":"V10 — Meta Pod · AI原生组织","url":"https://www.aihrlab.online/cards/#v10"},{"@type":"ListItem","position":6,"name":"V9 — 百度T/P序列 · 人才价值重估","url":"https://www.aihrlab.online/cards/#v9"},{"@type":"ListItem","position":7,"name":"V8 — DRI系列 · 核心方法论","url":"https://www.aihrlab.online/cards/#v8"},{"@type":"ListItem","position":8,"name":"V7 — AI in HR 应用全景","url":"https://www.aihrlab.online/cards/#v7"},{"@type":"ListItem","position":9,"name":"V6 — 麦肯锡2026 组织状况报告","url":"https://www.aihrlab.online/cards/#v6"},{"@type":"ListItem","position":10,"name":"V5 — B×D×T×G 能力框架","url":"https://www.aihrlab.online/cards/#v5"},{"@type":"ListItem","position":11,"name":"V4 — 数据治理框架（迭代版）","url":"https://www.aihrlab.online/cards/#v4"},{"@type":"ListItem","position":12,"name":"V3 — 数据治理框架（初版）","url":"https://www.aihrlab.online/cards/#v3"},{"@type":"ListItem","position":13,"name":"V2 — PPT风格原型卡片","url":"https://www.aihrlab.online/cards/#v2"}]}}
+  </script>
+  <style>
+    .series-section{margin-bottom:3rem;background:rgba(255,255,255,.03);border-radius:16px;border:1px solid rgba(255,255,255,.06);overflow:hidden}
+    .series-header{padding:1.5rem 2rem;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem}
+    .series-header h2{font-size:1.4rem;color:var(--accent);margin:0}
+    .series-header .badge{display:inline-block;background:rgba(0,200,220,.15);color:#00d4ff;font-size:.75rem;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+    .series-header p{color:var(--text-muted);font-size:.9rem;margin:.3rem 0 0}
+    .series-meta{text-align:right;flex-shrink:0}
+    .series-meta .count{font-size:2rem;font-weight:700;color:#00d4ff;display:block;line-height:1}
+    .series-meta .count-label{font-size:.75rem;color:var(--text-muted)}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;padding:1.5rem 2rem}
+    .card-thumb{position:relative;border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;aspect-ratio:9/16;background:#111}
+    .card-thumb:hover{transform:scale(1.04);box-shadow:0 6px 24px rgba(0,200,220,.3)}
+    .card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .card-thumb .thumb-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:20px 10px 8px;font-size:.72rem;color:#00d4dc;text-align:center}
+    .series-index{padding:0 2rem 1.5rem}
+    .series-index table{width:100%;border-collapse:collapse;font-size:.85rem}
+    .series-index td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+    .series-index td:first-child{color:#00d4ff;font-weight:600;width:70px}
+    .series-index td:nth-child(2){color:#ddd;font-weight:500;width:140px}
+    .series-index td:nth-child(3){color:#888}
+    .related-article{padding:0 2rem 1.5rem;font-size:.85rem;color:var(--text-muted)}
+    .related-article a{color:#00d4ff;text-decoration:none}
+    .related-article a:hover{text-decoration:underline}
+    .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.93);z-index:1000;justify-content:center;align-items:center}
+    .modal-overlay.active{display:flex}
+    .modal-close{position:absolute;top:20px;right:30px;font-size:42px;color:#fff;cursor:pointer;z-index:1001;opacity:.7;transition:opacity .2s}
+    .modal-close:hover{opacity:1}
+    .modal-img{max-height:90vh;max-width:95vw;border-radius:8px;box-shadow:0 0 60px rgba(0,200,220,.15)}
+    .modal-nav{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:16px}
+    .modal-nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 28px;border-radius:8px;cursor:pointer;font-size:16px;transition:background .2s}
+    .modal-nav button:hover{background:rgba(0,200,220,.25);border-color:rgba(0,200,220,.4)}
+    .modal-counter{position:absolute;top:25px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:.85rem}
+    @media(max-width:640px){.card-grid{grid-template-columns:repeat(3,1fr);gap:8px;padding:1rem}.series-header{padding:1rem}.series-header h2{font-size:1.1rem}.series-index{padding:0 1rem 1rem}.series-index table{font-size:.72rem}.related-article{padding:0 1rem 1rem}.series-meta .count{font-size:1.5rem}}
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYP92DYW3G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YYP92DYW3G');
+  </script>
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f6d3e52030b69a08c5704a7551383711";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo"><img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="32" height="32">AIHR<span class="logo-dot">数智引擎</span></a>
+      <button class="nav-toggle" aria-label="打开导航菜单">☰</button>
+      <nav class="site-nav">
+        <a href="../index.html">首页</a>
+        <a href="../articles/index.html">文章</a>
+        <a href="../cards/index.html" class="active">知识卡片</a>
+        <a href="../resources/index.html">资源库</a>
+        <a href="../about.html">关于</a>
+        <a href="../index.html#follow" class="nav-cta">关注公众号</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="container">
+      <header class="hero" style="text-align:left;padding:1rem 0 2rem">
+        <h1>知识卡片系列</h1>
+        <p style="font-size:1rem;max-width:640px;margin:0.5rem 0 0">每篇文章配套的视觉化知识卡片。1080×1920 高清设计，适合手机收藏、小红书分享、团队内部分发。点击卡片查看大图，键盘 ← → 切换。</p>
+      </header>
+
+<!-- ====== V14 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V14 — 裁员真相 · 回旋镖效应</h2><p>大规模裁员正在反噬企业自身</p></div>
+    <div class="series-meta"><span class="count">7</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v14"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>裁员真相</td><td>大规模裁员的隐性代价</td></tr>
+    <tr><td>02 裁员潮</td><td>数据全景</td><td>2024-2026全球科技裁员规模</td></tr>
+    <tr><td>03 数字</td><td>真实成本</td><td>离职补偿+招聘重置+文化损耗</td></tr>
+    <tr><td>04 回旋镖</td><td>逆向效应</td><td>被裁员工回流与竞业伤害</td></tr>
+    <tr><td>05 HR困境</td><td>夹缝生存</td><td>HR在执行裁员中的角色撕裂</td></tr>
+    <tr><td>06 计算</td><td>理性决策</td><td>裁员决策的量化评估框架</td></tr>
+    <tr><td>07 收尾</td><td>行动建议</td><td>替代裁员的六种策略</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V13 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V13 — AI信任危机 · 组织硬止损</h2><p>AI部署落地中的信任断层与修复路径</p></div>
+    <div class="series-meta"><span class="count">7</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v13"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>AI信任危机</td><td>员工为何不信任AI决策</td></tr>
+    <tr><td>02 信任</td><td>信任断层</td><td>管理层信心 vs 一线抵触的鸿沟</td></tr>
+    <tr><td>03 架构</td><td>硬止损设计</td><td>强制人工复核节点的技术架构</td></tr>
+    <tr><td>04 驾驭</td><td>渐进式信任</td><td>三阶段建立人机信任的路径</td></tr>
+    <tr><td>05 硬止损</td><td>不可逾越线</td><td>四类必须留人判断的场景</td></tr>
+    <tr><td>06 落地</td><td>实施路径</td><td>从试点到全员的信任扩展策略</td></tr>
+    <tr><td>07 收尾</td><td>金句+定位</td><td>信任不是喊出来的，是架构出来的</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V12 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V12 — 美世2026 · 人机协作方程式</h2><p>人机协作方程式 x 新一代人才价值公式</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v12"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>人机协作方程式</td><td>美世2026全球人才趋势</td></tr>
+    <tr><td>02 重设计</td><td>工作重设计</td><td>AI时代岗位拆解与重组</td></tr>
+    <tr><td>03 变量</td><td>新一代人才公式</td><td>价值=能力×AI杠杆×组织适配</td></tr>
+    <tr><td>04 平衡</td><td>人机平衡点</td><td>自动化与增强的最优边界</td></tr>
+    <tr><td>05 跳过</td><td>什么不该AI化</td><td>四类不可替代的人力场景</td></tr>
+    <tr><td>06 诊断</td><td>组织自检清单</td><td>你的企业人机协作成熟度</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/mercer-2026.html">美世2026完整解读 →</a></div>
+</div>
+
+<!-- ====== V11 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V11 — 德勤2026 · 战略损耗率</h2><p>85%认可 vs 7%做到：知行断裂的78个百分点</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v11"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>战略损耗率</td><td>德勤2026人力资本趋势</td></tr>
+    <tr><td>02 阻塞</td><td>知行鸿沟</td><td>85%认可但仅7%落地的根因</td></tr>
+    <tr><td>03 架构</td><td>组织断层</td><td>战略传导链的五层断裂点</td></tr>
+    <tr><td>04 方案</td><td>端到端闭环</td><td>从战略意图到一线行为的对齐路径</td></tr>
+    <tr><td>05 行动</td><td>破局三步</td><td>识别→对齐→衡量</td></tr>
+    <tr><td>06 终局</td><td>新常态</td><td>AI时代组织韧性的四根支柱</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/deloitte-2026.html">德勤2026完整解读 →</a></div>
+</div>
+
+<!-- ====== V10 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V10 — Meta Pod · AI原生组织</h2><p>AI Builder / AI Pod Lead / AI Org Lead 三种新角色</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v10"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>Meta Pod</td><td>AI原生组织细胞级作战单元</td></tr>
+    <tr><td>02 定义</td><td>什么是Pod</td><td>跨职能+端到端+AI原生的小团队结构</td></tr>
+    <tr><td>03 三法则</td><td>Pod三法则</td><td>规模上限/AI配比/端到端闭环</td></tr>
+    <tr><td>04 为什么</td><td>为什么是Pod</td><td>传统金字塔 vs 细胞级组织的对比</td></tr>
+    <tr><td>05 演进</td><td>角色演进</td><td>从传统岗位到AI Builder/Pod Lead/Org Lead</td></tr>
+    <tr><td>06 原则</td><td>落地原则</td><td>五条可操作的Pod组建原则</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/meta-pod-structure.html">Meta Pod完整解读 →</a></div>
+</div>
+
+<!-- ====== V9 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V9 — 百度T/P序列 · 人才价值重估</h2><p>字母标签全面废除，T/P/E/Band/M → 5-12级单通道</p></div>
+    <div class="series-meta"><span class="count">9</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v9"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>人才价值重估</td><td>百度取消T/P序列事件</td></tr>
+    <tr><td>02 前后</td><td>改革前后对比</td><td>双通道→单通道的制度变化全景</td></tr>
+    <tr><td>03 货币</td><td>价值新货币</td><td>技术+业务+领导力三维积分体系</td></tr>
+    <tr><td>04 薪酬</td><td>薪酬重构</td><td>带宽薪酬替代职级薪酬的逻辑</td></tr>
+    <tr><td>05 复合</td><td>复合价值</td><td>不再有纯管理/纯技术通道</td></tr>
+    <tr><td>06 晋升</td><td>晋升新规则</td><td>从年限制到贡献制的转变</td></tr>
+    <tr><td>07 HR损失</td><td>HR失去了什么</td><td>旧有职级管理工具的全面失效</td></tr>
+    <tr><td>08 三天</td><td>三天转型</td><td>HR团队必须在72小时内完成的调整</td></tr>
+    <tr><td>09 收尾</td><td>金句+定位</td><td>标签撕掉后，真正的价值才会浮现</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/baidu-tp-reform.html">百度职级改革完整解读 →</a></div>
+</div>
+
+<!-- ====== V8 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V8 — DRI系列 ⭐ 核心方法论</h2><p>Agent替代HR职能映射表 + DRI三步进阶</p></div>
+    <div class="series-meta"><span class="count">9</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v8"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>李开复×苏姿丰</td><td>未来HR只有一个核心岗位，叫 DRI</td></tr>
+    <tr><td>02 进化</td><td>AI能力三阶段</td><td>2024单任务→2025流程级→2026职能替代</td></tr>
+    <tr><td>03 诊断</td><td>表演式 vs 真正转型</td><td>李开复尖锐二分：你的AI部署改变了哪个数字？</td></tr>
+    <tr><td>04 架构</td><td>Agent闭环</td><td>招聘Agent↔绩效Agent数据联动，无需人工介入</td></tr>
+    <tr><td>05 映射上</td><td>职能替代表(上)</td><td>招聘/薪酬/绩效 — Agent可闭环 vs 必须留人判断</td></tr>
+    <tr><td>06 映射下</td><td>职能替代表(下)</td><td>培训/员工关系/组织发展 — 人际端不可替代</td></tr>
+    <tr><td>07 痛点</td><td>60%工时被吞噬</td><td>人肉串联 vs 专业判断 — 流程机器型HR正在灭亡</td></tr>
+    <tr><td>08 行动</td><td>DRI转型三步</td><td>执行者→编排者→数据驱动→守住人的底线</td></tr>
+    <tr><td>09 收尾</td><td>金句+定位</td><td>边界画清楚，价值才清晰。你不是支持者，是业务合伙人</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/dri-kaifu-lisa-su.html">DRI完整解读 →</a></div>
+</div>
+
+<!-- ====== V7 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V7 — AI in HR 应用全景</h2><p>HR六大模块AI替代的可行性图谱</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v7"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>AI in HR</td><td>六大模块的AI替代全景</td></tr>
+    <tr><td>02 分类</td><td>AI能力分类学</td><td>自动化/增强/转型三层次</td></tr>
+    <tr><td>03 场景</td><td>六大模块场景</td><td>招聘/培训/绩效/薪酬/员工关系/OD</td></tr>
+    <tr><td>04 案例</td><td>企业实践</td><td>大厂HR部门的真实AI部署案例</td></tr>
+    <tr><td>05 挑战</td><td>落地挑战</td><td>数据质量/伦理/员工抵触/ROI</td></tr>
+    <tr><td>06 未来</td><td>未来图景</td><td>2027年HR职能的AI渗透率预测</td></tr>
+  </table></div>
+  <div class="related-article">📄 关联文章：<a href="../articles/ai-hr-jobs.html">AI接管HR岗位完整解读 →</a></div>
+</div>
+
+<!-- ====== V6 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V6 — 麦肯锡2026 组织状况报告</h2><p>全球组织变革趋势数据解读</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v6"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>麦肯锡2026</td><td>全球组织状况报告</td></tr>
+    <tr><td>02 数据</td><td>核心发现</td><td>组织健康状况的12项指标</td></tr>
+    <tr><td>03 问题</td><td>组织病症</td><td>速度慢/决策冗长/创新疲软</td></tr>
+    <tr><td>04 演进</td><td>变革路径</td><td>传统组织→敏捷组织→AI原生的跃迁</td></tr>
+    <tr><td>05 架构</td><td>新组织架构</td><td>去层级化+平台化+AI赋能的三角模型</td></tr>
+    <tr><td>06 行动</td><td>行动建议</td><td>麦肯锡推荐的五大转型催化剂</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V5 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V5 — B×D×T×G 能力框架</h2><p>AI时代HR的及格线，不是加分项</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v5"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>B×D×T×G</td><td>AI时代HR的及格线，不是加分项</td></tr>
+    <tr><td>02 数据</td><td>Data维度</td><td>数据素养：从看报表到建模型</td></tr>
+    <tr><td>03 问题</td><td>Business维度</td><td>业务理解：从支持者到合伙人</td></tr>
+    <tr><td>04 治理</td><td>Tech维度</td><td>技术驾驭：从采购系统到设计AI</td></tr>
+    <tr><td>05 框架</td><td>Growth维度</td><td>增长思维：从降本增效到创造新价值</td></tr>
+    <tr><td>06 行动</td><td>四维评估表</td><td>自我诊断：你在哪个象限？</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V4 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V4 — 数据治理框架（迭代版）</h2><p>HR数据中台的架构与落地路径</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v4"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>数据治理</td><td>HR数据中台从0到1</td></tr>
+    <tr><td>02 数据</td><td>数据现状</td><td>HR数据的四大痛点：散/乱/旧/错</td></tr>
+    <tr><td>03 问题</td><td>治理框架</td><td>采集→清洗→建模→应用四层架构</td></tr>
+    <tr><td>04 治理</td><td>主数据管理</td><td>组织/岗位/人员三大主数据的标准化</td></tr>
+    <tr><td>05 框架</td><td>指标体系</td><td>从KPI到OKR的指标分层设计</td></tr>
+    <tr><td>06 行动</td><td>落地路线图</td><td>30/60/90天三步走实施计划</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V3 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V3 — 数据治理框架（初版）</h2><p>最早采用HTML+浏览器截图双格式的版本</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v3"></div>
+  <div class="series-index"><table>
+    <tr><td>01 封面</td><td>数据治理</td><td>HR数据治理框架初版</td></tr>
+    <tr><td>02 数据</td><td>数据问题</td><td>HR部门的数据困境诊断</td></tr>
+    <tr><td>03 问题</td><td>治理原则</td><td>五条数据治理铁律</td></tr>
+    <tr><td>04 治理</td><td>架构设计</td><td>数据中台三层架构</td></tr>
+    <tr><td>05 框架</td><td>实施路径</td><td>从数据清洗到数据产品的演进</td></tr>
+    <tr><td>06 行动</td><td>第一步</td><td>HR数据治理的七天启动清单</td></tr>
+  </table></div>
+</div>
+
+<!-- ====== V2 ====== -->
+<div class="series-section">
+  <div class="series-header">
+    <div><h2>V2 — PPT风格原型卡片</h2><p>知识卡片系列最早的探索版本</p></div>
+    <div class="series-meta"><span class="count">6</span><span class="count-label">张卡片</span></div>
+  </div>
+  <div class="card-grid" data-series="v2"></div>
+  <div class="series-index"><table>
+    <tr><td>01</td><td>原型一</td><td>结构化信息呈现</td></tr>
+    <tr><td>02</td><td>原型二</td><td>数据可视化</td></tr>
+    <tr><td>03</td><td>原型三</td><td>框架图展示</td></tr>
+    <tr><td>04</td><td>原型四</td><td>对比分析</td></tr>
+    <tr><td>05</td><td>原型五</td><td>流程步骤</td></tr>
+    <tr><td>06</td><td>原型六</td><td>金句收尾</td></tr>
+  </table></div>
+</div>
+
+      <div class="cta-section" style="margin-top:3rem">
+        <h2>获取高清卡片原图</h2>
+        <p>所有卡片系列的高清原图均在公众号文章中同步发布。关注「AIHR数智引擎」，后台回复对应关键词即可获取打包下载。</p>
+        <span class="btn btn-primary" style="cursor:default">微信搜索「AIHR数智引擎」→ 后台回复「卡片」</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><a href="../index.html" class="site-logo"><img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="32" height="32">AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代HR转型与大厂组织变革的深度分析平台。</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>内容</h4><a href="../articles/index.html">全部文章</a><a href="../cards/index.html">知识卡片</a></div>
+        <div class="footer-col"><h4>关于</h4><a href="../about.html">关于我们</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 AIHR数智引擎</div>
+  </footer>
+
+  <!-- Modal (JS controlled) -->
+  <div class="modal-overlay" id="modal">
+    <span class="modal-close" id="modal-close">&times;</span>
+    <span class="modal-counter" id="modal-counter"></span>
+    <img class="modal-img" id="modal-img" src="" alt="卡片大图">
+    <div class="modal-nav">
+      <button id="modal-prev">← 上一张</button>
+      <button id="modal-next">下一张 →</button>
+    </div>
+  </div>
+
+  <script>
+    // File mapping (actual filenames from filesystem)
+    var CARD_FILES = {
+      v2:['Professional_PPT_infographic_s_2026-05-31T14-31-23.png','Professional_PPT_infographic_s_2026-05-31T14-32-03.png','Professional_PPT_slide__vertic_2026-05-31T14-32-43.png','Professional_PPT_slide__vertic_2026-05-31T14-33-23.png','Professional_PPT_slide__vertic_2026-05-31T14-34-15.png','Professional_PPT_slide__vertic_2026-05-31T14-34-55.png'],
+      v3:['01_cover.jpg','02_data.jpg','03_problem.jpg','04_governance.jpg','05_framework.jpg','06_actions.jpg'],
+      v4:['01_cover.jpg','02_data.jpg','03_problem.jpg','04_governance.jpg','05_framework.jpg','06_actions.jpg'],
+      v5:['01_cover.jpg','02_data.jpg','03_problem.jpg','04_governance.jpg','05_framework.jpg','06_actions.jpg'],
+      v6:['01_cover.jpg','02_data.jpg','03_problem.jpg','04_evolution.jpg','05_architecture.jpg','06_actions.jpg'],
+      v7:['01_cover.jpg','02_taxonomy.jpg','03_scenarios.jpg','04_cases.jpg','05_challenges.jpg','06_future.jpg'],
+      v8:['01_cover.jpg','02_evolution.jpg','03_performative.jpg','04_agent_loop.jpg','05_mapping_1.jpg','06_mapping_2.jpg','07_wasted_time.jpg','08_dri_steps.jpg','09_closing.jpg'],
+      v9:['01_cover.jpg','02_before_after.jpg','03_currency.jpg','04_salary.jpg','05_compound.jpg','06_promotion.jpg','07_hr_lost.jpg','08_3days.jpg','09_closing.jpg'],
+      v10:['01_cover.jpg','02_what_is_pod.jpg','03_three_rules.jpg','04_why_pod.jpg','05_evolution.jpg','06_principles.jpg'],
+      v11:['01_cover.jpg','02_blockages.jpg','03_architecture.jpg','04_solution.jpg','05_actions.jpg','06_endgame.jpg'],
+      v12:['01_cover.jpg','02_redesign.jpg','03_variables.jpg','04_balance.jpg','05_why_skip.jpg','06_diagnosis.jpg'],
+      v13:['01_cover.jpg','02_trust.jpg','03_architecture.jpg','04_harness.jpg','05_hardstop.jpg','06_implement.jpg','07_closing.jpg'],
+      v14:['01_cover.jpg','02_layoff.jpg','03_numbers.jpg','04_boomerang.jpg','05_hr_caught.jpg','06_calculate.jpg','07_closing.jpg']
+    };
+
+    var currentSeries = null, currentIndex = 0;
+
+    // Populate image grids
+    document.querySelectorAll('.card-grid[data-series]').forEach(function(grid){
+      var sid = grid.dataset.series;
+      var files = CARD_FILES[sid] || [];
+      var base = '../assets/images/cards/' + sid + '/';
+      files.forEach(function(f,i){
+        var card = document.createElement('div');
+        card.className = 'card-thumb';
+        var num = String(i+1).padStart(2,'0');
+        card.onclick = (function(s,i2){return function(){openModal(s,i2);};})(sid,i);
+        var label = grid.closest('.series-section').querySelectorAll('.series-index td:first-child')[i];
+        var labelText = label ? label.textContent : num;
+        card.innerHTML = '<img src="'+base+f+'" loading="lazy" alt="'+labelText+'"><div class="thumb-label">'+labelText+'</div>';
+        grid.appendChild(card);
+      });
+    });
+
+    function openModal(sid, idx){
+      currentSeries = sid; currentIndex = idx;
+      var files = CARD_FILES[sid];
+      var base = '../assets/images/cards/'+sid+'/';
+      document.getElementById('modal-img').src = base + files[idx];
+      document.getElementById('modal-counter').textContent = (idx+1) + ' / ' + files.length;
+      document.getElementById('modal').classList.add('active');
+    }
+
+    document.getElementById('modal-close').onclick = function(){
+      document.getElementById('modal').classList.remove('active');
+    };
+
+    document.getElementById('modal-prev').onclick = function(){
+      var files = CARD_FILES[currentSeries];
+      currentIndex = (currentIndex - 1 + files.length) % files.length;
+      var base = '../assets/images/cards/'+currentSeries+'/';
+      document.getElementById('modal-img').src = base + files[currentIndex];
+      document.getElementById('modal-counter').textContent = (currentIndex+1) + ' / ' + files.length;
+    };
+
+    document.getElementById('modal-next').onclick = function(){
+      var files = CARD_FILES[currentSeries];
+      currentIndex = (currentIndex + 1) % files.length;
+      var base = '../assets/images/cards/'+currentSeries+'/';
+      document.getElementById('modal-img').src = base + files[currentIndex];
+      document.getElementById('modal-counter').textContent = (currentIndex+1) + ' / ' + files.length;
+    };
+
+    document.getElementById('modal').addEventListener('click', function(e){
+      if(e.target === this) this.classList.remove('active');
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(!document.getElementById('modal').classList.contains('active')) return;
+      if(e.key === 'Escape') document.getElementById('modal').classList.remove('active');
+      if(e.key === 'ArrowRight') document.getElementById('modal-next').click();
+      if(e.key === 'ArrowLeft') document.getElementById('modal-prev').click();
+    });
+  </script>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

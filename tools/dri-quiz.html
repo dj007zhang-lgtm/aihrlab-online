@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="./assets/images/avatar.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRI角色成熟度自测 | AIHR数智引擎</title>
+  <meta name="description" content="10道题测出你的HR团队在AI时代的DRI成熟度。获取个性化诊断报告与行动建议。">
+  <link rel="canonical" href="https://www.aihrlab.online/tools/dri-quiz.html">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <style>
+    .quiz-container { max-width: 720px; margin: 0 auto; padding: 1rem; }
+    .quiz-intro { text-align: center; margin-bottom: 2rem; }
+    .quiz-intro h2 { font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+    .quiz-intro p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    .question-block { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .question-block.active { display: block; }
+    .question-num { font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.5rem; }
+    .question-text { font-size: 1.05rem; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.6; }
+    .options { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option-btn {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      background: var(--bg-main); border: 1px solid var(--border-color);
+      border-radius: 8px; padding: 0.85rem 1rem; cursor: pointer;
+      transition: all 0.2s; font-size: 0.9rem; color: var(--text-primary);
+      text-align: left; width: 100%;
+    }
+    .option-btn:hover { border-color: var(--accent-cyan); background: rgba(0,212,255,0.04); }
+    .option-btn.selected { border-color: var(--accent-cyan); background: rgba(0,212,255,0.08); }
+    .option-btn .opt-label { 
+      min-width: 1.5rem; height: 1.5rem; border-radius: 50%; 
+      background: var(--bg-card); border: 1.5px solid var(--border-color);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 600; color: var(--text-muted); flex-shrink: 0; transition: all 0.2s;
+    }
+    .option-btn.selected .opt-label { background: var(--accent-cyan); border-color: var(--accent-cyan); color: #000; }
+
+    .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+    .quiz-progress { font-size: 0.8rem; color: var(--text-muted); }
+    .quiz-progress-bar { width: 100%; height: 4px; background: var(--bg-card); border-radius: 2px; margin-top: 0.5rem; }
+    .quiz-progress-fill { height: 100%; background: var(--accent-cyan); border-radius: 2px; transition: width 0.3s; }
+
+    /* Result */
+    .result-block { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; }
+    .result-block.active { display: block; }
+    .result-score { font-size: 3rem; font-weight: 800; color: var(--accent-cyan); margin: 1rem 0; }
+    .result-level { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
+    .result-level.l0 { color: #ef4444; }
+    .result-level.l1 { color: #f59e0b; }
+    .result-level.l2 { color: #22c55e; }
+    .result-level.l3 { color: var(--accent-cyan); }
+    .result-dims { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.5rem 0; text-align: left; }
+    .result-dim { background: var(--bg-main); border-radius: 6px; padding: 0.75rem 1rem; }
+    .result-dim .dim-name { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .result-dim .dim-bar { height: 6px; background: var(--bg-card); border-radius: 3px; margin-top: 0.4rem; }
+    .result-dim .dim-bar-fill { height: 100%; border-radius: 3px; background: var(--accent-cyan); }
+    .result-advice { background: rgba(0,212,255,0.05); border-left: 3px solid var(--accent-cyan); border-radius: 0 6px 6px 0; padding: 1rem 1.25rem; text-align: left; margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+    .result-actions { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+  </style>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYP92DYW3G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YYP92DYW3G');
+  </script>
+  <!-- 百度统计 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f6d3e52030b69a08c5704a7551383711";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo"><img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="32" height="32">AIHR<span class="logo-dot">数智引擎</span></a>
+      <nav class="site-nav">
+        <a href="../index.html">首页</a>
+        <a href="../articles/index.html">文章</a>
+        <a href="../cards/index.html">知识卡片</a>
+        <a href="../resources/index.html">资源库</a>
+        <a href="../about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="quiz-container">
+      <div class="quiz-intro" id="quizIntro">
+        <h2>🧩 DRI角色成熟度自测</h2>
+        <p>10道题，测出你的HR团队在AI时代的DRI成熟度。<br>完成后生成个性化诊断报告。</p>
+        <div style="margin-top: 1.5rem;">
+          <button class="btn btn-primary" onclick="startQuiz()" style="font-size: 1rem; padding: 0.75rem 2rem;">开始自测</button>
+        </div>
+      </div>
+
+      <!-- Questions -->
+      <div id="quizQuestions" style="display:none;">
+
+        <!-- Q1 -->
+        <div class="question-block active" data-q="1">
+          <div class="question-num">第 1 / 10 题</div>
+          <div class="question-text">招聘流程中，你的团队目前主要用AI做什么？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,1,0)"><span class="opt-label">A</span><span>还没用AI，主要靠人工</span></button>
+            <button class="option-btn" onclick="selectOption(this,1,1)"><span class="opt-label">B</span><span>用了聊天机器人回答求职者常见问题</span></button>
+            <button class="option-btn" onclick="selectOption(this,1,2)"><span class="opt-label">C</span><span>JD生成、简历筛选、面试排期已实现自动化</span></button>
+            <button class="option-btn" onclick="selectOption(this,1,3)"><span class="opt-label">D</span><span>招聘Agent与绩效Agent数据互通，系统自动优化筛选标准</span></button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-block" data-q="2">
+          <div class="question-num">第 2 / 10 题</div>
+          <div class="question-text">当业务部门提出一个紧急人才需求时，你们的典型响应流程是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,2,0)"><span class="opt-label">A</span><span>HR需要跨多个系统手动拉数据，汇总后给业务部门</span></button>
+            <button class="option-btn" onclick="selectOption(this,2,1)"><span class="opt-label">B</span><span>有统一HRIS，但数据整合仍需人工处理</span></button>
+            <button class="option-btn" onclick="selectOption(this,2,2)"><span class="opt-label">C</span><span>AI Agent自动拉取各模块数据，生成人才缺口分析报告</span></button>
+            <button class="option-btn" onclick="selectOption(this,2,3)"><span class="opt-label">D</span><span>系统自动预警+推荐行动方案，HR只需做最终决策</span></button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-block" data-q="3">
+          <div class="question-num">第 3 / 10 题</div>
+          <div class="question-text">你的团队对「AI替代HR工作」这个命题的态度是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,3,0)"><span class="opt-label">A</span><span>抵触，认为HR的核心价值无法被替代</span></button>
+            <button class="option-btn" onclick="selectOption(this,3,1)"><span class="opt-label">B</span><span>观望，尝试了一些工具但没形成体系</span></button>
+            <button class="option-btn" onclick="selectOption(this,3,2)"><span class="opt-label">C</span><span>主动梳理哪些模块可被Agent闭环执行</span></button>
+            <button class="option-btn" onclick="selectOption(this,3,3)"><span class="opt-label">D</span><span>已在重新定义HR角色——从执行者转向AI编排者</span></button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-block" data-q="4">
+          <div class="question-num">第 4 / 10 题</div>
+          <div class="question-text">绩效评估中，你们的AI应用程度是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,4,0)"><span class="opt-label">A</span><span>绩效评估完全由人工完成</span></button>
+            <button class="option-btn" onclick="selectOption(this,4,1)"><span class="opt-label">B</span><span>用AI生成绩效面谈提纲和反馈话术</span></button>
+            <button class="option-btn" onclick="selectOption(this,4,2)"><span class="opt-label">C</span><span>绩效Agent自动生成分布分析、异常预警和调薪建议</span></button>
+            <button class="option-btn" onclick="selectOption(this,4,3)"><span class="opt-label">D</span><span>绩效数据反向优化招聘标准，形成自闭环</span></button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-block" data-q="5">
+          <div class="question-num">第 5 / 10 题</div>
+          <div class="question-text">HRBP（或 equivalent）与业务部门的协作模式是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,5,0)"><span class="opt-label">A</span><span>被动响应需求，HR是支持角色</span></button>
+            <button class="option-btn" onclick="selectOption(this,5,1)"><span class="opt-label">B</span><span>定期同步，但数据洞察主要靠人工分析</span></button>
+            <button class="option-btn" onclick="selectOption(this,5,2)"><span class="opt-label">C</span><span>HRBP带着AI生成的洞察参与业务决策</span></button>
+            <button class="option-btn" onclick="selectOption(this,5,3)"><span class="opt-label">D</span><span>HRBP是业务负责人的DRI，AI Agent提供实时决策支持</span></button>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-block" data-q="6">
+          <div class="question-num">第 6 / 10 题</div>
+          <div class="question-text">在组织架构层面，你们对AI的响应是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,6,0)"><span class="opt-label">A</span><span>组织架构和AI没有直接关系</span></button>
+            <button class="option-btn" onclick="selectOption(this,6,1)"><span class="opt-label">B</span><span>设立了AI工作组或AI HR专项</span></button>
+            <button class="option-btn" onclick="selectOption(this,6,2)"><span class="opt-label">C</span><span>开始试点Pod结构或小团队AI原生工作模式</span></button>
+            <button class="option-btn" onclick="selectOption(this,6,3)"><span class="opt-label">D</span><span>组织架构已围绕AI Agent集群重新设计，HR是编排中枢</span></button>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-block" data-q="7">
+          <div class="question-num">第 7 / 10 题</div>
+          <div class="question-text">数据分析能力在HR团队中的分布是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,7,0)"><span class="opt-label">A</span><span>只有少数人会用Excel做基础分析</span></button>
+            <button class="option-btn" onclick="selectOption(this,7,1)"><span class="opt-label">B</span><span>有专人做HR Analytics，但和业务脱节</span></button>
+            <button class="option-btn" onclick="selectOption(this,7,2)"><span class="opt-label">C</span><span>多数HR会用AI工具做数据洞察，嵌入日常工作</span></button>
+            <button class="option-btn" onclick="selectOption(this,7,3)"><span class="opt-label">D</span><span>HR团队本身就是数据分析产物——每个决策都有数据闭环支撑</span></button>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-block" data-q="8">
+          <div class="question-num">第 8 / 10 题</div>
+          <div class="question-text">如果明天你的HRIS/ATS系统全部接入AI Agent，你的团队最担心的是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,8,0)"><span class="opt-label">A</span><span>不知道哪些工作会被替代，有焦虑感</span></button>
+            <button class="option-btn" onclick="selectOption(this,8,1)"><span class="opt-label">B</span><span>担心数据安全和合规风险</span></button>
+            <button class="option-btn" onclick="selectOption(this,8,2)"><span class="opt-label">C</span><span>担心Agent决策失误，人在回路中的责任边界不清晰</span></button>
+            <button class="option-btn" onclick="selectOption(this,8,3)"><span class="opt-label">D</span><span>不担心——我们已经清楚划定了Agent执行边界和人的决策边界</span></button>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-block" data-q="9">
+          <div class="question-num">第 9 / 10 题</div>
+          <div class="question-text">在「HR作为业务DRI」这件事上，你们目前的实践是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,9,0)"><span class="opt-label">A</span><span>HR不对业务结果负责，只负责人力流程</span></button>
+            <button class="option-btn" onclick="selectOption(this,9,1)"><span class="opt-label">B</span><span>HR参与业务会议，但决策权有限</span></button>
+            <button class="option-btn" onclick="selectOption(this,9,2)"><span class="opt-label">C</span><span>HR对关键人才指标直接负责，有清晰的DRI边界</span></button>
+            <button class="option-btn" onclick="selectOption(this,9,3)"><span class="opt-label">D</span><span>HR是业务负责人的DRI之一，AI Agent提供实时数据支撑决策</span></button>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-block" data-q="10">
+          <div class="question-num">第 10 / 10 题</div>
+          <div class="question-text">未来12个月，你在AI+HR方面最优先的投入方向是？</div>
+          <div class="options">
+            <button class="option-btn" onclick="selectOption(this,10,0)"><span class="opt-label">A</span><span>还没想清楚，先看看行业怎么做</span></button>
+            <button class="option-btn" onclick="selectOption(this,10,1)"><span class="opt-label">B</span><span>采购几个AI工具，提升效率</span></button>
+            <button class="option-btn" onclick="selectOption(this,10,2)"><span class="opt-label">C</span><span>搭建Agent协同体系，打通数据闭环</span></button>
+            <button class="option-btn" onclick="selectOption(this,10,3)"><span class="opt-label">D</span><span>重新定义HR角色定位，让团队成为AI时代的DRI</span></button>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div class="quiz-nav">
+          <button class="btn btn-outline" id="btnPrev" onclick="prevQ()" style="display:none;">上一题</button>
+          <div style="flex:1;"></div>
+          <div>
+            <span class="quiz-progress">进度 <span id="progText">1/10</span></span>
+            <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progFill" style="width:10%;"></div></div>
+          </div>
+          <div style="flex:1;"></div>
+          <button class="btn btn-primary" id="btnNext" onclick="nextQ()">下一题</button>
+          <button class="btn btn-primary" id="btnSubmit" onclick="showResult()" style="display:none;">查看结果</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="result-block" id="quizResult">
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">AIHR数智引擎 · DRI成熟度诊断报告</div>
+        <div class="result-score" id="resultScore">—</div>
+        <div class="result-level" id="resultLevel">—</div>
+        <div class="result-dims" id="resultDims"></div>
+        <div class="result-advice" id="resultAdvice"></div>
+        <div class="result-actions">
+          <button class="btn btn-outline" onclick="restartQuiz()">重新测试</button>
+          <a href="../articles/dri-kaifu-lisa-su.html" class="btn btn-primary">阅读DRI完整方法论</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><a href="../index.html" class="site-logo"><img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="32" height="32">AIHR<span class="logo-dot">数智引擎</span></a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 AIHR数智引擎</div>
+  </footer>
+
+<script>
+let currentQ = 1;
+let answers = {};
+
+const adviceMap = {
+  0: { title: "DRI萌芽期", desc: "AI对你们的HR团队来说还是一个模糊概念。不要着急全面铺开——先从「流程盘点」开始：把HR六大模块中哪些环节是纯执行、哪些需要判断，列一张映射表。这是成为DRI的第一步。" },
+  1: { title: "DRI起步期", desc: "已经在尝试AI工具，但还没形成系统性打法。建议聚焦一个模块（推荐招聘或绩效）做深做透：让Agent跑通一个完整闭环，再来谈扩大范围。切忌「表演式AI」——只弄个聊天机器人是不够的。" },
+  2: { title: "DRI进阶期", desc: "已经有清晰的AI应用路径，部分模块可能已接近闭环。下一步的核心命题是：如何让Agent之间互通数据？招聘Agent的结论能不能喂给绩效Agent？谁能编排这个闭环？这个人就是DRI。" },
+  3: { title: "DRI成熟体", desc: "你们的HR团队已经走在行业前列。维持优势的关键是：持续画清楚Agent执行边界 vs. 人的决策边界。把这套边界定义沉淀成组织能力，而不只是个人能力。建议把经验整理成可复制的方法论。" }
+};
+
+const dimNames = ["AI应用深度", "数据驱动程度", "角色定位", "组织适配性"];
+
+function startQuiz() {
+  document.getElementById('quizIntro').style.display = 'none';
+  document.getElementById('quizQuestions').style.display = 'block';
+}
+
+function selectOption(btn, qNum, score) {
+  const block = btn.closest('.question-block');
+  block.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[qNum] = score;
+}
+
+function prevQ() {
+  if (currentQ <= 1) return;
+  document.querySelector(`.question-block[data-q="${currentQ}"]`).classList.remove('active');
+  currentQ--;
+  document.querySelector(`.question-block[data-q="${currentQ}"]`).classList.add('active');
+  updateNav();
+}
+
+function nextQ() {
+  if (answers[currentQ] === undefined) { alert('请先选择一个选项'); return; }
+  if (currentQ >= 10) return;
+  document.querySelector(`.question-block[data-q="${currentQ}"]`).classList.remove('active');
+  currentQ++;
+  document.querySelector(`.question-block[data-q="${currentQ}"]`).classList.add('active');
+  updateNav();
+}
+
+function updateNav() {
+  document.getElementById('btnPrev').style.display = currentQ > 1 ? 'inline-flex' : 'none';
+  document.getElementById('btnNext').style.display = currentQ < 10 ? 'inline-flex' : 'none';
+  document.getElementById('btnSubmit').style.display = currentQ === 10 ? 'inline-flex' : 'none';
+  document.getElementById('progText').textContent = currentQ + '/10';
+  document.getElementById('progFill').style.width = (currentQ * 10) + '%';
+}
+
+function showResult() {
+  if (answers[currentQ] === undefined) { alert('请先选择最后一题'); return; }
+  
+  const total = Object.values(answers).reduce((a, b) => a + b, 0);
+  const maxScore = 30; // 10 q * max 3
+  const pct = Math.round((total / maxScore) * 100);
+  
+  // Dimension scores (Q1-3: AI应用, Q4-5: 数据驱动, Q6-8: 角色定位, Q9-10: 组织适配)
+  const dimScores = [
+    ((answers[1]||0) + (answers[2]||0) + (answers[3]||0)) / 9 * 100,
+    ((answers[4]||0) + (answers[5]||0)) / 6 * 100,
+    ((answers[6]||0) + (answers[7]||0) + (answers[8]||0)) / 9 * 100,
+    ((answers[9]||0) + (answers[10]||0)) / 6 * 100,
+  ];
+
+  let level;
+  if (pct <= 25) level = 0;
+  else if (pct <= 50) level = 1;
+  else if (pct <= 75) level = 2;
+  else level = 3;
+
+  document.getElementById('quizQuestions').style.display = 'none';
+  const rb = document.getElementById('quizResult');
+  rb.classList.add('active');
+
+  document.getElementById('resultScore').textContent = pct + '分';
+  const lv = adviceMap[level];
+  const lvEl = document.getElementById('resultLevel');
+  lvEl.textContent = lv.title;
+  lvEl.className = 'result-level l' + level;
+
+  // Dim radar
+  let dimsHtml = '';
+  dimScores.forEach((s, i) => {
+    dimsHtml += `<div class="result-dim">
+      <div class="dim-name">${dimNames[i]}</div>
+      <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary);">${Math.round(s)}%</div>
+      <div class="dim-bar"><div class="dim-bar-fill" style="width:${s}%"></div></div>
+    </div>`;
+  });
+  document.getElementById('resultDims').innerHTML = dimsHtml;
+  document.getElementById('resultAdvice').innerHTML = `<strong>诊断建议</strong><br>${lv.desc}`;
+}
+
+function restartQuiz() {
+  answers = {};
+  currentQ = 1;
+  document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.question-block').forEach(b => b.classList.remove('active'));
+  document.querySelector('.question-block[data-q="1"]').classList.add('active');
+  document.getElementById('quizResult').classList.remove('active');
+  document.getElementById('quizQuestions').style.display = 'block';
+  updateNav();
+}
+</script>
+</body>
+</html>

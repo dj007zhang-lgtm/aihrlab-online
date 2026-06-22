@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR全场景提示词卡片集 · 15+即用Prompt | AIHR数智引擎</title>
+  <style>
+    * { margin:0; padding:0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #F1F5F9;
+      color: #1E293B;
+      padding: 1.5rem 1rem 3rem;
+      line-height: 1.6;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    /* ===== Header ===== */
+    .header { text-align: center; margin-bottom: 2rem; }
+    .header .badge {
+      display: inline-block; background: linear-gradient(135deg, #DBEAFE, #E0E7FF);
+      color: #1D4ED8; padding: 0.25rem 0.85rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 700; margin-bottom: 0.65rem;
+    }
+    .header h1 { font-size: 1.45rem; color: #0F172A; margin-bottom: 0.4rem; }
+    .header p { font-size: 0.82rem; color: #64748B; }
+    .header .meta { font-size: 0.72rem; color: #94A3B8; margin-top: 0.5rem; }
+    /* ===== Tips Bar ===== */
+    .tips-bar {
+      background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+      padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex;
+      flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.78rem; color: #475569;
+    }
+    .tips-bar .tip { display: flex; align-items: flex-start; gap: 0.35rem; }
+    .tips-bar .tip-icon { flex-shrink: 0; width: 18px; height: 18px;
+      background: #EFF6FF; border-radius: 4px; display: flex;
+      align-items: center; justify-content: center; font-size: 0.65rem; }
+    /* ===== Card ===== */
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+    @media(min-width: 640px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: #fff; border: 1px solid #E2E8F0; border-radius: 10px;
+      overflow: hidden; position: relative; transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+    .card-header {
+      padding: 0.85rem 1rem 0.5rem; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .card-num {
+      width: 26px; height: 26px; border-radius: 6px;
+      background: #EFF6FF; color: #2563EB; font-size: 0.7rem;
+      font-weight: 700; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .card-tags { display: flex; gap: 0.3rem; }
+    .card-tag {
+      font-size: 0.62rem; padding: 0.1rem 0.45rem; border-radius: 4px;
+      font-weight: 600;
+    }
+    .tag-ds { background: #F0FDF4; color: #15803D; }
+    .tag-cg { background: #FEF9C3; color: #A16207; }
+    .tag-both { background: #EDE9FE; color: #6D28D9; }
+    .card-title { font-size: 0.92rem; font-weight: 700; color: #0F172A;
+      padding: 0 1rem 0.5rem; }
+    .card-body { padding: 0 1rem 0.75rem; }
+    .prompt-box {
+      background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px;
+      padding: 0.75rem; font-size: 0.76rem; color: #334155;
+      line-height: 1.7; position: relative; white-space: pre-wrap;
+      word-break: break-all; max-height: 180px; overflow: hidden;
+      transition: max-height 0.3s;
+    }
+    .prompt-box.expanded { max-height: 2000px; }
+    .expand-btn {
+      display: block; margin: 0.35rem auto 0; background: none;
+      border: none; color: #2563EB; font-size: 0.7rem; cursor: pointer;
+      font-weight: 600;
+    }
+    .copy-btn {
+      display: block; width: calc(100% - 2rem); margin: 0.65rem auto 0;
+      background: #2563EB; color: #fff; border: none; border-radius: 6px;
+      padding: 0.45rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .copy-btn:hover { background: #1D4ED8; }
+    .copy-btn.copied { background: #16A34A; }
+    .card-tip {
+      padding: 0.5rem 1rem 0.75rem; font-size: 0.7rem; color: #64748B;
+      border-top: 1px solid #F1F5F9; line-height: 1.6;
+    }
+    /* ===== Footer ===== */
+    .footer { text-align: center; margin-top: 2rem; font-size: 0.72rem;
+      color: #94A3B8; }
+    @media print {
+      body { background: #fff; }
+      .copy-btn, .expand-btn { display: none; }
+      .prompt-box { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="badge">⚡ 15+ HR全场景 · 即用提示词卡片集</div>
+      <h1>HR全场景提示词卡片集</h1>
+      <p>覆盖JD撰写、人才寻访、面试出题、薪酬分析、绩效反馈、员工关系等场景。<br>
+         同时适配 DeepSeek（中文更强）和 ChatGPT（推理更强）。</p>
+      <div class="meta">💡 点击提示词框可展开全文 · 点击「复制」可直接粘贴使用</div>
+    </div>
+
+    <div class="tips-bar">
+      <div class="tip"><span class="tip-icon">🟢</span> DeepSeek 更擅长中文场景、本土政策合规</div>
+      <div class="tip"><span class="tip-icon">🟡</span> ChatGPT 更擅长复杂推理、多步骤分析</div>
+      <div class="tip"><span class="tip-icon">📋</span> 复制后把【括号内容】替换为真实信息</div>
+      <div class="tip"><span class="tip-icon">🔁</span> 同一提示词可多次迭代优化输出</div>
+    </div>
+
+    <div class="card-grid">
+
+      <!-- Card 01：JD撰写 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">01</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">JD撰写</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">生成专业且有吸引力的岗位描述</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p1">【角色】你是一位资深HRBP，擅长撰写高转化率的JD。
+
+【任务】为以下岗位撰写一份专业JD：
+
+岗位名称：【如：AI产品经理】
+所属部门：【如：技术中心】
+汇报对象：【如：CTO】
+薪资范围：【如：30-50K·14薪】
+工作地点：【如：深圳】
+
+【要求】
+· 必须有3年以上【相关领域】经验
+· 熟悉【关键技术/工具】
+· 具备跨部门协作能力
+
+【公司优势】
+· 【公司规模/行业地位】
+· 【团队氛围/技术栈】
+· 【晋升通道/培训体系】
+
+【输出格式】
+1. 岗位标题（吸引人）
+2. 公司介绍（50字内）
+3. 岗位职责（5-8条，动词开头）
+4. 任职要求（硬技能+软技能）
+5. 我们提供（薪酬+成长+福利）
+6. 如何申请（CTA）</div>
+          <button class="expand-btn" onclick="toggleExpand('p1', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p1', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 优化技巧：在「公司优势」部分加入具体数字（融资额、用户量），转化率提升30%+</div>
+      </div>
+
+      <!-- Card 02：人才寻访 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">02</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">人才寻访</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-ds">DeepSeek</span>
+          </div>
+        </div>
+        <div class="card-title">生成精准人才搜索指令与触达话术</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p2">【角色】你是资深猎头，擅长精准定位被动候选人。
+
+【目标岗位】
+· 岗位：【如：大语言模型算法工程师】
+· 行业：互联网/AI
+· 级别：P7-P8 或等价级别
+· 当前公司类型：【大厂/创业公司/外企】
+
+【搜索指令生成】
+请为以下平台生成搜索指令：
+1. 猎聘/BOSS直聘关键词组合（中文）
+2. LinkedIn/Indeed 搜索字符串（英文）
+3. Github/技术社区搜索关键词
+
+【触达话术】
+请撰写3个版本的触达话术：
+· 版本A：直接型（适用于主动求职者）
+· 版本B：咨询型（适用于被动候选人）
+· 版本C：价值型（强调项目价值）
+
+【筛选标准】
+生成初筛问题清单（5个关键问题，用于验证匹配度）。</div>
+          <button class="expand-btn" onclick="toggleExpand('p2', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p2', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 DeepSeek 对中文求职平台的关键词组合效果更好，建议优先使用。</div>
+      </div>
+
+      <!-- Card 03：面试出题 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">03</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">面试出题</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-cg">ChatGPT</span>
+          </div>
+        </div>
+        <div class="card-title">基于岗位要求自动生成结构化面试题</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p3">You are an expert interview designer for top-tier tech companies.
+
+【Context】
+Role: 【Job Title】
+Seniority: 【Junior/Mid/Senior/Staff】
+Team Culture: 【Collaborative/Autonomous/High-Paced】
+
+【Requirements】
+1. Generate 15 interview questions divided into:
+   · 5 Behavioral questions (STAR method)
+   · 5 Technical/Skills questions
+   · 5 Culture-fit questions
+
+2. For each question, provide:
+   · The question
+   · What a good answer should cover (scoring rubric)
+   · Red flags to watch for
+
+3. Suggest a 45-minute interview time allocation plan.
+
+【Output Format】
+Markdown table with columns: Type | Question | Key Points in Answer | Red Flags</div>
+          <button class="expand-btn" onclick="toggleExpand('p3', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p3', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 ChatGPT 在生成结构化评分标准（rubric）方面表现更优，建议英文提示词。</div>
+      </div>
+
+      <!-- Card 04：薪酬对标分析 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">04</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">薪酬对标</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">生成薪酬对标报告与调薪建议</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p4">【角色】你是薪酬福利专家，熟悉中国互联网行业薪酬水平。
+
+【任务】为以下岗位生成薪酬对标分析报告：
+
+岗位信息：
+· 岗位名称：【如：Data Scientist, P7】
+· 所在城市：【如：深圳】
+· 公司阶段：【如：成长期创业公司，C轮】
+· 当前薪资：【如：40K×14】
+
+【对标要求】
+请按以下维度生成报告：
+1. 市场P25/P50/P75/P90分位薪资
+2. 股票/期权典型授予范围
+3. 奖金结构（年终奖/绩效奖比例）
+4. 各城市差异系数（北上深杭）
+5. 近2年薪酬趋势（涨薪幅度）
+
+【输出】
+· 表格：分位值对比
+· 建议：该候选人调薪至多少可保留（保留价 vs 市场价）
+· 风险提示：如果调薪幅度>30%，注意事项</div>
+          <button class="expand-btn" onclick="toggleExpand('p4', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p4', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 在提示词后附上公司最近的薪酬调研数据（截图/文字），AI输出准确度显著提升。</div>
+      </div>
+
+      <!-- Card 05：绩效反馈生成 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">05</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">绩效反馈</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">将粗放的绩效观察转化为结构化反馈话术</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p5">【角色】你是经验丰富的HRBP，擅长将绩效观察转化为建设性反馈。
+
+【背景】需要提供绩效反馈的员工信息：
+· 员工姓名：【姓名】
+· 岗位：【岗位】
+· 绩效等级：【超出预期/符合预期/待改进】
+· 关键观察：【3-5条具体行为观察，含具体事例】
+· 反馈目标：【如：激励保留/改进提升/温和警示】
+
+【任务】生成一份完整的绩效反馈脚本，包含：
+1. 开场（建立安全感，3个选项）
+2. 正面反馈（基于具体事例，SBI模型）
+3. 改进建议（针对待提升项，含可落地的行动建议）
+4. 结束（以积极展望收尾）
+5. 注意事项（该员工性格特点对应的沟通禁忌）
+
+【约束】
+· 语气：【如：直接/温和/鼓励型】
+· 长度：15分钟可完成的对话脚本
+· 避免使用空洞形容词，每段反馈必须含具体事例</div>
+          <button class="expand-btn" onclick="toggleExpand('p5', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p5', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 附上该员工过去3个月的OKR完成记录，AI能生成更精准的反馈重点。</div>
+      </div>
+
+      <!-- Card 06：员工关系话术 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">06</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">员工关系</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-ds">DeepSeek</span>
+          </div>
+        </div>
+        <div class="card-title">生成各类员工沟通场景的话术模板</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p6">【角色】你是资深员工关系专家，熟悉中国劳动法与组织沟通最佳实践。
+
+【场景】需要处理以下员工关系场景的沟通话术：
+场景类型：【如：绩效不达标需要PIP / 团队冲突调解 / 离职面谈 / 晋升未果情绪安抚】
+员工背景：【工龄/级别/过往表现/性格特点】
+事发经过：【简述事件经过】
+
+【任务】
+1. 生成3个版本的沟通脚本：
+   · 版本A：直接清晰型（适用于理性型员工）
+   · 版本B：共情倾听型（适用于情绪型员工）
+   · 版本C：未来导向型（适用于成长型员工）
+2. 每个版本包含：开场白 / 核心信息传达 / 倾听与回应 / 收尾与下一步
+3. 附上：该场景的法律合规检查清单（避免违法解除/歧视表述）
+4. 风险提示：哪些表述绝对不能使用（附替代说法）
+
+【输出格式】逐字稿形式，可直接用于主管培训。</div>
+          <button class="expand-btn" onclick="toggleExpand('p6', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p6', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 DeepSeek 对《劳动合同法》相关条款的引用更准确，建议涉及合规场景优先使用。</div>
+      </div>
+
+      <!-- Card 07：离职面谈提纲 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">07</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">离职面谈</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-cg">ChatGPT</span>
+          </div>
+        </div>
+        <div class="card-title">生成结构化离职面谈提纲与洞察提炼框架</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p7">Act as an expert retention analyst and exit interview facilitator.
+
+【Context】
+Departing Employee:
+· Role: 【Job Title】
+· Tenure: 【X years】
+· Performance: 【Exceeds/Meets/Below】
+· Departure Reason (self-reported): 【e.g., Better Offer / Career Pivot / Work-Life Balance】
+
+【Task】
+1. Design a 30-minute exit interview guide with:
+   · Opening script (setting safety)
+   · 12 questions across 4 dimensions:
+     - Role & Tasks (was the work meaningful?)
+     - Manager & Team (psychological safety?)
+     - Company & Culture (what broke?)
+     - Future & Growth (why now?)
+   · Probing techniques for each question
+   · Closing script (keeping the door open)
+
+2. Create a template for classifying the real reason for leaving
+   (the self-reported reason is often not the real reason).
+
+3. Suggest 3 warning signals that, in hindsight, should have been caught earlier.
+
+【Output】Markdown format, suitable for training HR generalists.</div>
+          <button class="expand-btn" onclick="toggleExpand('p7', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p7', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 将过往5份离职面谈记录匿名化后附给AI，可训练出本公司的「离职原因分类模型」。</div>
+      </div>
+
+      <!-- Card 08：培训需求分析 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">08</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">培训需求</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">从绩效数据/能力测评中提炼培训需求矩阵</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p8">【角色】你是组织发展与培训需求分析专家。
+
+【输入数据】（请附上以下数据，或描述数据特征）
+· 过去12个月各部门绩效分布（Excel/CSV格式或描述性统计）
+· 最近一次能力测评结果（全员/抽样）
+· 员工敬业度调研中「培训与发展」维度得分
+· 业务战略重心（未来12个月业务重点）
+
+【任务】
+1. 识别 Top 3 能力缺口（用数据支撑，而非拍脑袋）
+2. 生成培训需求优先级矩阵：
+   · 横轴：影响业务战略的程度（高/中/低）
+   · 纵轴：当前能力缺口严重程度（高/中/低）
+   · 每个象限对应的培训策略建议
+3. 为 Top 3 能力缺口分别设计：
+   · 培训目标（SMART格式）
+   · 推荐交付形式（内训/外训/在线/On-the-Job）
+   · 预算估算（如需外聘讲师）
+   · 效果评估方法（Kirkpatrick四级模型）
+
+【输出】可直接呈报管理层的1页PPT大纲。</div>
+          <button class="expand-btn" onclick="toggleExpand('p8', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p8', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 培训需求分析的核心陷阱是「凭感觉」。务必附上真实数据，AI才能给出有说服力的优先级。</div>
+      </div>
+
+      <!-- Card 09：组织架构设计建议 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">09</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">组织设计</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-cg">ChatGPT</span>
+          </div>
+        </div>
+        <div class="card-title">基于业务战略生成组织架构调整方案</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p9">You are an organizational design consultant who has worked with top tech companies.
+
+【Current State】
+· Company stage: 【Series B / Public / Growth】
+· Current org structure: 【Functional / Divisional / Matrix / Network】
+· Team size: 【Total HC, and breakdown by function】
+· Key pain points: 【3-5 specific problems, e.g., slow decision-making, unclear ownership】
+
+【Target State (Strategy)】
+· Business strategy for next 18 months: 【e.g., Expand to Enterprise market / AI-First transformation】
+· Speed requirement: 【How quickly must the org adapt?】
+· Constraints: 【e.g., Cannot hire >50 people in 12 months】
+
+【Task】
+1. Propose 2 alternative org designs:
+   · Option A: Evolutionary (minimal disruption)
+   · Option B: Revolutionary (optimized for new strategy)
+2. For each option, provide:
+   · Org chart (text description or ASCII art)
+   · Pros & Cons
+   · Migration cost (HC movement, role changes, timeline)
+   · Risk assessment
+3. Recommend which option + why.
+4. Create a 90-day implementation roadmap.
+
+【Output】Executive-ready slide deck outline (max 8 slides).</div>
+          <button class="expand-btn" onclick="toggleExpand('p9', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p9', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 组织架构设计没有标准答案。AI的价值是「生成你没想到的选项」，而非直接给答案。</div>
+      </div>
+
+      <!-- Card 10：候选人评估报告 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">10</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">候选人评估</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">将面试记录整合为结构化评估报告</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p10">【角色】你是科学面试官，擅长将多方面试反馈整合为客观、不留于表面的评估报告。
+
+【输入】以下为【候选人姓名】的面试记录，来自4位面试官：
+（粘贴每位面试官的反馈，含评分和问题观察）
+
+【任务】
+1. 整合分析：识别面试官之间的评价分歧，标注需要追问的点
+2. 生成结构化评估报告，含：
+   · 候选人核心竞争力（Top 3，附具体事例）
+   · 潜在风险点（Top 2，含缓解建议）
+   · 文化匹配度评估（1-5分 + 理由）
+   · 薪资建议（基于市场和当前团队薪资带）
+   · 最终推荐意见：Strong Hire / Hire / No Hire / Strong No Hire
+3. 生成一份「面试官校准会议」的15分钟讨论提纲
+
+【输出格式】
+Markdown报告，可直接粘贴到ATS系统或分享给 hiring manager。</div>
+          <button class="expand-btn" onclick="toggleExpand('p10', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p10', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 此方法可大幅降低「群体思维」偏差。AI会主动标注面试官之间的分歧点，这是人类容易忽略的。</div>
+      </div>
+
+      <!-- Card 11：薪酬调整建议 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">11</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">薪酬调整</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-ds">DeepSeek</span>
+          </div>
+        </div>
+        <div class="card-title">基于绩效、市场、内部公平生成调薪建议</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p11">【角色】你是薪酬调整决策支持专家。
+
+【背景】年度/半年度调薪周期，需要为以下员工生成调薪建议：
+
+员工信息（可批量处理多份）：
+· 姓名/级别/当前薪资/入职时间
+· 最近一次绩效评级
+· 市场薪酬分位（P25/P50/P75）
+· 内部相对公平系数（与同级别同事相比）
+· 保留风险评级（高/中/低）
+
+【任务】
+为每位员工计算：
+1. 建议调薪幅度（%）：综合考虑绩效（40%权重）、市场分位（30%）、内部公平（20%）、保留风险（10%）
+2. 调薪理由（用于与员工沟通的版本，正面表述）
+3. 如果预算有限，生成优先级排序（先保哪些人）
+4. 异常检查：调薪后是否造成新的内部不公平（提醒DRI处理）
+
+【输出】
+Excel格式的建议表格（可直接用于薪酬审批流程）+ 与员工一对一沟通的话术建议。</div>
+          <button class="expand-btn" onclick="toggleExpand('p11', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p11', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 调薪沟通的话术质量直接影响保留效果。让AI生成「正面表述版本」，避免员工聚焦在「只涨了X%」。</div>
+      </div>
+
+      <!-- Card 12：员工满意度调研设计 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">12</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">满意度调研</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">设计高信度的员工满意度调研问卷与分析框架</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p12">【角色】你是组织心理学专家，擅长设计高信度的员工满意度调研。
+
+【调研目标】
+· 目的：【如：年度敬业度基线 / 组织变革前的感知摸底 / 新员工体验诊断】
+· 目标人群：【全员 / 新入职0-12个月 / 特定部门】
+· 调研方式：【匿名在线问卷 / 抽样访谈 / 混合】
+· 希望发现的洞察：【如：离职风险预警信号 / 管理效能短板 / 文化契合度】
+
+【任务】
+1. 设计调研问卷（15-20题），覆盖以下维度：
+   · 工作意义感与成就感
+   · 直接上级的管理效能
+   · 团队协作与心理安全感
+   · 公司方向与战略清晰度
+   · 成长与晋升通道感知
+   · 工作负荷与 burnout 风险
+2. 每题提供：题干 + 量表类型（Likert 5点/7点/NPS）+ 该题能揭示的核心问题
+3. 设计调研后续动作框架：
+   · 如何向全员透明化地反馈调研结果？
+   · 如何在30天内基于调研结果启动可感知的改变？
+   · 如何避免「调研疲劳」（这是本年第三次调研）？
+
+【输出】可直接导入问卷星的问卷 + 后续行动SOP。</div>
+          <button class="expand-btn" onclick="toggleExpand('p12', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p12', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 满意度调研最大的失败是「只调研不行动」。在提示词中明确要求AI设计「后续行动框架」，而不只是问卷。</div>
+      </div>
+
+      <!-- Card 13：人才盘点报告 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">13</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">人才盘点</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-cg">ChatGPT</span>
+          </div>
+        </div>
+        <div class="card-title">生成九宫格人才地图与继任计划建议</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p13">Act as an expert talent review facilitator for a Fortune 500 company.
+
+【Input】(Paste your talent data or describe the population)
+· Team/Department: 【e.g., Engineering, 85 people】
+· Performance data: 【Recent cycle ratings】
+· Potential assessment: 【High/Potential/Stable for each person】
+· Retention risk flags: 【High/Medium/Low】
+· Diversity considerations: 【Gender, ethnicity — for fair review】
+
+【Task】
+1. Generate a 9-Box talent matrix:
+   · Map each person to the 9-box (Performance × Potential)
+   · Highlight: High Performers (Top-Right), High Potentials, Key Contributors, Low Performers
+2. For the Top-Right (High Perf × High Pot):
+   · Proposed development plan (stretch project / experential rotation)
+   · Succession plan (who can replace whom in 12 months?)
+3. For the Low Performers:
+   · PIP (Performance Improvement Plan) recommendation
+   · Or, respectful exit plan
+4. Generate a 1-on-1 talent calibration meeting guide for the leadership team.
+
+【Output】Slide-ready talent map (text description) + action plan for top 20% and bottom 10%.</div>
+          <button class="expand-btn" onclick="toggleExpand('p13', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p13', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 人才盘点的核心价值不是「分类」，而是「对话质量的提升」。用AI生成的结构化框架，让校准会议从「晒人」变成「做决策」。</div>
+      </div>
+
+      <!-- Card 14：HR数据分析 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">14</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">HR数据分析</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-both">双模型</span>
+          </div>
+        </div>
+        <div class="card-title">将原始HR数据转化为洞察报告与可视化建议</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p14">【角色】你是HR数据分析师，擅长从HR数据中提炼业务洞察。
+
+【数据】
+（请粘贴CSV前20行，或描述数据字段）
+典型字段包括：
+· 员工ID / 部门 / 级别 / 入职日期
+· 最近一次绩效评级
+· 最近一次薪酬调整幅度与日期
+· 是否主动离职（及日期）
+· 晋升记录
+· 培训完成小时数
+
+【任务】
+1. 提出针对这组数据的5个最有价值的分析角度
+   （不要泛泛的「离职率分析」，要具体到业务问题，如：
+   「校招P5晋升到P7的平均周期是否在延长？这反映了什么？」）
+2. 对每个分析角度，说明：
+   · 需要计算什么指标？
+   · 如何可视化（柱状图/热力图/生存曲线/桑基图）？
+   · 这个洞察能支持什么HR决策？
+3. 识别数据中的异常值（outliers）和可能的数据质量问题
+
+【输出】
+每个分析角度对应「洞察陈述 + 可视化建议 + 决策建议」三段式输出，共5组。</div>
+          <button class="expand-btn" onclick="toggleExpand('p14', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p14', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 数据分析的瓶颈往往不是「工具」，而是「提出好问题的能力」。让AI帮你生成分析角度，而不是只让它帮你算指标。</div>
+      </div>
+
+      <!-- Card 15：组织效能诊断 -->
+      <div class="card">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <div class="card-num">15</div>
+            <span style="font-size:0.82rem;font-weight:600;color:#334155;">组织效能</span>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag tag-cg">ChatGPT</span>
+          </div>
+        </div>
+        <div class="card-title">生成组织效能诊断框架与改进优先级</div>
+        <div class="card-body">
+          <div class="prompt-box" id="p15">You are an organizational effectiveness diagnostician who has designed operating models for multiple scaled tech companies.
+
+【Current State - Quantiative Signals】
+(Provide whatever data you have — even partial data is OK)
+· Headcount: 【Total, and by function】
+· Revenue per HC (or budget per HC): 【$X】
+· Span of control: 【Average reports per manager】
+· Layers between CEO and individual contributor: 【X layers】
+· Time-to-decision on cross-functional projects: 【X days on average】
+· Employee Net Promoter Score (eNPS): 【Score】
+· Voluntary turnover rate (last 12 months): 【X%】
+
+【Current State - Qualiative Signals】
+· Top 3 organizational frustrations (from employee feedback/surveys):
+  1. 【e.g., "Decisions take too long"】
+  2. 【e.g., "I don't know how my work lins to company strategy"】
+  3. 【e.g., "Too many meetings"】
+· What has already been tried to fix these problems?
+
+【Task】
+1. Diagnosis: For each quantitative and qualitative signal, diagnose the underlying organizational design problem.
+2. Benchmark: Compare each metric against high-performing tech companies (reference: reference class forecasting).
+3. Recommendations: Propose 5 specific organizational changes, ranked by:
+   · Impact (how much will this improve effectiveness?)
+   · Feasibility (how hard is this to implement?)
+   · Speed (how fast will we see results?)
+4. Implementation: For the #1 recommendation, create a 90-day rollout plan.
+
+【Output】A 2-page diagnostic report (markdown) suitable for sharing with the executive team.</div>
+          <button class="expand-btn" onclick="toggleExpand('p15', this)">展开全文 ▾</button>
+          <button class="copy-btn" onclick="copyPrompt('p15', this)">📋 复制提示词</button>
+        </div>
+        <div class="card-tip">💡 组织效能诊断最容易陷入「列清单」而不「做判断」。明确要求AI对每项指标做出「诊断判断」（而不仅是描述），输出质量显著提升。</div>
+      </div>
+
+    </div><!-- /card-grid -->
+
+    <div class="footer">
+      AIHR数智引擎 · HR全场景提示词卡片集 v1.0 · 2026年6月<br>
+      引用请注明来源。如需PDF卡片版（可截图分享），回复「资源包」获取。
+    </div>
+
+  </div>
+
+  <script>
+    function toggleExpand(id, btn) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('expanded')) {
+        el.classList.remove('expanded');
+        btn.textContent = '展开全文 ▾';
+      } else {
+        el.classList.add('expanded');
+        btn.textContent = '收起 ▴';
+      }
+    }
+    function copyPrompt(id, btn) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✅ 已复制！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 复制提示词';
+          btn.classList.remove('copied');
+        }, 1500);
+      }).catch(() => {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✅ 已复制！';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 复制提示词';
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
