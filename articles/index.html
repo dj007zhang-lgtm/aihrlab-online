@@ -218,11 +218,11 @@
 
       <!-- Filter by category -->
       <div class="article-filters">
-        <button class="filter-btn active" data-filter="all" onclick="filterArticles('all', this)">全部</button>
-        <button class="filter-btn" data-filter="核心方法论" onclick="filterArticles('核心方法论', this)">核心方法论</button>
-        <button class="filter-btn" data-filter="组织变革" onclick="filterArticles('组织变革', this)">组织变革</button>
-        <button class="filter-btn" data-filter="行业报告" onclick="filterArticles('行业报告', this)">行业报告</button>
-        <button class="filter-btn" data-filter="职能进化" onclick="filterArticles('职能进化', this)">职能进化</button>
+        <button class="filter-btn active" data-filter="all" onclick="filterArticles('all', this)">全部<span class="filter-count">48</span></button>
+        <button class="filter-btn" data-filter="核心方法论" onclick="filterArticles('核心方法论', this)">核心方法论<span class="filter-count">24</span></button>
+        <button class="filter-btn" data-filter="组织变革" onclick="filterArticles('组织变革', this)">组织变革<span class="filter-count">12</span></button>
+        <button class="filter-btn" data-filter="行业报告" onclick="filterArticles('行业报告', this)">行业报告<span class="filter-count">8</span></button>
+        <button class="filter-btn" data-filter="职能进化" onclick="filterArticles('职能进化', this)">职能进化<span class="filter-count">4</span></button>
       </div>
 
       <!-- Articles Grid -->
@@ -516,3 +516,68 @@
             <div class="card-meta"><span>2026年AI招聘选型指南：告别关键词匹配，拥抱认知决策辅助。深度拆解北森、Moka、Workday三大主流系统，附选型避坑三诫。</span></div>
           </article>
         </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 AIHR数智引擎. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      var cards = document.querySelectorAll('.article-card[data-category]');
+      var grid = document.querySelector('.article-grid');
+      if (!grid || !cards.length) return;
+
+      // 初始化：给所有卡片添加 show 状态
+      cards.forEach(function(c) { c.classList.add('card-show'); });
+
+      window.filterArticles = function(category, btn) {
+        // 按钮状态
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        // 先淡出所有卡片
+        cards.forEach(function(card) {
+          card.classList.remove('card-show');
+          card.classList.add('card-hidden');
+        });
+
+        // 延迟后显示匹配的卡片（动画效果）
+        setTimeout(function() {
+          cards.forEach(function(card) {
+            var cat = card.getAttribute('data-category');
+            if (category === 'all' || cat === category) {
+              card.style.display = '';
+              // 触发 reflow 后添加 show
+              void card.offsetWidth;
+              card.classList.remove('card-hidden');
+              card.classList.add('card-show');
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }, 180);
+
+        // 更新 URL hash
+        if (category !== 'all') {
+          history.replaceState(null, '', '#cat=' + encodeURIComponent(category));
+        } else {
+          history.replaceState(null, '', location.pathname);
+        }
+      };
+
+      // 页面加载时检查 hash
+      var hash = location.hash.match(/#cat=(.+)/);
+      if (hash) {
+        var cat = decodeURIComponent(hash[1]);
+        var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]');
+        if (targetBtn) filterArticles(cat, targetBtn);
+      }
+    })();
+    </script>
+  </body>
+</html>
