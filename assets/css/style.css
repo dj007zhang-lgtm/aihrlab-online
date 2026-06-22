@@ -291,51 +291,96 @@ hr {
   padding: var(--space-xs);
 }
 
-/* ─── Hero — 杂志封面感，文字为主 ─── */
+/* ─── Hero — Medium风格：左文右图，视觉冲击 ─── */
 .hero {
   padding: var(--space-3xl) 0 var(--space-2xl);
-  text-align: center;
   border-bottom: 1px solid var(--line);
+  background: var(--bg-warm);
+  overflow: hidden;
 }
 
-.hero-content { max-width: 640px; margin: 0 auto; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
 
-.hero h1 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
-  color: var(--text);
+.hero-content {
+  text-align: left;
+  max-width: 540px;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
   margin-bottom: var(--space-md);
 }
 
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
 .hero-sub {
-  font-size: 1.1rem;
-  line-height: 1.65;
+  font-size: 1.08rem;
+  line-height: 1.7;
   color: var(--text-secondary);
-  max-width: 520px;
-  margin: 0 auto var(--space-xl);
+  max-width: 480px;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.hero-highlight {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .hero-cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
 }
 
-/* ─── 按钮 — 极简，无渐变 ─── */
+/* Hero 右侧插画区域 */
+.hero-illustration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.hero-illustration svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+/* ─── 按钮 — 圆润药丸风格 ─── */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 0.65rem 1.4rem;
+  padding: 0.7rem 1.6rem;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 50px;
   border: 1px solid var(--line-strong);
   cursor: pointer;
-  transition: all 0.2s var(--ease);
+  transition: all 0.25s var(--ease);
   text-decoration: none;
   font-family: var(--font-sans);
   line-height: 1.4;
@@ -350,7 +395,7 @@ hr {
   background: #333;
   border-color: #333;
   color: var(--bg);
-  border-bottom-color: #333;
+  transform: translateY(-1px);
 }
 
 .btn-outline {
@@ -365,7 +410,7 @@ hr {
   border-bottom-color: transparent;
 }
 
-/* ─── 文章卡片 — 无装饰，排版取胜 ─── */
+/* ─── 文章卡片 — 左色条 + 呼吸感 ─── */
 .articles-section {
   padding: var(--space-2xl) 0 var(--space-3xl);
 }
@@ -388,20 +433,39 @@ hr {
 
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-xl);
 }
 
 .article-card {
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  position: relative;
 }
 .article-card:hover {
   border-color: var(--line-strong);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transform: translateY(-3px);
+}
+
+/* 左侧彩色装饰条 */
+.article-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+  border-radius: 0;
+}
+.article-card:hover::before {
+  opacity: 1;
 }
 
 .article-card a.card-link {
@@ -419,14 +483,17 @@ hr {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  color: var(--accent);
+  background: var(--accent-pale);
+  padding: 2px 8px;
+  border-radius: 50px;
   margin-bottom: var(--space-sm);
 }
 
 .article-card h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--text);
   margin: 0 0 var(--space-sm);
   letter-spacing: -0.01em;
@@ -434,9 +501,13 @@ hr {
 
 .article-card .card-excerpt {
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .article-card .card-meta {
@@ -452,12 +523,16 @@ hr {
   border-color: var(--line-strong);
   grid-column: 1 / -1;
 }
+.article-card.featured::before {
+  opacity: 1;
+  width: 4px;
+}
 .article-card.featured .card-excerpt {
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 .article-card.featured h3 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
 }
 
 /* 文章卡片内时间 */
@@ -855,11 +930,35 @@ hr {
 
   .container { padding: 0 var(--space-md); }
 
-  .hero { padding: var(--space-2xl) 0 var(--space-xl); }
+  /* Hero 响应式：移动端回到单列，插画缩小到上方或隐藏 */
+  .hero {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hero-sub {
+    max-width: 100%;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .hero-illustration {
+    min-height: 200px;
+    order: -1;
+  }
+
   .article-body { padding: var(--space-lg) var(--space-md) var(--space-2xl); }
   .article-toc { padding: 0 var(--space-md); }
 
-  .article-grid { grid-template-columns: 1fr; }
+  .article-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
   .engines-grid { grid-template-columns: 1fr 1fr; }
 
   .footer-grid {
