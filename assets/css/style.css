@@ -641,23 +641,16 @@ hr {
   letter-spacing: -0.01em;
 }
 
-.article-card .card-excerpt {
+/* 卡片摘要 — 真正的描述文字，3行截断 */
+.article-card .card-desc {
   font-size: 0.9rem;
   line-height: 1.65;
   color: var(--text-secondary);
-  margin-bottom: var(--space-md);
+  margin-top: var(--space-sm);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.article-card .card-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  font-size: 0.8rem;
-  color: var(--text-muted);
 }
 
 /* 置顶文章卡片 */
@@ -669,7 +662,7 @@ hr {
   opacity: 1;
   width: 4px;
 }
-.article-card.featured .card-excerpt {
+.article-card.featured .card-desc {
   font-size: 0.95rem;
   line-height: 1.7;
 }
