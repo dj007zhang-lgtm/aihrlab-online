@@ -39,30 +39,44 @@
     
     <link rel="stylesheet" href="../assets/css/style.min.css">
     <link rel="icon" href="../assets/images/favicon-32x32.png" sizes="32x32" type="image/png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BWLGRVRRGN');
+  </script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 </head>
 <body>
     <!-- Header -->
     <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/avatar.png" alt="AIHR数智引擎" class="logo-img">
-                        <span class="logo-text">AIHR数智引擎</span>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="../index.html">首页</a></li>
-                        <li><a href="../about.html">关于</a></li>
-                        <li><a href="../articles/index.html" class="active">文章</a></li>
-                        <li><a href="../resources/index.html">资源</a></li>
-                    </ul>
-                </nav>
-                <button class="nav-search-btn" aria-label="搜索"><i class="icon-search"></i></button>
-            </div>
-        </div>
-    </header>
+    <div class="container">
+      <a href="../index.html" class="site-logo" aria-label="AIHR数智引擎首页">
+        <img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28">
+        AIHR<span class="logo-dot">数智引擎</span>
+      </a>
+      <button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a>
+        <a href="./index.html" class="active" aria-current="page">全部文章</a>
+        <a href="../resources/index.html">资源库</a>
+        <a href="../about.html">关于</a>
+        <button class="nav-search-btn" data-open-search aria-label="搜索文章">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>搜索</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
     <!-- Article Content -->
     <main class="article-page">
