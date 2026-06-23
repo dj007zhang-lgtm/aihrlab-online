@@ -94,7 +94,7 @@
 
     // 搜索按钮（事件委托）
     document.addEventListener('click', function(e) {
-      var btn = e.target.closest('.nav-search-btn, .nav-search-btn-article, [data-open-search]');
+      var btn = e.target.closest('.nav-search-btn, .nav-search-btn-article, [data-open-search], .search-toggle');
       if (btn) {
         e.preventDefault();
         open();
