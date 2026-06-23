@@ -317,6 +317,10 @@
         <a href="../articles/index.html" class="active">文章</a>
         <a href="../resources/index.html">资源库</a>
         <a href="../about.html">关于</a>
+        <button class="nav-search-btn" data-open-search aria-label="搜索文章">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>搜索</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -1010,9 +1014,10 @@
 
       // ========== 渲染批次 ==========
       function updateView() {
-        var visibleCards = getVisibleCards();
-        visibleCards.forEach(function(card, i) {
-          if (i >= current) {
+        var visibleCount = 0;
+        cards.forEach(function(card) {
+          if (card.style.display === 'none') return;
+          if (visibleCount >= current) {
             card.classList.add('card-hidden');
             card.classList.remove('card-show');
           } else {
@@ -1020,13 +1025,15 @@
             void card.offsetWidth;
             card.classList.add('card-show');
           }
+          visibleCount++;
         });
 
         // 更新底部指示器
+        var totalVisible = getVisibleCards().length;
         var indicator = document.getElementById('load-indicator');
         var allDone   = document.getElementById('load-all-done');
-        if (indicator) indicator.style.display = (current >= visibleCards.length) ? 'none' : 'block';
-        if (allDone)   allDone.style.display   = (current >= visibleCards.length) ? 'block' : 'none';
+        if (indicator) indicator.style.display = (current >= totalVisible) ? 'none' : 'block';
+        if (allDone)   allDone.style.display   = (current >= totalVisible) ? 'block' : 'none';
       }
 
       function getVisibleCards() {
@@ -1105,18 +1112,30 @@
         }
       };
 
-      // ========== 页面加载时检查 hash ==========
-      var hash = location.hash.match(/#cat=(.+)/);
-      if (hash) {
-        var cat = decodeURIComponent(hash[1]);
-        var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]');
-        if (targetBtn) {
-          filterArticles(cat, targetBtn);
+      // ========== 页面加载时初始化 ==========
+      function init() {
+        if (!cards.length) {
+          console.warn('[AIHR] 未找到 .article-card[data-category] 元素');
+          return;
+        }
+        var hash = location.hash.match(/#cat=(.+)/);
+        if (hash) {
+          var cat = decodeURIComponent(hash[1]);
+          var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]');
+          if (targetBtn) {
+            filterArticles(cat, targetBtn);
+          } else {
+            updateView();
+          }
         } else {
           updateView();
         }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
       } else {
-        updateView();
+        init();
       }
 
       // ========== spin 动画 ==========
