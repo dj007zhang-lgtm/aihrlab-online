@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRI成熟度自测 — AIHR数智引擎</title>
+  <meta name="description" content="免费自测你的组织是否准备好AI转型。3分钟完成DRI（Directly Responsible Individual）成熟度评估，获取个性化转型路线图。">
+  <meta property="og:title" content="DRI成熟度自测 — AIHR数智引擎">
+  <meta property="og:description" content="3分钟评估你的组织AI转型成熟度">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.aihrlab.online/tools/dri-self-assessment.html">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/avatar.png">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="canonical" href="https://www.aihrlab.online/tools/dri-self-assessment.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DRI成熟度自测表",
+    "description": "评估你的组织是否准备好AI转型。3分钟完成DRI成熟度评估。",
+    "url": "https://www.aihrlab.online/tools/dri-self-assessment.html",
+    "operatingSystem": "Web",
+    "applicationCategory": "EducationApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+    "isPartOf": { "@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online" }
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BWLGRVRRGN');
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8fafc; color: #111827; }
+    .page-header { background: linear-gradient(135deg, #e8f5e9 0%, #fff 50%, #fef2f2 100%); padding: 3rem 1.5rem 2rem; text-align: center; }
+    .page-header h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+    .page-header h1 span { color: #059669; }
+    .page-header p { font-size: 1rem; color: #6b7280; max-width: 500px; margin: 0 auto; }
+    .container { max-width: 700px; margin: 0 auto; padding: 0 1rem; }
+    .quiz-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 2rem; margin: 1.5rem 0; }
+    .quiz-card h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .quiz-card h2 .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #059669; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
+    .quiz-card > p { font-size: 0.9rem; color: #6b7280; margin: 0 0 1.25rem; }
+    .option { display: block; margin-bottom: 0.75rem; }
+    .option input[type="radio"] { display: none; }
+    .option label { display: block; padding: 0.85rem 1rem; border: 1.5px solid #e5e7eb; border-radius: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 0.92rem; line-height: 1.5; }
+    .option label:hover { border-color: #059669; background: #f0fdf4; }
+    .option input:checked + label { border-color: #059669; background: #f0fdf4; }
+    .btn-next { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 2rem; background: #059669; color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem; transition: background 0.2s; }
+    .btn-next:hover { background: #047857; }
+    .btn-next:disabled { background: #d1d5db; cursor: not-allowed; }
+    .quiz-progress { display: flex; gap: 0.35rem; margin: 1.5rem 0; }
+    .quiz-progress .bar { flex: 1; height: 4px; background: #e5e7eb; border-radius: 2px; }
+    .quiz-progress .bar.done { background: #059669; }
+    .result-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 2rem; margin: 1.5rem 0; text-align: center; }
+    .result-score { font-size: 4rem; font-weight: 800; color: #059669; line-height: 1; }
+    .result-label { font-size: 1.1rem; font-weight: 700; margin: 0.5rem 0 1rem; }
+    .result-desc { font-size: 0.92rem; color: #6b7280; line-height: 1.7; max-width: 500px; margin: 0 auto 1.5rem; }
+    .result-bar { background: #e5e7eb; height: 10px; border-radius: 5px; overflow: hidden; max-width: 400px; margin: 0 auto 2rem; }
+    .result-bar-fill { height: 100%; background: linear-gradient(90deg, #059669, #34d399); border-radius: 5px; transition: width 0.8s ease; }
+    .qrcode-cta { background: #f8fafc; border: 1px dashed #d1d5db; border-radius: 12px; padding: 1.5rem; margin: 1.5rem auto; max-width: 360px; text-align: center; }
+    .qrcode-cta img { width: 160px; height: 160px; border-radius: 8px; margin-bottom: 0.75rem; }
+    .qrcode-cta p { font-size: 0.88rem; color: #4b5563; margin: 0 0 0.5rem; }
+    .qrcode-cta strong { color: #111827; }
+    footer { text-align: center; padding: 2rem 0; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.82rem; margin-top: 2rem; }
+    footer a { color: #059669; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>DRI成熟度<span>自测表</span></h1>
+    <p>3分钟评估你的组织是否准备好AI转型</p>
+  </div>
+
+  <div class="container">
+    <div class="quiz-progress" id="quizProgress">
+      <div class="bar done" id="bar-1"></div>
+      <div class="bar" id="bar-2"></div>
+      <div class="bar" id="bar-3"></div>
+      <div class="bar" id="bar-4"></div>
+      <div class="bar" id="bar-5"></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="quiz-card" id="step-1">
+      <h2><span class="step-num">1</span> 你的组织有没有明确的AI转型责任人？</h2>
+      <p>A. 每个业务线都指定了直接负责人<br>B. 有IT部门牵头，但没有明确权责<br>C. CEO亲自抓AI，但没人跟进执行<br>D. 还没有正式启动AI转型</p>
+      <label class="option"><input type="radio" name="q1" value="3"><span> A</span></label>
+      <label class="option"><input type="radio" name="q1" value="2"><span> B</span></label>
+      <label class="option"><input type="radio" name="q1" value="1"><span> C</span></label>
+      <label class="option"><input type="radio" name="q1" value="0"><span> D</span></label>
+      <button class="btn-next" onclick="nextStep(2)" disabled>下一步</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="quiz-card hidden" id="step-2">
+      <h2><span class="step-num">2</span> HR在组织中是什么样的角色？</h2>
+      <p>A. HR正在主动设计AI时代的组织模型<br>B. HR负责执行管理层决策<br>C. HR还在处理日常人事事务<br>D. 组织还没有独立的HR部门</p>
+      <label class="option"><input type="radio" name="q2" value="3"><span> A</span></label>
+      <label class="option"><input type="radio" name="q2" value="2"><span> B</span></label>
+      <label class="option"><input type="radio" name="q2" value="1"><span> C</span></label>
+      <label class="option"><input type="radio" name="q2" value="0"><span> D</span></label>
+      <button class="btn-next" onclick="nextStep(3)" disabled>下一步</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="quiz-card hidden" id="step-3">
+      <h2><span class="step-num">3</span> 你们的数据基础设施怎么样？</h2>
+      <p>A. 已经建立了统一的数据中台<br>B. 有ERP和OA，但数据孤岛严重<br>C. 大部分管理还靠Excel和口头沟通<br>D. 信息化程度很低</p>
+      <label class="option"><input type="radio" name="q3" value="3"><span> A</span></label>
+      <label class="option"><input type="radio" name="q3" value="2"><span> B</span></label>
+      <label class="option"><input type="radio" name="q3" value="1"><span> C</span></label>
+      <label class="option"><input type="radio" name="q3" value="0"><span> D</span></label>
+      <button class="btn-next" onclick="nextStep(4)" disabled>下一步</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="quiz-card hidden" id="step-4">
+      <h2><span class="step-num">4</span> 中层管理者对AI的态度？</h2>
+      <p>A. 主动拥抱AI，已经在使用AI工具提效<br>B. 观望态度，等领导明确指示<br>C. 担心被AI替代，有抵触情绪<br>D. 团队没有中层管理者</p>
+      <label class="option"><input type="radio" name="q4" value="3"><span> A</span></label>
+      <label class="option"><input type="radio" name="q4" value="2"><span> B</span></label>
+      <label class="option"><input type="radio" name="q4" value="1"><span> C</span></label>
+      <label class="option"><input type="radio" name="q4" value="0"><span> D</span></label>
+      <button class="btn-next" onclick="nextStep(5)" disabled>下一步</button>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="quiz-card hidden" id="step-5">
+      <h2><span class="step-num">5</span> 你们的组织文化能支撑快速变化吗？</h2>
+      <p>A. 高度自治，跨部门协作顺畅<br>B. 有一定流程，但跨部门协作慢<br>C. 部门墙严重，各自为战<br>D. 组织扁平，所有人都是兼职</p>
+      <label class="option"><input type="radio" name="q5" value="3"><span> A</span></label>
+      <label class="option"><input type="radio" name="q5" value="2"><span> B</span></label>
+      <label class="option"><input type="radio" name="q5" value="1"><span> C</span></label>
+      <label class="option"><input type="radio" name="q5" value="0"><span> D</span></label>
+      <button class="btn-next" onclick="showResult()" disabled>查看结果</button>
+    </div>
+  </div>
+
+  <div class="container" id="resultSection" style="display:none;">
+    <div class="result-card">
+      <div class="result-score" id="scoreDisplay">0</div>
+      <div class="result-label" id="levelLabel">—</div>
+      <div class="result-desc" id="levelDesc">—</div>
+      <div class="result-bar">
+        <div class="result-bar-fill" id="scoreBarFill" style="width:0%"></div>
+      </div>
+      <div class="qrcode-cta">
+        <img src="../assets/images/qrcode-wechat.jpg" alt="AIHR数智引擎公众号二维码">
+        <p><strong>微信扫码关注公众号「AIHR数智引擎」</strong></p>
+        <p>回复 <strong>DRI</strong> 获取完整版自测表和转型路线图</p>
+      </div>
+      <a href="../articles/index.html" style="display:inline-block;padding:0.75rem 2rem;background:#059669;color:#fff;text-decoration:none;border-radius:10px;font-size:0.95rem;font-weight:600;">📚 阅读更多AI组织变革文章 →</a>
+    </div>
+  </div>
+
+  <footer>
+    Powered by <a href="https://www.aihrlab.online" target="_blank">AIHR数智引擎</a>
+  </footer>
+
+  <script>
+    // 注册radio input的change事件
+    document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var card = this.closest('.quiz-card');
+        card.querySelector('.btn-next').disabled = false;
+      });
+    });
+
+    function nextStep(step) {
+      // Hide current step
+      document.getElementById('step-' + (step - 1)).classList.add('hidden');
+      // Show next step
+      document.getElementById('step-' + step).classList.remove('hidden');
+      // Update progress bar
+      document.getElementById('bar-' + step).classList.add('done');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showResult() {
+      // Hide last step
+      document.getElementById('step-5').classList.add('hidden');
+      document.getElementById('bar-5').classList.add('done');
+      // Calculate score
+      var total = 0;
+      var radios = document.querySelectorAll('input[type="radio"]:checked');
+      radios.forEach(function(radio) {
+        total += parseInt(radio.value);
+      });
+      // Display result
+      var scoreDisplay = document.getElementById('scoreDisplay');
+      var levelLabel = document.getElementById('levelLabel');
+      var levelDesc = document.getElementById('levelDesc');
+      var scoreBarFill = document.getElementById('scoreBarFill');
+      var resultSection = document.getElementById('resultSection');
+      scoreDisplay.textContent = total * 20 + '/100';
+      scoreBarFill.style.width = (total * 20) + '%';
+      if (total >= 12) {
+        levelLabel.textContent = '🟢 领先者 — AI转型已就绪';
+        levelDesc.textContent = '你的组织已经做好了AI转型的准备！建议：加快步伐，建立DRI机制，将AI融入业务流程。关注公众号获取详细转型SOP。';
+      } else if (total >= 8) {
+        levelLabel.textContent = '🟡 探索者 — 正在路上';
+        levelDesc.textContent = '你的组织有一定的基础，但还需要加强数据基建和人才梯队。建议：先从小规模的AI实验开始，积累信心和经验。';
+      } else if (total >= 4) {
+        levelLabel.textContent = '🟠 觉醒期 — 需要加速';
+        levelDesc.textContent = '你的组织AI转型还面临较大挑战。建议：先从数字化基建和人才引进开始，逐步培养AI思维。';
+      } else {
+        levelLabel.textContent = '🔴 起步阶段 — 需要重大变革';
+        levelDesc.textContent = '你的组织AI转型还刚刚开始。建议：先做一次全面的数字化转型规划，不要盲目上AI。关注公众号获取详细建议。';
+      }
+      resultSection.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

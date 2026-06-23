@@ -1,13 +1,17 @@
-# robots.txt for AIHR数智引擎
-# https://www.aihrlab.online
+# Robots.txt for AIHR数智引擎
+# https://www.aihrlab.online/
 
 User-agent: *
 Allow: /
+Allow: /articles/
+Allow: /resources/
+Allow: /about.html
 
-# 禁止抓取静态资源
-Disallow: /assets/images/
-Disallow: /assets/css/
-Disallow: /assets/js/
-
-# Sitemap
+# Sitemap location
 Sitemap: https://www.aihrlab.online/sitemap.xml
+
+# Prevent crawling of assets to save bandwidth
+# Disallow: /assets/fonts/
+
+# Crawl-delay for friendly bots
+Crawl-delay: 1
