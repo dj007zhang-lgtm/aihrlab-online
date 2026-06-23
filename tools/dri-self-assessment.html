@@ -34,23 +34,24 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
     }
 
-    /* ========== Header ========== */
+    /* ========== Header — 轻量白底+accent色条设计 ========== */
     .assessment-header {
-      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f0faf5 100%);
       border-radius: 20px;
       padding: 3rem 2.5rem 2.5rem;
-      color: #fff;
+      color: var(--text, #1a1a1a);
       position: relative;
       overflow: hidden;
       margin-bottom: 2.5rem;
+      border: 1px solid rgba(45,106,79,0.12);
     }
     .assessment-header::before {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 220px; height: 220px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2D6A4F, #52B788, #74c69d, #52B788, #2D6A4F);
+      background-size: 200% 100%;
     }
     .assessment-header::after {
       content: '';
@@ -58,17 +59,19 @@
       bottom: -40px; left: -30px;
       width: 160px; height: 160px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.04);
+      background: rgba(45,106,79,0.04);
     }
     .ah-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(45,106,79,0.08);
+      border: 1px solid rgba(45,106,79,0.15);
       border-radius: 20px;
       padding: 0.3rem 1rem;
       font-size: 0.78rem;
       letter-spacing: 0.05em;
       margin-bottom: 1.2rem;
+      color: #2D6A4F;
+      font-weight: 600;
     }
     .ah-title {
       font-size: 2rem;
@@ -79,12 +82,12 @@
       z-index: 1;
     }
     .ah-title span {
-      color: #95D5B2;
+      color: #2D6A4F;
     }
     .ah-sub {
       font-size: 0.95rem;
       line-height: 1.7;
-      opacity: 0.88;
+      color: var(--text-secondary, #555);
       margin-bottom: 1.5rem;
       position: relative;
       z-index: 1;
@@ -101,11 +104,11 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.82rem;
-      opacity: 0.8;
+      color: var(--text-secondary, #555);
     }
     .ah-meta-item strong {
       font-size: 1.1rem;
-      opacity: 1;
+      color: #2D6A4F;
     }
 
     /* ========== 进度条 ========== */
@@ -358,24 +361,26 @@
     }
     .result-card.show { display: block; }
     .rc-header {
-      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+      background: linear-gradient(180deg, #f0faf5 0%, #ffffff 100%);
       padding: 2.5rem 2.5rem 2rem;
-      color: #fff;
+      color: var(--text, #1a1a1a);
       text-align: center;
+      border-bottom: 3px solid #2D6A4F;
     }
     .rc-grade {
       font-size: 2.2rem;
       font-weight: 800;
       margin-bottom: 0.5rem;
+      color: #2D6A4F;
     }
     .rc-score {
       font-size: 1rem;
-      opacity: 0.85;
+      color: var(--text-secondary, #555);
       margin-bottom: 0.3rem;
     }
     .rc-score strong {
       font-size: 2rem;
-      color: #95D5B2;
+      color: #2D6A4F;
     }
     .rc-desc {
       font-size: 0.88rem;
