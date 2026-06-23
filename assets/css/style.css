@@ -2292,3 +2292,308 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* 门控弹窗 :target 支持（纯CSS显示） */
 .gate-overlay:target { display: flex; }
+
+
+/* ============================================
+   Article Content — Typography &
+
+
+/* ===========================================
+   Article Content — 垂直节奏 & 呼吸感
+   =========================================== */
+
+/* 文章容器：浅灰背景 + 细边框 + 柔和阴影 → 结构化 */
+.article-content-wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 4px 20px rgba(0,0,0,0.04);
+}
+
+/* 文章头部 */
+.article-header {
+  max-width: var(--article-width);
+  margin: 0 auto;
+  padding: 2.5rem 0 1.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+}
+
+.article-header .article-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: var(--accent-pale);
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.article-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 1rem 0 1.2rem;
+}
+
+.article-header .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* 文章正文：垂直节奏系统 */
+.article-content {
+  max-width: var(--article-width);
+  margin: 0 auto;
+  padding: 0 0.5rem 6rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+/* Lead 段落：引领阅读 */
+.article-content .lead {
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 正文段落：统一行高和间距 → 呼吸感 */
+.article-content p {
+  margin-top: 1.4rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+/* h2：大片区隔，底部装饰线 */
+.article-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--line);
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* h3：中片区隔，左侧accent短线 */
+.article-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* h4：小片区隔 */
+.article-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+/* 列表 */
+.article-content ul,
+.article-content ol {
+  margin-top: 1.5rem;
+  padding-left: 1.8rem;
+}
+
+.article-content li {
+  margin-top: 0.6rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* blockquote：左侧accent粗线 + 浅底色 */
+.article-content blockquote {
+  margin: 2rem 0;
+  padding: 1.2rem 1.5rem;
+  background: var(--bg-warm);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.article-content blockquote p {
+  margin-top: 0;
+}
+
+.article-content blockquote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
+/* code：行内代码 */
+.article-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-warm);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: var(--text);
+}
+
+/* pre：代码块 */
+.article-content pre {
+  margin: 2rem 0;
+  padding: 1.2rem;
+  background: #1e1e2e;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.article-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #cdd6f4;
+  font-size: inherit;
+}
+
+/* 图片 */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  margin: 2rem auto;
+  display: block;
+}
+
+/* 表格 */
+.article-content table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-content th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 2px solid var(--line-strong);
+  color: var(--text);
+}
+
+.article-content td {
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-secondary);
+}
+
+.article-content tr:last-child td {
+  border-bottom: none;
+}
+
+.article-content tr:nth-child(even) {
+  background: var(--bg-subtle);
+}
+
+/* 分隔线 */
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--line-strong);
+  margin: 3rem 0;
+}
+
+/* 文章底部作者卡片 */
+.article-footer {
+  max-width: var(--article-width);
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 2px solid var(--line);
+}
+
+.author-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.author-card .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+
+.author-card .author-name {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.author-card .author-bio {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .article-content-wrapper {
+    padding: 1.5rem 1rem 2rem;
+    border-radius: 10px;
+    margin: 0 0.5rem;
+  }
+  .article-header h1 {
+    font-size: 1.5rem;
+  }
+  .article-content {
+    font-size: 1rem;
+  }
+  .article-content .lead {
+    font-size: 1.1rem;
+  }
+  .article-content h2 {
+    font-size: 1.25rem;
+  }
+  .article-content h3 {
+    font-size: 1.1rem;
+    padding-left: 0.8rem;
+  }
+}
