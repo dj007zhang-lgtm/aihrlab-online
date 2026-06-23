@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DRI成熟度自测 — AIHR数智引擎</title>
-  <meta name="description" content="免费自测你的组织是否准备好AI转型。3分钟完成DRI（Directly Responsible Individual）成熟度评估，获取个性化转型路线图。">
+  <meta name="description" content="系统评估你的组织AI转型就绪度。10个核心维度，15分钟深度自测，获取个性化转型路线图。">
   <meta property="og:title" content="DRI成熟度自测 — AIHR数智引擎">
-  <meta property="og:description" content="3分钟评估你的组织AI转型成熟度">
+  <meta property="og:description" content="系统评估组织AI转型就绪度，10个核心维度深度分析">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aihrlab.online/tools/dri-self-assessment.html">
   <meta property="og:site_name" content="AIHR数智引擎">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:image" content="https://www.aihrlab.online/assets/images/avatar.png">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/og-covers/og-default.jpg">
   <link rel="stylesheet" href="../assets/css/style.min.css">
   <link rel="canonical" href="https://www.aihrlab.online/tools/dri-self-assessment.html">
   <script type="application/ld+json">
@@ -19,7 +19,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "DRI成熟度自测表",
-    "description": "评估你的组织是否准备好AI转型。3分钟完成DRI成熟度评估。",
+    "description": "系统评估组织AI转型就绪度，10个核心维度深度分析",
     "url": "https://www.aihrlab.online/tools/dri-self-assessment.html",
     "operatingSystem": "Web",
     "applicationCategory": "EducationApplication",
@@ -35,188 +35,982 @@
     gtag('config', 'G-BWLGRVRRGN');
   </script>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8fafc; color: #111827; }
-    .page-header { background: linear-gradient(135deg, #e8f5e9 0%, #fff 50%, #fef2f2 100%); padding: 3rem 1.5rem 2rem; text-align: center; }
-    .page-header h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
-    .page-header h1 span { color: #059669; }
-    .page-header p { font-size: 1rem; color: #6b7280; max-width: 500px; margin: 0 auto; }
-    .container { max-width: 700px; margin: 0 auto; padding: 0 1rem; }
-    .quiz-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 2rem; margin: 1.5rem 0; }
-    .quiz-card h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
-    .quiz-card h2 .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #059669; color: #fff; border-radius: 50%; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
-    .quiz-card > p { font-size: 0.9rem; color: #6b7280; margin: 0 0 1.25rem; }
-    .option { display: block; margin-bottom: 0.75rem; }
-    .option input[type="radio"] { display: none; }
-    .option label { display: block; padding: 0.85rem 1rem; border: 1.5px solid #e5e7eb; border-radius: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 0.92rem; line-height: 1.5; }
-    .option label:hover { border-color: #059669; background: #f0fdf4; }
-    .option input:checked + label { border-color: #059669; background: #f0fdf4; }
-    .btn-next { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 2rem; background: #059669; color: #fff; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem; transition: background 0.2s; }
-    .btn-next:hover { background: #047857; }
-    .btn-next:disabled { background: #d1d5db; cursor: not-allowed; }
-    .quiz-progress { display: flex; gap: 0.35rem; margin: 1.5rem 0; }
-    .quiz-progress .bar { flex: 1; height: 4px; background: #e5e7eb; border-radius: 2px; }
-    .quiz-progress .bar.done { background: #059669; }
-    .result-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 2rem; margin: 1.5rem 0; text-align: center; }
-    .result-score { font-size: 4rem; font-weight: 800; color: #059669; line-height: 1; }
-    .result-label { font-size: 1.1rem; font-weight: 700; margin: 0.5rem 0 1rem; }
-    .result-desc { font-size: 0.92rem; color: #6b7280; line-height: 1.7; max-width: 500px; margin: 0 auto 1.5rem; }
-    .result-bar { background: #e5e7eb; height: 10px; border-radius: 5px; overflow: hidden; max-width: 400px; margin: 0 auto 2rem; }
-    .result-bar-fill { height: 100%; background: linear-gradient(90deg, #059669, #34d399); border-radius: 5px; transition: width 0.8s ease; }
-    .qrcode-cta { background: #f8fafc; border: 1px dashed #d1d5db; border-radius: 12px; padding: 1.5rem; margin: 1.5rem auto; max-width: 360px; text-align: center; }
-    .qrcode-cta img { width: 160px; height: 160px; border-radius: 8px; margin-bottom: 0.75rem; }
-    .qrcode-cta p { font-size: 0.88rem; color: #4b5563; margin: 0 0 0.5rem; }
-    .qrcode-cta strong { color: #111827; }
-    footer { text-align: center; padding: 2rem 0; border-top: 1px solid #e5e7eb; color: #9ca3af; font-size: 0.82rem; margin-top: 2rem; }
-    footer a { color: #059669; }
-    .hidden { display: none; }
+    :root {
+      --green-50: #f0fdf4;
+      --green-100: #dcfce7;
+      --green-200: #bbf7d0;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --radius: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #f8fafc;
+      color: var(--gray-800);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ─────────────────────────────────── */
+    .page-header {
+      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 30%, #ffffff 70%, #fefce8 100%);
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.06);
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.04);
+    }
+    .header-badge {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background: var(--green-50);
+      border: 1px solid var(--green-200);
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green-700);
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      position: relative;
+      z-index: 1;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      color: var(--green-600);
+    }
+    .page-header .subtitle {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      max-width: 480px;
+      margin: 0.6rem auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    .page-header .meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      position: relative;
+      z-index: 1;
+    }
+    .page-header .meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ── Container ─────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ── Progress ──────────────────────────────── */
+    .progress-section {
+      padding: 1.5rem 0 0.5rem;
+    }
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+    .progress-info .current-step {
+      font-weight: 600;
+      color: var(--green-600);
+    }
+    .progress-bar-track {
+      width: 100%;
+      height: 6px;
+      background: var(--gray-100);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green-500), var(--green-600));
+      border-radius: 3px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+    .step-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 0.7rem;
+    }
+    .step-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gray-200);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .step-dot.active {
+      background: var(--green-500);
+      transform: scale(1.25);
+    }
+    .step-dot.done {
+      background: var(--green-600);
+    }
+
+    /* ── Question Card ─────────────────────────── */
+    .quiz-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      margin: 1.25rem 0;
+      box-shadow: var(--shadow-sm);
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    .quiz-card.hidden {
+      display: none;
+    }
+    .quiz-card.slide-out {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    .quiz-card.slide-in {
+      animation: slideIn 0.35s ease forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .question-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--green-500);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .question-dimension {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      background: var(--green-50);
+      border: 1px solid var(--green-200);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--green-700);
+      margin-bottom: 0.5rem;
+      margin-left: 0.5rem;
+    }
+    .quiz-card h2 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.55;
+      margin-bottom: 0.35rem;
+    }
+    .quiz-card .hint {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* ── Option ────────────────────────────────── */
+    .option {
+      display: block;
+      margin-bottom: 0.65rem;
+      cursor: pointer;
+      position: relative;
+    }
+    .option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0; height: 0;
+    }
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .option-label:hover {
+      border-color: var(--green-500);
+      background: var(--green-50);
+    }
+    .option input:checked + .option-label {
+      border-color: var(--green-600);
+      background: var(--green-50);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+    }
+    .option input:checked + .option-label .option-marker {
+      background: var(--green-600);
+      color: #fff;
+      border-color: var(--green-600);
+    }
+    .option input:checked + .option-label .check-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .option-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      min-width: 26px;
+      border: 2px solid var(--gray-300);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      transition: all 0.2s ease;
+      margin-top: 1px;
+    }
+    .option-text {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--gray-700);
+    }
+    .option-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.15rem;
+    }
+    .check-icon {
+      position: absolute;
+      top: 0.7rem;
+      right: 1rem;
+      width: 20px; height: 20px;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s ease;
+    }
+    .check-icon svg {
+      width: 20px; height: 20px;
+    }
+
+    /* ── Nav Buttons ──────────────────────────── */
+    .quiz-nav {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .btn-prev,
+    .btn-next {
+      flex: 1;
+      padding: 0.8rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-next {
+      background: var(--green-600);
+      color: #fff;
+    }
+    .btn-next:hover:not(:disabled) {
+      background: var(--green-700);
+    }
+    .btn-next:disabled {
+      background: var(--gray-200);
+      color: var(--gray-400);
+      cursor: not-allowed;
+    }
+    .btn-prev {
+      background: var(--gray-100);
+      color: var(--gray-600);
+      flex: 0 0 auto;
+      padding: 0.8rem 1.25rem;
+    }
+    .btn-prev:hover {
+      background: var(--gray-200);
+    }
+
+    /* ── Result ───────────────────────────────── */
+    .result-section {
+      display: none;
+      padding: 2rem 0 3rem;
+    }
+    .result-section.visible {
+      display: block;
+      animation: fadeUp 0.5s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .result-hero {
+      background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
+      border: 1px solid var(--green-200);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 1rem;
+      background: #fff;
+      border: 1px solid var(--green-200);
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--green-700);
+      margin-bottom: 1rem;
+    }
+    .result-score {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--green-600);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .result-score span {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-400);
+    }
+    .result-level {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0.5rem 0 0.75rem;
+      color: var(--gray-900);
+    }
+    .result-summary {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── Dimension Breakdown ───────────────────── */
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .dimension-card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+    .dimension-card .dim-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .dimension-card .dim-score-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .dimension-card .dim-score {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    .dimension-card .dim-bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--gray-100);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .dimension-card .dim-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.8s ease;
+      width: 0%;
+    }
+    .dim-bar-fill.level-high   { background: var(--green-500); }
+    .dim-bar-fill.level-mid    { background: #f59e0b; }
+    .dim-bar-fill.level-low    { background: #ef4444; }
+    .dimension-card .dim-desc {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* ── CTA ──────────────────────────────────── */
+    .result-cta {
+      background: #fff;
+      border: 1.5px solid var(--green-200);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .result-cta .cta-icon {
+      width: 48px; height: 48px;
+      margin: 0 auto 1rem;
+      background: var(--green-50);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .result-cta h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+    .result-cta p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto 1.25rem;
+    }
+    .qrcode-box {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      max-width: 380px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: var(--gray-50);
+      border: 1px dashed var(--gray-300);
+      border-radius: 10px;
+    }
+    .qrcode-box img {
+      width: 100px; height: 100px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .qrcode-box .qr-text {
+      text-align: left;
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+    .qrcode-box .qr-text strong {
+      color: var(--gray-900);
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+    .btn-primary-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.5rem;
+      background: #fff;
+      border: 1.5px solid var(--green-600);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green-600);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary-outline:hover {
+      background: var(--green-50);
+    }
+    .btn-solid-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--green-600);
+      border: none;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-solid-green:hover {
+      background: var(--green-700);
+    }
+
+    /* ── Footer ────────────────────────────────── */
+    .page-footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-400);
+      font-size: 0.82rem;
+      margin-top: 2rem;
+    }
+    .page-footer a { color: var(--green-600); text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ───────────────────────────── */
+    @media (max-width: 640px) {
+      .page-header h1 { font-size: 1.6rem; }
+      .quiz-card { padding: 1.5rem 1.25rem; }
+      .dimension-grid { grid-template-columns: 1fr; }
+      .qrcode-box { flex-direction: column; text-align: center; }
+      .qrcode-box .qr-text { text-align: center; }
+      .result-actions { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <div class="page-header">
-    <h1>DRI成熟度<span>自测表</span></h1>
-    <p>3分钟评估你的组织是否准备好AI转型</p>
+    <div class="header-badge">AIHR 数智引擎 · 免费自测工具</div>
+    <h1><em>DRI成熟度</em>自测表</h1>
+    <p class="subtitle">系统评估你的组织AI转型就绪度。10个核心维度，精准定位转型卡点。</p>
+    <div class="meta">
+      <span>📋 10道题</span>
+      <span>⏱ 约8分钟</span>
+      <span>📊 维度报告</span>
+    </div>
   </div>
 
   <div class="container">
-    <div class="quiz-progress" id="quizProgress">
-      <div class="bar done" id="bar-1"></div>
-      <div class="bar" id="bar-2"></div>
-      <div class="bar" id="bar-3"></div>
-      <div class="bar" id="bar-4"></div>
-      <div class="bar" id="bar-5"></div>
+
+    <!-- Progress -->
+    <div class="progress-section">
+      <div class="progress-info">
+        <span>进度</span>
+        <span class="current-step" id="progressText">1 / 10</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="step-dots" id="stepDots"></div>
     </div>
 
-    <!-- Step 1 -->
-    <div class="quiz-card" id="step-1">
-      <h2><span class="step-num">1</span> 你的组织有没有明确的AI转型责任人？</h2>
-      <p>A. 每个业务线都指定了直接负责人<br>B. 有IT部门牵头，但没有明确权责<br>C. CEO亲自抓AI，但没人跟进执行<br>D. 还没有正式启动AI转型</p>
-      <label class="option"><input type="radio" name="q1" value="3"><span> A</span></label>
-      <label class="option"><input type="radio" name="q1" value="2"><span> B</span></label>
-      <label class="option"><input type="radio" name="q1" value="1"><span> C</span></label>
-      <label class="option"><input type="radio" name="q1" value="0"><span> D</span></label>
-      <button class="btn-next" onclick="nextStep(2)" disabled>下一步</button>
+    <!-- Questions (10) -->
+    <div id="quizCards"></div>
+
+    <!-- Result -->
+    <div class="result-section" id="resultSection">
+      <div class="result-hero">
+        <div class="result-badge" id="resultBadge">—</div>
+        <div class="result-score" id="resultScore">0<span>/100</span></div>
+        <div class="result-level" id="resultLevel">—</div>
+        <p class="result-summary" id="resultSummary">—</p>
+      </div>
+
+      <h3 style="font-size:0.92rem;font-weight:700;color:var(--gray-700);margin:1.5rem 0 0.75rem;">各维度得分明细</h3>
+      <div class="dimension-grid" id="dimensionGrid"></div>
+
+      <div class="result-cta">
+        <div class="cta-icon">📥</div>
+        <h3>获取完整版转型路线图</h3>
+        <p>自测表仅展示核心维度评分。关注公众号获取完整版，含每维度详细诊断、优先级行动清单、标杆案例参考。</p>
+        <div class="qrcode-box">
+          <img src="../assets/images/qrcode-wechat.jpg" alt="AIHR数智引擎公众号二维码">
+          <div class="qr-text">
+            <strong>微信扫码关注</strong><br>
+            「AIHR数智引擎」公众号<br>
+            回复 <strong style="color:var(--green-600);">DRI</strong> 获取完整版自测表及转型路线图
+          </div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <a href="../articles/index.html" class="btn-primary-outline">📚 阅读相关文章</a>
+        <a href="#" class="btn-solid-green" onclick="restartQuiz();return false;">🔄 重新自测</a>
+      </div>
     </div>
 
-    <!-- Step 2 -->
-    <div class="quiz-card hidden" id="step-2">
-      <h2><span class="step-num">2</span> HR在组织中是什么样的角色？</h2>
-      <p>A. HR正在主动设计AI时代的组织模型<br>B. HR负责执行管理层决策<br>C. HR还在处理日常人事事务<br>D. 组织还没有独立的HR部门</p>
-      <label class="option"><input type="radio" name="q2" value="3"><span> A</span></label>
-      <label class="option"><input type="radio" name="q2" value="2"><span> B</span></label>
-      <label class="option"><input type="radio" name="q2" value="1"><span> C</span></label>
-      <label class="option"><input type="radio" name="q2" value="0"><span> D</span></label>
-      <button class="btn-next" onclick="nextStep(3)" disabled>下一步</button>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="quiz-card hidden" id="step-3">
-      <h2><span class="step-num">3</span> 你们的数据基础设施怎么样？</h2>
-      <p>A. 已经建立了统一的数据中台<br>B. 有ERP和OA，但数据孤岛严重<br>C. 大部分管理还靠Excel和口头沟通<br>D. 信息化程度很低</p>
-      <label class="option"><input type="radio" name="q3" value="3"><span> A</span></label>
-      <label class="option"><input type="radio" name="q3" value="2"><span> B</span></label>
-      <label class="option"><input type="radio" name="q3" value="1"><span> C</span></label>
-      <label class="option"><input type="radio" name="q3" value="0"><span> D</span></label>
-      <button class="btn-next" onclick="nextStep(4)" disabled>下一步</button>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="quiz-card hidden" id="step-4">
-      <h2><span class="step-num">4</span> 中层管理者对AI的态度？</h2>
-      <p>A. 主动拥抱AI，已经在使用AI工具提效<br>B. 观望态度，等领导明确指示<br>C. 担心被AI替代，有抵触情绪<br>D. 团队没有中层管理者</p>
-      <label class="option"><input type="radio" name="q4" value="3"><span> A</span></label>
-      <label class="option"><input type="radio" name="q4" value="2"><span> B</span></label>
-      <label class="option"><input type="radio" name="q4" value="1"><span> C</span></label>
-      <label class="option"><input type="radio" name="q4" value="0"><span> D</span></label>
-      <button class="btn-next" onclick="nextStep(5)" disabled>下一步</button>
-    </div>
-
-    <!-- Step 5 -->
-    <div class="quiz-card hidden" id="step-5">
-      <h2><span class="step-num">5</span> 你们的组织文化能支撑快速变化吗？</h2>
-      <p>A. 高度自治，跨部门协作顺畅<br>B. 有一定流程，但跨部门协作慢<br>C. 部门墙严重，各自为战<br>D. 组织扁平，所有人都是兼职</p>
-      <label class="option"><input type="radio" name="q5" value="3"><span> A</span></label>
-      <label class="option"><input type="radio" name="q5" value="2"><span> B</span></label>
-      <label class="option"><input type="radio" name="q5" value="1"><span> C</span></label>
-      <label class="option"><input type="radio" name="q5" value="0"><span> D</span></label>
-      <button class="btn-next" onclick="showResult()" disabled>查看结果</button>
-    </div>
   </div>
 
-  <div class="container" id="resultSection" style="display:none;">
-    <div class="result-card">
-      <div class="result-score" id="scoreDisplay">0</div>
-      <div class="result-label" id="levelLabel">—</div>
-      <div class="result-desc" id="levelDesc">—</div>
-      <div class="result-bar">
-        <div class="result-bar-fill" id="scoreBarFill" style="width:0%"></div>
-      </div>
-      <div class="qrcode-cta">
-        <img src="../assets/images/qrcode-wechat.jpg" alt="AIHR数智引擎公众号二维码">
-        <p><strong>微信扫码关注公众号「AIHR数智引擎」</strong></p>
-        <p>回复 <strong>DRI</strong> 获取完整版自测表和转型路线图</p>
-      </div>
-      <a href="../articles/index.html" style="display:inline-block;padding:0.75rem 2rem;background:#059669;color:#fff;text-decoration:none;border-radius:10px;font-size:0.95rem;font-weight:600;">📚 阅读更多AI组织变革文章 →</a>
-    </div>
-  </div>
-
-  <footer>
+  <div class="page-footer">
     Powered by <a href="https://www.aihrlab.online" target="_blank">AIHR数智引擎</a>
-  </footer>
+  </div>
 
+  <!-- Data + Logic -->
   <script>
-    // 注册radio input的change事件
-    document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+  // ── 10 Questions, each maps to a dimension ───────────────────
+  var QUESTIONS = [
+    {
+      dimension: "责任清晰度",
+      question: "当跨部门AI项目出现延期或质量问题时，你们能否快速定位到唯一负责人？",
+      hint: "DRI（Directly Responsible Individual）机制是硅谷科技公司组织效率的核心秘诀。",
+      options: [
+        { label: "A", text: "能快速定位唯一负责人，且此人有最终决策权和资源调配权", score: 3 },
+        { label: "B", text: "有名义负责人，但重大决策仍需集体讨论或上级审批", score: 2 },
+        { label: "C", text: "经常互相推诿，需要高层协调才能推动", score: 1 },
+        { label: "D", text: "职责分工不明确，出了问题没人觉得是自己的责任", score: 0 }
+      ]
+    },
+    {
+      dimension: "决策速度",
+      question: "从发现一个业务问题到完成AI解决方案的决策，你们平均需要多长时间？",
+      hint: "AI时代的竞争优势在于迭代速度，决策周期直接决定转型成效。",
+      options: [
+        { label: "A", text: "1周内：发现→评估→决策→启动，全流程高效运转", score: 3 },
+        { label: "B", text: "2-4周：需要多层审批，但方向明确后能较快执行", score: 2 },
+        { label: "C", text: "1-3个月：决策链条长，经常在'再研究研究'中错失窗口", score: 1 },
+        { label: "D", text: "3个月以上：决策机制僵化，AI项目往往止于PPT", score: 0 }
+      ]
+    },
+    {
+      dimension: "领导力承诺",
+      question: "你们组织的AI转型倡议，主要是由哪个层级推动的？",
+      hint: "AI转型是战略转型，而非技术方案，推动力层级决定资源投入强度。",
+      options: [
+        { label: "A", text: "CEO/创始人直接推动，纳入战略规划，有专项预算", score: 3 },
+        { label: "B", text: "业务线负责人推动，有一定自主权但需协调资源", score: 2 },
+        { label: "C", text: "IT部门或数字化团队推动，业务侧配合度有限", score: 1 },
+        { label: "D", text: "还没有正式的AI转型倡议，零星尝试", score: 0 }
+      ]
+    },
+    {
+      dimension: "HR角色定位",
+      question: "在你们组织的AI转型中，HR部门扮演什么角色？",
+      hint: "AI时代HR需要从'职能执行者'进化为'组织架构师'，这是转型成功的关键变量。",
+      options: [
+        { label: "A", text: "HR正在主动设计AI时代的组织模型和人才体系", score: 3 },
+        { label: "B", text: "HR负责执行管理层决策，落地培训和变革管理", score: 2 },
+        { label: "C", text: "HR还在处理日常人事事务，AI转型参与度低", score: 1 },
+        { label: "D", text: "组织还没有独立的HR部门，或HR职能外包", score: 0 }
+      ]
+    },
+    {
+      dimension: "数据基础设施",
+      question: "你们组织的数据治理水平如何？这是AI应用的基础设施。",
+      hint: "AI的效果取决于数据质量。垃圾数据进，垃圾结果出（GIGO原则）。",
+      options: [
+        { label: "A", text: "已建立统一数据中台，数据质量标准明确，治理机制完善", score: 3 },
+        { label: "B", text: "有ERP/CRM等系统，但数据孤岛严重，跨系统打通困难", score: 2 },
+        { label: "C", text: "大部分管理还靠Excel和口头沟通，数字化程度有限", score: 1 },
+        { label: "D", text: "信息化程度很低，核心业务数据都没有系统化记录", score: 0 }
+      ]
+    },
+    {
+      dimension: "中层管理者态度",
+      question: "你们的中层管理者（部门负责人/业务骨干）对AI工具的态度是？",
+      hint: "中层是组织变革的'承重墙'。他们拥抱还是抵触，决定转型能否落地。",
+      options: [
+        { label: "A", text: "主动拥抱，已经在用AI工具提效，并推动团队使用", score: 3 },
+        { label: "B", text: "观望态度，等公司明确指示后再行动", score: 2 },
+        { label: "C", text: "担心被AI替代，有抵触情绪，消极应对", score: 1 },
+        { label: "D", text: "不了解AI能做什么，也没有动力去了解", score: 0 }
+      ]
+    },
+    {
+      dimension: "人才就绪度",
+      question: "你们有系统的AI能力提升计划吗？",
+      hint: "AI转型首先是人的转型。没有人才梯队的转型只是买了一批用不起来的工具。",
+      options: [
+        { label: "A", text: "有完整的AI能力模型和培训体系，全员分阶段赋能", score: 3 },
+        { label: "B", text: "有选择性培训，主要针对技术团队和业务骨干", score: 2 },
+        { label: "C", text: "偶尔有外部讲座或内部分享，没有体系化安排", score: 1 },
+        { label: "D", text: "没有正式的AI培训计划，靠员工自学", score: 0 }
+      ]
+    },
+    {
+      dimension: "绩效对齐",
+      question: "你们的绩效考核指标，是否已经纳入AI相关维度？",
+      hint: "你考核什么，就会得到什么。如果AI不在KPI里，它就永远不是真正的优先级。",
+      options: [
+        { label: "A", text: "是的，AI应用成效已纳入相关部门和岗位的KPI", score: 3 },
+        { label: "B", text: "有部分挂钩，但权重不高，更多是鼓励性质", score: 2 },
+        { label: "C", text: "还没有，绩效考核体系和AI转型脱节", score: 1 },
+        { label: "D", text: "不清楚绩效考核的具体指标，或认为和AI无关", score: 0 }
+      ]
+    },
+    {
+      dimension: "治理规范",
+      question: "你们有明确的AI使用伦理和安全规范吗？",
+      hint: "AI治理不是合规负担，而是规模化应用的前提。没有规范的企业迟早会踩坑。",
+      options: [
+        { label: "A", text: "有完整的AI治理框架，包括数据隐私、算法公平、安全风险管控", score: 3 },
+        { label: "B", text: "有基本规范，但还在完善中，执行力度有限", score: 2 },
+        { label: "C", text: "还没有正式规范，靠员工自觉", score: 1 },
+        { label: "D", text: "没有意识到需要AI治理规范", score: 0 }
+      ]
+    },
+    {
+      dimension: "执行记录",
+      question: "过去一年，你们在AI应用上有过成功的试点项目吗？",
+      hint: "转型需要胜利。一个成功的试点项目，胜过十份战略规划。",
+      options: [
+        { label: "A", text: "有多个成功试点，已复制推广，正在规模化落地", score: 3 },
+        { label: "B", text: "有1-2个成功试点，正在总结经验准备推广", score: 2 },
+        { label: "C", text: "尝试过，但效果不理想，或停留在概念验证阶段", score: 1 },
+        { label: "D", text: "还没有正式开展AI试点项目", score: 0 }
+      ]
+    }
+  ];
+
+  // ── Render all question cards ──────────────────────────────────
+  var totalQ = QUESTIONS.length;
+  var currentStep = 1;
+  var answers = {};
+
+  function renderCards() {
+    var container = document.getElementById('quizCards');
+    container.innerHTML = '';
+    QUESTIONS.forEach(function(q, i) {
+      var step = i + 1;
+      var isFirst = (i === 0);
+      var card = document.createElement('div');
+      card.className = 'quiz-card' + (isFirst ? ' slide-in' : ' hidden');
+      card.id = 'step-' + step;
+
+      var optionsHtml = q.options.map(function(opt) {
+        return ''
+          + '<label class="option">'
+          +   '<input type="radio" name="q' + step + '" value="' + opt.score + '" data-step="' + step + '">'
+          +   '<div class="option-label">'
+          +     '<div class="option-marker">' + opt.label + '</div>'
+          +     '<div class="option-text"><strong>' + opt.label + '：' + opt.text.split('，').slice(0,2).join('，') + '</strong>' + opt.text + '</div>'
+          +     '<div class="check-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#16a34a"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+          +   '</div>'
+          + '</label>';
+      }).join('');
+
+      var navHtml = '';
+      if (step > 1) {
+        navHtml += '<button class="btn-prev" onclick="prevStep(' + step + ')">← 上一题</button>';
+      }
+      navHtml += '<button class="btn-next" onclick="' + (step < totalQ ? 'nextStep(' + (step+1) + ')' : 'showResult()') + '" disabled>' + (step < totalQ ? '下一题 →' : '查看结果') + '</button>';
+
+      card.innerHTML = ''
+        + '<div class="question-number">' + step + '</div>'
+        + '<span class="question-dimension">' + q.dimension + '</span>'
+        + '<h2>' + q.question + '</h2>'
+        + '<p class="hint">' + q.hint + '</p>'
+        + optionsHtml
+        + '<div class="quiz-nav">' + navHtml + '</div>';
+
+      container.appendChild(card);
+    });
+
+    // Register change events
+    container.querySelectorAll('input[type="radio"]').forEach(function(radio) {
       radio.addEventListener('change', function() {
-        var card = this.closest('.quiz-card');
-        card.querySelector('.btn-next').disabled = false;
+        var step = parseInt(this.getAttribute('data-step'));
+        document.querySelector('#step-' + step + ' .btn-next').disabled = false;
       });
     });
 
-    function nextStep(step) {
-      // Hide current step
-      document.getElementById('step-' + (step - 1)).classList.add('hidden');
-      // Show next step
-      document.getElementById('step-' + step).classList.remove('hidden');
-      // Update progress bar
-      document.getElementById('bar-' + step).classList.add('done');
+    renderDots();
+    updateProgress();
+  }
+
+  function renderDots() {
+    var container = document.getElementById('stepDots');
+    container.innerHTML = '';
+    for (var i = 0; i < totalQ; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'step-dot' + (i === 0 ? ' active' : '');
+      dot.id = 'dot-' + (i + 1);
+      container.appendChild(dot);
+    }
+  }
+
+  function updateProgress() {
+    var pct = ((currentStep - 1) / totalQ * 100).toFixed(0);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = currentStep + ' / ' + totalQ;
+    for (var i = 1; i <= totalQ; i++) {
+      var dot = document.getElementById('dot-' + i);
+      dot.classList.remove('active', 'done');
+      if (i < currentStep) dot.classList.add('done');
+      else if (i === currentStep) dot.classList.add('active');
+    }
+  }
+
+  function nextStep(step) {
+    var currentCard = document.getElementById('step-' + (step - 1));
+    var nextCard = document.getElementById('step-' + step);
+    currentCard.classList.add('slide-out');
+    setTimeout(function() {
+      currentCard.classList.add('hidden');
+      currentCard.classList.remove('slide-out');
+      nextCard.classList.remove('hidden');
+      nextCard.classList.add('slide-in');
+      currentStep = step;
+      updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(function() { nextCard.classList.remove('slide-in'); }, 400);
+    }, 300);
+  }
+
+  function prevStep(step) {
+    var currentCard = document.getElementById('step-' + step);
+    var prevCard = document.getElementById('step-' + (step - 1));
+    currentCard.classList.add('slide-out');
+    setTimeout(function() {
+      currentCard.classList.add('hidden');
+      currentCard.classList.remove('slide-out');
+      prevCard.classList.remove('hidden');
+      prevCard.classList.add('slide-in');
+      currentStep = step - 1;
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(function() { prevCard.classList.remove('slide-in'); }, 400);
+    }, 300);
+  }
+
+  // ── Result ────────────────────────────────────────────────────
+  function showResult() {
+    // Hide current card
+    document.getElementById('step-' + totalQ).classList.add('hidden');
+
+    // Calculate scores
+    var dimScores = [];
+    var totalScore = 0;
+    QUESTIONS.forEach(function(q, i) {
+      var step = i + 1;
+      var checked = document.querySelector('input[name="q' + step + '"]:checked');
+      var score = checked ? parseInt(checked.value) : 0;
+      dimScores.push({ name: q.dimension, score: score, max: 3 });
+      totalScore += score;
+    });
+    var pct = Math.round(totalScore / (totalQ * 3) * 100);
+
+    // Badge + Level
+    var badge, level, summary;
+    if (pct >= 80) {
+      badge = '🟢 领先者';
+      level = 'AI转型就绪度：领先 level';
+      summary = '你的组织在AI转型的各核心维度上都表现出色。建议：加快规模化落地步伐，建立DRI机制确保执行力，将AI深度融入业务流程。关注公众号获取标杆案例和进阶SOP。';
+    } else if (pct >= 60) {
+      badge = '🟡 探索者';
+      level = 'AI转型就绪度：探索 level';
+      summary = '你的组织有一定的AI转型基础，多个维度表现良好，但还需要在个别关键领域加强。建议：优先补齐数据基建和中层管理者赋能，建立快速决策机制。';
+    } else if (pct >= 40) {
+      badge = '🟠 觉醒期';
+      level = 'AI转型就绪度：觉醒 level';
+      summary = '你的组织已经意识到AI转型的重要性，但在多个核心维度上还存在明显短板。建议：先从数字化基建和人才引进开始，小步快跑，积累成功案例后再扩大范围。';
+    } else {
+      badge = '🔴 起步阶段';
+      level = 'AI转型就绪度：起步 level';
+      summary = '你的组织AI转型还面临较大挑战，多个核心维度都需要系统性提升。建议：先做一次全面的数字化转型规划，明确优先级，不要盲目上AI项目。关注公众号获取详细诊断建议。';
     }
 
-    function showResult() {
-      // Hide last step
-      document.getElementById('step-5').classList.add('hidden');
-      document.getElementById('bar-5').classList.add('done');
-      // Calculate score
-      var total = 0;
-      var radios = document.querySelectorAll('input[type="radio"]:checked');
-      radios.forEach(function(radio) {
-        total += parseInt(radio.value);
+    document.getElementById('resultBadge').textContent = badge;
+    document.getElementById('resultScore').innerHTML = pct + '<span>/100</span>';
+    document.getElementById('resultLevel').textContent = level;
+    document.getElementById('resultSummary').textContent = summary;
+
+    // Dimension breakdown
+    var grid = document.getElementById('dimensionGrid');
+    grid.innerHTML = '';
+    dimScores.forEach(function(ds) {
+      var pct = Math.round(ds.score / ds.max * 100);
+      var levelClass = ds.score >= 2 ? 'level-high' : (ds.score >= 1 ? 'level-mid' : 'level-low');
+      var desc = ds.score >= 2 ? '表现良好，保持优势' : (ds.score >= 1 ? '需要关注和改进' : '亟需系统性提升');
+      var card = document.createElement('div');
+      card.className = 'dimension-card';
+      card.innerHTML = ''
+        + '<div class="dim-name">' + ds.name + '</div>'
+        + '<div class="dim-score-row">'
+        +   '<span class="dim-score">' + (ds.score * 33 + 1) + '/100</span>'
+        +   '<div class="dim-bar-track"><div class="dim-bar-fill ' + levelClass + '" data-width="' + pct + '"></div></div>'
+        + '</div>'
+        + '<div class="dim-desc">' + desc + '</div>';
+      grid.appendChild(card);
+    });
+
+    // Show result
+    var section = document.getElementById('resultSection');
+    section.classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Animate bars
+    setTimeout(function() {
+      grid.querySelectorAll('.dim-bar-fill').forEach(function(bar) {
+        bar.style.width = bar.getAttribute('data-width') + '%';
       });
-      // Display result
-      var scoreDisplay = document.getElementById('scoreDisplay');
-      var levelLabel = document.getElementById('levelLabel');
-      var levelDesc = document.getElementById('levelDesc');
-      var scoreBarFill = document.getElementById('scoreBarFill');
-      var resultSection = document.getElementById('resultSection');
-      scoreDisplay.textContent = total * 20 + '/100';
-      scoreBarFill.style.width = (total * 20) + '%';
-      if (total >= 12) {
-        levelLabel.textContent = '🟢 领先者 — AI转型已就绪';
-        levelDesc.textContent = '你的组织已经做好了AI转型的准备！建议：加快步伐，建立DRI机制，将AI融入业务流程。关注公众号获取详细转型SOP。';
-      } else if (total >= 8) {
-        levelLabel.textContent = '🟡 探索者 — 正在路上';
-        levelDesc.textContent = '你的组织有一定的基础，但还需要加强数据基建和人才梯队。建议：先从小规模的AI实验开始，积累信心和经验。';
-      } else if (total >= 4) {
-        levelLabel.textContent = '🟠 觉醒期 — 需要加速';
-        levelDesc.textContent = '你的组织AI转型还面临较大挑战。建议：先从数字化基建和人才引进开始，逐步培养AI思维。';
+    }, 200);
+  }
+
+  function restartQuiz() {
+    // Reset
+    answers = {};
+    currentStep = 1;
+    document.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
+    document.getElementById('resultSection').classList.remove('visible');
+    // Hide all cards, show first
+    for (var i = 1; i <= totalQ; i++) {
+      var card = document.getElementById('step-' + i);
+      if (i === 1) {
+        card.classList.remove('hidden');
+        card.classList.add('slide-in');
+        setTimeout(function() { card.classList.remove('slide-in'); }, 400);
       } else {
-        levelLabel.textContent = '🔴 起步阶段 — 需要重大变革';
-        levelDesc.textContent = '你的组织AI转型还刚刚开始。建议：先做一次全面的数字化转型规划，不要盲目上AI。关注公众号获取详细建议。';
+        card.classList.add('hidden');
       }
-      resultSection.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Disable next buttons
+      var btn = card.querySelector('.btn-next');
+      if (btn) btn.disabled = true;
     }
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Init ──────────────────────────────────────────────────────
+  renderCards();
   </script>
 </body>
 </html>
