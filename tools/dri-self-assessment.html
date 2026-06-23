@@ -3,1014 +3,1018 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRI成熟度自测 — AIHR数智引擎</title>
-  <meta name="description" content="系统评估你的组织AI转型就绪度。10个核心维度，15分钟深度自测，获取个性化转型路线图。">
-  <meta property="og:title" content="DRI成熟度自测 — AIHR数智引擎">
-  <meta property="og:description" content="系统评估组织AI转型就绪度，10个核心维度深度分析">
+  <title>DRI成熟度诊断｜AIHR数智引擎</title>
+  <meta name="description" content="15题深度自测你的组织DRI（Directly Responsible Individual）成熟度，覆盖责任机制、决策效率、组织文化、资源保障四大维度，获取定制化诊断报告。">
+  <link rel="canonical" href="https://www.aihrlab.online/tools/dri-self-assessment.html">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <!-- OG -->
+  <meta property="og:title" content="DRI成熟度诊断｜AIHR数智引擎">
+  <meta property="og:description" content="15题深度自测，科学评估组织DRI成熟度，获取定制化转型路线图。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aihrlab.online/tools/dri-self-assessment.html">
-  <meta property="og:site_name" content="AIHR数智引擎">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:image" content="https://www.aihrlab.online/assets/images/og-covers/og-default.jpg">
-  <link rel="stylesheet" href="../assets/css/style.min.css">
-  <link rel="canonical" href="https://www.aihrlab.online/tools/dri-self-assessment.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/og-cover-dri.jpg">
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "DRI成熟度自测表",
-    "description": "系统评估组织AI转型就绪度，10个核心维度深度分析",
+    "name": "DRI成熟度诊断",
+    "description": "15题深度自测组织DRI成熟度",
     "url": "https://www.aihrlab.online/tools/dri-self-assessment.html",
     "operatingSystem": "Web",
-    "applicationCategory": "EducationApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
-    "isPartOf": { "@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online" }
+    "applicationCategory": "Assessment"
   }
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BWLGRVRRGN');
-  </script>
   <style>
-    :root {
-      --green-50: #f0fdf4;
-      --green-100: #dcfce7;
-      --green-200: #bbf7d0;
-      --green-500: #22c55e;
-      --green-600: #16a34a;
-      --green-700: #15803d;
-      --gray-50: #f9fafb;
-      --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb;
-      --gray-300: #d1d5db;
-      --gray-400: #9ca3af;
-      --gray-500: #6b7280;
-      --gray-600: #4b5563;
-      --gray-700: #374151;
-      --gray-800: #1f2937;
-      --gray-900: #111827;
-      --radius: 12px;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+    /* ========== 页面容器 ========== */
+    .assessment-container {
+      max-width: 820px;
+      margin: 3rem auto 4rem;
+      padding: 0 1.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-      background: #f8fafc;
-      color: var(--gray-800);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Header ─────────────────────────────────── */
-    .page-header {
-      background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 30%, #ffffff 70%, #fefce8 100%);
-      padding: 3.5rem 1.5rem 2.5rem;
-      text-align: center;
+    /* ========== Header ========== */
+    .assessment-header {
+      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+      border-radius: 20px;
+      padding: 3rem 2.5rem 2.5rem;
+      color: #fff;
       position: relative;
       overflow: hidden;
+      margin-bottom: 2.5rem;
     }
-    .page-header::before {
+    .assessment-header::before {
       content: '';
       position: absolute;
       top: -60px; right: -60px;
-      width: 200px; height: 200px;
+      width: 220px; height: 220px;
       border-radius: 50%;
-      background: rgba(34, 197, 94, 0.06);
+      background: rgba(255,255,255,0.06);
     }
-    .page-header::after {
+    .assessment-header::after {
       content: '';
       position: absolute;
-      bottom: -40px; left: -40px;
-      width: 140px; height: 140px;
+      bottom: -40px; left: -30px;
+      width: 160px; height: 160px;
       border-radius: 50%;
-      background: rgba(34, 197, 94, 0.04);
+      background: rgba(255,255,255,0.04);
     }
-    .header-badge {
+    .ah-badge {
       display: inline-block;
-      padding: 0.3rem 0.9rem;
-      background: var(--green-50);
-      border: 1px solid var(--green-200);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
+      padding: 0.3rem 1rem;
       font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--green-700);
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
     }
-    .page-header h1 {
+    .ah-title {
       font-size: 2rem;
       font-weight: 800;
-      color: var(--gray-900);
-      letter-spacing: -0.03em;
-      line-height: 1.2;
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
       position: relative;
       z-index: 1;
     }
-    .page-header h1 em {
-      font-style: normal;
-      color: var(--green-600);
+    .ah-title span {
+      color: #95D5B2;
     }
-    .page-header .subtitle {
+    .ah-sub {
       font-size: 0.95rem;
-      color: var(--gray-500);
-      max-width: 480px;
-      margin: 0.6rem auto 0;
+      line-height: 1.7;
+      opacity: 0.88;
+      margin-bottom: 1.5rem;
       position: relative;
       z-index: 1;
     }
-    .page-header .meta {
+    .ah-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .ah-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      opacity: 0.8;
+    }
+    .ah-meta-item strong {
+      font-size: 1.1rem;
+      opacity: 1;
+    }
+
+    /* ========== 进度条 ========== */
+    .progress-section {
+      margin-bottom: 2rem;
+    }
+    .progress-bar-track {
+      width: 100%;
+      height: 6px;
+      background: #E8F5E9;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2D6A4F, #52B788);
+      border-radius: 3px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 6.67%;
+    }
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 4px;
+    }
+    .progress-step-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #C0DD97;
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.2rem;
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--gray-400);
-      position: relative;
-      z-index: 1;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #95C559;
+      transition: all 0.4s;
+      flex-shrink: 0;
     }
-    .page-header .meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
+    .progress-step-dot.done {
+      background: #95C559;
+      border-color: #95C559;
+      color: #fff;
     }
-
-    /* ── Container ─────────────────────────────── */
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-
-    /* ── Progress ──────────────────────────────── */
-    .progress-section {
-      padding: 1.5rem 0 0.5rem;
+    .progress-step-dot.active {
+      border-color: #2D6A4F;
+      background: #E8F5E9;
+      transform: scale(1.15);
     }
     .progress-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.6rem;
-      font-size: 0.8rem;
-      color: var(--gray-400);
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: #666;
     }
-    .progress-info .current-step {
-      font-weight: 600;
-      color: var(--green-600);
-    }
-    .progress-bar-track {
-      width: 100%;
-      height: 6px;
-      background: var(--gray-100);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green-500), var(--green-600));
-      border-radius: 3px;
-      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      width: 0%;
-    }
-    .step-dots {
-      display: flex;
-      gap: 6px;
-      margin-top: 0.7rem;
-    }
-    .step-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gray-200);
-      transition: background 0.3s, transform 0.3s;
-    }
-    .step-dot.active {
-      background: var(--green-500);
-      transform: scale(1.25);
-    }
-    .step-dot.done {
-      background: var(--green-600);
+    .progress-pct {
+      font-weight: 700;
+      color: #2D6A4F;
     }
 
-    /* ── Question Card ─────────────────────────── */
-    .quiz-card {
+    /* ========== 题目卡片 ========== */
+    .question-card {
       background: #fff;
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      padding: 2rem 1.75rem;
-      margin: 1.25rem 0;
-      box-shadow: var(--shadow-sm);
-      transition: opacity 0.35s, transform 0.35s;
-    }
-    .quiz-card.hidden {
+      border-radius: 16px;
+      border: 1px solid #E8F5E9;
+      padding: 2.5rem 2.5rem 2rem;
+      box-shadow: 0 2px 16px rgba(27,67,50,0.05);
       display: none;
+      animation: fadeSlideIn 0.45s ease;
     }
-    .quiz-card.slide-out {
-      opacity: 0;
-      transform: translateX(-30px);
+    .question-card.active {
+      display: block;
     }
-    .quiz-card.slide-in {
-      animation: slideIn 0.35s ease forwards;
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(30px); }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateX(40px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-
-    .question-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px; height: 32px;
-      background: var(--green-500);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
+    @keyframes fadeSlideOut {
+      from { opacity: 1; transform: translateX(0); }
+      to   { opacity: 0; transform: translateX(-40px); }
     }
-    .question-dimension {
+    .qc-step-label {
       display: inline-block;
-      padding: 0.15rem 0.55rem;
-      background: var(--green-50);
-      border: 1px solid var(--green-200);
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--green-700);
-      margin-bottom: 0.5rem;
-      margin-left: 0.5rem;
-    }
-    .quiz-card h2 {
-      font-size: 1.08rem;
+      background: #E8F5E9;
+      color: #2D6A4F;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--gray-900);
-      line-height: 1.55;
-      margin-bottom: 0.35rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
     }
-    .quiz-card .hint {
-      font-size: 0.82rem;
-      color: var(--gray-400);
-      margin-bottom: 1.25rem;
+    .qc-dimension {
+      font-size: 0.78rem;
+      color: #95C559;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+    .qc-question {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a1a2e;
       line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+    .qc-hint {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid #C0DD97;
     }
 
-    /* ── Option ────────────────────────────────── */
-    .option {
-      display: block;
-      margin-bottom: 0.65rem;
-      cursor: pointer;
-      position: relative;
+    /* ========== 选项 ========== */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
     }
-    .option input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-      width: 0; height: 0;
-    }
-    .option-label {
+    .option-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.85rem 1rem;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 10px;
-      transition: all 0.2s ease;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s;
       position: relative;
     }
-    .option-label:hover {
-      border-color: var(--green-500);
-      background: var(--green-50);
+    .option-item:hover {
+      border-color: #95C559;
+      background: #f0faf4;
     }
-    .option input:checked + .option-label {
-      border-color: var(--green-600);
-      background: var(--green-50);
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+    .option-item.selected {
+      border-color: #2D6A4F;
+      background: #E8F5E9;
     }
-    .option input:checked + .option-label .option-marker {
-      background: var(--green-600);
-      color: #fff;
-      border-color: var(--green-600);
-    }
-    .option input:checked + .option-label .check-icon {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .option-marker {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px; height: 26px;
-      min-width: 26px;
-      border: 2px solid var(--gray-300);
+    .option-radio {
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--gray-500);
-      transition: all 0.2s ease;
+      border: 2px solid #ccc;
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.25s;
       margin-top: 1px;
     }
-    .option-text {
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--gray-700);
+    .option-item.selected .option-radio {
+      border-color: #2D6A4F;
+      background: #2D6A4F;
     }
-    .option-text strong {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 0.15rem;
-    }
-    .check-icon {
+    .option-item.selected .option-radio::after {
+      content: '';
       position: absolute;
-      top: 0.7rem;
-      right: 1rem;
-      width: 20px; height: 20px;
-      opacity: 0;
-      transform: scale(0.5);
-      transition: all 0.2s ease;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #fff;
     }
-    .check-icon svg {
-      width: 20px; height: 20px;
+    .option-check {
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #2D6A4F;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.7rem;
     }
-
-    /* ── Nav Buttons ──────────────────────────── */
-    .quiz-nav {
+    .option-item.selected .option-check {
       display: flex;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
     }
-    .btn-prev,
-    .btn-next {
-      flex: 1;
-      padding: 0.8rem 1.25rem;
-      border-radius: 10px;
+    .option-label {
       font-size: 0.92rem;
+      line-height: 1.65;
+      color: #333;
+    }
+    .option-score-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.1rem 0.5rem;
+      border-radius: 8px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .score-low    { background: #ffe8e8; color: #C0392B; }
+    .score-mid    { background: #fff3e0; color: #E67E22; }
+    .score-high   { background: #E8F5E9; color: #27AE60; }
+    .score-excellent { background: #D5F5E3; color: #1B4332; }
+
+    /* ========== 导航按钮 ========== */
+    .qc-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-prev, .btn-next, .btn-result {
+      padding: 0.7rem 1.8rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
       border: none;
     }
-    .btn-next {
-      background: var(--green-600);
-      color: #fff;
-    }
-    .btn-next:hover:not(:disabled) {
-      background: var(--green-700);
-    }
-    .btn-next:disabled {
-      background: var(--gray-200);
-      color: var(--gray-400);
-      cursor: not-allowed;
-    }
     .btn-prev {
-      background: var(--gray-100);
-      color: var(--gray-600);
-      flex: 0 0 auto;
-      padding: 0.8rem 1.25rem;
+      background: #f5f5f5;
+      color: #666;
     }
-    .btn-prev:hover {
-      background: var(--gray-200);
+    .btn-prev:hover { background: #eee; }
+    .btn-next, .btn-result {
+      background: linear-gradient(135deg, #2D6A4F, #40916C);
+      color: #fff;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .btn-next.enabled, .btn-result.enabled {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .btn-next.enabled:hover, .btn-result.enabled:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(45,106,79,0.25);
     }
 
-    /* ── Result ───────────────────────────────── */
-    .result-section {
+    /* ========== 结果页 ========== */
+    .result-card {
       display: none;
-      padding: 2rem 0 3rem;
-    }
-    .result-section.visible {
-      display: block;
-      animation: fadeUp 0.5s ease;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .result-hero {
-      background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
-      border: 1px solid var(--green-200);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .result-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 1rem;
       background: #fff;
-      border: 1px solid var(--green-200);
       border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--green-700);
-      margin-bottom: 1rem;
+      border: 1px solid #E8F5E9;
+      box-shadow: 0 4px 24px rgba(27,67,50,0.06);
+      overflow: hidden;
+      animation: fadeSlideIn 0.5s ease;
     }
-    .result-score {
-      font-size: 4.5rem;
+    .result-card.show { display: block; }
+    .rc-header {
+      background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+      padding: 2.5rem 2.5rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .rc-grade {
+      font-size: 2.2rem;
       font-weight: 800;
-      color: var(--green-600);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-    .result-score span {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--gray-400);
-    }
-    .result-level {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 0.5rem 0 0.75rem;
-      color: var(--gray-900);
-    }
-    .result-summary {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-
-    /* ── Dimension Breakdown ───────────────────── */
-    .dimension-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin: 1.5rem 0;
-    }
-    .dimension-card {
-      background: #fff;
-      border: 1px solid var(--gray-200);
-      border-radius: 10px;
-      padding: 1rem 1.1rem;
-    }
-    .dimension-card .dim-name {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gray-400);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
       margin-bottom: 0.5rem;
     }
-    .dimension-card .dim-score-row {
+    .rc-score {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 0.3rem;
+    }
+    .rc-score strong {
+      font-size: 2rem;
+      color: #95D5B2;
+    }
+    .rc-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      opacity: 0.82;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* 分项得分 */
+    .rc-dimensions {
+      padding: 2rem 2.5rem;
+    }
+    .rc-dim-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #2D6A4F;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .dim-row {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.4rem;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
     }
-    .dimension-card .dim-score {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gray-900);
+    .dim-name {
+      width: 140px;
+      font-size: 0.78rem;
+      color: #555;
+      flex-shrink: 0;
+      text-align: right;
     }
-    .dimension-card .dim-bar-track {
+    .dim-bar-track {
       flex: 1;
-      height: 5px;
-      background: var(--gray-100);
-      border-radius: 3px;
+      height: 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
       overflow: hidden;
     }
-    .dimension-card .dim-bar-fill {
+    .dim-bar-fill {
       height: 100%;
-      border-radius: 3px;
-      transition: width 0.8s ease;
-      width: 0%;
+      border-radius: 4px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0;
     }
-    .dim-bar-fill.level-high   { background: var(--green-500); }
-    .dim-bar-fill.level-mid    { background: #f59e0b; }
-    .dim-bar-fill.level-low    { background: #ef4444; }
-    .dimension-card .dim-desc {
+    .dim-score {
+      width: 35px;
       font-size: 0.78rem;
-      color: var(--gray-500);
-      line-height: 1.5;
-    }
-
-    /* ── CTA ──────────────────────────────────── */
-    .result-cta {
-      background: #fff;
-      border: 1.5px solid var(--green-200);
-      border-radius: 14px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      margin: 1.5rem 0;
-    }
-    .result-cta .cta-icon {
-      width: 48px; height: 48px;
-      margin: 0 auto 1rem;
-      background: var(--green-50);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-    .result-cta h3 {
-      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: 0.5rem;
-    }
-    .result-cta p {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-      max-width: 400px;
-      margin: 0 auto 1.25rem;
-    }
-    .qrcode-box {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      max-width: 380px;
-      margin: 0 auto;
-      padding: 1rem;
-      background: var(--gray-50);
-      border: 1px dashed var(--gray-300);
-      border-radius: 10px;
-    }
-    .qrcode-box img {
-      width: 100px; height: 100px;
-      border-radius: 6px;
+      text-align: right;
       flex-shrink: 0;
     }
-    .qrcode-box .qr-text {
-      text-align: left;
-      font-size: 0.82rem;
-      color: var(--gray-600);
-      line-height: 1.6;
-    }
-    .qrcode-box .qr-text strong {
-      color: var(--gray-900);
-    }
+    .bar-low      { background: linear-gradient(90deg, #E74C3C, #C0392B); }
+    .bar-mid      { background: linear-gradient(90deg, #F39C12, #E67E22); }
+    .bar-high     { background: linear-gradient(90deg, #2ECC71, #27AE60); }
+    .bar-excellent { background: linear-gradient(90deg, #27AE60, #1B4332); }
 
-    .result-actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-      justify-content: center;
-    }
-    .btn-primary-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.7rem 1.5rem;
-      background: #fff;
-      border: 1.5px solid var(--green-600);
-      border-radius: 10px;
-      font-size: 0.9rem;
+    .dim-status {
+      width: 90px;
+      font-size: 0.7rem;
       font-weight: 600;
-      color: var(--green-600);
-      text-decoration: none;
-      transition: all 0.2s;
+      flex-shrink: 0;
     }
-    .btn-primary-outline:hover {
-      background: var(--green-50);
-    }
-    .btn-solid-green {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.7rem 1.5rem;
-      background: var(--green-600);
-      border: none;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-solid-green:hover {
-      background: var(--green-700);
-    }
+    .status-strong   { color: #27AE60; }
+    .status-ok       { color: #F39C12; }
+    .status-weak     { color: #E74C3C; }
 
-    /* ── Footer ────────────────────────────────── */
-    .page-footer {
+    /* CTA */
+    .rc-cta {
+      padding: 2rem 2.5rem 2.5rem;
       text-align: center;
-      padding: 2rem 0;
-      border-top: 1px solid var(--gray-200);
-      color: var(--gray-400);
-      font-size: 0.82rem;
-      margin-top: 2rem;
+      border-top: 1px solid #f0f0f0;
     }
-    .page-footer a { color: var(--green-600); text-decoration: none; }
-    .page-footer a:hover { text-decoration: underline; }
+    .rc-qrcode {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      margin: 0 auto 1.2rem;
+      display: block;
+    }
+    .rc-cta-text {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .rc-cta-text code {
+      background: #E8F5E9;
+      color: #2D6A4F;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .btn-retake {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: #fff;
+      color: #2D6A4F;
+      border: 2px solid #2D6A4F;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-retake:hover {
+      background: #2D6A4F;
+      color: #fff;
+    }
 
-    /* ── Responsive ───────────────────────────── */
+    /* ========== 响应式 ========== */
     @media (max-width: 640px) {
-      .page-header h1 { font-size: 1.6rem; }
-      .quiz-card { padding: 1.5rem 1.25rem; }
-      .dimension-grid { grid-template-columns: 1fr; }
-      .qrcode-box { flex-direction: column; text-align: center; }
-      .qrcode-box .qr-text { text-align: center; }
-      .result-actions { flex-direction: column; }
+      .assessment-header { padding: 2rem 1.5rem 1.8rem; }
+      .ah-title { font-size: 1.5rem; }
+      .ah-meta { gap: 1rem; }
+      .question-card { padding: 1.5rem 1.2rem 1.2rem; }
+      .qc-question { font-size: 1.08rem; }
+      .progress-step-dot { width: 22px; height: 22px; font-size: 0.55rem; }
+      .rc-header { padding: 2rem 1.5rem 1.5rem; }
+      .rc-dimensions { padding: 1.5rem 1.2rem; }
+      .dim-name { width: 100px; font-size: 0.72rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="page-header">
-    <div class="header-badge">AIHR 数智引擎 · 免费自测工具</div>
-    <h1><em>DRI成熟度</em>自测表</h1>
-    <p class="subtitle">系统评估你的组织AI转型就绪度。10个核心维度，精准定位转型卡点。</p>
-    <div class="meta">
-      <span>📋 10道题</span>
-      <span>⏱ 约8分钟</span>
-      <span>📊 维度报告</span>
+<div class="assessment-container">
+
+  <!-- ===== Header ===== -->
+  <div class="assessment-header">
+    <div class="ah-badge">🔬 科学诊断 · 基于 DRI 框架</div>
+    <h1 class="ah-title">DRI 成熟度<span>深度诊断</span></h1>
+    <p class="ah-sub">
+      15 道维度化题目，覆盖责任机制、决策效率、组织文化、资源保障四大领域。<br>
+      基于硅谷科技公司 DRI（Directly Responsible Individual）实践框架设计，完成可获取定制化诊断报告。
+    </p>
+    <div class="ah-meta">
+      <div class="ah-meta-item"><strong>15</strong> 道深度题目</div>
+      <div class="ah-meta-item"><strong>4</strong> 大诊断维度</div>
+      <div class="ah-meta-item"><strong>~8</strong> 分钟完成</div>
+      <div class="ah-meta-item"><strong>免费</strong> 完整报告</div>
     </div>
   </div>
 
-  <div class="container">
-
-    <!-- Progress -->
-    <div class="progress-section">
-      <div class="progress-info">
-        <span>进度</span>
-        <span class="current-step" id="progressText">1 / 10</span>
-      </div>
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="progressFill"></div>
-      </div>
-      <div class="step-dots" id="stepDots"></div>
+  <!-- ===== 进度条 ===== -->
+  <div class="progress-section">
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressFill"></div>
     </div>
+    <div class="progress-steps" id="progressSteps"></div>
+    <div class="progress-info">
+      <span>完成进度</span>
+      <span class="progress-pct" id="progressPct">7%</span>
+    </div>
+  </div>
 
-    <!-- Questions (10) -->
-    <div id="quizCards"></div>
+  <!-- ===== 题目卡片（15题） ===== -->
+  <div id="questionCards"></div>
 
-    <!-- Result -->
-    <div class="result-section" id="resultSection">
-      <div class="result-hero">
-        <div class="result-badge" id="resultBadge">—</div>
-        <div class="result-score" id="resultScore">0<span>/100</span></div>
-        <div class="result-level" id="resultLevel">—</div>
-        <p class="result-summary" id="resultSummary">—</p>
-      </div>
+  <!-- ===== 结果页 ===== -->
+  <div class="result-card" id="resultCard">
+    <div class="rc-header">
+      <div class="rc-grade" id="rcGrade"></div>
+      <div class="rc-score">综合得分 <strong id="rcScore">0</strong> / 45</div>
+      <p class="rc-desc" id="rcDesc"></p>
+    </div>
+    <div class="rc-dimensions">
+      <div class="rc-dim-title">📊 四维分项诊断</div>
+      <div id="dimBars"></div>
+    </div>
+    <div class="rc-cta">
+      <img src="../assets/images/qrcode-wechat.jpg" alt="公众号二维码" class="rc-qrcode">
+      <p class="rc-cta-text">
+        关注「AIHR数智引擎」公众号<br>
+        回复 <code>DRI</code> 获取完整版转型路线图与操作手册
+      </p>
+      <button class="btn-retake" onclick="retake()">重新诊断</button>
+    </div>
+  </div>
 
-      <h3 style="font-size:0.92rem;font-weight:700;color:var(--gray-700);margin:1.5rem 0 0.75rem;">各维度得分明细</h3>
-      <div class="dimension-grid" id="dimensionGrid"></div>
+</div>
 
-      <div class="result-cta">
-        <div class="cta-icon">📥</div>
-        <h3>获取完整版转型路线图</h3>
-        <p>自测表仅展示核心维度评分。关注公众号获取完整版，含每维度详细诊断、优先级行动清单、标杆案例参考。</p>
-        <div class="qrcode-box">
-          <img src="../assets/images/qrcode-wechat.jpg" alt="AIHR数智引擎公众号二维码">
-          <div class="qr-text">
-            <strong>微信扫码关注</strong><br>
-            「AIHR数智引擎」公众号<br>
-            回复 <strong style="color:var(--green-600);">DRI</strong> 获取完整版自测表及转型路线图
-          </div>
+<script>
+// ========== 题目数据（15题） ==========
+const questions = [
+  {
+    id: 'q1',
+    dimension: '责任清晰度',
+    domain: '责任机制',
+    question: '当跨部门AI项目出现延期或质量问题时，你们能否在10分钟内准确定位唯一负责人？',
+    hint: 'DRI 机制的核心在于"唯一性"——每个关键决策必须有且只有一个最终负责人，避免集体负责即无人负责。',
+    options: [
+      { label: 'A. 经常互相推诿，需要高层协调才能明确责任归属', score: 0 },
+      { label: 'B. 有名义负责人，但执行中仍需要多人共同决策', score: 1 },
+      { label: 'C. 能找到主责人，但配合部门的责任边界模糊', score: 2 },
+      { label: 'D. 能快速定位唯一DRI，且责任边界清晰写入项目文档', score: 3 }
+    ]
+  },
+  {
+    id: 'q2',
+    dimension: '决策速度',
+    domain: '决策效率',
+    question: '从发现一个需要AI介入的业务问题，到正式立项并分配资源，平均需要多长时间？',
+    hint: '高效组织的AI决策周期通常在2周以内。决策延迟是AI转型失败的首要原因（McKinsey, 2023）。',
+    options: [
+      { label: 'A. 超过3个月，需要多轮评审会议', score: 0 },
+      { label: 'B. 1-3个月，需要完整的业务案例和ROI分析', score: 1 },
+      { label: 'C. 2周-1个月，有标准化立项流程', score: 2 },
+      { label: 'D. 1周内，DRI有权直接启动试点项目', score: 3 }
+    ]
+  },
+  {
+    id: 'q3',
+    dimension: '领导力承诺',
+    domain: '责任机制',
+    question: 'AI转型举措主要由哪个层级推动？',
+    hint: 'MIT Sloan研究表明，AI转型成功概率在CEO直接推动下提升3.2倍。缺少高层DRI的转型往往是局部优化。',
+    options: [
+      { label: 'A. 主要由个别部门自发尝试，无高层统筹', score: 0 },
+      { label: 'B. CHO/CTO推动，但CEO参与度有限', score: 1 },
+      { label: 'C. CEO指定专人负责，但未纳入战略优先级', score: 2 },
+      { label: 'D. CEO本人担任AI转型DRI，定期review进展', score: 3 }
+    ]
+  },
+  {
+    id: 'q4',
+    dimension: 'HR角色定位',
+    domain: '责任机制',
+    question: '在你们组织的AI转型中，HR部门扮演什么角色？',
+    hint: 'AI时代的HR需从"支持职能"转型为"组织设计架构师"。DRI机制本身就是一种HR组织设计实践。',
+    options: [
+      { label: 'A. 基本不参与，认为是技术部门的事', score: 0 },
+      { label: 'B. 负责AI工具培训和技能培训', score: 1 },
+      { label: 'C. 参与转型设计，但不是核心决策成员', score: 2 },
+      { label: 'D. HR负责人是AI转型核心DRI之一，主导组织设计', score: 3 }
+    ]
+  },
+  {
+    id: 'q5',
+    dimension: '数据基础设施',
+    domain: '资源保障',
+    question: '你们组织的数据治理水平如何？是否具备支撑AI应用的数据基础设施？',
+    hint: 'GIGO（Garbage In, Garbage Out）是AI项目失败的技术根因。没有高质量数据，再先进的算法也无法产生业务价值。',
+    options: [
+      { label: 'A. 数据分散在各部门，格式不统一，质量堪忧', score: 0 },
+      { label: 'B. 有数据孤岛，但正在推动数据治理项目', score: 1 },
+      { label: 'C. 有统一的数据平台，但数据质量仍需提升', score: 2 },
+      { label: 'D. 有完善的数据治理体系，数据质量实时监控', score: 3 }
+    ]
+  },
+  {
+    id: 'q6',
+    dimension: '中层管理者态度',
+    domain: '组织文化',
+    question: '中层管理者（部门负责人/Team Lead）对AI转型的态度如何？',
+    hint: '中层是AI转型的"sandwich layer"——高层推动、基层执行，中层态度决定转型能否真正落地。抵触情绪通常源于对角色消失的恐惧。',
+    options: [
+      { label: 'A. 普遍抵触，担心AI削弱自身管理价值', score: 0 },
+      { label: 'B. 表面支持，但实际行动有限', score: 1 },
+      { label: 'C. 部分积极，部分观望，分化明显', score: 2 },
+      { label: 'D. 中层是AI转型的主动推动者，担任一线DRI', score: 3 }
+    ]
+  },
+  {
+    id: 'q7',
+    dimension: '人才就绪度',
+    domain: '资源保障',
+    question: '组织是否有系统性的AI能力提升计划？',
+    hint: 'Deloitte 2024人力资本报告显示，有系统化AI培训计划的企业的AI项目ROI是零散培训的4.7倍。',
+    options: [
+      { label: 'A. 没有，员工靠自学或外部课程', score: 0 },
+      { label: 'B. 有偶尔的培训，但无体系化规划', score: 1 },
+      { label: 'C. 有年度AI学习计划，覆盖关键岗位', score: 2 },
+      { label: 'D. 有分层级、分角色的AI能力地图和认证体系', score: 3 }
+    ]
+  },
+  {
+    id: 'q8',
+    dimension: '绩效对齐',
+    domain: '责任机制',
+    question: '员工的绩效考核指标（KPI/OKR）中，是否纳入了AI相关维度？',
+    hint: '没有纳入绩效的行为不会发生第二次。AI转型需要"what gets measured gets done"的管理学基本原理支撑。',
+    options: [
+      { label: 'A. 完全没有，绩效指标与AI无关', score: 0 },
+      { label: 'B. 有鼓励性条款，但不影响总体评分', score: 1 },
+      { label: 'C. AI贡献占绩效权重10-20%', score: 2 },
+      { label: 'D. AI能力和贡献是绩效核心维度，占30%以上', score: 3 }
+    ]
+  },
+  {
+    id: 'q9',
+    dimension: '治理规范',
+    domain: '组织文化',
+    question: '组织是否建立了AI伦理、安全和合规的治理规范？',
+    hint: '欧盟AI Act（2024）要求企业建立AI治理体系。治理规范不是约束，而是让AI创新在可控轨道上加速。',
+    options: [
+      { label: 'A. 没有，AI使用处于灰色地带', score: 0 },
+      { label: 'B. 有简单的行为规范，但未系统化', score: 1 },
+      { label: 'C. 有成文规范，由法务或合规部门维护', score: 2 },
+      { label: 'D. 有完整的AI治理框架，定期review和更新', score: 3 }
+    ]
+  },
+  {
+    id: 'q10',
+    dimension: '执行记录',
+    domain: '决策效率',
+    question: '过去12个月内，组织成功交付的AI试点项目数量如何？',
+    hint: '试点项目的成功率是组织AI成熟度的直接信号。0-1的突破比1-100的复制更难，但也更有价值。',
+    options: [
+      { label: 'A. 没有成功案例，多个项目停滞或失败', score: 0 },
+      { label: 'B. 有1-2个试点，但效果未达预期', score: 1 },
+      { label: 'C. 有3-5个成功试点，部分已推广', score: 2 },
+      { label: 'D. 有5+个成功案例，AI已融入业务流程', score: 3 }
+    ]
+  },
+  // ===== 新增5题 =====
+  {
+    id: 'q11',
+    dimension: '试错容忍度',
+    domain: '组织文化',
+    question: '当AI试点项目失败时，组织的典型反应是什么？',
+    hint: '硅谷文化中的"fail fast, learn faster"是AI创新的核心驱动力。对失败的惩罚会直接抑制一线DRI的主动性。参考文献：Edmondson (2011) 团队心理安全。',
+    options: [
+      { label: 'A. 追责到人，影响绩效和晋升', score: 0 },
+      { label: 'B. 虽不追责，但失败项目被低调处理', score: 1 },
+      { label: 'C. 有复盘机制，失败经验被记录分享', score: 2 },
+      { label: 'D. 失败被视为学习机会，有专门的"失败奖金"或分享会', score: 3 }
+    ]
+  },
+  {
+    id: 'q12',
+    dimension: '跨部门协作',
+    domain: '决策效率',
+    question: 'AI项目涉及多个部门时，协作效率如何？',
+    hint: 'DRI不意味着"单打独斗"。有效的DRI机制需要明确的协作协议——谁拥有最终决策权，谁提供输入，谁负责执行。',
+    options: [
+      { label: 'A. 部门墙严重，协作需要高层协调', score: 0 },
+      { label: 'B. 有协作意愿，但流程和权责不清晰', score: 1 },
+      { label: 'C. 有跨部门协作机制，DRI拥有协调权', score: 2 },
+      { label: 'D. 有成熟的矩阵式协作协议，DRI可调动跨职能资源', score: 3 }
+    ]
+  },
+  {
+    id: 'q13',
+    dimension: '资源配置保障',
+    domain: '资源保障',
+    question: 'AI转型是否有专项预算和专职团队支持？',
+    hint: '麦肯锡2024年调研显示，有专项AI预算的企业转型成功率是"从现有预算挤"的2.8倍。资源配置是承诺的最直接信号。',
+    options: [
+      { label: 'A. 没有专项预算，AI工作靠"业余时间"', score: 0 },
+      { label: 'B. 有少量预算，但优先保障传统业务', score: 1 },
+      { label: 'C. 有专项AI预算，占IT预算10-20%', score: 2 },
+      { label: 'D. AI有独立预算线，且配置专职DRI团队', score: 3 }
+    ]
+  },
+  {
+    id: 'q14',
+    dimension: '变革沟通能力',
+    domain: '组织文化',
+    question: '组织如何向员工传达AI转型的目标和进展？',
+    hint: '透明沟通是降低变革阻力的关键。AI转型中的"信息真空"会迅速被谣言和恐惧填满。参考文献：Kotter (2012) 变革八大步骤。',
+    options: [
+      { label: 'A. 传达有限，员工对AI转型方向不清楚', score: 0 },
+      { label: 'B. 有 occasional 全员邮件，但互动有限', score: 1 },
+      { label: 'C. 定期全员会议，有转型进展公示', score: 2 },
+      { label: 'D. 有双向沟通机制（问卷/焦点小组），员工参与转型设计', score: 3 }
+    ]
+  },
+  {
+    id: 'q15',
+    dimension: '持续优化机制',
+    domain: '决策效率',
+    question: 'AI项目上线后，是否有系统性的效果追踪和迭代优化机制？',
+    hint: 'AI系统的价值在于持续迭代，而非一次性交付。Google的MLOps框架强调"上线即开始"，需要DRI持续负责模型效果。',
+    options: [
+      { label: 'A. 上线后即交付业务方，技术团队不再跟进', score: 0 },
+      { label: 'B. 有基本的效果监控，但优化不系统', score: 1 },
+      { label: 'C. 有定期的模型效果review和优化迭代', score: 2 },
+      { label: 'D. 有完整的MLOps流程，DRI对模型全生命周期负责', score: 3 }
+    ]
+  }
+];
+
+// ========== 状态 ==========
+let currentStep = 1;
+let answers = {};
+const totalSteps = questions.length;
+
+// ========== 初始化 ==========
+function init() {
+  buildProgressSteps();
+  buildQuestionCards();
+  showStep(1);
+}
+
+function buildProgressSteps() {
+  const container = document.getElementById('progressSteps');
+  container.innerHTML = '';
+  for (let i = 1; i <= totalSteps; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'progress-step-dot';
+    dot.id = 'dot-' + i;
+    dot.textContent = i;
+    container.appendChild(dot);
+  }
+}
+
+function buildQuestionCards() {
+  const container = document.getElementById('questionCards');
+  container.innerHTML = '';
+  questions.forEach((q, idx) => {
+    const step = idx + 1;
+    const card = document.createElement('div');
+    card.className = 'question-card' + (step === 1 ? ' active' : '');
+    card.id = 'step-' + step;
+
+    const domainTag = q.domain;
+
+    let optionsHTML = '';
+    q.options.forEach((opt, oi) => {
+      const scoreClass = opt.score === 0 ? 'score-low' : opt.score === 1 ? 'score-mid' : opt.score === 2 ? 'score-high' : 'score-excellent';
+      const scoreLabel = opt.score === 0 ? '薄弱' : opt.score === 1 ? '起步' : opt.score === 2 ? '良好' : '优秀';
+      optionsHTML += `
+        <div class="option-item" onclick="selectOption(${step}, ${oi}, this)">
+          <div class="option-radio"></div>
+          <span class="option-label">${opt.label}</span>
+          <span class="option-score-tag ${scoreClass}">${scoreLabel}</span>
+          <div class="option-check">✓</div>
         </div>
+      `;
+    });
+
+    const isLast = step === totalSteps;
+    card.innerHTML = `
+      <div class="qc-step-label">${domainTag} · 第 ${step}/${totalSteps} 题</div>
+      <div class="qc-dimension">📌 ${q.dimension}</div>
+      <div class="qc-question">${q.question}</div>
+      <div class="qc-hint">💡 ${q.hint}</div>
+      <div class="options-list">${optionsHTML}</div>
+      <div class="qc-nav">
+        <button class="btn-prev" ${step === 1 ? 'style="visibility:hidden"' : ''} onclick="goToStep(${step - 1})">← 上一题</button>
+        ${isLast
+          ? `<button class="btn-result" id="btn-result-${step}" onclick="showResult()">查看诊断报告</button>`
+          : `<button class="btn-next" id="btn-next-${step}" onclick="goToStep(${step + 1})">下一题 →</button>`
+        }
       </div>
+    `;
+    container.appendChild(card);
+  });
+}
 
-      <div class="result-actions">
-        <a href="../articles/index.html" class="btn-primary-outline">📚 阅读相关文章</a>
-        <a href="#" class="btn-solid-green" onclick="restartQuiz();return false;">🔄 重新自测</a>
+// ========== 选项点击 ==========
+function selectOption(step, optIdx, el) {
+  // 清除同题选中
+  const card = document.getElementById('step-' + step);
+  card.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+  el.classList.add('selected');
+
+  // 记录答案
+  answers['q' + step] = questions[step - 1].options[optIdx].score;
+
+  // 启用下一步
+  const nextBtn = document.getElementById('btn-next-' + step);
+  const resultBtn = document.getElementById('btn-result-' + step);
+  if (nextBtn) { nextBtn.classList.add('enabled'); }
+  if (resultBtn) { resultBtn.classList.add('enabled'); }
+
+  // 更新进度点
+  const dot = document.getElementById('dot-' + step);
+  if (dot) dot.classList.add('done');
+}
+
+// ========== 步骤切换 ==========
+function goToStep(target) {
+  if (target < 1 || target > totalSteps) return;
+  const currentCard = document.getElementById('step-' + currentStep);
+  const targetCard = document.getElementById('step-' + target);
+
+  if (currentCard) {
+    currentCard.style.animation = 'fadeSlideOut 0.3s ease forwards';
+    setTimeout(() => {
+      currentCard.classList.remove('active');
+      currentCard.style.animation = '';
+      if (targetCard) {
+        targetCard.classList.add('active');
+        targetCard.style.animation = 'fadeSlideIn 0.4s ease';
+      }
+    }, 280);
+  }
+  currentStep = target;
+  updateProgress();
+}
+
+function showStep(step) {
+  currentStep = step;
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = Math.round((currentStep / totalSteps) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+
+  // 更新步骤点
+  for (let i = 1; i <= totalSteps; i++) {
+    const dot = document.getElementById('dot-' + i);
+    if (!dot) continue;
+    dot.classList.remove('active');
+    if (i < currentStep) dot.classList.add('done');
+    if (i === currentStep) dot.classList.add('active');
+  }
+}
+
+// ========== 计算结果 ==========
+function showResult() {
+  // 检查是否全部作答
+  for (let i = 1; i <= totalSteps; i++) {
+    if (answers['q' + i] === undefined) {
+      alert('请先完成第 ' + i + ' 题');
+      goToStep(i);
+      return;
+    }
+  }
+
+  // 计算总分
+  let totalScore = 0;
+  const dimScores = {};
+  questions.forEach((q, idx) => {
+    const score = answers['q' + (idx + 1)];
+    totalScore += score;
+    if (!dimScores[q.domain]) dimScores[q.domain] = [];
+    dimScores[q.domain].push({ name: q.dimension, score: score });
+  });
+
+  // 等级判定
+  const maxScore = totalSteps * 3;
+  const ratio = totalScore / maxScore;
+  let grade, desc;
+  if (ratio >= 0.8) {
+    grade = '🟢 领先者';
+    desc = '您的组织已建立成熟的DRI机制，AI转型具备坚实的组织基础。建议聚焦深度优化和规模化复制，巩固先发优势。';
+  } else if (ratio >= 0.6) {
+    grade = '🟡 探索者';
+    desc = '您的组织在部分维度已建立DRI意识，但整体机制仍需系统化。建议优先补全责任清晰度和决策速度两大短板。';
+  } else if (ratio >= 0.4) {
+    grade = '🟠 觉醒期';
+    desc = '您的组织已意识到DRI的价值，但落地程度有限。建议从一个试点项目开始，建立DRI成功案例后再推广。';
+  } else {
+    grade = '🔴 起步阶段';
+    desc = '您的组织尚未建立系统性的DRI机制。建议从领导力承诺和责任清晰度两个维度入手，这是所有高效组织的基础。';
+  }
+
+  // 显示结果页
+  document.getElementById('rcGrade').textContent = grade;
+  document.getElementById('rcScore').textContent = totalScore;
+  document.getElementById('rcDesc').textContent = desc;
+
+  // 构建维度条形图
+  const domainAvg = {};
+  Object.keys(dimScores).forEach(domain => {
+    const scores = dimScores[domain].map(d => d.score);
+    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+    domainAvg[domain] = avg;
+  });
+
+  const dimContainer = document.getElementById('dimBars');
+  dimContainer.innerHTML = '';
+  Object.keys(domainAvg).forEach(domain => {
+    const avg = domainAvg[domain];
+    const pct = (avg / 3) * 100;
+    const barClass = avg < 1 ? 'bar-low' : avg < 2 ? 'bar-mid' : avg < 2.5 ? 'bar-high' : 'bar-excellent';
+    const statusClass = avg < 1 ? 'status-weak' : avg < 2 ? 'status-ok' : 'status-strong';
+
+    // 该领域下的所有维度
+    const dims = dimScores[domain];
+    let dimsHTML = '';
+    dims.forEach(d => {
+      const dpct = (d.score / 3) * 100;
+      const dbar = d.score < 1 ? 'bar-low' : d.score < 2 ? 'bar-mid' : d.score < 2.5 ? 'bar-high' : 'bar-excellent';
+      dimsHTML += `<div class="dim-row" style="opacity:0.7; font-size:0.75rem;">
+        <div class="dim-name" style="width:140px;">${d.name}</div>
+        <div class="dim-bar-track"><div class="dim-bar-fill ${dbar}" style="width:${dpct}%"></div></div>
+        <div class="dim-score">${d.score}/3</div>
+      </div>`;
+    });
+
+    const row = document.createElement('div');
+    row.innerHTML = `
+      <div class="dim-row">
+        <div class="dim-name"><strong>${domain}</strong></div>
+        <div class="dim-bar-track"><div class="dim-bar-fill ${barClass}" data-width="${pct}"></div></div>
+        <div class="dim-score">${avg.toFixed(1)}/3</div>
+        <div class="dim-status ${statusClass}">${avg >= 2 ? '✅ 良好' : avg >= 1 ? '⚠️ 待提升' : '❌ 薄弱'}</div>
       </div>
-    </div>
+      ${dimsHTML}
+      <div style="height:0.8rem;"></div>
+    `;
+    dimContainer.appendChild(row);
+  });
 
-  </div>
+  // 切换显示
+  document.getElementById('questionCards').style.display = 'none';
+  document.querySelector('.progress-section').style.display = 'none';
+  const rc = document.getElementById('resultCard');
+  rc.classList.add('show');
 
-  <div class="page-footer">
-    Powered by <a href="https://www.aihrlab.online" target="_blank">AIHR数智引擎</a>
-  </div>
-
-  <!-- Data + Logic -->
-  <script>
-  // ── 10 Questions, each maps to a dimension ───────────────────
-  var QUESTIONS = [
-    {
-      dimension: "责任清晰度",
-      question: "当跨部门AI项目出现延期或质量问题时，你们能否快速定位到唯一负责人？",
-      hint: "DRI（Directly Responsible Individual）机制是硅谷科技公司组织效率的核心秘诀。",
-      options: [
-        { label: "A", text: "能快速定位唯一负责人，且此人有最终决策权和资源调配权", score: 3 },
-        { label: "B", text: "有名义负责人，但重大决策仍需集体讨论或上级审批", score: 2 },
-        { label: "C", text: "经常互相推诿，需要高层协调才能推动", score: 1 },
-        { label: "D", text: "职责分工不明确，出了问题没人觉得是自己的责任", score: 0 }
-      ]
-    },
-    {
-      dimension: "决策速度",
-      question: "从发现一个业务问题到完成AI解决方案的决策，你们平均需要多长时间？",
-      hint: "AI时代的竞争优势在于迭代速度，决策周期直接决定转型成效。",
-      options: [
-        { label: "A", text: "1周内：发现→评估→决策→启动，全流程高效运转", score: 3 },
-        { label: "B", text: "2-4周：需要多层审批，但方向明确后能较快执行", score: 2 },
-        { label: "C", text: "1-3个月：决策链条长，经常在'再研究研究'中错失窗口", score: 1 },
-        { label: "D", text: "3个月以上：决策机制僵化，AI项目往往止于PPT", score: 0 }
-      ]
-    },
-    {
-      dimension: "领导力承诺",
-      question: "你们组织的AI转型倡议，主要是由哪个层级推动的？",
-      hint: "AI转型是战略转型，而非技术方案，推动力层级决定资源投入强度。",
-      options: [
-        { label: "A", text: "CEO/创始人直接推动，纳入战略规划，有专项预算", score: 3 },
-        { label: "B", text: "业务线负责人推动，有一定自主权但需协调资源", score: 2 },
-        { label: "C", text: "IT部门或数字化团队推动，业务侧配合度有限", score: 1 },
-        { label: "D", text: "还没有正式的AI转型倡议，零星尝试", score: 0 }
-      ]
-    },
-    {
-      dimension: "HR角色定位",
-      question: "在你们组织的AI转型中，HR部门扮演什么角色？",
-      hint: "AI时代HR需要从'职能执行者'进化为'组织架构师'，这是转型成功的关键变量。",
-      options: [
-        { label: "A", text: "HR正在主动设计AI时代的组织模型和人才体系", score: 3 },
-        { label: "B", text: "HR负责执行管理层决策，落地培训和变革管理", score: 2 },
-        { label: "C", text: "HR还在处理日常人事事务，AI转型参与度低", score: 1 },
-        { label: "D", text: "组织还没有独立的HR部门，或HR职能外包", score: 0 }
-      ]
-    },
-    {
-      dimension: "数据基础设施",
-      question: "你们组织的数据治理水平如何？这是AI应用的基础设施。",
-      hint: "AI的效果取决于数据质量。垃圾数据进，垃圾结果出（GIGO原则）。",
-      options: [
-        { label: "A", text: "已建立统一数据中台，数据质量标准明确，治理机制完善", score: 3 },
-        { label: "B", text: "有ERP/CRM等系统，但数据孤岛严重，跨系统打通困难", score: 2 },
-        { label: "C", text: "大部分管理还靠Excel和口头沟通，数字化程度有限", score: 1 },
-        { label: "D", text: "信息化程度很低，核心业务数据都没有系统化记录", score: 0 }
-      ]
-    },
-    {
-      dimension: "中层管理者态度",
-      question: "你们的中层管理者（部门负责人/业务骨干）对AI工具的态度是？",
-      hint: "中层是组织变革的'承重墙'。他们拥抱还是抵触，决定转型能否落地。",
-      options: [
-        { label: "A", text: "主动拥抱，已经在用AI工具提效，并推动团队使用", score: 3 },
-        { label: "B", text: "观望态度，等公司明确指示后再行动", score: 2 },
-        { label: "C", text: "担心被AI替代，有抵触情绪，消极应对", score: 1 },
-        { label: "D", text: "不了解AI能做什么，也没有动力去了解", score: 0 }
-      ]
-    },
-    {
-      dimension: "人才就绪度",
-      question: "你们有系统的AI能力提升计划吗？",
-      hint: "AI转型首先是人的转型。没有人才梯队的转型只是买了一批用不起来的工具。",
-      options: [
-        { label: "A", text: "有完整的AI能力模型和培训体系，全员分阶段赋能", score: 3 },
-        { label: "B", text: "有选择性培训，主要针对技术团队和业务骨干", score: 2 },
-        { label: "C", text: "偶尔有外部讲座或内部分享，没有体系化安排", score: 1 },
-        { label: "D", text: "没有正式的AI培训计划，靠员工自学", score: 0 }
-      ]
-    },
-    {
-      dimension: "绩效对齐",
-      question: "你们的绩效考核指标，是否已经纳入AI相关维度？",
-      hint: "你考核什么，就会得到什么。如果AI不在KPI里，它就永远不是真正的优先级。",
-      options: [
-        { label: "A", text: "是的，AI应用成效已纳入相关部门和岗位的KPI", score: 3 },
-        { label: "B", text: "有部分挂钩，但权重不高，更多是鼓励性质", score: 2 },
-        { label: "C", text: "还没有，绩效考核体系和AI转型脱节", score: 1 },
-        { label: "D", text: "不清楚绩效考核的具体指标，或认为和AI无关", score: 0 }
-      ]
-    },
-    {
-      dimension: "治理规范",
-      question: "你们有明确的AI使用伦理和安全规范吗？",
-      hint: "AI治理不是合规负担，而是规模化应用的前提。没有规范的企业迟早会踩坑。",
-      options: [
-        { label: "A", text: "有完整的AI治理框架，包括数据隐私、算法公平、安全风险管控", score: 3 },
-        { label: "B", text: "有基本规范，但还在完善中，执行力度有限", score: 2 },
-        { label: "C", text: "还没有正式规范，靠员工自觉", score: 1 },
-        { label: "D", text: "没有意识到需要AI治理规范", score: 0 }
-      ]
-    },
-    {
-      dimension: "执行记录",
-      question: "过去一年，你们在AI应用上有过成功的试点项目吗？",
-      hint: "转型需要胜利。一个成功的试点项目，胜过十份战略规划。",
-      options: [
-        { label: "A", text: "有多个成功试点，已复制推广，正在规模化落地", score: 3 },
-        { label: "B", text: "有1-2个成功试点，正在总结经验准备推广", score: 2 },
-        { label: "C", text: "尝试过，但效果不理想，或停留在概念验证阶段", score: 1 },
-        { label: "D", text: "还没有正式开展AI试点项目", score: 0 }
-      ]
-    }
-  ];
-
-  // ── Render all question cards ──────────────────────────────────
-  var totalQ = QUESTIONS.length;
-  var currentStep = 1;
-  var answers = {};
-
-  function renderCards() {
-    var container = document.getElementById('quizCards');
-    container.innerHTML = '';
-    QUESTIONS.forEach(function(q, i) {
-      var step = i + 1;
-      var isFirst = (i === 0);
-      var card = document.createElement('div');
-      card.className = 'quiz-card' + (isFirst ? ' slide-in' : ' hidden');
-      card.id = 'step-' + step;
-
-      var optionsHtml = q.options.map(function(opt) {
-        return ''
-          + '<label class="option">'
-          +   '<input type="radio" name="q' + step + '" value="' + opt.score + '" data-step="' + step + '">'
-          +   '<div class="option-label">'
-          +     '<div class="option-marker">' + opt.label + '</div>'
-          +     '<div class="option-text"><strong>' + opt.label + '：' + opt.text.split('，').slice(0,2).join('，') + '</strong>' + opt.text + '</div>'
-          +     '<div class="check-icon"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#16a34a"/><path d="M6 10l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-          +   '</div>'
-          + '</label>';
-      }).join('');
-
-      var navHtml = '';
-      if (step > 1) {
-        navHtml += '<button class="btn-prev" onclick="prevStep(' + step + ')">← 上一题</button>';
-      }
-      navHtml += '<button class="btn-next" onclick="' + (step < totalQ ? 'nextStep(' + (step+1) + ')' : 'showResult()') + '" disabled>' + (step < totalQ ? '下一题 →' : '查看结果') + '</button>';
-
-      card.innerHTML = ''
-        + '<div class="question-number">' + step + '</div>'
-        + '<span class="question-dimension">' + q.dimension + '</span>'
-        + '<h2>' + q.question + '</h2>'
-        + '<p class="hint">' + q.hint + '</p>'
-        + optionsHtml
-        + '<div class="quiz-nav">' + navHtml + '</div>';
-
-      container.appendChild(card);
+  // 动画条形图
+  setTimeout(() => {
+    document.querySelectorAll('.dim-bar-fill[data-width]').forEach(bar => {
+      bar.style.width = bar.dataset.width + '%';
     });
+  }, 100);
+}
 
-    // Register change events
-    container.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-      radio.addEventListener('change', function() {
-        var step = parseInt(this.getAttribute('data-step'));
-        document.querySelector('#step-' + step + ' .btn-next').disabled = false;
-      });
-    });
+// ========== 重新自测 ==========
+function retake() {
+  answers = {};
+  currentStep = 1;
+  document.getElementById('resultCard').classList.remove('show');
+  document.querySelector('.progress-section').style.display = '';
+  document.getElementById('questionCards').style.display = '';
+  // 清除所有选中
+  document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('.btn-next, .btn-result').forEach(el => el.classList.remove('enabled'));
+  document.querySelectorAll('.progress-step-dot').forEach((el, i) => {
+    el.classList.remove('done', 'active');
+    if (i === 0) el.classList.add('active');
+  });
+  document.querySelectorAll('.question-card').forEach((el, i) => {
+    el.classList.remove('active');
+    if (i === 0) el.classList.add('active');
+  });
+  updateProgress();
+}
 
-    renderDots();
-    updateProgress();
-  }
-
-  function renderDots() {
-    var container = document.getElementById('stepDots');
-    container.innerHTML = '';
-    for (var i = 0; i < totalQ; i++) {
-      var dot = document.createElement('div');
-      dot.className = 'step-dot' + (i === 0 ? ' active' : '');
-      dot.id = 'dot-' + (i + 1);
-      container.appendChild(dot);
-    }
-  }
-
-  function updateProgress() {
-    var pct = ((currentStep - 1) / totalQ * 100).toFixed(0);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressText').textContent = currentStep + ' / ' + totalQ;
-    for (var i = 1; i <= totalQ; i++) {
-      var dot = document.getElementById('dot-' + i);
-      dot.classList.remove('active', 'done');
-      if (i < currentStep) dot.classList.add('done');
-      else if (i === currentStep) dot.classList.add('active');
-    }
-  }
-
-  function nextStep(step) {
-    var currentCard = document.getElementById('step-' + (step - 1));
-    var nextCard = document.getElementById('step-' + step);
-    currentCard.classList.add('slide-out');
-    setTimeout(function() {
-      currentCard.classList.add('hidden');
-      currentCard.classList.remove('slide-out');
-      nextCard.classList.remove('hidden');
-      nextCard.classList.add('slide-in');
-      currentStep = step;
-      updateProgress();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(function() { nextCard.classList.remove('slide-in'); }, 400);
-    }, 300);
-  }
-
-  function prevStep(step) {
-    var currentCard = document.getElementById('step-' + step);
-    var prevCard = document.getElementById('step-' + (step - 1));
-    currentCard.classList.add('slide-out');
-    setTimeout(function() {
-      currentCard.classList.add('hidden');
-      currentCard.classList.remove('slide-out');
-      prevCard.classList.remove('hidden');
-      prevCard.classList.add('slide-in');
-      currentStep = step - 1;
-      updateProgress();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(function() { prevCard.classList.remove('slide-in'); }, 400);
-    }, 300);
-  }
-
-  // ── Result ────────────────────────────────────────────────────
-  function showResult() {
-    // Hide current card
-    document.getElementById('step-' + totalQ).classList.add('hidden');
-
-    // Calculate scores
-    var dimScores = [];
-    var totalScore = 0;
-    QUESTIONS.forEach(function(q, i) {
-      var step = i + 1;
-      var checked = document.querySelector('input[name="q' + step + '"]:checked');
-      var score = checked ? parseInt(checked.value) : 0;
-      dimScores.push({ name: q.dimension, score: score, max: 3 });
-      totalScore += score;
-    });
-    var pct = Math.round(totalScore / (totalQ * 3) * 100);
-
-    // Badge + Level
-    var badge, level, summary;
-    if (pct >= 80) {
-      badge = '🟢 领先者';
-      level = 'AI转型就绪度：领先 level';
-      summary = '你的组织在AI转型的各核心维度上都表现出色。建议：加快规模化落地步伐，建立DRI机制确保执行力，将AI深度融入业务流程。关注公众号获取标杆案例和进阶SOP。';
-    } else if (pct >= 60) {
-      badge = '🟡 探索者';
-      level = 'AI转型就绪度：探索 level';
-      summary = '你的组织有一定的AI转型基础，多个维度表现良好，但还需要在个别关键领域加强。建议：优先补齐数据基建和中层管理者赋能，建立快速决策机制。';
-    } else if (pct >= 40) {
-      badge = '🟠 觉醒期';
-      level = 'AI转型就绪度：觉醒 level';
-      summary = '你的组织已经意识到AI转型的重要性，但在多个核心维度上还存在明显短板。建议：先从数字化基建和人才引进开始，小步快跑，积累成功案例后再扩大范围。';
-    } else {
-      badge = '🔴 起步阶段';
-      level = 'AI转型就绪度：起步 level';
-      summary = '你的组织AI转型还面临较大挑战，多个核心维度都需要系统性提升。建议：先做一次全面的数字化转型规划，明确优先级，不要盲目上AI项目。关注公众号获取详细诊断建议。';
-    }
-
-    document.getElementById('resultBadge').textContent = badge;
-    document.getElementById('resultScore').innerHTML = pct + '<span>/100</span>';
-    document.getElementById('resultLevel').textContent = level;
-    document.getElementById('resultSummary').textContent = summary;
-
-    // Dimension breakdown
-    var grid = document.getElementById('dimensionGrid');
-    grid.innerHTML = '';
-    dimScores.forEach(function(ds) {
-      var pct = Math.round(ds.score / ds.max * 100);
-      var levelClass = ds.score >= 2 ? 'level-high' : (ds.score >= 1 ? 'level-mid' : 'level-low');
-      var desc = ds.score >= 2 ? '表现良好，保持优势' : (ds.score >= 1 ? '需要关注和改进' : '亟需系统性提升');
-      var card = document.createElement('div');
-      card.className = 'dimension-card';
-      card.innerHTML = ''
-        + '<div class="dim-name">' + ds.name + '</div>'
-        + '<div class="dim-score-row">'
-        +   '<span class="dim-score">' + (ds.score * 33 + 1) + '/100</span>'
-        +   '<div class="dim-bar-track"><div class="dim-bar-fill ' + levelClass + '" data-width="' + pct + '"></div></div>'
-        + '</div>'
-        + '<div class="dim-desc">' + desc + '</div>';
-      grid.appendChild(card);
-    });
-
-    // Show result
-    var section = document.getElementById('resultSection');
-    section.classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Animate bars
-    setTimeout(function() {
-      grid.querySelectorAll('.dim-bar-fill').forEach(function(bar) {
-        bar.style.width = bar.getAttribute('data-width') + '%';
-      });
-    }, 200);
-  }
-
-  function restartQuiz() {
-    // Reset
-    answers = {};
-    currentStep = 1;
-    document.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
-    document.getElementById('resultSection').classList.remove('visible');
-    // Hide all cards, show first
-    for (var i = 1; i <= totalQ; i++) {
-      var card = document.getElementById('step-' + i);
-      if (i === 1) {
-        card.classList.remove('hidden');
-        card.classList.add('slide-in');
-        setTimeout(function() { card.classList.remove('slide-in'); }, 400);
-      } else {
-        card.classList.add('hidden');
-      }
-      // Disable next buttons
-      var btn = card.querySelector('.btn-next');
-      if (btn) btn.disabled = true;
-    }
-    updateProgress();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // ── Init ──────────────────────────────────────────────────────
-  renderCards();
-  </script>
+// 启动
+init();
+</script>
 </body>
 </html>
