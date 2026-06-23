@@ -1233,29 +1233,6 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
   margin-top: var(--space-xs);
 }
 
-/* 文章页二维码 — 读完引导 */
-/* ─── 文章底部二维码 — 居中，干净 ─── */
-.article-qrcode {
-  max-width: var(--article-width);
-  margin: var(--space-2xl) auto 0;
-  padding: var(--space-xl) var(--space-lg);
-  text-align: center;
-  border-top: 1px solid var(--line);
-}
-.article-qrcode p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-md);
-  line-height: 1.6;
-}
-.article-qrcode img {
-  width: 150px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  display: inline-block;
-}
 .qr-hint {
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -1859,7 +1836,7 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 /* ─── 打印样式 — 杂志品质 ─── */
 @media print {
   .site-header, .site-footer, .article-toc,
-  .article-related, .cta-section, .article-qrcode { display: none; }
+  .article-related, .cta-section { display: none; }
   body { background: white; color: black; }
   .article-body { max-width: 100%; }
 }
@@ -2591,4 +2568,158 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
     font-size: 1.1rem;
     padding-left: 0.8rem;
   }
+}
+
+/* ============================
+   Article Table of Contents
+   ============================ */
+.article-toc {
+  margin: 1.2rem 0 1.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.article-toc h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.article-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-toc ul ul {
+  padding-left: 1rem;
+  margin-top: 0.15rem;
+}
+
+.article-toc li {
+  padding: 0.08rem 0;
+  line-height: 1.0;
+}
+
+.article-toc a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-family: var(--font-sans);
+}
+
+.article-toc a:hover {
+  color: var(--accent);
+}
+
+.article-toc li:has(> a[href^="#"])::before {
+  content: '›';
+  color: var(--line-strong);
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+
+/* ============================
+   Article Footer QR / Related
+   ============================ */
+.article-footer-qr {
+  margin: 2.5rem 0 2rem;
+  padding: 1.5rem;
+  background: var(--bg-subtle);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.article-footer-qr img {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.article-footer-qr p {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.article-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.share-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.share-btn {
+  padding: 0.4rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.related-articles,
+.article-related {
+  margin-top: 1.5rem;
+}
+
+.related-articles h3,
+.article-related h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.related-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.related-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.related-card:hover {
+  background: var(--accent-pale);
+}
+
+.related-tag {
+  font-size: 0.78rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+
+.qr-hint code {
+  background: var(--accent-pale);
+  color: var(--accent);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
 }
