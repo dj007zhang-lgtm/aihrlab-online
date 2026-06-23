@@ -38,7 +38,7 @@
   --font-mono:  'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
 
   /* 布局 — 留白即设计 */
-  --article-width: 680px;    /* 杂志标准行长 */
+  --article-width: 900px;    /* 专业媒体标准：接近导航栏宽度 */
   --page-width:    1080px;
   --header-height:  56px;
   --space-xs:  0.25rem;   /* 4px  */
@@ -2302,24 +2302,20 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
    Article Content — 垂直节奏 & 呼吸感
    =========================================== */
 
-/* 文章容器：浅灰背景 + 细边框 + 柔和阴影 → 结构化 */
+/* 文章容器：与导航栏等宽，干净无框 */
 .article-content-wrapper {
-  max-width: 760px;
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 2.5rem 2rem 3rem;
+  padding: 2rem 1.5rem 3rem;
   background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 4px 20px rgba(0,0,0,0.04);
 }
 
 /* 文章头部 */
 .article-header {
   max-width: var(--article-width);
   margin: 0 auto;
-  padding: 2.5rem 0 1.5rem;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 2rem;
+  padding: 2rem 0 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .article-header .article-tag {
@@ -2354,11 +2350,11 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
   margin-top: 1rem;
 }
 
-/* 文章正文：垂直节奏系统 */
+/* 文章正文：垂直节奏系统 — 参考虎嗅/36kr专业媒体 */
 .article-content {
   max-width: var(--article-width);
   margin: 0 auto;
-  padding: 0 0.5rem 6rem;
+  padding: 0 0.5rem 4rem;
   font-family: var(--font-sans);
   font-size: 1.05rem;
   color: var(--text);
@@ -2366,19 +2362,19 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* Lead 段落：引领阅读 */
 .article-content .lead {
-  font-size: 1.25rem;
-  line-height: 1.85;
+  font-size: 1.18rem;
+  line-height: 1.8;
   color: var(--text-secondary);
   font-family: var(--font-serif);
-  margin-bottom: 2rem;
-  padding-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--line);
 }
 
-/* 正文段落：统一行高和间距 → 呼吸感 */
+/* 正文段落：专业媒体级行高和间距 */
 .article-content p {
-  margin-top: 1.4rem;
-  line-height: 1.9;
+  margin-top: 1.1rem;
+  line-height: 1.85;
   color: var(--text);
 }
 
@@ -2386,9 +2382,9 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 .article-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.6rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--line);
   color: var(--text);
   letter-spacing: -0.01em;
@@ -2396,11 +2392,11 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* h3：中片区隔，左侧accent短线 */
 .article-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.7rem;
+  padding-left: 0.85rem;
   border-left: 3px solid var(--accent);
   color: var(--text);
   line-height: 1.4;
@@ -2408,36 +2404,36 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* h4：小片区隔 */
 .article-content h4 {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
   color: var(--text);
 }
 
 /* 列表 */
 .article-content ul,
 .article-content ol {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   padding-left: 1.8rem;
 }
 
 .article-content li {
-  margin-top: 0.6rem;
-  line-height: 1.8;
+  margin-top: 0.45rem;
+  line-height: 1.75;
   color: var(--text);
 }
 
 /* blockquote：左侧accent粗线 + 浅底色 */
 .article-content blockquote {
-  margin: 2rem 0;
-  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.3rem;
   background: var(--bg-warm);
   border-left: 4px solid var(--accent);
   border-radius: 0 8px 8px 0;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.8;
   color: var(--text-secondary);
 }
 
@@ -2466,7 +2462,7 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 
 /* pre：代码块 */
 .article-content pre {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   padding: 1.2rem;
   background: #1e1e2e;
   border-radius: 10px;
@@ -2490,7 +2486,7 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
   height: auto;
   border-radius: 10px;
   border: 1px solid var(--line);
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   display: block;
 }
 
@@ -2577,8 +2573,7 @@ body > .site-nav .nav-links a.active { color: var(--text); font-weight: 600; }
 @media (max-width: 768px) {
   .article-content-wrapper {
     padding: 1.5rem 1rem 2rem;
-    border-radius: 10px;
-    margin: 0 0.5rem;
+    margin: 0;
   }
   .article-header h1 {
     font-size: 1.5rem;
