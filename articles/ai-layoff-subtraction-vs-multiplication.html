@@ -77,6 +77,7 @@
   </script>
 
   <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="../assets/js/search.js"></script>
   <link rel="canonical" href="https://www.aihrlab.online/articles/ai-layoff-subtraction-vs-multiplication.html">
   <!-- Google Analytics: 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
@@ -99,16 +100,19 @@
 </head>
 <body>
   <!-- 导航栏 -->
-  <nav class="navbar">
-    <div class="nav-brand">
-      <a href="../index.html">AIHR数智引擎</a>
-    </div>
-    <div class="nav-links">
-      <a href="../index.html">首页</a>
-      <a href="../articles/" class="active">全部文章</a>
-      <a href="../resources/">工具资源</a>
-      <a href="../cards/">知识卡片</a>
-      <a href="../about.html">关于</a>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">AIHR数智引擎</a>
+      <div class="nav-links">
+        <a href="../index.html">首页</a>
+        <a href="./index.html" class="active">全部文章</a>
+        <a href="../resources/index.html">资源库</a>
+        <a href="../about.html">关于</a>
+        <button class="nav-search-btn-article" data-open-search aria-label="搜索文章">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>搜索</span>
+        </button>
+      </div>
     </div>
   </nav>
 

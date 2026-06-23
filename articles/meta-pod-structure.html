@@ -74,6 +74,7 @@
   }
   </script>
   <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="../assets/js/search.js"></script>
   <link rel="canonical" href="https://www.aihrlab.online/articles/meta-pod-structure.html">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
@@ -85,11 +86,20 @@
       <a href="/index.html" class="site-logo"><img src="../assets/images/avatar.png" class="logo-icon" alt="AIHR数智引擎" width="32" height="32">AIHR<span class="logo-dot">数智引擎</span></a>
       <button class="nav-toggle" aria-label="打开导航菜单">☰</button>
       <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">AIHR数智引擎</a>
+      <div class="nav-links">
         <a href="../index.html">首页</a>
-        <a href="../articles/index.html" class="active">文章</a>
+        <a href="./index.html" class="active">全部文章</a>
         <a href="../resources/index.html">资源库</a>
         <a href="../about.html">关于</a>
-      </nav>
+        <button class="nav-search-btn-article" data-open-search aria-label="搜索文章">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>搜索</span>
+        </button>
+      </div>
+    </div>
+  </nav>
     </div>
   </header>
 

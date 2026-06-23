@@ -297,4 +297,106 @@ document.addEventListener('DOMContentLoaded', () => {
     trackEvent('first_visit', { page_path: window.location.pathname });
     localStorage.setItem('returning_visitor', 'true');
   }
+
+
+  // --- 资源库门控弹窗 ---
+  (function() {
+    var overlay = document.createElement('div');
+    overlay.className = 'gate-overlay';
+    overlay.id = 'gate-overlay';
+    overlay.innerHTML = '<div class="gate-modal">' +
+      '<div class="gate-modal-header">' +
+        '<h3 id="gate-title">获取资源</h3>' +
+        '<p>关注公众号「AIHR数智引擎」，回复关键词获取下载链接</p>' +
+      '</div>' +
+      '<div class="gate-modal-body">' +
+        '<div class="gate-qrcode-wrap">' +
+          '<img src="/assets/images/qrcode-wechat.jpg" alt="关注公众号">' +
+        '</div>' +
+        '<p class="gate-instruction" id="gate-instruction"></p>' +
+      '</div>' +
+      '<div class="gate-modal-footer">' +
+        '<button class="gate-close-btn" id="gate-close">我知道了</button>' +
+      '</div>' +
+    '</div>';
+    document.body.appendChild(overlay);
+
+    var closeBtn = document.getElementById('gate-close');
+    function closeModal() { overlay.classList.remove('open'); }
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.querySelectorAll('.gate-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var title = this.dataset.gateTitle || '获取资源';
+        var instruction = this.dataset.gateInstruction || '';
+        document.getElementById('gate-title').textContent = title;
+        var instEl = document.getElementById('gate-instruction');
+        if (instEl) instEl.innerHTML = instruction;
+        overlay.classList.add('open');
+        if (typeof trackEvent === 'function') {
+          trackEvent('gate_open', { resource_name: title, page_path: window.location.pathname });
+        }
+      });
+    });
+  })();
 });
+
+
+
+// ============ 全局门控弹窗函数 ============
+(function() {
+  var overlay = null;
+
+  function createOverlay() {
+    overlay = document.createElement('div');
+    overlay.className = 'gate-overlay';
+    overlay.id = 'gate-overlay';
+    overlay.innerHTML = '<div class="gate-modal">' +
+      '<div class="gate-modal-header">' +
+        '<h3 id="gate-title">获取资源</h3>' +
+        '<p>关注公众号「AIHR数智引擎」，回复关键词获取下载链接</p>' +
+      '</div>' +
+      '<div class="gate-modal-body">' +
+        '<div class="gate-qrcode-wrap">' +
+          '<img src="/assets/images/qrcode-wechat.jpg" alt="关注公众号 AIHR数智引擎">' +
+        '</div>' +
+        '<p class="gate-instruction" id="gate-instruction"></p>' +
+      '</div>' +
+      '<div class="gate-modal-footer">' +
+        '<button class="gate-close-btn" id="gate-close">我知道了</button>' +
+      '</div>' +
+    '</div>';
+    document.body.appendChild(overlay);
+
+    var closeBtn = document.getElementById('gate-close');
+    function closeModal() { overlay.classList.remove('open'); }
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  // openGate: 接受按钮元素，读取 data 属性
+  window.openGate = function(btn) {
+    if (!overlay) createOverlay();
+    var title = (btn && btn.dataset && btn.dataset.gateTitle) ? btn.dataset.gateTitle : '获取资源';
+    var instruction = (btn && btn.dataset && btn.dataset.gateInstruction) ? btn.dataset.gateInstruction : '';
+    var titleEl = document.getElementById('gate-title');
+    var instEl = document.getElementById('gate-instruction');
+    if (titleEl) titleEl.textContent = title;
+    if (instEl) instEl.innerHTML = instruction;
+    overlay.classList.add('open');
+    if (typeof trackEvent === 'function') {
+      trackEvent('gate_open', { resource_name: title, page_path: window.location.pathname });
+    }
+  };
+})();

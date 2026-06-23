@@ -17,6 +17,15 @@
   <meta property="og:description" content="覆盖大厂组织变革、AI Agent应用、HR职能进化、行业报告解读等核心主题。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aihrlab.online/articles/">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/avatar.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@AIHRLab">
+  <meta name="twitter:title" content="全部文章 | AIHR数智引擎">
+  <meta name="twitter:description" content="覆盖大厂组织变革、AI Agent应用、HR职能进化、行业报告解读等核心主题。">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/avatar.png">
   <link rel="stylesheet" href="../assets/css/style.min.css">
   <link rel="canonical" href="https://www.aihrlab.online/articles/">
 
@@ -314,53 +323,154 @@
 
   <main class="main-content">
     <section class="container">
-      <!-- 文章列表 Banner — 与首页Hero呼应 -->
-      <header class="articles-banner">
-        <div class="banner-inner">
-          <div class="banner-text">
-            <p class="banner-label">Archive</p>
-            <h1 class="banner-title">深度分析<br><span class="banner-accent">文章库</span></h1>
-            <p class="banner-desc">基于一手对谈、行业报告与大厂实践的原创内容。<br>覆盖 AI 组织变革、HR 职能进化、大厂实战案例。</p>
+      <!-- 文章列表 Banner — 与首页Hero同级别设计 -->
+      <section class="hero" style="border-bottom: none;">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <span class="hero-label">深度分析</span>
+            <h1>文章<span style="color: var(--accent);">库</span></h1>
+            <p class="hero-sub">
+              基于一手对谈、行业报告与大厂实践的原创内容。<br class="hide-mobile">
+              覆盖 AI 组织变革、HR 职能进化、大厂实战案例。
+            </p>
           </div>
-          <div class="banner-illustration" aria-hidden="true">
-            <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- 背景：暖色渐变块 -->
-              <rect x="40" y="20" width="320" height="240" rx="16" fill="#eef2fa" opacity="0.5"/>
-              <rect x="60" y="35" width="290" height="210" rx="12" fill="#f7fafc"/>
-              <!-- 抽象书架/文档隐喻 -->
-              <rect x="90" y="60" width="80" height="110" rx="4" fill="#2c5ea8" opacity="0.08"/>
-              <rect x="95" y="68" width="70" height="8" rx="2" fill="#2c5ea8" opacity="0.15"/>
-              <rect x="95" y="82" width="55" height="6" rx="2" fill="#2c5ea8" opacity="0.1"/>
-              <rect x="95" y="94" width="62" height="6" rx="2" fill="#2c5ea8" opacity="0.1"/>
-              <rect x="95" y="106" width="48" height="6" rx="2" fill="#2c5ea8" opacity="0.1"/>
-              <rect x="190" y="75" width="85" height="95" rx="4" fill="#2c5ea8" opacity="0.06"/>
-              <rect x="196" y="83" width="73" height="7" rx="2" fill="#2c5ea8" opacity="0.12"/>
-              <rect x="196" y="96" width="60" height="5" rx="2" fill="#2c5ea8" opacity="0.08"/>
-              <rect x="196" y="107" width="67" height="5" rx="2" fill="#2c5ea8" opacity="0.08"/>
-              <!-- 浮动圆点装饰 -->
-              <circle cx="310" cy="55" r="18" fill="#10b981" opacity="0.1"/>
-              <circle cx="330" cy="200" r="24" fill="#2c5ea8" opacity="0.06"/>
-              <circle cx="72" cy="210" r="14" fill="#f59e0b" opacity="0.12"/>
-              <circle cx="295" cy="130" r="8" fill="#10b981" opacity="0.15"/>
-              <!-- 连接线 — 知识网络 -->
-              <path d="M170 115 Q220 100 250 120" stroke="#2c5ea8" stroke-width="1.2" stroke-dasharray="4 4" fill="none" opacity="0.15"/>
-              <path d="M130 150 Q180 175 230 155" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.12"/>
-              <!-- 放大镜图标（搜索/探索） -->
-              <g transform="translate(270, 160)" opacity="0.18">
-                <circle cx="22" cy="22" r="18" stroke="#2c5ea8" stroke-width="3" fill="none"/>
-                <line x1="36" y1="36" x2="50" y2="50" stroke="#2c5ea8" stroke-width="3" stroke-linecap="round"/>
+          <div class="hero-illustration">
+            <!-- 
+              插画隐喻：「知识树 × 文档网络」
+              ─────────────────────────────────────
+              颜色策略：严格绿色系（与首页Hero一致）
+                · 背景层：#E8F5E9 / #C0DD97 / #F0FDF4
+                · 文档卡片：绿色描边 + 淡绿填充
+                · 连接线：#97C459 → #059669 渐变
+              ─────────────────────────────────────
+              视觉策略：
+                · 左侧：3张叠放的文档卡片（象征内容积累）
+                · 右上角：搜索/探索光束
+                · 散点装饰：与首页一致的绿色散点
+            -->
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="深度分析文章库插画">
+              <defs>
+                <!-- 绿色系渐变 -->
+                <linearGradient id="g-doc-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#97C459"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+                <!-- 首页同款柔光 -->
+                <radialGradient id="g-article-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#97C459" stop-opacity="0.10"/>
+                  <stop offset="100%" stop-color="#97C459" stop-opacity="0"/>
+                </radialGradient>
+                <!-- 光束渐变 -->
+                <linearGradient id="g-beam" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop offset="0%" stop-color="#059669" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 背景层：与首页Hero呼应的绿色光晕 -->
+              <!-- ═════════════════════════════════ -->
+              <circle cx="200" cy="150" r="135" fill="#E8F5E9" opacity="0.5"/>
+              <circle cx="130" cy="110" r="70" fill="#C0DD97" opacity="0.18"/>
+              <circle cx="290" cy="200" r="55" fill="#F0FDF4" opacity="0.35"/>
+              <rect x="180" y="40" width="240" height="220" rx="16" fill="url(#g-article-glow)"/>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 左侧：叠放文档卡片（内容积累）        -->
+              <!-- ═════════════════════════════════ -->
+              <!-- 底层卡片（最暗）-->
+              <g transform="translate(48, 140)" opacity="0.35">
+                <rect x="0" y="0" width="115" height="90" rx="6"
+                      fill="#E8F5E9" stroke="#C0DD97" stroke-width="1"/>
+                <line x1="12" y1="20" x2="95" y2="20" stroke="#C0DD97" stroke-width="1.2" opacity="0.7"/>
+                <line x1="12" y1="32" x2="75" y2="32" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+                <line x1="12" y1="44" x2="85" y2="44" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+                <line x1="12" y1="56" x2="60" y2="56" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+                <line x1="12" y1="68" x2="80" y2="68" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
               </g>
-              <!-- 小标签装饰 -->
-              <rect x="105" y="185" width="42" height="18" rx="9" fill="#10b981" opacity="0.12"/>
-              <text x="126" y="197" font-size="10" fill="#059669" text-anchor="middle" font-family="-apple-system,sans-serif" font-weight="600">AI+HR</text>
-              <rect x="205" y="195" width="52" height="18" rx="9" fill="#2c5ea8" opacity="0.1"/>
-              <text x="231" y="207" font-size="10" fill="#2c5ea8" text-anchor="middle" font-family="-apple-system,sans-serif" font-weight="600">Deep Dive</text>
-              <!-- 底部波浪 -->
-              <path d="M60 235 Q140 225 200 232 T340 228" stroke="#2c5ea8" stroke-width="1.5" fill="none" opacity="0.08"/>
+              <!-- 中间卡片 -->
+              <g transform="translate(62, 118)" opacity="0.55">
+                <rect x="0" y="0" width="120" height="95" rx="6"
+                      fill="#F0FDF4" stroke="#97C459" stroke-width="1.2"/>
+                <rect x="0" y="0" width="120" height="22" rx="6" fill="#E8F5E9" opacity="0.5"/>
+                <line x1="14" y1="35" x2="98" y2="35" stroke="#97C459" stroke-width="1.3" opacity="0.35"/>
+                <line x1="14" y1="47" x2="78" y2="47" stroke="#97C459" stroke-width="1.1" opacity="0.25"/>
+                <line x1="14" y1="59" x2="88" y2="59" stroke="#97C459" stroke-width="1.1" opacity="0.25"/>
+                <line x1="14" y1="71" x2="62" y2="71" stroke="#97C459" stroke-width="1.1" opacity="0.25"/>
+                <line x1="14" y1="83" x2="85" y2="83" stroke="#97C459" stroke-width="1.1" opacity="0.25"/>
+              </g>
+              <!-- 顶层卡片（最亮）— 焦点 -->
+              <g transform="translate(78, 92)">
+                <rect x="0" y="0" width="125" height="100" rx="7"
+                      fill="white" stroke="url(#g-doc-stroke)" stroke-width="1.5"/>
+                <!-- 卡片头部高亮 -->
+                <rect x="0" y="0" width="125" height="24" rx="7" fill="#F0FDF4"/>
+                <rect x="0" y="17" width="125" height="7" fill="#F0FDF4"/>
+                <!-- 内容行 -->
+                <line x1="16" y1="38" x2="102" y2="38" stroke="#97C459" stroke-width="1.8" opacity="0.28"/>
+                <line x1="16" y1="51" x2="82" y2="51" stroke="#97C459" stroke-width="1.4" opacity="0.2"/>
+                <line x1="16" y1="64" x2="94" y2="64" stroke="#97C459" stroke-width="1.4" opacity="0.2"/>
+                <line x1="16" y1="77" x2="68" y2="77" stroke="#97C459" stroke-width="1.4" opacity="0.18"/>
+                <!-- 高亮标记条 -->
+                <rect x="16" y="88" width="52" height="5" rx="2.5" fill="#059669" opacity="0.15"/>
+              </g>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 右侧：搜索光束 + 探索符号             -->
+              <!-- ═════════════════════════════════ -->
+              <!-- 放大镜（探索/深挖） -->
+              <g transform="translate(268, 155)">
+                <circle cx="30" cy="30" r="26" fill="none" stroke="#059669" stroke-width="2.5" opacity="0.25"/>
+                <line x1="49" y1="49" x2="72" y2="72" stroke="#059669" stroke-width="2.5"
+                      stroke-linecap="round" opacity="0.25"/>
+                <!-- 镜片内的微光 -->
+                <circle cx="22" cy="22" r="8" fill="#E8F5E9" opacity="0.5"/>
+                <!-- 光束从镜片中射出 -->
+                <polygon points="24,18 38,8 42,14 28,24" fill="#97C459" opacity="0.08"/>
+              </g>
+              <!-- 光束效果 -->
+              <ellipse cx="298" cy="145" rx="35" ry="60" fill="url(#g-beam)"
+                       transform="rotate(-25, 298, 145)"/>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 连接线：文档之间的知识关联          -->
+              <!-- ═════════════════════════════════ -->
+              <path d="M190 125 Q230 105, 270 165"
+                    fill="none" stroke="#97C459" stroke-width="1.5"
+                    stroke-dasharray="6 4" opacity="0.3"/>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 标签装饰（绿色系）                   -->
+              <!-- ═════════════════════════════════ -->
+              <g transform="translate(108, 210)">
+                <rect x="0" y="0" width="46" height="18" rx="9" fill="#E8F5E9" stroke="#97C459" stroke-width="0.8" opacity="0.6"/>
+                <text x="23" y="13" font-size="9" fill="#059669" text-anchor="middle"
+                      font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="600">AI×HR</text>
+              </g>
+              <g transform="translate(162, 218)">
+                <rect x="0" y="0" width="58" height="18" rx="9" fill="#F0FDF4" stroke="#C0DD97" stroke-width="0.8" opacity="0.6"/>
+                <text x="29" y="13" font-size="9" fill="#639922" text-anchor="middle"
+                      font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="600">Deep Dive</text>
+              </g>
+
+              <!-- ═════════════════════════════════ -->
+              <!-- 散点装饰：与首页Hero一致               -->
+              <!-- ═════════════════════════════════ -->
+              <circle cx="340" cy="68" r="2.5" fill="#97C459" opacity="0.3"/>
+              <circle cx="48" cy="82" r="2" fill="#C0DD97" opacity="0.35"/>
+              <circle cx="360" cy="250" r="3" fill="#059669" opacity="0.22"/>
+              <circle cx="32" cy="260" r="2.2" fill="#639922" opacity="0.28"/>
+              <circle cx="310" cy="280" r="1.8" fill="#97C459" opacity="0.2"/>
+
+              <!-- 几何装饰（与首页一致的风格） -->
+              <g transform="translate(350, 150)" stroke="#C0DD97" stroke-width="1" opacity="0.2">
+                <line x1="-6" y1="0" x2="6" y2="0"/>
+                <line x1="0" y1="-6" x2="0" y2="6"/>
+              </g>
             </svg>
           </div>
         </div>
-      </header>
+      </section>
 
       <!-- Filter by category -->
       <div class="article-filters">
@@ -392,8 +502,8 @@
 
       <article class="article-card" data-category="核心方法论">
         <a href="ai-era-hr-transformation.html">
-          <h3>人效</h3>
-          <p class="card-desc">人效...</p>
+          <h3>AI时代的人力资源部：从"事务性支撑"到"组织算力调度"</h3>
+          <p class="card-desc">AI时代HR部门的核心职能正在发生根本迁移：从"事务性支撑"转向"组织算力调度"。人效的本质不再是人均产出，而是人机协同的智能密度。</p>
           <span class="card-meta">核心方法论 · 2026-03-18</span>
         </a>
       </article>
@@ -697,8 +807,6 @@
             <span class="card-tag">大厂实战</span>
             <h3><a href="ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></h3>            <p class="card-desc">2026年AI招聘选型指南：告别关键词匹配，拥抱认知决策辅助。深度拆解北森、Moka、Workday三大主流系统，附选型避坑三诫。</p>
           </article>
-        </div>
-      </section>
     
       <article class="article-card" data-category="AI组织变革">
         <a href="ai-layoff.html">
@@ -850,13 +958,35 @@
           <span class="card-meta">大厂实践 · 2026.03.15</span>
         </a>
       </article>
+        </div>
+
+        </section>
+
   </main>
 
     <!-- Footer -->
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; 2026 AIHR数智引擎. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/index.html" class="site-logo">
+            <img src="../assets/images/avatar.png" class="logo-icon" alt="" width="28" height="28">
+            AIHR<span class="logo-dot">数智引擎</span>
+          </a>
+          <p>AI时代HR转型与大厂组织变革的深度分析平台。</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>内容</h4>
+            <a href="/articles/index.html">全部文章</a>
+            <a href="/resources/index.html">资源库</a>
+          </div>
+          <div class="footer-col">
+            <h4>关于</h4>
+            <a href="/about.html">关于我们</a>
+          </div>
+        </div>
       </div>
+      <div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div>
     </footer>
 
     <script>
@@ -912,5 +1042,39 @@
       }
     })();
     </script>
-  </body>
+  
+  <script>
+    (function() {
+      var cards = document.querySelectorAll('.article-card[data-category]');
+      var batchSize = 12;
+      var current = batchSize;
+
+      function updateView() {
+        cards.forEach(function(c, i) {
+          if (i >= current) {
+            c.classList.add('card-hidden');
+          } else {
+            c.classList.remove('card-hidden');
+          }
+        });
+        var btn = document.getElementById('btn-load-more');
+        if (btn) {
+          btn.style.display = (current >= cards.length) ? 'none' : 'inline-block';
+          if (current < cards.length) {
+            btn.textContent = '加载更多文章（还剩 ' + (cards.length - current) + ' 篇）';
+          }
+        }
+      }
+
+      document.getElementById('btn-load-more').addEventListener('click', function() {
+        current += batchSize;
+        updateView();
+        window.scrollBy({ top: 400, behavior: 'smooth' });
+      });
+
+      updateView();
+    })();
+  </script>
+  <script src="./assets/js/search.js"></script>
+</body>
 </html>
