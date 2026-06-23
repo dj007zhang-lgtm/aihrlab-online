@@ -482,7 +482,7 @@
       </div>
 
       <!-- Articles Grid -->
-        <div class="article-grid">
+        <div class="article-grid" id="article-grid">
       
       <article class="article-card" data-category="组织变革">
         <a href="ai-change-hr-heart.html">
@@ -958,6 +958,16 @@
           <span class="card-meta">大厂实践 · 2026.03.15</span>
         </a>
       </article>
+
+        <!-- 懒加载指示器 -->
+        <div id="load-indicator" class="load-indicator" style="display:none;text-align:center;padding:2rem 0;color:var(--text-muted);font-size:0.9rem;">
+          <div class="loader" style="width:24px;height:24px;border:2px solid var(--line);border-top:2px solid var(--accent);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 0.5rem;"></div>
+          正在加载更多文章…
+        </div>
+        <div id="load-all-done" class="load-all-done" style="display:none;text-align:center;padding:2rem 0;color:var(--text-muted);font-size:0.85rem;">
+          已显示全部文章
+        </div>
+
         </div>
 
         </section>
@@ -991,13 +1001,76 @@
 
     <script>
     (function() {
+      // ========== 配置 ==========
+      var INITIAL_BATCH = 16;   // 首屏展示条数
+      var SCROLL_BATCH  = 12;   // 滚动每次加载条数
       var cards = document.querySelectorAll('.article-card[data-category]');
-      var grid = document.querySelector('.article-grid');
-      if (!grid || !cards.length) return;
+      var current = INITIAL_BATCH;
+      var isLoading = false;
 
-      // 初始化：给所有卡片添加 show 状态
-      cards.forEach(function(c) { c.classList.add('card-show'); });
+      // ========== 渲染批次 ==========
+      function updateView() {
+        var visibleCards = getVisibleCards();
+        visibleCards.forEach(function(card, i) {
+          if (i >= current) {
+            card.classList.add('card-hidden');
+            card.classList.remove('card-show');
+          } else {
+            card.classList.remove('card-hidden');
+            void card.offsetWidth;
+            card.classList.add('card-show');
+          }
+        });
 
+        // 更新底部指示器
+        var indicator = document.getElementById('load-indicator');
+        var allDone   = document.getElementById('load-all-done');
+        if (indicator) indicator.style.display = (current >= visibleCards.length) ? 'none' : 'block';
+        if (allDone)   allDone.style.display   = (current >= visibleCards.length) ? 'block' : 'none';
+      }
+
+      function getVisibleCards() {
+        return Array.prototype.filter.call(cards, function(c) {
+          return c.style.display !== 'none';
+        });
+      }
+
+      // ========== 滚动懒加载 ==========
+      function onScroll() {
+        if (isLoading) return;
+        var visibleCards = getVisibleCards();
+        if (current >= visibleCards.length) return;
+
+        var scrollTop    = window.pageYOffset || document.documentElement.scrollTop;
+        var windowHeight = window.innerHeight;
+        var docHeight    = document.documentElement.scrollHeight;
+
+        // 距离底部 < 400px 时触发
+        if (scrollTop + windowHeight >= docHeight - 400) {
+          isLoading = true;
+          var indicator = document.getElementById('load-indicator');
+          if (indicator) indicator.style.display = 'block';
+          setTimeout(function() {
+            current += SCROLL_BATCH;
+            updateView();
+            isLoading = false;
+          }, 300);
+        }
+      }
+
+      // 节流 scroll 事件
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            onScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // ========== 分类筛选（集成批次逻辑）==========
       window.filterArticles = function(category, btn) {
         // 按钮状态
         document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -1009,20 +1082,19 @@
           card.classList.add('card-hidden');
         });
 
-        // 延迟后显示匹配的卡片（动画效果）
+        // 延迟后显示匹配的卡片
         setTimeout(function() {
           cards.forEach(function(card) {
             var cat = card.getAttribute('data-category');
             if (category === 'all' || cat === category) {
               card.style.display = '';
-              // 触发 reflow 后添加 show
-              void card.offsetWidth;
-              card.classList.remove('card-hidden');
-              card.classList.add('card-show');
             } else {
               card.style.display = 'none';
             }
           });
+          // 重置批次，显示前 INITIAL_BATCH 条
+          current = INITIAL_BATCH;
+          updateView();
         }, 180);
 
         // 更新 URL hash
@@ -1033,48 +1105,26 @@
         }
       };
 
-      // 页面加载时检查 hash
+      // ========== 页面加载时检查 hash ==========
       var hash = location.hash.match(/#cat=(.+)/);
       if (hash) {
         var cat = decodeURIComponent(hash[1]);
         var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]');
-        if (targetBtn) filterArticles(cat, targetBtn);
+        if (targetBtn) {
+          filterArticles(cat, targetBtn);
+        } else {
+          updateView();
+        }
+      } else {
+        updateView();
       }
+
+      // ========== spin 动画 ==========
+      var style = document.createElement('style');
+      style.textContent = '@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}';
+      document.head.appendChild(style);
     })();
     </script>
-  
-  <script>
-    (function() {
-      var cards = document.querySelectorAll('.article-card[data-category]');
-      var batchSize = 12;
-      var current = batchSize;
-
-      function updateView() {
-        cards.forEach(function(c, i) {
-          if (i >= current) {
-            c.classList.add('card-hidden');
-          } else {
-            c.classList.remove('card-hidden');
-          }
-        });
-        var btn = document.getElementById('btn-load-more');
-        if (btn) {
-          btn.style.display = (current >= cards.length) ? 'none' : 'inline-block';
-          if (current < cards.length) {
-            btn.textContent = '加载更多文章（还剩 ' + (cards.length - current) + ' 篇）';
-          }
-        }
-      }
-
-      document.getElementById('btn-load-more').addEventListener('click', function() {
-        current += batchSize;
-        updateView();
-        window.scrollBy({ top: 400, behavior: 'smooth' });
-      });
-
-      updateView();
-    })();
-  </script>
   <script src="./assets/js/search.js"></script>
 
   <!-- [广告位预留] 流量达到后取消注释，替换为百度联盟/腾讯广告代码
