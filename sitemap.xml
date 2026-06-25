@@ -1,509 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.aihrlab.online/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/resources/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.aihrlab.online</loc>
+    <lastmod>2026-06-25</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-06-25</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/resources/</loc>
+    <lastmod>2026-06-25</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/AI裁员7飙到40你的公司在做减法还是乘法.html</loc>
+    <lastmod>2026-06-24</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-bounded-rationality.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-10T08:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-change-hr-heart.html</loc>
+    <lastmod>2026-02-23</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-coding-efficiency-org-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-13T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-era-high-roi-4-things.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-25</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-era-hr-5-misalignments.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-18</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-hr-jobs.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-05-22T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-landing-fails-org-not-changed.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-08T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-layoff-230k-regret.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-05-24T20:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html</loc>
+    <lastmod>2026-06-23T16:30:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-layoff-regret.html</loc>
     <lastmod>2026-05-24</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-layoff-subtraction-vs-multiplication.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-13</lastmod>
+    <lastmod>2026-06-13T20:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-27</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/ai-silent-org-signals.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-06-16</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/anthropic-danger-signals.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-06-17T08:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/anthropic-engineer-three-stages.html</loc>
+    <lastmod>2026-06-09</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/baidu-tp-reform.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-05-25T20:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/big-tech-ai-org-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-05T09:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/bigtech-ai-reorg-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/bytedance-160b-ai-org.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-13T20:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/bytedance-campus-7000.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/bytedance-7000-interns.html</loc>
     <lastmod>2026-05-19</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/bytedance-campus-7000.html</loc>
+    <lastmod>2026-05-19T20:00:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/china-ai-org-three-routes.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-07</lastmod>
+    <lastmod>2026-06-07T20:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/deloitte-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-30</lastmod>
+    <lastmod>2026-05-30T20:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/dingtalk-ceo-change-control-vs-empowerment.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/dingtalk-ceo-change.html</loc>
     <lastmod>2026-06-12</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/dri-kaifu-lisa-su.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-19T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/drucker-ai-era-answer.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-08T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/fat-donglai-you-cant-learn.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-18</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/gtc2026-ai-infrastructure-org-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-24</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/gtc2026-org-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-24</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/hr-ai-prompt-toolbox-21.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/hr-handle-boss-ai-fever.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-23</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/human-ai-equation.html</loc>
+    <lastmod>2026-06-23T14:30:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/idc-2026-hr-ai-agent-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-02T20:30:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/</loc>
+    <lastmod>2026-06-25</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/jimeng-organization-logic.html</loc>
+    <lastmod>2026-03-19</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/karpathy-ai-replacement-test.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/keling-ai-innovation-path.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-09T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/kpi-failure-ai-org-restructure.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-23T14:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/mckinsey-2026-org-report-deep-dive.html</loc>
+    <lastmod>2026-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/mckinsey-2026-organization-report.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-03-29</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/mckinsey-2026-training-vs-screening.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-10T20:43:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/mckinsey-6pct-trust.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/mckinsey-6-percent-trust-architecture.html</loc>
     <lastmod>2026-05-27</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/mckinsey-6pct-trust.html</loc>
+    <lastmod>2026-05-27T20:00:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/mercer-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-06-02T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/meta-300b-ai-layoff.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-07T20:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/meta-ai-optimizes-middle-managers.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-03-26T08:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/meta-layoffs-middle-managers.html</loc>
     <lastmod>2026-03-26</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/meta-pod-structure.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-05-28T08:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/microsoft-anthropic-ai-org-restructure.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/microsoft-decoupling-openai-strategy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/microsoft-ai-decoupling.html</loc>
     <lastmod>2026-06-21</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/microsoft-anthropic-ai-org-restructure.html</loc>
+    <lastmod>2026-06-05T20:30:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/microsoft-hr-system-overhaul.html</loc>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/microsoft-hr-transformation-ai-thinking.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-04-08</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/musk-2026-ai-recursive-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/microsoft-openai-decoupling.html</loc>
+    <lastmod>2026-06-23T15:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/musk-2026-ai-interview.html</loc>
     <lastmod>2026-03-13</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/musk-2026-ai-recursive-evolution.html</loc>
+    <lastmod>2026-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/openclaw-ai-agent-management.html</loc>
+    <lastmod>2026-03-14</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/recruitment-ai-fullstack.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-03T08:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/tencent-2800-huoshui.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-05-22T20:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/tencent-2800-internal-transfer.html</loc>
+    <lastmod>2026-06-23T16:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/tencent-319b-ali-3800b.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-17</lastmod>
+    <lastmod>2026-05-17T20:00:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/tencent-ai-lab-disbanded.html</loc>
+    <lastmod>2026-03-22</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/token-kpi-new-corporate-metrics.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-04-12</lastmod>
+    <lastmod>2026-04-12T08:00:00+08:00</lastmod>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/unitree-ipo-org-design.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aihrlab.online/articles/unitree-ipo-org-analysis.html</loc>
     <lastmod>2026-03-21</lastmod>
   </url>
   <url>
+    <loc>https://www.aihrlab.online/articles/wangxing-meituan-management-talk.html</loc>
+    <lastmod>2026-03-15</lastmod>
+  </url>
+  <url>
     <loc>https://www.aihrlab.online/articles/wwdc-2026-hr-insights.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-06-15</lastmod>
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/xiaomi-2026-org-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-10</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-layoff.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/kpi-failure.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-silent-signals.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/dingtalk-ceo-change.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-org-evolution-china-bigtech.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/anthropic-engineer-three-stages.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/mckinsey-2026-hr-report.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/bigtech-ai-reorg-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/deloitte-2026-org-truth.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/tencent-alibaba-ai-arms-race.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/mckinsey-2026-org-report-deep-dive.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/karpathy-ai-replacement-test.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/microsoft-hr-system-overhaul.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/meta-layoffs-middle-managers.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/gtc2026-org-evolution.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/tencent-ai-lab-disbanded.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/unitree-ipo-org-analysis.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/musk-2026-ai-interview.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/openclaw-ai-agent-management.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/wangxing-meituan-management-talk.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-change-hr-heart.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/jimeng-organization-logic.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-era-hr-transformation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/hr-talent-management-ai-era.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/talent-review-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/protocol-based-organization.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-talent-premium-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/ai-hr-transformation-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/amazon-layoff-lesson.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/cost-reduction-iceberg.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/digital-management-four-actions.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.aihrlab.online/articles/hcroi-organizational-capital.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-05-10T20:30:00+08:00</lastmod>
   </url>
 </urlset>
