@@ -280,4 +280,34 @@
     <loc>https://www.aihrlab.online/articles/xiaomi-2026-org-evolution.html</loc>
     <lastmod>2026-05-10T20:30:00+08:00</lastmod>
   </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/mckinsey-hidden-deadlock.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/mckinsey-human-ai-orchestration.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/deepmind-no-kpi-talent-management.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/meta-ai-code-75-percent.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-era-org-rigidity.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
