@@ -1,0 +1,80 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 设置GITHUB_TOKEN的权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 允许一个并发部署
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # 构建和验证作业
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate HTML structure
+        run: |
+          echo "🔍 验证HTML基本结构..."
+          # 检查所有HTML文件是否有基本的标签
+          for file in $(find site-migrated -name "*.html"); do
+            if ! grep -q "<!DOCTYPE html>" "$file"; then
+              echo "❌ 错误: $file 缺少 <!DOCTYPE html>"
+              exit 1
+            fi
+            if ! grep -q "</html>" "$file"; then
+              echo "❌ 错误: $file 缺少 </html>"
+              exit 1
+            fi
+          done
+          echo "✅ HTML基本结构验证通过"
+
+      - name: Check for broken internal links
+        run: |
+          echo "🔗 检查内部链接..."
+          # 检查CSS/JS路径是否存在
+          for file in $(find site-migrated/articles -name "*.html"); do
+            # 检查CSS文件路径
+            css_path=$(grep -o 'href="/assets/css/[^"]*"' "$file" | head -1 | sed 's/href="//;s/"//')
+            if [ -n "$css_path" ] && [ ! -f "site-migrated$css_path" ]; then
+              echo "⚠️  警告: $file 引用的CSS文件不存在: $css_path"
+            fi
+          done
+          echo "✅ 内部链接检查完成"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-migrated
+
+  # 部署作业
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Notify deployment status
+        run: |
+          echo "🚀 部署成功！"
+          echo "📋 网站地址: <ADDRESS_REMOVED>
+          echo "📅 部署时间: $(date)"
