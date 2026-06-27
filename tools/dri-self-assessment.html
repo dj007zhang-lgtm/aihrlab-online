@@ -20,4 +20,12 @@ function showResult() { // 检查是否全部作答 for (let i = 1; i <= totalSt
 function retake() { answers = {}; currentStep = 1; document.getElementById('resultCard').classList.remove('show'); document.querySelector('.progress-section').style.display = ''; document.getElementById('questionCards').style.display = ''; // 清除所有选中 document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected')); document.querySelectorAll('.btn-next, .btn-result').forEach(el => el.classList.remove('enabled')); document.querySelectorAll('.progress-step-dot').forEach((el, i) => { el.classList.remove('done', 'active'); if (i === 0) el.classList.add('active'); }); document.querySelectorAll('.question-card').forEach((el, i) => { el.classList.remove('active'); if (i === 0) el.classList.add('active'); }); updateProgress();
 } // 启动
 init();
-</script></body></html>
+</script>
+<!-- 百度自动推送 -->
+<script>
+(function(){var u="//zz.bdstatic.com/linksubmit/push.js";
+var s=document.createElement('script');s.src=u;
+var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);
+})();
+</script>
+</body></html>
