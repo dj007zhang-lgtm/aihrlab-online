@@ -1,0 +1,24 @@
+{
+  "pushed": [
+    "https://www.aihrlab.online/",
+    "https://www.aihrlab.online/articles/",
+    "https://www.aihrlab.online/about.html",
+    "https://www.aihrlab.online/resources/",
+    "https://www.aihrlab.online/products/dri-toolkit.html",
+    "https://www.aihrlab.online/tools/dri-quiz.html",
+    "https://www.aihrlab.online/tools/dri-self-assessment.html",
+    "https://www.aihrlab.online/articles/2026-hr-transformation-chief-architect.html",
+    "https://www.aihrlab.online/articles/AI裁员7飙到40你的公司在做减法还是乘法.html",
+    "https://www.aihrlab.online/articles/ai-bounded-rationality.html"
+  ],
+  "total_pushed": 10,
+  "total_urls": 85,
+  "history": [
+    {
+      "date": "2026-06-29",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 75
+    }
+  ]
+}
