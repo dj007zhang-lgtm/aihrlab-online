@@ -19,6 +19,13 @@
       "pushed": 10,
       "failed": 0,
       "remaining_after": 75
+    },
+    {
+      "date": "2026-06-29",
+      "batch": "full-sweep",
+      "pushed": 0,
+      "failed": 75,
+      "remaining_after": 75
     }
   ]
 }

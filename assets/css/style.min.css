@@ -8,3 +8,11 @@
 .continue-reading-card li::before{content:"→";position:absolute;left:0;color:#f59f00;font-weight:700}
 .continue-reading-card a{color:#1a1a1a;text-decoration:none;font-weight:500;transition:color .2s ease}
 .continue-reading-card a:hover{color:#e8590c;text-decoration:underline}
+/* 相关阅读（内部链接矩阵） */
+.related-reading{margin:3rem 0 2rem;padding:1.8rem 2rem;background:var(--bg-subtle);border:1px solid var(--line);border-radius:12px}
+.related-reading h3{font-size:1.1rem;font-weight:700;color:var(--text);margin:0 0 1rem 0;display:flex;align-items:center;gap:.5rem}
+.related-reading ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem}
+.related-reading li{margin:0;font-size:.95rem;line-height:1.6}
+.related-reading li a{color:var(--text-link);text-decoration:none;border-bottom:none;padding:.3rem 0;display:block;transition:color .2s ease}
+.related-reading li a:hover{color:var(--text-link-hover);text-decoration:underline}
+@media(max-width:640px){.related-reading ul{grid-template-columns:1fr}}
