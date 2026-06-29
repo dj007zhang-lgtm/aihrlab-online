@@ -51,14 +51,26 @@ def tokenize(text):
     return tokens
 
 
+def is_redirect_page(content):
+    """检测是否为重定向页面"""
+    return 'http-equiv="refresh"' in content[:500]
+
+
 def build_article_index():
-    """扫描所有文章，建立标题/关键词索引"""
+    """扫描所有文章，建立标题/关键词索引（排除重定向页）"""
     articles = {}
+    skipped = []
     for fpath in sorted(ARTICLES_DIR.glob("*.html")):
-        title = extract_title(fpath)
-        # 提取 h2 标题作为关键词补充
         with open(fpath, 'r', encoding='utf-8') as f:
             content = f.read()
+        
+        # 跳过重定向页面
+        if is_redirect_page(content):
+            skipped.append(fpath.name)
+            continue
+        
+        title = extract_title(fpath)
+        # 提取 h2 标题作为关键词补充
         h2s = re.findall(r'<h2[^>]*>([^<]+)</h2>', content)
         # 提取 meta description
         desc = ''
@@ -76,6 +88,9 @@ def build_article_index():
             'path': fpath.name,
             'url': f'/articles/{fpath.name}'
         }
+    
+    if skipped:
+        print(f"  跳过 {len(skipped)} 个重定向页面: {', '.join(skipped)}")
     
     return articles
 
@@ -118,15 +133,24 @@ def gen_related_links(articles, top_n=4):
 
 def inject_related_links(articles, related):
     """将相关阅读HTML注入到每篇文章中"""
+    count = 0
     for fn, recs in related.items():
         fpath = ARTICLES_DIR / fn
         with open(fpath, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # 检查是否已有相关阅读
-        if '<section class="related-reading">' in content:
-            print(f"  SKIP {fn}: already has related reading")
-            continue
+        # 移除旧的 related-reading 区块（如果存在），确保不会重复
+        content = re.sub(
+            r'\s*<!-- 相关阅读 -->\s*<section class="related-reading">.*?</section>\s*',
+            '',
+            content,
+            flags=re.DOTALL
+        )
+        
+        # 验证无自引用
+        recs = [r for r in recs if r['path'] != fn]
+        if len(recs) < 4:
+            print(f"  WARN {fn}: only {len(recs)} valid recommendations after filtering")
         
         # 生成相关阅读HTML
         links_html = '\n'.join([
@@ -148,13 +172,18 @@ def inject_related_links(articles, related):
         if '</article>' in content:
             content = content.replace('</article>', related_html + '    </article>')
         else:
-            # 备选：注入到 footer 之前
-            content = content.replace('</div>\n    </main>', related_html + '\n</div>\n    </main>')
+            # 备选：注入到 <footer> 之前
+            m = re.search(r'(    <footer[^>]*>)', content)
+            if m:
+                content = content.replace(m.group(1), related_html + m.group(1))
         
         with open(fpath, 'w', encoding='utf-8') as f:
             f.write(content)
         
+        count += 1
         print(f"  OK {fn}: +{len(recs)} related links")
+    
+    return count
 
 
 def main():
