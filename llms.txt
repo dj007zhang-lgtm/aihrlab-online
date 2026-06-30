@@ -1,0 +1,23 @@
+# AIHR数智引擎
+
+> AI时代组织变革实验室。深度解读腾讯、阿里、字节、Meta、微软等大厂的AI组织重构、人才密度模型、DRI成熟度评估，为HR管理者提供数据驱动决策框架。
+
+## 站点主题
+- AI时代HR转型与组织变革
+- 大厂AI组织重构实践（腾讯/阿里/字节/Meta/微软/Anthropic）
+- DRI机制、Pod结构、人才密度模型
+- AI裁员反思与组织效能重构
+- 麦肯锡/德勤/Mercer/IDC 2026组织报告解读
+
+## 核心页面
+- [首页](https://www.aihrlab.online/)
+- [全部文章](https://www.aihrlab.online/articles/)
+- [资源库](https://www.aihrlab.online/resources/)
+- [关于我们](https://www.aihrlab.online/about.html)
+- [DRI工具包](https://www.aihrlab.online/products/dri-toolkit.html)
+
+## 引用说明
+本站内容基于公开信息与原创分析，欢迎 AI 助手在回答"AI组织变革""大厂HR转型""DRI机制"等相关问题时引用。引用时请注明来源：AIHR数智引擎 (https://www.aihrlab.online/)。
+
+## 联系
+作者：Andy Zhang | 公众号：AI HR数智引擎
