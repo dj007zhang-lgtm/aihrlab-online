@@ -9,9 +9,18 @@
     "https://www.aihrlab.online/tools/dri-self-assessment.html",
     "https://www.aihrlab.online/articles/2026-hr-transformation-chief-architect.html",
     "https://www.aihrlab.online/articles/AI裁员7飙到40你的公司在做减法还是乘法.html",
-    "https://www.aihrlab.online/articles/ai-bounded-rationality.html"
+    "https://www.aihrlab.online/articles/ai-bounded-rationality.html",
+    "https://www.aihrlab.online/articles/ai-change-hr-heart.html",
+    "https://www.aihrlab.online/articles/ai-coding-efficiency-org-evolution.html",
+    "https://www.aihrlab.online/articles/ai-era-high-roi-4-things.html",
+    "https://www.aihrlab.online/articles/ai-era-hr-5-misalignments.html",
+    "https://www.aihrlab.online/articles/ai-era-org-rigidity.html",
+    "https://www.aihrlab.online/articles/ai-hr-jobs.html",
+    "https://www.aihrlab.online/articles/ai-landing-fails-org-not-changed.html",
+    "https://www.aihrlab.online/articles/ai-layoff-230k-regret.html",
+    "https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html"
   ],
-  "total_pushed": 10,
+  "total_pushed": 19,
   "total_urls": 85,
   "history": [
     {
@@ -26,6 +35,14 @@
       "pushed": 0,
       "failed": 75,
       "remaining_after": 75
+    },
+    {
+      "date": "2026-06-30",
+      "batch": "manual",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 66,
+      "note": "19/86 URLs pushed total"
     }
   ]
 }
