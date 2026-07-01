@@ -18,10 +18,20 @@
     "https://www.aihrlab.online/articles/ai-hr-jobs.html",
     "https://www.aihrlab.online/articles/ai-landing-fails-org-not-changed.html",
     "https://www.aihrlab.online/articles/ai-layoff-230k-regret.html",
-    "https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html"
+    "https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html",
+    "https://www.aihrlab.online/articles/ai-hr-2026-midyear-three-signals.html",
+    "https://www.aihrlab.online/articles/ai-layoff-2026-mid-year-review.html",
+    "https://www.aihrlab.online/articles/ai-layoff-regret.html",
+    "https://www.aihrlab.online/articles/ai-layoff-subtraction-vs-multiplication.html",
+    "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html",
+    "https://www.aihrlab.online/articles/ai-silent-org-signals.html",
+    "https://www.aihrlab.online/articles/anthropic-best-ai-company.html",
+    "https://www.aihrlab.online/articles/anthropic-danger-signals.html",
+    "https://www.aihrlab.online/articles/anthropic-engineer-three-stages.html",
+    "https://www.aihrlab.online/articles/baidu-tp-reform.html"
   ],
-  "total_pushed": 19,
-  "total_urls": 85,
+  "total_pushed": 29,
+  "total_urls": 90,
   "history": [
     {
       "date": "2026-06-29",
@@ -43,6 +53,12 @@
       "failed": 0,
       "remaining_after": 66,
       "note": "19/86 URLs pushed total"
+    },
+    {
+      "date": "2026-07-01",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 61
     }
   ]
 }

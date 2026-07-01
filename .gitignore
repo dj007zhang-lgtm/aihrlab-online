@@ -6,5 +6,8 @@ Thumbs.db
 scripts/
 *.md
 
+# Google API credentials (DO NOT COMMIT)
+gsc_service_account.json
+
 # Deploy package
 *.tar.gz
