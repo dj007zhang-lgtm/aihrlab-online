@@ -16,3 +16,11 @@
 .related-reading li a{color:var(--text-link);text-decoration:none;border-bottom:none;padding:.3rem 0;display:block;transition:color .2s ease}
 .related-reading li a:hover{color:var(--text-link-hover);text-decoration:underline}
 @media(max-width:640px){.related-reading ul{grid-template-columns:1fr}}
+/* Breadcrumb navigation */
+.breadcrumb-nav{max-width:720px;margin:0 auto;padding:1rem 0 0}
+.breadcrumb-nav ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center;padding:0;margin:0;font-size:.85rem;color:#868e96}
+.breadcrumb-nav li{display:flex;align-items:center}
+.breadcrumb-nav li:not(:last-child)::after{content:'/';margin:0 .5rem;color:#adb5bd}
+.breadcrumb-nav a{color:#495057;text-decoration:none}
+.breadcrumb-nav a:hover{color:#212529;text-decoration:underline}
+.breadcrumb-current{color:#212529;font-weight:500}
