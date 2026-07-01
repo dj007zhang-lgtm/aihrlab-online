@@ -1,6 +1,6 @@
 #!/bin/bash
 # 二维码完整性检查 - 每次部署前执行
-# 规则：每篇文章必须有且仅有1个 article-footer-qr，无 article-qrcode 残留
+# 规则：每篇真实文章必须有且仅有1个 article-footer-qr，无 article-qrcode 残留
 
 set -e
 
@@ -11,7 +11,14 @@ echo "=== 二维码完整性检查 ==="
 
 for f in "$DIR"/articles/*.html; do
     fname=$(basename "$f")
+    
+    # 跳过 index.html
+    [ "$fname" = "index.html" ] && continue
+    
     content=$(cat "$f")
+    
+    # 跳过跳转页（301 redirect）
+    echo "$content" | grep -q 'meta http-equiv="refresh"' && continue
     
     # 检查旧式 article-qrcode（不应出现）
     aq_count=$(echo "$content" | grep -o 'article-qrcode' | wc -l | tr -d ' ')
@@ -20,8 +27,8 @@ for f in "$DIR"/articles/*.html; do
         ERRORS=$((ERRORS + 1))
     fi
     
-    # 检查 article-footer-qr 数量（应恰好1个）
-    af_count=$(echo "$content" | grep -o 'article-footer-qr' | wc -l | tr -d ' ')
+    # 检查 article-footer-qr 数量（应恰好1个，只统计HTML元素）
+    af_count=$(echo "$content" | grep -o '<div class="article-footer-qr"' | wc -l | tr -d ' ')
     if [ "$af_count" -ne 1 ]; then
         echo "❌ $fname: article-footer-qr 数量=$af_count（应为1）"
         ERRORS=$((ERRORS + 1))
