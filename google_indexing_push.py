@@ -8,6 +8,7 @@ Google Indexing API 批量推送脚本
 用法：
     1. 将服务帐号 JSON 密钥文件放在脚本同目录，命名为 gsc_service_account.json
     2. 运行：python google_indexing_push.py
+    3. 强制推送（忽略已有记录）：python google_indexing_push.py --force
 
 配额限制：
     - URL_UPDATED: 200 条/天/站点
@@ -38,6 +39,7 @@ INDEXING_API_URL = "https://indexing.googleapis.com/v3/urlNotifications:publish"
 RATE_LIMIT_SECONDS = 1.0  # 每条请求间隔
 REQUEST_TIMEOUT = 30  # 单次请求超时（秒）
 DRY_RUN = False  # True = 只打印不发送；False = 真实调用 API
+FORCE_MODE = False  # --force: 忽略已有推送记录，全部重新推送
 
 
 # ——— 工具函数 ———
@@ -151,6 +153,14 @@ def push_url(session, url, retry=2):
 
 
 def main():
+    global FORCE_MODE, DRY_RUN
+    
+    # 解析命令行参数
+    if "--force" in sys.argv or "-f" in sys.argv:
+        FORCE_MODE = True
+    if "--dry-run" in sys.argv:
+        DRY_RUN = True
+
     print("=" * 60)
     print("Google Indexing API — aihrlab.online URL 推送")
     print("=" * 60)
@@ -158,12 +168,12 @@ def main():
     # 加载日志
     log = load_log()
     today = datetime.now().strftime("%Y-%m-%d")
-    today_count = log["daily_count"].get(today, 0)
+    today_count = log["daily_count"].get(today, 0) if not FORCE_MODE else 0
 
     print(f"\n📅 日期: {today}")
     print(f"📊 今日已推送: {today_count} 条")
     print(f"📦 每日上限: 200 条 (URL_UPDATED)")
-    print(f"🏷️  模式: {'DRY RUN (仅预览)' if DRY_RUN else '正式推送'}")
+    print(f"🏷️  模式: {'FORCE 强制重推' if FORCE_MODE else 'DRY RUN (仅预览)' if DRY_RUN else '正式推送'}")
 
     if today_count >= 200:
         print("\n⚠️  今日配额已用完，请明天再运行。")
@@ -174,13 +184,13 @@ def main():
     urls = fetch_sitemap_urls()
     print(f"✅ 从 sitemap 提取到 {len(urls)} 个 URL")
 
-    # 筛选尚未推送或推送失败的 URL
+    # 筛选尚未推送或推送失败的 URL（FORCE_MODE 下跳过筛选）
     remaining = 200 - today_count
     to_push = []
     skipped = 0
 
     for url in urls:
-        if url in log["submissions"]:
+        if not FORCE_MODE and url in log["submissions"]:
             last = log["submissions"][url]
             if last.get("status") == "success":
                 skipped += 1
