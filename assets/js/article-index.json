@@ -1,476 +1,536 @@
 [
   {
-    "title": "AI裁员：管理者不会被AI替代，但「管理」正在被重新定义",
-    "url": "ai-layoff-manager-redefine",
-    "date": "2026年6月23日",
-    "slug": "ai-layoff-manager-redefine"
-  },
-  {
-    "title": "KPI物理失效：AI原生组织的效能重构",
-    "url": "kpi-failure-ai-org-restructure",
-    "date": "2026年6月23日",
-    "slug": "kpi-failure-ai-org-restructure"
-  },
-  {
-    "title": "腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制",
-    "url": "tencent-2800-internal-transfer",
-    "date": "2026年6月23日",
-    "slug": "tencent-2800-internal-transfer"
-  },
-  {
-    "title": "效率、判断力与组织记忆：配平你的人机协作方程式",
-    "url": "human-ai-equation",
-    "date": "2026年6月23日",
-    "slug": "human-ai-equation"
-  },
-  {
-    "title": "麦肯锡2026断言：人机编排是组织唯一出路",
-    "url": "mckinsey-human-ai-orchestration",
-    "date": "2026年6月22日",
-    "slug": "mckinsey-human-ai-orchestration"
+    "title": "2026HR转型图鉴：在 AI 时代，活成组织的\"首席架构师\"",
+    "url": "2026-hr-transformation-chief-architect.html",
+    "category": "",
+    "date": "2026-01-10"
   },
   {
     "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
-    "url": "ai-layoff-subtraction-vs-multiplication",
-    "date": "2026年6月13日",
-    "slug": "ai-layoff-subtraction-vs-multiplication"
+    "url": "AI裁员7飙到40你的公司在做减法还是乘法.html",
+    "category": "",
+    "date": "2026-06-24"
   },
   {
-    "title": "没有KPI，如何管理天才团队：DeepMind的答案是「科学领导力」",
-    "url": "deepmind-no-kpi-talent-management",
-    "date": "2026年4月7日",
-    "slug": "deepmind-no-kpi-talent-management"
+    "title": "Anthropic内部实录用这6个危险信号拆掉你团队的冗余流程",
+    "url": "Anthropic内部实录用这6个危险信号拆掉你团队的冗余流程.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "从AI裁员到AI重构：HR如何在组织变革中站稳脚跟",
-    "url": "ai-layoff-to-rebuild-hr-stand-firm",
-    "date": "2026-07-02",
-    "slug": "ai-layoff-to-rebuild-hr-stand-firm"
-  },
-  {
-    "title": "AI落地HR实战：314家企业验证的3个高ROI切入点",
-    "url": "ai-hr-landing-3-high-roi-plays",
-    "date": "2026-07-01",
-    "slug": "ai-hr-landing-3-high-roi-plays"
-  },
-  {
-    "title": "2026上半年：AI正在改写HR的三条暗线",
-    "url": "ai-hr-2026-midyear-three-signals",
-    "date": "2026-06-30",
-    "slug": "ai-hr-2026-midyear-three-signals"
-  },
-  {
-    "title": "AI裁员2026年中盘点：被裁的都有这三个特征",
-    "url": "ai-layoff-2026-mid-year-review",
-    "date": "2026-06-29",
-    "slug": "ai-layoff-2026-mid-year-review"
-  },
-  {
-    "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
-    "url": "AI裁员7飙到40你的公司在做减法还是乘法",
-    "date": "2026-06-24",
-    "slug": "AI裁员7飙到40你的公司在做减法还是乘法"
-  },
-  {
-    "title": "微软暗线：纳德拉的组织依赖解耦局",
-    "url": "microsoft-decoupling-openai-strategy",
-    "date": "2026-06-23",
-    "slug": "microsoft-decoupling-openai-strategy"
-  },
-  {
-    "title": "微软的暗线：1370亿砸向OpenAI，却刻意避开——纳德拉的组织解耦局",
-    "url": "microsoft-openai-decoupling",
-    "date": "2026-06-23",
-    "slug": "microsoft-openai-decoupling"
-  },
-  {
-    "title": "Anthropic内部实录：用这6个危险信号，拆掉你团队的冗余流程",
-    "url": "anthropic-danger-signals",
-    "date": "2026-06-17",
-    "slug": "anthropic-danger-signals"
-  },
-  {
-    "title": "拆解 Anthropic：AI公司，也是一种组织发明",
-    "url": "anthropic-best-ai-company",
-    "date": "2026-05-21",
-    "slug": "anthropic-best-ai-company"
-  },
-  {
-    "title": "滴滴三任人力资源负责人：从战争到长期主义，打造为企业护航的HR体系",
-    "url": "didi-three-hr-leaders",
-    "date": "2026-05-10",
-    "slug": "didi-three-hr-leaders"
-  },
-  {
-    "title": "AI Coding的效能传导：从个体提速到组织进化",
-    "url": "ai-coding-efficiency-org-evolution",
-    "date": "2026-04-13",
-    "slug": "ai-coding-efficiency-org-evolution"
-  },
-  {
-    "title": "你今天消耗了多少Token？大厂KPI的新玩法",
-    "url": "token-kpi-new-corporate-metrics",
-    "date": "2026-04-12",
-    "slug": "token-kpi-new-corporate-metrics"
+    "title": "KPI物理失效AI原生组织的效能重构与技能度量",
+    "url": "KPI物理失效AI原生组织的效能重构与技能度量.html",
+    "category": "",
+    "date": ""
   },
   {
     "title": "AI不是来抢你饭碗的——真正危险的，是你不知道自己被\"有限理性\"困住了",
-    "url": "ai-bounded-rationality",
-    "date": "2026-04-10",
-    "slug": "ai-bounded-rationality"
-  },
-  {
-    "title": "从\"能不能\"到\"敢不敢\"：可灵AI创新路径的组织启示",
-    "url": "keling-ai-innovation-path",
-    "date": "2026-04-09",
-    "slug": "keling-ai-innovation-path"
-  },
-  {
-    "title": "微软爆改HR体系：让组织像AI一样思考",
-    "url": "microsoft-hr-transformation-ai-thinking",
-    "date": "2026-04-08",
-    "slug": "microsoft-hr-transformation-ai-thinking"
-  },
-  {
-    "title": "AI时代，德鲁克依然是答案——只是问题变了",
-    "url": "drucker-ai-era-answer",
-    "date": "2026-04-08",
-    "slug": "drucker-ai-era-answer"
-  },
-  {
-    "title": "88%企业AI落地失败，原因不在技术，在组织没变",
-    "url": "ai-landing-fails-org-not-changed",
-    "date": "2026-04-08",
-    "slug": "ai-landing-fails-org-not-changed"
-  },
-  {
-    "title": "AI时代，如何破除组织僵化？三个「反直觉」动作",
-    "url": "ai-era-org-rigidity",
-    "date": "2026-03-30",
-    "slug": "ai-era-org-rigidity"
-  },
-  {
-    "title": "Meta组织大变脸：AI代码占比75%，工程师在变成「AI产品经理」",
-    "url": "meta-ai-code-75-percent",
-    "date": "2026-03-30",
-    "slug": "meta-ai-code-75-percent"
-  },
-  {
-    "title": "麦肯锡2026组织报告：AI时代的人才筛选论",
-    "url": "mckinsey-2026-organization-report",
-    "date": "2026-03-29",
-    "slug": "mckinsey-2026-organization-report"
-  },
-  {
-    "title": "Meta又裁员了：AI正在系统性\"优化\"掉中层管理者",
-    "url": "meta-ai-optimizes-middle-managers",
-    "date": "2026-03-26",
-    "slug": "meta-ai-optimizes-middle-managers"
-  },
-  {
-    "title": "可复制的组织力：拆解即梦Seedance 2.0，HR与管理者必学的AI时代组织重构逻辑",
-    "url": "jimeng-organization-logic",
-    "date": "2026-03-19",
-    "slug": "jimeng-organization-logic"
+    "url": "ai-bounded-rationality.html",
+    "category": "",
+    "date": "2026-04-10"
   },
   {
     "title": "AI变革推不动？HR你要明白：算法再精，不如人心安",
-    "url": "ai-change-hr-heart",
-    "date": "2026-02-23",
-    "slug": "ai-change-hr-heart"
+    "url": "ai-change-hr-heart.html",
+    "category": "",
+    "date": "2026-02-23"
   },
   {
-    "title": "从公司到智能组织",
-    "url": "from-company-to-intelligent-organization",
-    "date": "2026-02-14",
-    "slug": "from-company-to-intelligent-organization"
-  },
-  {
-    "title": "2026HR转型图鉴：在 AI 时代，活成组织的\"首席架构师\"",
-    "url": "2026-hr-transformation-chief-architect",
-    "date": "2026-01-10",
-    "slug": "2026-hr-transformation-chief-architect"
+    "title": "AI Coding的效能传导：从个体提速到组织进化",
+    "url": "ai-coding-efficiency-org-evolution.html",
+    "category": "",
+    "date": "2026-04-13"
   },
   {
     "title": "AI时代，职场回报率超高的四件小事",
-    "url": "ai-era-high-roi-4-things",
-    "date": "",
-    "slug": "ai-era-high-roi-4-things"
-  },
-  {
-    "title": "GTC2026：算力时代的组织演进与HR启示",
-    "url": "gtc2026-org-evolution",
-    "date": "",
-    "slug": "gtc2026-org-evolution"
-  },
-  {
-    "title": "字节校招7000人：大厂HR体系「去经验化」",
-    "url": "bytedance-campus-7000",
-    "date": "",
-    "slug": "bytedance-campus-7000"
-  },
-  {
-    "title": "Karpathy的AI替代测试：击碎职业常识",
-    "url": "karpathy-ai-replacement-test",
-    "date": "",
-    "slug": "karpathy-ai-replacement-test"
-  },
-  {
-    "title": "Meta加码300亿买算力，裁员8000人拆金字塔",
-    "url": "meta-300b-ai-layoff",
-    "date": "",
-    "slug": "meta-300b-ai-layoff"
-  },
-  {
-    "title": "腾讯319亿，阿里3800亿：AI军备竞赛下，HR一号位的终极考卷",
-    "url": "tencent-319b-ali-3800b",
-    "date": "",
-    "slug": "tencent-319b-ali-3800b"
-  },
-  {
-    "title": "麦肯锡发布的《2026年组织状况报告》深度解读：AI时代的组织进化论",
-    "url": "mckinsey-2026-org-report-deep-dive",
-    "date": "",
-    "slug": "mckinsey-2026-org-report-deep-dive"
-  },
-  {
-    "title": "23万人被AI裁员后，一半的公司后悔了",
-    "url": "ai-layoff-230k-regret",
-    "date": "",
-    "slug": "ai-layoff-230k-regret"
-  },
-  {
-    "title": "麦肯锡6%落地率背后：AI-First组织的信任架构怎么搭",
-    "url": "mckinsey-6-percent-trust-architecture",
-    "date": "",
-    "slug": "mckinsey-6-percent-trust-architecture"
-  },
-  {
-    "title": "百度取消T/P序列：AI时代的人才价值重估",
-    "url": "baidu-tp-reform",
-    "date": "",
-    "slug": "baidu-tp-reform"
-  },
-  {
-    "title": "23万人被AI裁员后，一半的公司后悔了",
-    "url": "ai-layoff-regret",
-    "date": "",
-    "slug": "ai-layoff-regret"
+    "url": "ai-era-high-roi-4-things.html",
+    "category": "",
+    "date": ""
   },
   {
     "title": "AI时代人力资源管理的5大错位",
-    "url": "ai-era-hr-5-misalignments",
-    "date": "",
-    "slug": "ai-era-hr-5-misalignments"
+    "url": "ai-era-hr-5-misalignments.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "高效HR的AI工具箱：21个精准提示词，重塑核心工作流",
-    "url": "hr-ai-prompt-toolbox-21",
-    "date": "",
-    "slug": "hr-ai-prompt-toolbox-21"
+    "title": "ai era hr transformation",
+    "url": "ai-era-hr-transformation.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "胖东来你学不会：视人为\"人\"，才是护城河",
-    "url": "fat-donglai-you-cant-learn",
-    "date": "",
-    "slug": "fat-donglai-you-cant-learn"
+    "title": "AI时代，如何破除组织僵化？三个「反直觉」动作",
+    "url": "ai-era-org-rigidity.html",
+    "category": "",
+    "date": "2026-03-30"
   },
   {
-    "title": "麦肯锡6%落地率背后：AI-First组织的信任架构怎么搭",
-    "url": "mckinsey-6pct-trust",
-    "date": "",
-    "slug": "mckinsey-6pct-trust"
-  },
-  {
-    "title": "德勤2026：85%的战略正在被7%的损耗率吃掉",
-    "url": "deloitte-2026",
-    "date": "",
-    "slug": "deloitte-2026"
-  },
-  {
-    "title": "李开复×苏姿丰对谈：未来HR只有一个核心岗位，叫DRI",
-    "url": "dri-kaifu-lisa-su",
-    "date": "",
-    "slug": "dri-kaifu-lisa-su"
-  },
-  {
-    "title": "麦肯锡报告的\"隐藏\"死局：没有底层的制度授权，一切AI转型都是行为艺术",
-    "url": "mckinsey-hidden-deadlock",
-    "date": "",
-    "slug": "mckinsey-hidden-deadlock"
-  },
-  {
-    "title": "OpenClaw走红背后：当AI Agent成为\"隐形员工\"，HR如何重建管理规则？",
-    "url": "openclaw-ai-agent-management",
-    "date": "",
-    "slug": "openclaw-ai-agent-management"
-  },
-  {
-    "title": "重磅｜微软打响第一枪：爆改HR体系，让组织像AI一样思考",
-    "url": "microsoft-hr-system-overhaul",
-    "date": "",
-    "slug": "microsoft-hr-system-overhaul"
-  },
-  {
-    "title": "Meta Pod结构全拆解：工程师创业式的小团队如何运转",
-    "url": "meta-pod-structure",
-    "date": "",
-    "slug": "meta-pod-structure"
-  },
-  {
-    "title": "微软的暗线：砸下1370亿却刻意避开OpenAI，纳德拉留给一号位的组织解耦局",
-    "url": "microsoft-ai-decoupling",
-    "date": "",
-    "slug": "microsoft-ai-decoupling"
+    "title": "2026上半年：AI正在改写HR的三条暗线",
+    "url": "ai-hr-2026-midyear-three-signals.html",
+    "category": "",
+    "date": "2026-06-30"
   },
   {
     "title": "AI接管HR岗位全景图：哪些职能先被Agent替代",
-    "url": "ai-hr-jobs",
-    "date": "",
-    "slug": "ai-hr-jobs"
+    "url": "ai-hr-jobs.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制",
-    "url": "tencent-2800-huoshui",
-    "date": "",
-    "slug": "tencent-2800-huoshui"
+    "title": "AI落地HR实战：314家企业验证的3个高ROI切入点",
+    "url": "ai-hr-landing-3-high-roi-plays.html",
+    "category": "",
+    "date": "2026-07-01"
   },
   {
-    "title": "Meta又裁员了：AI正在系统性优化掉中层管理者",
-    "url": "meta-layoffs-middle-managers",
-    "date": "",
-    "slug": "meta-layoffs-middle-managers"
+    "title": "88%企业AI落地失败，原因不在技术，在组织没变",
+    "url": "ai-landing-fails-org-not-changed.html",
+    "category": "",
+    "date": "2026-04-08"
   },
   {
-    "title": "IDC 2026中国企业AI应用成熟度报告 | HR AI Agent选型指南",
-    "url": "idc-2026-hr-ai-agent-guide",
-    "date": "",
-    "slug": "idc-2026-hr-ai-agent-guide"
+    "title": "AI裁员2026年中盘点：被裁的都有这三个特征",
+    "url": "ai-layoff-2026-mid-year-review.html",
+    "category": "",
+    "date": "2026-06-29"
   },
   {
-    "title": "算力基建时代的组织演进：GTC2026给HR的五大战略启示",
-    "url": "gtc2026-ai-infrastructure-org-evolution",
-    "date": "",
-    "slug": "gtc2026-ai-infrastructure-org-evolution"
+    "title": "23万人被AI裁员后，一半的公司后悔了",
+    "url": "ai-layoff-230k-regret.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "马斯克2026最新访谈：当AI进入\"递归进化\"，HR的物理边界是否已消失？",
-    "url": "musk-2026-ai-interview",
-    "date": "",
-    "slug": "musk-2026-ai-interview"
+    "title": "AI裁员：管理者不会被AI替代，但「管理」正在被重新定义",
+    "url": "ai-layoff-manager-redefine.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "面对老板的AI狂热和焦虑，HR该如何从容破局？",
-    "url": "hr-handle-boss-ai-fever",
-    "date": "",
-    "slug": "hr-handle-boss-ai-fever"
+    "title": "23万人被AI裁员后，一半的公司后悔了",
+    "url": "ai-layoff-regret.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "拆解宇树科技招股书：硬科技组织不需要\"平庸的管理\"",
-    "url": "unitree-ipo-org-analysis",
-    "date": "",
-    "slug": "unitree-ipo-org-analysis"
+    "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
+    "url": "ai-layoff-subtraction-vs-multiplication.html",
+    "category": "",
+    "date": ""
   },
   {
-    "title": "字节1600亿背后的组织阳谋：买算力，不如买「组织能力」",
-    "url": "bytedance-160b-ai-org",
-    "date": "",
-    "slug": "bytedance-160b-ai-org"
-  },
-  {
-    "title": "大厂AI组织重构：4家巨头密集挥刀向内——谁在真做，谁在跟风？",
-    "url": "bigtech-ai-reorg-2026",
-    "date": "",
-    "slug": "bigtech-ai-reorg-2026"
-  },
-  {
-    "title": "麦肯锡2026最新组织报告：HR必须从\"培训\"转向\"筛选\"",
-    "url": "mckinsey-2026-training-vs-screening",
-    "date": "",
-    "slug": "mckinsey-2026-training-vs-screening"
-  },
-  {
-    "title": "AI组织进化论:阿里3800亿、字节30万亿Token、Kimi零部门——2026中国AI组织三条路线",
-    "url": "china-ai-org-three-routes",
-    "date": "",
-    "slug": "china-ai-org-three-routes"
-  },
-  {
-    "title": "微软砸碎架构，Anthropic消灭中层：AI时代的组织底层代码如何重构",
-    "url": "microsoft-anthropic-ai-org-restructure",
-    "date": "",
-    "slug": "microsoft-anthropic-ai-org-restructure"
-  },
-  {
-    "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
-    "url": "dingtalk-ceo-change",
-    "date": "",
-    "slug": "dingtalk-ceo-change"
-  },
-  {
-    "title": "越用AI越听不见真话：组织信号系统崩溃",
-    "url": "ai-silent-org-signals",
-    "date": "",
-    "slug": "ai-silent-org-signals"
-  },
-  {
-    "title": "WWDC2026：Apple Intelligence 2.0给HR启示",
-    "url": "wwdc-2026-hr-insights",
-    "date": "",
-    "slug": "wwdc-2026-hr-insights"
-  },
-  {
-    "title": "王兴在美团2000人管理会上的发言，我看到了\"经验\"的清算",
-    "url": "wangxing-meituan-management-talk",
-    "date": "",
-    "slug": "wangxing-meituan-management-talk"
-  },
-  {
-    "title": "招聘全链路AI落地：从JD撰写到面试出题的Agent化",
-    "url": "recruitment-ai-fullstack",
-    "date": "",
-    "slug": "recruitment-ai-fullstack"
-  },
-  {
-    "title": "马斯克2026最新访谈：当AI进入\"递归进化\"，HR的物理边界是否已消失？",
-    "url": "musk-2026-ai-recursive-evolution",
-    "date": "",
-    "slug": "musk-2026-ai-recursive-evolution"
-  },
-  {
-    "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
-    "url": "dingtalk-ceo-change-control-vs-empowerment",
-    "date": "",
-    "slug": "dingtalk-ceo-change-control-vs-empowerment"
-  },
-  {
-    "title": "字节校招7000人转正率50%：大厂HR体系，正在\"去经验化\"",
-    "url": "bytedance-7000-interns",
-    "date": "",
-    "slug": "bytedance-7000-interns"
-  },
-  {
-    "title": "腾讯AI Lab落幕：剥离\"神坛幻觉\"，打响大模型时代的组织巷战",
-    "url": "tencent-ai-lab-disbanded",
-    "date": "",
-    "slug": "tencent-ai-lab-disbanded"
-  },
-  {
-    "title": "2026大厂AI组织变革全景图：阿里腾讯字节百度华为谁跑得最快？",
-    "url": "big-tech-ai-org-2026",
-    "date": "",
-    "slug": "big-tech-ai-org-2026"
-  },
-  {
-    "title": "美世2026：人机协作方程式与新一代人才价值公式",
-    "url": "mercer-2026",
-    "date": "",
-    "slug": "mercer-2026"
+    "title": "从AI裁员到AI重构：HR如何在组织变革中站稳脚跟",
+    "url": "ai-layoff-to-rebuild-hr-stand-firm.html",
+    "category": "",
+    "date": ""
   },
   {
     "title": "简历匹配已成过去式：AI招聘选型的避坑与实战指南",
-    "url": "ai-recruitment-selection-guide-2026",
-    "date": "",
-    "slug": "ai-recruitment-selection-guide-2026"
+    "url": "ai-recruitment-selection-guide-2026.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "越用AI越听不见真话：组织信号系统崩溃",
+    "url": "ai-silent-org-signals.html",
+    "category": "组织变革",
+    "date": ""
+  },
+  {
+    "title": "ai silent signals",
+    "url": "ai-silent-signals.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "拆解 Anthropic：AI公司，也是一种组织发明",
+    "url": "anthropic-best-ai-company.html",
+    "category": "",
+    "date": "2026-05-21"
+  },
+  {
+    "title": "Anthropic内部实录：用这6个危险信号，拆掉你团队的冗余流程",
+    "url": "anthropic-danger-signals.html",
+    "category": "",
+    "date": "2026-06-17"
+  },
+  {
+    "title": "anthropic engineer three stages",
+    "url": "anthropic-engineer-three-stages.html",
+    "category": "AI转型",
+    "date": ""
+  },
+  {
+    "title": "百度取消T/P序列：AI时代的人才价值重估",
+    "url": "baidu-tp-reform.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "2026大厂AI组织变革全景图：阿里腾讯字节百度华为谁跑得最快？",
+    "url": "big-tech-ai-org-2026.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "大厂AI组织重构：4家巨头密集挥刀向内——谁在真做，谁在跟风？",
+    "url": "bigtech-ai-reorg-2026.html",
+    "category": "组织变革",
+    "date": ""
+  },
+  {
+    "title": "字节1600亿背后的组织阳谋：买算力，不如买「组织能力」",
+    "url": "bytedance-160b-ai-org.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "字节校招7000人转正率50%：大厂HR体系，正在\"去经验化\"",
+    "url": "bytedance-7000-interns.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "字节校招7000人：大厂HR体系「去经验化」",
+    "url": "bytedance-campus-7000.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "AI组织进化论:阿里3800亿、字节30万亿Token、Kimi零部门——2026中国AI组织三条路线",
+    "url": "china-ai-org-three-routes.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "没有KPI，如何管理天才团队：DeepMind的答案是「科学领导力」",
+    "url": "deepmind-no-kpi-talent-management.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "德勤2026：85%的战略正在被7%的损耗率吃掉",
+    "url": "deloitte-2026.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "滴滴三任人力资源负责人：从战争到长期主义，打造为企业护航的HR体系",
+    "url": "didi-three-hr-leaders.html",
+    "category": "",
+    "date": "2026-05-10"
+  },
+  {
+    "title": "digital management four actions",
+    "url": "digital-management-four-actions.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
+    "url": "dingtalk-ceo-change-control-vs-empowerment.html",
+    "category": "组织变革",
+    "date": ""
+  },
+  {
+    "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
+    "url": "dingtalk-ceo-change.html",
+    "category": "组织变革",
+    "date": ""
+  },
+  {
+    "title": "李开复×苏姿丰对谈：未来HR只有一个核心岗位，叫DRI",
+    "url": "dri-kaifu-lisa-su.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "AI时代，德鲁克依然是答案——只是问题变了",
+    "url": "drucker-ai-era-answer.html",
+    "category": "",
+    "date": "2026-04-08"
+  },
+  {
+    "title": "胖东来你学不会：视人为\"人\"，才是护城河",
+    "url": "fat-donglai-you-cant-learn.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "从公司到智能组织",
+    "url": "from-company-to-intelligent-organization.html",
+    "category": "",
+    "date": "2026-02-14"
+  },
+  {
+    "title": "算力基建时代的组织演进：GTC2026给HR的五大战略启示",
+    "url": "gtc2026-ai-infrastructure-org-evolution.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "GTC2026：算力时代的组织演进与HR启示",
+    "url": "gtc2026-org-evolution.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "高效HR的AI工具箱：21个精准提示词，重塑核心工作流",
+    "url": "hr-ai-prompt-toolbox-21.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "hr ai transformation guide",
+    "url": "hr-ai-transformation-guide.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "面对老板的AI狂热和焦虑，HR该如何从容破局？",
+    "url": "hr-handle-boss-ai-fever.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "效率、判断力与组织记忆：配平你的人机协作方程式",
+    "url": "human-ai-equation.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "IDC 2026中国企业AI应用成熟度报告 | HR AI Agent选型指南",
+    "url": "idc-2026-hr-ai-agent-guide.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "可复制的组织力：拆解即梦Seedance 2.0，HR与管理者必学的AI时代组织重构逻辑",
+    "url": "jimeng-organization-logic.html",
+    "category": "",
+    "date": "2026-03-19"
+  },
+  {
+    "title": "Karpathy的AI替代测试：击碎职业常识",
+    "url": "karpathy-ai-replacement-test.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "从\"能不能\"到\"敢不敢\"：可灵AI创新路径的组织启示",
+    "url": "keling-ai-innovation-path.html",
+    "category": "",
+    "date": "2026-04-09"
+  },
+  {
+    "title": "KPI物理失效：AI原生组织的效能重构",
+    "url": "kpi-failure-ai-org-restructure.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "mckinsey 2026 hr report",
+    "url": "mckinsey-2026-hr-report.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡发布的《2026年组织状况报告》深度解读：AI时代的组织进化论",
+    "url": "mckinsey-2026-org-report-deep-dive.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡2026组织报告：AI时代的人才筛选论",
+    "url": "mckinsey-2026-organization-report.html",
+    "category": "",
+    "date": "2026-03-29"
+  },
+  {
+    "title": "麦肯锡2026最新组织报告：HR必须从\"培训\"转向\"筛选\"",
+    "url": "mckinsey-2026-training-vs-screening.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡6%落地率背后：AI-First组织的信任架构怎么搭",
+    "url": "mckinsey-6-percent-trust-architecture.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡6%落地率背后：AI-First组织的信任架构怎么搭",
+    "url": "mckinsey-6pct-trust.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡报告的\"隐藏\"死局：没有底层的制度授权，一切AI转型都是行为艺术",
+    "url": "mckinsey-hidden-deadlock.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "麦肯锡2026断言：人机编排是组织唯一出路",
+    "url": "mckinsey-human-ai-orchestration.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "美世2026：人机协作方程式与新一代人才价值公式",
+    "url": "mercer-2026.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "Meta加码300亿买算力，裁员8000人拆金字塔",
+    "url": "meta-300b-ai-layoff.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "Meta组织大变脸：AI代码占比75%，工程师在变成「AI产品经理」",
+    "url": "meta-ai-code-75-percent.html",
+    "category": "",
+    "date": "2026-03-30"
+  },
+  {
+    "title": "Meta又裁员了：AI正在系统性\"优化\"掉中层管理者",
+    "url": "meta-ai-optimizes-middle-managers.html",
+    "category": "",
+    "date": "2026-03-26"
+  },
+  {
+    "title": "Meta又裁员了：AI正在系统性优化掉中层管理者",
+    "url": "meta-layoffs-middle-managers.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "Meta Pod结构全拆解：工程师创业式的小团队如何运转",
+    "url": "meta-pod-structure.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "微软的暗线：砸下1370亿却刻意避开OpenAI，纳德拉留给一号位的组织解耦局",
+    "url": "microsoft-ai-decoupling.html",
+    "category": "组织变革",
+    "date": ""
+  },
+  {
+    "title": "微软砸碎架构，Anthropic消灭中层：AI时代的组织底层代码如何重构",
+    "url": "microsoft-anthropic-ai-org-restructure.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "微软暗线：纳德拉的组织依赖解耦局",
+    "url": "microsoft-decoupling-openai-strategy.html",
+    "category": "",
+    "date": "2026-06-23"
+  },
+  {
+    "title": "重磅｜微软打响第一枪：爆改HR体系，让组织像AI一样思考",
+    "url": "microsoft-hr-system-overhaul.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "微软爆改HR体系：让组织像AI一样思考",
+    "url": "microsoft-hr-transformation-ai-thinking.html",
+    "category": "",
+    "date": "2026-04-08"
+  },
+  {
+    "title": "微软的暗线：1370亿砸向OpenAI，却刻意避开——纳德拉的组织解耦局",
+    "url": "microsoft-openai-decoupling.html",
+    "category": "",
+    "date": "2026-06-23"
+  },
+  {
+    "title": "马斯克2026最新访谈：当AI进入\"递归进化\"，HR的物理边界是否已消失？",
+    "url": "musk-2026-ai-interview.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "马斯克2026最新访谈：当AI进入\"递归进化\"，HR的物理边界是否已消失？",
+    "url": "musk-2026-ai-recursive-evolution.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "OpenClaw走红背后：当AI Agent成为\"隐形员工\"，HR如何重建管理规则？",
+    "url": "openclaw-ai-agent-management.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "招聘全链路AI落地：从JD撰写到面试出题的Agent化",
+    "url": "recruitment-ai-fullstack.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制",
+    "url": "tencent-2800-huoshui.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制",
+    "url": "tencent-2800-internal-transfer.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "腾讯319亿，阿里3800亿：AI军备竞赛下，HR一号位的终极考卷",
+    "url": "tencent-319b-ali-3800b.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "腾讯AI Lab落幕：剥离\"神坛幻觉\"，打响大模型时代的组织巷战",
+    "url": "tencent-ai-lab-disbanded.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "你今天消耗了多少Token？大厂KPI的新玩法",
+    "url": "token-kpi-new-corporate-metrics.html",
+    "category": "",
+    "date": "2026-04-12"
+  },
+  {
+    "title": "拆解宇树科技招股书：硬科技组织不需要\"平庸的管理\"",
+    "url": "unitree-ipo-org-analysis.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "unitree ipo org design",
+    "url": "unitree-ipo-org-design.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "王兴在美团2000人管理会上的发言，我看到了\"经验\"的清算",
+    "url": "wangxing-meituan-management-talk.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "WWDC2026：Apple Intelligence 2.0给HR启示",
+    "url": "wwdc-2026-hr-insights.html",
+    "category": "",
+    "date": ""
+  },
+  {
+    "title": "xiaomi 2026 org evolution",
+    "url": "xiaomi-2026-org-evolution.html",
+    "category": "",
+    "date": ""
   }
 ]
