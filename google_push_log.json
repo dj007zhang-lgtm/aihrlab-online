@@ -136,9 +136,9 @@
       "pushed_at": "2026-07-01T17:31:03.374420"
     },
     "https://www.aihrlab.online/articles/bytedance-campus-7000.html": {
-      "status": "failed",
-      "error": "配额耗尽 (429)",
-      "attempted_at": "2026-07-01T17:31:05.896557"
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-01T21:51:39.249395"
     },
     "https://www.aihrlab.online/articles/china-ai-org-three-routes.html": {
       "status": "success",
@@ -434,10 +434,21 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-01T17:26:27.720617"
+    },
+    "https://www.aihrlab.online/articles/ai-hr-landing-3-high-roi-plays.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-01T21:53:47.350590"
+    },
+    "https://www.aihrlab.online/articles/ai-layoff-to-rebuild-hr-stand-firm.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-02T12:20:50.736982"
     }
   },
   "daily_count": {
-    "2026-07-01": 27
+    "2026-07-01": 29,
+    "2026-07-02": 1
   },
-  "last_updated": "2026-07-01T17:31:06.507899"
+  "last_updated": "2026-07-02T12:20:55.392459"
 }
