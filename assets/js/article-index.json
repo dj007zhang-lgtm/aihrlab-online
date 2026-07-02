@@ -12,18 +12,6 @@
     "date": "2026-06-24"
   },
   {
-    "title": "Anthropic内部实录用这6个危险信号拆掉你团队的冗余流程",
-    "url": "Anthropic内部实录用这6个危险信号拆掉你团队的冗余流程",
-    "category": "",
-    "date": ""
-  },
-  {
-    "title": "KPI物理失效AI原生组织的效能重构与技能度量",
-    "url": "KPI物理失效AI原生组织的效能重构与技能度量",
-    "category": "",
-    "date": ""
-  },
-  {
     "title": "AI不是来抢你饭碗的——真正危险的，是你不知道自己被\"有限理性\"困住了",
     "url": "ai-bounded-rationality",
     "category": "核心方法论",
@@ -54,12 +42,6 @@
     "date": ""
   },
   {
-    "title": "ai era hr transformation",
-    "url": "ai-era-hr-transformation",
-    "category": "",
-    "date": ""
-  },
-  {
     "title": "AI时代，如何破除组织僵化？三个「反直觉」动作",
     "url": "ai-era-org-rigidity",
     "category": "组织变革",
@@ -68,7 +50,7 @@
   {
     "title": "2026上半年：AI正在改写HR的三条暗线",
     "url": "ai-hr-2026-midyear-three-signals",
-    "category": "",
+    "category": "AI时代组织变革",
     "date": "2026-06-30"
   },
   {
@@ -114,12 +96,6 @@
     "date": ""
   },
   {
-    "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
-    "url": "ai-layoff-subtraction-vs-multiplication",
-    "category": "核心方法论",
-    "date": ""
-  },
-  {
     "title": "从AI裁员到AI重构：HR如何在组织变革中站稳脚跟",
     "url": "ai-layoff-to-rebuild-hr-stand-firm",
     "category": "AI时代组织变革",
@@ -135,12 +111,6 @@
     "title": "越用AI越听不见真话：组织信号系统崩溃",
     "url": "ai-silent-org-signals",
     "category": "组织变革",
-    "date": ""
-  },
-  {
-    "title": "ai silent signals",
-    "url": "ai-silent-signals",
-    "category": "",
     "date": ""
   },
   {
@@ -222,21 +192,9 @@
     "date": "2026-05-10"
   },
   {
-    "title": "digital management four actions",
-    "url": "digital-management-four-actions",
-    "category": "",
-    "date": ""
-  },
-  {
     "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
     "url": "dingtalk-ceo-change-control-vs-empowerment",
     "category": "",
-    "date": ""
-  },
-  {
-    "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
-    "url": "dingtalk-ceo-change",
-    "category": "组织变革",
     "date": ""
   },
   {
@@ -282,12 +240,6 @@
     "date": ""
   },
   {
-    "title": "hr ai transformation guide",
-    "url": "hr-ai-transformation-guide",
-    "category": "",
-    "date": ""
-  },
-  {
     "title": "面对老板的AI狂热和焦虑，HR该如何从容破局？",
     "url": "hr-handle-boss-ai-fever",
     "category": "核心方法论",
@@ -327,12 +279,6 @@
     "title": "KPI物理失效：AI原生组织的效能重构",
     "url": "kpi-failure-ai-org-restructure",
     "category": "核心方法论",
-    "date": ""
-  },
-  {
-    "title": "mckinsey 2026 hr report",
-    "url": "mckinsey-2026-hr-report",
-    "category": "",
     "date": ""
   },
   {
@@ -444,12 +390,6 @@
     "date": "2026-04-08"
   },
   {
-    "title": "微软的暗线：1370亿砸向OpenAI，却刻意避开——纳德拉的组织解耦局",
-    "url": "microsoft-openai-decoupling",
-    "category": "核心方法论",
-    "date": "2026-06-23"
-  },
-  {
     "title": "马斯克2026最新访谈：当AI进入\"递归进化\"，HR的物理边界是否已消失？",
     "url": "musk-2026-ai-interview",
     "category": "核心方法论",
@@ -506,12 +446,6 @@
   {
     "title": "拆解宇树科技招股书：硬科技组织不需要\"平庸的管理\"",
     "url": "unitree-ipo-org-analysis",
-    "category": "核心方法论",
-    "date": ""
-  },
-  {
-    "title": "unitree ipo org design",
-    "url": "unitree-ipo-org-design",
     "category": "核心方法论",
     "date": ""
   },
