@@ -48,9 +48,39 @@
     "https://www.aihrlab.online/articles/china-ai-org-three-routes.html",
     "https://www.aihrlab.online/articles/baidu-tp-reform.html",
     "https://www.aihrlab.online/articles/2026-hr-transformation-chief-architect.html",
-    "https://www.aihrlab.online/about.html"
+    "https://www.aihrlab.online/about.html",
+    "https://www.aihrlab.online/articles/hr-handle-boss-ai-fever.html",
+    "https://www.aihrlab.online/articles/human-ai-equation.html",
+    "https://www.aihrlab.online/articles/idc-2026-hr-ai-agent-guide.html",
+    "https://www.aihrlab.online/articles/jimeng-organization-logic.html",
+    "https://www.aihrlab.online/articles/karpathy-ai-replacement-test.html",
+    "https://www.aihrlab.online/articles/keling-ai-innovation-path.html",
+    "https://www.aihrlab.online/articles/kpi-failure-ai-org-restructure.html",
+    "https://www.aihrlab.online/articles/mckinsey-2026-org-report-deep-dive.html",
+    "https://www.aihrlab.online/articles/mckinsey-2026-organization-report.html",
+    "https://www.aihrlab.online/articles/mckinsey-2026-training-vs-screening.html",
+    "https://www.aihrlab.online/articles/mckinsey-6-percent-trust-architecture.html",
+    "https://www.aihrlab.online/articles/mckinsey-6pct-trust.html",
+    "https://www.aihrlab.online/articles/mckinsey-hidden-deadlock.html",
+    "https://www.aihrlab.online/articles/mckinsey-human-ai-orchestration.html",
+    "https://www.aihrlab.online/articles/mercer-2026.html",
+    "https://www.aihrlab.online/articles/meta-300b-ai-layoff.html",
+    "https://www.aihrlab.online/articles/meta-ai-code-75-percent.html",
+    "https://www.aihrlab.online/articles/meta-ai-optimizes-middle-managers.html",
+    "https://www.aihrlab.online/articles/meta-layoffs-middle-managers.html",
+    "https://www.aihrlab.online/articles/meta-pod-structure.html",
+    "https://www.aihrlab.online/articles/ai-layoff-to-rebuild-hr-stand-firm.html",
+    "https://www.aihrlab.online/articles/microsoft-ai-decoupling.html",
+    "https://www.aihrlab.online/articles/microsoft-anthropic-ai-org-restructure.html",
+    "https://www.aihrlab.online/articles/microsoft-decoupling-openai-strategy.html",
+    "https://www.aihrlab.online/articles/microsoft-hr-system-overhaul.html",
+    "https://www.aihrlab.online/articles/microsoft-hr-transformation-ai-thinking.html",
+    "https://www.aihrlab.online/articles/microsoft-openai-decoupling.html",
+    "https://www.aihrlab.online/articles/musk-2026-ai-interview.html",
+    "https://www.aihrlab.online/articles/musk-2026-ai-recursive-evolution.html",
+    "https://www.aihrlab.online/articles/openclaw-ai-agent-management.html"
   ],
-  "total_pushed": 49,
+  "total_pushed": 79,
   "total_urls": 92,
   "history": [
     {
@@ -91,6 +121,30 @@
       "pushed": 10,
       "failed": 0,
       "remaining_after": 44
+    },
+    {
+      "date": "2026-07-04",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 34
+    },
+    {
+      "date": "2026-07-05",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 23
+    },
+    {
+      "date": "2026-07-06",
+      "pushed": 0,
+      "failed": 0,
+      "remaining_after": -69
+    },
+    {
+      "date": "2026-07-06",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 13
     }
   ]
 }

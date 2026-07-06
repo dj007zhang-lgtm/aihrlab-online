@@ -557,4 +557,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  </urlset>
+    <url>
+    <loc>https://www.aihrlab.online/articles/ai-hr-org-cluster.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
