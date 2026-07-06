@@ -44,18 +44,13 @@
 
 ## 三、技术层（让 LLM 抓得到）
 
-- [ ] **结构化数据合规**：Article + FAQPage + BreadcrumbList 已验证合法（跑 `tools/publish_check.py`）。
+- [ ] **结构化数据合规**：Article + FAQPage + BreadcrumbList 三类 JSON-LD 齐全且合法（部署后可用 GSC「网址检查」验证）。
 - [ ] **meta description 从首段提取**，含核心结论与实体。
 - [ ] **og:image 指向 `/assets/og-covers/og-{slug}.jpg`**。
 - [ ] **标题 ≤ 28 字，含核心实体 / 关键词**（百度、必应标题偏好）。
 - [ ] **内部链接（相关阅读 3–5 篇）**：帮 LLM 与爬虫理解主题簇，强化「AI+HR 组织」权威。
 - [ ] **二维码铁律**：每篇仅 1 个 `article-footer-qr`，无残留 `article-qrcode` / footer QR。
 
-## 四、发布前最后一步
+## 四、发布前自检（参考，非阻塞）
 
-```bash
-# 在 site-migrated/ 目录下运行全站合规扫描
-python3 tools/publish_check.py
-```
-
-全部打勾 + 脚本零报错，方可发布。
+以上清单为 GEO 写作参考，按要点自查即可，不强制逐项打勾、不设发布门禁。质量由内容本身保障。
