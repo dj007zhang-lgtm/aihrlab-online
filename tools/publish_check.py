@@ -23,18 +23,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ARTICLES = os.path.join(ROOT, "articles")
 
 
+def is_article_page(html, types):
+    """真文章页判定：含 Article JSON-LD，或正文带 article-body/article-content 类。
+    主题簇/列表/枢纽页（无 Article、无 article-body）不视为文章，跳过二维码与内链强校验。"""
+    return ("Article" in types) or ("article-body" in html) or ("article-content" in html)
+
+
 def check_file(path):
     html = open(path, encoding="utf-8").read()
     issues = []
 
-    # 1) 二维码铁律
-    n_footer = html.count("article-footer-qr")
-    if n_footer != 1:
-        issues.append(f"二维码 article-footer-qr 数量={n_footer}（应为1）")
-    if "article-qrcode" in html:
-        issues.append("存在 article-qrcode（应清除）")
-
-    # 2) JSON-LD + headline
+    # 2) JSON-LD + headline（先解析，供 is_article 判定）
     blocks = re.findall(
         r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S
     )
@@ -52,37 +51,52 @@ def check_file(path):
                 headline = obj["headline"]
         except Exception as e:
             issues.append(f"JSON-LD 解析失败: {e}")
-    for need in ("Article", "FAQPage", "BreadcrumbList"):
-        if need not in types:
-            issues.append(f"缺少 JSON-LD 类型 {need}")
 
-    # 3) headline 长度
-    if headline is None:
-        issues.append("缺少 Article headline")
-    elif len(headline) > 28:
-        issues.append(f"标题过长: {len(headline)}字 > 28（'{headline}'）")
+    real_article = is_article_page(html, types)
 
-    # 4) meta description
+    # 文章页专属校验：二维码铁律 / 必需 JSON-LD 类型 / 标题长度 / 相关阅读内链
+    if real_article:
+        # 1) 二维码铁律
+        n_footer = html.count("article-footer-qr")
+        if n_footer != 1:
+            issues.append(f"二维码 article-footer-qr 数量={n_footer}（应为1）")
+        if "article-qrcode" in html:
+            issues.append("存在 article-qrcode（应清除）")
+        # 必需 JSON-LD 类型
+        for need in ("Article", "FAQPage", "BreadcrumbList"):
+            if need not in types:
+                issues.append(f"缺少 JSON-LD 类型 {need}")
+        # 3) headline 长度
+        if headline is None:
+            issues.append("缺少 Article headline")
+        elif len(headline) > 28:
+            issues.append(f"标题过长: {len(headline)}字 > 28（'{headline}'）")
+        # 5) 相关阅读内链 3-5
+        rr = re.search(
+            r'<section[^>]*class="[^"]*related-reading[^"]*"[^>]*>(.*?)</section>', html, re.S
+        )
+        if rr:
+            links = re.findall(r'href="(/articles/[^"]+\.html)"', rr.group(1))
+        else:
+            self_slug = os.path.basename(path)
+            links = [
+                l
+                for l in re.findall(r'href="(/articles/[^"]+\.html)"', html)
+                if os.path.basename(l) != self_slug
+            ]
+        n_links = len(set(links))
+        if n_links < 3:
+            issues.append(f"相关阅读内链仅 {n_links} 条（建议 3-5）")
+    else:
+        # 枢纽/列表页：仅当含 JSON-LD 却缺类型时提示（不含 Article 属正常）
+        for need in ("FAQPage", "BreadcrumbList"):
+            if need not in types and types:
+                issues.append(f"缺少 JSON-LD 类型 {need}")
+
+    # 4) meta description（所有页面）
     m = re.search(r'<meta[^>]+name="description"[^>]+content="([^"]*)"', html, re.I)
     if not m or not m.group(1).strip():
         issues.append("缺少/空 meta description")
-
-    # 5) 相关阅读内链 3-5
-    rr = re.search(
-        r'<section[^>]*class="[^"]*related-reading[^"]*"[^>]*>(.*?)</section>', html, re.S
-    )
-    if rr:
-        links = re.findall(r'href="(/articles/[^"]+\.html)"', rr.group(1))
-    else:
-        self_slug = os.path.basename(path)
-        links = [
-            l
-            for l in re.findall(r'href="(/articles/[^"]+\.html)"', html)
-            if os.path.basename(l) != self_slug
-        ]
-    n_links = len(set(links))
-    if n_links < 3:
-        issues.append(f"相关阅读内链仅 {n_links} 条（建议 3-5）")
 
     return issues
 
