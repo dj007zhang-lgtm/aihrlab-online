@@ -56,8 +56,8 @@ def check_file(path):
 
     # 文章页专属校验：二维码铁律 / 必需 JSON-LD 类型 / 标题长度 / 相关阅读内链
     if real_article:
-        # 1) 二维码铁律
-        n_footer = html.count("article-footer-qr")
+        # 1) 二维码铁律（只统计真实 <div class="...article-footer-qr...">，排除 CSS 类定义 .article-footer-qr{}）
+        n_footer = len(re.findall(r'<div[^>]*class="[^"]*article-footer-qr', html))
         if n_footer != 1:
             issues.append(f"二维码 article-footer-qr 数量={n_footer}（应为1）")
         if "article-qrcode" in html:
