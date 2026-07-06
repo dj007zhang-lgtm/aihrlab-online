@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>突围 · AI 替代风险测评</title>
+  <meta name="description" content="20 维度行为锚定量表，实时推演你的 AI 替代风险与突围路径。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============ 视图 1：破冰首页 ============ -->
+    <section id="view-hero" class="view active">
+      <div class="hero">
+        <div class="kicker">AI 时代职业护城河诊断</div>
+        <h1 class="display">你的工作，<br/>离被替代还有<span class="accent">多远</span>？</h1>
+        <p class="lede">20 维度行为锚定量表，1 分钟定位你的不可替代性缺口，并实时推演突围路径。</p>
+
+        <div class="job-input-wrap">
+          <input id="jobInput" class="job-input" type="text" autocomplete="off"
+                 placeholder="请输入你的核心职位，例如：UI设计师 / HRBP" />
+        </div>
+
+        <div id="baselineReadout" class="baseline-readout">
+          <div id="baselineRing" class="ring"></div>
+          <div>
+            <div class="label">初始替代风险</div>
+            <div><span id="baselineValue" class="value num">--</span><span class="value num">%</span></div>
+          </div>
+        </div>
+
+        <div id="choiceArea" class="choice-hint" style="display:none;">
+          <div>未匹配到标准职位，请选择最贴近你工作形态的一类：</div>
+          <div id="choiceRow" class="choice-row"></div>
+        </div>
+
+        <button id="ctaBtn" class="cta" disabled>
+          <span class="spin"></span><span id="ctaText">一键开启突围测试</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ 视图 2：沉浸式测验 ============ -->
+    <section id="view-quiz" class="view">
+      <div class="quiz-head">
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+        <div class="progress-meta">
+          <span>情境化答题</span>
+          <span><span id="progNow" class="num">1</span> / <span id="progTotal" class="num">20</span></span>
+        </div>
+      </div>
+      <div id="cardStage" class="card-stage"></div>
+    </section>
+
+    <!-- ============ 视图 3：黄金沙盘预售页 ============ -->
+    <section id="view-result" class="view">
+      <div class="result">
+        <div class="result-top">
+          <span class="back" id="resultBack">← 重新测试</span>
+          <span class="pill" id="resultPill">实时推演沙盘</span>
+        </div>
+
+        <div class="section-title">AI 替代风险仪表盘</div>
+        <div class="panel gauge-wrap">
+          <svg id="gauge" class="gauge" viewBox="0 0 300 170"></svg>
+          <div class="gauge-center">
+            <div id="gaugeBig" class="big num">--</div>
+            <div class="cap">当前替代风险指数</div>
+          </div>
+          <div class="gauge-legend">
+            <span><i style="background:#0E9F98"></i>安全</span>
+            <span><i style="background:#E0A045"></i>临界</span>
+            <span><i style="background:#E05A47"></i>高危</span>
+          </div>
+        </div>
+
+        <div class="section-title">五维核心能力雷达</div>
+        <div class="panel">
+          <svg id="radar" class="radar" viewBox="0 0 400 400"></svg>
+        </div>
+
+        <div class="section-title">四大战力指数</div>
+        <div class="panel" id="idxPanel"></div>
+
+        <div class="section-title">沙盘推演器</div>
+        <div class="panel" id="sandboxPanel">
+          <p style="font-size:13px;color:var(--sub);margin-bottom:18px;">
+            拖动下方干预滑块，实时观察风险指针向安全区移动、雷达图对应维度膨胀。
+          </p>
+          <div id="sandboxSliders"></div>
+        </div>
+
+        <div class="section-title">专家诊断</div>
+        <div class="panel diagnosis" id="diagnosisPanel"></div>
+
+        <div class="paywall" id="paywall">
+          <div class="lock">🔓</div>
+          <h3>解锁你的专属突围路径</h3>
+          <div class="min-risk">你的风险指数最低可降至 <span id="minRisk" class="num">--</span>%</div>
+          <div class="copy" id="paywallCopy"></div>
+
+          <!-- 引流解锁：关注公众号 -->
+          <div id="followGate">
+            <p class="follow-hint">升级版完整报告（21天计划 + 3条跃迁路径 + 专属 Prompt 库）<br/>关注公众号后免费查看</p>
+            <div class="oa-card">
+              <div class="oa-qr" id="oaQr">
+                <img src="assets/qrcode_oa.jpg" alt="AI HR数智引擎 公众号二维码" style="width:100%;height:auto;border-radius:12px;" />
+              </div>
+              <div class="oa-info">
+                <div class="oa-name">📢 AI HR数智引擎</div>
+                <div class="oa-step">① 微信扫一扫 关注公众号</div>
+                <div class="oa-step">② 后台回复关键词 <b class="kw">突围报告</b></div>
+                <div class="oa-step">③ 获取完整图文版报告</div>
+              </div>
+            </div>
+            <button class="pay-btn" id="followBtn">我已关注，查看完整报告</button>
+          </div>
+
+          <div class="pay-note" id="payNote">关注即解锁 · 完整 21 天计划 + Prompt 资产库</div>
+          <div id="unlockedNote" class="unlocked" style="display:none;"></div>
+        </div>
+
+        <div class="foot">本测评基于行为锚定量表(BARS)与指数衰减模型生成，结果仅供职业决策参考。</div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/engine.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
