@@ -5,6 +5,8 @@ Thumbs.db
 # Scripts (internal docs)
 scripts/
 *.md
+# 但 tools/ 下的交付物（GEO清单/发布门禁/选题日历等）需纳入版本控制
+!tools/*.md
 
 # Google API credentials (DO NOT COMMIT)
 gsc_service_account.json
