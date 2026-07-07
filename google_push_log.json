@@ -444,11 +444,22 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-02T12:20:50.736982"
+    },
+    "https://www.aihrlab.online/articles/ai-hr-report-2026-context-management.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-06T23:55:25.797594"
+    },
+    "https://www.aihrlab.online/articles/ai-hr-org-cluster.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-06T23:55:29.252733"
     }
   },
   "daily_count": {
     "2026-07-01": 29,
-    "2026-07-02": 1
+    "2026-07-02": 1,
+    "2026-07-06": 2
   },
-  "last_updated": "2026-07-02T12:20:55.392459"
+  "last_updated": "2026-07-06T23:55:29.633880"
 }
