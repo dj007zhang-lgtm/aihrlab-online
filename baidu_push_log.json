@@ -82,9 +82,10 @@
     "https://www.aihrlab.online/articles/ai-hr-report-2026-context-management.html",
     "https://www.aihrlab.online/articles/bytedance-context-management-ai-agent.html",
     "https://www.aihrlab.online/tools/ai-risk-test/",
-    "https://www.aihrlab.online/tools/index.html"
+    "https://www.aihrlab.online/tools/index.html",
+    "https://www.aihrlab.online/tools/bigfive/"
   ],
-  "total_pushed": 83,
+  "total_pushed": 84,
   "total_urls": 97,
   "history": [
     {
@@ -156,6 +157,13 @@
       "failed": 0,
       "remaining_after": 14,
       "note": "手动登记 Week1#1/#2 两篇文章 + tools/index.html + tools/ai-risk-test/ 共4个新URL"
+    },
+    {
+      "date": "2026-07-07",
+      "batch": "incremental",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": 9
     }
   ]
 }
