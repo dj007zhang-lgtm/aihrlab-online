@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>大五人格测试 · Big Five Personality Test</title>
+<style>
+/* ===================== Reset & Tokens ===================== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#EEF3FA;
+  --ink:#2b2f3a; --ink-2:#5b6478; --ink-3:#9aa3b5;
+  --glass:rgba(255,255,255,.55);
+  --glass-strong:rgba(255,255,255,.78);
+  --line:rgba(255,255,255,.7);
+  --shadow:0 10px 40px rgba(90,110,150,.12);
+  --shadow-glow:0 0 50px rgba(140,180,235,.18);
+  --r-lg:26px; --r-md:18px; --r-sm:12px;
+  /* macaron palette */
+  --N:#B583D8; --N-2:#9B6FC4; --N-bg:rgba(181,131,216,.10); --N-grad:linear-gradient(135deg,#C9A0E8,#9B6FC4);
+  --E:#FF9EB5; --E-2:#F47B98; --E-bg:rgba(255,158,181,.10); --E-grad:linear-gradient(135deg,#FFB3C6,#F47B98);
+  --O:#6FCF97; --O-2:#4FB87A; --O-bg:rgba(111,207,151,.11); --O-grad:linear-gradient(135deg,#8FE3B0,#4FB87A);
+  --A:#6FB1E8; --A-2:#4A93D6; --A-bg:rgba(111,177,232,.11); --A-grad:linear-gradient(135deg,#8FC8F0,#4A93D6);
+  --C:#F2C879; --C-2:#E0A94E; --C-bg:rgba(242,200,121,.13); --C-grad:linear-gradient(135deg,#F8D89A,#E0A94E);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+   radial-gradient(60vw 60vw at 8% -5%,rgba(181,131,216,.20),transparent 60%),
+   radial-gradient(55vw 55vw at 95% 8%,rgba(255,158,181,.18),transparent 60%),
+   radial-gradient(60vw 60vw at 90% 95%,rgba(111,207,151,.16),transparent 60%),
+   radial-gradient(55vw 55vw at 5% 100%,rgba(111,177,232,.18),transparent 60%),
+   radial-gradient(40vw 40vw at 50% 50%,rgba(242,200,121,.10),transparent 60%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:var(--bg);opacity:.35}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+.hidden{display:none!important}
+.glass{background:var(--glass);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border:1px solid var(--line);box-shadow:var(--shadow),var(--shadow-glow);border-radius:var(--r-lg)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ===================== Navbar ===================== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:.3s}
+.nav.scrolled{background:rgba(238,243,250,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 24px rgba(90,110,150,.10)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:.3px}
+.brand .b-dot{width:11px;height:11px;border-radius:50%;background:var(--A-grad);box-shadow:0 0 14px var(--A)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:14px;color:var(--ink-2);transition:.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:9px 22px;border-radius:22px;font-weight:700;font-size:14px;color:#fff;background:var(--A-grad);box-shadow:0 6px 20px rgba(111,177,232,.40);transition:.25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(111,177,232,.50)}
+@media(max-width:768px){.nav-links{display:none}.wrap{padding:0 18px}}
+
+/* ===================== Page shell ===================== */
+.page{min-height:100vh;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ===================== Hero ===================== */
+#landing{padding-top:84px}
+.hero{text-align:center;padding:54px 0 30px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:20px;background:var(--glass);border:1px solid var(--line);font-size:13px;color:var(--ink-2);margin-bottom:22px}
+.badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--O);box-shadow:0 0 0 0 rgba(111,207,151,.6);animation:pl 2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(111,207,151,.5)}70%{box-shadow:0 0 0 8px rgba(111,207,151,0)}100%{box-shadow:0 0 0 0 rgba(111,207,151,0)}}
+.hero h1{font-size:clamp(34px,6vw,56px);font-weight:900;line-height:1.18;letter-spacing:-.5px;margin-bottom:18px}
+.hero h1 .ac{background:var(--A-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.lead{font-size:clamp(15px,2.2vw,18px);color:var(--ink-2);max-width:620px;margin:0 auto 34px;line-height:1.85}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:15px 34px;border-radius:30px;font-size:16px;font-weight:700;transition:.28s}
+.btn-free{background:var(--glass-strong);border:1px solid var(--line);color:var(--ink);box-shadow:var(--shadow)}
+.btn-free:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(90,110,150,.18)}
+.btn-full{background:var(--A-grad);color:#fff;box-shadow:0 8px 28px rgba(111,177,232,.42)}
+.btn-full:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(111,177,232,.52)}
+.stats{display:flex;gap:42px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+.stat .n{font-size:30px;font-weight:900}
+.stat .n.c-N{color:var(--N-2)}.stat .n.c-E{color:var(--E-2)}.stat .n.c-O{color:var(--O-2)}.stat .n.c-A{color:var(--A-2)}.stat .n.c-C{color:var(--C-2)}
+.stat .l{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+
+/* ===================== Version comparison ===================== */
+.vers-sec{padding:36px 0}
+.sec-h{text-align:center;margin-bottom:34px}
+.sec-h h2{font-size:clamp(26px,4vw,32px);font-weight:800;margin-bottom:8px}
+.sec-h p{font-size:14.5px;color:var(--ink-2)}
+.vers-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:840px;margin:0 auto}
+.vers{padding:30px 28px;border-radius:var(--r-lg);position:relative;overflow:hidden;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:var(--shadow);transition:.3s}
+.vers:hover{transform:translateY(-5px)}
+.vers.free{border-top:5px solid var(--O)}
+.vers.full{border-top:5px solid var(--A)}
+.vers .tagline{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.vers.free .tagline{color:var(--O-2)}.vers.full .tagline{color:var(--A-2)}
+.vers h3{font-size:22px;font-weight:800;margin:6px 0 4px}
+.vers .price{font-size:15px;color:var(--ink-2);margin-bottom:18px}
+.vers .price b{font-size:26px;font-weight:900;color:var(--ink)}
+.vers ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.vers li{display:flex;gap:9px;font-size:14px;color:var(--ink-2);align-items:flex-start}
+.vers li .ck{width:18px;height:18px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;margin-top:2px}
+.vers.free li .ck{background:var(--O)}.vers.full li .ck{background:var(--A)}
+.vers .pick{width:100%;padding:13px;border-radius:24px;font-weight:700;font-size:15px;transition:.25s}
+.vers.free .pick{background:var(--O-grad);color:#fff;box-shadow:0 6px 18px rgba(111,207,151,.35)}
+.vers.full .pick{background:var(--A-grad);color:#fff;box-shadow:0 6px 18px rgba(111,177,232,.35)}
+.vers .pick:hover{transform:translateY(-2px)}
+@media(max-width:768px){.vers-grid{grid-template-columns:1fr}.stats{gap:24px}}
+
+/* ===================== Dimension cards ===================== */
+.dims-sec{padding:40px 0 50px}
+.dims-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.dcard{padding:30px 28px;border-radius:var(--r-lg);position:relative;overflow:hidden;transition:.3s;border:1px solid var(--line)}
+.dcard:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(90,110,150,.18)}
+.dcard::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;opacity:.18}
+.dcard[data-d=N]{background:var(--N-bg)}.dcard[data-d=N]::after{background:var(--N)}
+.dcard[data-d=E]{background:var(--E-bg)}.dcard[data-d=E]::after{background:var(--E)}
+.dcard[data-d=O]{background:var(--O-bg)}.dcard[data-d=O]::after{background:var(--O)}
+.dcard[data-d=A]{background:var(--A-bg)}.dcard[data-d=A]::after{background:var(--A)}
+.dcard[data-d=C]{background:var(--C-bg)}.dcard[data-d=C]::after{background:var(--C)}
+.dcard .ico{width:50px;height:50px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#fff;margin-bottom:16px}
+.dcard[data-d=N] .ico{background:var(--N-grad)}.dcard[data-d=E] .ico{background:var(--E-grad)}
+.dcard[data-d=O] .ico{background:var(--O-grad)}.dcard[data-d=A] .ico{background:var(--A-grad)}.dcard[data-d=C] .ico{background:var(--C-grad)}
+.dcard h3{font-size:21px;font-weight:800;margin-bottom:3px}
+.dcard .en{font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
+.dcard .de{font-size:14px;color:var(--ink-2);line-height:1.7}
+.dcard .subs{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.dcard .subs span{font-size:12px;padding:4px 11px;border-radius:11px;background:rgba(255,255,255,.6);font-weight:600}
+
+/* ===================== About ===================== */
+.about-sec{padding:40px 0}
+.about{padding:46px;text-align:center}
+.about h2{font-size:clamp(24px,4vw,30px);font-weight:800;margin-bottom:18px}
+.about p{font-size:15px;color:var(--ink-2);line-height:1.9;max-width:760px;margin:0 auto 14px}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:30px}
+.feat{padding:22px;border-radius:var(--r-md);background:rgba(255,255,255,.5);border:1px solid var(--line)}
+.feat .fi{font-size:28px;margin-bottom:10px}
+.feat h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.feat p{font-size:12.5px;color:var(--ink-3);line-height:1.6}
+
+/* ===================== Science ===================== */
+.sci-sec{padding:40px 0 50px}
+.sci{padding:46px}
+.sci h2{font-size:clamp(24px,4vw,30px);font-weight:800;text-align:center;margin-bottom:30px}
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--N),var(--A),var(--O),var(--C))}
+.tl{position:relative;margin-bottom:26px}
+.tl::before{content:"";position:absolute;left:-29px;top:4px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--A)}
+.tl h4{font-size:15px;font-weight:700;margin-bottom:5px}
+.tl p{font-size:14px;color:var(--ink-2);line-height:1.65}
+
+/* ===================== Footer ===================== */
+.foot{background:rgba(255,255,255,.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--line);padding:44px 0 30px;margin-top:30px}
+.foot-in{text-align:center}
+.foot-links{display:flex;gap:26px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.foot-links a{font-size:13px;color:var(--ink-2);transition:.2s}.foot-links a:hover{color:var(--ink)}
+.foot-c{font-size:12px;color:var(--ink-3)}
+
+/* ===================== Quiz ===================== */
+#quiz{padding-top:84px;min-height:100vh;display:flex;flex-direction:column}
+.q-head{max-width:680px;margin:0 auto;padding:0 24px;width:100%}
+.q-bar{height:9px;border-radius:5px;background:rgba(255,255,255,.55);overflow:hidden;box-shadow:inset 0 1px 3px rgba(0,0,0,.05)}
+.q-fill{height:100%;width:0;border-radius:5px;transition:width .4s ease,background .4s ease;background:var(--A-grad)}
+.q-meta{display:flex;justify-content:space-between;align-items:center;margin:12px 0 22px;font-size:13px;color:var(--ink-2)}
+.q-meta .resume{color:var(--A-2);font-weight:600;cursor:pointer}
+.q-body{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 24px 50px}
+.q-card{max-width:620px;width:100%;padding:44px 40px;text-align:center}
+.q-num{font-size:12px;letter-spacing:3px;color:var(--ink-3);margin-bottom:22px}
+.q-text{font-size:clamp(19px,3vw,25px);font-weight:600;line-height:1.55;min-height:78px;display:flex;align-items:center;justify-content:center;margin-bottom:34px}
+.q-opts{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:center;gap:15px;padding:15px 22px;border-radius:var(--r-md);background:rgba(255,255,255,.55);border:2px solid transparent;cursor:pointer;transition:.22s;text-align:left}
+.opt:hover{background:#fff;transform:translateX(4px);box-shadow:0 6px 18px rgba(90,110,150,.10)}
+.opt.sel{background:rgba(111,177,232,.14);border-color:var(--A)}
+.opt .radio{width:22px;height:22px;border-radius:50%;border:2px solid #c3cdda;flex:0 0 auto;position:relative;transition:.2s}
+.opt.sel .radio{border-color:var(--A);background:var(--A)}
+.opt.sel .radio::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#fff}
+.opt .lt{font-size:15px;font-weight:600;flex:1}
+.opt .ls{font-size:12px;color:var(--ink-3)}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:30px}
+.q-nav button{padding:11px 28px;border-radius:22px;font-weight:700;font-size:14px;transition:.2s}
+.btn-prev{background:rgba(255,255,255,.55);color:var(--ink-2);border:1px solid var(--line)}
+.btn-prev:hover{background:#fff}
+.btn-next{background:var(--A-grad);color:#fff;box-shadow:0 6px 18px rgba(111,177,232,.35)}
+.btn-next:hover{transform:translateY(-2px)}
+.btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.dots{display:flex;gap:6px;align-items:center}
+.dot{width:6px;height:6px;border-radius:50%;background:#c3cdda;transition:.2s}
+.dot.on{width:22px;border-radius:3px;background:var(--A)}
+.dot.done{background:var(--O)}
+@media(max-width:768px){.q-card{padding:32px 22px}.q-text{font-size:18px;min-height:64px}.opt{padding:13px 16px}.opt .lt{font-size:14px}}
+
+/* ===================== Results ===================== */
+#results{padding-top:84px;padding-bottom:60px}
+.res-wrap{max-width:900px;margin:0 auto;padding:34px 24px}
+.res-head{text-align:center;margin-bottom:14px}
+.res-head h1{font-size:clamp(26px,4vw,34px);font-weight:900;margin-bottom:8px}
+.res-head p{font-size:14.5px;color:var(--ink-2)}
+.res-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 16px;border-radius:18px;font-size:13px;font-weight:700;margin-bottom:26px}
+.res-badge.free{background:var(--O-bg);color:var(--O-2)}
+.res-badge.full{background:var(--A-bg);color:var(--A-2)}
+.radar-box{display:flex;justify-content:center;margin:10px 0 38px}
+.radar{position:relative;width:340px;height:340px}
+#radar{width:100%;height:100%}
+@media(max-width:768px){.radar{width:280px;height:280px}}
+.dim-scores{display:grid;gap:14px;margin-bottom:36px}
+.dscore{padding:20px 22px;display:flex;align-items:center;gap:18px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.dscore .dl{flex:0 0 auto;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;color:#fff}
+.dscore[data-d=N] .dl{background:var(--N-grad)}.dscore[data-d=E] .dl{background:var(--E-grad)}
+.dscore[data-d=O] .dl{background:var(--O-grad)}.dscore[data-d=A] .dl{background:var(--A-grad)}.dscore[data-d=C] .dl{background:var(--C-grad)}
+.dscore .dm{flex:1}
+.dscore .dm h4{font-size:15.5px;font-weight:700;margin-bottom:7px}
+.dscore .dm h4 .t{font-weight:600;font-size:13px;color:var(--ink-2)}
+.dscore .bar{height:9px;border-radius:5px;background:rgba(0,0,0,.06);overflow:hidden}
+.dscore .bf{height:100%;border-radius:5px;transition:width 1s ease}
+.dscore[data-d=N] .bf{background:var(--N-grad)}.dscore[data-d=E] .bf{background:var(--E-grad)}
+.dscore[data-d=O] .bf{background:var(--O-grad)}.dscore[data-d=A] .bf{background:var(--A-grad)}.dscore[data-d=C] .bf{background:var(--C-grad)}
+.dscore .dr{flex:0 0 auto;text-align:right}
+.dscore .dr .s{font-size:23px;font-weight:900}
+.dscore .dr .lv{font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:9px;display:inline-block;margin-top:3px}
+.dscore[data-d=N] .lv{background:var(--N-bg);color:var(--N-2)}.dscore[data-d=E] .lv{background:var(--E-bg);color:var(--E-2)}
+.dscore[data-d=O] .lv{background:var(--O-bg);color:var(--O-2)}.dscore[data-d=A] .lv{background:var(--A-bg);color:var(--A-2)}.dscore[data-d=C] .lv{background:var(--C-bg);color:var(--C-2)}
+.tags-sec{margin-bottom:34px}
+.tags-sec h3,.sug-sec h3,.sub-sec h3{font-size:18px;font-weight:800;margin-bottom:15px}
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.tag{padding:8px 18px;border-radius:16px;font-size:14px;font-weight:700}
+.tag[data-d=N]{background:var(--N-bg);color:var(--N-2)}.tag[data-d=E]{background:var(--E-bg);color:var(--E-2)}
+.tag[data-d=O]{background:var(--O-bg);color:var(--O-2)}.tag[data-d=A]{background:var(--A-bg);color:var(--A-2)}.tag[data-d=C]{background:var(--C-bg);color:var(--C-2)}
+.sug-sec{margin-bottom:34px}
+.sug{padding:22px;margin-bottom:12px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.sug h4{font-size:15px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.sug h4 .bd{width:10px;height:10px;border-radius:3px}
+.sug p{font-size:14px;color:var(--ink-2);line-height:1.7}
+.sub-sec{margin-bottom:34px}
+.sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:11px}
+.sub{text-align:center;padding:15px 10px;border-radius:var(--r-md)}
+.sub[data-d=N]{background:var(--N-bg)}.sub[data-d=E]{background:var(--E-bg)}.sub[data-d=O]{background:var(--O-bg)}.sub[data-d=A]{background:var(--A-bg)}.sub[data-d=C]{background:var(--C-bg)}
+.sub .sn{font-size:12.5px;font-weight:700;margin-bottom:5px}
+.sub .sv{font-size:19px;font-weight:900}
+.sub[data-d=N] .sv{color:var(--N-2)}.sub[data-d=E] .sv{color:var(--E-2)}.sub[data-d=O] .sv{color:var(--O-2)}.sub[data-d=A] .sv{color:var(--A-2)}.sub[data-d=C] .sv{color:var(--C-2)}
+.act{margin-bottom:34px}
+.act .ad{padding:22px;margin-bottom:12px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.act .ad-h{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.act .ad-h .bd{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff}
+.act .ad[data-d=N] .bd{background:var(--N-grad)}.act .ad[data-d=E] .bd{background:var(--E-grad)}
+.act .ad[data-d=O] .bd{background:var(--O-grad)}.act .ad[data-d=A] .bd{background:var(--A-grad)}.act .ad[data-d=C] .bd{background:var(--C-grad)}
+.act .ad h4{font-size:15px;font-weight:700}
+.act .ad p{font-size:13.5px;color:var(--ink-2);line-height:1.6;margin-bottom:8px}
+.act .ad ul{list-style:none;padding-left:2px}
+.act .ad li{font-size:13px;color:var(--ink-2);padding:3px 0 3px 18px;position:relative}
+.act .ad li::before{content:"→";position:absolute;left:0;color:var(--A-2);font-weight:700}
+/* upgrade card (free version) */
+.upgrade{padding:34px;text-align:center;border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(111,177,232,.12),rgba(181,131,216,.12));border:1px solid var(--line);margin-bottom:34px}
+.upgrade h3{font-size:20px;font-weight:800;margin-bottom:10px}
+.upgrade p{font-size:14px;color:var(--ink-2);max-width:520px;margin:0 auto 20px;line-height:1.7}
+.upgrade .ub{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.share-sec{text-align:center;padding:30px}
+.share-sec h3{font-size:18px;font-weight:800;margin-bottom:16px}
+.share-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.sb{padding:11px 26px;border-radius:22px;font-weight:700;font-size:14px;transition:.2s}
+.sb.save{background:var(--O-grad);color:#fff;box-shadow:0 6px 18px rgba(111,207,151,.32)}
+.sb.retake{background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--ink-2)}
+.sb:hover{transform:translateY(-2px)}
+/* ===================== QR Unlock Modal ===================== */
+.qr-overlay{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(43,47,58,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;transition:opacity .28s}
+.qr-overlay.show{opacity:1;pointer-events:auto}
+.qr-card{position:relative;width:100%;max-width:380px;padding:30px 26px 26px;text-align:center;border-radius:var(--r-lg);
+  transform:translateY(16px) scale(.98);transition:transform .3s}
+.qr-overlay.show .qr-card{transform:none}
+.qr-card .x{position:absolute;top:14px;right:15px;width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.65);border:1px solid var(--line);font-size:18px;line-height:26px;color:var(--ink-2);transition:.2s}
+.qr-card .x:hover{color:var(--ink);transform:rotate(90deg)}
+.qr-card h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.qr-card .qr-sub{font-size:13px;color:var(--ink-2);line-height:1.65;margin-bottom:18px}
+.qr-card .qr-sub b{color:var(--A-2)}
+.qr-box{width:200px;height:200px;margin:0 auto 16px;border-radius:var(--r-md);background:#fff;
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;
+  box-shadow:0 6px 20px rgba(90,110,150,.12)}
+.qr-box img{width:100%;height:100%;object-fit:contain;display:block}
+.qr-tip{font-size:12.5px;color:var(--ink-2);margin-bottom:18px;line-height:1.65}
+.qr-tip b{color:var(--A-2)}
+.qr-confirm{width:100%;padding:14px;border-radius:26px;font-weight:800;font-size:15px;color:#fff;background:var(--A-grad);
+  box-shadow:0 8px 24px rgba(111,177,232,.42);transition:.25s}
+.qr-confirm:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(111,177,232,.52)}
+
+/* ===================== 结果内容（维度解读 / 子维度 / 综合洞察） ===================== */
+.narr-sec{margin-bottom:34px}
+.narr-sec h3,.synth-sec h3{font-size:18px;font-weight:800;margin-bottom:15px}
+.narr{padding:22px;margin-bottom:14px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.narr-h{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.narr-h .bd{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff}
+.narr-h .bd[data-d=N]{background:var(--N-grad)}.narr-h .bd[data-d=E]{background:var(--E-grad)}.narr-h .bd[data-d=O]{background:var(--O-grad)}.narr-h .bd[data-d=A]{background:var(--A-grad)}.narr-h .bd[data-d=C]{background:var(--C-grad)}
+.narr-h h4{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px}
+.narr-h .lv{font-size:12px;font-weight:700;color:var(--ink-3);background:rgba(255,255,255,.6);padding:2px 10px;border-radius:10px}
+.narr-h .np{margin-left:auto;font-size:13px;font-weight:800;color:var(--ink-2)}
+.narr p{font-size:14px;color:var(--ink-2);line-height:1.78}
+.narr-tip{margin-top:12px;font-size:13px;color:var(--A-2);background:var(--A-bg);padding:9px 14px;border-radius:12px;font-weight:600;line-height:1.6}
+.narr.full .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.narr.full .mini .m{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:12px;padding:12px}
+.narr.full .mini .m b{display:block;font-size:12px;color:var(--ink-3);margin-bottom:5px;font-weight:800}
+.narr.full .mini .m span{font-size:13px;color:var(--ink-2);line-height:1.6}
+@media(max-width:600px){.narr.full .mini{grid-template-columns:1fr}}
+/* sub dimension rich */
+.sgroup{margin-bottom:18px}
+.sg-h{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;margin-bottom:10px}
+.sg-h .bd{width:20px;height:20px;border-radius:6px}
+.sg-h .bd[data-d=N]{background:var(--N-grad)}.sg-h .bd[data-d=E]{background:var(--E-grad)}.sg-h .bd[data-d=O]{background:var(--O-grad)}.sg-h .bd[data-d=A]{background:var(--A-grad)}.sg-h .bd[data-d=C]{background:var(--C-grad)}
+.sitem{padding:14px 16px;margin-bottom:9px;border-radius:12px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.sitem .sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.sitem .sn{font-size:14px;font-weight:700}
+.sitem .sv{font-size:13px;font-weight:800;color:var(--ink-2)}
+.sitem .sv i{font-style:normal;color:var(--ink-3);font-weight:600;font-size:11px}
+.sbar{height:7px;border-radius:5px;background:rgba(140,170,210,.16);overflow:hidden;margin-bottom:7px}
+.sbar .sbf{height:100%;border-radius:5px}
+.sitem .sd{font-size:12.5px;color:var(--ink-2);line-height:1.62}
+/* synthesis */
+.synth-sec{margin-bottom:34px}
+.synth-box{padding:24px;border-radius:var(--r-md);background:linear-gradient(135deg,rgba(111,177,232,.12),rgba(181,131,216,.12));border:1px solid var(--line)}
+.synth-box .sb{font-size:14.5px;color:var(--ink);line-height:1.85;margin-bottom:10px}
+.synth-box .sc{font-size:14.5px;color:var(--A-2);line-height:1.85;font-weight:600}
+
+/* ---- 职业应用指南（专家级） ---- */
+
+/* ---- 免费版：职业速写 + 升级卡引子 ---- */
+.free-role{margin:10px 0 2px;padding:9px 12px;border-radius:10px;background:rgba(111,177,232,.10);font-size:13.5px;line-height:1.7;color:var(--A-2)}
+.free-role b{color:var(--ink)}
+.upgrade.premium-up{border:1px solid rgba(230,180,80,.55);background:linear-gradient(160deg,rgba(255,247,230,.92),rgba(255,240,210,.82));box-shadow:0 14px 40px rgba(214,160,60,.18)}
+.up-badge{display:inline-block;font-size:12px;font-weight:800;color:#9a6b16;background:rgba(230,180,80,.22);border:1px solid rgba(230,180,80,.5);padding:3px 11px;border-radius:999px;margin-bottom:10px}
+.upgrade.premium-up h3{color:#8a5a12}
+.up-list{margin:12px 0 4px;padding-left:2px;list-style:none}
+.up-list li{position:relative;padding:7px 0 7px 4px;font-size:13.8px;line-height:1.7;color:var(--A-2);border-bottom:1px dashed rgba(214,160,60,.28)}
+.up-list li:last-child{border-bottom:none}
+.up-list b{color:#8a5a12}
+/* ---- 杀手锏：深度职业诊断书 ---- */
+.killer-sec.premium{margin-bottom:30px;padding:20px 22px;border-radius:var(--r-lg);background:linear-gradient(165deg,rgba(255,250,238,.96),rgba(255,244,222,.9));border:1.5px solid rgba(230,180,80,.6);box-shadow:0 18px 50px rgba(214,160,60,.2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.killer-badge{display:inline-block;font-size:13px;font-weight:900;letter-spacing:.3px;color:#fff;background:linear-gradient(120deg,#E6B450,#C8902E);padding:6px 16px;border-radius:999px;margin-bottom:16px;box-shadow:0 6px 16px rgba(200,144,46,.35)}
+.arch-block{margin-bottom:22px}
+.arch-badge{display:inline-block;font-size:12px;font-weight:800;color:#9a6b16;background:rgba(230,180,80,.2);border:1px solid rgba(230,180,80,.45);padding:3px 12px;border-radius:999px;margin-bottom:10px}
+.arch-name{font-size:22px;font-weight:900;background:linear-gradient(120deg,#C8902E,#E6B450);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 4px}
+.arch-tag{font-size:13.5px;font-weight:700;color:#a9742a;margin-bottom:10px}
+.arch-profile{font-size:14.5px;line-height:1.9;color:var(--ink);margin:0 0 8px}
+.arch-overlay{font-size:13.5px;line-height:1.8;color:var(--A-2);margin:0 0 12px;padding-left:12px;border-left:3px solid rgba(230,180,80,.5)}
+.arch-careers b{font-size:13px;color:#8a5a12}
+.ac-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.ac-list span{font-size:12.5px;padding:5px 12px;border-radius:999px;background:rgba(230,180,80,.16);border:1px solid rgba(230,180,80,.4);color:#8a5a12;font-weight:600}
+.norm-block{margin-bottom:22px}
+.norm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.norm-item{padding:12px 14px;border-radius:12px;background:var(--glass);border:1px solid var(--line);display:flex;flex-direction:column;gap:5px}
+.ni-main{display:flex;align-items:center;justify-content:space-between}
+.ni-main b{font-size:14px;color:var(--ink)}
+.ni-band{font-size:12px;font-weight:700;color:#a9742a;background:rgba(230,180,80,.18);padding:2px 9px;border-radius:999px}
+.ni-row{font-size:12.5px;color:var(--A-2)}
+.ni-row b{color:var(--ink)}
+.nbar{height:7px;border-radius:999px;background:rgba(120,120,140,.15);overflow:hidden}
+.nbf{height:100%;border-radius:999px;background:linear-gradient(90deg,#E6B450,#C8902E)}
+.norm-note{font-size:11.5px;color:#9a8aa0;margin:10px 2px 0;line-height:1.6}
+.bp-block .bp-item{padding:13px 15px;margin-bottom:12px;border-radius:12px;background:var(--glass);border:1px solid var(--line)}
+.bp-block .bp-item b{display:block;font-size:13.5px;color:#a9742a;margin-bottom:5px}
+.bp-block .bp-item p{font-size:13.8px;line-height:1.85;color:var(--ink);margin:0}
+@media(max-width:560px){ .norm-grid{grid-template-columns:1fr} }
+
+.career-sec{margin-bottom:34px}
+.career-sec > h3{font-size:18px;font-weight:800;margin-bottom:12px}
+.career-intro{padding:16px 20px;border-radius:var(--r-md);background:linear-gradient(135deg,rgba(181,131,216,.12),rgba(111,177,232,.12));border:1px solid var(--line);font-size:14px;color:var(--ink);line-height:1.85;margin-bottom:22px}
+.career-card{padding:20px 22px;margin-bottom:14px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.cc-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.cc-h .bd{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff}
+.cc-h .bd[data-d=N]{background:var(--N-grad)}.cc-h .bd[data-d=E]{background:var(--E-grad)}.cc-h .bd[data-d=O]{background:var(--O-grad)}.cc-h .bd[data-d=A]{background:var(--A-grad)}.cc-h .bd[data-d=C]{background:var(--C-grad)}
+.cc-h h4{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px}
+.cc-h .lv{font-size:12px;font-weight:700;color:var(--ink-3);background:rgba(255,255,255,.6);padding:2px 10px;border-radius:10px}
+.cc-role,.cc-lead,.cc-row{display:flex;gap:10px;margin-bottom:11px;align-items:flex-start}
+.cc-role b,.cc-lead b,.cc-row b{flex:0 0 78px;font-size:12.5px;font-weight:800;color:var(--ink-3);padding-top:2px}
+.cc-role span,.cc-lead span,.cc-row span{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.cc-matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 13px}
+.cc-fit,.cc-avoid{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.cc-fit b,.cc-avoid b{display:block;font-size:12.5px;font-weight:800;margin-bottom:8px}
+.cc-fit b{color:#5AAE7A}.cc-avoid b{color:#D98A6A}
+.cc-fit ul,.cc-avoid ul{list-style:none;margin:0;padding:0}
+.cc-fit li,.cc-avoid li{font-size:12.8px;color:var(--ink-2);line-height:1.6;padding:3px 0 3px 14px;position:relative}
+.cc-fit li:before{content:"·";position:absolute;left:2px;color:#5AAE7A;font-weight:800}
+.cc-avoid li:before{content:"·";position:absolute;left:2px;color:#D98A6A;font-weight:800}
+@media(max-width:600px){.cc-matrix{grid-template-columns:1fr}.cc-role b,.cc-lead b,.cc-row b{flex:0 0 64px}}
+.career-collab{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ccol-item{display:flex;gap:10px;padding:12px 14px;border-radius:12px;background:var(--glass);border:1px solid var(--line)}
+.ccol-item .bd{flex:0 0 18px;height:18px;border-radius:6px;margin-top:3px}
+.ccol-item .bd[data-d=N]{background:var(--N-grad)}.ccol-item .bd[data-d=E]{background:var(--E-grad)}.ccol-item .bd[data-d=O]{background:var(--O-grad)}.ccol-item .bd[data-d=A]{background:var(--A-grad)}.ccol-item .bd[data-d=C]{background:var(--C-grad)}
+.ccol-item b{font-size:13px;font-weight:800;color:var(--ink-1)}
+.ccol-item p{font-size:12.5px;color:var(--ink-2);line-height:1.62;margin-top:3px}
+@media(max-width:600px){.career-collab{grid-template-columns:1fr}}
+
+/* ---- 分组答题 ---- */
+.q-meta2{text-align:center;font-size:13px;font-weight:700;color:var(--ink-2);margin-bottom:16px;letter-spacing:.5px}
+.q-wrap{display:flex;flex-direction:column;gap:20px;animation:slideIn .35s ease}
+@keyframes slideIn{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:translateX(0)}}
+.qcard{padding:22px 24px;border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);text-align:left}
+.qcard .qrow{display:flex;justify-content:space-between;margin-bottom:8px}
+.qcard .qnum{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--ink-3)}
+.qcard .qtext{font-size:16.5px;font-weight:600;line-height:1.6;margin-bottom:16px;color:var(--ink-1)}
+.qcard .qopts{display:flex;flex-direction:column;gap:9px}
+.qcard .opt{padding:13px 18px}
+.qcard .qopts .opt:nth-child(1).sel{background:rgba(232,154,168,.16);border-color:#E89AA8}
+.qcard .qopts .opt:nth-child(1) .radio{border-color:#E89AA8}
+.qcard .qopts .opt:nth-child(1).sel .radio{background:#E89AA8}
+.qcard .qopts .opt:nth-child(2).sel{background:rgba(232,185,138,.16);border-color:#E8B98A}
+.qcard .qopts .opt:nth-child(2) .radio{border-color:#E8B98A}
+.qcard .qopts .opt:nth-child(2).sel .radio{background:#E8B98A}
+.qcard .qopts .opt:nth-child(3).sel{background:rgba(232,217,138,.16);border-color:#E8D98A}
+.qcard .qopts .opt:nth-child(3) .radio{border-color:#E8D98A}
+.qcard .qopts .opt:nth-child(3).sel .radio{background:#E8D98A}
+.qcard .qopts .opt:nth-child(4).sel{background:rgba(154,216,168,.16);border-color:#9AD8A8}
+.qcard .qopts .opt:nth-child(4) .radio{border-color:#9AD8A8}
+.qcard .qopts .opt:nth-child(4).sel .radio{background:#9AD8A8}
+.qcard .qopts .opt:nth-child(5).sel{background:rgba(143,201,184,.16);border-color:#8FC9B8}
+.qcard .qopts .opt:nth-child(5) .radio{border-color:#8FC9B8}
+.qcard .qopts .opt:nth-child(5).sel .radio{background:#8FC9B8}
+.q-fill{background:linear-gradient(90deg,#9B8CE0,#7FB8E0,#7FC8A8)!important}
+.persona-sub{text-align:center;font-size:13px;color:var(--ink-3);margin-bottom:6px}
+.persona{text-align:center;font-size:clamp(22px,4vw,30px);font-weight:900;margin:2px 0 8px;background:linear-gradient(120deg,#9B8CE0,#6FB1E8,#6FCF97);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%) translateY(20px);background:rgba(43,47,58,.92);color:#fff;padding:11px 22px;border-radius:22px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:2000}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.sb.copy{background:linear-gradient(135deg,#7EC8A0,#A0E0C0);color:#fff}
+
+</style>
+<meta name="baidu-site-verification" content="b53ffd054b55836f535892622f1e4cc5" />
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand" data-onclick="goLanding();return false"><span class="b-dot"></span>大五人格测试</a>
+    <div class="nav-links">
+      <a href="#vers" data-onclick="goLanding('vers');return false">版本对比</a>
+      <a href="#dims" data-onclick="goLanding('dims');return false">五大维度</a>
+      <a href="#about" data-onclick="goLanding('about');return false">关于测试</a>
+      <a href="#sci" data-onclick="goLanding('sci');return false">科学依据</a>
+    </div>
+    <button class="nav-cta" data-onclick="goLanding('vers')">开始测试</button>
+  </div>
+</nav>
+
+<!-- ===== LANDING ===== -->
+<div id="landing" class="page">
+  <section class="hero wrap">
+    <div class="badge"><span class="pulse"></span> 基于 NEO-PI-R 240 题完整版 · 中科院心理所中文修订</div>
+    <h1>探索你的<span class="ac">人格密码</span><br>大五人格科学测评</h1>
+    <p class="lead">从神经质、外向性、开放性、宜人性、严谨性五个维度，科学解析你稳定的人格特质。免费版快速了解轮廓，完整版深入 30 个子维度。</p>
+    <div class="hero-cta">
+      <button class="btn btn-free" data-onclick="startTest('free')">免费体验 · 60 题 / 约 10 分钟</button>
+      <button class="btn btn-full" data-onclick="unlockFull()">解锁完整版 · 240 题 / 约 45 分钟</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n c-N">5</div><div class="l">人格维度</div></div>
+      <div class="stat"><div class="n c-E">30</div><div class="l">细分特质</div></div>
+      <div class="stat"><div class="n c-O">240</div><div class="l">完整题库</div></div>
+      <div class="stat"><div class="n c-A">1992</div><div class="l">NEO-PI-R 诞生</div></div>
+      <div class="stat"><div class="n c-C">∞</div><div class="l">本地隐私保护</div></div>
+    </div>
+  </section>
+
+  <!-- version comparison -->
+  <section id="vers" class="vers-sec wrap">
+    <div class="sec-h"><h2>选择适合你的版本</h2><p>同一个科学量表，两种深度</p></div>
+    <div class="vers-grid">
+      <div class="vers free">
+        <div class="tagline">Free · 免费版</div>
+        <h3>快速人格轮廓</h3>
+        <div class="price"><b>¥0</b> · 永久免费</div>
+        <ul>
+          <li><span class="ck">✓</span><span>60 道精选题目，每维度 12 题</span></li>
+          <li><span class="ck">✓</span><span>5 大维度得分与雷达图</span></li>
+          <li><span class="ck">✓</span><span>核心性格标签 + 基础建议</span></li>
+          <li><span class="ck">✓</span><span>约 10 分钟完成</span></li>
+        </ul>
+        <button class="pick" data-onclick="startTest('free')">免费开始测试</button>
+      </div>
+      <div class="vers full">
+        <div class="tagline">Pro · 完整版</div>
+        <h3>深度人格报告</h3>
+        <div class="price"><b>免费</b> · 扫码解锁</div>
+        <ul>
+          <li><span class="ck">✓</span><span>240 道完整题目，全量计分</span></li>
+          <li><span class="ck">✓</span><span>5 维度 + <b>30 子维度</b>深度解析</span></li>
+          <li><span class="ck">✓</span><span>子维度雷达 + 个性化成长建议</span></li>
+          <li><span class="ck">✓</span><span>可下载 PDF 报告，约 45 分钟</span></li>
+        </ul>
+        <button class="pick" data-onclick="unlockFull()">扫码解锁完整版</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- dimensions -->
+  <section id="dims" class="dims-sec wrap">
+    <div class="sec-h"><h2>五大人格维度</h2><p>Big Five 是目前心理学界最主流的人格理论框架</p></div>
+    <div class="dims-grid" id="dimsGrid"></div>
+  </section>
+
+  <!-- about -->
+  <section id="about" class="about-sec wrap">
+    <div class="about glass">
+      <h2>关于本测试</h2>
+      <p>大五人格测验（NEO-PI-R）由美国心理学家 Costa 与 McCrae 于 1992 年编制，是目前国际应用最广的人格测评工具之一。中文版由中国科学院心理研究所张建新教授主持修订，建立了中国常模。</p>
+      <p>人格是一个人习惯化的思维、情感与行为方式，受先天遗传与后天环境共同影响，成年后相对稳定。人格本无绝对优劣，但充分认识自己的特质，有助于更好地适应环境、发挥优势。</p>
+      <div class="feats">
+        <div class="feat"><div class="fi">🎯</div><h4>科学权威</h4><p>基于 NEO-PI-R 国际通用量表</p></div>
+        <div class="feat"><div class="fi">📊</div><h4>自动计分</h4><p>作答完毕即时生成分析报告</p></div>
+        <div class="feat"><div class="fi">🔒</div><h4>隐私保护</h4><p>数据仅存本地，不上传任何服务器</p></div>
+        <div class="feat"><div class="fi">⚡</div><h4>断点续测</h4><p>进度自动保存，刷新不丢失</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- science -->
+  <section id="sci" class="sci-sec wrap">
+    <div class="sci glass">
+      <h2>科学依据</h2>
+      <div class="timeline">
+        <div class="tl"><h4>1936 — 特质词源</h4><p>Allport 与 Odbert 从英语词典提取近 18000 个描述人格的词汇，奠定词汇假说。</p></div>
+        <div class="tl"><h4>1961 — 五因素初现</h4><p>Tupes 与 Christal 在因子分析中首次识别出稳定的五因素结构。</p></div>
+        <div class="tl"><h4>1985 — NEO 量表</h4><p>Costa 与 McCrae 发布 NEO 人格量表，确立五因素模型标准。</p></div>
+        <div class="tl"><h4>1992 — NEO-PI-R</h4><p>修订版扩展至 240 题，覆盖 5 大维度 30 个子维度，成为国际通用标准。</p></div>
+        <div class="tl"><h4>中文修订版</h4><p>中科院心理所张建新教授完成中文版修订，建立中国常模数据。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-links">
+        <a href="#" data-onclick="goLanding();return false">首页</a>
+        <a href="#vers" data-onclick="goLanding('vers');return false">版本对比</a>
+        <a href="#about" data-onclick="goLanding('about');return false">关于测试</a>
+        <a href="#sci" data-onclick="goLanding('sci');return false">科学依据</a>
+      </div>
+      <div class="foot-c">© 2026 大五人格测试 · 基于 NEO-PI-R 中文修订版 · 结果仅供个人参考，不构成专业诊断</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="quiz" class="page hidden">
+  <div class="q-head">
+    <div class="q-bar"><div class="q-fill" id="qFill"></div></div>
+    <div class="q-meta">
+      <span id="qProg">第 1 / 60 题</span>
+      <span id="qResume" class="resume hidden" data-onclick="confirmResume()">恢复上次进度 ›</span>
+    </div>
+  </div>
+  <div class="q-body">
+    <div class="q-body">
+      <div class="q-card glass">
+        <div class="q-meta2" id="qGroup">第 1 / 12 组（每组 5 题）</div>
+        <div class="q-wrap" id="qWrap"></div>
+        <div class="q-nav">
+          <button class="btn-prev" id="btnPrev" data-onclick="prevQ()">上一组</button>
+          <button class="btn-next" id="btnNext" data-onclick="nextQ()" disabled>下一组 ›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RESULTS ===== -->
+<div id="results" class="page hidden">
+  <div class="res-wrap">
+    <div class="res-head">
+      <span class="res-badge" id="resBadge"></span>
+      <h1>你的人格分析报告</h1>
+      <p id="resSub"></p>
+      <div class="persona-sub" id="personaSub">你的人格原型</div>
+      <div class="persona" id="persona"></div>
+    </div>
+
+    <div class="radar-box"><div class="radar"><canvas id="radar" width="400" height="400"></canvas></div></div>
+
+    <div class="dim-scores" id="dimScores"></div>
+
+    <div class="tags-sec"><h3>性格标签</h3><div class="tags" id="tags"></div></div>
+
+    <!-- FREE: core interpretation + upgrade -->
+    <div id="freeArea">
+      <div class="sug-sec"><h3>维度核心解读</h3><div id="freeSug"></div></div>
+      <div class="upgrade premium-up">
+        <div class="up-badge">完整版专属 · 解锁后可见</div>
+        <h3>完整版深度报告 · 你的「职业人格诊断书」</h3>
+        <p>免费版让你快速看清 5 大维度轮廓。完整版将基于 240 题完整数据，为你生成一份 <b>仅完整版才有的深度诊断</b>：</p>
+        <ul class="up-list">
+          <li>🏆 <b>职业人格原型</b>：为你命名专属人格原型，并匹配最契合的职业方向</li>
+          <li>📊 <b>常模百分位定位</b>：用 NEO-PI-R 标准 T 分，告诉你在人群中的第几百分位</li>
+          <li>🗺️ <b>专属发展蓝图</b>：基于你的高分优势与低分盲区，给出 30 / 90 天行动路线</li>
+          <li>🔬 30 子维度细分画像 + 专家级职业应用指南（7 维解读）</li>
+        </ul>
+        <div class="ub">
+          <button class="btn btn-full" style="padding:13px 30px" data-onclick="unlockFull()">扫码关注，解锁完整版</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULL: deep narrative + 30 sub-dimensions + career + synthesis + actions -->
+    <div id="fullArea" class="hidden">
+      <div class="killer-sec premium">
+        <div class="killer-badge">🏆 完整版专属 · 深度职业诊断书</div>
+        <div id="killerBody"></div>
+      </div>
+      <div class="narr-sec"><h3>维度深度解读</h3><div id="fullNarr"></div></div>
+      <div class="sub-sec"><h3>30 子维度得分 · 细分特质画像</h3><div class="sub-grid" id="subGrid"></div></div>
+      <div class="career-sec">
+        <h3>🎯 职业应用指南 · 专家解读</h3>
+        <p class="career-intro" id="careerIntro"></p>
+        <div id="careerGrid"></div>
+        <div class="career-collab" id="careerCollab"></div>
+      </div>
+      <div class="synth-sec"><h3>综合人格洞察</h3><div class="synth-box" id="synth"></div></div>
+      <div class="act"><h3 style="font-size:18px;font-weight:800;margin-bottom:15px">个性化成长建议</h3><div id="actList"></div></div>
+    </div>
+
+    <div class="share-sec glass">
+      <h3>保存或重新测试</h3>
+      <div class="share-btns">
+        <button class="sb save" data-onclick="makePoster()">生成分享海报</button>
+        <button class="sb copy" data-onclick="copyResult()">复制结果</button>
+        <button class="sb retake" data-onclick="retake()">重新测试</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const DATA = {"guide":"指导语：\n　　大五人格测验是由美国著名心理学家Costa.和McCrae在1992年编制的，该测验的中文版由中科院心理所著名心理学家张建新教授修订。\n　　人格是指一个人习惯化的思维、情感和行为反应方式。人格受先天遗传和后天环境的影响，成年后比较稳定。严格的说，人格并无好坏之分，但是人格会影响个体与环境的互动方式，会成为一个人成长的有利或者不利条件。因此充分的认识自己的人格特征，善于发现自己的优点和不足，可以更好的适应环境和社会，更好的走向成功和幸福。 大五人格模型理论是目前最主要的人格理论，它从外向性、宜人性、谨慎性、神经质和开放性五个方面描述一个人的人格。 \n　　测试题目：下面所列出的特征可能符合你的实际，也可能不符合，你需要确定它与你实际情况的符合程度。请在每一句话后面对应的格子写上分数，以此表示你是否同意这句话以及程度如何。请记住，这是你自己的事情，所以要尽可能诚实地回答。 \n　　本测验共有240道题，全部完成大约需要45～60分钟。性格特征测试：我认为自己.....","questions":[{"num":1,"text":"我不是一个容易忧虑的人","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":2,"text":"我的确喜欢我所遇见的大部分人","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":3,"text":"我的想象力相当丰富","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":4,"text":"我认为人们表面上说得漂亮，内心则另有所谋","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":5,"text":"我以办事情慎重稳妥和合乎常理而为人所知","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":6,"text":"我常因别人对我的做法而感到愤怒","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":7,"text":"我尽量避开人群","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":8,"text":"我并非十分注重事物的审美和艺术方面的特点","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":9,"text":"我并不狡猾","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":10,"text":"我宁愿暂时不做决定以便留有选择余地．而不愿提前计划好","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":11,"text":"我很少感到孤独和忧郁","dimension":"N","sub_dimension_idx":2,"reversed":true},{"num":12,"text":"我具有领导才干，喜欢表达和坚持实行自己的主张","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":13,"text":"我宁愿过变动起伏而能获得各种情感体验的生活而不愿过那种安逸稳定而平淡的生活","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":14,"text":"有时候，我的一些做法使别人认为我太顾自己或自我中心","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":15,"text":"我尽心尽力地执行一切分派给我的任务","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":16,"text":"与别人交往时，我时常害怕出一些丢人现眼或笨拙的差错","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":17,"text":"我更喜欢从事慢节奏的工作和娱乐活动","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":18,"text":"我做事总是有一定的方式，我不喜欢改变我的做事习惯","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":19,"text":"我情愿与别人合作而不愿与他们竞争","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":20,"text":"我有些随和与松懈","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":21,"text":"我极少过多沉溺于任何事情","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":22,"text":"我常常寻求刺激","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":23,"text":"我对理论和抽象的观念很感兴趣","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":24,"text":"我不会羞于夸耀自己的天分和成就","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":25,"text":"我善于计划时间安排要做的事情，以至能够及时完成工作","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":26,"text":"我经常感到无能为力","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":27,"text":"我从没有真正因为开心而跳起来过","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":28,"text":"我难以想象我会与一个说话带有乡音的人成为好朋友","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":29,"text":"我认为领导们在制定政策时，应更多地考虑到民众的生活","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":30,"text":"在过去的日子里，我做过一些很愚蠢的事","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":31,"text":"我容易受到惊吓","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":32,"text":"与别人聊天并不会使我得到许多的乐趣","dimension":"E","sub_dimension_idx":0,"reversed":true},{"num":33,"text":"我尽量使自己的思想合乎现实而避免幻想","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":34,"text":"我觉得大部分人基本上是心怀善意的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":35,"text":"我觉得与我周围的人相比，我的能力不够强","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":36,"text":"我是一个性情平和的人","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":37,"text":"我喜欢很多人在我身边","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":38,"text":"当我听音乐时，我有时会完全沉浸在其中","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":39,"text":"如有必要，我愿意操纵别人以得到我所想得到的","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":40,"text":"我通常保持我的物件干净、整洁","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":41,"text":"有时我感到自己毫无价值","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":42,"text":"我有时没有尽我所能地坚持自己的权利","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":43,"text":"我很少有强烈的情绪体验","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":44,"text":"我尽量对我所碰见的每个人都很有礼貌","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":45,"text":"我有时没有像我应该的那样可靠和值得信赖","dimension":"C","sub_dimension_idx":2,"reversed":true},{"num":46,"text":"我在社交场合很少感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":47,"text":"我做事情时感到精力充沛","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":48,"text":"我觉得学习和培养新爱好是很有趣的","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":49,"text":"在有必要时，我会说出一些讽刺挖苦和尖刻的话来","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":50,"text":"我有明确的目标，并能有条不紊地朝向它而工作","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":51,"text":"我感到难以克制我对某些事情的欲望","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":52,"text":"我不会喜欢去一个热闹喧嚣的大都市度假","dimension":"E","sub_dimension_idx":4,"reversed":true},{"num":53,"text":"我觉得哲学性的争论很乏味","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":54,"text":"我不喜欢谈论我自己以及我的成就","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":55,"text":"我在安顿下来工作之前要浪费掉不少时间","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":56,"text":"我觉得我有能力应付我所遇到的大部分问题","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":57,"text":"我有时会感到极其快乐和欣喜若狂","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":58,"text":"我认为法律和社会政策应该及时修改以反映变化着的世界之所需","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":59,"text":"当我在电影或电视中见到一家人悲欢离合的镜头时，我会感动得流出眼泪","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":60,"text":"我在做出一个决定之前要进行周详的考虑","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":61,"text":"我很少感到恐惧或焦虑","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":62,"text":"别人认为我是一个热情和友好的人","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":63,"text":"我常喜欢幻想","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":64,"text":"我认为如果你任别人怎样对待你，许多人便会趁机利用你","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":65,"text":"我尽量掌握新信息，并通常能作出明智的决定","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":66,"text":"我容易激动，性情急躁","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":67,"text":"我通常喜欢单独工作","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":68,"text":"看芭蕾舞或现代舞蹈使我感到乏味","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":69,"text":"即使是我想欺骗别人，我也做不出来","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":70,"text":"我不是一个做事有条不紊的人","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":71,"text":"我很少感到忧郁或沮丧","dimension":"N","sub_dimension_idx":2,"reversed":true},{"num":72,"text":"我常常在我所在的团体中担负领导责任","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":73,"text":"与物质生活本身相比，我更注重生活的情调与情趣","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":74,"text":"我有些冷淡而有心计","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":75,"text":"我通常会很快如数地还清我的债务","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":76,"text":"有好几次我羞愧得只想躲起来","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":77,"text":"我做事较慢但稳重","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":78,"text":"一旦我找到了做事的适当方法，我便会一直照这种方法做下去","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":79,"text":"即使是在理当发怒的情况下，我也会为表达我的愤怒而犹豫","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":80,"text":"每当我开始一项新的自我改进计划后，我总是半途而废","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":81,"text":"我对于抵抗诱惑并没有什么困难","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":82,"text":"有时，我做某些事情只是为了寻求刺激和冒险","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":83,"text":"我喜欢解决问题或猜谜","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":84,"text":"我知道我比大多数人优秀","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":85,"text":"我是一个总是能够将事情办妥和有工作成效的人","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":86,"text":"我在大量压力的情况，有时感到精神象是要崩溃一样","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":87,"text":"我不是一个乐观主义者","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":88,"text":"我认为在道德问题上做决定时，我们应遵从宗教权威的判断","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":89,"text":"我认为为了帮助穷人和老年人，我们怎样做也不为多","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":90,"text":"有时，我是先干了再想","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":91,"text":"我常感到紧张和心神不定","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":92,"text":"我的确有些冷淡，并与别人保持距离","dimension":"E","sub_dimension_idx":0,"reversed":true},{"num":93,"text":"我不喜欢将时间浪费在白日梦中","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":94,"text":"我认为大部分与我交往的人是诚实可信的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":95,"text":"我常常遇到一些我没有充分准备的情况","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":96,"text":"别人并不认为我是一个易怒或易发脾气的人","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":97,"text":"假日里，我宁愿找一个僻静的地方去做我愿做的事情，也不愿加入大家在一块的活动","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":98,"text":"我深感艺术和自然所呈现出的各种格调和姿态奇妙有趣","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":99,"text":"我认为绝对诚实是一种很差的做生意的方法","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":100,"text":"我喜欢把东西放在固定的位置，以便我确知它们在哪里","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":101,"text":"我有时会深感内疚或有一种负罪感","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":102,"text":"开会时，我通常让别人发言而自己较少开口","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":103,"text":"我很少会留意我即刻的情绪和感受","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":104,"text":"我通常尽可能深思熟虑","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":105,"text":"当责难临头时，我有时除了扯谎以免被罚外别无我法","dimension":"C","sub_dimension_idx":2,"reversed":true},{"num":106,"text":"当别人嘲笑我和开我的玩笑时，我不会感到太难堪","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":107,"text":"我常常感到精力旺盛","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":108,"text":"我经常品尝我没吃过的和异地风味的食物","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":109,"text":"如果我不喜欢某人，我便会让对方知道","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":110,"text":"我努力工作以达成我的目标","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":111,"text":"当有我爱吃的食物时，我会吃得太多","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":112,"text":"我不愿看那些令人震惊或恐怖的电影","dimension":"E","sub_dimension_idx":4,"reversed":true},{"num":113,"text":"当别人谈论抽象的、理论性的事情时，有时我会感到乏味","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":114,"text":"我尽量谦卑恭顺","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":115,"text":"我很难让自己做我应该做的事","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":116,"text":"我在紧急情况下仍能保持头脑冷静","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":117,"text":"我有时会充满快乐","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":118,"text":"我认为其他社会的人可能有与我们不同的是非观念，但对我们来说这些观念可能是正确的","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":119,"text":"我并不同情行乞的人","dimension":"A","sub_dimension_idx":5,"reversed":true},{"num":120,"text":"我在采取行动之前往往要先考虑后果","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":121,"text":"我很少为将来的事情担忧","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":122,"text":"我确实喜欢与别人交谈","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":123,"text":"我喜欢沉浸在幻想及想入非非之中，并探询它们所有的可能性，任其发展","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":124,"text":"当别人为我做一些好事时，我会怀疑他们是否出于真心","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":125,"text":"我为自己对事情有恰当的判断而感到自豪","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":126,"text":"我常常讨厌那些我不得不与之打交道的人","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":127,"text":"我喜欢做那种可由我单独干而不受别人干扰的工作","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":128,"text":"我很少或不会因诗词而产生什么感触","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":129,"text":"我会特别不愿意被别人认为是一个虚伪的人","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":130,"text":"我好像总不能把事情安排得井井有条","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":131,"text":"当事情出问题时，我喜欢责怪自己","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":132,"text":"碰到要做决定时，别人常来找我商量","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":133,"text":"我体验到许多不同的情绪和感受","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":134,"text":"别人并不觉得我慷慨","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":135,"text":"当我作出承诺后，我总是能够照着去做","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":136,"text":"我经常感到自己不如别人","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":137,"text":"我并不像其他人那样敏感和活跃","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":138,"text":"我更愿意在我所熟悉的环境中生活","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":139,"text":"当我被别人侮辱时，我尽量宽恕和忘记","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":140,"text":"我并不觉得我在极力驱使自己干出一番事业","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":141,"text":"我很少凭冲动行事","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":142,"text":"我喜欢去热闹的场合","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":143,"text":"我喜欢玩需要动脑筋的游戏或解决某种难题","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":144,"text":"我对自己有很高的评价","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":145,"text":"一旦我开始一项工作，我差不多总是会将它干完","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":146,"text":"我常常觉得难以拿定主意","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":147,"text":"我并不觉得自己特别轻松愉快和乐观开朗","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":148,"text":"我认为对一些历史名人的作用的争论只会混淆人们的思想","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":149,"text":"我常留恋以前那种人们之间人情味很浓的生活","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":150,"text":"我经常凭一时冲动做事","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":151,"text":"我常常担心事情可能会出错","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":152,"text":"我感到对陌生人微笑和与之交往是一件很容易的事情","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":153,"text":"当我发现自己在想入非非时，通常会使自己变得忙碌或开始将注意力集中在某些工作或活动上","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":154,"text":"我首先总是对人们抱以信任的态度","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":155,"text":"我好像什么事情也没有完全干成过","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":156,"text":"我一般很难发怒","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":157,"text":"如果要我选择，我更愿去人多的海滩而不愿去森林中单独的小屋中度假","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":158,"text":"有些音乐总是使我那样着迷","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":159,"text":"有时我会哄骗别人做些我想要他们做的事","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":160,"text":"我有些挑剔和求全","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":161,"text":"我对自己的评价很低","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":162,"text":"我宁愿我行我素也不愿成为别人的领导","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":163,"text":"我很少注意不同处境对我的心境或感受的影响","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":164,"text":"我所认识的大部分人都喜欢我","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":165,"text":"我严格遵循我的道德准则","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":166,"text":"在上司与权威面前，我不会感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":167,"text":"我似乎总是匆匆忙忙的","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":168,"text":"有时我只是为了得到新的感觉而改变一下屋子里的环境","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":169,"text":"如果有人先打我，我会立即还击","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":170,"text":"我努力完成一切我所能做到的事情","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":171,"text":"我有时会因吃得过多而弄得肠胃出毛病","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":172,"text":"我喜欢“过山车”的刺激","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":173,"text":"我没有兴趣思索宇宙的本质或人类的现状","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":174,"text":"我并没有那种比别人要优越的感觉，不管他们的条件怎样","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":175,"text":"当一项工作太难时，我宁愿开始一项新的","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":176,"text":"在遇到危机时，我觉得我能很好地控制自己","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":177,"text":"我是一个快乐、生气勃勃的人","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":178,"text":"我觉得我胸襟宽阔，并能容忍别人的生活方式","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":179,"text":"我认为整个人类的成员都值得尊重","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":180,"text":"我很少做出仓促的决定","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":181,"text":"我所惧怕的事较大部分人要少","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":182,"text":"我对朋友有深厚的感情依恋","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":183,"text":"我小时候很少乐于玩“过家家”的游戏","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":184,"text":"我往往把别人设想得尽可能好","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":185,"text":"我是一个很能干的人","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":186,"text":"我有时感到怨恨","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":187,"text":"我对大家聚在一起的场合感到乏味","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":188,"text":"当我阅读一首诗或观看一件艺术品时，我有时会感到兴奋或惊喜","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":189,"text":"我有时会恐吓或哄着别人去做我想要他们做的事","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":190,"text":"我并不是非得要把东西弄得特别干净","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":191,"text":"有时候我感到事情暗淡无望","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":192,"text":"与别人谈话时，大部分时间都是我在讲话","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":193,"text":"我很容易为别人设身处地着想","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":194,"text":"我认为我是一个乐善好施的人","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":195,"text":"我做事尽量认真细致，以免重做","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":196,"text":"如果我对别人说错了话或做错了事，我感到难以再次面对他们","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":197,"text":"我的生活节奏很快","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":198,"text":"与一个从未去过的地方相比，我更愿去一个我曾去过并熟悉的地方度假","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":199,"text":"我有些固执，脾气较倔","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":200,"text":"我尽量将我所干的一切事情都干得出色","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":201,"text":"有时我会因一时冲动而做一些令我后悔的事情","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":202,"text":"鲜艳的色彩和华丽的款式对我具有吸引力","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":203,"text":"我有很强的求知欲望","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":204,"text":"较之被人称赞，我更愿意称赞别人","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":205,"text":"太多的小事需要去做，有时我一概置之不理","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":206,"text":"当所有的事情好像都一团糟时，我仍能作出正确的决定","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":207,"text":"我很少用“绝了”或“好极了”这类的字眼来表达我的体验","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":208,"text":"我对别人与我有不同的习惯有些看不顺眼","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":209,"text":"我对不如我幸运的那些人感到同情","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":210,"text":"旅行之前我要仔细做好计划","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":211,"text":"有时候我的脑中会出现一些可怕的念头","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":212,"text":"我时常关心与我一块工作的人们的生活情况","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":213,"text":"对我来说，让思想无拘无束地漫游是一件困难的事","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":214,"text":"尽管人类社会存在着一些阴暗的东西（如战争、罪恶、欺诈），我仍相信人性总的说来是善良的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":215,"text":"我做事有效果，也有效率","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":216,"text":"即使是小小的烦恼事也会使我感到受挫","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":217,"text":"我喜欢人多的聚会","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":218,"text":"与故事性的诗歌相比，我更喜欢那些强调情感与意象的诗歌","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":219,"text":"我为自己与人打交道时精于人情世故而感到得意","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":220,"text":"我花许多时间寻找我放错地方的东西","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":221,"text":"我经常在事情不顺利时感到挫折并想因此而放弃","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":222,"text":"我觉得要控制一种局面并非易事","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":223,"text":"奇特的事情——如某些气味或远方的地名——能激起我很强的感受","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":224,"text":"我常将自己的事暂搁一旁而去帮助别人","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":225,"text":"除非我真的病了，我才会请一天假","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":226,"text":"我非常在意别人对我的看法","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":227,"text":"我是一个很活跃的人","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":228,"text":"我会沿着惯常的路去某个地方","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":229,"text":"我经常与家人及同事争论","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":230,"text":"我像一个“工作狂”","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":231,"text":"我向来能够控制自己的情绪","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":232,"text":"我喜欢成为从事某种体育或健身项目群体中的一员","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":233,"text":"我对脑力活动或知识方面的事情有广泛的兴趣","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":234,"text":"我认为我是一个优越的人","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":235,"text":"我很有自律性","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":236,"text":"我的情绪相当稳定","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":237,"text":"我容易发笑","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":238,"text":"我认为严格的纪律使小孩形成遵守规矩的品质比让他们自己形成独立判断和行事的能力更为重要","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":239,"text":"与“公正”相比，我更愿意别人觉得我“仁”","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":240,"text":"回答问题之前，我要认真思考","dimension":"C","sub_dimension_idx":5,"reversed":false}],"score_config":{"N":{"name":"神经质","en":"Neuroticism","short":"敏感性","color":"#C8A2C8","gradient":["#C8A2C8","#E0C8E0"],"bg":"#F5EEF5","subdims":["焦虑","愤怒敌意","抑郁","自我意识","冲动性","脆弱性"],"low_tag":"稳定从容","high_tag":"敏感敏锐","low_desc":"你情绪基调平稳、抗压表现稳健，是团队中的“定海神针”；偶尔也可尝试主动表达深层感受。","high_desc":"你对情绪与环境变化感知敏锐，能较早识别压力信号——这既是预警优势，也需注意避免过度内耗。","desc":"体验负面情绪与压力的倾向，反映情绪反应的灵敏度。"},"E":{"name":"外向性","en":"Extraversion","short":"热情性","color":"#F0A0B8","gradient":["#F0A0B8","#FDD0DC"],"bg":"#FFF0F4","subdims":["热情性","乐群性","自我肯定","活跃性","刺激追寻","正性情绪"],"low_tag":"沉静内敛","high_tag":"热忱外放","low_desc":"你偏好深度而非广度的连接，善于倾听与内省；适度拓展社交能带来新的机会与视角。","high_desc":"你在人际互动中能量充沛、善于表达，容易成为氛围的带动者；也要留意为自己保留独处恢复的空间。","desc":"人际互动的能量来源与表达倾向。"},"O":{"name":"开放性","en":"Openness","short":"想象力","color":"#A0D8B8","gradient":["#A0D8B8","#C8F0D8"],"bg":"#F0FFF5","subdims":["幻想","美感","情感","行动","观念","价值"],"low_tag":"务实稳健","high_tag":"求新开放","low_desc":"你重视经验与可行，判断务实；偶尔跳出舒适区、接触不同领域会带来惊喜。","high_desc":"你对新经验、观念和创意高度开放，富有想象力；落地执行时需搭好从想法到行动的桥梁。","desc":"对新经验、观念与创意的开放程度。"},"A":{"name":"宜人性","en":"Agreeableness","short":"合作性","color":"#A0C8E8","gradient":["#A0C8E8","#C8E0F8"],"bg":"#F0F8FF","subdims":["信任","坦诚","利他性","顺从性","谦虚","温存"],"low_tag":"果决独立","high_tag":"温厚利他","low_desc":"你重视公平与效率，敢于坚持立场；在协作中适度示弱与让步，反而更易达成共识。","high_desc":"你倾向信任、体谅他人，是关系中的调和者；学会温和设立边界，能让你走得更轻松。","desc":"人际交往中的合作、信任与体谅倾向。"},"C":{"name":"严谨性","en":"Conscientiousness","short":"自律性","color":"#E8D090","gradient":["#E8D090","#F8E8C0"],"bg":"#FFFDF0","subdims":["胜任感","条理性","责任心","事业心","自律性","审慎性"],"low_tag":"灵活洒脱","high_tag":"自律尽责","low_desc":"你适应性强、不拘泥形式，能灵活应对变化；引入轻量结构（清单/节奏）可放大你的优势。","high_desc":"你目标清晰、计划性与自律性强，可靠度高；警惕完美主义，给自己留出弹性空间。","desc":"目标导向、计划性与自律程度。"}},"dim_order":["N","E","O","A","C"],"rating_scale":["完全不符","比较不符","一般","比较符合","完全符合"],"rating_values":[0,1,2,3,4],"scoring_rules":{"mean":"该维度居中的区间（4～6分）","high":"高于中间值的最大值为高分（7～10分）","low":"低于中间值的最小值为低分（1～3分）"},"free_questions":[{"num":1,"text":"我容易受到惊吓","dimension":"N","sub_dimension_idx":0,"reversed":false,"src":31},{"num":2,"text":"我常常担心事情可能会出错","dimension":"N","sub_dimension_idx":0,"reversed":false,"src":151},{"num":3,"text":"我是一个性情平和的人","dimension":"N","sub_dimension_idx":1,"reversed":true,"src":36},{"num":4,"text":"我一般很难发怒","dimension":"N","sub_dimension_idx":1,"reversed":true,"src":156},{"num":5,"text":"有时我感到自己毫无价值","dimension":"N","sub_dimension_idx":2,"reversed":false,"src":41},{"num":6,"text":"我对自己的评价很低","dimension":"N","sub_dimension_idx":2,"reversed":false,"src":161},{"num":7,"text":"我在社交场合很少感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true,"src":46},{"num":8,"text":"在上司与权威面前，我不会感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true,"src":166},{"num":9,"text":"我感到难以克制我对某些事情的欲望","dimension":"N","sub_dimension_idx":4,"reversed":false,"src":51},{"num":10,"text":"我有时会因吃得过多而弄得肠胃出毛病","dimension":"N","sub_dimension_idx":4,"reversed":false,"src":171},{"num":11,"text":"我觉得我有能力应付我所遇到的大部分问题","dimension":"N","sub_dimension_idx":5,"reversed":true,"src":56},{"num":12,"text":"在遇到危机时，我觉得我能很好地控制自己","dimension":"N","sub_dimension_idx":5,"reversed":true,"src":176},{"num":13,"text":"与别人聊天并不会使我得到许多的乐趣","dimension":"E","sub_dimension_idx":0,"reversed":true,"src":32},{"num":14,"text":"我感到对陌生人微笑和与之交往是一件很容易的事情","dimension":"E","sub_dimension_idx":0,"reversed":false,"src":152},{"num":15,"text":"我喜欢很多人在我身边","dimension":"E","sub_dimension_idx":1,"reversed":false,"src":37},{"num":16,"text":"如果要我选择，我更愿去人多的海滩而不愿去森林中单独的小屋中度假","dimension":"E","sub_dimension_idx":1,"reversed":false,"src":157},{"num":17,"text":"我有时没有尽我所能地坚持自己的权利","dimension":"E","sub_dimension_idx":2,"reversed":true,"src":42},{"num":18,"text":"我宁愿我行我素也不愿成为别人的领导","dimension":"E","sub_dimension_idx":2,"reversed":true,"src":162},{"num":19,"text":"我做事情时感到精力充沛","dimension":"E","sub_dimension_idx":3,"reversed":false,"src":47},{"num":20,"text":"我似乎总是匆匆忙忙的","dimension":"E","sub_dimension_idx":3,"reversed":false,"src":167},{"num":21,"text":"我不会喜欢去一个热闹喧嚣的大都市度假","dimension":"E","sub_dimension_idx":4,"reversed":true,"src":52},{"num":22,"text":"我喜欢“过山车”的刺激","dimension":"E","sub_dimension_idx":4,"reversed":false,"src":172},{"num":23,"text":"我有时会感到极其快乐和欣喜若狂","dimension":"E","sub_dimension_idx":5,"reversed":false,"src":57},{"num":24,"text":"我是一个快乐、生气勃勃的人","dimension":"E","sub_dimension_idx":5,"reversed":false,"src":177},{"num":25,"text":"我尽量使自己的思想合乎现实而避免幻想","dimension":"O","sub_dimension_idx":0,"reversed":true,"src":33},{"num":26,"text":"当我发现自己在想入非非时，通常会使自己变得忙碌或开始将注意力集中在某些工作或活动上","dimension":"O","sub_dimension_idx":0,"reversed":true,"src":153},{"num":27,"text":"当我听音乐时，我有时会完全沉浸在其中","dimension":"O","sub_dimension_idx":1,"reversed":false,"src":38},{"num":28,"text":"有些音乐总是使我那样着迷","dimension":"O","sub_dimension_idx":1,"reversed":false,"src":158},{"num":29,"text":"我很少有强烈的情绪体验","dimension":"O","sub_dimension_idx":2,"reversed":true,"src":43},{"num":30,"text":"我很少注意不同处境对我的心境或感受的影响","dimension":"O","sub_dimension_idx":2,"reversed":true,"src":163},{"num":31,"text":"我觉得学习和培养新爱好是很有趣的","dimension":"O","sub_dimension_idx":3,"reversed":false,"src":48},{"num":32,"text":"有时我只是为了得到新的感觉而改变一下屋子里的环境","dimension":"O","sub_dimension_idx":3,"reversed":false,"src":168},{"num":33,"text":"我觉得哲学性的争论很乏味","dimension":"O","sub_dimension_idx":4,"reversed":true,"src":53},{"num":34,"text":"我没有兴趣思索宇宙的本质或人类的现状","dimension":"O","sub_dimension_idx":4,"reversed":true,"src":173},{"num":35,"text":"我认为法律和社会政策应该及时修改以反映变化着的世界之所需","dimension":"O","sub_dimension_idx":5,"reversed":false,"src":58},{"num":36,"text":"我觉得我胸襟宽阔，并能容忍别人的生活方式","dimension":"O","sub_dimension_idx":5,"reversed":false,"src":178},{"num":37,"text":"我觉得大部分人基本上是心怀善意的","dimension":"A","sub_dimension_idx":0,"reversed":false,"src":34},{"num":38,"text":"我首先总是对人们抱以信任的态度","dimension":"A","sub_dimension_idx":0,"reversed":false,"src":154},{"num":39,"text":"如有必要，我愿意操纵别人以得到我所想得到的","dimension":"A","sub_dimension_idx":1,"reversed":true,"src":39},{"num":40,"text":"有时我会哄骗别人做些我想要他们做的事","dimension":"A","sub_dimension_idx":1,"reversed":true,"src":159},{"num":41,"text":"我尽量对我所碰见的每个人都很有礼貌","dimension":"A","sub_dimension_idx":2,"reversed":false,"src":44},{"num":42,"text":"我所认识的大部分人都喜欢我","dimension":"A","sub_dimension_idx":2,"reversed":false,"src":164},{"num":43,"text":"在有必要时，我会说出一些讽刺挖苦和尖刻的话来","dimension":"A","sub_dimension_idx":3,"reversed":true,"src":49},{"num":44,"text":"如果有人先打我，我会立即还击","dimension":"A","sub_dimension_idx":3,"reversed":true,"src":169},{"num":45,"text":"我不喜欢谈论我自己以及我的成就","dimension":"A","sub_dimension_idx":4,"reversed":false,"src":54},{"num":46,"text":"我并没有那种比别人要优越的感觉，不管他们的条件怎样","dimension":"A","sub_dimension_idx":4,"reversed":false,"src":174},{"num":47,"text":"当我在电影或电视中见到一家人悲欢离合的镜头时，我会感动得流出眼泪","dimension":"A","sub_dimension_idx":5,"reversed":false,"src":59},{"num":48,"text":"我认为整个人类的成员都值得尊重","dimension":"A","sub_dimension_idx":5,"reversed":false,"src":179},{"num":49,"text":"我觉得与我周围的人相比，我的能力不够强","dimension":"C","sub_dimension_idx":0,"reversed":true,"src":35},{"num":50,"text":"我好像什么事情也没有完全干成过","dimension":"C","sub_dimension_idx":0,"reversed":true,"src":155},{"num":51,"text":"我通常保持我的物件干净、整洁","dimension":"C","sub_dimension_idx":1,"reversed":false,"src":40},{"num":52,"text":"我有些挑剔和求全","dimension":"C","sub_dimension_idx":1,"reversed":false,"src":160},{"num":53,"text":"我有时没有像我应该的那样可靠和值得信赖","dimension":"C","sub_dimension_idx":2,"reversed":true,"src":45},{"num":54,"text":"我严格遵循我的道德准则","dimension":"C","sub_dimension_idx":2,"reversed":false,"src":165},{"num":55,"text":"我有明确的目标，并能有条不紊地朝向它而工作","dimension":"C","sub_dimension_idx":3,"reversed":false,"src":50},{"num":56,"text":"我努力完成一切我所能做到的事情","dimension":"C","sub_dimension_idx":3,"reversed":false,"src":170},{"num":57,"text":"我在安顿下来工作之前要浪费掉不少时间","dimension":"C","sub_dimension_idx":4,"reversed":true,"src":55},{"num":58,"text":"当一项工作太难时，我宁愿开始一项新的","dimension":"C","sub_dimension_idx":4,"reversed":true,"src":175},{"num":59,"text":"我在做出一个决定之前要进行周详的考虑","dimension":"C","sub_dimension_idx":5,"reversed":false,"src":60},{"num":60,"text":"我很少做出仓促的决定","dimension":"C","sub_dimension_idx":5,"reversed":false,"src":180}],"full_questions":[{"num":1,"text":"我不是一个容易忧虑的人","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":2,"text":"我的确喜欢我所遇见的大部分人","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":3,"text":"我的想象力相当丰富","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":4,"text":"我认为人们表面上说得漂亮，内心则另有所谋","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":5,"text":"我以办事情慎重稳妥和合乎常理而为人所知","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":6,"text":"我常因别人对我的做法而感到愤怒","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":7,"text":"我尽量避开人群","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":8,"text":"我并非十分注重事物的审美和艺术方面的特点","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":9,"text":"我并不狡猾","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":10,"text":"我宁愿暂时不做决定以便留有选择余地．而不愿提前计划好","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":11,"text":"我很少感到孤独和忧郁","dimension":"N","sub_dimension_idx":2,"reversed":true},{"num":12,"text":"我具有领导才干，喜欢表达和坚持实行自己的主张","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":13,"text":"我宁愿过变动起伏而能获得各种情感体验的生活而不愿过那种安逸稳定而平淡的生活","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":14,"text":"有时候，我的一些做法使别人认为我太顾自己或自我中心","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":15,"text":"我尽心尽力地执行一切分派给我的任务","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":16,"text":"与别人交往时，我时常害怕出一些丢人现眼或笨拙的差错","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":17,"text":"我更喜欢从事慢节奏的工作和娱乐活动","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":18,"text":"我做事总是有一定的方式，我不喜欢改变我的做事习惯","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":19,"text":"我情愿与别人合作而不愿与他们竞争","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":20,"text":"我有些随和与松懈","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":21,"text":"我极少过多沉溺于任何事情","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":22,"text":"我常常寻求刺激","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":23,"text":"我对理论和抽象的观念很感兴趣","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":24,"text":"我不会羞于夸耀自己的天分和成就","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":25,"text":"我善于计划时间安排要做的事情，以至能够及时完成工作","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":26,"text":"我经常感到无能为力","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":27,"text":"我从没有真正因为开心而跳起来过","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":28,"text":"我难以想象我会与一个说话带有乡音的人成为好朋友","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":29,"text":"我认为领导们在制定政策时，应更多地考虑到民众的生活","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":30,"text":"在过去的日子里，我做过一些很愚蠢的事","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":31,"text":"我容易受到惊吓","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":32,"text":"与别人聊天并不会使我得到许多的乐趣","dimension":"E","sub_dimension_idx":0,"reversed":true},{"num":33,"text":"我尽量使自己的思想合乎现实而避免幻想","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":34,"text":"我觉得大部分人基本上是心怀善意的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":35,"text":"我觉得与我周围的人相比，我的能力不够强","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":36,"text":"我是一个性情平和的人","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":37,"text":"我喜欢很多人在我身边","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":38,"text":"当我听音乐时，我有时会完全沉浸在其中","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":39,"text":"如有必要，我愿意操纵别人以得到我所想得到的","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":40,"text":"我通常保持我的物件干净、整洁","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":41,"text":"有时我感到自己毫无价值","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":42,"text":"我有时没有尽我所能地坚持自己的权利","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":43,"text":"我很少有强烈的情绪体验","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":44,"text":"我尽量对我所碰见的每个人都很有礼貌","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":45,"text":"我有时没有像我应该的那样可靠和值得信赖","dimension":"C","sub_dimension_idx":2,"reversed":true},{"num":46,"text":"我在社交场合很少感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":47,"text":"我做事情时感到精力充沛","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":48,"text":"我觉得学习和培养新爱好是很有趣的","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":49,"text":"在有必要时，我会说出一些讽刺挖苦和尖刻的话来","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":50,"text":"我有明确的目标，并能有条不紊地朝向它而工作","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":51,"text":"我感到难以克制我对某些事情的欲望","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":52,"text":"我不会喜欢去一个热闹喧嚣的大都市度假","dimension":"E","sub_dimension_idx":4,"reversed":true},{"num":53,"text":"我觉得哲学性的争论很乏味","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":54,"text":"我不喜欢谈论我自己以及我的成就","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":55,"text":"我在安顿下来工作之前要浪费掉不少时间","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":56,"text":"我觉得我有能力应付我所遇到的大部分问题","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":57,"text":"我有时会感到极其快乐和欣喜若狂","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":58,"text":"我认为法律和社会政策应该及时修改以反映变化着的世界之所需","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":59,"text":"当我在电影或电视中见到一家人悲欢离合的镜头时，我会感动得流出眼泪","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":60,"text":"我在做出一个决定之前要进行周详的考虑","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":61,"text":"我很少感到恐惧或焦虑","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":62,"text":"别人认为我是一个热情和友好的人","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":63,"text":"我常喜欢幻想","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":64,"text":"我认为如果你任别人怎样对待你，许多人便会趁机利用你","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":65,"text":"我尽量掌握新信息，并通常能作出明智的决定","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":66,"text":"我容易激动，性情急躁","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":67,"text":"我通常喜欢单独工作","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":68,"text":"看芭蕾舞或现代舞蹈使我感到乏味","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":69,"text":"即使是我想欺骗别人，我也做不出来","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":70,"text":"我不是一个做事有条不紊的人","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":71,"text":"我很少感到忧郁或沮丧","dimension":"N","sub_dimension_idx":2,"reversed":true},{"num":72,"text":"我常常在我所在的团体中担负领导责任","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":73,"text":"与物质生活本身相比，我更注重生活的情调与情趣","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":74,"text":"我有些冷淡而有心计","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":75,"text":"我通常会很快如数地还清我的债务","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":76,"text":"有好几次我羞愧得只想躲起来","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":77,"text":"我做事较慢但稳重","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":78,"text":"一旦我找到了做事的适当方法，我便会一直照这种方法做下去","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":79,"text":"即使是在理当发怒的情况下，我也会为表达我的愤怒而犹豫","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":80,"text":"每当我开始一项新的自我改进计划后，我总是半途而废","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":81,"text":"我对于抵抗诱惑并没有什么困难","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":82,"text":"有时，我做某些事情只是为了寻求刺激和冒险","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":83,"text":"我喜欢解决问题或猜谜","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":84,"text":"我知道我比大多数人优秀","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":85,"text":"我是一个总是能够将事情办妥和有工作成效的人","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":86,"text":"我在大量压力的情况，有时感到精神象是要崩溃一样","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":87,"text":"我不是一个乐观主义者","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":88,"text":"我认为在道德问题上做决定时，我们应遵从宗教权威的判断","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":89,"text":"我认为为了帮助穷人和老年人，我们怎样做也不为多","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":90,"text":"有时，我是先干了再想","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":91,"text":"我常感到紧张和心神不定","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":92,"text":"我的确有些冷淡，并与别人保持距离","dimension":"E","sub_dimension_idx":0,"reversed":true},{"num":93,"text":"我不喜欢将时间浪费在白日梦中","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":94,"text":"我认为大部分与我交往的人是诚实可信的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":95,"text":"我常常遇到一些我没有充分准备的情况","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":96,"text":"别人并不认为我是一个易怒或易发脾气的人","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":97,"text":"假日里，我宁愿找一个僻静的地方去做我愿做的事情，也不愿加入大家在一块的活动","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":98,"text":"我深感艺术和自然所呈现出的各种格调和姿态奇妙有趣","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":99,"text":"我认为绝对诚实是一种很差的做生意的方法","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":100,"text":"我喜欢把东西放在固定的位置，以便我确知它们在哪里","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":101,"text":"我有时会深感内疚或有一种负罪感","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":102,"text":"开会时，我通常让别人发言而自己较少开口","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":103,"text":"我很少会留意我即刻的情绪和感受","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":104,"text":"我通常尽可能深思熟虑","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":105,"text":"当责难临头时，我有时除了扯谎以免被罚外别无我法","dimension":"C","sub_dimension_idx":2,"reversed":true},{"num":106,"text":"当别人嘲笑我和开我的玩笑时，我不会感到太难堪","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":107,"text":"我常常感到精力旺盛","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":108,"text":"我经常品尝我没吃过的和异地风味的食物","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":109,"text":"如果我不喜欢某人，我便会让对方知道","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":110,"text":"我努力工作以达成我的目标","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":111,"text":"当有我爱吃的食物时，我会吃得太多","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":112,"text":"我不愿看那些令人震惊或恐怖的电影","dimension":"E","sub_dimension_idx":4,"reversed":true},{"num":113,"text":"当别人谈论抽象的、理论性的事情时，有时我会感到乏味","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":114,"text":"我尽量谦卑恭顺","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":115,"text":"我很难让自己做我应该做的事","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":116,"text":"我在紧急情况下仍能保持头脑冷静","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":117,"text":"我有时会充满快乐","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":118,"text":"我认为其他社会的人可能有与我们不同的是非观念，但对我们来说这些观念可能是正确的","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":119,"text":"我并不同情行乞的人","dimension":"A","sub_dimension_idx":5,"reversed":true},{"num":120,"text":"我在采取行动之前往往要先考虑后果","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":121,"text":"我很少为将来的事情担忧","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":122,"text":"我确实喜欢与别人交谈","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":123,"text":"我喜欢沉浸在幻想及想入非非之中，并探询它们所有的可能性，任其发展","dimension":"O","sub_dimension_idx":0,"reversed":false},{"num":124,"text":"当别人为我做一些好事时，我会怀疑他们是否出于真心","dimension":"A","sub_dimension_idx":0,"reversed":true},{"num":125,"text":"我为自己对事情有恰当的判断而感到自豪","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":126,"text":"我常常讨厌那些我不得不与之打交道的人","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":127,"text":"我喜欢做那种可由我单独干而不受别人干扰的工作","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":128,"text":"我很少或不会因诗词而产生什么感触","dimension":"O","sub_dimension_idx":1,"reversed":true},{"num":129,"text":"我会特别不愿意被别人认为是一个虚伪的人","dimension":"A","sub_dimension_idx":1,"reversed":false},{"num":130,"text":"我好像总不能把事情安排得井井有条","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":131,"text":"当事情出问题时，我喜欢责怪自己","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":132,"text":"碰到要做决定时，别人常来找我商量","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":133,"text":"我体验到许多不同的情绪和感受","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":134,"text":"别人并不觉得我慷慨","dimension":"A","sub_dimension_idx":2,"reversed":true},{"num":135,"text":"当我作出承诺后，我总是能够照着去做","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":136,"text":"我经常感到自己不如别人","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":137,"text":"我并不像其他人那样敏感和活跃","dimension":"E","sub_dimension_idx":3,"reversed":true},{"num":138,"text":"我更愿意在我所熟悉的环境中生活","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":139,"text":"当我被别人侮辱时，我尽量宽恕和忘记","dimension":"A","sub_dimension_idx":3,"reversed":false},{"num":140,"text":"我并不觉得我在极力驱使自己干出一番事业","dimension":"C","sub_dimension_idx":3,"reversed":true},{"num":141,"text":"我很少凭冲动行事","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":142,"text":"我喜欢去热闹的场合","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":143,"text":"我喜欢玩需要动脑筋的游戏或解决某种难题","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":144,"text":"我对自己有很高的评价","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":145,"text":"一旦我开始一项工作，我差不多总是会将它干完","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":146,"text":"我常常觉得难以拿定主意","dimension":"N","sub_dimension_idx":5,"reversed":false},{"num":147,"text":"我并不觉得自己特别轻松愉快和乐观开朗","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":148,"text":"我认为对一些历史名人的作用的争论只会混淆人们的思想","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":149,"text":"我常留恋以前那种人们之间人情味很浓的生活","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":150,"text":"我经常凭一时冲动做事","dimension":"C","sub_dimension_idx":5,"reversed":true},{"num":151,"text":"我常常担心事情可能会出错","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":152,"text":"我感到对陌生人微笑和与之交往是一件很容易的事情","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":153,"text":"当我发现自己在想入非非时，通常会使自己变得忙碌或开始将注意力集中在某些工作或活动上","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":154,"text":"我首先总是对人们抱以信任的态度","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":155,"text":"我好像什么事情也没有完全干成过","dimension":"C","sub_dimension_idx":0,"reversed":true},{"num":156,"text":"我一般很难发怒","dimension":"N","sub_dimension_idx":1,"reversed":true},{"num":157,"text":"如果要我选择，我更愿去人多的海滩而不愿去森林中单独的小屋中度假","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":158,"text":"有些音乐总是使我那样着迷","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":159,"text":"有时我会哄骗别人做些我想要他们做的事","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":160,"text":"我有些挑剔和求全","dimension":"C","sub_dimension_idx":1,"reversed":false},{"num":161,"text":"我对自己的评价很低","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":162,"text":"我宁愿我行我素也不愿成为别人的领导","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":163,"text":"我很少注意不同处境对我的心境或感受的影响","dimension":"O","sub_dimension_idx":2,"reversed":true},{"num":164,"text":"我所认识的大部分人都喜欢我","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":165,"text":"我严格遵循我的道德准则","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":166,"text":"在上司与权威面前，我不会感到不自在","dimension":"N","sub_dimension_idx":3,"reversed":true},{"num":167,"text":"我似乎总是匆匆忙忙的","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":168,"text":"有时我只是为了得到新的感觉而改变一下屋子里的环境","dimension":"O","sub_dimension_idx":3,"reversed":false},{"num":169,"text":"如果有人先打我，我会立即还击","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":170,"text":"我努力完成一切我所能做到的事情","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":171,"text":"我有时会因吃得过多而弄得肠胃出毛病","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":172,"text":"我喜欢“过山车”的刺激","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":173,"text":"我没有兴趣思索宇宙的本质或人类的现状","dimension":"O","sub_dimension_idx":4,"reversed":true},{"num":174,"text":"我并没有那种比别人要优越的感觉，不管他们的条件怎样","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":175,"text":"当一项工作太难时，我宁愿开始一项新的","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":176,"text":"在遇到危机时，我觉得我能很好地控制自己","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":177,"text":"我是一个快乐、生气勃勃的人","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":178,"text":"我觉得我胸襟宽阔，并能容忍别人的生活方式","dimension":"O","sub_dimension_idx":5,"reversed":false},{"num":179,"text":"我认为整个人类的成员都值得尊重","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":180,"text":"我很少做出仓促的决定","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":181,"text":"我所惧怕的事较大部分人要少","dimension":"N","sub_dimension_idx":0,"reversed":true},{"num":182,"text":"我对朋友有深厚的感情依恋","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":183,"text":"我小时候很少乐于玩“过家家”的游戏","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":184,"text":"我往往把别人设想得尽可能好","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":185,"text":"我是一个很能干的人","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":186,"text":"我有时感到怨恨","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":187,"text":"我对大家聚在一起的场合感到乏味","dimension":"E","sub_dimension_idx":1,"reversed":true},{"num":188,"text":"当我阅读一首诗或观看一件艺术品时，我有时会感到兴奋或惊喜","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":189,"text":"我有时会恐吓或哄着别人去做我想要他们做的事","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":190,"text":"我并不是非得要把东西弄得特别干净","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":191,"text":"有时候我感到事情暗淡无望","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":192,"text":"与别人谈话时，大部分时间都是我在讲话","dimension":"E","sub_dimension_idx":2,"reversed":false},{"num":193,"text":"我很容易为别人设身处地着想","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":194,"text":"我认为我是一个乐善好施的人","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":195,"text":"我做事尽量认真细致，以免重做","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":196,"text":"如果我对别人说错了话或做错了事，我感到难以再次面对他们","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":197,"text":"我的生活节奏很快","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":198,"text":"与一个从未去过的地方相比，我更愿去一个我曾去过并熟悉的地方度假","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":199,"text":"我有些固执，脾气较倔","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":200,"text":"我尽量将我所干的一切事情都干得出色","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":201,"text":"有时我会因一时冲动而做一些令我后悔的事情","dimension":"N","sub_dimension_idx":4,"reversed":false},{"num":202,"text":"鲜艳的色彩和华丽的款式对我具有吸引力","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":203,"text":"我有很强的求知欲望","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":204,"text":"较之被人称赞，我更愿意称赞别人","dimension":"A","sub_dimension_idx":4,"reversed":false},{"num":205,"text":"太多的小事需要去做，有时我一概置之不理","dimension":"C","sub_dimension_idx":4,"reversed":true},{"num":206,"text":"当所有的事情好像都一团糟时，我仍能作出正确的决定","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":207,"text":"我很少用“绝了”或“好极了”这类的字眼来表达我的体验","dimension":"E","sub_dimension_idx":5,"reversed":true},{"num":208,"text":"我对别人与我有不同的习惯有些看不顺眼","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":209,"text":"我对不如我幸运的那些人感到同情","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":210,"text":"旅行之前我要仔细做好计划","dimension":"C","sub_dimension_idx":5,"reversed":false},{"num":211,"text":"有时候我的脑中会出现一些可怕的念头","dimension":"N","sub_dimension_idx":0,"reversed":false},{"num":212,"text":"我时常关心与我一块工作的人们的生活情况","dimension":"E","sub_dimension_idx":0,"reversed":false},{"num":213,"text":"对我来说，让思想无拘无束地漫游是一件困难的事","dimension":"O","sub_dimension_idx":0,"reversed":true},{"num":214,"text":"尽管人类社会存在着一些阴暗的东西（如战争、罪恶、欺诈），我仍相信人性总的说来是善良的","dimension":"A","sub_dimension_idx":0,"reversed":false},{"num":215,"text":"我做事有效果，也有效率","dimension":"C","sub_dimension_idx":0,"reversed":false},{"num":216,"text":"即使是小小的烦恼事也会使我感到受挫","dimension":"N","sub_dimension_idx":1,"reversed":false},{"num":217,"text":"我喜欢人多的聚会","dimension":"E","sub_dimension_idx":1,"reversed":false},{"num":218,"text":"与故事性的诗歌相比，我更喜欢那些强调情感与意象的诗歌","dimension":"O","sub_dimension_idx":1,"reversed":false},{"num":219,"text":"我为自己与人打交道时精于人情世故而感到得意","dimension":"A","sub_dimension_idx":1,"reversed":true},{"num":220,"text":"我花许多时间寻找我放错地方的东西","dimension":"C","sub_dimension_idx":1,"reversed":true},{"num":221,"text":"我经常在事情不顺利时感到挫折并想因此而放弃","dimension":"N","sub_dimension_idx":2,"reversed":false},{"num":222,"text":"我觉得要控制一种局面并非易事","dimension":"E","sub_dimension_idx":2,"reversed":true},{"num":223,"text":"奇特的事情——如某些气味或远方的地名——能激起我很强的感受","dimension":"O","sub_dimension_idx":2,"reversed":false},{"num":224,"text":"我常将自己的事暂搁一旁而去帮助别人","dimension":"A","sub_dimension_idx":2,"reversed":false},{"num":225,"text":"除非我真的病了，我才会请一天假","dimension":"C","sub_dimension_idx":2,"reversed":false},{"num":226,"text":"我非常在意别人对我的看法","dimension":"N","sub_dimension_idx":3,"reversed":false},{"num":227,"text":"我是一个很活跃的人","dimension":"E","sub_dimension_idx":3,"reversed":false},{"num":228,"text":"我会沿着惯常的路去某个地方","dimension":"O","sub_dimension_idx":3,"reversed":true},{"num":229,"text":"我经常与家人及同事争论","dimension":"A","sub_dimension_idx":3,"reversed":true},{"num":230,"text":"我像一个“工作狂”","dimension":"C","sub_dimension_idx":3,"reversed":false},{"num":231,"text":"我向来能够控制自己的情绪","dimension":"N","sub_dimension_idx":4,"reversed":true},{"num":232,"text":"我喜欢成为从事某种体育或健身项目群体中的一员","dimension":"E","sub_dimension_idx":4,"reversed":false},{"num":233,"text":"我对脑力活动或知识方面的事情有广泛的兴趣","dimension":"O","sub_dimension_idx":4,"reversed":false},{"num":234,"text":"我认为我是一个优越的人","dimension":"A","sub_dimension_idx":4,"reversed":true},{"num":235,"text":"我很有自律性","dimension":"C","sub_dimension_idx":4,"reversed":false},{"num":236,"text":"我的情绪相当稳定","dimension":"N","sub_dimension_idx":5,"reversed":true},{"num":237,"text":"我容易发笑","dimension":"E","sub_dimension_idx":5,"reversed":false},{"num":238,"text":"我认为严格的纪律使小孩形成遵守规矩的品质比让他们自己形成独立判断和行事的能力更为重要","dimension":"O","sub_dimension_idx":5,"reversed":true},{"num":239,"text":"与“公正”相比，我更愿意别人觉得我“仁”","dimension":"A","sub_dimension_idx":5,"reversed":false},{"num":240,"text":"回答问题之前，我要认真思考","dimension":"C","sub_dimension_idx":5,"reversed":false}],"reverse_items":[1,4,7,8,10,11,14,17,18,20,21,24,27,28,30,32,33,35,36,39,42,43,45,46,49,52,53,55,56,61,64,67,68,70,71,74,77,78,80,81,84,87,88,90,92,93,95,96,97,99,102,103,105,106,109,112,113,115,116,119,121,124,127,128,130,134,137,138,140,141,144,147,148,150,153,155,156,159,162,163,166,169,173,175,176,181,183,187,189,190,198,199,205,206,207,208,213,219,220,222,228,229,231,234,236,238]};
+const SCORE = DATA.score_config;
+const DIM_ORDER = DATA.dim_order;          // ['N','E','O','A','C']
+const RATING = DATA.rating_scale;          // ['完全不符',...]
+const RVALUES = DATA.rating_values;        // [0,1,2,3,4]
+const GUIDE = DATA.guide;
+
+/* ===================== STATE ===================== */
+let questions = [];      // current set
+let total = 0;
+let answers = [];
+let cur = 0;
+let version = 'free';    // 'free' | 'full'
+let results = null;
+
+const KEY_PROG = 'big5_progress_v1';
+const KEY_RES  = 'big5_result_v1';
+const KEY_UNLOCK = 'big5_unlocked_v1';
+const DIM_COLOR = {N:'#B583D8',E:'#FF9EB5',O:'#6FCF97',A:'#6FB1E8',C:'#F2C879'};
+// —— 公众号二维码：部署前把 OFFICIAL_QR 换成你的公众号二维码图片（base64 data-URI 或 https 地址）——
+const OFFICIAL_QR = "data:image/jpeg;base64,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";
+const OFFICIAL_NAME = "AIHR数智引擎";
+
+/* ===================== 报告内容库（内容即王道） ===================== */
+const SYN = {
+  N:{hi:"敏锐的预警与共情力", lo:"把情绪稳定在可控区间"},
+  E:{hi:"强大的联结与动员力", lo:"主动经营关键连接"},
+  O:{hi:"持续的求新与跨界视角", lo:"刻意拓展经验边界"},
+  A:{hi:"天然的调和与信任感", lo:"在关键处温和而坚定地立边界"},
+  C:{hi:"可靠的执行与交付力", lo:"用轻量结构放大你的灵活"}
+};
+const TIPS = {
+  N:{hi:["每天固定 10 分钟正念或呼吸训练，降低情绪基础唤起","建立情绪日记：触发事件→自动想法→更平衡的解读","遇冲突先停顿 6 秒再回应，把本能反应换成主动选择","识别你的高频触发源，提前准备一句自我安抚的话"],
+     lo:["保持运动与睡眠节律，这是你情绪稳定的底层燃料","在重要关系里主动说一次「我其实有点……」，练习表达","对不确定性保持基本敬畏，避免过于轻率的判断","用书写把模糊的焦虑外化，会显著降低内耗"]},
+  E:{hi:["为每个社交高峰安排「恢复窗口」，避免热情透支","练习深度倾听：先问后说，让对话更有重量","表达观点前加一句「我想听听你们的」，平衡主导感","定期独处充电，区分「热闹」与「滋养」"],
+     lo:["每周主动发起 1 个轻量连接（一杯咖啡/一个电话）","在会议中至少公开表达 1 个观点","参加一个线下兴趣社群，积累正向互动","把社交当信息源而非消耗，降低心理负担"]},
+  O:{hi:["把每个创意写成「最小可行下一步」，防止想法空转","建立双周复盘：哪些想法真的值得投入","主动分享你的独特视角，用反馈校准方向","给发散的思维设一个「收敛时间」，避免永远在探索"],
+     lo:["每月做一件从未做过的小事，拓宽经验边界","跨领域读一本书或听一档陌生播客","报名一个动手型工作坊，用身体验证想法","在熟悉流程里故意改一个小变量，训练弹性"]},
+  A:{hi:["用「肯定对方+表明边界+给替代方案」温和说不","每周留半天纯粹属于自己的时间，拒绝过度取悦","在合作中也要表达需求，避免长期压抑","区分善良与讨好：前者有边界，后者没自我"],
+     lo:["用「这次听你的」主动让一步，积累信任资产","冲突时先复述对方观点再表达，降低对抗","及时感谢与认可他人，放大协作红利","在坚持原则的同时，留一句「我理解你的难处」"]},
+  C:{hi:["设「足够好」红线，用 80/20 分配精力，停止过度打磨","学会授权：把不必亲做的事交出去","每周留半天空白，给复原与灵感留空间","把大目标拆成可勾选的小里程碑，用进度反哺动力"],
+     lo:["建立「每日三件事」清单，降低启动门槛","用番茄钟训练专注的小块时间","把模糊愿望写成可验证的验收标准","给重要事项设一个固定节奏，减少看心情"]}
+};
+const REPORT = {
+  N:{
+    narrative:{ high:"你的情绪系统灵敏度较高，对压力、变化与不确定性的反应更快更强烈。这让你具备天然的预警雷达——能比多数人更早察觉风险与情绪暗流，在危机处理、用户洞察、细腻表达上常有优势。需要留意的是，高敏感也意味着情绪更容易被环境带走，长期内耗会消耗决策能量；建立稳定的调节仪式，是把敏锐转化为洞察的关键。",
+      mid:"你在情绪反应上处于灵活区间：既不会轻易被外界扰动，也保有感知细微情绪的能力。这种弹性让你能在敏感与钝感之间根据情境自如切换。",
+      low:"你拥有平稳的情绪基调与出色的抗压表现，在混乱与高压下仍能保持清醒，是团队天然的定海神针。这种稳定让你在需要长期投入、耐受不确定性的场景中极具价值。可留意的是，过度平稳有时会让人误读你的真实感受；适度、及时地表达内心波动，反而能拉近关系、获得支持。" },
+    work:{high:"适合风险预警、用户研究、危机公关、需要高共情的岗位；需为高强度时段安排恢复节奏。", low:"适合高压常态、长周期项目、需要情绪稳定的执行与决策角色。"},
+    relate:{high:"你能敏锐接住他人的情绪，是好的倾听者与安抚者；但别把别人的情绪都扛在自己肩上。", low:"你关系稳定、不黏不扰；偶尔主动袒露脆弱，会让亲密关系更有温度。"},
+    grow:{high:"把觉察转化为行动：用记录—重评—放松三步法，防止情绪空转。", low:"练习在关键节点表达感受与需求，让稳定不只是没事，而是被看见的从容。"},
+    subs:[ {high:"你对未来与不确定容易过度担忧，但这份谨慎也是周密预案的来源。", low:"你较少被预期性焦虑缠绕，临场更放松从容。"},
+      {high:"你易被不公或阻碍激起怒意，边界感强、不容冒犯。", low:"你很少以敌意待人，但需练习在正当时刻表达不满。"},
+      {high:"低落情绪更易停留，你对失落与缺憾格外敏感。", low:"情绪低谷短而快，你的恢复力很强。"},
+      {high:"你在被评价场合容易紧张、怕出丑。", low:"你在人群中自在松弛，不太在意他人目光。"},
+      {high:"情绪上来时你容易冲动行事、先做了再说。", low:"你克制稳健，习惯三思而后行。"},
+      {high:"压力下你容易感到难以承受、需要外部支持。", low:"压力来袭你仍能撑住，心理韧性好。"} ]
+  },
+  E:{
+    narrative:{ high:"你从人际互动中获得能量，表达欲与联结欲都较强，容易成为团队中的氛围带动者与信息枢纽。在需要动员、销售、共创、公众表达的场景里你如鱼得水。要注意的是，高密度社交也会消耗你——若长期不给自已经排独处恢复时间，热情可能转为疲惫甚至疏离；学会管理社交节奏，是维持外放优势的前提。",
+      mid:"你在独处与社交间保有弹性：需要时能投入群体，累了也能安然退场充电，是难得的情境自适应型。",
+      low:"你的能量更多来自独处与深度思考，偏好少而深的连接，是优秀的倾听者、写作者与专注型执行者。你不易被人群裹挟，判断独立。可留意的是，适度拓展外部连接会带来新的信息与机会；在会议中主动发声一次，往往比你想的更有影响力。" },
+    work:{high:"适合销售、市场、BD、团队领导、需要高频互动的岗位。", low:"适合研究、写作、深度分析、独立贡献者型角色。"},
+    relate:{high:"你是关系的主动方，能快速拉近距离；也别忘了给关系留白。", low:"你关系精简而深厚；定期主动发起一次连接，关系会更鲜活。"},
+    grow:{high:"为社交排恢复时间，用质量替代数量，避免热情透支。", low:"每周主动发起 1 个小连接，让外部世界持续为你供能。"},
+    subs:[ {high:"待人热络、容易亲近。", low:"待人保持距离、克制有分寸。"},
+      {high:"喜欢结伴、怕独处太久。", low:"享受独处，不强行合群。"},
+      {high:"对自己评价高、敢表现。", low:"低调不抢镜，有时低估自己。"},
+      {high:"生活节奏快、爱动起来。", low:"节奏从容、偏静态。"},
+      {high:"爱新鲜刺激、怕无聊。", low:"偏好熟悉安稳、可预期。"},
+      {high:"常带笑容、情绪阳光。", low:"情绪平和、不事张扬。"} ]
+  },
+  O:{
+    narrative:{ high:"你对经验、观念与美感高度开放，想象力丰富、好奇旺盛，是天生的点子生成器与跨界连接者。在学习型、创意型、需要打破范式的任务里你极具优势。要留意的是，开放也带来想法多、落地少的陷阱；为创意搭一座通往执行的桥，能把天赋变成产出。",
+      mid:"你在守成与求新间保持平衡：既尊重经验，也对更好的可能性敞开。",
+      low:"你重视经验与可行，判断务实稳健，不轻易被新概念带偏，是团队里可靠的落地派。你执行稳定、风险意识强。可留意的是，偶尔主动跳出自洽的舒适区、接触一个陌生领域，常会带来意想不到的视角与机会。" },
+    work:{high:"适合产品、策略、研究、创意、需要跨界的岗位。", low:"适合运营、交付、流程、需要稳健执行的角色。"},
+    relate:{high:"你包容差异、聊得来很多话题；也要避免想法太多让人跟不上。", low:"你务实不飘，给人踏实感；偶尔分享一个奇怪念头会很有趣。"},
+    grow:{high:"用「本周一个小实验」把创意变成可验证的动作。", low:"每月尝试一件从没做过的小事，拓宽经验边界。"},
+    subs:[ {high:"内心世界丰富、爱想象。", low:"更关注现实而非遐想。"},
+      {high:"对艺术与秩序之美敏感。", low:"对美感不执着、偏实用。"},
+      {high:"情绪体验深、共情强。", low:"情绪体验平、不泛滥。"},
+      {high:"爱尝鲜、不愿被流程绑住。", low:"偏好既定方式、稳扎稳打。"},
+      {high:"爱思辨、乐于接受新观点。", low:"观念务实、不易动摇。"},
+      {high:"常反思意义与价值。", low:"更少追问为什么。"} ]
+  },
+  A:{
+    narrative:{ high:"你天然信任、体谅他人，倾向合作与利他，是关系中的调和者与团队黏合剂。在需要协作、服务、冲突缓冲的场景里你价值显著。要留意的是，过高的宜人性有时让你委屈自己、难以说不；温和而坚定地设立边界，不仅保护你，也让关系更健康长久。",
+      mid:"你在合作与原则间灵活切换：该让则让，该守则守，分寸感好。",
+      low:"你重视公平、效率与原则，敢于坚持立场、不轻易妥协，是团队里把事办成的那类人。你理性、不情绪化。可留意的是，在协作中适度示弱、主动让步与感谢，往往比硬碰硬更快达成共识，也让人更愿意挺你。" },
+    work:{high:"适合服务、HR、客户成功、需要高协作的岗位。", low:"适合谈判、风控、需要坚持标准的角色。"},
+    relate:{high:"你让人舒服、值得信赖；也要学会为自已经画边界。", low:"你直接不绕、重实质；偶尔的柔软会让关系更顺。"},
+    grow:{high:"练习温和而坚定地说不：肯定对方+边界+替代方案。", low:"在协作中主动承担一次润滑角色，说一句「这次听你的」。"},
+    subs:[ {high:"默认相信他人、好合作。", low:"先观望、不轻易信。"},
+      {high:"直来直去、不玩心机。", low:"说话留余地、较含蓄。"},
+      {high:"乐于助人、先人后己。", low:"先顾自己、再谈帮人。"},
+      {high:"不爱起冲突、易配合。", low:"敢争、不怕对峙。"},
+      {high:"低调不张扬、不抢功。", low:"更自信张扬、敢居功。"},
+      {high:"温柔体贴、重情分。", low:"理性克制、不黏腻。"} ]
+  },
+  C:{
+    narrative:{ high:"你目标清晰、计划性强、可靠度高，是把事情做成做好的中坚。在需要交付、管理、长期主义的任务里你优势突出。要留意的是，严谨滑向完美主义会拖慢节奏、消耗自己；设定足够好标准、学会授权与留白，能让你的可靠可持续。",
+      mid:"你在结构与弹性间平衡得当：该认真时认真，该放手时放手。",
+      low:"你适应性强、不拘形式，能灵活应对变化，是团队里的弹性缓冲。你不被流程束缚，常能四两拨千斤。可留意的是，引入一点轻量结构（每日三件事、固定节奏）能把你的灵活变成稳定产出，放大而非束缚优势。" },
+    work:{high:"适合项目管理、运营、财务、需要高交付的角色。", low:"适合探索期、创意孵化、需要快速试错的场景。"},
+    relate:{high:"你靠谱守约、让人安心；也要允许关系里的一点随性。", low:"你松弛不紧绷，相处轻松；偶尔的说到做到会更加分。"},
+    grow:{high:"设足够好标准，用 80/20 分配精力，停止过度打磨。", low:"建一个极简待办系统，把想做变成已做。"},
+    subs:[ {high:"对自己能力有信心。", low:"偏谦虚、偶尔低估能力。"},
+      {high:"东西与思路都井井有条。", low:"随手随性、略显混乱。"},
+      {high:"说到做到、有担当。", low:"承诺轻松、弹性兑现。"},
+      {high:"有目标驱动力、想成事。", low:"知足常乐、不内卷。"},
+      {high:"能管住自己、延迟满足。", low:"随性而为、易被分心。"},
+      {high:"三思后行、稳重少错。", low:"决策快、敢冒进。"} ]
+  }
+};
+
+const CAREER = {
+  "intro": '大五不是给你贴标签，而是一面客观理性的镜子——当你看清自己的行为特质与核心动机，便不再被环境推着走，而能做自己命运的统帅。性格没有优劣，只有放错位置的资产。下面，我们把这份画像翻译成可落地的职业语言：你在哪里如鱼得水、在哪里需要借力，又该如何把特质变成持续的生产力。',
+
+  "N": {
+    "collab": "无论高低分，情绪都是团队的隐形变量。高敏感者请明确、对事地给反馈，模糊批评会让你内耗；低分者你给人稳如磐石的安全感，偶尔主动说一句「我也挺累的」，反而让团队更敢向你交心。",
+    "high": {
+      "role": "你像团队的「风险雷达」与「情绪温度计」——能最早察觉氛围异动与潜在问题，适合做质量把关、用户洞察与危机预防。",
+      "lead": "关怀型领导：你对成员状态敏感、善于安抚，但要把自己的焦虑与团队压力区隔开，避免情绪传导。",
+      "fit": [
+        "用户研究 / 体验设计",
+        "危机公关 / 舆情监测",
+        "心理咨询 / 员工关怀",
+        "风控合规 / 质量审核",
+        "医护 / 应急支持"
+      ],
+      "avoid": [
+        "高频高压的纯销售冲刺",
+        "需要刻意钝感的高压执行岗",
+        "长期孤立无反馈的深水作业"
+      ],
+      "interview": "把「敏感」翻译成「风险意识与用户同理」：准备一个你提前发现问题、规避损失的案例；若被问抗压，直接讲你的恢复机制（运动 / 书写 / 复盘），比否认焦虑更可信。",
+      "decision": "你倾向先看风险，优点是周全，隐患是容易在「万一」里打转；给自己设一个决策截止线，到了就行动。",
+      "stress": "高敏感是双刃剑：同样的刺激你体验更深，更易耗竭。建立固定的「关机仪式」（运动、冥想、把待办外化），不让工作情绪过夜。"
+    },
+    "low": {
+      "role": "你是团队的「定海神针」——在动荡、高压、不确定性面前仍能保持冷静与判断，是危机中的天然主心骨。",
+      "lead": "稳健型领导：你在风浪里让人安心，团队愿意跟；只需偶尔主动流露情绪，让成员感到被你「看见」。",
+      "fit": [
+        "高管 / 综合管理",
+        "外科 / 军机 / 交易等高压决策",
+        "项目经理 / 交付负责人",
+        "应急救援 / 安保",
+        "谈判 / 仲裁"
+      ],
+      "avoid": [
+        "需要高频情绪输出的共情型岗位",
+        "极度依赖氛围带动的创意主持"
+      ],
+      "interview": "用「在压力下稳定交付」的硬案例说话：一次 deadline 紧、变量多，你如何稳住节奏并拿到结果。",
+      "decision": "你冷静果断、不易被情绪劫持，优势是快；提醒自己决策前多问一句「相关人的感受与诉求」，避免太快略过人。",
+      "stress": "你天然抗压，但疲惫往往不外露、易被忽视；学会主动标记自己的临界点，定期「充能」而非等崩了再休。"
+    }
+  },
+  "E": {
+    "collab": "连接的质量胜过数量。外向者请给同伴留白与表达空间，别让表达欲盖过倾听；内向者请定期主动发起一次连接，关系会因你的主动而更鲜活。",
+    "high": {
+      "role": "你是团队的「能量枢纽」与「连接器」——擅长破冰、动员、把人聚起来，适合任何需要人气与影响力的位置。",
+      "lead": "魅力型 / 愿景型领导：你能点燃团队、对外代言；注意为高密度社交排恢复时间，也别让表达欲盖过倾听。",
+      "fit": [
+        "销售 / 业务拓展 BD",
+        "市场 / 品牌 / 公关",
+        "团队领导 / 创始人",
+        "培训 / 主持 / 教练",
+        "客户成功 / 大客户"
+      ],
+      "avoid": [
+        "长期独立、少协作的深水研究",
+        "需要长时间沉默专注的编码 / 写作"
+      ],
+      "interview": "你的表达力是天然加分项：用 STAR 讲一个你通过人脉或动员拿下的结果；提醒自己面试也是倾听，多问「贵团队最看重什么」。",
+      "decision": "你倾向在讨论中想清楚，边说边理；优点是吸纳多元视角，注意别被现场气氛带偏，重要决定给自己独处沉淀的时间。",
+      "stress": "你的压力出口是连接他人——找人聊、复盘、走动；但别把所有压力都外化给同事，留一点给自己消化。"
+    },
+    "low": {
+      "role": "你是团队的「深度引擎」——偏好少而深的连接，善于独立钻研、专注交付，是高质量产出的稳定来源。",
+      "lead": "沉静型 / 赋能型领导：你用专业与稳定服人，团队信任你的判断；记得主动发声、让成果被看见。",
+      "fit": [
+        "研究 / 分析 / 策略",
+        "软件 / 技术 / 数据",
+        "写作 / 编辑 / 设计",
+        "财务 / 精算 / 风控",
+        "图书 / 档案 / 独立贡献"
+      ],
+      "avoid": [
+        "纯靠人脉高频应酬的岗位",
+        "需要持续情绪供暖的直播 / 主持"
+      ],
+      "interview": "内向不是短板：展现「我在安静中交付了什么」——一个你独立啃下难点的案例，比热闹的自我介绍更有说服力。",
+      "decision": "你倾向先想清楚再开口，优点是稳、少冲动；提醒自己：过度内部消化会拖慢节奏，关键时刻要敢于先表态。",
+      "stress": "你靠独处恢复，压力下更需要「不被打扰的时间」；别为了合群硬撑社交，那只会更累。"
+    }
+  },
+  "O": {
+    "collab": "开放者请尊重同伴的经验与节奏，别让新点子变成对现状的否定；务实者请给对方一点试错空间，变化里常藏着效率。",
+    "high": {
+      "role": "你是团队的「点子库」与「跨界桥」——擅长打破范式、发现新可能，是创新与转型的发动机。",
+      "lead": "变革型 / 愿景型领导：你带团队看见未来；注意把飘在天上的想法落成可执行的路线图，否则团队会迷失。",
+      "fit": [
+        "产品 / 创新 / 战略",
+        "研究 / 科研 / 学术",
+        "创意 / 设计 / 内容",
+        "咨询 / 架构",
+        "创业 / 新业务孵化"
+      ],
+      "avoid": [
+        "高度重复、流程固化、拒绝变化的岗位",
+        "需要严格遵循既定规范的执行岗"
+      ],
+      "interview": "用「我如何把一个新想法变成结果」证明你的开放不是空想：一个你引入新方法、显著提升效率的案例。",
+      "decision": "你爱探索多选项，优点是视野广；隐患是选择过载、迟迟不收敛。给每个重要决定设「收敛时间」。",
+      "stress": "你怕无聊与重复，压力常来自「被困在旧框架」。主动争取有挑战、能学习的新任务是最好的解药。"
+    },
+    "low": {
+      "role": "你是团队的「落地派」与「稳定器」——重视经验、靠谱执行，是把战略变成结果的中坚。",
+      "lead": "务实型领导：你用交付与稳定带团队，大家知道跟你干「事能成」；偶尔主动拥抱一个小变化，会激活团队的新鲜感。",
+      "fit": [
+        "运营 / 交付 / 实施",
+        "财务 / 审计 / 合规",
+        "供应链 / 生产 / 制造",
+        "行政 / 流程 / 标准化",
+        "客户支持 / 一线执行"
+      ],
+      "avoid": [
+        "需要持续颠覆与试错的前沿探索岗",
+        "高度不确定、无先例可循的孵化角色"
+      ],
+      "interview": "把「务实」讲成「风险可控的执行力」：一个你在资源有限下稳稳交付的案例，比天马行空更打动务实的老板。",
+      "decision": "你基于经验稳健判断，优点是少踩坑；提醒自己：当环境变了，旧经验可能是束缚，敢为一个新假设破一次例。",
+      "stress": "你怕混乱与失控，压力来自「没谱」。用清单、节奏、可预期流程给自己安全感。"
+    }
+  },
+  "A": {
+    "collab": "高宜人者，示弱与说「不」不是背叛关系，而是让关系可持续；低宜人者，一句「我理解你的难处」比十句道理更能推进协作。",
+    "high": {
+      "role": "你是团队的「黏合剂」与「信任账户」——善解人意、乐于成全，是协作与服务的天然担当。",
+      "lead": "服务型 / 共识型领导：你凝聚人心、化解冲突；关键要温和而坚定地立边界，别把团队的和睦建立在委屈自己上。",
+      "fit": [
+        "HR / 招聘 / 组织发展",
+        "客户成功 / 客户支持",
+        "咨询 / 教练 / 辅导",
+        "社工 / 医护 / 教育",
+        "用户体验 / 社区运营"
+      ],
+      "avoid": [
+        "需要频繁硬碰硬谈判的岗位",
+        "必须严格执行、不得通融的纪律 / 合规审查"
+      ],
+      "interview": "把「好相处」升级为「高协作产能」：讲一个你通过调和冲突、推动多方达成一致交付的案例。",
+      "decision": "你倾向照顾各方、寻求共识，优点是顺、少对抗；提醒自己：该拍板时要拍板，过度迁就会让决策失焦。",
+      "stress": "你怕冲突、易把别人的情绪扛在肩上，压力常来自「不想让人失望」。学会区分「我的事」与「他的事」。"
+    },
+    "low": {
+      "role": "你是团队的「守门人」与「推进器」——敢于坚持标准、不轻易妥协，是把事真正办成的那类人。",
+      "lead": "结果型 / 原则型领导：你赏罚分明、说到做到；记得在硬标准之外留一点柔软，团队会更愿意挺你。",
+      "fit": [
+        "谈判 / 采购 / 商务",
+        "风控 / 合规 / 审计",
+        "战略 / 投资 / 分析",
+        "法务 / 仲裁",
+        "产品线负责人 / 业务一号位"
+      ],
+      "avoid": [
+        "高度依赖情感维系的服务岗",
+        "需要持续示弱共情的抚慰型角色"
+      ],
+      "interview": "把「不好惹」讲成「对结果负责」：一个你顶住压力守住标准、最终避免损失的案例。",
+      "decision": "你基于原则快速判断，优点是清晰、不拖泥；提醒自己：适度让步与示弱，常比硬碰硬更快达成共识。",
+      "stress": "你怕被糊弄、被拖后腿，压力来自「事情失控或被关系绑架」。守住边界、把事与人分开看，会轻松很多。"
+    }
+  },
+  "C": {
+    "collab": "高尽责者，给关系留一点随性，信任他人也能把事做好；低尽责者，偶尔的「说到做到」会大幅抬升他人对你的信任评分。",
+    "high": {
+      "role": "你是团队的「交付引擎」与「可靠性标杆」——目标清晰、说到做到，是复杂项目里最让人放心的那一个。",
+      "lead": "执行型 / 教练型领导：你用体系与标准带团队，结果可预期；警惕完美主义拖慢节奏，授权才能放大你的可靠。",
+      "fit": [
+        "项目管理 / 项目集管理",
+        "运营 / 流程 / 供应链",
+        "财务 / 预算 / 控制",
+        "质量 / 标准 / 体系",
+        "中高层综合管理"
+      ],
+      "avoid": [
+        "高度混乱、无明确目标的探索期岗位",
+        "需要快速试错、容忍粗糙的从 0 到 1 草创"
+      ],
+      "interview": "用「我如何让不确定变确定」证明：一个你搭流程、控风险、稳稳交付的案例，比口号式的「我很靠谱」有力。",
+      "decision": "你倾向基于计划与数据，优点是稳、少翻车；提醒自己：过度计划会错过窗口，给「足够好就先跑」留条路。",
+      "stress": "你怕失控与偏差，压力来自「事情脱轨」。用清单与节奏找回掌控感；但也要允许计划外的弹性，否则会把自己逼紧。"
+    },
+    "low": {
+      "role": "你是团队的「弹性缓冲」与「破局者」——不拘形式、能随情境快速调整，是混乱中四两拨千斤的那类人。",
+      "lead": "灵活型 / 赋能型领导：你给团队空间、鼓励试错；引入一点轻量结构（节奏、验收），会让你的灵活变成可复制的产出。",
+      "fit": [
+        "从 0 到 1 创业 / 孵化",
+        "创意 / 探索 / 原型",
+        "危机救火 / 机动支持",
+        "客户关系 / 商务拓展",
+        "内容 / 活动 / 即兴型岗位"
+      ],
+      "avoid": [
+        "需要长期极致严谨的审计 / 合规",
+        "高度重复、零容错的流水线作业"
+      ],
+      "interview": "把「随性」讲成「适应力强」：一个你在变数中快速调整、拿到结果的案例，比强调稳定更贴合探索型团队。",
+      "decision": "你基于当下灵活判断，优点是快、不纠结；提醒自己：重要事项加一点复盘与记录，避免重复踩坑。",
+      "stress": "你怕束缚与无聊，压力来自「被流程绑死」。争取自主空间与多样任务，是你最好的恢复方式。"
+    }
+  }
+};
+
+
+/* ===================== 杀手锏内容库：深度职业诊断书 ===================== */
+const ARCH = {
+  N:{ high:{ name:'锐感者 · The Sentinel', tag:'高神经质 · 敏锐的预警与共情',
+      profile:'你对情绪与环境信号有着天然的雷达，能最早察觉风险与他人的不适。这让你在危机预防、用户洞察与关怀类岗位上不可替代；关键是把敏锐转化为洞察，而不是内耗。',
+      careers:['用户研究 / 体验设计','危机公关 / 舆情监测','心理咨询 / EAP','风控合规 / 质量审核','医护 / 应急支持'],
+      overlay:{hi:'用你的敏锐去守护团队的风险底线，同时对外释放你的共情',lo:'在稳定的关系里，把敏感变成深度共情而非自我消耗'} },
+    low:{ name:'定海神针 · The Anchor', tag:'低神经质 · 情绪稳定抗压',
+      profile:'你在风浪里仍能保持冷静与判断，是不确定性中的天然主心骨。高压决策、危机指挥、长期交付都因你而更稳；记得偶尔主动流露一点真实情绪，让团队也敢向你交心。',
+      careers:['高管 / 综合管理','交易 / 军机 / 外科','项目经理 / 交付负责人','应急救援 / 安保','谈判 / 仲裁'],
+      overlay:{hi:'用稳定去承接你高开放的探索野心，让冒险不失控',lo:'在温和的人际里稳住大局，成为别人依赖的锚'} } },
+  E:{ high:{ name:'联结者 · The Connector', tag:'高外向性 · 能量枢纽与动员力',
+      profile:'你是团队的能量枢纽与连接器，擅长破冰、动员、把人聚起来。无论销售、市场还是创业，你都能用关系把事往前推；记得为高密度社交预留恢复时间，也别让表达欲盖过倾听。',
+      careers:['销售 / 业务拓展 BD','市场 / 品牌 / 公关','团队领导 / 创始人','培训 / 主持 / 教练','客户成功 / 大客户'],
+      overlay:{hi:'把联结力与你的高开放性结合，去探索并动员新可能',lo:'用联结去润滑你偏务实的执行，让交付有人气托底'} },
+    low:{ name:'深耕者 · The Deep Diver', tag:'低外向性 · 深度专注与独立交付',
+      profile:'你是团队的深度引擎，偏好少而深的连接，善于独立钻研、专注交付，是高质量产出的稳定来源。你不需要热闹来证明价值；记得主动发声，让成果被看见。',
+      careers:['研究 / 分析 / 策略','软件 / 技术 / 数据','写作 / 编辑 / 设计','财务 / 精算 / 风控','图书 / 档案 / 独立贡献'],
+      overlay:{hi:'用深度去支撑你高开放的跨界探索，做厚而非做广',lo:'在务实的体系里持续深耕，成为不可替代的专家'} } },
+  O:{ high:{ name:'破界者 · The Pioneer', tag:'高开放性 · 创新与跨界视角',
+      profile:'你是团队的点子库与跨界桥，擅长打破范式、发现新可能，是创新与转型的发动机。你讨厌被旧框架困住；注意把飘在天上的想法落成可执行的路线图，否则团队会迷失。',
+      careers:['产品 / 创新 / 战略','研究 / 科研 / 学术','创意 / 设计 / 内容','咨询 / 架构','创业 / 新业务孵化'],
+      overlay:{hi:'用求新去放大你高外向的连接力，把新想法变成一群人的行动',lo:'用新视角去丰富你偏内向的深度，给钻研加点想象力'} },
+    low:{ name:'落地派 · The Executor', tag:'低开放性 · 务实稳定与靠谱执行',
+      profile:'你是团队的落地派与稳定器，重视经验、靠谱执行，是把战略变成结果的中坚。你怕混乱与失控；偶尔主动拥抱一个小变化，会激活团队的新鲜感。',
+      careers:['运营 / 交付 / 实施','财务 / 审计 / 合规','供应链 / 生产 / 制造','行政 / 流程 / 标准化','客户支持 / 一线执行'],
+      overlay:{hi:'用务实去承接你高外向的人气，让活动真的落地',lo:'在稳定的体系里持续交付，成为组织里最可靠的齿轮'} } },
+  A:{ high:{ name:'黏合剂 · The Weaver', tag:'高宜人性 · 调和信任与协作',
+      profile:'你是团队的黏合剂与信任账户，善解人意、乐于成全，是协作与服务的天然担当。你凝聚人心、化解冲突；关键要温和而坚定地立边界，别把团队的和睦建立在委屈自己上。',
+      careers:['HR / 招聘 / 组织发展','客户成功 / 客户支持','咨询 / 教练 / 辅导','社工 / 医护 / 教育','用户体验 / 社区运营'],
+      overlay:{hi:'用调和去润滑你高外向的连接，让关系既有广度又有温度',lo:'用共情去软化你偏务实的执行，让流程也有人味'} },
+    low:{ name:'守门人 · The Gatekeeper', tag:'低宜人性 · 坚持标准与结果负责',
+      profile:'你是团队的守门人与推进器，敢于坚持标准、不轻易妥协，是把事真正办成的那类人。你赏罚分明、说到做到；记得在硬标准之外留一点柔软，团队会更愿意挺你。',
+      careers:['谈判 / 采购 / 商务','风控 / 合规 / 审计','战略 / 投资 / 分析','法务 / 仲裁','产品线负责人 / 业务一号位'],
+      overlay:{hi:'用原则去框住你高开放的探索，让创新不脱轨',lo:'用坚持去稳住你偏内向的深度，做难而正确的事'} } },
+  C:{ high:{ name:'交付引擎 · The Deliverer', tag:'高尽责性 · 可靠执行与交付',
+      profile:'你是团队的交付引擎与可靠性标杆，目标清晰、说到做到，是复杂项目里最让人放心的那一个。你用体系与标准带团队；警惕完美主义拖慢节奏，授权才能放大你的可靠。',
+      careers:['项目管理 / 项目集管理','运营 / 流程 / 供应链','财务 / 预算 / 控制','质量 / 标准 / 体系','中高层综合管理'],
+      overlay:{hi:'用交付去落实你高外向的动员，让号召变成结果',lo:'用靠谱去托住你偏务实的体系，做组织里的定盘星'} },
+    low:{ name:'破局者 · The Improviser', tag:'低尽责性 · 灵活弹性与破局',
+      profile:'你是团队的弹性缓冲与破局者，不拘形式、能随情境快速调整，是混乱中四两拨千斤的那类人。你给团队空间、鼓励试错；引入一点轻量结构，会让你的灵活变成可复制的产出。',
+      careers:['从 0 到 1 创业 / 孵化','创意 / 探索 / 原型','危机救火 / 机动支持','客户关系 / 商务拓展','内容 / 活动 / 即兴型'],
+      overlay:{hi:'用灵活去承接你高开放的探索，在变数里快速试错',lo:'用弹性去丰富你偏内向的深度，给钻研留一点缝隙'} } }
+};
+const BLUEPRINT = {
+  N:{ hi:{ lever:'主动牵头一次风险复盘，把你察觉的隐患变成团队可执行的清单', focus:'建立每日 10 分钟「情绪关机」仪式，把压力外化到纸面' },
+      lo:{ lever:'在团队动荡时主动站出来稳场，主持一次危机对齐会', focus:'给自己设一个「主动示弱」的小目标，每周和一位同事坦诚聊一次状态' } },
+  E:{ hi:{ lever:'用一次内部分享或客户连接，把你的能量转化为一个具体成果', focus:'每周留半天「无会深度时间」，专门啃一个需要专注的难点' },
+      lo:{ lever:'把你独立交付的成果做一次主动宣讲，让价值被看见', focus:'每月主动发起一次 1:1 连接，关系会因此更鲜活' } },
+  O:{ hi:{ lever:'牵头一个「微创新」小实验，把新想法落成可演示的原型', focus:'给探索加一个收敛截止线，重要决定到了时间就拍板' },
+      lo:{ lever:'把你靠谱的执行力包装成一个可复用的流程模板', focus:'每月尝试一件从未做过的小事，刻意打破舒适区' } },
+  A:{ hi:{ lever:'主导一次跨团队冲突调解，把你的调和力变成交付增量', focus:'练习温和地说「不」，每月守住一个关键边界' },
+      lo:{ lever:'用一次坚持标准的硬仗，证明你对结果负责', focus:'每月主动做一次「示弱式协作」，先问对方难处再谈方案' } },
+  C:{ hi:{ lever:'搭一套轻量流程 / 看板，把团队的不确定性变成可预期', focus:'给完美主义设「足够好」红线，每周授权一件小事' },
+      lo:{ lever:'用你的灵活救一次火，把混乱变成临时方案', focus:'给重要事项加一个轻量清单与复盘，避免重复踩坑' } }
+};
+function erf(x){ const s=Math.sign(x); x=Math.abs(x); const t=1/(1+0.3275911*x);
+  const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x); return s*y; }
+function normCdf(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+function tscore(raw){ // NEO-PI-R 近似：维度 48 题 0-4，理论均值 96，SD 约 22
+  const mean=96, sd=22; const t=50+10*(raw-mean)/sd;
+  const pct=Math.max(1,Math.min(99,Math.round(normCdf((t-50)/10)*100)));
+  const band = t>=60?'显著偏高':t>=55?'偏高':t>=45?'平均':t>=40?'偏低':'显著偏低';
+  return {t:Math.round(t), pct, band};
+}
+function computeArchetype(r){
+  const ranked=DIM_ORDER.map(d=>({d,p:r.dimPct[d]})).sort((a,b)=>b.p-a.p);
+  const top=ranked[0], second=ranked[1];
+  const hi=top.p>=67; const a=ARCH[top.d][hi?'high':'low'];
+  const sHi=second.p>=67;
+  const overlay='叠加你的'+(sHi?'高':'低')+SCORE[second.d].name+'，你更偏向「'+a.overlay[sHi?'hi':'lo']+'」。';
+  return {name:a.name, tag:a.tag, profile:a.profile, careers:a.careers, overlay};
+}
+function renderKiller(r){
+  const c=document.getElementById('killerBody');
+  if(!c) return;
+  const a=computeArchetype(r);
+  let h='<div class="arch-block">'
+    +'<div class="arch-badge">① 职业人格原型</div>'
+    +'<h4 class="arch-name">'+a.name+'</h4>'
+    +'<div class="arch-tag">'+a.tag+'</div>'
+    +'<p class="arch-profile">'+a.profile+'</p>'
+    +'<p class="arch-overlay">'+a.overlay+'</p>'
+    +'<div class="arch-careers"><b>最契合的职业方向</b><div class="ac-list">'+a.careers.map(x=>'<span>'+x+'</span>').join('')+'</div></div>'
+    +'</div>';
+  let nh='<div class="norm-block"><div class="arch-badge">② 常模百分位定位 · NEO-PI-R 标准 T 分（M=50 / SD=10）</div><div class="norm-grid">';
+  DIM_ORDER.forEach(d=>{
+    const t=tscore(r.dimScore[d]);
+    nh+='<div class="norm-item" data-d="'+d+'"><span class="bd" data-d="'+d+'"></span>'
+      +'<div class="ni-main"><b>'+SCORE[d].name+'</b><span class="ni-band">'+t.band+'</span></div>'
+      +'<div class="ni-row">T 分 <b>'+t.t+'</b> · 高于约 <b>'+t.pct+'%</b> 同龄职场人</div>'
+      +'<div class="nbar"><div class="nbf" style="width:'+t.pct+'%"></div></div></div>';
+  });
+  nh+='</div><p class="norm-note">注：T 分以成人常模 M=50、SD=10 估算，百分位仅供个人发展参考，非临床诊断结论。</p></div>';
+  const ranked=DIM_ORDER.map(d=>({d,p:r.dimPct[d]})).sort((a,b)=>b.p-a.p);
+  const top=ranked[0], bot=ranked[ranked.length-1];
+  const tHi=top.p>=67, bLo=bot.p<33;
+  const lev=CAREER[top.d][tHi?'high':'low'], bev=CAREER[bot.d][bLo?'low':'high'];
+  const bl=BLUEPRINT[top.d][tHi?'hi':'lo'], bf=BLUEPRINT[bot.d][bLo?'lo':'hi'];
+  let bh='<div class="bp-block"><div class="arch-badge">③ 专属发展蓝图 · 30 / 90 天</div>'
+    +'<div class="bp-item"><b>优势杠杆（现在就用）</b><p>你的最高分维度是 <b>'+SCORE[top.d].name+'</b>：'+lev.role+' 接下来 30 天，'+bl.lever+'。</p></div>'
+    +'<div class="bp-item"><b>成长焦点（30 天）</b><p>你的相对盲区在 <b>'+SCORE[bot.d].name+'</b>：'+bev.role+' 30 天内做一件小步突破——'+bf.focus+'。</p></div>'
+    +'<div class="bp-item"><b>90 天跃迁</b><p><b>'+SCORE[top.d].name+'</b> 负责开路、<b>'+SCORE[bot.d].name+'</b> 负责收口——90 天内完成一件「既发挥你的优势、又练到盲区」的具体交付，让原型真正落地。</p></div>'
+    +'</div>';
+  c.innerHTML = h + nh + bh;
+}
+
+/* ===================== INIT ===================== */
+function init(){
+  buildDimsGrid();
+  bindNav();
+  showPage('landing');
+  // resume hint
+  const p = loadProgress();
+  if(p && p.answers && p.answers.filter(a=>a!==null).length>0){
+    document.getElementById('qResume').classList.remove('hidden');
+  }
+}
+function bindNav(){
+  window.addEventListener('scroll',()=>{
+    const n=document.getElementById('nav');
+    if(window.scrollY>20) n.classList.add('scrolled'); else n.classList.remove('scrolled');
+  });
+}
+
+/* ===================== DIMENSION CARDS (landing) ===================== */
+function buildDimsGrid(){
+  const g=document.getElementById('dimsGrid');
+  g.innerHTML = DIM_ORDER.map(d=>{
+    const c=SCORE[d];
+    const subs=c.subdims.map(s=>`<span>${s}</span>`).join('');
+    return `<div class="dcard" data-d="${d}">
+      <div class="ico">${d}</div>
+      <h3>${c.name}</h3>
+      <div class="en">${c.en}</div>
+      <p class="de">${c.desc||''}</p>
+      <div class="subs">${subs}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ===================== NAVIGATION ===================== */
+function showPage(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));
+  document.getElementById(p).classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'auto'});
+}
+function goLanding(anchor){
+  showPage('landing');
+  if(anchor){ setTimeout(()=>{const el=document.getElementById(anchor); if(el) el.scrollIntoView({behavior:'smooth'});},60); }
+}
+
+/* ===================== QR UNLOCK (扫码关注解锁完整版) ===================== */
+function isUnlocked(){ try{ return localStorage.getItem(KEY_UNLOCK)==='1'; }catch(e){ return false; } }
+function unlockFull(){
+  if(isUnlocked()){ startTest('full'); return; }
+  openQR();
+}
+function openQR(){
+  const box=document.getElementById('qrBox');
+  box.innerHTML = OFFICIAL_QR ? '<img alt="公众号二维码" src="'+OFFICIAL_QR+'">' : genQRPlaceholder();
+  document.getElementById('qrName').textContent = OFFICIAL_NAME;
+  document.getElementById('qrOverlay').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeQR(){
+  document.getElementById('qrOverlay').classList.remove('show');
+  document.body.style.overflow='';
+}
+function confirmUnlock(){
+  try{ localStorage.setItem(KEY_UNLOCK,'1'); }catch(e){}
+  closeQR();
+  showToast('已解锁完整版 🎉');
+  startTest('full');
+}
+// 演示用占位二维码（装饰性，非真实可扫码；部署前请用 OFFICIAL_QR 替换）
+function genQRPlaceholder(){
+  const N=25, m=8, q=4, size=(N+2*q)*m;
+  let seed=20260707; const rnd=()=>{ seed=(seed*1103515245+12345)&0x7fffffff; return seed/0x7fffffff; };
+  const inFinder=(r,c)=>{ const f=(r0,c0)=>r>=r0&&r<r0+7&&c>=c0&&c<c0+7; return f(0,0)||f(0,N-7)||f(N-7,0); };
+  let cells='';
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){ if(inFinder(r,c))continue; if(rnd()>0.52) cells+='<rect x="'+((c+q)*m)+'" y="'+((r+q)*m)+'" width="'+m+'" height="'+m+'"/>'; }
+  const finder=(r0,c0)=>{ const x=(c0+q)*m,y=(r0+q)*m; return '<rect x="'+x+'" y="'+y+'" width="'+(7*m)+'" height="'+(7*m)+'" fill="#2b2f3a"/>'+'<rect x="'+(x+m)+'" y="'+(y+m)+'" width="'+(5*m)+'" height="'+(5*m)+'" fill="#fff"/>'+'<rect x="'+(x+2*m)+'" y="'+(y+2*m)+'" width="'+(3*m)+'" height="'+(3*m)+'" fill="#2b2f3a"/>'; };
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+size+' '+size+'" width="100%" height="100%" fill="#2b2f3a">'
+    +'<rect width="'+size+'" height="'+size+'" fill="#fff"/>'+finder(0,0)+finder(0,N-7)+finder(N-7,0)+cells
+    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+(4*m)+'" fill="#fff"/>'
+    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+(3.4*m)+'" fill="#6FB1E8"/>'
+    +'<text x="'+(size/2)+'" y="'+(size/2+4)+'" font-size="'+(2.4*m)+'" font-weight="800" text-anchor="middle" fill="#fff" font-family="sans-serif">AI</text>'
+    +'</svg>';
+}
+
+/* ===================== START TEST ===================== */
+/* ===================== START TEST (分组分页) ===================== */
+const BLOCK = 5;
+function startTest(ver){
+  version = ver;
+  questions = (ver==='free') ? DATA.free_questions : DATA.full_questions;
+  total = questions.length;
+  answers = new Array(total).fill(null);
+  cur = 0;
+  const p = loadProgress();
+  if(p && p.version===ver && p.answers && p.answers.length===total){
+    answers = p.answers;
+    let fi = answers.findIndex(a=>a===null);
+    cur = (fi<0) ? 0 : Math.floor(fi/BLOCK);
+  }
+  showPage('quiz');
+  renderBlock();
+}
+function renderBlock(){
+  const nBlocks = Math.ceil(total/BLOCK);
+  const start = cur*BLOCK;
+  const qs = questions.slice(start, start+BLOCK);
+  const wrap = document.getElementById('qWrap');
+  wrap.innerHTML = qs.map((q,bi)=>{
+    const gi = start+bi;
+    const opts = RATING.map((lab,i)=>{
+      const sel = answers[gi]===RVALUES[i] ? 'sel':'';
+      return '<div class="opt '+sel+'" data-onclick="pick('+gi+','+i+')">'
+        +'<div class="radio"></div><span class="lt">'+lab+'</span><span class="ls">'+RVALUES[i]+' 分</span></div>';
+    }).join('');
+    return '<div class="qcard" data-qi="'+gi+'">'
+      +'<div class="qrow"><span class="qnum">Q'+(gi+1)+'</span></div>'
+      +'<div class="qtext">'+q.text+'</div>'
+      +'<div class="qopts">'+opts+'</div></div>';
+  }).join('');
+  const done = answers.filter(a=>a!==null).length;
+  const pct = Math.round(done/total*100);
+  document.getElementById('qFill').style.width = pct+'%';
+  document.getElementById('qProg').textContent = '已答 '+done+' / '+total+' 题';
+  document.getElementById('qGroup').textContent = '第 '+(cur+1)+' / '+nBlocks+' 组（每组 '+BLOCK+' 题）';
+  document.getElementById('btnPrev').disabled = (cur===0);
+  document.getElementById('btnPrev').style.opacity = (cur===0)?'.4':'1';
+  const last = (cur===nBlocks-1);
+  const nb=document.getElementById('btnNext');
+  nb.textContent = last ? '查看结果' : '下一组 ›';
+  nb.disabled = !qs.every((_,bi)=>answers[start+bi]!==null);
+  saveProgress();
+  // 进入新一组时自动滚到该组顶部（避开固定导航栏）
+  const qEl=document.getElementById('quiz');
+  if(qEl){ const y=qEl.getBoundingClientRect().top + window.scrollY - 72; window.scrollTo({top:Math.max(0,y), behavior:(cur===0?'auto':'smooth')}); }
+}
+function pick(gi,i){
+  answers[gi]=RVALUES[i];
+  const card=document.querySelector('.qcard[data-qi="'+gi+'"]');
+  if(card){ card.querySelectorAll('.opt').forEach((o,oi)=>o.classList.toggle('sel', oi===i)); }
+  const start=cur*BLOCK;
+  const qs=questions.slice(start,start+BLOCK);
+  document.getElementById('btnNext').disabled = !qs.every((_,bi)=>answers[start+bi]!==null);
+  const done = answers.filter(a=>a!==null).length;
+  document.getElementById('qProg').textContent = '已答 '+done+' / '+total+' 题';
+  document.getElementById('qFill').style.width = Math.round(done/total*100)+'%';
+}
+function prevQ(){ if(cur>0){ cur--; renderBlock(); } }
+function nextQ(){
+  const nBlocks=Math.ceil(total/BLOCK);
+  const start=cur*BLOCK;
+  const qs=questions.slice(start,start+BLOCK);
+  if(qs.some((_,bi)=>answers[start+bi]===null)) return;
+  if(cur<nBlocks-1){ cur++; renderBlock(); }
+  else { finish(); }
+}
+
+/* ===================== FINISH & SCORE ===================== */
+function finish(){
+  results = score(questions, answers, version);
+  try{ localStorage.setItem(KEY_RES, JSON.stringify({version, results})); }catch(e){}
+  clearProgress();
+  showPage('results');
+  renderResults();
+}
+function score(qs, ans, ver){
+  const dimSum={}, subSum={};
+  DIM_ORDER.forEach(d=>{ dimSum[d]=0; subSum[d]={}; SCORE[d].subdims.forEach((_,i)=>subSum[d][i]=0); });
+  qs.forEach((q,i)=>{
+    let v=ans[i]; if(v==null) return;
+    if(q.reversed) v = 4 - v;
+    dimSum[q.dimension]+=v;
+    subSum[q.dimension][q.sub_dimension_idx]+=v;
+  });
+  const perDim = (ver==='free') ? 12 : 48;     // questions per dimension
+  const maxDim = perDim*4;
+  const dimPct={}, dimScore={};
+  DIM_ORDER.forEach(d=>{
+    dimScore[d]=dimSum[d];
+    dimPct[d]=Math.round(dimSum[d]/maxDim*100);
+  });
+  return {dimScore, dimPct, subSum, version:ver};
+}
+
+/* ===================== RENDER RESULTS ===================== */
+function renderResults(){
+  if(!results){
+    const r=loadResult();
+    if(r){ version=r.version; results=r.results; } else { return; }
+  }
+  // badge
+  const badge=document.getElementById('resBadge');
+  if(version==='free'){ badge.className='res-badge free'; badge.textContent='免费版 · 60 题速览'; document.getElementById('resSub').textContent='基于 5 大维度核心题目的快速人格轮廓'; }
+  else { badge.className='res-badge full'; badge.textContent='完整版 · 240 题深度报告'; document.getElementById('resSub').textContent='覆盖 5 维度 30 子维度的完整人格解析'; }
+  document.getElementById("persona").textContent = computePersona(results);
+
+  drawRadar(results.dimPct);
+  renderDimScores(results);
+  renderTags(results);
+
+  if(version==='free'){
+    document.getElementById('freeArea').classList.remove('hidden');
+    document.getElementById('fullArea').classList.add('hidden');
+    renderFreeReport(results);
+  } else {
+    document.getElementById('freeArea').classList.add('hidden');
+    document.getElementById('fullArea').classList.remove('hidden');
+    renderKiller(results);
+    renderFullReport(results);
+    renderSubs(results);
+    renderCareer(results);
+    renderSynthesis(results);
+    renderActions(results);
+  }
+}
+function lvlOf(p){
+  if(p>=67) return {t:'高分',cls:'high'};
+  if(p>=33) return {t:'中等',cls:'mid'};
+  return {t:'低分',cls:'low'};
+}
+function tagOf(d,p){
+  const c=SCORE[d];
+  if(p>=67) return c.high_tag;
+  if(p>=33) return '平衡型';
+  return c.low_tag;
+}
+function renderDimScores(r){
+  const c=document.getElementById('dimScores');
+  c.innerHTML = DIM_ORDER.map(d=>{
+    const cfg=SCORE[d], p=r.dimPct[d], s=r.dimScore[d];
+    const lv=lvlOf(p);
+    const tag=tagOf(d,p);
+    return `<div class="dscore" data-d="${d}">
+      <div class="dl">${d}</div>
+      <div class="dm"><h4>${cfg.name} <span class="t">· ${tag}</span></h4>
+        <div class="bar"><div class="bf" style="width:${p}%"></div></div></div>
+      <div class="dr"><div class="s">${s}</div><div class="lv">${lv.t}</div></div>
+    </div>`;
+  }).join('');
+}
+function renderTags(r){
+  const c=document.getElementById('tags');
+  c.innerHTML = DIM_ORDER.map(d=>`<span class="tag" data-d="${d}">${tagOf(d,r.dimPct[d])}</span>`).join('');
+}
+function renderFreeReport(r){
+  const c=document.getElementById('freeSug');
+  c.innerHTML = DIM_ORDER.map(d=>{
+    const cfg=SCORE[d], p=r.dimPct[d];
+    const hi=p>=67, low=p<33;
+    const lv=lvlOf(p).t;
+    const key=hi?'high':'low';
+    const nar = hi?REPORT[d].narrative.high : p>=33?REPORT[d].narrative.mid : REPORT[d].narrative.low;
+    const tip = (hi?TIPS[d].hi:TIPS[d].lo)[0];
+    const cv = CAREER[d][key];
+    const topFit = cv.fit[0];
+    return `<div class="narr" data-d="${d}">
+      <div class="narr-h"><span class="bd" data-d="${d}">${d}</span><h4>${cfg.name} <span class="lv">${lv}</span></h4><span class="np">${p} 分位</span></div>
+      <p>${nar}</p>
+      <div class="free-role">🎯 <b>职业速写</b>：${cv.role} 高匹配方向如 <b>${topFit}</b>。</div>
+      <div class="narr-tip">💡 ${tip}</div>
+    </div>`;
+  }).join('');
+}
+function renderFullReport(r){
+  const c=document.getElementById('fullNarr');
+  c.innerHTML = DIM_ORDER.map(d=>{
+    const cfg=SCORE[d], p=r.dimPct[d];
+    const hi = p>=67;
+    const lv = lvlOf(p).t;
+    const nar = hi?REPORT[d].narrative.high : p>=33?REPORT[d].narrative.mid : REPORT[d].narrative.low;
+    const work = hi?REPORT[d].work.high:REPORT[d].work.low;
+    const rel  = hi?REPORT[d].relate.high:REPORT[d].relate.low;
+    const grow = hi?REPORT[d].grow.high:REPORT[d].grow.low;
+    return `<div class="narr full" data-d="${d}">
+      <div class="narr-h"><span class="bd" data-d="${d}">${d}</span><h4>${cfg.name} <span class="lv">${lv} · ${p} 分位</span></h4></div>
+      <p class="nar">${nar}</p>
+      <div class="mini"><div class="m"><b>工作场景</b><span>${work}</span></div><div class="m"><b>人际场景</b><span>${rel}</span></div><div class="m"><b>成长方向</b><span>${grow}</span></div></div>
+    </div>`;
+  }).join('');
+}
+function renderSubs(r){
+  const c=document.getElementById('subGrid');
+  let h='';
+  DIM_ORDER.forEach(d=>{
+    const cfg=SCORE[d];
+    h+=`<div class="sgroup" data-d="${d}"><div class="sg-h"><span class="bd" data-d="${d}"></span>${cfg.name} · 6 项细分特质</div>`;
+    for(let i=0;i<6;i++){
+      const v=r.subSum[d][i];
+      const pct=Math.round(v/32*100);
+      const lv = pct>=60?'high':pct>=40?'mid':'low';
+      const lab = lv==='high'?'偏高':lv==='low'?'偏低':'居中';
+      const line = lv==='high'?REPORT[d].subs[i].high:REPORT[d].subs[i].low;
+      h+=`<div class="sitem"><div class="sh"><span class="sn">${cfg.subdims[i]}</span><span class="sv">${v}<i>/32</i> · ${lab}</span></div><div class="sbar"><div class="sbf" style="width:${pct}%"></div></div><p class="sd">${line}</p></div>`;
+    }
+    h+='</div>';
+  });
+  c.innerHTML=h;
+}
+function renderCareer(r){
+  const introEl=document.getElementById('careerIntro');
+  if(introEl) introEl.textContent = CAREER.intro || '';
+  const c=document.getElementById('careerGrid');
+  let h='';
+  DIM_ORDER.forEach(d=>{
+    const cfg=SCORE[d], p=r.dimPct[d];
+    const hi=p>=67, low=p<33;
+    const key=hi?'high':'low';
+    const cd=CAREER[d];
+    const cv=cd[key];
+    let tag=hi?cfg.high_tag:(low?cfg.low_tag:'平衡型');
+    const fit=cv.fit.map(x=>`<li class="fit">${x}</li>`).join('');
+    const avoid=cv.avoid.map(x=>`<li class="avoid">${x}</li>`).join('');
+    h+=`<div class="career-card" data-d="${d}">
+      <div class="cc-h"><span class="bd" data-d="${d}">${d}</span><h4>${cfg.name} <span class="lv">${tag}</span></h4></div>
+      <div class="cc-role"><b>团队角色</b><span>${cv.role}</span></div>
+      <div class="cc-lead"><b>领导力风格</b><span>${cv.lead}</span></div>
+      <div class="cc-matrix">
+        <div class="cc-fit"><b>✅ 高匹配职业</b><ul>${fit}</ul></div>
+        <div class="cc-avoid"><b>⚠️ 需留意的岗位</b><ul>${avoid}</ul></div>
+      </div>
+      <div class="cc-row"><b>决策风格</b><span>${cv.decision}</span></div>
+      <div class="cc-row"><b>压力应对</b><span>${cv.stress}</span></div>
+      <div class="cc-row"><b>面试策略</b><span>${cv.interview}</span></div>
+    </div>`;
+  });
+  c.innerHTML=h;
+  const collabEl=document.getElementById('careerCollab');
+  if(collabEl){
+    collabEl.innerHTML = DIM_ORDER.map(d=>{
+      const cfg=SCORE[d];
+      return `<div class="ccol-item" data-d="${d}"><span class="bd" data-d="${d}"></span><div><b>${cfg.name}</b><p>${CAREER[d].collab}</p></div></div>`;
+    }).join('');
+  }
+}
+function renderSynthesis(r){
+  const c=document.getElementById('synth');
+  const ranked=DIM_ORDER.map(d=>({d,p:r.dimPct[d]})).sort((a,b)=>b.p-a.p);
+  const top=ranked.filter(x=>x.p>=60).map(x=>x.d);
+  const bot=ranked.filter(x=>x.p<=40).map(x=>x.d);
+  let head = top.length ? ('你在'+top.map(d=>SCORE[d].name).join('、')+'上最为突出') : '你五个维度发展较为均衡';
+  let tail = bot.length ? ('，而在'+bot.map(d=>SCORE[d].name).join('、')+'上相对克制，可以有意识地补强：'+bot.map(d=>SYN[d].lo).join('、')+'。') : '';
+  const body = head + (tail?'':'。') + tail + '人格没有优劣之分，这份画像的价值，是帮你把天赋用在刀刃上，并提前照看那些容易被忽略的盲区。';
+  let combo='';
+  if(top.length>=2){ combo='这种组合意味着你兼具「'+SYN[top[0]].hi+'」与「'+SYN[top[1]].hi+'」——是难得的复合优势，值得好好发挥。'; }
+  else if(top.length===1){ combo='你在'+SCORE[top[0]].name+'上的突出表现，让「'+SYN[top[0]].hi+'」成为你最可信赖的招牌优势。'; }
+  c.innerHTML = `<p class="sb">${body}</p>`+(combo?`<p class="sc">${combo}</p>`:'');
+}
+function renderActions(r){
+  const c=document.getElementById('actList');
+  c.innerHTML = DIM_ORDER.map(d=>{
+    const cfg=SCORE[d], p=r.dimPct[d];
+    const arr = (p>=67)?TIPS[d].hi:TIPS[d].lo;
+    const desc = (p>=67)?cfg.high_desc:cfg.low_desc;
+    return `<div class="ad" data-d="${d}">
+      <div class="ad-h"><div class="bd">${d}</div><h4 style="color:${DIM_COLOR[d]}">${cfg.name} · 成长建议</h4></div>
+      <p>${desc}</p>
+      <ul>${arr.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>`;
+  }).join('');
+}
+
+/* ===================== RADAR ===================== */
+function drawRadar(pct){
+  const cv=document.getElementById('radar'); const ctx=cv.getContext('2d');
+  const W=400,H=400,cx=200,cy=200,R=140;
+  const ang=DIM_ORDER.map((_,i)=>-Math.PI/2 + i*2*Math.PI/5);
+  ctx.clearRect(0,0,W,H);
+  // grid
+  for(let l=1;l<=4;l++){
+    const r=R*l/4;
+    ctx.beginPath();
+    ang.forEach((a,i)=>{const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r; i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+    ctx.closePath(); ctx.strokeStyle='rgba(140,170,210,.22)'; ctx.lineWidth=1; ctx.stroke();
+  }
+  // axes
+  ang.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.strokeStyle='rgba(140,170,210,.18)';ctx.stroke();});
+  // data polygon
+  ctx.beginPath();
+  ang.forEach((a,i)=>{const v=pct[DIM_ORDER[i]]/100; const r=R*v; const x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r; i?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+  ctx.closePath();
+  const g=ctx.createLinearGradient(0,0,W,H); g.addColorStop(0,'rgba(111,177,232,.34)'); g.addColorStop(1,'rgba(181,131,216,.34)');
+  ctx.fillStyle=g; ctx.fill();
+  ctx.strokeStyle='#6FB1E8'; ctx.lineWidth=2.5; ctx.stroke();
+  // points + labels
+  ang.forEach((a,i)=>{
+    const d=DIM_ORDER[i], v=pct[d]/100, r=R*v;
+    const x=cx+Math.cos(a)*r, y=cy+Math.sin(a)*r;
+    ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=DIM_COLOR[d];ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+    const lr=R+30, lx=cx+Math.cos(a)*lr, ly=cy+Math.sin(a)*lr;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='bold 14px sans-serif';ctx.fillStyle=DIM_COLOR[d];ctx.fillText(SCORE[d].name,lx,ly-9);
+    ctx.font='bold 18px sans-serif';ctx.fillStyle='#2b2f3a';ctx.fillText(pct[d],lx,ly+11);
+  });
+}
+
+/* ===================== PERSISTENCE ===================== */
+function saveProgress(){
+  try{ localStorage.setItem(KEY_PROG, JSON.stringify({version, idx:cur, answers})); }catch(e){}
+}
+function loadProgress(){
+  try{ const s=localStorage.getItem(KEY_PROG); return s?JSON.parse(s):null; }catch(e){ return null; }
+}
+function clearProgress(){ try{ localStorage.removeItem(KEY_PROG); }catch(e){} }
+function loadResult(){
+  try{ const s=localStorage.getItem(KEY_RES); return s?JSON.parse(s):null; }catch(e){ return null; }
+}
+function confirmResume(){
+  const p=loadProgress();
+  if(p){ version=p.version; questions=(p.version==='free')?DATA.free_questions:DATA.full_questions; total=questions.length; answers=p.answers; cur=p.idx||0; showPage('quiz'); renderQ(); }
+}
+function retake(){
+  if(!confirm('确定重新测试？当前结果将被清除。')) return;
+  try{ localStorage.removeItem(KEY_RES); localStorage.removeItem(KEY_PROG); }catch(e){}
+  results=null; version='free';
+  showPage('landing');
+}
+function computePersona(r){
+  const PER={N:{hi:'敏锐',lo:'从容'},E:{hi:'热忱',lo:'沉静'},O:{hi:'求新',lo:'务实'},A:{hi:'温厚',lo:'果决'},C:{hi:'自律',lo:'洒脱'}};
+  const arr=DIM_ORDER.map(d=>({d,p:r.dimPct[d]})).sort((a,b)=>b.p-a.p);
+  const a=arr[0],b=arr[1];
+  return '「'+PER[a.d][a.p>=50?'hi':'lo']+'·'+PER[b.d][b.p>=50?'hi':'lo']+'型」';
+}
+function showToast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
+}
+function makePoster(){
+  const W=640,H=960,cv=document.createElement('canvas'); cv.width=W; cv.height=H;
+  const x=cv.getContext('2d');
+  const g=x.createLinearGradient(0,0,W,H); g.addColorStop(0,'#eef2fb'); g.addColorStop(1,'#f3eefb');
+  x.fillStyle=g; x.fillRect(0,0,W,H);
+  x.fillStyle='#2b2f3a'; x.textAlign='center'; x.font='800 34px sans-serif';
+  x.fillText('我的大五人格原型',W/2,80);
+  x.fillStyle='#6b7280'; x.font='600 18px sans-serif'; x.fillText('基于 NEO-PI-R 大五人格量表',W/2,112);
+  if(results){
+    x.fillStyle='#3b3f4a'; x.font='900 46px sans-serif'; x.fillText(computePersona(results),W/2,195);
+    let y=265;
+    DIM_ORDER.forEach(d=>{
+      const cfg=SCORE[d], p=results.dimPct[d];
+      x.textAlign='left'; x.fillStyle='#444'; x.font='700 20px sans-serif'; x.fillText(cfg.name,W/2-200,y);
+      x.fillStyle='#e2e6ee'; x.fillRect(W/2-60,y-16,260,18);
+      x.fillStyle=DIM_COLOR[d]; x.fillRect(W/2-60,y-16,260*p/100,18);
+      x.textAlign='right'; x.fillStyle='#555'; x.font='700 18px sans-serif'; x.fillText(p+'%',W/2+220,y);
+      y+=56;
+    });
+  }
+  x.textAlign='center'; x.fillStyle='#9aa3b2'; x.font='500 15px sans-serif';
+  x.fillText('扫码测试你的人格 · 仅供个人参考',W/2,H-40);
+  const a=document.createElement('a'); a.download='big5-report.png'; a.href=cv.toDataURL('image/png'); a.click();
+  showToast('海报已生成，可长按或右键保存');
+}
+function copyResult(){
+  if(!results){ showToast('请先完成测试'); return; }
+  const lines=['【我的大五人格原型】'+computePersona(results),''];
+  DIM_ORDER.forEach(d=>{ const cfg=SCORE[d]; lines.push(cfg.name+'：'+results.dimPct[d]+'% （'+(results.dimPct[d]>=50?cfg.high_tag:cfg.low_tag)+'）'); });
+  lines.push('','—— 基于 NEO-PI-R 大五人格量表');
+  const text=lines.join(String.fromCharCode(10));
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(()=>showToast('结果已复制')).catch(()=>fallbackCopy(text)); }
+  else fallbackCopy(text);
+}
+function fallbackCopy(t){ const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');showToast('结果已复制');}catch(e){showToast('复制失败，请手动选择');} document.body.removeChild(ta); }
+function hexA(hex,a){
+  const n=parseInt(hex.slice(1),16); const r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+/* ===================== GO ===================== */
+init();
+</script>
+<!-- ===== QR Unlock Modal ===== -->
+<div id="qrOverlay" class="qr-overlay" data-onclick="if(event.target===this)closeQR()">
+  <div class="qr-card glass">
+    <button class="x" data-onclick="closeQR()" aria-label="关闭">×</button>
+    <h3>扫码关注 · 解锁完整版</h3>
+    <p class="qr-sub">关注公众号 <b id="qrName">AIHR数智引擎</b><br>即可免费解锁 240 题深度人格报告</p>
+    <div class="qr-box" id="qrBox"></div>
+    <p class="qr-tip">长按识别 / 微信扫一扫，关注后点击下方按钮开始测试。<br>（当前为演示二维码，部署前请替换为公众号真实二维码）</p>
+    <button class="qr-confirm" data-onclick="confirmUnlock()">我已完成关注 · 开始 240 题测试</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+document.addEventListener('click', function(e) {
+  var el = e.target.closest ? e.target.closest('[data-onclick]') : null;
+  if (!el) return;
+  var h = el.getAttribute('data-onclick');
+  if (!h) return;
+  h = h.replace(/return\s+false\s*;?/g, 'e.preventDefault();e.stopPropagation();');
+  try { new Function('e', 'var event=e;' + h).call(el, e); }
+  catch (err) { console.error('handler error:', err); }
+});
+</script>
+</body>
+</html>
