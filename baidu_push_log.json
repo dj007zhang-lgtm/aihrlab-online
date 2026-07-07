@@ -83,9 +83,10 @@
     "https://www.aihrlab.online/articles/bytedance-context-management-ai-agent.html",
     "https://www.aihrlab.online/tools/ai-risk-test/",
     "https://www.aihrlab.online/tools/index.html",
-    "https://www.aihrlab.online/tools/bigfive/"
+    "https://www.aihrlab.online/tools/bigfive/",
+    "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html"
   ],
-  "total_pushed": 84,
+  "total_pushed": 85,
   "total_urls": 97,
   "history": [
     {
@@ -161,7 +162,7 @@
     {
       "date": "2026-07-07",
       "batch": "incremental",
-      "pushed": 1,
+      "pushed": 2,
       "failed": 0,
       "remaining_after": 9
     }
