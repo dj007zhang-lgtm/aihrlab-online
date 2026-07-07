@@ -78,10 +78,14 @@
     "https://www.aihrlab.online/articles/microsoft-openai-decoupling.html",
     "https://www.aihrlab.online/articles/musk-2026-ai-interview.html",
     "https://www.aihrlab.online/articles/musk-2026-ai-recursive-evolution.html",
-    "https://www.aihrlab.online/articles/openclaw-ai-agent-management.html"
+    "https://www.aihrlab.online/articles/openclaw-ai-agent-management.html",
+    "https://www.aihrlab.online/articles/ai-hr-report-2026-context-management.html",
+    "https://www.aihrlab.online/articles/bytedance-context-management-ai-agent.html",
+    "https://www.aihrlab.online/tools/ai-risk-test/",
+    "https://www.aihrlab.online/tools/index.html"
   ],
-  "total_pushed": 79,
-  "total_urls": 92,
+  "total_pushed": 83,
+  "total_urls": 97,
   "history": [
     {
       "date": "2026-06-29",
@@ -145,6 +149,13 @@
       "pushed": 10,
       "failed": 0,
       "remaining_after": 13
+    },
+    {
+      "date": "2026-07-07",
+      "pushed": 4,
+      "failed": 0,
+      "remaining_after": 14,
+      "note": "手动登记 Week1#1/#2 两篇文章 + tools/index.html + tools/ai-risk-test/ 共4个新URL"
     }
   ]
 }
