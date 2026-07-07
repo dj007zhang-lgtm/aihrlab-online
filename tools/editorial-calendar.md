@@ -18,9 +18,9 @@
 ### 第 1 周（7/7–7/13）
 | # | 类型 | 选题 | 切入角度 | GEO 友好要点 | 关联内链 |
 |---|------|------|----------|--------------|----------|
-| 1 | [新写] | 《AI时代人力资源发展报告（2026）》深度解读：从控制式到情境管理 | 聚焦「组织从控制式管理转向情境管理」+ AI Agent 赋能一线自主决策，给 HR 可落地的 3 个动作 | 定义「情境管理」；对比控制式 vs 情境式；列 12 趋势中 HR 最相关的 4 条 | openclaw-ai-agent-management / big-tech-ai-org-2026 |
-| 2 | [新写] | 情境管理 vs 控制式管理：字节如何用 AI Agent 把决策权还给一线 | 以字节实践为案例，拆「决策链路缩短」的具体机制 | 用对比表；首段给字节数据；FAQ 解释「情境管理是否等于放权」 | bytedance-campus-7000 / anthropic-best-ai-company |
-| 3 | [刷新] | 早期 AI 裁员/重构文刷新 | 选 1 篇早期 AI 裁员相关旧文，补 `[更新于2026/07]` + 最新行业数据/案例，重提交索引 | 保留原 FAQ；补 1 条 2026 新数据作为可引用结论 | ai-layoff-to-rebuild-hr-stand-firm / ai-hr-2026-midyear-three-signals |
+| 1 | [新写] | 《AI时代人力资源发展报告（2026）》深度解读：从控制式到情境管理 | 聚焦「组织从控制式管理转向情境管理」+ AI Agent 赋能一线自主决策，给 HR 可落地的 3 个动作 | 定义「情境管理」；对比控制式 vs 情境式；列 12 趋势中 HR 最相关的 4 条 | openclaw-ai-agent-management / big-tech-ai-org-2026 | ✅ 2026-07-06 完成（ai-hr-report-2026-context-management.html） |
+| 2 | [新写] | 情境管理 vs 控制式管理：字节如何用 AI Agent 把决策权还给一线 | 以字节实践为案例，拆「决策链路缩短」的具体机制 | 用对比表；首段给字节数据；FAQ 解释「情境管理是否等于放权」 | bytedance-campus-7000 / anthropic-best-ai-company | ✅ 2026-07-07 完成（bytedance-context-management-ai-agent.html） |
+| 3 | [刷新] | 早期 AI 裁员/重构文刷新 | 选 1 篇早期 AI 裁员相关旧文，补 `[更新于2026/07]` + 最新行业数据/案例，重提交索引 | 保留原 FAQ；补 1 条 2026 新数据作为可引用结论 | ai-layoff-to-rebuild-hr-stand-firm / ai-hr-2026-midyear-three-signals | ✅ 2026-07-07 完成（修复 schema 错位+加更新于标记+补内链+重推索引） |
 
 ### 第 2 周（7/14–7/20）
 | # | 类型 | 选题 | 切入角度 | GEO 友好要点 | 关联内链 |
