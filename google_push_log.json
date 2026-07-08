@@ -48,7 +48,7 @@
     "https://www.aihrlab.online/articles/ai-hr-2026-midyear-three-signals.html": {
       "status": "success",
       "notified_at": "unknown",
-      "pushed_at": "2026-07-01T17:30:35.696452"
+      "pushed_at": "2026-07-08T20:29:06.079992"
     },
     "https://www.aihrlab.online/articles/ai-hr-jobs.html": {
       "status": "success",
@@ -63,7 +63,7 @@
     "https://www.aihrlab.online/articles/ai-layoff-2026-mid-year-review.html": {
       "status": "success",
       "notified_at": "unknown",
-      "pushed_at": "2026-07-01T17:30:40.411786"
+      "pushed_at": "2026-07-08T20:29:06.579698"
     },
     "https://www.aihrlab.online/articles/ai-layoff-230k-regret.html": {
       "status": "success",
@@ -88,7 +88,7 @@
     "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html": {
       "status": "success",
       "notified_at": "unknown",
-      "pushed_at": "2026-07-01T17:30:48.279650"
+      "pushed_at": "2026-07-08T20:29:07.103580"
     },
     "https://www.aihrlab.online/articles/ai-silent-org-signals.html": {
       "status": "success",
@@ -485,7 +485,7 @@
     "2026-07-01": 29,
     "2026-07-02": 1,
     "2026-07-06": 2,
-    "2026-07-08": 5
+    "2026-07-08": 8
   },
-  "last_updated": "2026-07-08T00:11:03.597560"
+  "last_updated": "2026-07-08T20:29:07.103596"
 }
