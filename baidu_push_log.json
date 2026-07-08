@@ -84,9 +84,10 @@
     "https://www.aihrlab.online/tools/ai-risk-test/",
     "https://www.aihrlab.online/tools/index.html",
     "https://www.aihrlab.online/tools/bigfive/",
-    "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html"
+    "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html",
+    "https://www.aihrlab.online/tools/mbti/"
   ],
-  "total_pushed": 85,
+  "total_pushed": 86,
   "total_urls": 97,
   "history": [
     {
@@ -165,6 +166,13 @@
       "pushed": 2,
       "failed": 0,
       "remaining_after": 9
+    },
+    {
+      "date": "2026-07-08",
+      "batch": "incremental",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": 7
     }
   ]
 }
