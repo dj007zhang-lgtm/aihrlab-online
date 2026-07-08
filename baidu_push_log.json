@@ -12,19 +12,14 @@
     "https://www.aihrlab.online/articles/ai-era-high-roi-4-things.html",
     "https://www.aihrlab.online/articles/ai-era-hr-5-misalignments.html",
     "https://www.aihrlab.online/articles/ai-era-org-rigidity.html",
-    "https://www.aihrlab.online/articles/ai-hr-2026-midyear-three-signals.html",
     "https://www.aihrlab.online/articles/ai-hr-jobs.html",
     "https://www.aihrlab.online/articles/ai-hr-landing-3-high-roi-plays.html",
     "https://www.aihrlab.online/articles/ai-hr-org-cluster.html",
     "https://www.aihrlab.online/articles/ai-hr-report-2026-context-management.html",
     "https://www.aihrlab.online/articles/ai-landing-fails-org-not-changed.html",
-    "https://www.aihrlab.online/articles/ai-layoff-2026-mid-year-review.html",
     "https://www.aihrlab.online/articles/ai-layoff-230k-regret.html",
     "https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html",
-    "https://www.aihrlab.online/articles/ai-layoff-regret.html",
     "https://www.aihrlab.online/articles/ai-layoff-subtraction-vs-multiplication.html",
-    "https://www.aihrlab.online/articles/ai-layoff-to-rebuild-hr-stand-firm.html",
-    "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html",
     "https://www.aihrlab.online/articles/ai-silent-org-signals.html",
     "https://www.aihrlab.online/articles/anthropic-best-ai-company.html",
     "https://www.aihrlab.online/articles/anthropic-danger-signals.html",
@@ -49,7 +44,6 @@
     "https://www.aihrlab.online/articles/gtc2026-ai-infrastructure-org-evolution.html",
     "https://www.aihrlab.online/articles/gtc2026-org-evolution.html",
     "https://www.aihrlab.online/articles/hr-ai-prompt-toolbox-21.html",
-    "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html",
     "https://www.aihrlab.online/articles/hr-handle-boss-ai-fever.html",
     "https://www.aihrlab.online/articles/human-ai-equation.html",
     "https://www.aihrlab.online/articles/idc-2026-hr-ai-agent-guide.html",
@@ -81,14 +75,10 @@
     "https://www.aihrlab.online/articles/openclaw-ai-agent-management.html",
     "https://www.aihrlab.online/products/dri-toolkit.html",
     "https://www.aihrlab.online/resources/",
-    "https://www.aihrlab.online/tools/ai-risk-test/",
-    "https://www.aihrlab.online/tools/bigfive/",
     "https://www.aihrlab.online/tools/dri-quiz.html",
-    "https://www.aihrlab.online/tools/dri-self-assessment.html",
-    "https://www.aihrlab.online/tools/index.html",
-    "https://www.aihrlab.online/tools/mbti/"
+    "https://www.aihrlab.online/tools/index.html"
   ],
-  "total_pushed": 87,
+  "total_pushed": 77,
   "total_urls": 97,
   "history": [
     {
@@ -202,6 +192,28 @@
         "remain": 0,
         "success": 3
       }
+    },
+    {
+      "date": "2026-07-08",
+      "type": "inline-links",
+      "urls": [
+        "https://www.aihrlab.online/articles/ai-layoff-2026-mid-year-review.html",
+        "https://www.aihrlab.online/articles/ai-hr-2026-midyear-three-signals.html",
+        "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html",
+        "https://www.aihrlab.online/tools/bigfive/",
+        "https://www.aihrlab.online/tools/mbti/",
+        "https://www.aihrlab.online/tools/ai-risk-test/",
+        "https://www.aihrlab.online/tools/dri-self-assessment.html",
+        "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html",
+        "https://www.aihrlab.online/articles/ai-layoff-to-rebuild-hr-stand-firm.html",
+        "https://www.aihrlab.online/articles/ai-layoff-regret.html"
+      ],
+      "baidu": {
+        "success": 0,
+        "remain": null,
+        "note": "今日百度配额已耗尽(400), 未实际推送, 改由每日自动化续推"
+      },
+      "gsc_ok": 87
     }
   ]
 }
