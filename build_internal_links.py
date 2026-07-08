@@ -18,10 +18,10 @@ def extract_title(html_path):
     # 尝试从 og:title 或 <title> 或 <h1> 提取
     m = re.search(r'<meta\s+property="og:title"\s+content="([^"]*)"', content)
     if m:
-        return m.group(1)
+        return m.group(1).replace(' | AIHR数智引擎', '').replace(' - AIHR数智引擎', '').strip()
     m = re.search(r'<title>([^<]*)</title>', content)
     if m:
-        return m.group(1).replace(' - AIHR数智引擎', '').strip()
+        return m.group(1).replace(' | AIHR数智引擎', '').replace(' - AIHR数智引擎', '').strip()
     m = re.search(r'<h1[^>]*>([^<]+)</h1>', content)
     if m:
         return m.group(1).strip()
@@ -161,7 +161,7 @@ def inject_related_links(articles, related):
         related_html = f'''
       <!-- 相关阅读 -->
       <section class="related-reading">
-        <h3>📖 相关阅读</h3>
+        <h3>相关阅读</h3>
         <ul>
 {links_html}
         </ul>
