@@ -20,6 +20,10 @@ def check_file(path):
     c = open(path, encoding='utf-8').read()
     issues = []
 
+    # 0. CSS 样式表（缺则整页无样式，肉眼可见排版崩）
+    if 'rel="stylesheet"' not in c:
+        issues.append('缺 CSS 样式表 link（整页无样式）')
+
     # 1. GA4 gtag
     if 'googletagmanager.com/gtag/js' not in c or not re.search(r"gtag\('config'", c):
         issues.append('缺 GA4 gtag 统计代码')
