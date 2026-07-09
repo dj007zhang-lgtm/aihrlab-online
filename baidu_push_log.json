@@ -76,10 +76,20 @@
     "https://www.aihrlab.online/products/dri-toolkit.html",
     "https://www.aihrlab.online/resources/",
     "https://www.aihrlab.online/tools/dri-quiz.html",
-    "https://www.aihrlab.online/tools/index.html"
+    "https://www.aihrlab.online/tools/index.html",
+    "https://www.aihrlab.online/tools/ai-risk-test/",
+    "https://www.aihrlab.online/tools/bigfive/",
+    "https://www.aihrlab.online/tools/mbti/",
+    "https://www.aihrlab.online/articles/ai-hr-2026-midyear-three-signals.html",
+    "https://www.aihrlab.online/articles/ai-layoff-2026-mid-year-review.html",
+    "https://www.aihrlab.online/articles/ai-layoff-regret.html",
+    "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html",
+    "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html",
+    "https://www.aihrlab.online/articles/recruitment-ai-fullstack.html",
+    "https://www.aihrlab.online/articles/tencent-2800-huoshui.html"
   ],
-  "total_pushed": 77,
-  "total_urls": 97,
+  "total_pushed": 87,
+  "total_urls": 100,
   "history": [
     {
       "date": "2026-06-29",
@@ -214,6 +224,13 @@
         "note": "今日百度配额已耗尽(400), 未实际推送, 改由每日自动化续推"
       },
       "gsc_ok": 87
+    },
+    {
+      "date": "2026-07-09",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 14,
+      "note": "Quota exhausted during push"
     }
   ]
 }
