@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>霍兰德职业兴趣测评 · RIASEC + T 型</title>
+<meta name="description" content="基于 Holland RIASEC 兴趣理论的专业职业兴趣测评，含 63 题完整量表与七个兴趣维度（含技术型 T），帮助你了解自己的职业兴趣倾向与适合的发展方向。">
+<link rel="canonical" href="https://www.aihrlab.online/tools/holland/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "霍兰德职业兴趣测评",
+  "url": "https://www.aihrlab.online/tools/holland/",
+  "isPartOf": { "@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online/" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/" },
+      { "@type": "ListItem", "position": 2, "name": "测评", "item": "https://www.aihrlab.online/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "霍兰德职业兴趣测评", "item": "https://www.aihrlab.online/tools/holland/" }
+    ]
+  }
+}</script>
+
+<link rel="stylesheet" href="assets/holland.css"/>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <div class="logo"><span class="dot">H</span> 霍兰德职业兴趣测评</div>
+  <div class="links">
+    <a href="/tools/bigfive/">大五</a>
+    <a href="/tools/mbti/">MBTI</a>
+    <a href="/tools/disc-test/">DISC</a>
+    <a href="/tools/ai-risk-test/">AI 风险</a>
+    <a href="#" style="color:var(--ink);font-weight:900">霍兰德</a>
+  </div>
+</div></nav>
+
+<div id="landing">
+  <section class="hero">
+    <div class="wrap">
+      <div class="pill">🧭 职业兴趣测评 · RIASEC + T</div>
+      <h1>霍兰德<br><span class="g">职业兴趣测评</span></h1>
+      <p>基于 Holland 经典的 RIASEC 兴趣理论，从 <b>实际 / 研究 / 艺术 / 社会 / 企业 / 常规</b> 六个维度出发，并包含 <b>技术型 T</b> 维度，帮助你看清自己的职业兴趣倾向与适合的发展方向。</p>
+      <div class="cta">
+        <button class="btn" onclick="startTest('free')">免费体验版 · 21 题</button>
+        <button class="btn btn-ghost" onclick="openFull()">完整版 · 63 题 🔬</button>
+      </div>
+      <div class="mini">免费版看七维兴趣轮廓 · 扫码 / 购买解锁完整版 63 题深度诊断书</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>测评的七个兴趣维度 · RIASEC + T</h2>
+      <p class="sub">测评从 R/I/A/S/E/C 六个经典兴趣维度出发，并包含技术型 T 维度，共七个兴趣方向。</p>
+      <div class="dim7" id="dim7"></div>
+    </div>
+  </section>
+
+</div>
+
+<section id="quiz" class="hidden"><div class="wrap" style="padding:84px 0 60px;max-width:760px">
+  <div class="glass" style="padding:20px 20px 24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <div><div id="quizTitle" style="font-weight:900;font-size:18px"></div><div id="quizVer" style="font-size:13px;color:var(--ink2)"></div></div>
+      <div id="qMeta" style="font-size:13px;color:var(--ink2);font-weight:700"></div>
+    </div>
+    <div style="height:8px;background:var(--glass2);border-radius:999px;overflow:hidden"><div id="progBar" style="height:100%;width:0;background:linear-gradient(90deg,#8E7CC3,#E0719B);transition:.3s"></div></div>
+    <div id="blockWrap" style="margin-top:18px"></div>
+    <div style="display:flex;gap:12px;margin-top:18px">
+      <button class="btn btn-ghost" onclick="prevBlock()">← 上一组</button>
+      <button class="btn" id="nextBtn" onclick="nextBlock()" disabled>下一组 →</button>
+    </div>
+  </div>
+</section>
+
+<section id="result" class="hidden"><div class="wrap" style="padding:84px 0 60px">
+  <div class="glass" style="padding:28px 26px;text-align:center;margin-bottom:18px">
+    <div style="font-size:13px;color:var(--ink2);font-weight:700">你的主导代码</div>
+    <div style="font-size:46px;font-weight:900;letter-spacing:3px;margin:2px 0" id="resCode"></div>
+    <div style="font-size:30px;font-weight:900" id="resEmoji"></div>
+    <div style="font-size:20px;font-weight:900;margin:2px 0" id="resNick"></div>
+    <p style="font-size:14px;color:var(--ink2);margin:8px auto 0;max-width:560px" id="resEss"></p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap">
+      <button class="btn btn-ghost" onclick="restart()">↺ 重新测</button>
+      <button class="btn btn-ghost" onclick="makePoster()">📸 生成海报</button>
+    </div>
+  </div>
+  <div id="barsBox"></div>
+  <div id="freeArea"></div>
+  <div id="fullArea"></div>
+  <div class="cite" id="resFoot" style="text-align:center;margin-top:10px"></div>
+</section>
+
+<div class="modal-mask" id="modalMask">
+  <div class="modal glass">
+    <button class="modal-x" onclick="closeModal()" style="position:absolute;right:14px;top:10px;border:none;background:none;font-size:24px;cursor:pointer;color:var(--ink2)">×</button>
+    <h3 id="modalTitle">扫码解锁完整版</h3>
+    <p id="modalDesc" style="font-size:14px;color:var(--ink2)"></p>
+    <img class="qr-img" id="qrImg" alt="二维码">
+    <button class="btn btn-full" onclick="confirmUnlock()">我已扫码 / 购买，解锁 →</button>
+    <button class="btn btn-ghost btn-full" style="margin-top:10px" id="payBtn" onclick="goPay()">💳 前往购买完整版</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<canvas id="posterCanvas" width="640" height="960" style="display:none"></canvas>
+
+<script>
+const DATA = {"types": [{"k": "R", "zh": "实际型", "nick": "实干家", "emoji": "🛠️", "color": "#E07856", "essence": "用双手和工具改变物理世界的人。", "traits": ["动手实操", "务实接地", "操作导向", "耐受重复", "现场直觉"], "oldMap": ["机修工", "木匠", "农场主", "装配工", "传统技术工人"], "newMap": ["机器人运维技师", "无人机飞手", "3D 打印/增材制造技师", "智能产线操作员", "IoT 现场工程师", "自动驾驶测试员", "数字孪生调试员"], "transfer": "把抽象需求落到实物的「工程直觉」；现场判断与手感；在不确定中快速试错、动手验证。", "ai": "让 AI 接管排程、质检数据与故障预测，你专注现场判断与手感；用仿真/数字孪生先在虚拟里跑通再上手，把「修」升级成「预测性维护」。", "blind": "别把「不想坐办公室」等同于「不需要学技术」——现代实干家恰恰是和机器人、传感器共事的人。"}, {"k": "I", "zh": "研究型", "nick": "探索者", "emoji": "🔬", "color": "#8E7CC3", "essence": "为「为什么」而生的人。", "traits": ["分析思辨", "好奇心强", "严谨", "独立", "爱钻研"], "oldMap": ["科学家", "研究员", "化验员", "理论工程师"], "newMap": ["AI 研究员", "数据科学家", "机器学习工程师", "量化研究员", "生物信息分析师", "风控建模师", "仿真建模师"], "transfer": "提出好问题 + 实验验证的素养；从噪声里找信号；把复杂拆成可检验的假设。", "ai": "用 AI 做文献综述、假设生成与代码草稿，你专注批判、实验设计与验证；让模型当「陪练」，逼出更锐的问题——AI 扩展你的吞吐，但不替代你的判断。", "blind": "警惕「分析瘫痪」：在信息不全时，先做一个可证伪的小实验，比再读 10 篇论文更有用。"}, {"k": "A", "zh": "艺术型", "nick": "创造者", "emoji": "🎨", "color": "#E0719B", "essence": "用表达定义自我的人。", "traits": ["审美敏感", "原创", "自由", "情感丰富", "心流"], "oldMap": ["画家", "作家", "音乐家", "传统设计师"], "newMap": ["生成式 AI 创作者", "UX/产品设计师", "内容创作者/博主", "创意总监", "品牌叙事", "AIGC 美术指导", "虚拟形象设计师"], "transfer": "审美判断与意义构建；把模糊感受变成可被感知的作品；在海量生成物中保持「人味」。", "ai": "用生成式 AI 出草图、初稿与变体，你做审美把关与情感表达；把 AI 当「无限素材库 + 粗糙草稿机」，你保留最终的品味与灵魂——AI 量产，你定义什么是好。", "blind": "别把「用 AI 生成」当成创作的终点。工具越能产出，你的品味与视角越值钱。"}, {"k": "S", "zh": "社会型", "nick": "联结者", "emoji": "🤝", "color": "#57B894", "essence": "在人与人的温度里找到意义的人。", "traits": ["共情", "耐心", "协作", "利他", "善于倾听"], "oldMap": ["教师", "社工", "护士", "咨询师"], "newMap": ["学习体验设计师", "AI 伦理/陪伴训练师", "组织发展(OD)顾问", "教练", "用户成功经理", "心理健康 AI adjunct 治疗师"], "transfer": "共情、激励与人际信任；把人「带起来」的能力；在冲突中做黏合剂。", "ai": "用 AI 做个性化方案、行政减负与海量资料初筛，你专注关系、信任与关键时刻的在场；AI 处理「事」，你守护「人」——越是被自动化吞掉的事务，人的温度越稀缺。", "blind": "当心「好人陷阱」：总替别人扛，反而让自己 burnout。先把自己照顾好，才能持续联结。"}, {"k": "E", "zh": "企业型", "nick": "推动者", "emoji": "🚀", "color": "#E0A93B", "essence": "让事情发生、让人跟随的人。", "traits": ["影响", "决断", "资源敏感", "敢冒险", "结果导向"], "oldMap": ["销售", "经理", "创业者", "经纪人"], "newMap": ["AI 产品经理", "增长/商业化负责人", "AI adoption 顾问", "数字营销操盘手", "初创创始人", "生态合作总监"], "transfer": "机会识别与资源动员；在模糊里拍板；把人聚成一股力。", "ai": "用 AI 做市场洞察、提案生成与竞品扫描，你专注决策、谈判与资源整合；让 AI 当「参谋部」，你做「司令员」——方向感和人脉，是模型给不了的。", "blind": "别把「快」当「对」。在重大赌注上，给反对意见留一个座位。"}, {"k": "C", "zh": "常规型", "nick": "守护者", "emoji": "📐", "color": "#6FA8C7", "essence": "用秩序与精确撑起世界运转的人。", "traits": ["条理", "可靠", "细致", "守规则", "稳健"], "oldMap": ["会计", "文员", "出纳", "行政"], "newMap": ["数据治理分析师", "合规/审计自动化专家", "财务运营(智能)", "流程自动化架构师", "风控规则工程师", "数据质量负责人"], "transfer": "流程治理与风险把控；把混乱变标准；用规则守护规模。", "ai": "用 AI 做规则抽取、异常检测与报表自动化，你专注标准制定与治理；AI 跑量，你守「底线与口径」——当人人都在用 AI 生成，能校验的人最稀缺。", "blind": "警惕「流程至上」：规则是手段不是目的。偶尔问一句「这规矩还服务目标吗？」"}, {"k": "T", "zh": "技术型", "nick": "搭建者", "emoji": "⚙️", "color": "#25B5B0", "essence": "用技术把想法变成可运行系统的人。", "traits": ["技术好奇", "系统思维", "动手实现", "乐于折腾", "接口意识"], "oldMap": ["(传统 RIASEC 里没有独立技术型)", "程序员", "网管"], "newMap": ["AI/LLM 应用工程师", "MLOps/平台工程师", "自动化架构师", "提示词/AI 流水线设计师", "数据中台工程师", "RPA/智能体开发者", "技术布道师"], "transfer": "把模糊需求变成可运行系统的工程力；在技术与业务之间做「翻译」；让工具真正「长」在组织里。", "ai": "你本就是 AI 的「搭建者」——用 AI 加速编码、运维与排查，你专注架构、可靠性与边界；把 AI 当「协作者」而非「替代品」，你定义它做什么、不做什么。", "blind": "别陷入「为技术而技术」。先问「这解决了谁的什么问题」，再选工具。"}], "q": [{"t": "R", "s": "我享受亲手把东西修好、装好或做出来的过程。"}, {"t": "I", "s": "遇到问题我总想先弄清楚「为什么」，而不是只解决表面。"}, {"t": "A", "s": "我喜欢用文字、图像、声音或设计表达自己。"}, {"t": "S", "s": "我享受帮别人解决问题、听他们倾诉。"}, {"t": "E", "s": "我喜欢推动事情往前走，影响更多人。"}, {"t": "C", "s": "我喜欢把混乱的信息整理得井井有条。"}, {"t": "T", "s": "我主动了解 AI 或新技术是怎么运作的（而不只是用）。"}, {"t": "R", "s": "比起开会讨论，我更愿意直接上手操作设备或工具。"}, {"t": "I", "s": "我享受独立钻研一个复杂课题的过程。"}, {"t": "A", "s": "我不喜欢被条条框框限制，偏爱自由发挥。"}, {"t": "S", "s": "我善于察觉别人的情绪和需要。"}, {"t": "E", "s": "我享受说服别人接受我的想法。"}, {"t": "C", "s": "我对数字、流程和细节的准确性有要求。"}, {"t": "T", "s": "我喜欢搭系统、写脚本或把流程自动化。"}, {"t": "R", "s": "我对机械、器械或电子设备的构造很感兴趣。"}, {"t": "I", "s": "数据、实验或逻辑推演能让我兴奋。"}, {"t": "A", "s": "我对美感和节奏有天然的敏感度。"}, {"t": "S", "s": "教别人、带新人让我有成就感。"}, {"t": "E", "s": "我对机会、资源和结果很敏感。"}, {"t": "C", "s": "按规则和计划做事让我安心。"}, {"t": "T", "s": "面对新工具，我的第一反应是「能不能让我改改/接起来」。"}, {"t": "R", "s": "户外、现场或动手类的工作让我更有干劲。"}, {"t": "I", "s": "比起凭感觉，我更相信证据和方法。"}, {"t": "A", "s": "创作时我会进入「心流」，忘了周围。"}, {"t": "S", "s": "比起独自工作，我更享受和人协作。"}, {"t": "E", "s": "我愿意为达成目标承担风险。"}, {"t": "C", "s": "我擅长把重复性的事务做得又快又稳。"}, {"t": "T", "s": "我享受用技术解决一个实际问题的过程。"}, {"t": "R", "s": "看到东西坏了，我的第一反应是「我能修」。"}, {"t": "I", "s": "我常沉浸在「搞懂一件事」里忘了时间。"}, {"t": "A", "s": "我常想做出点与众不同的东西。"}, {"t": "S", "s": "我关心「人」本身，而不仅仅是事情。"}, {"t": "E", "s": "比起执行，我更想做那个「定方向」的人。"}, {"t": "C", "s": "我注重「靠谱」，答应的事一定落地。"}, {"t": "T", "s": "比起纯理论，我更想「做出来能用」。"}, {"t": "R", "s": "我愿意花时间把一件具体的事从头做到尾。"}, {"t": "I", "s": "我会对一个感兴趣的问题追根究底，直到弄明白。"}, {"t": "A", "s": "我容易被有创意、有想象力的作品打动。"}, {"t": "S", "s": "我愿意为团队或他人的成长投入时间和耐心。"}, {"t": "E", "s": "我乐于在群体里承担组织、牵头或协调的角色。"}, {"t": "C", "s": "我习惯先把任务拆解成步骤，再按顺序推进。"}, {"t": "T", "s": "我愿意花时间折腾一个新工具，直到它为我所用。"}, {"t": "R", "s": "比起抽象讨论，我更相信「做出来再说」。"}, {"t": "I", "s": "复杂的系统和原理让我想拆解、理解它们。"}, {"t": "A", "s": "我倾向于用自己的方式去诠释一件事，而不是照本宣科。"}, {"t": "S", "s": "在别人遇到困难时，我通常愿意主动帮忙。"}, {"t": "E", "s": "我对「怎么把一件事做成」有天然的驱动力。"}, {"t": "C", "s": "我对数据、账目或文档的准确无误有执着。"}, {"t": "T", "s": "我对「怎么把两个系统连起来」这类问题很感兴趣。"}, {"t": "R", "s": "我对工具、仪器或材料的实际用法很上手。"}, {"t": "I", "s": "我偏好有依据、可验证的结论，而不是含糊的说法。"}, {"t": "A", "s": "我对色彩、形式或语言的美感有自己的判断。"}, {"t": "S", "s": "我擅长在群体里缓和气氛、化解尴尬。"}, {"t": "E", "s": "我享受在不确定中做判断、拿主意。"}, {"t": "C", "s": "我擅长发现流程里的小纰漏并把它修正。"}, {"t": "T", "s": "比起只学概念，我更想动手跑通一个能用的例子。"}, {"t": "R", "s": "我享受体力或手工劳作带来的踏实感。"}, {"t": "I", "s": "阅读专业资料或文献对我来说不算负担。"}, {"t": "A", "s": "我享受从无到有「创造」出一个东西的过程。"}, {"t": "S", "s": "比起竞争，我更在意彼此能不能好好合作。"}, {"t": "E", "s": "我愿意为争取一个目标去主动沟通和谈判。"}, {"t": "C", "s": "我偏好结构清晰、预期稳定的工作环境。"}, {"t": "T", "s": "我对技术更新迭代的速度感到兴奋，而不是焦虑。"}], "free_idx": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]};
+const TYPES = DATA.types;
+const TY = {}; TYPES.forEach(t=>TY[t.k]=t);
+const ORDER = TYPES.map(t=>t.k);
+const Q = DATA.q;
+const FREE_IDX = DATA.free_idx;
+const PAY_URL = ''; // 第三方支付链接占位（小鹅通/有赞 H5 收银台），开通后填入即可
+const OFFICIAL_QR = "/assets/images/qrcode-wechat.webp";
+const KEY_UNLOCK='holland_unlocked_v1'; const KEY_PROG='holland_prog_v1';
+
+let VERSION=null; let cur=0; const BLOCK=5;
+let ACTIVE=[]; let ANSWERS={}; let UNLOCKED=false;
+
+function $(id){ return document.getElementById(id); }
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+function showPage(id){ ['landing','quiz','result'].forEach(p=>$(p).classList.add('hidden')); $(id).classList.remove('hidden'); window.scrollTo({top:0}); }
+function showToast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800); }
+function saveProgress(){ lsSet(KEY_PROG, JSON.stringify({v:VERSION,cur,ans:ANSWERS})); }
+
+function startTest(ver){
+  VERSION=ver; UNLOCKED = lsGet(KEY_UNLOCK)==='1';
+  ACTIVE = (ver==='free'? FREE_IDX : Q.map((_,i)=>i)).slice();
+  ANSWERS={}; cur=0;
+  $('quizTitle').textContent = ver==='free'?'免费体验版':'完整版';
+  $('quizVer').textContent = ver==='free'?'21 题 · 约 5 分钟':'63 题 · 约 15 分钟';
+  showPage('quiz'); renderBlock(); window.scrollTo({top:72,behavior:'smooth'});
+}
+
+function renderBlock(){
+  const start=cur*BLOCK; const slice=ACTIVE.slice(start,start+BLOCK);
+  let h='<div class="block">';
+  slice.forEach((qi,k)=>{
+    const q=Q[qi]; const T=TY[q.t]; const g=start+k+1; const sel=(ANSWERS[qi]!=null?ANSWERS[qi]:null);
+    let pts='';
+    for(let v=0;v<5;v++){ const on=(sel===v)?' sel':''; pts+='<button class="lk'+on+'" data-v="'+v+'" onclick="pick('+qi+','+v+')"></button>'; }
+    h+='<div class="qcard glass" data-qi="'+qi+'"><div class="qn">第 '+g+' / '+ACTIVE.length+' 题</div>'+
+       '<div class="qh">'+q.s+'</div>'+
+       '<div class="likert" data-qi="'+qi+'"><div class="pts">'+pts+'</div>'+
+       '<div class="lk-labels"><span>非常不符合</span><span>不确定</span><span>非常符合</span></div></div></div>';
+  });
+  h+='</div>';
+  $('blockWrap').innerHTML=h; updateProgress();
+  const isLast=(cur+1)*BLOCK>=ACTIVE.length;
+  $('nextBtn').innerHTML = isLast ? '查看结果 →' : '下一组 →';
+}
+
+function pick(qi,v){
+  ANSWERS[qi]=v;
+  const box=document.querySelector('.likert[data-qi="'+qi+'"]');
+  if(box){ box.querySelectorAll('.lk').forEach(b=> b.classList.toggle('sel', +b.getAttribute('data-v')===v)); }
+  updateProgress(); saveProgress();
+}
+
+function updateProgress(){
+  const done=ACTIVE.filter(i=>ANSWERS[i]!=null).length;
+  const pct=Math.round(done/ACTIVE.length*100);
+  $('progBar').style.width=pct+'%';
+  $('qMeta').textContent='已完成 '+done+' / '+ACTIVE.length+' 题';
+  const start=cur*BLOCK; const slice=ACTIVE.slice(start,start+BLOCK);
+  const blockDone=slice.filter(i=>ANSWERS[i]!=null).length;
+  $('nextBtn').disabled=blockDone<slice.length;
+}
+
+function prevBlock(){ if(cur>0){cur--; renderBlock(); window.scrollTo({top:72,behavior:'smooth'});} }
+function nextBlock(){
+  const start=cur*BLOCK; const slice=ACTIVE.slice(start,start+BLOCK);
+  if(slice.some(i=>ANSWERS[i]==null)){ showToast('本组还有题目没答完哦'); return; }
+  if((cur+1)*BLOCK>=ACTIVE.length){ finish(); return; }
+  cur++; renderBlock(); window.scrollTo({top:72,behavior:'smooth'});
+}
+
+function score(){
+  const sc={}; ORDER.forEach(k=>sc[k]=0);
+  const cnt={}; ORDER.forEach(k=>cnt[k]=0);
+  ACTIVE.forEach(i=>{ const v=ANSWERS[i]; if(v!=null){ const t=Q[i].t; sc[t]+=v; cnt[t]++; } });
+  const pct={}; ORDER.forEach(k=>{ pct[k]= cnt[k]? Math.round(sc[k]/(4*cnt[k])*100):0; });
+  const order=ORDER.slice().sort((a,b)=>pct[b]-pct[a]);
+  const code=order.slice(0,3).join('');
+  const dominant=ORDER.filter(k=>pct[k]>=55);
+  return {sc,pct,order,code,dominant};
+}
+
+function finish(){ const res=score(); renderResults(res); showPage('result'); }
+function restart(){ showPage('landing'); }
+
+function dashHTML(res){
+  let h='<div class="bars glass"><h3>📊 你的七维兴趣画像</h3><div class="codebox">主导代码 <b>'+res.code+'</b></div>';
+  ORDER.forEach(k=>{
+    const T=TY[k]; const p=res.pct[k]; const hi=p>=55;
+    h+='<div class="brow"><div class="lab" style="background:'+T.color+'22;color:'+T.color+'">'+k+' '+T.nick+'</div>'+
+       '<div class="track"><div class="fill" style="width:'+p+'%;background:linear-gradient(90deg,'+T.color+','+T.color+'cc)"></div></div>'+
+       '<div class="pct">'+p+'%'+(hi?' <span class="band" style="background:'+T.color+'22;color:'+T.color+'">突出</span>':'')+'</div></div>';
+  });
+  h+='</div>';
+  return h;
+}
+
+function kv(k,cls,v){ return '<div class="kv"><span class="k '+cls+'">'+k+'</span><span class="v">'+v+'</span></div>'; }
+function deepType(k){
+  const T=TY[k];
+  const roles = (T.oldMap||[]).filter(x=>!x.startsWith('(')).concat(T.newMap||[]).join('、');
+  return '<div class="deep7" style="--c:'+T.color+'"><div class="d7-h"><span class="d7-emoji">'+T.emoji+'</span> '+T.k+' · '+T.nick+'型<span class="code-tag">'+T.k+'</span></div>'+
+   '<div class="d7-b"><p class="ess">'+T.essence+'</p>'+
+   kv('岗位方向','good',roles)+
+   kv('可迁移能力方向','',T.transfer)+
+   kv('如何与 AI 协作','ai',T.ai)+
+   (T.blind? '<div class="blind">⛔ 误区：'+T.blind+'</div>':'')+
+   '</div></div>';
+}
+function resultSummary(res){
+  const top=TY[res.order[0]], sec=TY[res.order[1]], thi=TY[res.order[2]];
+  let h='<div class="block-sec glass"><div class="kicker">完整版 · 结果解读</div><h3>这对你意味着什么</h3>';
+  h+='<p style="font-size:14px;color:var(--ink2);line-height:1.8;margin:0 0 12px">你的主导代码是 <b>'+res.code+'</b>，意味着你最自然、最持续投入的兴趣方向是：'+top.nick+'（'+top.k+'）'+sec.nick+'（'+sec.k+'）'+thi.nick+'（'+thi.k+'）。</p>';
+  h+='<ul class="clean" style="margin:0;padding-left:18px">';
+  h+='<li><b>你的持久优势：</b>'+top.transfer+'</li>';
+  h+='<li><b>岗位名称会变，但能力方向不会：</b>职业名称每几年更新一轮，但「'+top.essence+'」这件事，可以迁移到很多岗位上。</li>';
+  h+='<li><b>与 AI 协作，不是被替代：</b>AI 更适合处理你兴趣方向里偏重复、可规模化的部分；你守住方向感、判断力与人的部分。</li>';
+  h+='</ul>';
+  h+='<div class="cite">结果基于你本次作答生成，仅供自我觉察与职业规划参考，不构成职业或心理诊断。</div></div>';
+  return h;
+}
+
+function renderResults(res){
+  const top=TY[res.order[0]];
+  $('resCode').textContent=res.code;
+  $('resEmoji').textContent=top.emoji;
+  $('resNick').textContent=top.nick+'型';
+  $('resEss').textContent=top.essence;
+  $('barsBox').innerHTML=dashHTML(res);
+  if(VERSION==='full'){ renderFull(res); } else { renderFree(res); }
+  $('resFoot').innerHTML='结果基于你的作答生成 · 仅供自我觉察与职业规划参考 · 非职业诊断工具';
+}
+
+function renderFree(res){
+  const top=TY[res.order[0]];
+  let h='<div class="block-sec glass"><div class="kicker">免费体验版 · 风格速写</div><h3>'+top.emoji+' '+top.nick+'型 · 你的核心画像</h3><ul class="clean">';
+  top.traits.slice(0,5).forEach(t=>h+='<li>'+t+'</li>');
+  h+='</ul></div>';
+  h+='<div class="mini-card" style="margin-top:14px"><h4>岗位方向速写</h4><p style="margin:0;font-size:14px;color:var(--ink2)">你可能契合的方向：'+top.newMap.slice(0,4).join('、')+'。完整版将为你解开「为什么」与具体路径，并附七型完整岗位索引。</p></div>';
+  h+='<div class="premium" style="position:relative;overflow:hidden"><div class="crown">👑</div><h3>解锁完整版测评 · 63 题深度诊断</h3>'+
+     '<p>免费版只给了你兴趣的轮廓。完整版用一套<strong>仅完整版才有</strong>的深度分析，把「兴趣」变成可执行的职业资产：</p>'+
+     '<div class="killer-list">'+
+     '<div class="kl"><span class="ki">📊</span><div><b>七维画像仪表盘</b><span>显性/突出维度 + 你的 3 位主导代码</span></div></div>'+
+     '<div class="kl"><span class="ki">🎯</span><div><b>结果解读</b><span>你的主导代码、持久优势与 AI 协作切入点</span></div></div>'+
+     '<div class="kl"><span class="ki">🔬</span><div><b>主导型深读</b><span>岗位方向 + 可迁移能力 + 与 AI 协作话术</span></div></div>'+
+     '<div class="kl"><span class="ki">🗂️</span><div><b>七型职业索引</b><span>动态岗位方向，不贴过时标签</span></div></div>'+
+     '<div class="kl"><span class="ki">🧭</span><div><b>行动清单</b><span>从「找职业」到「练能力 + 与 AI 协作」</span></div></div>'+
+     '</div><button class="btn" onclick="unlockFull()">扫码解锁 / 购买完整版 →</button></div>';
+  $('freeArea').innerHTML=h; $('fullArea').innerHTML='';
+}
+
+function renderFull(res){
+  let h='';
+  h+='<div class="block-sec glass"><div class="kicker">完整版 · 你的画像</div><h3>📊 七维兴趣画像仪表盘</h3>'+dashHTML(res);
+  const tnote = res.dominant.includes('T')? ' 你的画像里出现了 <b style="color:'+TY.T.color+'">技术型 T</b>——这是新增的维度，意味着你天然站在「人 × 技术」的交叉口。':'';
+  h+='<p style="font-size:13.5px;color:var(--ink2);margin:12px 0 0">主导代码 <b>'+res.code+'</b>。兴趣没有好坏，关键在于<b>觉察并主动组合</b>。'+tnote+'</p></div>';
+  h+=resultSummary(res);
+  h+='<div class="block-sec glass"><div class="kicker">完整版 · 杀手锏 ①</div><h3>🔬 你的主导型深读（Top 3）</h3><p style="font-size:13.5px;color:var(--ink2);margin:0 0 6px">我们只把你最突出的三种类型展开细读——把它们读进去，比扫一遍 7 张表更懂自己。</p>';
+  res.order.slice(0,3).forEach(k=> h+=deepType(k));
+  h+='</div>';
+  h+='<div class="block-sec glass"><div class="kicker">完整版 · 杀手锏 ②</div><h3>🗂️ 七型岗位方向索引（全表）</h3><p style="font-size:13.5px;color:var(--ink2);margin:0 0 12px">岗位库覆盖传统与新数字方向，不贴过时标签——同一兴趣型下，既有教师、社工等持久岗位，也有 AI/数字增强的新兴角色。</p><div class="idx-grid">';
+  ORDER.forEach(k=>{ const T=TY[k]; h+='<div class="idx-card" style="border-color:'+T.color+'55"><div class="idx-h"><span class="idx-emoji">'+T.emoji+'</span> '+T.k+' · '+T.nick+'</div><div class="idx-tags">'+T.newMap.map(x=>'<span class="tag2" style="background:'+T.color+'1a;color:'+T.color+'">'+x+'</span>').join('')+'</div></div>'; });
+  h+='</div></div>';
+  h+='<div class="block-sec glass"><div class="kicker">完整版 · 杀手锏 ③</div><h3>🧭 行动清单 · 从「找职业」到「练能力 + 与 AI 协作」</h3><ul class="clean">';
+  ['别再只问「我适合什么职业」，改问「我想练哪几种可迁移能力」——能力比岗位活得久。',
+   '把技术型 T 当成你的人机协作「接口」：无论你偏哪型，都补一点技术素养（会用、会接、会问 AI）。',
+   '按你主导型的话术去用 AI：研究型让它做综述、艺术型让它出草稿、常规型让它做校验……你定方向，AI 做体力。',
+   '职业库每季度都在变，关注 AI/数字新岗位，把「兴趣」当成持续更新的探索，而非一次定终身。',
+   '如果 T 不在你的 Top3，也别慌——技术是可以后天「加装」的接口，不是天赋。'].forEach(x=>h+='<li>'+x+'</li>');
+  h+='</ul><div class="cite">结果基于你本次作答生成，仅供自我觉察与职业规划参考，不构成职业或心理诊断。</div></div>';
+  $('fullArea').innerHTML=h; $('freeArea').innerHTML='';
+}
+
+function openFull(){
+  if(lsGet(KEY_UNLOCK)==='1'){ startTest('full'); }
+  else { openUnlockModal(); }
+}
+function unlockFull(){
+  if(lsGet(KEY_UNLOCK)==='1'){ startTest('full'); return; }
+  openUnlockModal();
+}
+function openUnlockModal(){
+  $('qrImg').src=OFFICIAL_QR;
+  $('modalTitle').textContent='扫码解锁完整版测评';
+  $('modalDesc').innerHTML='关注公众号「AI HR数智引擎」，解锁完整版 <b>63 题职业兴趣测评</b>：<br>七维画像 · 结果解读 · 主导型深读 · 七型职业索引 · 行动清单。';
+  $('payBtn').style.display = PAY_URL? 'block':'none';
+  $('modalMask').classList.add('show');
+}
+function closeModal(){ $('modalMask').classList.remove('show'); }
+function confirmUnlock(){
+  lsSet(KEY_UNLOCK,'1'); UNLOCKED=true;
+  $('modalMask').classList.remove('show');
+  showToast('已解锁完整版测评 🎉');
+  startTest('full');
+}
+function goPay(){
+  if(PAY_URL){ window.location.href=PAY_URL; }
+  else { $('modalMask').classList.remove('show'); showToast('付费渠道即将开通，敬请期待 🔧'); }
+}
+
+function makePoster(){
+  const c=$('posterCanvas'); const x=c.getContext('2d');
+  const res=score(); const top=TY[res.order[0]];
+  x.fillStyle='#eef1fb'; x.fillRect(0,0,640,960);
+  x.fillStyle='#fff'; x.fillRect(40,40,560,880);
+  x.fillStyle='#8E7CC3'; x.font='700 22px sans-serif'; x.fillText('霍兰德职业兴趣测评',60,100);
+  x.fillStyle='#3a3550'; x.font='900 84px sans-serif'; x.fillText(res.code,60,250);
+  x.font='800 36px sans-serif'; x.fillText(top.emoji+' '+top.nick+'型',60,320);
+  x.fillStyle='#6b6585'; x.font='20px sans-serif';
+  const ess=top.essence.length>24?top.essence.slice(0,24)+'…':top.essence;
+  x.fillText(ess,60,368);
+  x.fillStyle='#3a3550'; x.font='700 22px sans-serif'; x.fillText('我的七维兴趣画像',60,440);
+  let y=480;
+  ORDER.forEach(k=>{
+    const T=TY[k];
+    x.fillStyle='#6b6585'; x.font='700 19px sans-serif'; x.fillText(k+' '+T.nick,60,y);
+    x.fillStyle='#eee'; x.fillRect(220,y-16,360,20);
+    x.fillStyle=T.color; x.fillRect(220,y-16,360*res.pct[k]/100,20);
+    x.fillStyle='#3a3550'; x.font='700 17px sans-serif'; x.fillText(res.pct[k]+'%',592,y);
+    y+=42;
+  });
+  x.fillStyle='#8E7CC3'; x.font='600 18px sans-serif';
+  x.fillText('—— 了解你的职业兴趣方向',60,890);
+  const a=document.createElement('a'); a.download='Holland_'+res.code+'.png';
+  a.href=c.toDataURL('image/png'); a.click();
+  showToast('海报已生成 📸');
+}
+
+// 落地页渲染
+function renderDims(){
+  let h='';
+  TYPES.forEach(t=>{
+    const isT = t.k==='T';
+    h+='<div class="dc'+(isT?' tnew':'')+'"><div class="top" style="background:'+t.color+'"></div>'+
+       '<div class="emoji">'+t.emoji+'</div>'+
+       '<div class="kk">'+t.k+' · '+t.nick+(isT?'<span class="badgeT">新增</span>':'')+'</div>'+
+       '<p class="ess">'+t.essence+'</p></div>';
+  });
+  $('dim7').innerHTML=h;
+}
+renderDims();
+</script>
+
+<section class="sec"><div class="wrap">
+  <h2>延伸阅读</h2>
+  <p class="sub">更多 AI+HR 测评与职业深度解读</p>
+  <div class="glass" style="padding:22px 24px">
+    <ul class="clean">
+      <li><a class="link" href="/tools/mbti/">MBTI 职业性格测试：16 型人格深度报告</a></li>
+      <li><a class="link" href="/tools/bigfive/">大五人格测评：科学版性格画像</a></li>
+      <li><a class="link" href="/tools/disc-test/">DISC 行为风格测试</a></li>
+      <li><a class="link" href="/tools/ai-risk-test/">AI 替代风险测评：你的工作离被替代多远</a></li>
+      <li><a class="link" href="/articles/ai-layoff-2026-mid-year-review.html">AI 裁员 2026 年中盘点：被裁的都有这三个特征</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="article-footer-qr" style="margin:3rem auto 1rem;max-width:420px;padding:2rem;background:#f5f6f8;border-radius:12px;text-align:center;">
+  <img alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
+  <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多测评与 AI+HR 深度解读，在公众号持续更新</p>
+</section>
+<script src="/assets/js/main.js" defer></script>
+
+</body>
+</html>

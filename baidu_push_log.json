@@ -99,7 +99,7 @@
     "https://www.aihrlab.online/assets/dq-evaluation.html"
   ],
   "total_pushed": 97,
-  "total_urls": 109,
+  "total_urls": 110,
   "history": [
     {
       "date": "2026-06-29",
@@ -247,6 +247,13 @@
       "pushed": 10,
       "failed": 0,
       "remaining_after": 12
+    },
+    {
+      "date": "2026-07-10",
+      "pushed": 0,
+      "failed": 0,
+      "remaining_after": 13,
+      "status": "OVER_QUOTA_NO_PUSH"
     }
   ]
 }
