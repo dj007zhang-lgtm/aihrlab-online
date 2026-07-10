@@ -86,10 +86,20 @@
     "https://www.aihrlab.online/articles/ai-recruitment-selection-guide-2026.html",
     "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html",
     "https://www.aihrlab.online/articles/recruitment-ai-fullstack.html",
-    "https://www.aihrlab.online/articles/tencent-2800-huoshui.html"
+    "https://www.aihrlab.online/articles/tencent-2800-huoshui.html",
+    "https://www.aihrlab.online/articles/ai-hiring-fairness-compliance-2026.html",
+    "https://www.aihrlab.online/articles/tencent-2800-internal-transfer.html",
+    "https://www.aihrlab.online/articles/tencent-319b-ali-3800b.html",
+    "https://www.aihrlab.online/articles/tencent-ai-lab-disbanded.html",
+    "https://www.aihrlab.online/articles/token-kpi-new-corporate-metrics.html",
+    "https://www.aihrlab.online/articles/unitree-ipo-org-analysis.html",
+    "https://www.aihrlab.online/articles/wangxing-meituan-management-talk.html",
+    "https://www.aihrlab.online/articles/wwdc-2026-hr-insights.html",
+    "https://www.aihrlab.online/articles/xiaomi-2026-org-evolution.html",
+    "https://www.aihrlab.online/assets/dq-evaluation.html"
   ],
-  "total_pushed": 87,
-  "total_urls": 100,
+  "total_pushed": 97,
+  "total_urls": 109,
   "history": [
     {
       "date": "2026-06-29",
@@ -231,6 +241,12 @@
       "failed": 0,
       "remaining_after": 14,
       "note": "Quota exhausted during push"
+    },
+    {
+      "date": "2026-07-10",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 12
     }
   ]
 }
