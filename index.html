@@ -42,25 +42,25 @@
     </div>
     <div class="pillars-grid">
       <a class="pillar" href="/articles/index.html">
-        <div class="pillar-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <span class="pillar-num">01</span>
         <h3 class="pillar-name">文章</h3>
         <p class="pillar-tag">权威，来自内容本身</p>
         <p class="pillar-desc">拆解大厂 AI 组织重构、人才密度模型与 DRI 机制，用数据与文献支撑的硬核原创分析。信任与搜索可见性的主阵地。</p>
-        <span class="pillar-cta"><em>进入</em><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <span class="pillar-go">阅读文章 →</span>
       </a>
       <a class="pillar" href="/tools/index.html">
-        <div class="pillar-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="13" y2="13"/><circle cx="15.5" cy="15.5" r="2.5" stroke-width="1.5"/><polyline points="17 17 18.5 19 21 15"/></svg></div>
+        <span class="pillar-num">02</span>
         <h3 class="pillar-name">测评</h3>
         <p class="pillar-tag">让认知变得可测量</p>
         <p class="pillar-desc">MBTI、大五、霍兰德、AI 风险自评……用交互测评把组织与人看清楚。免费可读，扫码解锁完整版。</p>
-        <span class="pillar-cta"><em>进入</em><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <span class="pillar-go">开始测评 →</span>
       </a>
       <a class="pillar" href="/bridge/index.html">
-        <div class="pillar-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><line x1="9" y1="12" x2="15" y2="12"/><path d="M14 10l2-2M14 14l2 2" opacity=".45"/></svg></div>
+        <span class="pillar-num">03</span>
         <h3 class="pillar-name">策展</h3>
         <p class="pillar-tag">用信任，连接两端</p>
         <p class="pillar-desc">当企业找不到对的 AI 人、人才找不到认真做 AI 的企业，我们以编辑信任与人工撮合，连接需求的两端。</p>
-        <span class="pillar-cta"><em>进入</em><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        <span class="pillar-go">了解策展 →</span>
       </a>
     </div>
   </div>
@@ -74,17 +74,14 @@
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);}
 .pillar{display:flex;flex-direction:column;padding:var(--space-lg) var(--space-xl) var(--space-md) 0;text-decoration:none;color:inherit;border:none;border-top:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s var(--ease);}
 .pillar + .pillar{padding-left:var(--space-xl);border-left:1px solid var(--line);}
-.pillar-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:var(--accent-pale);color:var(--accent);margin-bottom:var(--space-md);transition:background .35s var(--ease),color .35s var(--ease);}
+.pillar-num{display:block;font-family:var(--font-serif);font-size:2.4rem;line-height:1;color:var(--accent);opacity:.25;margin-bottom:var(--space-sm);transition:opacity .35s var(--ease);}
 .pillar-name{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;margin:0 0 var(--space-xs);color:var(--text);}
 .pillar-tag{font-style:italic;font-size:.98rem;color:var(--accent);margin:0 0 var(--space-md);}
 .pillar-desc{font-size:.95rem;line-height:1.72;color:var(--text-secondary);margin:0 0 var(--space-lg);}
-.pillar-cta{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:600;color:var(--accent);border:1px solid var(--line-strong);border-radius:100px;padding:7px 16px;margin-top:auto;transition:border-color .3s var(--ease),color .3s var(--ease),background .3s var(--ease);}
-.pillar-cta em{font-style:normal;}
-.pillar-cta svg{flex-shrink:0;transition:transform .25s var(--ease);}
-.pillar:hover{transform:translateY(-4px);border-top-color:var(--accent);}
-.pillar:hover .pillar-icon{background:var(--accent);color:#fff;}
-.pillar:hover .pillar-cta{border-color:var(--accent);background:var(--accent-pale);}
-.pillar:hover .pillar-cta svg{transform:translate(2px,-2px);}
+.pillar-go{font-size:.88rem;font-weight:500;color:var(--accent);opacity:.7;letter-spacing:.02em;margin-top:auto;transition:opacity .3s var(--ease);}
+.pillar:hover{transform:translateY(-3px);border-top-color:var(--accent);}
+.pillar:hover .pillar-num{opacity:.5;}
+.pillar:hover .pillar-go{opacity:1;}
 @media(max-width:768px){
   .pillars-grid{grid-template-columns:1fr;}
   .pillar{padding:var(--space-lg) 0 var(--space-md);border-left:none !important;}
