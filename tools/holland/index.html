@@ -48,7 +48,7 @@
         <button class="btn" onclick="startTest('free')">免费体验版 · 21 题</button>
         <button class="btn btn-ghost" onclick="openFull()">完整版 · 63 题 🔬</button>
       </div>
-      <div class="mini">免费版看七维兴趣轮廓 · 扫码 / 购买解锁完整版 63 题深度诊断书</div>
+      <div class="mini">免费版看七维兴趣轮廓 · 关注公众号免费解锁完整版 63 题深度诊断书</div>
     </div>
   </section>
 
@@ -101,8 +101,7 @@
     <h3 id="modalTitle">扫码解锁完整版</h3>
     <p id="modalDesc" style="font-size:14px;color:var(--ink2)"></p>
     <img class="qr-img" id="qrImg" alt="二维码">
-    <button class="btn btn-full" onclick="confirmUnlock()">我已扫码 / 购买，解锁 →</button>
-    <button class="btn btn-ghost btn-full" style="margin-top:10px" id="payBtn" onclick="goPay()">💳 前往购买完整版</button>
+    <button class="btn btn-full" onclick="confirmUnlock()">我已关注公众号，解锁 →</button>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -115,7 +114,6 @@ const TY = {}; TYPES.forEach(t=>TY[t.k]=t);
 const ORDER = TYPES.map(t=>t.k);
 const Q = DATA.q;
 const FREE_IDX = DATA.free_idx;
-const PAY_URL = ''; // 第三方支付链接占位（小鹅通/有赞 H5 收银台），开通后填入即可
 const OFFICIAL_QR = "/assets/images/qrcode-wechat.webp";
 const KEY_UNLOCK='holland_unlocked_v1'; const KEY_PROG='holland_prog_v1';
 
@@ -257,7 +255,7 @@ function renderFree(res){
      '<div class="kl"><span class="ki">🔬</span><div><b>主导型深读</b><span>岗位方向 + 可迁移能力 + 与 AI 协作话术</span></div></div>'+
      '<div class="kl"><span class="ki">🗂️</span><div><b>七型职业索引</b><span>动态岗位方向，不贴过时标签</span></div></div>'+
      '<div class="kl"><span class="ki">🧭</span><div><b>行动清单</b><span>从「找职业」到「练能力 + 与 AI 协作」</span></div></div>'+
-     '</div><button class="btn" onclick="unlockFull()">扫码解锁 / 购买完整版 →</button></div>';
+     '</div><button class="btn" onclick="unlockFull()">关注公众号 · 免费解锁完整版 →</button></div>';
   $('freeArea').innerHTML=h; $('fullArea').innerHTML='';
 }
 
@@ -294,8 +292,7 @@ function unlockFull(){
 function openUnlockModal(){
   $('qrImg').src=OFFICIAL_QR;
   $('modalTitle').textContent='扫码解锁完整版测评';
-  $('modalDesc').innerHTML='关注公众号「AI HR数智引擎」，解锁完整版 <b>63 题职业兴趣测评</b>：<br>七维画像 · 结果解读 · 主导型深读 · 七型职业索引 · 行动清单。';
-  $('payBtn').style.display = PAY_URL? 'block':'none';
+  $('modalDesc').innerHTML='关注公众号「AI HR数智引擎」，即可<b>免费</b>解锁完整版 <b>63 题职业兴趣测评</b>：<br>七维画像 · 结果解读 · 主导型深读 · 七型职业索引 · 行动清单。';
   $('modalMask').classList.add('show');
 }
 function closeModal(){ $('modalMask').classList.remove('show'); }
@@ -304,10 +301,6 @@ function confirmUnlock(){
   $('modalMask').classList.remove('show');
   showToast('已解锁完整版测评 🎉');
   startTest('full');
-}
-function goPay(){
-  if(PAY_URL){ window.location.href=PAY_URL; }
-  else { $('modalMask').classList.remove('show'); showToast('付费渠道即将开通，敬请期待 🔧'); }
 }
 
 function makePoster(){
