@@ -529,6 +529,21 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-10T00:09:32.503526"
+    },
+    "https://www.aihrlab.online/tools/holland/": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-11T00:03:12.861610"
+    },
+    "https://www.aihrlab.online/articles/ai-hiring-fairness-compliance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-11T00:03:19.619911"
+    },
+    "https://www.aihrlab.online/bridge/": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-11T00:03:22.731088"
     }
   },
   "daily_count": {
@@ -537,7 +552,8 @@
     "2026-07-06": 2,
     "2026-07-08": 95,
     "2026-07-09": 4,
-    "2026-07-10": 8
+    "2026-07-10": 8,
+    "2026-07-11": 3
   },
-  "last_updated": "2026-07-10T00:09:32.841927"
+  "last_updated": "2026-07-11T00:03:23.295679"
 }
