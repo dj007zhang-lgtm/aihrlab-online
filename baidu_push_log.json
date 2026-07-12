@@ -111,10 +111,11 @@
     "https://www.aihrlab.online/products/prompt-handbook-v2.html",
     "https://www.aihrlab.online/tools/disc-test/",
     "https://www.aihrlab.online/articles/bigtech-hr-rotation-2026.html",
-    "https://www.aihrlab.online/bridge/"
+    "https://www.aihrlab.online/bridge/",
+    "https://www.aihrlab.online/articles/ai-governance-gap-hr-2026.html"
   ],
-  "total_pushed": 112,
-  "total_urls": 107,
+  "total_pushed": 113,
+  "total_urls": 108,
   "history": [
     {
       "date": "2026-06-29",
@@ -290,6 +291,12 @@
       "remaining_after": 0,
       "status": "ALL_COMPLETE",
       "note": "All sitemap URLs pushed. 5 remaining URLs successfully submitted."
+    },
+    {
+      "date": "2026-07-12",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": -5
     }
   ]
 }
