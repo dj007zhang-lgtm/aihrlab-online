@@ -112,10 +112,13 @@
     "https://www.aihrlab.online/tools/disc-test/",
     "https://www.aihrlab.online/articles/bigtech-hr-rotation-2026.html",
     "https://www.aihrlab.online/bridge/",
-    "https://www.aihrlab.online/articles/ai-governance-gap-hr-2026.html"
+    "https://www.aihrlab.online/articles/ai-governance-gap-hr-2026.html",
+    "https://www.aihrlab.online/articles/huawei-hr-leaders-history.html",
+    "https://www.aihrlab.online/articles/unitree-flat-org-trap.html",
+    "https://www.aihrlab.online/articles/tencent-teg-cadre-activation.html"
   ],
-  "total_pushed": 113,
-  "total_urls": 108,
+  "total_pushed": 116,
+  "total_urls": 111,
   "history": [
     {
       "date": "2026-06-29",
@@ -295,6 +298,12 @@
     {
       "date": "2026-07-12",
       "pushed": 1,
+      "failed": 0,
+      "remaining_after": -5
+    },
+    {
+      "date": "2026-07-12",
+      "pushed": 3,
       "failed": 0,
       "remaining_after": -5
     }
