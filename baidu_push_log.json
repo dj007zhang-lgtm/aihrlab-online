@@ -118,10 +118,12 @@
     "https://www.aihrlab.online/articles/tencent-teg-cadre-activation.html",
     "https://www.aihrlab.online/articles/microsoft-cisco-ai-restructuring-2026.html",
     "https://www.aihrlab.online/articles/tencent-huoshui-internal-mobility.html",
-    "https://www.aihrlab.online/hub/ai-org-transformation.html"
+    "https://www.aihrlab.online/hub/ai-org-transformation.html",
+    "https://www.aihrlab.online/articles/ai-recruitment-bias-compliance-2026.html",
+    "https://www.aihrlab.online/articles/ai-talent-profile-reconstruction-2026.html"
   ],
-  "total_pushed": 119,
-  "total_urls": 112,
+  "total_pushed": 121,
+  "total_urls": 114,
   "history": [
     {
       "date": "2026-06-29",
@@ -323,6 +325,18 @@
       "pushed": 1,
       "failed": 0,
       "remaining_after": -5
+    },
+    {
+      "date": "2026-07-13",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": -7
+    },
+    {
+      "date": "2026-07-13",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": -7
     },
     {
       "date": "2026-07-13",
