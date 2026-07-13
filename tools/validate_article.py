@@ -66,6 +66,23 @@ def check_file(path):
         if len(title) > 28:
             issues.append(f'标题超 28 字 ({len(title)}): {title}')
 
+    # 8. HTML 结构完整性（防白屏 / 浏览器把 body 当 CSS 吞掉）
+    #    2026-07-13 教训：head 里未闭合 <style> 导致 hero 页白屏，旧校验未拦住
+    n_style_open = len(re.findall(r'<style\b', c, re.I))
+    n_style_close = len(re.findall(r'</style>', c, re.I))
+    if n_style_open != n_style_close:
+        issues.append(f'<style> 未闭合（{n_style_open} 开 / {n_style_close} 闭）— 会把 body 当 CSS 吞掉致白屏')
+    if re.search(r'<style>\s*<', c):
+        issues.append('空 <style> 后紧跟标签（吞 body 白屏高风险）')
+    n_script_open = len(re.findall(r'<script\b', c, re.I))
+    n_script_close = len(re.findall(r'</script>', c, re.I))
+    if n_script_open != n_script_close:
+        issues.append(f'<script> 未闭合（{n_script_open} 开 / {n_script_close} 闭）')
+    if '<body' in c and '</body>' not in c:
+        issues.append('缺 </body> 闭合标签（结构不完整）')
+    if '<html' in c and '</html>' not in c:
+        issues.append('缺 </html> 闭合标签（结构不完整）')
+
     return issues
 
 def main():
