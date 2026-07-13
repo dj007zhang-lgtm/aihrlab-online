@@ -306,6 +306,14 @@
       "pushed": 3,
       "failed": 0,
       "remaining_after": -5
+    },
+    {
+      "date": "2026-07-13",
+      "pushed": 0,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "No new URLs to push"
     }
   ]
 }

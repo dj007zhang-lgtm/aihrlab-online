@@ -544,6 +544,26 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-11T00:03:22.731088"
+    },
+    "https://www.aihrlab.online/articles/ai-governance-gap-hr-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T00:00:25.822730"
+    },
+    "https://www.aihrlab.online/articles/huawei-hr-leaders-history.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T00:00:29.819811"
+    },
+    "https://www.aihrlab.online/articles/unitree-flat-org-trap.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T00:00:31.194215"
+    },
+    "https://www.aihrlab.online/articles/tencent-teg-cadre-activation.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T00:00:32.579669"
     }
   },
   "daily_count": {
@@ -553,7 +573,8 @@
     "2026-07-08": 95,
     "2026-07-09": 4,
     "2026-07-10": 8,
-    "2026-07-11": 3
+    "2026-07-11": 3,
+    "2026-07-13": 4
   },
-  "last_updated": "2026-07-11T00:03:23.295679"
+  "last_updated": "2026-07-13T00:00:32.953122"
 }
