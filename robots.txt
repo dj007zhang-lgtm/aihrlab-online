@@ -7,6 +7,9 @@ Allow: /articles/
 Allow: /resources/
 Allow: /about.html
 
+# 防御性规则：禁止抓取任何备份/草稿目录（防止重复内容被收录）
+Disallow: /articles-backup/
+
 # Sitemap location
 Sitemap: https://www.aihrlab.online/sitemap.xml
 
