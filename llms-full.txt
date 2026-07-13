@@ -297,13 +297,9 @@
 - URL: https://www.aihrlab.online/articles/recruitment-ai-fullstack.html
 - 摘要: 搜索首页/文章/招聘全链路AI落地2026-06-03阅读 168招聘智能化招聘全链路AI落地：从JD撰写到面试出题的Agent化AI面试官已成为校招标配，全球招聘需求下滑20%。本篇文章拆解从JD生成、人才寻访到自动化面试的完整AI链路，帮助HR从执行者转型为招聘流程架构师。
 
-### 72. 腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制
-- URL: https://www.aihrlab.online/articles/tencent-2800-huoshui.html
-- 摘要: 搜索首页/文章/腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制2026年5月22日阅读 211来源：腾讯ESG报告腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制活水不是福利。它是大厂跑通的，最体面的淘汰机制。
-
-### 73. 腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制
-- URL: https://www.aihrlab.online/articles/tencent-2800-internal-transfer.html
-- 摘要: 搜索首页全部文章腾讯2800人内部转岗2026年6月23日By Andy Zhang阅读时间：约11分钟腾讯2800人内部转岗背后：大厂最体面的裁员，正在你的公司复制 2026年4月，腾讯发布最新ESG报告。8.7万员工中，有2800人通过
+### 72. 腾讯活水计划：内部人才流动机制与HR启示
+- URL: https://www.aihrlab.online/articles/tencent-huoshui-internal-mobility.html
+- 摘要: 腾讯活水计划是内部人才流动机制，2025年放宽参与条件、取消绩效限制（据南方都市报报道）。腾讯2025年ESG报告显示正编员工约8.7万人、整体流失率15.9%（较2024年20.1%下降）。报告未公开活水转岗具体人次，网传数字无官方来源。本文基于公开资料拆解机制设计逻辑与HR方法论。
 
 ### 74. 腾讯319亿，阿里3800亿：AI军备竞赛下，HR一号位的终极考卷
 - URL: https://www.aihrlab.online/articles/tencent-319b-ali-3800b.html

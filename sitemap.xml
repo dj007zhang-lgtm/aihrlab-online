@@ -484,14 +484,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aihrlab.online/articles/tencent-2800-huoshui.html</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.aihrlab.online/articles/tencent-2800-internal-transfer.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <loc>https://www.aihrlab.online/articles/tencent-huoshui-internal-mobility.html</loc>
+    <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
