@@ -10,6 +10,8 @@
   5. 文末二维码区块 article-footer-qr 在位
   6. main.js 已加载（追踪脚本配对）
   7. 标题 ≤ 28 字
+  8. HTML 结构完整性（<style>/<script> 开闭平衡 + </body>/</html> 闭合，防白屏）
+  9. og:image / twitter:image 引用的本地文件真实存在（防社交卡片图裂，信任信号）
 用法：python3 tools/validate_article.py [file_or_dir]
 """
 import sys, os, re, json, glob
@@ -82,6 +84,35 @@ def check_file(path):
         issues.append('缺 </body> 闭合标签（结构不完整）')
     if '<html' in c and '</html>' not in c:
         issues.append('缺 </html> 闭合标签（结构不完整）')
+
+    # 9. og:image / twitter:image 本地文件存在性（防社交卡片图裂，静默伤信任）
+    #    2026-07-13 教训：阿里文 og:image 指向不存在的 .webp，社交分享卡片图裂
+    site_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    og_imgs = []
+    for mm in re.finditer(r'<meta\b([^>]*)/?>', c, re.I):
+        attrs = mm.group(1)
+        pm = re.search(r'property=["\']([^"\']+)["\']', attrs, re.I)
+        nm = re.search(r'name=["\']([^"\']+)["\']', attrs, re.I)
+        cm = re.search(r'content=["\']([^"\']+)["\']', attrs, re.I)
+        if not cm:
+            continue
+        prop = (pm.group(1) if pm else '') + '|' + (nm.group(1) if nm else '')
+        if 'og:image' in prop or 'twitter:image' in prop:
+            og_imgs.append(cm.group(1))
+    missing = []
+    for src in og_imgs:
+        if src.startswith('https://www.aihrlab.online/'):
+            rel = src[len('https://www.aihrlab.online/'):]
+        elif src.startswith(('http://', 'https://')):
+            continue  # 外部图，跳过
+        elif src.startswith('/'):
+            rel = src[1:]
+        else:
+            rel = src
+        if not os.path.exists(os.path.join(site_root, rel)):
+            missing.append(src)
+    if missing:
+        issues.append('og:image/twitter:image 引用文件不存在: ' + '；'.join(missing[:3]))
 
     return issues
 
