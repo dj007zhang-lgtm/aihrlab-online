@@ -121,10 +121,14 @@
     "https://www.aihrlab.online/hub/ai-org-transformation.html",
     "https://www.aihrlab.online/articles/ai-recruitment-bias-compliance-2026.html",
     "https://www.aihrlab.online/articles/ai-talent-profile-reconstruction-2026.html",
-    "https://www.aihrlab.online/articles/agent-interviewer-boundary-2026.html"
+    "https://www.aihrlab.online/articles/agent-interviewer-boundary-2026.html",
+    "https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html",
+    "https://www.aihrlab.online/articles/tencent-huawei-hr-rotation-mechanism-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-org-paradigm-map-2026.html",
+    "https://www.aihrlab.online/articles/alibaba-ai-org-restructuring-2026.html"
   ],
-  "total_pushed": 122,
-  "total_urls": 115,
+  "total_pushed": 126,
+  "total_urls": 119,
   "history": [
     {
       "date": "2026-06-29",
@@ -348,6 +352,18 @@
     {
       "date": "2026-07-13",
       "pushed": 1,
+      "failed": 0,
+      "remaining_after": -7
+    },
+    {
+      "date": "2026-07-13",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": -7
+    },
+    {
+      "date": "2026-07-13",
+      "pushed": 3,
       "failed": 0,
       "remaining_after": -7
     },

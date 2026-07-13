@@ -358,5 +358,9 @@
 - URL: https://www.aihrlab.online/articles/ai-native-org-paradigm-map-2026.html
 - 摘要: 给出一张AI原生组织范式图谱，把变革拆成增强/重构/删除/原生四档，对比各档保留什么、删掉什么、杠杆与风险。核心论点：多数企业停在「重构」，真正拉开差距的是「删除」——删掉被智能体接管的协调层（麦肯锡：本次扁平化不同，因Agent替代具体协调功能）。基于麦肯锡智能体型组织与微软人机协作四阶段，给出HR落地路径。
 
+### 85. 阿里AI组织变革：从分权到再集权
+- URL: https://www.aihrlab.online/articles/alibaba-ai-org-restructuring-2026.html
+- 摘要: 拆解阿里从「1+6+N分权」反向收归CEO的AI组织重构：2026年3月成立由吴泳铭直管的ATH（Alibaba Token Hub）事业群，整合通义实验室、MaaS、千问等核心AI业务，以Token为统一计量单位；4月设集团技术委员会，把AI拆成模型—云与基础设施—业务技术平台三条统一调度路径。结合3800亿基建投入与「饱和式投入」打法，论证当AI竞争是体系战，「力出一孔」比「分灶吃饭」更优，并给出HR两点启示。
+
 ---
 Generated: 2026-06-30 | 更新：2026-07-13 | AIHR数智引擎 | www.aihrlab.online

@@ -490,5 +490,29 @@
     "url": "agent-interviewer-boundary-2026",
     "category": "核心方法论",
     "date": "2026-07-13"
+  },
+  {
+    "title": "阿里AI组织变革：从分权到再集权",
+    "url": "alibaba-ai-org-restructuring-2026",
+    "category": "组织变革",
+    "date": "2026-07-13"
+  },
+  {
+    "title": "字节豆包30万亿Token背后的组织引擎",
+    "url": "bytedance-doubao-org-engine-2026",
+    "category": "组织变革",
+    "date": "2026-07-13"
+  },
+  {
+    "title": "腾讯活水与华为轮岗：AI人才流动机制对比",
+    "url": "tencent-huawei-hr-rotation-mechanism-2026",
+    "category": "组织变革",
+    "date": "2026-07-13"
+  },
+  {
+    "title": "AI原生组织范式图谱：从重构到删除",
+    "url": "ai-native-org-paradigm-map-2026",
+    "category": "组织变革",
+    "date": "2026-07-13"
   }
 ]
