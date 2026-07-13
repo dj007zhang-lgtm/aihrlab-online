@@ -4,7 +4,7 @@
 > 本文件供AI搜索引擎（如ChatGPT、Perplexity、Claude等）索引，帮助AI准确理解和引用本站内容。
 
 ## 内容概况
-- 文章总数：80 篇
+- 文章总数：96 篇
 - 核心领域：AI驱动组织变革 / 大厂组织架构调整 / AI人才战略 / 智能组织设计
 - 覆盖企业：Meta、微软、腾讯、阿里、字节、华为、OpenAI、Anthropic、DeepMind等18+家科技巨头
 
@@ -346,5 +346,17 @@
 - URL: https://www.aihrlab.online/hub/ai-org-transformation.html
 - 摘要: 全站AI组织变革主题的中心枢纽页。提炼四种大厂AI组织范式（算力驱动型/渐进嵌入型/扁平解耦型/军团深耕型），对比腾讯、阿里、字节、百度、华为、微软、Meta、Anthropic、思科等中外巨头的AI组织重构路径，并给出HR十条可落地行动框架。汇聚27篇深度分析的深读入口，是了解「大厂如何因AI重构组织」的最佳起点。
 
+### 82. 字节豆包30万亿Token背后的组织引擎
+- URL: https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html
+- 摘要: 拆解豆包大模型日均Token调用量从2024年1200亿飙到2025年30万亿、年底突破50万亿背后的组织能力。分析字节Stone(基础设施)-Seed(模型)-Flow(产品)三层闭环架构、独立且直汇报CEO的设计、创始人张一鸣亲自参加Seed复盘，论证「模型能力的最后一公里是组织能力」，并给出HR把组织当操作系统设计的四项原则。
+
+### 83. 腾讯活水与华为轮岗：AI人才流动机制对比
+- URL: https://www.aihrlab.online/articles/tencent-huawei-hr-rotation-mechanism-2026.html
+- 摘要: 对比腾讯活水（「拉」式内部人才市场，2025年把混元等AI部门转岗门槛降到在岗3个月、取消绩效门槛）与华为轮岗（「推」式干部任期制、强制轮换下沉、分层末位淘汰，2025年超1万员工经内部流动匹配岗位）两套内部人才流动机制的设计逻辑、适配场景与AI时代张力，给出HR落地内部流动系统的四步框架。
+
+### 84. AI原生组织范式图谱：从重构到删除
+- URL: https://www.aihrlab.online/articles/ai-native-org-paradigm-map-2026.html
+- 摘要: 给出一张AI原生组织范式图谱，把变革拆成增强/重构/删除/原生四档，对比各档保留什么、删掉什么、杠杆与风险。核心论点：多数企业停在「重构」，真正拉开差距的是「删除」——删掉被智能体接管的协调层（麦肯锡：本次扁平化不同，因Agent替代具体协调功能）。基于麦肯锡智能体型组织与微软人机协作四阶段，给出HR落地路径。
+
 ---
-Generated: 2026-06-30 | AIHR数智引擎 | www.aihrlab.online
+Generated: 2026-06-30 | 更新：2026-07-13 | AIHR数智引擎 | www.aihrlab.online

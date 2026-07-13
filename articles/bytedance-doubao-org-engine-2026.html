@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" /><meta charset="utf-8"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/><link href="/assets/images/apple-touch-icon.webp" rel="apple-touch-icon"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>字节豆包30万亿Token背后的组织引擎 | AIHR数智引擎</title>
+<meta name="description" content="豆包大模型日均Token调用量从2024年1200亿飙到2025年30万亿、年底突破50万亿。跑出这个量级的不是单次技术突破，而是一套为AI而生的组织操作系统：Stone-Seed-Flow三层闭环、独立汇报CEO、创始人亲自下场。本文拆解字节如何用组织结构把模型能力变成真实调用，并给出HR可落地的组织设计启示。">
+<meta content="字节豆包,组织引擎,Seed,Flow,Stone,AI组织架构,大模型组织,张一鸣,吴永辉,AI中台" name="keywords"/><meta content="index, follow" name="robots"/><meta content="AIHR数智引擎" name="author"/><meta content="字节豆包30万亿Token背后是什么组织在支撑？" name="answer-what"/><meta content="voice-search; generative-ai" name="answer-for"/><meta content="豆包跑到日均30→50万亿Token，靠的不是单次技术突破，而是一套为AI而生的组织操作系统：Stone(基础设施)-Seed(模型)-Flow(产品)三层闭环，独立且直接向CEO汇报，张一鸣亲自参加Seed复盘。组织能力才是模型能力的最后一公里。" name="short-answer"/><meta content="字节豆包30万亿Token背后的组织引擎" property="og:title"/><meta content="拆解字节如何用 Stone-Seed-Flow 三层闭环、独立汇报CEO的组织结构，把模型能力变成日均30→50万亿Token的真实调用。" property="og:description"/><meta content="article" property="og:type"/><meta content="https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html" property="og:url"/><meta content="https://www.aihrlab.online/assets/og-covers/og-bytedance-160b-ai-org.jpg" property="og:image"/>
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta property="og:locale" content="zh_CN"><meta content="2026-07-13T19:00:00+08:00" property="article:published_time"/><meta property="og:image" content="https://www.aihrlab.online/assets/og-covers/og-bytedance-160b-ai-org.jpg">
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.aihrlab.online/assets/og-covers/og-bytedance-160b-ai-org.jpg"><meta name="twitter:site" content="@AIHRLab"/><meta name="twitter:title" content="字节豆包30万亿Token背后的组织引擎 | AIHR数智引擎"/><meta name="twitter:description" content="拆解字节 Stone-Seed-Flow 三层闭环、独立汇报CEO的组织结构，把模型能力变成真实调用。"/><link href="../assets/css/style.min.css" rel="stylesheet"/><script src="/assets/js/search.js" defer></script><link href="https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html" rel="canonical"/><script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://www.aihrlab.online/articles/"}, {"@type": "ListItem", "position": 3, "name": "字节豆包30万亿Token背后的组织引擎", "item": "https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html"} ] } </script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "字节豆包30万亿Token背后的组织引擎",
+  "description": "豆包大模型日均Token调用量从2024年1200亿飙到2025年30万亿、年底突破50万亿。跑出这个量级的不是单次技术突破，而是一套为AI而生的组织操作系统：Stone-Seed-Flow三层闭环、独立汇报CEO。",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.aihrlab.online/assets/og-covers/og-bytedance-160b-ai-org.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Andy Zhang",
+    "url": "https://www.aihrlab.online/about.html",
+    "jobTitle": "AI时代组织变革研究者",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AIHR数智引擎",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/og-covers/og-bytedance-160b-ai-org.jpg",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "2026-07-13",
+  "dateModified": "2026-07-13",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "AIHR数智引擎",
+    "url": "https://www.aihrlab.online/"
+  },
+  "articleSection": "AI组织变革",
+  "keywords": ["字节豆包", "组织引擎", "Seed", "Flow", "Stone", "AI组织架构", "大模型组织"],
+  "wordCount": 3000,
+  "inLanguage": "zh-CN"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "字节豆包大模型现在的调用量有多大？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "据字节旗下火山引擎披露：豆包大模型日均Token调用量在2024年5月为1200亿，2025年9月底突破30万亿（增长约253倍），2025年12月FORCE大会披露进一步突破50万亿、居中国第一、全球第三。同期IDC报告显示2025上半年中国公有云大模型调用量536.7万亿Tokens，火山引擎以49.2%份额位列中国第一。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支撑豆包的组织结构是什么样的？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "字节的AI体系呈三层架构：Stone负责AI基础设施（算力与平台），Seed负责基础模型研发（大模型与AGI探索），Flow负责AI产品落地（豆包、即梦等应用）。三者各自独立、又形成「基础设施→模型→产品」的闭环，且整体独立于抖音、火山等传统BU，直接向CEO汇报。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这套组织设计的HR启示是什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "核心是把组织当「操作系统」来设计：解耦（研究、产品、基建各自独立部署）、扁平（关键团队直汇报CEO、跳过中间层）、快速迭代（用内部创业公司的节奏而非大公司流程）。HR在AI时代的主场，是设计能让人、模型、产品高速闭环的组织骨架，而非只管招聘与考核。"
+      }
+    }
+  ]
+}
+</script><script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BWLGRVRRGN'); </script>
+</head><body><div class="article-content"><article class="article-content-wrapper"><nav class="breadcrumb"><a href="/index.html">首页</a><a href="/articles/">全部文章</a><span>字节豆包30万亿Token背后的组织引擎</span></nav><header class="article-header"><div class="article-meta"><span class="article-date">2026年7月13日</span><span class="article-author">By Andy Zhang</span><span class="article-read-time">阅读时间：约13分钟</span></div><h1>字节豆包30万亿Token背后的组织引擎</h1><p class="article-excerpt"> 豆包大模型日均Token调用量从2024年的1200亿，涨到2025年9月的30万亿、年底的50万亿。跑出这个量级的不是某一次技术突破，而是一套为AI而生的「组织操作系统」：Stone-Seed-Flow三层闭环、独立且直接向CEO汇报、创始人亲自下场。模型能力的最后一公里，其实是组织能力。 </p></header><div class="article-content"><div class="key-insight"><h3>⚡ 核心洞察</h3><p>豆包能跑到日均30→50万亿Token，靠的不是单次技术奇迹，而是一套「为AI而生的组织操作系统」——把研究、产品、基础设施拆成三个能独立闭环、又直接对CEO负责的「内部创业公司」。算力可以买，模型可以训，但把三者拧成高速闭环的组织能力，买不来，只能设计出来。</p></div><div class="note-box"><p><strong>事实与观点区分说明：</strong>本文「数据证据」部分均来自火山引擎/第一财经公开披露、IDC报告、晚点LatePost及券商研报等公开信源，数字可核实；「组织操作系统」「三层闭环」「HR启示」等为作者原创分析框架，供参考，不构成咨询或法律意见。</p></div>
+<h2>01 一个数字背后的组织问题</h2>
+<p>2025年10月，字节旗下火山引擎总裁谭待披露：豆包大模型日均Token调用量已突破 <strong>30万亿</strong>，较2024年5月的1200亿增长约253倍；到2025年12月FORCE原动力大会，这一数字进一步突破 <strong>50万亿</strong>，居中国第一、全球第三。IDC同期报告显示，2025上半年中国公有云大模型调用量达536.7万亿Tokens，火山引擎以49.2%份额位列中国第一。</p>
+<p>这些数字常被解读为「技术强」或「砸钱多」。但有一个被忽视的问题：为什么是字节跑出了这个量级，而不是算力、数据、人才都不缺的其他大厂？答案不在模型参数里，而在组织结构里——更准确地说，在字节<strong>为AI重新设计的一套组织操作系统</strong>里。</p>
+<h2>02 三层架构：Stone → Seed → Flow</h2>
+<p>字节的AI体系经过2023—2025年的整合，形成清晰的三层结构，每一层都是独立组织，又彼此闭环：</p>
+<ul>
+<li><strong>Stone（基础设施层）：</strong>聚焦AI算力与平台底座，为上层提供训练、推理的「水电煤」。它解决的是「模型能不能低成本、大规模跑起来」。</li>
+<li><strong>Seed（模型研发层）：</strong>字节AI的技术心脏，负责大模型基础研究与AGI探索。2023年初从搜索、AML、AI Lab调集人才组建，2023年底成为与抖音、TikTok、火山引擎平级的独立组织；2025年4月，原AI Lab整体并入Seed，研发力量进一步集中。</li>
+<li><strong>Flow（产品落地层）：</strong>字节AI的「App工厂」，把Seed的能力变成豆包、即梦等面向用户的产品，再用用户反馈反哺模型优化。</li>
+</ul>
+<p>这套架构的本质，是把「造技术、供水电、做产品」三件事拆开，让每一层都能独立决策、独立迭代，又通过数据流和反馈环连成一体。对比很多公司把大模型团队塞进某个既有BU、受原有考核与流程牵制，字节的做法更接近「在内部开了一家AI创业公司」。</p>
+<h2>03 为什么「独立 + 直汇报CEO」是关键</h2>
+<p>三层架构中最关键的设计，不是「分了三层」，而是<strong>这三层整体独立于抖音、电商、游戏等传统业务BU，直接向CEO汇报</strong>。</p>
+<p>这意味着两件事。第一，<strong>资源可以不被短期ROI绑架</strong>。AI基础研究的回报周期以年计，若并入一个要背季度营收的BU，必然被优先砍掉。独立组织让它能在「看不清回报」的早期持续投入。第二，<strong>决策链极短</strong>。当模型、产品、基建都在同一个直汇报CEO的体系内，跨层协作不需要走跨部门审批，一个反馈从用户端到模型端可能只隔一层。</p>
+<p class="viewpoint-tag">以下组织机制分析为作者原创框架。</p>
+<h2>04 创始人亲自下场：张一鸣的Seed复盘</h2>
+<p>比架构更罕见的是「人」。据公开报道，张一鸣虽已卸任CEO，但从2024年下半年起每月赴京参加Seed核心团队的复盘会，亲自看论文、学技术，甚至有专门的研究团队辅助他理解前沿进展。</p>
+<p>这种「创始人亲自下场」在大厂中极不寻常。它的组织含义是：<strong>AI不是CTO或某个事业部的事，而是被放在了公司最高决策者的注意力中心</strong>。当一把手持续投入技术细节，组织的资源倾斜、人才吸引、跨部门协调都会随之被「无形地」推高——这是任何OKR都写不出来的组织红利。</p>
+<p>与此同时，字节在2025年引入前Google DeepMind副总裁吴永辉出任Seed基础研究一号位，原Seed负责人朱文佳转向吴永辉汇报。这类「引入世界级研究者、并赋予其完整管辖权」的动作，本身就是一种组织信号：不止要算力，更要研究品位与长期主义。</p>
+<h2>05 一次真实的组织迭代：2025年的两次调整</h2>
+<p>组织结构不是一次画完的，而是在跑的过程中持续重构。2025年字节至少有两次可见的调整：</p>
+<ul>
+<li><strong>研发集中：</strong>4月，原AI Lab的机器人、AI for Science、Responsible AI三个方向正式并入Seed，大模型研发力量在组织上完成统一——解决了「多支AI团队各自为战」的内耗。</li>
+<li><strong>产品归口：</strong>8—9月，Flow体系调整，豆包PC与移动端产品负责人统归一人管理，向Flow负责人朱骏汇报。这把此前分散的豆包入口收拢，让产品侧能更快响应模型侧的升级。</li>
+</ul>
+<p>这两次调整的共同逻辑是：<strong>哪里出现协作摩擦，就在组织上「收口」</strong>。研发太散就合并，产品太碎就归口。这种「小步快改」正是内部创业公司的节奏，而非传统大厂「一年一次组织评审」的节奏。</p>
+<h2>06 HR的启示：把组织当操作系统设计</h2>
+<p>对HR而言，字节案例的价值不在「我们也搞个Seed」，而在它示范了一种AI时代的组织设计方法论——把组织当<strong>操作系统</strong>来设计：</p>
+<ol>
+<li><strong>解耦：</strong>把研究、产品、基础设施拆成可独立部署的「模块」，避免一个环节卡住全链路。HR在搭AI团队时，先想清楚哪些能力该独立建制、哪些该共享。</li>
+<li><strong>扁平：</strong>关键AI团队直汇报最高决策者，跳过中间管理层。这能压缩从洞察到动作的时延——时延，正是AI时代组织最贵的成本。</li>
+<li><strong>闭环：</strong>让「用户反馈→模型优化→产品迭代」在组织内自然流动，而不是靠会议和汇报接力。HR要设计激励机制，使三层共享同一个成功指标。</li>
+<li><strong>创始人注意力：</strong>最高管理者的注意力投放，是最强的组织资源。HR可以帮CEO把这种注意力「制度化」，例如固定的技术复盘机制，而非偶发关注。</li>
+</ol>
+<h2>07 结语</h2>
+<p>豆包的30万亿、50万亿Token，表面是模型与算力的胜利，底层是一套组织操作系统的胜利。它提醒所有正在做AI转型的HR与管理者：<strong>模型能力的最后一公里，永远是组织能力。</strong>你可以用钱买到算力，用高薪挖到人才，但把算力、人才、产品拧成高速闭环的组织骨架，只能靠设计。当行业还在争论「要不要All in AI」时，真正拉开差距的，是「为AI重新设计了什么样的组织」。</p>
+<div class="references"><h3>📚 参考来源</h3><ul>
+<li>火山引擎 / 第一财经（2025-10-16）. 豆包大模型日均Tokens调用量超30万亿（谭待现场披露：2024年5月1200亿 → 2025年9月超30万亿，增长约253倍）。</li>
+<li>东北证券 / 券商研报《计算机行业周报：字节举办火山引擎冬季大会》（2025-12）. 披露豆包日均Tokens突破50万亿、居中国第一全球第三，较9月30万亿增长约67%；全球Top10手机厂商9家选择火山引擎。</li>
+<li>IDC（2025）. 2025上半年中国公有云大模型调用量536.7万亿Tokens；火山引擎份额49.2%中国第一。转引自澎湃新闻、CSDN等公开报道。</li>
+<li>晚点 LatePost（2025-04-23）. 《字节 AI 调整继续：吴永辉管理范围扩大》. Seed整合AI Lab（Robotics / AI for Science / Responsible AI），朱文佳汇报线由CEO调整为吴永辉。</li>
+<li>chooseai.net（2026-02更新）. 《字节跳动AI部门全解析：Seed、Flow、Stone》. 三层架构、规模近2500人、独立汇报CEO、张一鸣每月参加Seed复盘等公开信息梳理。</li>
+<li>网易（2025）. 《大模型正在成为大厂一把手工程》. 字节Seed/Flow成立时间线、吴永辉加入、Flow 2025年产品归口调整等。</li>
+<li>CSDN（2025-10）. 火山引擎FORCE LINK武汉站：豆包1.6发布，深度思考模式使用占比仅18%、开启后效果平均提升31%但提高延迟与成本。</li>
+</ul><p class="source-note">说明：本文引用的调用量、份额、组织调整等均为公开披露或媒体报道，可溯源；各信源口径与时间点不同，跨源数字不宜直接相加。组织设计分析为作者原创框架，落地请结合企业实际。</p></div></div><div class="article-footer-qr" style="margin: 3rem 0; padding: 2rem; background: var(--bg-muted); border-radius: 12px; text-align: center;"><p style="font-weight: 600; margin-bottom: 1rem;">📱 关注公众号，获取更多AI+HR深度内容</p><img alt="AIHR数智引擎公众号二维码" src="/assets/images/qrcode-wechat.webp" style="width: 200px; height: 200px; border-radius: 8px;"/></div><!-- 相关阅读 -->
+      <section class="related-reading">
+        <h3>相关阅读</h3>
+        <ul>
+          <li><a href="/articles/big-tech-ai-org-2026.html">2026大厂AI组织变革全景图：阿里腾讯字节百度华为</a></li>
+          <li><a href="/hub/ai-org-transformation.html">📌 AI组织变革全景：大厂范式拆解（主题枢纽）</a></li>
+          <li><a href="/articles/bytedance-160b-ai-org.html">字节1600亿背后的组织阳谋：买算力，不如买「组织能力」</a></li>
+          <li><a href="/articles/bytedance-context-management-ai-agent.html">字节的情境管理实验：AI 如何把决策权还给一线</a></li>
+          <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR的第三种范式</a></li>
+          <li><a href="/articles/tencent-huawei-hr-rotation-mechanism-2026.html">腾讯活水与华为轮岗：AI时代人才流动机制对比</a></li>
+        </ul>
+      </section>
+    </article></div><script src="/assets/js/main.js" defer></script><!-- 百度自动推送 -->
+<script>
+(function(){var u="//zz.bdstatic.com/linksubmit/push.js";
+var s=document.createElement('script');s.src=u;
+var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);
+})();
+</script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">© 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer></body></html>
