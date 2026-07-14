@@ -131,6 +131,30 @@ def check_file(path):
     if re.search(r'">\s*/>', c):
         issues.append('存在 ">/ 正则残留残骸（meta 标签后多一个斜杠）')
 
+    # 11. void 元素未闭合（<link>/<meta>/<img>/<input> 等自闭合标签必须有 >）
+    #     2026-07-14 教训：preconnect 标签重建时漏写结尾 >，导致标签粘连成非法结构，
+    #     浏览器静默解析异常。判定：开标签后若在下个 > 之前先遇到 < 或文末仍无 >，则畸形。
+    #     （允许 void 元素跨多行，只要最终以 > 闭合即可）
+    for m in re.finditer(r'<(link|meta|img|input|br|hr|source)\b(.*?)(?=<|>|$)', c, re.S):
+        # m 的结尾后一个字符决定：是 '>'（正常闭合）还是 '<' / 文末（畸形）
+        end = m.end()
+        next_ch = c[end] if end < len(c) else ''
+        if next_ch != '>':
+            issues.append(f'存在未闭合的 <{m.group(1)}> 标签（畸形 void 元素，结构解析将异常）')
+            break
+
+    # 12. style.min.css 与 style.css 同步（防压缩漂移：min 缺源中类=线上缺样式）
+    #     改 CSS 后须跑 tools/build_css.py 重生 min。
+    css_src = os.path.join(site_root, 'assets', 'css', 'style.css')
+    css_min = os.path.join(site_root, 'assets', 'css', 'style.min.css')
+    if os.path.exists(css_src) and os.path.exists(css_min):
+        def _cls(p):
+            return set(re.findall(r'\.([a-zA-Z][a-zA-Z0-9_-]*)', open(p, encoding='utf-8').read()))
+        sc, sm = _cls(css_src), _cls(css_min)
+        missing = sc - sm
+        if missing:
+            issues.append(f'style.min.css 缺失源中 {len(missing)} 个类（漂移，须跑 build_css.py 重生）')
+
     return issues
 
 def main():
