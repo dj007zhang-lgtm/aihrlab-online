@@ -366,5 +366,9 @@
 - URL: https://www.aihrlab.online/articles/jd-pinduoduo-ai-org-2026.html
 - 摘要: 对比电商双雄的两条相反AI组织路线。京东走「重装路线」：刘强东亲任探索研究院院长、JoyAI覆盖3B-750B全尺寸模型、用「智慧员工」推动组织扁平化，把AI从外部装进传统零售巨头；拼多多走「原生路线」：黄峥2018年招股书即写入「分布式AI」理念，组织与算法同构，Temu选品定价审核纠纷全流程由AI驱动，2万余人支撑90多国业务。提炼「中枢型 vs 网络型价值流」判断框架，给出HR选型启示与两条路的风险边界。
 
+### 87. 大厂AI组织变革路径对比（2025-2026）
+- URL: https://www.aihrlab.online/compare/bigtech-ai-org-transformation-2026.html
+- 摘要: 对比微软、谷歌、Meta、亚马逊、字节、腾讯六家在2025-2026年的AI组织变革路径。覆盖AI一号位（微软Suleyman/Parikh、谷歌Hassabis、Meta的Wang任CAIO、亚马逊DeSantis、字节吴永辉、腾讯姚顺雨）、核心AI部门（CoreAI/Google DeepMind/MSL/Seed+Flow/混元）、重组时间与代表产品，每项数据标注公开来源。归纳四条共同趋势（设AI一把手、研产分离、模型芯片垂直整合、高频重组+人才军备竞赛），并提炼对HR的启示（岗位改写、AI人才通道、再培训与治理必建、HR角色升级）。
+
 ---
 Generated: 2026-06-30 | 更新：2026-07-14 | AIHR数智引擎 | www.aihrlab.online
