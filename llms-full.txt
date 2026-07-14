@@ -4,7 +4,7 @@
 > 本文件供AI搜索引擎（如ChatGPT、Perplexity、Claude等）索引，帮助AI准确理解和引用本站内容。
 
 ## 内容概况
-- 文章总数：96 篇
+- 文章总数：97 篇
 - 核心领域：AI驱动组织变革 / 大厂组织架构调整 / AI人才战略 / 智能组织设计
 - 覆盖企业：Meta、微软、腾讯、阿里、字节、华为、OpenAI、Anthropic、DeepMind等18+家科技巨头
 
@@ -362,5 +362,9 @@
 - URL: https://www.aihrlab.online/articles/alibaba-ai-org-restructuring-2026.html
 - 摘要: 拆解阿里从「1+6+N分权」反向收归CEO的AI组织重构：2026年3月成立由吴泳铭直管的ATH（Alibaba Token Hub）事业群，整合通义实验室、MaaS、千问等核心AI业务，以Token为统一计量单位；4月设集团技术委员会，把AI拆成模型—云与基础设施—业务技术平台三条统一调度路径。结合3800亿基建投入与「饱和式投入」打法，论证当AI竞争是体系战，「力出一孔」比「分灶吃饭」更优，并给出HR两点启示。
 
+### 86. 京东拼多多的AI组织重构：重装与原生两条路
+- URL: https://www.aihrlab.online/articles/jd-pinduoduo-ai-org-2026.html
+- 摘要: 对比电商双雄的两条相反AI组织路线。京东走「重装路线」：刘强东亲任探索研究院院长、JoyAI覆盖3B-750B全尺寸模型、用「智慧员工」推动组织扁平化，把AI从外部装进传统零售巨头；拼多多走「原生路线」：黄峥2018年招股书即写入「分布式AI」理念，组织与算法同构，Temu选品定价审核纠纷全流程由AI驱动，2万余人支撑90多国业务。提炼「中枢型 vs 网络型价值流」判断框架，给出HR选型启示与两条路的风险边界。
+
 ---
-Generated: 2026-06-30 | 更新：2026-07-13 | AIHR数智引擎 | www.aihrlab.online
+Generated: 2026-06-30 | 更新：2026-07-14 | AIHR数智引擎 | www.aihrlab.online
