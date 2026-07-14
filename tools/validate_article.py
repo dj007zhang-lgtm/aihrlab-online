@@ -115,6 +115,22 @@ def check_file(path):
     if missing:
         issues.append('og:image/twitter:image 引用文件不存在: ' + '；'.join(missing[:3]))
 
+    # 10. <head> 结构完整性 + 正则残留 ">/>  artifact（防社交卡片/SEO 静默伤）
+    #     2026-07-14 教训：dingtalk 文缺 <head> 开始标签 + 双 </head> 致白屏/怪异渲染，
+    #     批量 og:image 替换遗留 ">/ 残骸（多一个斜杠），浏览器虽忽略但属结构污染。
+    n_head_open = len(re.findall(r'<head[ >]', c))
+    n_head_close = len(re.findall(r'</head>', c))
+    if n_head_open == 0:
+        issues.append('缺 <head> 开始标签（结构不完整，浏览器进入怪异模式）')
+    elif n_head_open > 1:
+        issues.append(f'<head> 开始标签重复（{n_head_open} 个）')
+    if n_head_close == 0:
+        issues.append('缺 </head> 闭合标签（结构不完整）')
+    elif n_head_close > 1:
+        issues.append(f'</head> 闭合标签重复（{n_head_close} 个）')
+    if re.search(r'">\s*/>', c):
+        issues.append('存在 ">/ 正则残留残骸（meta 标签后多一个斜杠）')
+
     return issues
 
 def main():

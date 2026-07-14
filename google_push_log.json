@@ -564,6 +564,56 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-13T00:00:32.579669"
+    },
+    "https://www.aihrlab.online/articles/tencent-huoshui-internal-mobility.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:15.743338"
+    },
+    "https://www.aihrlab.online/articles/microsoft-cisco-ai-restructuring-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:18.805612"
+    },
+    "https://www.aihrlab.online/hub/ai-org-transformation.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:20.537326"
+    },
+    "https://www.aihrlab.online/articles/ai-recruitment-bias-compliance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:21.882063"
+    },
+    "https://www.aihrlab.online/articles/ai-talent-profile-reconstruction-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:23.309480"
+    },
+    "https://www.aihrlab.online/articles/agent-interviewer-boundary-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:24.686703"
+    },
+    "https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:26.025572"
+    },
+    "https://www.aihrlab.online/articles/tencent-huawei-hr-rotation-mechanism-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:27.448475"
+    },
+    "https://www.aihrlab.online/articles/ai-native-org-paradigm-map-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:28.847310"
+    },
+    "https://www.aihrlab.online/articles/alibaba-ai-org-restructuring-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-13T23:55:30.186520"
     }
   },
   "daily_count": {
@@ -574,7 +624,7 @@
     "2026-07-09": 4,
     "2026-07-10": 8,
     "2026-07-11": 3,
-    "2026-07-13": 4
+    "2026-07-13": 14
   },
-  "last_updated": "2026-07-13T00:00:32.953122"
+  "last_updated": "2026-07-13T23:55:30.643070"
 }
