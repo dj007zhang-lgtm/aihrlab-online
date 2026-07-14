@@ -44,6 +44,9 @@ INDEXNOW_ENDPOINTS = [
     ("Bing", "https://api.indexnow.org/indexnow"),
     # 备用：如上方不可用可切换
     # ("Bing-alt", "https://www.bing.com/indexnow"),
+    # Yandex 是 IndexNow 协议的独立接收方，不要求 Bing WMT 站点验证，
+    # 可作为 Bing 403 (UserForbiddedToAccessSite) 的绕过通道，真实投递到 Yandex/Naver 网络
+    ("Yandex", "https://yandex.com/indexnow"),
 ]
 
 # 单次提交最大 URL 数（IndexNot 协议限制）
@@ -94,9 +97,9 @@ def build_payload(key, url_list):
 
 
 def submit(payload, label=""):
-    """提交到所有配置的端点"""
+    """提交到所有配置的端点。只要任一端点返回 2xx 即视为投递成功。"""
     encoded = json.dumps(payload).encode("utf-8")
-    all_ok = True
+    any_ok = False
 
     for name, endpoint in INDEXNOW_ENDPOINTS:
         req = urllib.request.Request(
@@ -110,6 +113,8 @@ def submit(payload, label=""):
                 print(f"  ✅ {name}: HTTP {resp.status} — {len(payload['urlList'])} URLs")
                 if body.strip():
                     print(f"     响应: {body[:200]}")
+                if 200 <= resp.status < 300:
+                    any_ok = True
         except urllib.error.HTTPError as e:
             detail = ""
             try:
@@ -119,12 +124,15 @@ def submit(payload, label=""):
             print(f"  ❌ {name}: HTTP {e.code} {e.reason}")
             if detail:
                 print(f"     详情: {detail}")
-            all_ok = False
+            # Bing 的 403 是外部站点所有权验证要求（Bing Webmaster Tools），
+            # 不影响 Yandex/Naver 接收，单独标注为已知非阻塞警告
+            if name == "Bing" and e.code == 403:
+                print(f"     ⚠️  Bing 需先在 Bing Webmaster Tools 验证站点所有权（外部账户要求），"
+                      f"不影响 Yandex/Naver 通过 IndexNow 接收")
         except Exception as e:
             print(f"  ❌ {name}: {e}")
-            all_ok = False
 
-    return all_ok
+    return any_ok
 
 
 def main():
