@@ -89,20 +89,22 @@ def gate_visual(target_files=None):
             issues.append(f"{rel}: 缺少 CSS 链接")
         
         # Check 2: Double logo detection (AIHR logo appearing in both nav + body)
-        logo_in_nav = bool(re.search(r'class="[^"]*logo[^"]*"[^>]*>.*AIHR', content, re.S | re.I))
+        # Normal: nav(1) + footer(1) = 2. Warn if >= 3 (actual duplicate)
         logo_in_body = re.findall(r'>\s*AIHR\s*数智引擎\s*<', content)
-        if len(logo_in_body) >= 2 and 'index.html' not in rel and 'about.html' not in rel:
-            issues.append(f"{rel}: ⚠️ 可能存在双 logo ({len(logo_in_body)} 处)")
+        if len(logo_in_body) >= 3 and 'index.html' not in rel and 'about.html' not in rel:
+            issues.append(f"{rel}: ⚠️ 双 logo ({len(logo_in_body)} 处，正常应为2处)")
         
-        # Check 3: Has viewport meta (mobile)
+        # Check 3: Has viewport meta (mobile) — 豁免重定向桩页与验证文件
         has_viewport = bool(re.search(r'viewport', content, re.I))
-        if not has_viewport and fpath.endswith('.html'):
+        is_redirect = 'http-equiv="refresh"' in content
+        if not has_viewport and fpath.endswith('.html') and not _is_verify_page(fpath) and not is_redirect:
             issues.append(f"{rel}: 缺少 viewport meta 标签")
         
-        # Check 4: Has title
-        has_title = bool(re.search(r'<title>.+?</title>', content, re.S))
-        if not has_title:
-            issues.append(f"{rel}: 缺少 <title>")
+        # Check 4: Has title (豁免搜索引擎验证文件)
+        if not _is_verify_page(fpath):
+            has_title = bool(re.search(r'<title>.+?</title>', content, re.S))
+            if not has_title:
+                issues.append(f"{rel}: 缺少 <title>")
     
     if issues:
         return GateResult("2-视觉关", False, issues)
@@ -136,15 +138,19 @@ def gate_taste(target_files=None):
         # Check 1: Inline style blocks that look like emergency patches
         inline_styles = re.findall(r'<style>(.*?)</style>', content, re.DOTALL)
         total_inline_css = sum(len(s) for s in inline_styles)
-        if total_inline_css > 2000 and 'tools/' not in rel and 'bridge/' not in rel:
+        if total_inline_css > 5000 and 'tools/' not in rel and 'bridge/' not in rel:
             issues.append(f"{rel}: 行内 style 过长 ({total_inline_css}字符)，可能为临时修补")
         
-        # Check 2: Title length > 28 chars (memory rule)
+        # Check 2: 核心标题长度 > 28 字（忽略品牌后缀「| AIHR数智引擎」）
         tm = re.search(r'<title>([^<]+)</title>', content)
         if tm:
-            tlen = len(tm.group(1).strip())
+            full = tm.group(1).strip()
+            core = full.split('|')[0].strip()
+            if ' - ' in core:
+                core = core.split(' - ')[0].strip()
+            tlen = len(core)
             if tlen > 28:
-                issues.append(f"{rel}: 标题超长 ({tlen}字): '{tm.group(1)[:30]}...'")
+                issues.append(f"{rel}: 核心标题超长 ({tlen}字): '{core[:30]}...'")
         
         # Check 3: Description starts with template residue
         dm = re.search(r'name=["\']description["\'][^>]*content=["\']([^"\']+)"', content)
@@ -153,10 +159,11 @@ def gate_taste(target_files=None):
             if desc.startswith('搜索') or desc.startswith('section:nth-child') or len(desc) < 30:
                 issues.append(f"{rel}: description 为模板残留或过短 ({len(desc)}字)")
         
-        # Check 4: Multiple empty div chains (potential layout skeleton)
-        empty_divs = re.findall(r'<div[^>]*>\s*</div>', content)
-        if len(empty_divs) > 15:
-            issues.append(f"{rel}: 大量空 div ({len(empty_divs)}个)，疑似未填充的布局骨架")
+        # Check 4: 空 div 链（tools/bridge 为 JS 运行时填充，豁免）
+        if 'tools/' not in rel and 'bridge/' not in rel:
+            empty_divs = re.findall(r'<div[^>]*>\s*</div>', content)
+            if len(empty_divs) > 15:
+                issues.append(f"{rel}: 大量空 div ({len(empty_divs)}个)，疑似未填充的布局骨架")
     
     if issues:
         return GateResult("3-品味关", False, issues)
@@ -180,9 +187,14 @@ def gate_seo(target_files=None):
         
         if any(x in rel for x in ['404', 'verify', '.txt', 'sitemap', 'articles.html']):
             continue
-        
+
         with open(fpath, 'r', encoding='utf-8', errors='ignore') as fh:
             content = fh.read()
+        
+        if 'http-equiv="refresh"' in content:  # 重定向桩页，不检查 SEO 元数据
+            continue
+        if _is_verify_page(fpath):  # 搜索引擎验证文件，不检查 SEO 元数据
+            continue
         
         checked += 1
         

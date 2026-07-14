@@ -15,6 +15,7 @@
 - [资源库](https://www.aihrlab.online/resources/)
 - [关于我们](https://www.aihrlab.online/about.html)
 - [DRI工具包](https://www.aihrlab.online/products/dri-toolkit.html)
+- [AI+HR 术语词典](https://www.aihrlab.online/glossary/index.html)
 
 ## 主题权威枢纽
 - [AI组织变革：大厂范式拆解（2026全景综述）](https://www.aihrlab.online/hub/ai-org-transformation.html)
