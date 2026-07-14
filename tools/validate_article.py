@@ -97,7 +97,8 @@ def check_file(path):
         if not cm:
             continue
         prop = (pm.group(1) if pm else '') + '|' + (nm.group(1) if nm else '')
-        if 'og:image' in prop or 'twitter:image' in prop:
+        # 精确匹配，避免 og:image:width / og:image:height 被子串误判为 og:image
+        if prop in ('og:image|', '|twitter:image'):
             og_imgs.append(cm.group(1))
     missing = []
     for src in og_imgs:
