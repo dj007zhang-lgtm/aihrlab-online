@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  
+  
+  
+  
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="canonical" href="https://www.aihrlab.online/tools/bigfive/">
@@ -1132,7 +1142,7 @@ function unlockFull(){
 }
 function openQR(){
   const box=document.getElementById('qrBox');
-  box.innerHTML = OFFICIAL_QR ? '<img alt="公众号二维码" src="'+OFFICIAL_QR+'">' : genQRPlaceholder();
+  box.innerHTML = OFFICIAL_QR ? '<img decoding="async" loading="lazy" alt="公众号二维码" src="'+OFFICIAL_QR+'">' : genQRPlaceholder();
   document.getElementById('qrName').textContent = OFFICIAL_NAME;
   document.getElementById('qrOverlay').classList.add('show');
   document.body.style.overflow='hidden';
@@ -1585,7 +1595,7 @@ document.addEventListener('click', function(e) {
   </section>
 
 <section class="article-footer-qr" style="margin:3rem auto 1rem;max-width:420px;padding:2rem;background:#f5f6f8;border-radius:12px;text-align:center;">
-  <img alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
+  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
   <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多测评与 AI+HR 深度解读，在公众号持续更新</p>
 </section>
 

@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  
+  
+  
+  
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>DISC 行为风格测试 · 四风格深度报告</title>
@@ -384,7 +394,7 @@ a.link{color:var(--E);font-weight:700;text-decoration:none}
   <div class="modal glass">
     <h3 id="modalTitle">扫码解锁完整版</h3>
     <p id="modalDesc"></p>
-    <img class="qr-img" id="qrImg" alt="二维码">
+    <img decoding="async" loading="lazy" class="qr-img" id="qrImg" alt="二维码">
     <button class="btn" onclick="confirmUnlock()">我已关注，解锁完整版 →</button>
     <button class="btn btn-ghost" style="margin-top:10px" id="payBtn" onclick="goPay()">💳 前往购买完整版</button>
   </div>
@@ -745,7 +755,7 @@ $('modalMask').addEventListener('click',e=>{ if(e.target===$('modalMask')) $('mo
 </script>
 
 <section class="article-footer-qr" style="margin:3rem auto 1rem;max-width:420px;padding:2rem;background:#f5f6f8;border-radius:12px;text-align:center;">
-  <img alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
+  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
   <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多行为风格解读与 AI+HR 工具，在公众号持续更新</p>
 </section>
 
