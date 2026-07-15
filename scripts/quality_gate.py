@@ -16,6 +16,13 @@ import json
 import subprocess
 from datetime import datetime
 
+# 让质量门能复用内链扫描引擎（同目录）
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import check_broken_links
+except ImportError:
+    check_broken_links = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -42,13 +49,46 @@ class GateResult:
 
 
 # ============================================================
-# Gate 1: 结构关（复用 validate_article.py）
+# Gate 1: 内链完整性关（最前置硬关卡）
+# ============================================================
+def gate_link_integrity(target_files=None):
+    """内链完整性关：阻断任何会引入 404 的改动。
+    跨文件检查（链接在 A 指向 B），始终全站扫描。
+    """
+    if check_broken_links is None:
+        return GateResult("1-内链完整性关", False,
+                           ["check_broken_links.py 未找到，无法执行链接扫描"])
+
+    broken = check_broken_links.find_broken_links(SITE_ROOT)
+    orphans = check_broken_links.find_sitemap_orphans(SITE_ROOT)
+
+    if broken or orphans:
+        details = []
+        if broken:
+            details.append(f"断裂内部链接 {len(broken)} 处（Google/Bing 会返回 404）：")
+            by_src = {}
+            for b in broken:
+                by_src.setdefault(b["source"], []).append(b["href"])
+            for src, hrefs in sorted(by_src.items()):
+                details.append(f"  📄 {src} → {', '.join(hrefs)}")
+        if orphans:
+            details.append(f"sitemap 孤儿 URL {len(orphans)} 个（指向不存在文件）：")
+            for o in orphans:
+                details.append(f"  → {o}")
+        return GateResult("1-内链完整性关", False, details)
+
+    return GateResult("1-内链完整性关", True,
+                      ["全站无断裂内部链接；sitemap 无孤儿 URL"])
+
+
+# ============================================================
+# Gate 2: 结构关（复用 validate_article.py）
 # ============================================================
 def gate_structure(target_files=None):
     """HTML 结构完整性检查"""
     issues = []
     if not os.path.exists(VALIDATE_SCRIPT):
-        return GateResult("1-结构关", False, [f"validate_article.py 不存在: {VALIDATE_SCRIPT}"])
+        return GateResult("2-结构关", False, [f"validate_article.py 不存在: {VALIDATE_SCRIPT}"])
     
     cmd = [PYTHON, VALIDATE_SCRIPT, SITE_ROOT]
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
@@ -62,11 +102,11 @@ def gate_structure(target_files=None):
     
     # Also check for "All files OK"
     all_ok = 'All files OK' in output or len(issues) == 0
-    return GateResult("1-结构关", all_ok, issues if issues else ["全站结构校验通过"])
+    return GateResult("2-结构关", all_ok, issues if issues else ["全站结构校验通过"])
 
 
 # ============================================================
-# Gate 2: 视觉关（关键 HTML/CSS 元素检测）
+# Gate 3: 视觉关（关键 HTML/CSS 元素检测）
 # ============================================================
 def gate_visual(target_files=None):
     """视觉层关键元素检查：CSS链接、字体加载、无裸文本块等"""
@@ -107,12 +147,12 @@ def gate_visual(target_files=None):
                 issues.append(f"{rel}: 缺少 <title>")
     
     if issues:
-        return GateResult("2-视觉关", False, issues)
-    return GateResult("2-视觉关", True, [f"已检查 {checked} 个页面，无视觉层异常"])
+        return GateResult("3-视觉关", False, issues)
+    return GateResult("3-视觉关", True, [f"已检查 {checked} 个页面，无视觉层异常"])
 
 
 # ============================================================
-# Gate 3: 品味关（排版层级/色块堆砌检测）
+# Gate 4: 品味关（排版层级/色块堆砌检测）
 # ============================================================
 def gate_taste(target_files=None):
     """设计品味检查：排版层级、less-is-more、无 SaaS Landing 风"""
@@ -166,12 +206,12 @@ def gate_taste(target_files=None):
                 issues.append(f"{rel}: 大量空 div ({len(empty_divs)}个)，疑似未填充的布局骨架")
     
     if issues:
-        return GateResult("3-品味关", False, issues)
-    return GateResult("3-品味关", True, [f"已检查 {checked} 个页面，无品味问题"])
+        return GateResult("4-品味关", False, issues)
+    return GateResult("4-品味关", True, [f"已检查 {checked} 个页面，无品味问题"])
 
 
 # ============================================================
-# Gate 4: SEO 关
+# Gate 5: SEO 关
 # ============================================================
 def gate_seo(target_files=None):
     """SEO 完整性检查：description / OG / Schema"""
@@ -225,12 +265,12 @@ def gate_seo(target_files=None):
             issues.append(f"{rel}: 缺少 OG 标签: {', '.join(missing)}")
     
     if issues:
-        return GateResult("4-SEO关", False, issues)
-    return GateResult("4-SEO关", True, [f"已检查 {checked} 个页面，SEO 元数据完整"])
+        return GateResult("5-SEO关", False, issues)
+    return GateResult("5-SEO关", True, [f"已检查 {checked} 个页面，SEO 元数据完整"])
 
 
 # ============================================================
-# Gate 5: Diff 关
+# Gate 6: Diff 关
 # ============================================================
 def gate_diff():
     """Git diff 摘要——强制我读实际改动"""
@@ -256,9 +296,9 @@ def gate_diff():
         if len(changed_files) > 20:
             details.append(f"⚠️ 批量编辑超过20文件({len(changed_files)})，建议抽样验证!")
         
-        return GateResult("5-Diff关", True, details)
+        return GateResult("6-Diff关", True, details)
     except Exception as e:
-        return GateResult("5-Diff关", False, [f"无法读取 git diff: {e}"])
+        return GateResult("6-Diff关", False, [f"无法读取 git diff: {e}"])
 
 
 # ============================================================
@@ -331,8 +371,9 @@ def run_quality_gate(mode="changed"):
         else:
             target_files = [os.path.join(SITE_ROOT, target_file)]
     
-    # Run all gates
+    # Run all gates（内链完整性为第1关，最前置）
     gates = [
+        gate_link_integrity(target_files),
         gate_structure(target_files),
         gate_visual(target_files),
         gate_taste(target_files),
