@@ -614,6 +614,21 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-13T23:55:30.186520"
+    },
+    "https://www.aihrlab.online/articles/jd-pinduoduo-ai-org-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-15T00:01:01.829094"
+    },
+    "https://www.aihrlab.online/glossary/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-15T00:01:04.832263"
+    },
+    "https://www.aihrlab.online/compare/bigtech-ai-org-transformation-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-15T00:01:06.214498"
     }
   },
   "daily_count": {
@@ -624,7 +639,8 @@
     "2026-07-09": 4,
     "2026-07-10": 8,
     "2026-07-11": 3,
-    "2026-07-13": 14
+    "2026-07-13": 14,
+    "2026-07-15": 3
   },
-  "last_updated": "2026-07-13T23:55:30.643070"
+  "last_updated": "2026-07-15T00:01:06.598250"
 }

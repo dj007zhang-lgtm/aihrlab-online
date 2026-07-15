@@ -123,9 +123,10 @@ def gate_visual(target_files=None):
         
         checked += 1
         
-        # Check 1: Has CSS link
+        # Check 1: Has CSS link（豁免重定向桩页：旧 slug 极简跳转页有意不含 CSS）
         has_css = bool(re.search(r'(stylesheet|\.css)', content, re.I))
-        if not has_css and fpath.endswith('.html') and not _is_verify_page(fpath):
+        is_redirect = 'http-equiv="refresh"' in content
+        if not has_css and fpath.endswith('.html') and not _is_verify_page(fpath) and not is_redirect:
             issues.append(f"{rel}: 缺少 CSS 链接")
         
         # Check 2: Double logo detection (AIHR logo appearing in both nav + body)
@@ -245,9 +246,10 @@ def gate_seo(target_files=None):
         elif len(descs) > 1:
             issues.append(f"{rel}: ⚠️ 多个 description 标签 ({len(descs)}个)")
         else:
-            dm = re.search(r'name=["\']description["\'][^>]*content=["\']([^"\']+)"', content)
+            # 引号配对回溯，兼容 description 内容内含单引号（如 'AI要取代HR'）
+            dm = re.search(r'name=["\']description["\'][^>]*?content=(["\'])(.*?)\1', content, re.S)
             if dm:
-                val = dm.group(1)
+                val = dm.group(2)
                 if val.startswith('搜索'):
                     issues.append(f"{rel}: description 为模板残留")
                 elif len(val) < 50:

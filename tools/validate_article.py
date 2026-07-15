@@ -22,6 +22,12 @@ def check_file(path):
     c = open(path, encoding='utf-8').read()
     issues = []
 
+    # 0. 重定向桩页豁免（旧 slug -> 新地址，含 http-equiv="refresh"）
+    #     为有意极简的基础设施页（200 + canonical + meta refresh + JS 跳转），
+    #     不按内容页标准校验 CSS/GA4/二维码等，避免误报阻断发布。
+    if 'http-equiv="refresh"' in c:
+        return []
+
     # 0. CSS 样式表（缺则整页无样式，肉眼可见排版崩）
     if 'rel="stylesheet"' not in c:
         issues.append('缺 CSS 样式表 link（整页无样式）')

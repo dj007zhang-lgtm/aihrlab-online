@@ -126,10 +126,12 @@
     "https://www.aihrlab.online/articles/tencent-huawei-hr-rotation-mechanism-2026.html",
     "https://www.aihrlab.online/articles/ai-native-org-paradigm-map-2026.html",
     "https://www.aihrlab.online/articles/alibaba-ai-org-restructuring-2026.html",
-    "https://www.aihrlab.online/articles/jd-pinduoduo-ai-org-2026.html"
+    "https://www.aihrlab.online/articles/jd-pinduoduo-ai-org-2026.html",
+    "https://www.aihrlab.online/compare/bigtech-ai-org-transformation-2026.html",
+    "https://www.aihrlab.online/glossary/index.html"
   ],
-  "total_pushed": 127,
-  "total_urls": 120,
+  "total_pushed": 129,
+  "total_urls": 122,
   "history": [
     {
       "date": "2026-06-29",
@@ -387,6 +389,14 @@
       "pushed": 1,
       "failed": 0,
       "remaining_after": -7
+    },
+    {
+      "date": "2026-07-15",
+      "pushed": 2,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "All sitemap URLs pushed successfully"
     }
   ]
 }
