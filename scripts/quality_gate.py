@@ -23,6 +23,11 @@ try:
 except ImportError:
     check_broken_links = None
 
+try:
+    import check_h1
+except ImportError:
+    check_h1 = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -106,7 +111,30 @@ def gate_structure(target_files=None):
 
 
 # ============================================================
-# Gate 3: 视觉关（关键 HTML/CSS 元素检测）
+# Gate 3: H1 完整性关（可复用引擎 check_h1）
+# ============================================================
+def gate_h1_integrity(target_files=None):
+    """H1 完整性关：内容/工具页必须有顶级 <h1>（页面主题声明，SEO/可访问性必需）。
+    跨文件结构性检查，始终全站扫描；重定向桩/404/验证文件按设计豁免。
+    """
+    if check_h1 is None:
+        return GateResult("3-H1完整性关", False,
+                           ["check_h1.py 未找到，无法执行 H1 扫描"])
+
+    missing = check_h1.find_missing_h1(SITE_ROOT)
+    if missing:
+        details = [f"缺 H1 的内容页 {len(missing)} 个（搜索引擎无法识别页面主题）："]
+        for m in missing:
+            cand = m["candidate"] or "❌无 headline/title"
+            details.append(f"  📄 {m['file']}  →  候选标题: {cand[:50]}")
+        return GateResult("3-H1完整性关", False, details)
+
+    return GateResult("3-H1完整性关", True,
+                      ["全站内容/工具页均有 H1（重定向桩/404/验证文件已豁免）"])
+
+
+# ============================================================
+# Gate 4: 视觉关（关键 HTML/CSS 元素检测）
 # ============================================================
 def gate_visual(target_files=None):
     """视觉层关键元素检查：CSS链接、字体加载、无裸文本块等"""
@@ -148,8 +176,8 @@ def gate_visual(target_files=None):
                 issues.append(f"{rel}: 缺少 <title>")
     
     if issues:
-        return GateResult("3-视觉关", False, issues)
-    return GateResult("3-视觉关", True, [f"已检查 {checked} 个页面，无视觉层异常"])
+        return GateResult("4-视觉关", False, issues)
+    return GateResult("4-视觉关", True, [f"已检查 {checked} 个页面，无视觉层异常"])
 
 
 # ============================================================
@@ -207,8 +235,8 @@ def gate_taste(target_files=None):
                 issues.append(f"{rel}: 大量空 div ({len(empty_divs)}个)，疑似未填充的布局骨架")
     
     if issues:
-        return GateResult("4-品味关", False, issues)
-    return GateResult("4-品味关", True, [f"已检查 {checked} 个页面，无品味问题"])
+        return GateResult("5-品味关", False, issues)
+    return GateResult("5-品味关", True, [f"已检查 {checked} 个页面，无品味问题"])
 
 
 # ============================================================
@@ -267,8 +295,8 @@ def gate_seo(target_files=None):
             issues.append(f"{rel}: 缺少 OG 标签: {', '.join(missing)}")
     
     if issues:
-        return GateResult("5-SEO关", False, issues)
-    return GateResult("5-SEO关", True, [f"已检查 {checked} 个页面，SEO 元数据完整"])
+        return GateResult("6-SEO关", False, issues)
+    return GateResult("6-SEO关", True, [f"已检查 {checked} 个页面，SEO 元数据完整"])
 
 
 # ============================================================
@@ -298,9 +326,9 @@ def gate_diff():
         if len(changed_files) > 20:
             details.append(f"⚠️ 批量编辑超过20文件({len(changed_files)})，建议抽样验证!")
         
-        return GateResult("6-Diff关", True, details)
+        return GateResult("7-Diff关", True, details)
     except Exception as e:
-        return GateResult("6-Diff关", False, [f"无法读取 git diff: {e}"])
+        return GateResult("7-Diff关", False, [f"无法读取 git diff: {e}"])
 
 
 # ============================================================
@@ -373,10 +401,11 @@ def run_quality_gate(mode="changed"):
         else:
             target_files = [os.path.join(SITE_ROOT, target_file)]
     
-    # Run all gates（内链完整性为第1关，最前置）
+    # Run all gates（内链完整性为第1关，最前置；H1 完整性为第3关，结构性检查）
     gates = [
         gate_link_integrity(target_files),
         gate_structure(target_files),
+        gate_h1_integrity(target_files),
         gate_visual(target_files),
         gate_taste(target_files),
         gate_seo(target_files),
