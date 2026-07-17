@@ -67,7 +67,7 @@ def check_file(fpath):
 
     # 6) 顺序（三者皆有时）
     ri = region.find('class="related-reading"')
-    qi = region.find('article-footer-qr')
+    qi = region.find('<div class="article-footer-qr"')
     si = region.find('class="references"')
     present = [x for x in [(ri,'R'),(qi,'Q'),(si,'S')] if x[0] != -1]
     present.sort()
