@@ -331,6 +331,20 @@ def gate_diff():
         return GateResult("7-Diff关", False, [f"无法读取 git diff: {e}"])
 
 
+def gate_footer_consistency():
+    """Gate 8: 尾页一致性关——阻断尾页结构回归（相关阅读/QR/参考来源 的样式、类、顺序、重复）。
+    复用 scripts/check_footer_consistency.py。"""
+    script = os.path.join(SITE_ROOT, 'scripts', 'check_footer_consistency.py')
+    try:
+        r = subprocess.run([sys.executable, script], capture_output=True, text=True, cwd=SITE_ROOT, timeout=120)
+        lines = [l for l in (r.stdout + r.stderr).strip().splitlines() if l.strip()]
+        if r.returncode == 0:
+            return GateResult("8-尾页一致性关", True, lines[:1] or ["尾页一致性校验通过"])
+        return GateResult("8-尾页一致性关", False, lines[:10] or ["尾页一致性校验未通过"])
+    except Exception as e:
+        return GateResult("8-尾页一致性关", False, [f"无法运行尾页校验脚本: {e}"])
+
+
 # ============================================================
 # Helpers
 # ============================================================
@@ -410,6 +424,7 @@ def run_quality_gate(mode="changed"):
         gate_taste(target_files),
         gate_seo(target_files),
         gate_diff(),
+        gate_footer_consistency(),
     ]
     
     # Report

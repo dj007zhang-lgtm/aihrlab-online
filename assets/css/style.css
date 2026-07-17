@@ -38,3 +38,10 @@
 .breadcrumb-nav a:hover{color:var(--accent)}
 .breadcrumb-current{color:var(--text);font-weight:500}
 @media(max-width:640px){.breadcrumb-nav{padding:.75rem 0 0;font-size:.75rem}}
+
+.references{margin:2.5rem 0 1rem;padding:1.5rem;background:var(--bg-subtle);border:1px solid var(--line);border-radius:12px;}
+.references h3{font-size:1.05rem;font-weight:700;margin-bottom:1rem;color:var(--text);}
+.references ul{list-style:disc;padding-left:1.4rem;margin:0;}
+.references li{margin-bottom:.6rem;font-size:.88rem;line-height:1.6;color:var(--text-secondary);}
+.references em{font-style:italic;}
+.references a{color:var(--text-link);}
