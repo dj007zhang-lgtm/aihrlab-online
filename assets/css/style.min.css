@@ -27,3 +27,4 @@
 .references li{margin-bottom:.6rem;font-size:.88rem;line-height:1.6;color:var(--text-secondary);}
 .references em{font-style:italic;}
 .references a{color:var(--text-link);}
+.inline-related{margin:2rem 0;padding:1.1rem 1.3rem;background:var(--bg-subtle);border:1px solid var(--line);border-left:3px solid var(--text-link);border-radius:10px}.inline-related__label{font-size:.82rem;font-weight:700;letter-spacing:.04em;color:var(--text-secondary);margin:0 0 .6rem}.inline-related ul{list-style:none;padding:0;margin:0}.inline-related li{margin:0 0 .5rem;font-size:.92rem;line-height:1.6}.inline-related li:last-child{margin-bottom:0}.inline-related a{color:var(--text-link);text-decoration:none}.inline-related a:hover{text-decoration:underline}
