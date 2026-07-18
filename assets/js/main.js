@@ -43,3 +43,43 @@ function trackEvent(name,params={}){if(typeof gtag!=='undefined'){gtag('event',n
   }
   restoreAll(getStore());
 })();
+
+/* ===== 文章列表页：分类筛选（2026-07-18） ===== */
+(function(){
+  var grid=document.getElementById('article-grid');
+  if(!grid)return; /* 非列表页不执行 */
+  var cards=grid.querySelectorAll('.article-card');
+  var btns=document.querySelectorAll('.filter-btn');
+
+  /* 动态填充数量徽章 */
+  var counts={all:cards.length};
+  cards.forEach(function(c){
+    var cat=c.getAttribute('data-category')||'';
+    counts[cat]=(counts[cat]||0)+1;
+  });
+  btns.forEach(function(b){
+    var f=b.getAttribute('data-filter')||'all';
+    if(counts[f]!==undefined){
+      var sp=document.createElement('span');
+      sp.className='filter-count';
+      sp.textContent=counts[f];
+      b.appendChild(sp);
+    }
+  });
+
+  window.filterArticles=function(category,clickedBtn){
+    btns.forEach(function(b){b.classList.remove('active');});
+    if(clickedBtn)clickedBtn.classList.add('active');
+    cards.forEach(function(card){
+      if(category==='all'||card.getAttribute('data-category')===category){
+        card.style.display='';
+        card.style.opacity='1';
+        card.style.transform='translateY(0)';
+      }else{
+        card.style.opacity='0';
+        card.style.transform='translateY(8px)';
+        setTimeout(function(){card.style.display='none';},200);
+      }
+    });
+  };
+})();
