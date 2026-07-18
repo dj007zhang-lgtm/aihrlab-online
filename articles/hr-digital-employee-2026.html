@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HR数字员工：AI Agent落地指南 | AIHR数智引擎</title>
+  <meta name="description" content="2026是代理式HR元年。本文拆解HR数字员工（AI Agent）的5类场景、中国落地案例与治理三道关，给HR一张可执行的落地路线图。">
+  <meta name="keywords" content="HR数字员工,AI Agent,人力资源,代理式AI,数字同事,HR自动化,招聘Agent">
+  <meta name="answer-what" content="什么是HR数字员工（AI Agent）？它如何落地到招聘、入职、员工服务、薪酬与人才盘点？">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="HR数字员工是基于代理式AI的「数字同事」，能自主执行招聘初筛、入职办理、员工问答、薪酬核算、人才盘点等多步骤HR工作流；落地关键是治理先行、人在回路。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/hr-digital-employee-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="HR数字员工：AI Agent落地指南">
+  <meta property="og:description" content="从Moka Eva到eRoad iBuilder，拆解HR数字员工的5类场景、真实数据与治理红线。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/hr-digital-employee-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c17-ai-tools-efficiency.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c17-ai-tools-efficiency.webp">
+  <meta name="twitter:title" content="HR数字员工：AI Agent落地指南">
+  <meta name="twitter:description" content="从Moka Eva到eRoad iBuilder，拆解HR数字员工的5类场景、真实数据与治理红线。">
+
+  <style>
+    /* ---- 变量 ---- */
+    :root {
+      --bg:#fff;--bg-subtle:#fafaf8;--bg-warm:#f7f5f0;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#2c5ea8;--text-link-hover:#1a3d73;
+      --accent:#2c5ea8;--accent-pale:#eef2fa;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+
+    /* ---- 文章头部 ---- */
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+
+    /* ---- 正文容器 ---- */
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+
+    /* ---- h2 节标题 + 分隔线节奏 ---- */
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+
+    /* ---- blockquote 暖色卡片 ---- */
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+
+    /* ---- 列表 ---- */
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+
+    /* ---- 表格 ---- */
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+
+    /* ---- 内联链接高亮 ---- */
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(44,94,168,.35); }
+    .article-body .ilink:hover { background:rgba(44,94,168,.16); }
+
+    /* ---- 内联延伸阅读（降跳出率核心杠杆）---- */
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+
+    /* ---- 相关阅读 ---- */
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+
+    /* ---- 公众号二维码 ---- */
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+
+    /* ---- 参考来源（极简格式：仅作者+作品名，3-5条）---- */
+    .references { margin:2rem 0 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border:1px solid rgba(0,0,0,0.06);border-radius:10px; }
+    .references h3 { font-size:1rem;font-weight:700;margin-bottom:.7rem;color:var(--text); }
+    .references ul { list-style:none;padding:0;margin:0; }
+    .references li { font-size:.84rem;line-height:1.65;color:#666;margin-bottom:.35rem;padding-left:1em;position:relative; }
+    .references li::before { content:"—";position:absolute;left:0;color:#bbb; }
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HR数字员工：AI Agent落地指南",
+    "description": "2026是代理式HR元年。本文拆解HR数字员工（AI Agent）的5类场景、中国落地案例与治理三道关。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c17-ai-tools-efficiency.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andy Zhang",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c17-ai-tools-efficiency.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-07-19",
+    "dateModified": "2026-07-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/hr-digital-employee-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/resources/index.html">资源库</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <span class="cat">AI时代组织变革</span>
+    <h1>HR数字员工：AI Agent落地指南</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-19">2026年7月19日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI时代组织变革</span>
+      <span>&middot;</span>
+      <span>阅读约 9 分钟</span>
+    </div>
+    <p class="lead">2026年，HR领域的AI叙事变了。过去我们谈「AI工具」——聊天机器人答疑问、算法筛简历；今年主角换成了「AI Agent」：它会自己打电话邀约候选人、自己协调面试官日程、自己生成合规的入职合同。对HR而言，这不是多了一个软件，而是团队里多了一位不知疲倦的「数字同事」。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图 ═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c17-ai-tools-efficiency.webp"
+         alt="HR数字员工与AI Agent概念图"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <p>Gartner 预测，到2026年底超过80%的企业将部署AI赋能的应用。当这一波浪潮涌进HR部门，它带来的不是又一块仪表盘，而是工作流执行权的转移——从「人操作软件」变成「软件替人办事」。本文想回答一个落地层面的问题：HR数字员工到底是什么、已经在哪些场景跑通、以及真正落地时要跨过哪几道关。</p>
+
+    <h2>一、什么是HR数字员工：从「自动化」到「代理式」</h2>
+
+    <p>要理解HR数字员工，先要分清三件事：RPA（流程自动化）、聊天机器人、AI Agent。RPA是按脚本点按钮，聊天机器人是问答，而 AI Agent 的核心是「自主决策 + 多步骤执行」。它拿到一个目标（比如「为这个岗位找3个候选人并约好面试」），会自己拆任务、调系统、做判断，只在关键节点请求人类确认。业界把2026称为「代理式HR（Agentic HR）元年」，本质就在这里：AI不再只是生成建议，而是开始执行动作——从「告诉你能怎么做」变成「替你把事办了」。</p>
+
+    <blockquote>代理式AI与早期工具的本质区别，不是更聪明，而是「原生性」与「业务深度」：它内置HR业务逻辑，能理解复杂规则并自主执行跨系统任务，而非在聊天框里给出一段通用建议。</blockquote>
+
+    <h3>HR数字员工的五种形态</h3>
+    <ul>
+      <li><strong>招聘Agent</strong>：初筛简历、匹配人岗、安排面试、规模化触达被动候选人</li>
+      <li><strong>入职Agent</strong>：自动生成入职合同、协同IT与行政部门流程、7×24小时答疑</li>
+      <li><strong>员工服务Agent</strong>：解答假期、薪酬、政策疑问，把HR从事务性工作中解放出来</li>
+      <li><strong>薪酬Agent</strong>：市场定价、预算建模、动态激励方案推荐</li>
+      <li><strong>人才盘点Agent</strong>：实时盘点技能、识别高潜、预警流失风险</li>
+    </ul>
+
+    <h2>二、为什么是2026：时机成熟的三股力</h2>
+
+    <p>第一股力是模型能力。大模型从「能对话」进化到「能调用工具」——Agent可以读取HR系统、写API、跑工作流。第二股力是数据底座。企业HR系统逐步打通后，Agent才有高质量、连贯的数据可消费。第三股力是组织压力。Gartner 2025年CHRO调研显示，HR领导者被期望将AI嵌入人才管理的组织方式；Forrester 则预测，到2026年超过50%的HR分析需求将通过对话式AI完成。三股力叠加，Agent从PPT走进工单系统。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></li>
+        <li><a href="/articles/ai-governance-gap-hr-2026.html">2026年AI治理鸿沟：80%的HR团队在用AI，仅23%企业立了规矩</a></li>
+      </ul>
+    </div>
+
+    <h2>三、五大场景的真实落地：数据说话</h2>
+
+    <p>概念之外，中国市场已经跑出一批可验证的案例。以下数据均来自企业公开披露，作为趋势参考而非独立审计结论——HR在借鉴时应结合自身情况校验。</p>
+
+    <h3>场景1 · 招聘Agent：把HR的隐性标准变成系统规则</h3>
+    <p>Moka AI 以「招聘 Eva」的形态进入HR团队，对应招聘场景。苏州一家制造企业部署三个月后：简历筛选从每天4小时降到40分钟；面试安排从平均3天缩短到当天完成；人才库中8000份历史简历被重新激活，其中23份直接匹配到当前岗位。更深层的变化是——招聘 Eva 学会了这家企业的用人偏好（制造业背景优先、稳定性权重高于学历、有精益生产经验加分），这些过去只存在HRD脑子里的隐性标准，变成了系统可执行的规则。</p>
+
+    <h3>场景2 · 入职Agent：把2小时压缩到15分钟</h3>
+    <p>某跨国零售巨头门店遍布全球，入职手续繁琐导致新员工流失率高。eRoad 的「AI入职精灵」由外呼、鉴别、问答等6个智能体协同处理入职全流程，员工入职办理时间从2小时缩短至15分钟，入职首月非正常离职率下降40%。另一家AI芯片企业用地平线「入职精灵」做数字人迎新，新员工入职办理时间缩短70%、满意度提升20%。</p>
+
+    <h3>场景3 · 员工服务Agent：85000人的「一个HR」</h3>
+    <p>LTM（一家全球技术咨询公司，超85000名员工）构建了HR超级Agent「RAIma」，基于Copilot Studio，统一了原本分散在多个系统的休假申请、政策查询、考勤更正、服务请求。日常事务不再需要员工在系统间手动切换，HR团队从事务支持转向战略赋能。其CIO的表述点出了本质：值得信赖的Agent负责重复性工作，员工负责想象力、判断力和对客户的深刻理解。</p>
+
+    <h3>场景4 · 薪酬Agent：从月度报表到实时决策</h3>
+    <p>某家电巨头业务多元、薪酬规则复杂。eRoad 的薪酬竞争力分析Agent实时整合外部市场与内部绩效数据，生成竞争力报告；薪酬预测Agent基于历史与市场趋势预测走势；模拟Agent让HR在系统中试算不同方案对成本、满意度、保留率的影响。薪酬决策从「月底看报表」变成「实时可调参」。</p>
+
+    <h3>场景5 · 人才盘点Agent：匹配度从60%到92%</h3>
+    <p>某世界500强科技集团全球数万员工、业务线更迭极快。eRoad「AI人才罗盘」用需求语义理解Agent和智能推理匹配Agent做动态盘点，人才选拔效率提升85%，关键岗位匹配度从60%提升至92%，新业务人才融入期缩短50%。</p>
+
+    <h2>四、落地三道关：治理比功能更重要</h2>
+
+    <p>案例很亮眼，但 Agentic HR 最大的风险不在「能不能做」，而在「敢不敢信」。三道关必须过。</p>
+
+    <h3>关1 · 数据安全与私有化</h3>
+    <p>HR数据是企业最敏感的数据之一。厂商的通用做法是采用 MCP（Model Context Protocol）协议做云边协同：敏感数据留在私有环境，Agent只在受控上下文推理，任务完成即销毁。支持私有化部署和混合云，是大型企业采用的前提。企业在选型时，第一问不应是「功能多强」，而是「我的数据在哪、谁看得见」。</p>
+
+    <h3>关2 · 算法偏见与可解释性</h3>
+    <p>这是监管红线。欧盟《人工智能法案》（AI Act）已将HR招聘场景列为「高风险AI应用」，要求算法可解释、有人工审核。国内虽无同等专门立法，但《个人信息保护法》对自动化决策已有约束。落地时必须有偏见审计、决策留痕、人工复核三件套。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-hiring-fairness-compliance-2026.html">AI面试官上岗：HR如何守住公平与合规的底线</a></li>
+        <li><a href="/articles/openclaw-ai-agent-management.html">OpenClaw走红背后：当AI Agent成为「隐形员工」，HR如何重建管理规则</a></li>
+      </ul>
+    </div>
+
+    <h3>关3 · 人在回路（Human-in-the-loop）</h3>
+    <p>Agentic HR 不是「无人HR」。所有高风险决策——录用、薪酬调整、淘汰——必须保留人类终审。AI的角色是「调度者」：它持续分析、预警、推荐，人做上下文判断。Forrester 的判断很明确：AI的价值在于增强人类判断，而非替代它。</p>
+
+    <h2>五、HR角色重构：从事务员到AI调度员</h2>
+
+    <p>当Agent接管了初筛、办理、核算，HR的价值锚点被迫上移。Deloitte 连续三年强调，员工体验直接影响组织绩效——体验优秀的企业员工留存率高出竞争对手40%。这意味着HR要从「流程执行者」转为「体验设计者」和「AI治理者」：定义哪些工作必须人做、哪些可委托Agent、如何度量Agent的公平与效果。</p>
+
+    <p>一个直观的变化：过去HR花大量时间在事务，未来这部分交给Agent，省下的时间用于人才战略、组织诊断、员工关系。不会用AI的HR不会被AI替代，但会用AI的同事会替代不用AI的HR。</p>
+
+    <h2>六、给HR的落地路线图（5步）</h2>
+    <ul>
+      <li><strong>从1–2个高价值场景切入</strong>：招聘初筛、员工问答最易见效，别一上来全量铺开</li>
+      <li><strong>建立反馈闭环</strong>：HR的纠正要让Agent学得会，否则它永远不变</li>
+      <li><strong>治理先行</strong>：数据安全、偏见审计、人工复核三件套在试点前就位</li>
+      <li><strong>重训HR团队</strong>：从「操作软件」到「管理AI同事」，能力模型要重写</li>
+      <li><strong>度量ROI</strong>：用时间节省、转化提升、留存改善三把尺子，而非「上了多少功能」</li>
+    </ul>
+
+    <h2>结语</h2>
+
+    <p>2026不会是「AI替代HR」的年份，而是「AI成为HR同事」的年份。真正分层的不是「用没用Agent」，而是「有没有把Agent变成组织战斗力」。对于HR而言，最该担心的不是被替代，而是当同行用数字员工把事务性工作压缩到原先的十分之一时，自己还困在表格里。</p>
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/idc-2026-hr-ai-agent-guide.html">IDC 2026中国企业AI应用成熟度报告 | HR AI Agent选型指南</a></li>
+        <li><a href="/articles/openclaw-ai-agent-management.html">OpenClaw走红背后：当AI Agent成为「隐形员工」</a></li>
+        <li><a href="/articles/ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></li>
+        <li><a href="/articles/ai-governance-gap-hr-2026.html">2026年AI治理鸿沟：80%的HR团队在用AI，仅23%企业立了规矩</a></li>
+        <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+    <!-- ★ 参考来源（3–5 条最权威，极简格式：仅作者+作品名）★ -->
+    <section class="references">
+      <h3>参考来源</h3>
+      <ul>
+        <li>Gartner (2025). 《2025 年人力资源首席官员调查》</li>
+        <li>Forrester (2026). 《2026 年人力资源预测》</li>
+        <li>Phenom (2026). 《2026 人才获取趋势》</li>
+        <li>Deloitte (2026). 《2026 全球人力资本趋势》</li>
+        <li>European Commission (2024). 《欧盟人工智能法案》</li>
+      </ul>
+    </section>
+
+  </div><!-- /.article-body -->
+</article>
+</main>
+
+<!-- ===== 站点 Footer ===== -->
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+</body>
+</html>

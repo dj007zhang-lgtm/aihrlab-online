@@ -4,7 +4,7 @@
 > 本文件供AI搜索引擎（如ChatGPT、Perplexity、Claude等）索引，帮助AI准确理解和引用本站内容。
 
 ## 内容概况
-- 文章总数：97 篇
+- 文章总数：110 篇
 - 核心领域：AI驱动组织变革 / 大厂组织架构调整 / AI人才战略 / 智能组织设计
 - 覆盖企业：Meta、微软、腾讯、阿里、字节、华为、OpenAI、Anthropic、DeepMind等18+家科技巨头
 
@@ -370,5 +370,10 @@
 - URL: https://www.aihrlab.online/compare/bigtech-ai-org-transformation-2026.html
 - 摘要: 对比微软、谷歌、Meta、亚马逊、字节、腾讯六家在2025-2026年的AI组织变革路径。覆盖AI一号位（微软Suleyman/Parikh、谷歌Hassabis、Meta的Wang任CAIO、亚马逊DeSantis、字节吴永辉、腾讯姚顺雨）、核心AI部门（CoreAI/Google DeepMind/MSL/Seed+Flow/混元）、重组时间与代表产品，每项数据标注公开来源。归纳四条共同趋势（设AI一把手、研产分离、模型芯片垂直整合、高频重组+人才军备竞赛），并提炼对HR的启示（岗位改写、AI人才通道、再培训与治理必建、HR角色升级）。
 
+
+### 88. HR数字员工：AI Agent落地指南
+- URL: https://www.aihrlab.online/articles/hr-digital-employee-2026.html
+- 摘要: 2026是代理式HR元年。拆解HR数字员工（AI Agent）的五种形态与五大落地场景——招聘、入职、员工服务、薪酬、人才盘点，结合Moka Eva、eRoad iBuilder、LTM等中国案例数据与治理三道关（数据安全、算法偏见、人在回路），给出HR可执行的5步落地路线图。
+
 ---
-Generated: 2026-06-30 | 更新：2026-07-14 | AIHR数智引擎 | www.aihrlab.online
+Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.online
