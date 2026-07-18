@@ -32,7 +32,25 @@
 .article-body h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; color: #1a1a1a; }
 .article-body strong { color: #1a1a1a; }
 .article-body blockquote { margin: 1.8rem 0; padding: 1em 1.3em; background: #f7f5f0; border-left: 4px solid #2c5ea8; border-radius: 0 10px 10px 0; color: #5b5b5b; font-family: Georgia, 'Noto Serif SC', serif; line-height: 1.8; }
-.article-footer-qr { background: linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 2rem; }
+.article-footer-qr { background: linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 2rem; text-align: center; }
+.article-footer-qr img { margin-bottom: 0.75rem; }
+.article-footer-qr p { margin: 0; font-size: 0.9rem; color: #555; }
+
+/* 相关阅读 —— 与正文同宽、同呼吸 */
+.related-reading { margin: 3rem 0 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.08); }
+.related-reading h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.8rem; color: #1a1a1a; }
+.related-reading ul { list-style: none; padding: 0; margin: 0; }
+.related-reading li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; line-height: 1.6; }
+.related-reading li:last-child { border-bottom: none; }
+.related-reading a { color: #2c5ea8; text-decoration: none; transition: color .2s; }
+.related-reading a:hover { color: #1a3a6b; text-decoration: underline; }
+
+/* 参考来源 —— 紧凑卡片 */
+.references { margin: 2rem 0 0; padding: 1.25rem 1.5rem; background: #fafaf9; border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; }
+.references h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.7rem; color: #1a1a1a; }
+.references ul { list-style: none; padding: 0; margin: 0; }
+.references li { font-size: 0.84rem; line-height: 1.65; color: #666; margin-bottom: 0.35rem; padding-left: 1em; position: relative; }
+.references li::before { content: "—"; position: absolute; left: 0; color: #bbb; }
 </style>
 <script type="application/ld+json">
 {
@@ -188,10 +206,6 @@
 
 <hr>
 
-
-
-</div>
-
       <!-- 主题簇：AI+HR 组织 / AI原生 -->
       <section class="related-reading">
         <h3>相关阅读</h3>
@@ -203,10 +217,12 @@
           <li><a href="/articles/meta-pod-structure.html">Meta Pod 结构全拆解：工程师创业式小团队如何运转</a></li>
         </ul>
       </section>
+
 <div class="article-footer-qr">
   <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" src="/assets/images/qrcode-wechat.webp" width="160" height="160">
   <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
 </div>
+
 <section class="references">
   <h3>参考来源</h3>
   <ul>
@@ -217,6 +233,8 @@
     <li>国务院 (2025). 《关于深入实施"人工智能+"行动的意见》</li>
   </ul>
 </section>
+
+</div>
 </article>
 </main>
 <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">© 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
