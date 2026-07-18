@@ -207,7 +207,9 @@ def gate_taste(target_files=None):
         # Check 1: Inline style blocks that look like emergency patches
         inline_styles = re.findall(r'<style>(.*?)</style>', content, re.DOTALL)
         total_inline_css = sum(len(s) for s in inline_styles)
-        if total_inline_css > 5000 and 'tools/' not in rel and 'bridge/' not in rel:
+        # v2 article template（templates/article-v2.html）的完整内联样式约 5500 字符，属设计标准非临时修补
+        is_v2_template = any('--font-serif' in s or '.article-header .cat' in s for s in inline_styles)
+        if total_inline_css > 6000 and 'tools/' not in rel and 'bridge/' not in rel and not is_v2_template:
             issues.append(f"{rel}: 行内 style 过长 ({total_inline_css}字符)，可能为临时修补")
         
         # Check 2: 核心标题长度 > 28 字（忽略品牌后缀「| AIHR数智引擎」）

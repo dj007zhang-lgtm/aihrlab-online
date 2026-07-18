@@ -76,7 +76,7 @@ def find_broken_links(site_root=SITE_ROOT):
     """返回断裂内链列表：[{'source', 'href', 'resolved'}]"""
     broken = []
     for root, dirs, files in os.walk(site_root):
-        dirs[:] = [d for d in dirs if not d.startswith(".") and d != "node_modules"]
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d != "node_modules" and d != "templates"]
         for fn in files:
             if not fn.endswith(".html"):
                 continue
