@@ -24,11 +24,15 @@
 .article-header { text-align: center; padding: 3rem 0 2rem; }
 .article-header h1 { font-size: 2rem; line-height: 1.4; margin-bottom: 1rem; }
 .article-meta { color: #868e96; font-size: 0.9rem; }
-.article-body { max-width: 720px; margin: 0 auto; line-height: 1.9; font-size: 1.05rem; }
-.article-body h2 { font-size: 1.4rem; margin: 2.5rem 0 1rem; color: #212529; }
-.article-body h3 { font-size: 1.15rem; margin: 2rem 0 0.75rem; color: #495057; }
-.article-body p { margin-bottom: 1.25rem; }
-.article-body strong { color: #212529; }
+.article-body { max-width: 720px; margin: 0 auto; }
+.article-body p { margin-top: 1.35rem; line-height: 1.86; font-size: 1.09rem; text-align: justify; text-justify: auto; letter-spacing: .004em; color: #222; }
+.article-body p:first-of-type { margin-top: 0; }
+.lead { font-family: Georgia, 'Noto Serif SC', 'STSong', serif; font-size: 1.12rem; line-height: 1.8; color: #5b5b5b; margin: 0 0 1.6rem; }
+.article-body h2 { font-size: 1.5rem; font-weight: 800; margin: 2.8rem 0 1rem; padding-top: 1.6rem; border-top: 1px solid rgba(0,0,0,0.08); color: #1a1a1a; }
+.article-body h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; color: #1a1a1a; }
+.article-body strong { color: #1a1a1a; }
+.article-body blockquote { margin: 1.8rem 0; padding: 1em 1.3em; background: #f7f5f0; border-left: 4px solid #2c5ea8; border-radius: 0 10px 10px 0; color: #5b5b5b; font-family: Georgia, 'Noto Serif SC', serif; line-height: 1.8; }
+.article-footer-qr { background: linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 2rem; }
 </style>
 <script type="application/ld+json">
 {
@@ -90,6 +94,8 @@
     <figure class="article-banner">
       <img src="/assets/images/banners/c06-meta-restructure.webp" alt="Pod 组织：当 AI 坐进最小作战单元" width="1200" height="821" loading="eager" fetchpriority="high" decoding="async">
     </figure>
+<div class="article-body">
+<p class="lead">当 AI agent 坐进最小作战单元，组织的「基本单元」就被改写了。本文顺着这条主线，把 Spotify 的原型、Meta 的重构与 McKinsey 的预测串成同一件事——并说清它对 HR 意味着什么。</p>
 
 <p>最近几个月，越来越多人在搜索框里敲下「pod 组织」「meta pod」「pod 是什么意思 组织形式」。这些词不是凭空冒出来的热词，它们指向一个正在发生的组织重构：企业把人重新编组进更小的、围绕端到端产出运转的单元，并给这些单元起名叫 pod。</p>
 
@@ -184,6 +190,8 @@
 
 
 
+</div>
+
       <!-- 主题簇：AI+HR 组织 / AI原生 -->
       <section class="related-reading">
         <h3>相关阅读</h3>
@@ -202,11 +210,11 @@
 <section class="references">
   <h3>参考来源</h3>
   <ul>
-    <li>Kniberg, H. &amp; Ivarsson, A. (2012). 《Scaling Agile @ Spotify with Tribes, Squads, Chapters &amp; Guilds》白皮书。首次描述 squad / tribe / chapter / guild 四积木。Kniberg 多次强调该文为「某一时刻工作方式」快照，非处方蓝图。Spotify 联合作者后续公开承认白皮书模型未在公司内部完整跑通（见 Lee, J. 2020《#SquadGoals Failed》）。</li>
-    <li>Reuters（2025 年 4 月报道）：Meta CTO Andrew Bosworth 备忘录提出 Agent Transformation Accelerator（ATA），其中「pod」为构建 AI agent 的接口/平台/记忆系统单元；首席产品官 Chris Cox 同期将 AI 团队拆分为 AI Product 与 AGI Foundations 两支，强调「更多自主权、清晰界定跨团队依赖」。另据公开报道，Meta 自 2023 年「效率年」起主动压扁中层管理。</li>
-    <li>McKinsey &amp; Company (2025). 《The Agentic Organization: Contours of the next paradigm for the AI era》：agentic team 由 2–5 名人类监督 50–100 个专业 agent 跑通端到端流程；预判组织图将从层级委派转向「工作图（work chart）」，绩效锚点从任务完成转向编排 agent 的能力。（为报告观点与经验观察，非全行业统计常数。）</li>
-    <li>魏炜、张鹏程等（清华大学）《生成式人工智能：基于智慧体的管理范式革命》：酷开科技内容团队由 80 人转为「5 人 + 多智能体」，海报日产量约 2000→30000 张且 100% 过审；天虹零售部署导购智能体。（企业案例研究，属个例。）</li>
-    <li>国务院 (2025 年 8 月). 《关于深入实施"人工智能+"行动的意见》：提出探索人机协同的新型组织架构和管理模式。</li>
+    <li>Kniberg, H. &amp; Ivarsson, A. (2012). 《Scaling Agile @ Spotify with Tribes, Squads, Chapters &amp; Guilds》</li>
+    <li>Reuters (2025). Meta「Agent Transformation Accelerator」内部备忘录报道</li>
+    <li>McKinsey &amp; Company (2025). 《The Agentic Organization: Contours of the next paradigm for the AI era》</li>
+    <li>魏炜、张鹏程等（清华大学）. 《生成式人工智能：基于智慧体的管理范式革命》</li>
+    <li>国务院 (2025). 《关于深入实施"人工智能+"行动的意见》</li>
   </ul>
 </section>
 </article>
