@@ -629,6 +629,11 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-15T00:01:06.214498"
+    },
+    "https://www.aihrlab.online/articles/ai-skills-based-org-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-17T23:57:08.480693"
     }
   },
   "daily_count": {
@@ -640,7 +645,8 @@
     "2026-07-10": 8,
     "2026-07-11": 3,
     "2026-07-13": 14,
-    "2026-07-15": 3
+    "2026-07-15": 3,
+    "2026-07-17": 1
   },
-  "last_updated": "2026-07-15T00:01:06.598250"
+  "last_updated": "2026-07-17T23:57:10.813219"
 }
