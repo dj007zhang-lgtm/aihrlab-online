@@ -16,7 +16,7 @@
 """
 import sys, os, re, json, glob
 
-EXCLUDE = ('articles-backup', '/.git', 'google', 'baidu_verify')
+EXCLUDE = ('articles-backup', '/.git', 'google', 'baidu_verify', 'templates')
 
 def check_file(path):
     c = open(path, encoding='utf-8').read()

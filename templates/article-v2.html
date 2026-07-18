@@ -6,8 +6,8 @@
   禁止：删除任何样式块/结构块/改变 DOM 层级关系
   
   结构总览：
-    <head>  SEO meta + Schema + 内联 v2 CSS 全量
-    <body>  site-header → article → site-footer
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
             article 内部：
               .article-header   (cat标签 + H1 + meta行 + lead导语)
               .article-banner  (WebP首屏图)
@@ -203,6 +203,11 @@
     }
   }
   </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
 </head>
 
 <body>
