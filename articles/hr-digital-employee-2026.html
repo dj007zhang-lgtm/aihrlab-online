@@ -162,6 +162,47 @@
     }
   }
   </script>
+  <!-- ===== Schema.org FAQPage JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "什么是HR数字员工（AI Agent）？和传统HR自动化有什么区别？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HR数字员工是基于代理式AI的「数字同事」，能自主执行多步骤HR工作流——理解上下文、做判断、调用工具完成任务。与传统自动化脚本（固定规则、单步骤）不同，Agent具备规划能力和适应性，能在非标准场景中仍给出合理处理结果。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "HR数字员工有哪些已验证的落地场景？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "五大场景已在头部企业落地：①招聘Agent——Moka Eva在苏州制造客户实现简历初筛4小时缩至40分钟；②入职Agent——eRoad入职精灵将入职办理从2小时压缩到15分钟，离职率下降40%；③员工服务Agent——LTM RAIma覆盖85000人规模；④薪酬Agent——某家电巨头实现全自动核算；⑤人才盘点Agent——世界500强案例中人岗匹配度从60%提升至92%。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "落地HR数字员工有哪些风险需要注意？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "三道治理关卡：①数据安全与隐私——建议私有化部署，通过MCP协议连接而非直接开放数据权限；②算法偏见与可解释性——需符合EU AI Act等法规要求，决策过程可审计；③人在回路——关键人事决策（录用、晋升、淘汰）须保留人工最终审核权，Agent只做推荐不做决定。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "HR在AI Agent落地中的角色会如何变化？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "从事务执行者转向「AI调度员」。HR不再亲自操作入离职办理、薪资核算等重复工作，而是负责四件事：设计Agent工作流与提示词、监控Agent输出质量与异常、处理Agent无法覆盖的例外情况、持续优化Agent的能力边界。这个转型路径可总结为5步路线图：评估→选场景→小范围试点→扩展→持续运营。"
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Google Analytics (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
