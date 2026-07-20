@@ -639,6 +639,11 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-18T23:59:27.973071"
+    },
+    "https://www.aihrlab.online/articles/hr-digital-employee-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-19T23:55:19.613534"
     }
   },
   "daily_count": {
@@ -652,7 +657,8 @@
     "2026-07-13": 14,
     "2026-07-15": 3,
     "2026-07-17": 1,
-    "2026-07-18": 1
+    "2026-07-18": 1,
+    "2026-07-19": 1
   },
-  "last_updated": "2026-07-18T23:59:30.064576"
+  "last_updated": "2026-07-19T23:55:21.605131"
 }
