@@ -15,7 +15,6 @@
                 └─ .inline-related  (内联延伸阅读，降跳出率)
               .related-reading     (相关阅读，5条上限)
               .article-footer-qr   (公众号二维码)
-              .references          (参考来源，3-5条极简)
   ═══════════════════════════════════════════════════════
 -->
 <!DOCTYPE html>
@@ -73,7 +72,7 @@
     来源：prototype-reading-experience.html Prototype ② 单篇
     作用域说明：
       - .article-header / .article-body 包含所有文章内容区样式
-      - .related-reading / .article-footer-qr / .references 尾页样式
+      - .related-reading / .article-footer-qr 尾页样式
       - 所有尾页区块必须在 .article-body 的 </div> 之内！
     ════════════════════════════════════════
   -->
@@ -157,12 +156,6 @@
     .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
     .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
 
-    /* ---- 参考来源（极简格式：仅作者+作品名，3-5条）---- */
-    .references { margin:2rem 0 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border:1px solid rgba(0,0,0,0.06);border-radius:10px; }
-    .references h3 { font-size:1rem;font-weight:700;margin-bottom:.7rem;color:var(--text); }
-    .references ul { list-style:none;padding:0;margin:0; }
-    .references li { font-size:.84rem;line-height:1.65;color:#666;margin-bottom:.35rem;padding-left:1em;position:relative; }
-    .references li::before { content:"—";position:absolute;left:0;color:#bbb; }
   </style>
 
   <!-- ===== Schema.org Article JSON-LD ===== -->
@@ -299,19 +292,6 @@
            width="160" height="160">
       <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
     </div>
-
-    <!-- ★ 参考来源（3–5 条最权威，极简格式：仅作者+作品名）★ -->
-    <section class="references">
-      <h3>参考来源</h3>
-      <ul>
-        <li><!-- PLACEHOLDER_REF_1 --></li>
-        <li><!-- PLACEHOLDER_REF_2 --></li>
-        <li><!-- PLACEHOLDER_REF_3 --></li>
-        <!-- 可选第4-5条 -->
-        <!-- <li>PLACEHOLDER_REF_4</li> -->
-        <!-- <li>PLACEHOLDER_REF_5</li> -->
-      </ul>
-    </section>
 
   </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
 </article>
