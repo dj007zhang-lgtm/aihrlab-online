@@ -1,0 +1,353 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人工智能两大组织对比：原生组织与传统层级 | AIHR数智引擎</title>
+  <meta name="description" content="人工智能两大组织对比，多数人只看到「用不用AI」的程度差异。本文用第一性原理指出真正分叉点：组织基本单元里「谁在节点上」。一张维度对比表，看清原生组织与传统层级的本质。">
+  <meta name="keywords" content="人工智能两大组织对比,AI原生组织,传统组织,组织范式,人机协作,组织变革">
+  <meta name="answer-what" content="AI原生组织与传统层级组织的本质区别，在于组织基本单元里「谁在节点上」，传统组织节点只有人，AI是工具；AI原生组织节点是人+AI agent共同作为计算单元。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="分叉点不在用不用AI，而在组织节点上是否坐了AI agent。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="人工智能两大组织对比：原生组织与传统层级">
+  <meta property="og:description" content="人工智能两大组织对比，多数人只看到「用不用AI」的程度差异。本文用第一性原理指出真正分叉点：组织基本单元里「谁在节点上」。一张维度对比表，看清原生组织与传统层级的本质。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c04-ai-native-org.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c04-ai-native-org.webp">
+  <meta name="twitter:title" content="人工智能两大组织对比：原生组织与传统层级">
+  <meta name="twitter:description" content="人工智能两大组织对比，多数人只看到「用不用AI」的程度差异。本文用第一性原理指出真正分叉点：组织基本单元里「谁在节点上」。一张维度对比表，看清原生组织与传统层级的本质。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  <style>
+    /* ---- 变量 ---- */
+    :root {
+      --bg:#fff;--bg-subtle:#fafaf8;--bg-warm:#f7f5f0;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#2c5ea8;--text-link-hover:#1a3d73;
+      --accent:#2c5ea8;--accent-pale:#eef2fa;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+
+    /* ---- 文章头部 ---- */
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    /* 分类标签 pill */
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    /* H1 主标题 */
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    /* Meta 行（日期 · 来源 · 分类 · 阅读时长）*/
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    /* Lead 衬线导语，在 header 里、banner 前 */
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+
+    /* ---- 正文容器 ---- */
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+
+    /* ---- h2 节标题 + 分隔线节奏 ---- */
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+
+    /* ---- blockquote 暖色卡片 ---- */
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+
+    /* ---- 列表 ---- */
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+
+    /* ---- 表格 ---- */
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+
+    /* ---- 内联链接高亮 ---- */
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(44,94,168,.35); }
+    .article-body .ilink:hover { background:rgba(44,94,168,.16); }
+
+    /* ---- 内联延伸阅读（降跳出率核心杠杆）---- */
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+
+    /*
+     * ══════════════════════════════════════
+     * ⚠️ 重要：以下三个尾页区块必须在 .article-body 的 </div> 之前！
+     * 顺序固定：RQS = Related-reading → QR → Sources
+     * ══════════════════════════════════════
+     */
+
+    /* ---- 相关阅读 ---- */
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+
+    /* ---- 公众号二维码 ---- */
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "人工智能两大组织对比：差的不只是用不用AI",
+    "description": "人工智能两大组织对比，多数人只看到「用不用AI」的程度差异。本文用第一性原理指出真正分叉点：组织基本单元里「谁在节点上」。一张维度对比表，看清原生组织与传统层级的本质。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c04-ai-native-org.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andy Zhang",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c04-ai-native-org.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-07-20",
+    "dateModified": "2026-07-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/resources/index.html">资源库</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI时代组织变革</span>
+    <h1>人工智能两大组织对比：差的不只是用不用AI</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-07-20T19:30:00+08:00">2026年7月20日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI时代组织变革</span>
+      <span>&middot;</span>
+      <span>阅读约 9 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">当大家把 AI 组织讲成「转型程度」时，真正拉开差距的是一道结构性分叉。本文用第一性原理指出：两种组织的差别不在用多少 AI，而在组织网络的基本单元里，谁坐在节点上。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c04-ai-native-org.webp"
+         alt="AI原生组织与传统层级对比 题图"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+<p>大多数人讨论「AI 组织」时，默认它是一根光谱：左边是「没用 AI 的传统公司」，右边是「AI 原生公司」，区别只是「用了多少 AI」。这个默认是错的。两种组织之间不是程度差异，而是一道结构性分叉，分叉点不在「用不用 AI」，而在组织这张网络的基本单元里，<strong>谁坐在节点上</strong>。</p>
+
+<h2>一、先说清楚，是哪两大组织</h2>
+<p>本文对比的两大组织，不是「大公司 vs 创业公司」，也不是「互联网 vs 制造业」。它们是同一件事的两种写法：</p>
+<ul>
+  <li><strong>传统层级组织（被 AI 赋能）</strong>：网络的节点上只有人。AI 是挂在人身上的工具，决策权、协调权仍在人手里。中层管理者之所以存在，是为了让人与人之间能传递信息、分配利益。</li>
+  <li><strong>AI 原生组织</strong>：节点上是「人 + AI agent」共同作为组织的计算单元。agent 不只是帮人写材料，而是直接坐在流程节点上执行协调，派活、汇总、对账、初判，中层协调层被吸收进系统。</li>
+</ul>
+<p>一句话区分：传统组织是「人在环」（human-in-the-loop，人主导、AI 辅助）；AI 原生组织是「agent 在环」（agent 在节点上执行）。</p>
+<table>
+  <thead><tr><th>维度</th><th>传统层级（被 AI 赋能）</th><th>AI 原生组织</th></tr></thead>
+  <tbody>
+    <tr><td>网络节点</td><td>只有人</td><td>人 + AI agent 共为节点</td></tr>
+    <tr><td>AI 的角色</td><td>外挂工具，人主导</td><td>坐在流程节点上执行协调</td></tr>
+    <tr><td>协调层</td><td>中层存在，逐级传递</td><td>被 agent 吸收，收缩</td></tr>
+    <tr><td>决策权</td><td>沉淀在人的层级里</td><td>人类退到最终责任签署</td></tr>
+    <tr><td>信息传递</td><td>逐层失真、变慢</td><td>节点间近无损流动</td></tr>
+    <tr><td>适用边界</td><td>大规模、强人际协调</td><td>高度数字化、可编码流程</td></tr>
+  </tbody>
+</table>
+
+<h2>二、分叉点：谁在节点上</h2>
+<p>用第一性原理看组织：组织本质上是<strong>信息传递与利益分配的网络</strong>。节点是「能处理信息、能做出影响他人决策的主体」，边是信息流与利益流。当网络的节点从「纯人」变成「人 + agent」，网络的拓扑和协调机制必然改写，这是物理属性决定的，不是管理风格的选择。</p>
+<p>传统层级为什么需要那么多中层？因为信息在人与人之间传递会失真、会变慢，必须用「层」来逐级汇总和再分发。AI 原生组织把这部分协调功能交给 agent：信息在节点间近乎无损流动，汇总与分发由系统完成。中层不再是信息传递的必经之路，协调层随之收缩。在原生组织里，人从「协调管道」里被抽出来，退到「判断与担责」的位置。</p>
+<p>换一个视角看节点。传统组织的节点是「岗位」，一个固定位置，由人填充，人离职岗位还在。AI 原生组织的节点是「任务」，一个具体目标，由「人 + agent」临时组队承接，任务结束组合解散。这也是为何技能本位组织（把岗位拆成能力模块）往往和原生组织结伴出现：当节点从岗位变成任务，建立在岗位之上的 HR 体系，职级、薪酬带宽、岗位分析，必须同步重写。</p>
+<div class="inline-related">
+  <p class="inline-related__label">延伸阅读</p>
+  <ul>
+    <li><a class="ilink" href="/articles/ai-native-org-paradigm-map-2026.html">AI原生组织范式图谱：从重构到删除</a></li>
+    <li><a class="ilink" href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR的第三种范式</a></li>
+  </ul>
+</div>
+
+<h2>三、为什么大多数企业停在「用工具」</h2>
+<p>既然原生组织的协调效率更高，为什么绝大多数企业只停在「给员工配 AI 工具」？答案不在认知，在<strong>权力</strong>。中层协调层不是冗余层，它是成千上万管理者的职场硬通货，位置、下属、预算，都挂在「我负责协调」这件事上。删除协调层，等于清零一批人的筹码。</p>
+<p>所以「AI 转型」停在用工具，不是因为没人知道原生更好，而是因为原生会重新分配权力。企业可以买一万张 GPU，却很难动一层汇报关系。麦肯锡把这次扁平化称为「与过去不同」，正是因为 agent 替代的是具体的协调功能，而不只是释放管理时间，功能被接管，对应的权力位置就空了。</p>
+
+<h2>四、微观镜头：同一个「审批」的两种写法</h2>
+<p>宏观叙事容易空，看一个具体动作。一笔预算审批：</p>
+<ul>
+  <li><strong>传统层级</strong>：申请人填单 → 直属主管审 → 部门负责人审 → 财务审 → 分管副总签。每一层都在做「信息汇总 + 风险判断 + 利益平衡」，五个人花了三天。</li>
+  <li><strong>AI 原生</strong>：申请人对 agent 说清意图 → agent 拉取历史数据、合规规则、预算水位，生成初审建议 → 只剩一个人类节点做最终责任签署。三天变成三小时，且人类节点从「传声筒」变成「最终担责者」。</li>
+</ul>
+<p>原生组织没有消灭人，它把人从「协调管道」里抽出来，推到「责任与判断」的位置。这也是为什么纯原生有边界，当判断涉及模糊的政治权衡、跨部门的利益交换，agent 还接不住，仍需要人。</p>
+
+<h2>五、克制：原生不是所有企业的归宿</h2>
+<p>把话说回来。传统层级在纯人协作里并非毫无道理：当组织大到几千人、业务横跨多个国家，层级是降低协调成本的现实选择。AI 原生也不是一句口号就能落地，它要求数据贯通、流程可被 agent 读取、责任边界可清晰切分。一个数据还在 Excel 里、流程靠口头约定的企业，强行「原生」只会产出一堆幻觉式自动审批。</p>
+<p>哪些企业该原生？业务高度数字化、流程标准化、决策可编码的行业，客服、代码、营销投放、基础合规，走在最前。哪些该先用工具赋能？强人际关系、强政治权衡、强线下体验的环节，原生要慢半拍。这不是技术问题，是组织边界问题。每一次基础设施变革（电、计算机、网络）都先被旧结构「赋能」，再催生新结构；AI 现在正处在「赋能」这一程。</p>
+
+<p>判断一个组织是原生还是仅仅被 AI 赋能，别看它买了多少 GPU、上了多少模型。看它的协调层里，有没有 agent 的座位，有没有一个非人的节点，在真实地派活、汇总、对账。有，才是原生；没有，只是给旧机器换了把电钻。</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-native-org-paradigm-map-2026.html">AI原生组织范式图谱：从重构到删除</a></li>
+        <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR必须理解的第三种范式</a></li>
+        <li><a href="/articles/digital-org-chart-2026.html">数字化人员组织架构图：从静态PPT到实时组织数据流</a></li>
+        <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+        <li><a href="/articles/pod-org-ai-agent-2026.html">Pod 组织：当 AI 坐进最小作战单元</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!-- ===== 站点 Footer ===== -->
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+</body>
+</html>

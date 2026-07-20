@@ -463,3 +463,6 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 110. DISC行为风格测试：AI时代还测对了什么
 - URL: https://www.aihrlab.online/articles/disc-style-test-2026.html
 - 摘要: DISC 测的是人在纯人际网络里的风格。当 AI agent 成为团队节点，行为风格预测力正在失效。本文拆解它还能信哪里、该补什么。
+### 111. 人工智能两大组织对比：原生组织与传统层级
+- URL: https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html
+- 摘要: 人工智能两大组织对比，多数人只看到用不用 AI 的程度差异。真正分叉点在组织基本单元里谁在节点上：传统组织节点只有人，AI 原生组织节点是人 + agent 共为计算单元。
