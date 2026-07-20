@@ -4,7 +4,7 @@
 > 本文件供AI搜索引擎（如ChatGPT、Perplexity、Claude等）索引，帮助AI准确理解和引用本站内容。
 
 ## 内容概况
-- 文章总数：110 篇
+- 文章总数：107 篇
 - 核心领域：AI驱动组织变革 / 大厂组织架构调整 / AI人才战略 / 智能组织设计
 - 覆盖企业：Meta、微软、腾讯、阿里、字节、华为、OpenAI、Anthropic、DeepMind等18+家科技巨头
 
@@ -377,3 +377,83 @@
 
 ---
 Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.online
+
+### 89. AI面试的边界：Agent面试官能管到哪一步
+- URL: https://www.aihrlab.online/articles/agent-interviewer-boundary-2026.html
+- 摘要: AI 面试的真正边界，不在技术能力，而在责任归属。凡是可以被清晰定义、标准化、留痕的环节（初筛、结构化初面、客观测评），AI 做得比人快且便宜；凡是依赖隐性判断、情境权衡、真实性核验与伦理终审的环节，必须留给人。把「否决权」交给算法，既放大偏见风险，也让合规责任无主。
+
+### 90. AI正在消灭中层？组织扁平化的真实路径
+- URL: https://www.aihrlab.online/articles/ai-flatten-org-middle-managers-2026.html
+- 摘要: Gartner预测到2026年，20%的组织将用AI扁平化结构、削减超半数中层岗位。Meta为CEO开发专属AI绕过3个汇报层级、Block裁员4000人、李志飞全链路AI化改造——中层消失不再是预言。本文拆解被削减的究竟是「角色」还是「人」，并给出HR可以直接落地的五项行动。
+
+### 91. 2026年AI治理鸿沟：80%的HR团队在用AI，仅23%企业立了规矩
+- URL: https://www.aihrlab.online/articles/ai-governance-gap-hr-2026.html
+- 摘要: 2026年，80%的HR团队已在工作中使用AI，但仅23%的企业制定了正式AI政策。这种「治理鸿沟」正在成为合规风险的核心来源。本文拆解鸿沟成因、2026全球监管时间表，并给出企业AI-HR治理的实操框架。
+
+### 92. AI面试官上岗：HR如何守住公平与合规的底线
+- URL: https://www.aihrlab.online/articles/ai-hiring-fairness-compliance-2026.html
+- 摘要: AI招聘不是「更客观」，而是把历史偏见从显性变成隐性。亚马逊AI给含「女性」关键词的简历降分、Workday遭集体诉讼，2026年EU AI Act、加州、科罗拉多监管密集生效。本文给HR一套可直接落地的三道防线与自检清单。
+
+### 93. AI落地HR实战：314家企业验证的3个高ROI切入点
+- URL: https://www.aihrlab.online/articles/ai-hr-landing-3-high-roi-plays.html
+- 摘要: 搜索⌘K AI落地HR实战：314家企业验证的3个高ROI切入点 2026年07月01日 · AIHR数智引擎 · AI时代组织变革 2026年，几乎每一家企业的HR负责人都被问过同一个问题："你们的AI战略是什么？"数据很残酷——85%的企业将AI列为HR数字化核心驱动力，但只有6%真正跑通了至少
+
+### 94. AI+HR 组织变革：从大厂实践到落地框架
+- URL: https://www.aihrlab.online/articles/ai-hr-org-cluster.html
+- 摘要: 这组文章构成一个主题簇——从大厂的一手实践（滴滴、Anthropic、五大厂），到 HR 自己的落地框架（如何站稳脚跟、AI 正在改写的三条暗线）。建议按顺序深读，建立对「AI 时代组织如何被重新设计」的系统认知。
+
+### 95. AI时代HR发展报告：从管控走向情境
+- URL: https://www.aihrlab.online/articles/ai-hr-report-2026-context-management.html
+- 摘要: 深圳市人力资源管理协会于 2026 年 5 月 25 日在深圳发布《AI时代人力资源发展报告（2026）》。报告的核心判断只有一句话：AI 已从「辅助工具」升级为「重塑组织形态、工作模式与治理体系的结构变量」，人力资源管理的核心逻辑正从「岗位管控」走向「人机协同的情境管理」。报告全文 22 页、给出 12 大
+
+### 96. 从AI裁员到AI重构：HR如何在组织变革中站稳脚跟
+- URL: https://www.aihrlab.online/articles/ai-layoff-to-rebuild-hr-stand-firm.html
+- 摘要: [更新于2026年7月7日] 补充最新信号：人力解决方案机构 Robert Half 于2026年7月发布的研究显示，29%在引入AI后裁员的公司已经重新招聘了这些员工——“回旋镖效应”正从个案变为统计规律。TechCrunch亦于2026年7月6日发布“AI裁员追踪清单”。详见AI裁员2026年中盘点。
+
+### 97. AI原生企业不是转型：HR必须理解的第三种范式
+- URL: https://www.aihrlab.online/articles/ai-native-org-hr-2026.html
+- 摘要: 2026年，当阿里、腾讯、字节还在为「传统企业如何做AI转型」焦头烂额时，另一类组织已经跑通了完全不同的路——AI原生企业。它们不是给旧组织打AI补丁，而是从创立第一天起就围绕「人机协同」重构业务、人才与决策链路。本文拆解AI原生企业的三大基因特征，并给出2026年HR可以直接落地的五项行动。
+
+### 98. AI招聘的算法偏见与合规红线
+- URL: https://www.aihrlab.online/articles/ai-recruitment-bias-compliance-2026.html
+- 摘要: AI招聘的争议，早就不该停留在「会不会有偏见」的猜测，而该进入「偏见可测量、责任可界定、流程可审计」的工程与合规阶段。对HR而言，真正的专业价值不是拒绝工具，而是把AI当作需要被监督的协作者，而非替代判断的黑箱。
+
+### 99. 技能本位组织：当 AI 把岗位拆成能力模块
+- URL: https://www.aihrlab.online/articles/ai-skills-based-org-2026.html
+- 摘要: 73% 的全球雇主已在 2026 年采用技能本位招聘。当 AI 把「岗位」拆成可量化的能力模块，建立在岗位之上的 HR 体系——岗位分析、职级、薪酬带宽——正在失去地基。
+
+### 100. AI时代人才画像重构：岗位能力模型怎么变
+- URL: https://www.aihrlab.online/articles/ai-talent-profile-reconstruction-2026.html
+- 摘要: AI 没有让「人」变得不重要，而是让「岗位」变得不可靠。当工作被拆成任务流、由人与智能体共同完成时，旧的人才画像——那张锚定在稳定岗位上的能力清单——就失效了。重构的本质，是把锚点从「岗位」移到「任务流与可验证技能」。
+
+### 101. 大厂HR轮岗：AI时代如何炼出复合型人才
+- URL: https://www.aihrlab.online/articles/bigtech-hr-rotation-2026.html
+- 摘要: 搜索⌘K 大厂HR轮岗：AI时代如何炼出复合型人才 轮岗不是"镀金"也不是"流放"，而是大厂在 AI 时代对抗技能半衰期的核心机制——通过跨职能、跨区域轮换，把单点专才锻造成既懂业务纵深、又能横向协同的"T 型复合人才"。华为"之字形发展"、阿里"活水计划"、腾讯"无绩效限制流动"、华为独创的"轮值
+
+### 102. 字节的情境管理实验：AI 如何把决策权还给一线
+- URL: https://www.aihrlab.online/articles/bytedance-context-management-ai-agent.html
+- 摘要: 2026 年 6 月 29 日晚，字节跳动 CEO 梁汝波向全员发出一封内部邮件，时隔四年重新梳理并更新公司的文化内容与领导力原则。这封邮件里最值得 HR 关注的，不是又一条「拥抱 AI」的口号，而是它明确把新版领导力原则纳入管理者晋升与年度考核，并直接指向「纠治大公司病」。把这两件事放在一起读，结论很清楚：
+
+### 103. HR 怎么用大五人格做招聘初筛
+- URL: https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html
+- 摘要: 大五人格（OCEAN）是招聘初筛中性价比最高、证据积累最充分的性格框架。但它有一条不可逾越的边界：它是早期信号，不是终裁门槛。尽责性（Conscientiousness）是跨岗位预测工作绩效最稳健的单一维度（Barrick & Mount 1991 元分析，覆盖 117 项独立研究）；其余四个维度只
+
+### 104. 华为历任HR一号位：一部组织能力的进化史
+- URL: https://www.aihrlab.online/articles/huawei-hr-leaders-history.html
+- 摘要: 华为的核心竞争力不是产品技术，而是组织能力、干部铁军与人力资源体系。本文梳理 1987—2026 年华为 HR 体系的六个时代演进，复盘李杰、吕克、郑良材等历任 HR 一号位的管理实践，以及「以岗定级、以级定薪、人岗匹配、易岗易薪」等硬核工具的来龙去脉。当你在研究 AI 时代如何重构组织时，华为这三
+
+### 105. 微软裁4800、思科裁4000：AI时代的组织重构，不是「被AI替代」那么简单
+- URL: https://www.aihrlab.online/articles/microsoft-cisco-ai-restructuring-2026.html
+- 摘要: 2026 年 7 月第一周，两个信号几乎同时砸下——7 月 6 日微软宣布全球裁减约 4,800 个岗位，7 月 13 日（今天）思科在加州启动裁员，同一时间窗口内给约 9 万名员工每人配一个 AI Agent。把它们放在一起看，会发现一个被中文媒体反复误读的核心判断：这不是「岗位被 AI 替代」，
+
+### 106. Pod 组织：当 AI 坐进最小作战单元
+- URL: https://www.aihrlab.online/articles/pod-org-ai-agent-2026.html
+- 摘要: Pod 组织的走红不是管理时尚轮回，而是组织基本单元被重写：当 AI agent 坐进最小作战单元，pod 从「人的小队」变成「人+智能体的混合单元」，科层制第一次在任务交付层被绕过。HR 的管理跨度、绩效归属、技能定价三本旧账因此同时失效。
+
+### 107. 腾讯TEG干部激活：10%中干重配与AI时代组织变阵
+- URL: https://www.aihrlab.online/articles/tencent-teg-cadre-activation.html
+- 摘要: 腾讯组织变阵的核心不是裁员，而是「干部激活」。从 2019 年裁撤约 10% 中干（TEG 在列），到 2022 年绩效三档制改革，再到 TEG 撤销 AI Lab 重组成大模型部——本文拆解腾讯如何用组织手术刀应对 AI 时代，并诚实辨析「低绩效基数 / 激活池」等内部术语的边界。
+
+### 108. 宇树扁平化陷阱：人多了，效率为何更低
+- URL: https://www.aihrlab.online/articles/unitree-flat-org-trap.html
+- 摘要: 宇树科技创始人王兴兴兼任 CEO 与 CTO，以高度扁平化、1v1 单线管理著称。但当团队从百人迈向千人，这种「创始人即组织」的模式开始反噬：人多了效率更低、人才流动加剧。本文拆解硬科技创业公司的组织演进困境与破局路径——这对所有高速成长期的科技公司都有镜鉴意义。
