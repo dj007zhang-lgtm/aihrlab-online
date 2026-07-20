@@ -69,17 +69,15 @@
       --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
     }
 
-    /* ---- 文章头部 ---- */
-    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
-    /* 分类标签 pill */
-    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
-    /* H1 主标题 */
-    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
-    /* Meta 行（日期 · 来源 · 分类 · 阅读时长）*/
-    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
-    .article-meta span { margin:0 .35em; }
-    /* Lead 衬线导语 ， 在 header 里、banner 前 */
-    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+    /* ---- 文章头部（防御性 !important 覆盖所有外部冲突） ---- */
+    .article-header { display:block !important;text-align:center!important;padding:3rem 0 1.5rem!important;visibility:visible!important;overflow:visible!important;max-width:none!important;height:auto!important; }
+    .article-header .cat { display:inline-block!important;font-size:.75rem!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--accent)!important;background:var(--accent-pale)!important;padding:.3em.9em!important;border-radius:50px!important;margin-bottom:.8rem!important;visibility:visible!important; }
+    .article-header h1 { display:block!important;font-size:2.1rem!important;font-weight:800!important;line-height:1.28!important;letter-spacing:-.02em!important;margin:.8rem 0!important;color:var(--text)!important;visibility:visible!important;overflow:visible!important; }
+    /* Meta 行 */
+    .article-meta { display:block!important;color:var(--text-muted)!important;font-size:.88rem!important;line-height:1.6!important;visibility:visible!important; }
+    .article-meta span { margin:0.35em!important;display:inline!important;visibility:visible!important; }
+    /* Lead 导语 */
+    .article-header .lead { display:block!important;font-family:var(--font-serif)!important;font-size:1.15rem!important;line-height:1.78!important;color:var(--text-secondary)!important;max-width:680px!important;margin:1.2rem auto 0!important;text-align:left!important;visibility:visible!important; }
 
     /* ---- 正文容器 ---- */
     .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
