@@ -28,12 +28,24 @@ try:
 except ImportError:
     check_h1 = None
 
+try:
+    import check_title_consistency
+except ImportError:
+    check_title_consistency = None
+
+try:
+    import check_inline_links
+except ImportError:
+    check_inline_links = None
+
 # ============================================================
 # 配置
 # ============================================================
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VALIDATE_SCRIPT = os.path.join(SITE_ROOT, "tools", "validate_article.py")
-PYTHON = "/Users/andyzhang/.workbuddy/binaries/python/versions/3.13.12/bin/python3"
+# 默认用当前解释器（CI / GitHub Actions 下即 runner 自带 python3）；
+# 本地若有指定 managed python，可用环境变量覆盖。
+PYTHON = os.environ.get("QUALITY_GATE_PYTHON", sys.executable)
 
 # 质量门结果
 class GateResult:
@@ -196,7 +208,7 @@ def gate_taste(target_files=None):
         rel = os.path.relpath(fpath, SITE_ROOT)
         
         # Skip non-content pages
-        if any(x in rel for x in ['404', 'verify', '.txt', 'sitemap']):
+        if any(x in rel for x in ['404', 'verify', '.txt', 'sitemap', 'templates']):
             continue
             
         with open(fpath, 'r', encoding='utf-8', errors='ignore') as fh:
@@ -256,7 +268,7 @@ def gate_seo(target_files=None):
             continue
         rel = os.path.relpath(fpath, SITE_ROOT)
         
-        if any(x in rel for x in ['404', 'verify', '.txt', 'sitemap', 'articles.html']):
+        if any(x in rel for x in ['404', 'verify', '.txt', 'sitemap', 'articles.html', 'templates']):
             continue
 
         with open(fpath, 'r', encoding='utf-8', errors='ignore') as fh:
@@ -331,6 +343,57 @@ def gate_diff():
         return GateResult("7-Diff关", True, details)
     except Exception as e:
         return GateResult("7-Diff关", False, [f"无法读取 git diff: {e}"])
+
+
+# ============================================================
+# Gate 9: 标题一致性关（截断 / 引号污染 / 偏离）
+# 全站扫描（历史债也要抓），不局限于 diff。
+# ============================================================
+def gate_title_consistency(target_files=None):
+    if check_title_consistency is None:
+        return GateResult("9-标题一致性关", False,
+                           ["check_title_consistency.py 未找到，无法执行标题一致性扫描"])
+    issues = []
+    for f in _get_all_html_files():
+        if not f.endswith('.html'):
+            continue
+        issues.extend(check_title_consistency.check_file(f))
+    fails = [m for lvl, m in issues if lvl == "FAIL"]
+    warns = [m for lvl, m in issues if lvl == "WARN"]
+    if fails:
+        details = fails[:12]
+        if len(fails) > 12:
+            details.append(f"… 共 {len(fails)} 处 FAIL（标题截断 / 引号污染）")
+        if warns:
+            details.append(f"⚠️ 另有 {len(warns)} 处 title/og 偏离仅提示，需人工核对")
+        return GateResult("9-标题一致性关", False, details)
+    msg = "全站标题无截断 / 引号污染"
+    if warns:
+        msg += f"（{len(warns)} 处偏离仅提示）"
+    return GateResult("9-标题一致性关", True, [msg])
+
+
+# ============================================================
+# Gate 10: 延伸阅读链接截断关（链接文字是否为目标 H1 的词中前半截）
+# 全站扫描（历史债也要抓）。
+# ============================================================
+def gate_inline_link_integrity(target_files=None):
+    if check_inline_links is None:
+        return GateResult("10-延伸阅读链接截断关", False,
+                           ["check_inline_links.py 未找到，无法执行链接文字扫描"])
+    issues = []
+    for f in _get_all_html_files():
+        if not f.endswith('.html'):
+            continue
+        issues.extend(check_inline_links.check_file(f))
+    fails = [m for lvl, m in issues if lvl == "FAIL"]
+    if fails:
+        details = fails[:12]
+        if len(fails) > 12:
+            details.append(f"… 共 {len(fails)} 处延伸阅读链接截断")
+        return GateResult("10-延伸阅读链接截断关", False, details)
+    return GateResult("10-延伸阅读链接截断关", True,
+                      ["全站延伸阅读链接文字完整，无词中截断"])
 
 
 def gate_footer_consistency():
@@ -425,6 +488,8 @@ def run_quality_gate(mode="changed"):
         gate_visual(target_files),
         gate_taste(target_files),
         gate_seo(target_files),
+        gate_title_consistency(target_files),
+        gate_inline_link_integrity(target_files),
         gate_diff(),
         gate_footer_consistency(),
     ]
