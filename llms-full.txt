@@ -466,3 +466,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 111. 人工智能两大组织对比：原生组织与传统层级
 - URL: https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html
 - 摘要: 人工智能两大组织对比，多数人只看到用不用 AI 的程度差异。真正分叉点在组织基本单元里谁在节点上：传统组织节点只有人，AI 原生组织节点是人 + agent 共为计算单元。
+### 112. 字节绩效评估变了:从现金奖金到股权绑定
+- URL: https://www.aihrlab.online/articles/bytedance-performance-review-2026.html
+- 摘要: 2026年7月8日字节跳动发布全员通知,7月15日启动上半年绩效评估。两处硬变化:半年激励基数从月薪改为月总包,发放从100%现金改为25%现金加75%期权/RSU;字节范与领导力原则成为绩效上调下调的刚性调节项。
+
