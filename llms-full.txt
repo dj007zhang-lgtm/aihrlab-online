@@ -338,6 +338,7 @@
 - 资源中心: https://www.aihrlab.online/resources/
 - 关于我们: https://www.aihrlab.online/about.html
 - DRI成熟度自测: https://www.aihrlab.online/tools/dri-self-assessment.html
+- 自我觉察卡牌: https://www.aihrlab.online/tools/tarot-test/
 
 ## 内容方法论
 - 原创标准：每篇文章基于一手信息整合和独立思考，非洗稿/翻译
