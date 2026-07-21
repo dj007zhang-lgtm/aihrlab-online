@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>腾讯拆职级、字节拆中层：AI 扁平化的两种语法 | AIHR数智引擎</title>
+  <meta name="description" content="2026 年 5 月腾讯 WXG 试点项目制、取消组长负责制；6 月字节梁汝波全员信更新领导力原则 10 条。两家都在削中层，但语法不同：腾讯去身份化，把管理岗从终身头衔变成临时项目标签；字节去管控化，把管理者从审批者变成一线解题者。本质都是让 AI 接管信息传递。">
+  <meta name="keywords" content="腾讯 字节 扁平化, 组织变革 2026, 腾讯项目制, 梁汝波全员信, Context over Control, 中层管理, AI 组织">
+  <meta name="answer-what" content="腾讯和字节谁更扁平化？2026 年两家都在削中层但路径相反：腾讯用换结构取消固定管理岗、转向项目制（2026-05 WXG 试点），字节用换人通过领导力原则硬约束淘汰低产出中层（2026-06-29 梁汝波全员信）。共同底层是 AI 让中间管理层的信息传递职能贬值。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="腾讯和字节谁更扁平化？2026 年两家都在削中层，但路径相反：腾讯用「换结构」取消固定管理岗、转向项目制（2026-05 WXG 试点）；字节用「换人」通过领导力原则硬约束淘汰低产出中层（2026-06-29 梁汝波全员信）。共同底层是 AI 让中间管理层的信息传递职能贬值。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/tencent-vs-bytedance-flat-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="腾讯拆职级、字节拆中层：AI 扁平化的两种语法">
+  <meta property="og:description" content="2026 年腾讯与字节前后脚的组织动作，把扁平化的两种语法摊在桌面上：一个拆身份，一个拆管控。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/tencent-vs-bytedance-flat-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp">
+  <meta name="twitter:title" content="腾讯拆职级、字节拆中层：AI 扁平化的两种语法">
+  <meta name="twitter:description" content="2026 年腾讯与字节前后脚的组织动作，把扁平化的两种语法摊在桌面上：一个拆身份，一个拆管控。">
+
+  <style>
+    /* ---- 变量 ---- */
+    :root {
+      --bg:#fff;--bg-subtle:#fafaf8;--bg-warm:#f7f5f0;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#2c5ea8;--text-link-hover:#1a3d73;
+      --accent:#2c5ea8;--accent-pale:#eef2fa;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+
+    /* ---- 文章头部 ---- */
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+
+    /* ---- 正文容器 ---- */
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(44,94,168,.35); }
+    .article-body .ilink:hover { background:rgba(44,94,168,.16); }
+
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "腾讯拆职级、字节拆中层：AI 扁平化的两种语法",
+    "description": "2026 年 5 月腾讯 WXG 试点项目制、取消组长负责制；6 月字节梁汝波全员信更新领导力原则 10 条。两家都在削中层，但语法不同：腾讯去身份化，字节去管控化。本质都是让 AI 接管信息传递。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andy Zhang",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/tencent-vs-bytedance-flat-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/resources/index.html">资源库</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">组织变革</span>
+    <h1>腾讯拆职级、字节拆中层：AI 扁平化的两种语法</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-21">2026 年 7 月 21 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>组织变革</span>
+      <span>&middot;</span>
+      <span>阅读约 9 分钟</span>
+    </div>
+    <p class="lead">2026 年 5 月，腾讯微信事业群悄悄试点一种新玩法：取消组长负责制，员工按项目临时组队，管理岗从终身头衔变成「某某方向负责人」。一个月后，字节跳动 CEO 梁汝波发出时隔四年的全员信，把「深入一线」和「Context over Control」写进管理者晋升考核。两家都在拆中层，但语法完全不同：一个拆的是身份，一个拆的是管控。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/big-tech-ai-org-2026.webp"
+         alt="腾讯与字节 2026 年组织扁平化动作的对比分析"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <div class="article-body">
+
+    <p>「腾讯和字节谁更扁平化」是一个问错了的问题。扁平化不是一道比谁层级更少的算术题，而是两种关于「组织该怎么传递信息」的语法。2026 年这两封几乎前后脚出现的内部动作，恰好把这两种语法摊开在桌面上。</p>
+
+    <h2>一、腾讯的语法：把管理岗从身份变成临时标签</h2>
+
+    <p>腾讯的动作集中在 2026 年春天。5 月，微信事业群 WXG 率先试点项目制，取消沿用十几年的组长负责制。过去是「员工 → 组长 → 总监 → 高级总监 → GM」的金字塔，现在员工按项目临时组队，管理者叫「某某方向负责人」，岗可上可下、项目自负盈亏（来源：科石咨询《腾讯 2026 组织大重构》、搜狐《腾讯 2026 年组织大手术》）。</p>
+
+    <p>力度最大的是混元大模型团队。在 AI 业务负责人姚顺雨主导下，混元大幅压缩汇报链条，砍掉冗余管理岗，连管理层级头衔都取消了，传统部门周会一并取消。同月《腾讯正在「换船」》一文记录了一位混元员工的体感：「不管你是什么角色，有问题会上直接提，当场拍掉。谁是责任人，马上就定，不需要层层汇报。」</p>
+
+    <p>这套「换结构」不是临时起意。2026 年 3 月，腾讯撤销了成立近 10 年的 AI Lab，大部分人员并入混元；早在 2026 年 1 月年会，马化腾就罕见公开承认「我们整个动作其实是慢了」，5 月股东大会上又用「换船」比喻回应追赶处境。用规则重塑组织，是腾讯选择的长效路径，不靠大规模人事调整，而从架构、考核、晋升、AI 资源配套四个维度系统性改写运行逻辑。</p>
+
+    <h2>二、字节的语法：把管理者从审批者变成一线解题者</h2>
+
+    <p>字节走的是相反方向。2026 年 6 月 29 日晚，梁汝波向全员发送内部邮件，时隔四年更新公司领导力原则，确立新版 10 条，并直接纳入所有管理者的晋升与年度考核（来源：中国企业家《梁汝波对字节中层开刀了》、21 财经《时隔四年，字节跳动更新字节范》）。</p>
+
+    <p>三处调整指向同一个靶心。第一，把「深入一线」和「有外部视角」升为独立条目，中高层不能再只坐办公室看报表、听汇报；第二，重申「Context over Control」，把多层级审批、重复会议、无效报表列为负面管理案例；第三，明确脱离业务一线、只做信息传递的中层，组织价值会持续弱化。字节的逻辑很硬：不能落地产出、长期脱离一线的管理层，岗位权责会同步调整。</p>
+
+    <p>「Context over Control」并非梁汝波首创。2020 年张一鸣在全员大会上提出，当时字节已有 10 万员工，他担心公司变大的最大危险不是混乱而是僵化。六年过去，这句话从文化口号变成考核硬约束，说明字节要解决的不是「管得更细」，而是「让信息绕过管控直接流动」。新版原则将在 2026 年半年绩效评估周期正式应用，等于给中层管理者划了一条硬 deadline。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ant-group-ai-org-restructuring-2026.html">蚂蚁AI重构：砍掉灵光，把筹码压给阿福</a></li>
+        <li><a href="/articles/huoshui-plan-2026.html">活水不是福利：腾讯3个月开闸，字节仅35%流得动</a></li>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+      </ul>
+    </div>
+
+    <h2>三、两种语法，同一个底层：AI 接管了信息传递</h2>
+
+    <p>把两家放在一起看，差异是表象，共识才是重点。组织的本质是一张信息传递网络加一张利益分配网络。AI 把「汇总、传递、审批」这些中层的核心职能，变成了边际成本趋零的标准化算力。当信息可以绕过中层直接流动，中层作为「信息二传手」的护城河就被抽走了。</p>
+
+    <p>腾讯的做法是去身份化：把管理岗从终身头衔虚拟化、标签化，让管理跟随项目而非固化成人；字节的做法是去管控化：把管理者重新定义为一线的问题解决节点，用考核逼信息下沉。一个从「岗位」侧拆，一个从「行为」侧拆，但都指向同一件事：让信息少经过一层人。</p>
+
+    <h2>四、谁更轻：看信息传递职能剥离得干不干净</h2>
+
+    <p>评判扁平化，不该数层级有几层，而该看中层还剩多少不可替代的信息职能。腾讯把管理岗「标签化」，等于承认管理是临时责任而非身份特权；字节把管理者「一线化」，等于承认价值只来自一手信息和真实产出。两种语法都在做同一道减法：人退到判断，AI 接管流转。</p>
+
+    <p>但减法有代价。组织压得越扁，决策速度越快，单点错误放大的风险也越高。2026 年春节的 AI 红包大战里，腾讯、阿里都被指出存在高层判断失误，这恰恰说明扁平化不是免费午餐：层级少了，对「顶层判断质量」的依赖反而更重。两家都在试错，没有谁拿到标准答案。</p>
+
+    <blockquote>组织变扁，不是因为谁更激进，而是因为信息传递这件过去只有人能做的工作，现在 AI 也能做，而且更便宜。</blockquote>
+
+    <p>所以「腾讯和字节谁更扁平化」没有赢家。腾讯用制度把管理岗变轻，字节用考核把管理者逼向前线，殊途同归地把中间层的信息职能一点点让给系统。对 HR 而言，真正的课题不在「怎么削层级」，而在「当信息传递不再需要中层，管理者的价值该重新定义成什么」。这个问题，2026 年才刚被两家同时推到台前。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+        <li><a href="/articles/ant-group-ai-org-restructuring-2026.html">蚂蚁AI重构：砍掉灵光，把筹码压给阿福</a></li>
+        <li><a href="/articles/huoshui-plan-2026.html">活水不是福利：腾讯3个月开闸，字节仅35%流得动</a></li>
+        <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR必须理解的第三种范式</a></li>
+        <li><a href="/articles/bytedance-doubao-org-engine-2026.html">字节豆包30万亿Token背后的组织引擎</a></li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+    <section class="references">
+      <h3>参考来源</h3>
+      <ul>
+        <li>腾讯 2026 组织大重构：科石咨询 keystonecn.com《腾讯2026组织大重构：AI时代企业组织进化范本》（2026-05）</li>
+        <li>腾讯项目制试点与混元调整：搜狐《腾讯2026年组织大手术》、腾讯新闻《腾讯正在「换船」》（2026-05-15）</li>
+        <li>腾讯撤销 AI Lab 并入混元、马化腾年会表态：腾讯新闻《「龙虾」潮退：企鹅「搁浅」》（2026-05-21）</li>
+        <li>字节梁汝波全员信更新领导力原则 10 条：中国企业家《梁汝波对字节中层开刀了》（2026-07-03）、21 财经《时隔四年，字节跳动更新字节范》（2026-07-01）、网易《字节梁汝波发布全员邮件》（2026-07）</li>
+        <li>Context over Control 起源：张一鸣 2020 年全员大会讲话（公开报道回溯）</li>
+      </ul>
+    </section>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+</body>
+</html>
