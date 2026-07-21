@@ -46,6 +46,8 @@ def _classify(fpath, content):
         return 'infra', '404-page'
     if _is_verify_file(basename):
         return 'infra', 'verify-file'
+    if 'design-system' in fpath:  # 设计系统规范文档（assets/design-system.html）非内容页，豁免 H1 要求
+        return 'infra', 'design-system-spec'
     return 'content', 'content-page'
 
 

@@ -579,7 +579,10 @@ def _get_all_html_files():
         dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'node_modules']
         for f in files:
             if f.endswith('.html'):
-                results.append(os.path.join(root, f))
+                fp = os.path.join(root, f)
+                if 'design-system' in fp:  # 设计系统规范文档（assets/design-system.html）非内容页，跳过内容校验
+                    continue
+                results.append(fp)
     return results
 
 
