@@ -38,6 +38,11 @@ try:
 except ImportError:
     check_inline_links = None
 
+try:
+    import url_consistency_audit
+except ImportError:
+    url_consistency_audit = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -411,6 +416,52 @@ def gate_footer_consistency():
 
 
 # ============================================================
+# Gate 11: URL 一致性关（全站级，防止 404 / 孤儿 / 断裂 / 重复）
+# 始终全站扫描，不受 --page/--changed 模式限制。
+# 复用 scripts/url_consistency_audit.py 的 6 维度检测引擎。
+# ============================================================
+def gate_url_consistency(target_files=None):
+    """Gate 11: URL 一致性关——系统性防护 sitemap/磁盘/redirects/index/内链/重复 不一致。
+
+    此关为「根除 404 类 bug」的核心防线：
+    - sitemap 引用的 URL 全部在磁盘有文件
+    - 磁盘上的文章全部被 sitemap 收录
+    - redirects.json 源路径无残留非桩文件、目标路径存在
+    - article-index.json 的 slug 全部有效
+    - 全站内联 .html 链接无断裂
+    - 无 sitemap 重复 / 孤立重定向桩 / index 重复 slug
+    """
+    if url_consistency_audit is None:
+        return GateResult("11-URL一致性关", False,
+                           ["url_consistency_audit.py 未找到，无法执行 URL 一致性体检"])
+
+    issues = []
+    checks = [
+        ("sitemap→磁盘", url_consistency_audit.check_1_sitemap_vs_disk),
+        ("磁盘→sitemap", url_consistency_audit.check_2_disk_vs_sitemap),
+        ("redirects完整性", url_consistency_audit.check_3_redirects_integrity),
+        ("article-index完整性", url_consistency_audit.check_4_article_index_integrity),
+        ("内链断裂", url_consistency_audit.check_5_broken_internal_links),
+        ("重复与异常", url_consistency_audit.check_6_duplicates_and_anomalies),
+    ]
+    for name, fn in checks:
+        result = fn()
+        if result:
+            issues.extend([(name, item) for item in result])
+
+    if issues:
+        details = []
+        for check_name, item in issues[:20]:
+            details.append(f"[{check_name}] {item}")
+        if len(issues) > 20:
+            details.append(f"… 共 {len(issues)} 个问题")
+        return GateResult("11-URL一致性关", False, details)
+
+    return GateResult("11-URL一致性关", True,
+                      ["sitemap/磁盘/redirects/article-index/内链/重复 — 6 维一致"])
+
+
+# ============================================================
 # Helpers
 # ============================================================
 
@@ -492,6 +543,7 @@ def run_quality_gate(mode="changed"):
         gate_inline_link_integrity(target_files),
         gate_diff(),
         gate_footer_consistency(),
+        gate_url_consistency(target_files),  # Gate 11: 始终全站扫描
     ]
     
     # Report
