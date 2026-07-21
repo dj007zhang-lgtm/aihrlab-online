@@ -146,3 +146,56 @@
 /* 工具页独立 CSS 误报兜底（tools/X/assets/styles 样式表 已有定义，此处冗余无害） */
 .ext-read{font-size:0.85rem;color:var(--accent,#228be6);}
 .killer-sec{border:1px solid var(--line,#e9ecef);border-radius:14px;padding:1.25rem;margin:1.5rem 0;}
+
+/* ── 移动端响应式（P0 修复：Mobile CTR=0%） ── */
+@media(max-width:768px){
+  /* 基础字号缩放 */
+  html{font-size:15px;}
+  /* 容器内边距缩减 */
+  .container{padding:0 var(--space-md);}
+  /* 导航折叠：默认隐藏，点击 .nav-toggle 后 .open 显示 */
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:var(--space-md);box-shadow:0 4px 16px rgba(0,0,0,0.1);border-top:1px solid var(--line);z-index:999;}
+  .site-nav.open{display:flex;}
+  .site-nav a{padding:0.75rem 0;font-size:1rem;display:block;}
+  /* Hamburger 按钮可见 */
+  .nav-toggle{display:block!important;font-size:1.5rem;padding:0.5rem;background:none;border:none;cursor:pointer;color:var(--text);}
+  /* Header 内部布局 */
+  .site-header{position:relative;}
+  .site-header .container{display:flex;align-items:center;justify-content:space-between;}
+  /* 文章宽度全屏 */
+  :root{--article-width:100%;}
+  .article-content-wrapper{padding:0 var(--space-md);}
+  /* Banner 高度 */
+  .article-banner img{height:200px;}
+  /* H1 字号 */
+  .article-title{font-size:1.5rem;}
+  .article-subtitle{font-size:1rem;}
+  /* 卡片网格单列 */
+  .article-grid{grid-template-columns:1fr!important;}
+  /* Hero 区堆叠 */
+  .hero-inner{flex-direction:column;text-align:center;padding:var(--space-xl) var(--space-md);}
+  .hero-illustration{margin-top:var(--space-lg);}
+  .hero-cta{justify-content:center;}
+  /* 互动区按钮 */
+  .eg-btn{padding:0.4em 0.8em;font-size:0.78rem;}
+  /* QR 码区域 */
+  .article-footer-qr{text-align:center;padding:var(--space-xl) var(--space-md);}
+  .article-footer-qr img{width:140px;height:140px;}
+  /* Footer 堆叠 */
+  .footer-inner{flex-direction:column;text-align:center;gap:var(--space-lg);}
+  .footer-links{flex-direction:column;align-items:center;}
+  /* 触摸目标最小 44px */
+  .site-nav a,.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+  /* TOC 目录隐藏（移动端省空间） */
+  .toc{display:none;}
+  /* 阅读进度条 */
+  .reading-progress{height:2px;}
+}
+/* 超小屏 (375px 及以下) */
+@media(max-width:480px){
+  html{font-size:14px;}
+  .container{padding:0 var(--space-sm);}
+  .article-content-wrapper{padding:0 var(--space-sm);}
+  .article-title{font-size:1.3rem;}
+  .site-header .logo-icon{width:24px;height:24px;}
+}
