@@ -3,7 +3,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
+    <url>
+    <loc>https://www.aihrlab.online/articles/global-tech-hr-ai-disruption-2026.html</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+<url>
     <loc>https://www.aihrlab.online/about.html</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
