@@ -1,4 +1,5 @@
 /articles/global-tech-hr-ai-disruption-2026.html | 2026全球HR大洗牌：五巨头如何用AI重写人力资源 | Uber裁减HR部门23%编制、微软向22万员工宣告HR全面重组、IBM的AI代理AskHR接管200个岗位、Meta连续三轮裁员波及HRBP。这不是「HR数字化升级」，而是HR职能本身正在被AI重写。
+/articles/ant-group-ai-org-restructuring-2026.html | 蚂蚁AI重构：砍掉灵光，把筹码压给阿福 | 2026年7月蚂蚁通用AI助手灵光收缩、一号位转岗，健康AI阿福升为战略重心。CFO出身的CEO韩歆毅用AI重新分配筹码，把资源从烧钱抢入口收回离钱最近、且有22年壁垒的医疗健康场景。
 # AIHR数智引擎 — 全站内容索引
 
 > AI时代组织变革实验室。聚焦AI驱动组织变革、大厂组织架构调整、AI人才战略与智能组织设计。
