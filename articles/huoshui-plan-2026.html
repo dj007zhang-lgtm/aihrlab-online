@@ -1,0 +1,335 @@
+<!--
+  AIHR 数智引擎文章 | 基于 article-v2.html 模板
+  Slug: huoshui-plan-2026
+  标题: 活水不是福利：腾讯3个月开闸，字节仅35%流得动
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>活水不是福利：腾讯3个月开闸，字节仅35%流得动 | AIHR数智引擎</title>
+  <meta name="description" content="腾讯2025年取消活水绩效门槛、2025年8月把四部门转岗周期缩至3个月，2026年5月文档团队要么转岗AI要么拿N+1。活水不是人才福利，而是AI时代组织用最低信任成本完成资源再集中的再分配缓冲阀。腾讯、字节、阿里三种闸门对比。">
+  <meta name="keywords" content="活水计划,腾讯活水专项,字节活水,阿里活水,内部活水,AI转岗,组织再分配,活水信用,N+1">
+  <meta name="answer-what" content="活水计划到底是什么，腾讯字节阿里有什么不同？">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="活水计划是腾讯2012年推出的内部转岗机制。2025年起腾讯取消绩效门槛、把四部门转岗周期缩至3个月；字节要求入职6个月且绩效达标、活水成功率约35%；阿里需满2年且绩效3.5以上。活水的本质是AI时代组织用内部转岗重新定价人才，把可迁移者压到AI业务线，流不动的在缓冲期后清出。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/huoshui-plan-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="活水不是福利：腾讯3个月开闸，字节仅35%流得动">
+  <meta property="og:description" content="活水不是人才流动福利，而是AI时代组织用最低信任成本完成资源再集中的再分配缓冲阀。腾讯开闸、字节卡门槛、阿里最保守，三种闸门背后是同一套筹码逻辑。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/huoshui-plan-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp">
+  <meta name="twitter:title" content="活水不是福利：腾讯3个月开闸，字节仅35%流得动">
+  <meta name="twitter:description" content="活水不是人才流动福利，而是AI时代组织用最低信任成本完成资源再集中的再分配缓冲阀。腾讯开闸、字节卡门槛、阿里最保守。">
+
+  <style>
+    /* ---- 变量 ---- */
+    :root {
+      --bg:#fff;--bg-subtle:#fafaf8;--bg-warm:#f7f5f0;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#2c5ea8;--text-link-hover:#1a3d73;
+      --accent:#2c5ea8;--accent-pale:#eef2fa;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+
+    /* ---- 文章头部 ---- */
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+
+    /* ---- 正文容器 ---- */
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+
+    /* ---- h2 节标题 + 分隔线节奏 ---- */
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+
+    /* ---- blockquote 暖色卡片 ---- */
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+
+    /* ---- 列表 ---- */
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+
+    /* ---- 表格 ---- */
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+
+    /* ---- 内联链接高亮 ---- */
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(44,94,168,.35); }
+    .article-body .ilink:hover { background:rgba(44,94,168,.16); }
+
+    /* ---- 内联延伸阅读（降跳出率核心杠杆）---- */
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+
+    /* ---- 相关阅读 ---- */
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+
+    /* ---- 公众号二维码 ---- */
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "活水不是福利：腾讯3个月开闸，字节仅35%流得动",
+    "description": "腾讯2025年取消活水绩效门槛、2025年8月把四部门转岗周期缩至3个月，2026年5月文档团队要么转岗AI要么拿N+1。活水不是人才福利，而是AI时代组织用最低信任成本完成资源再集中的再分配缓冲阀。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andy Zhang",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/big-tech-ai-org-2026.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-07-21",
+    "dateModified": "2026-07-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/huoshui-plan-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/resources/index.html">资源库</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <span class="cat">大厂组织变革</span>
+    <h1>活水不是福利：腾讯3个月开闸，字节仅35%流得动</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-21">2026 年 7 月 21 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>大厂组织变革</span>
+      <span>&middot;</span>
+      <span>阅读约 9 分钟</span>
+    </div>
+    <p class="lead">2025 年 8 月，腾讯把混元、元宝、微信电商、微信大模型四个部门的转岗周期从满 1 年缩到在岗 3 个月。2026 年 5 月，腾讯文档团队调整，受影响的员工只有两条路：转岗到深圳或北京的 AI 团队，或者不转岗拿 N+1。活水从来不是福利，它是 AI 时代组织重新定价人才的一道闸门。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图 ═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/big-tech-ai-org-2026.webp"
+         alt="活水计划：腾讯字节阿里的内部转岗闸门对比"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器 ═══ -->
+  <div class="article-body">
+
+    <p>把活水当成员工福利是一种误读。它的真实功能，是公司在尽量不撕破脸的叙事下，用内部转岗把一个人的可迁移技能重新定价：能流向 AI 业务的，筹码被保留，薪资随岗位平移；流不动的，在缓冲期结束后被 N+1 清出。活水是一套组织用最低信任成本完成资源再集中的机制，闸门开多大、开多快，取决于公司对 AI 业务的渴求度，以及组织对冗余的容忍度。</p>
+
+    <h2>一、活水计划的本来面目</h2>
+
+    <p>腾讯最早在 2012 年正式推出活水计划。当时的规则很克制：员工入职后发现岗位不合适或发展受限，只要在当前岗位工作满 1 年、且最近一次绩效合格及以上，就可以申请转岗。这套机制解决的问题是人才错配，而不是人员冗余。它在很长一段时间里是腾讯内部流动的文化符号，员工用脚投票，组织因此保持活力。</p>
+
+    <p>但 AI 出现之后，活水的函数变了。过去它是让合适的人去合适的岗位，现在它是让可迁移的人去离 AI 最近的岗位。同一套转岗系统，承载的任务从「匹配」变成了「再分配」。理解这一点，才能看懂 2025 年以来腾讯一连串动作的真实意图。（来源：南方+ 2025-08-04）</p>
+
+    <h2>二、2025 闸门松开：腾讯把活水做成战略武器</h2>
+
+    <p>2025 年，腾讯在自己的 ESG 报告里没有再公开活水率的具体数字，但明确写进了一句变化：进一步放宽活水计划的参与条件，取消了绩效限制，旨在拓宽员工职业履历与能力边界的同时，为组织注入多元视角。同一年，腾讯员工流失率降至 15.9%，总酬金成本达到 1307 亿元、较上年增长 15.9%，其中股份酬金增长 36%、达到 318.59 亿元。一边是放宽流动，一边是重金留人，两条线指向同一个判断：AI 人才是稀缺资源，公司愿意为能搞 AI 的人下血本。（来源：腾讯 2025 ESG 报告，ZAKER 2026 年报道）</p>
+
+    <p>更直接的动作发生在 2025 年 8 月。腾讯启动活水专项，把混元大模型、元宝、微信电商、微信大模型四个战略部门单列出来，员工在这些部门之间转岗，不再需要满 1 年，在岗 3 个月即可申请。这不是福利升级，是把再分配闸门开得更大、更快，让 AI 业务线能在不被市场察觉人力冗余的情况下，以最低摩擦吸走全公司最可迁移的人。</p>
+
+    <p>背后的财务逻辑很冷。裁员的代价是一笔一次性现金赔偿，直接从利润表上划走。活水的代价是隐性成本：薪资平移加上转岗员工的适应期损耗，现金不一次性出清，而是摊进日常运营。同时，人被精准压到离 AI 最近、投资回报率最高的业务线。对公司而言，这是一笔把「赔偿现金」换成「战略人力」的账，财务上更平滑，组织上更可控。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI 重构中层：被重写的管理职能</a></li>
+        <li><a href="/articles/ant-group-ai-org-restructuring-2026.html">蚂蚁 AI 重构：砍掉灵光，把筹码压给阿福</a></li>
+        <li><a href="/articles/alibaba-ai-org-restructuring-2026.html">阿里 AI 组织变革：从分权到再集权</a></li>
+      </ul>
+    </div>
+
+    <h2>三、三家公司，三种闸门</h2>
+
+    <p>把腾讯、字节、阿里的活水规则摆在一起，能看清同一套机制在不同组织里的松紧差。闸门越松，说明公司对 AI 业务的可迁移人才越渴求，也说明组织对冗余的容忍度越低。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>腾讯</th>
+          <th>字节</th>
+          <th>阿里</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>入职门槛</td>
+          <td>专项 3 个月，原规则 1 年</td>
+          <td>满 6 个月</td>
+          <td>满 2 年</td>
+        </tr>
+        <tr>
+          <td>绩效要求</td>
+          <td>2025 年起取消门槛</td>
+          <td>需达 M 及以上</td>
+          <td>需达 3.5 及以上</td>
+        </tr>
+        <tr>
+          <td>转岗窗口</td>
+          <td>无明确期限</td>
+          <td>约 1 个月</td>
+          <td>周期较长</td>
+        </tr>
+        <tr>
+          <td>审批权限</td>
+          <td>原主管无否决权</td>
+          <td>原主管、HRBP、目标部门三方</td>
+          <td>层级审批</td>
+        </tr>
+        <tr>
+          <td>活水定位</td>
+          <td>战略人才再分配</td>
+          <td>有限时间内的再就业</td>
+          <td>内部轮岗</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>字节的活水最像「再就业缓冲」。员工通常因为业务调整或绩效问题，面临二选一：领取 N+1 离职，或者选择活水、但只拿 N 补偿。转岗窗口只有约 1 个月，需要原主管、HRBP 和目标部门三方审批，内部流传的活水成功率大约只有 35%，而且高度依赖公司高层或部门老人的人脉推荐。换句话说，65% 的人在 1 个月窗口里流不动，最终还是要领 N+1 离开。（来源：今日头条 2025 年关于腾讯活水专项及其他大厂活水的梳理）</p>
+
+    <p>阿里的活水最保守。员工在原职位需工作满 2 年、绩效不低于 3.5 才能申请。更高的门槛意味着更低的流动率，也意味着组织把冗余消化在内部、而不是通过转岗快速腾挪。三种闸门，对应三种对 AI 人才渴求度与冗余容忍度的组合。</p>
+
+    <h2>四、活水的冷酷真相：再分配缓冲阀</h2>
+
+    <p>2026 年 5 月的腾讯文档团队调整，把活水的冷酷面摆到了台前。北京区域团队受影响后，核心选择是转岗到深圳或北京的 AI 相关团队，方向明确向 AI 产品研发、行业解决方案落地倾斜；不接受转岗的，大概率进入协商解除流程，拿到法定 N+1。所谓活水，在这里不是一个开放选项，而是一个结构化出口：要么流向 AI，要么拿钱走。</p>
+
+    <p>更冷的是「活水信用」这一设计。2017 年 4 月，腾讯在活水系统里加了一个独立的交接评价模块，记入员工个人档案，历任管理者都看得到。它的本意是确保员工站好最后一班岗、高质量完成工作交接。但从组织视角看，这是人离职前的一道榨取：在放行之前，先把坑填平，把知识留下来。活水信用与绩效无关，却比绩效更决定一个人能不能干净地离开。</p>
+
+    <blockquote>活水不是让员工择木而栖，而是让组织在完成再分配时，把信任成本压到最低。闸门开合之间，流走的是人，留下的是被重新定价的筹码。</blockquote>
+
+    <p>这套机制对 HR 的启示是：当公司说「我们提供活水机会」时，要先问清楚闸门为谁而开。为人才流动而开的活水，是原主管无否决权、员工自由流向高价值业务；为人员再分配而开的活水，是窗口短、门槛明、出口只有 AI 或 N+1。两者长得很像，组织意图截然不同。</p>
+
+    <h2>五、活水与去中层化：同一枚硬币的两面</h2>
+
+    <p>把活水和 2026 年大厂集体去中层化放在一起看，会发现它们是同一枚硬币的两面。去中层化砍掉的是「传递信息但无实质产出」的节点，活水让「有可迁移技能」的节点重新流向一线 AI 业务。两者的共同目标，是把组织从一张信息传递冗余的网络，压缩成离钱最近的最小单元。</p>
+
+    <p>2026 年 7 月，腾讯游戏国内发行线试点「负责人制」，取消 L1、L2 管理职级，头衔随业务走、不跟人走；同一周京东零售压缩管理层级，取消 C4、C5 职级；字节则在 6 月底由梁汝波发出全员信，全面更新领导力原则，要求管理者落地实质产出、杜绝空转。三家公司三种刀法，底层逻辑一致：减少信息传递层级，把资源和决策压到能产生价值的地方。活水，是在这张网里为「还能流动的人」保留的一条通道。（来源：市场部网 2026-07-15，时代周报 2026-07-13，经济日报 2026-07-03）</p>
+
+    <h2>六、给组织者的第一性原理</h2>
+
+    <p>回到第一性原理：组织的本质是信息传递与利益分配的网络，AI 的本质是边际成本趋零的逻辑算力。活水在这套原理里的位置很清楚，它是组织用算力替代人力之后，为「被替代节点」安排的一条低摩擦出口。能接住 AI 业务的人，顺着活水流向新高地；接不住的，在缓冲期后被清出。</p>
+
+    <p>对 HR 和组织者来说，真正的课题不是如何把活水讲得更好听，而是如何在大厂集体重写的此刻，看清自家组织的闸门为谁而开、为谁而合。活水不是福利，是一道关于筹码的算术题。算清楚这道题，才知道在 AI 重构组织的过程里，自己手里那枚筹码，到底还能不能流通。</p>
+
+    <p>组织的形状，从来不是福利政策的投影，而是护城河选址的剖面。腾讯开闸、字节卡门槛、阿里保守，三种姿势背后，是同一句没有说出口的话：在 AI 面前，人只分两种，能流向未来的，和被留在原地的。</p>
+
+
+    <!-- ═══ 相关阅读（5 条上限，差异化+双向互链）═══ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI 重构中层：被重写的管理职能</a></li>
+        <li><a href="/articles/ant-group-ai-org-restructuring-2026.html">蚂蚁 AI 重构：砍掉灵光，把筹码压给阿福</a></li>
+        <li><a href="/articles/alibaba-ai-org-restructuring-2026.html">阿里 AI 组织变革：从分权到再集权</a></li>
+        <li><a href="/articles/bytedance-doubao-org-engine-2026.html">字节豆包引擎：AI 如何嵌进业务线</a></li>
+        <li><a href="/articles/ai-native-org-hr-2026.html">AI 原生组织：HR 职能的重构路径</a></li>
+      </ul>
+    </section>
+
+    <!-- ═══ 公众号二维码 ═══ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body -->
+</article>
+</main>
+
+<!-- ===== 站点 Footer ===== -->
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+</body>
+</html>
