@@ -644,6 +644,26 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-07-19T23:55:19.613534"
+    },
+    "https://www.aihrlab.online/articles/digital-org-chart-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-20T23:55:40.531867"
+    },
+    "https://www.aihrlab.online/articles/disc-style-test-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-20T23:55:43.674734"
+    },
+    "https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-20T23:55:45.336597"
+    },
+    "https://www.aihrlab.online/articles/bytedance-performance-review-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-07-20T23:55:46.737274"
     }
   },
   "daily_count": {
@@ -658,7 +678,8 @@
     "2026-07-15": 3,
     "2026-07-17": 1,
     "2026-07-18": 1,
-    "2026-07-19": 1
+    "2026-07-19": 1,
+    "2026-07-20": 4
   },
-  "last_updated": "2026-07-19T23:55:21.605131"
+  "last_updated": "2026-07-20T23:55:47.135675"
 }
