@@ -461,6 +461,110 @@ def gate_url_consistency(target_files=None):
                       ["sitemap/磁盘/redirects/article-index/内链/重复 — 6 维一致"])
 
 
+def gate_source_freshness(target_files=None):
+    """Gate 12: 信源时效关——防止「用老旧信源写当前事」。
+
+    核心纪律（内容主理人红线）：
+    文章若标注当前年份(2026)或声称「最新/当前/近日/刚刚」，其作为核心论据的
+    事实信源必须是近 18 个月内（2025-01 之后）的公开信息。把 2023 及更早的
+    旧案（如 2023 年 1+6+N）当成「当前 AI 原生组织原型」来写，属严重不合格。
+
+    判定逻辑：
+    1. 提取正文文本中所有 4 位年份引用。
+    2. 若文章定位「当前」（title/description 含 2026 或 最新/当前/近日/刚刚/
+       刚刚/新近），则核心论据年份不应停在 2024 及更早。
+    3. 豁免：明确的「历史背景引导」句式——如「2023年X启动，到2026年Y」、
+       「自2023年起」、「2023年底…两年后」等含时间线连接词的叙述，不计入。
+    4. 最新实质论据年份 = 排除豁免句式后，正文出现的最大年份。
+       若该年份 <= 2024 且文章定位当前 → FAIL。
+    """
+    import re as _re
+
+    CURRENT_YEAR = 2026
+    STALE_CUTOFF = 2024  # 核心论据停在 <=2024 视为过期（非历史背景时）
+
+    # 历史背景引导模式：这些句式里的早期年份是合理的时间线起点
+    HISTORY_PATTERN = _re.compile(
+        r'(20\d{2}年.{0,30}?(启动|成立|推出|发布|分拆|变革|改革|提出|伊始|起|底|初).{0,40}?'
+        r'(到|至|如今|如今|两年后|三年后|此后|再到|演化|演进|演变|沉淀|成为))'
+        r'|自\s*20\d{2}\s*年.{0,20}?(起|以来|至今)'
+        r'|20\d{2}\s*年底.{0,30}?(两年后|三年后|此后|到\s*202[5-6])',
+        _re.S,
+    )
+
+    # 当前定位信号
+    CURRENT_SIGNAL = _re.compile(r'2026|最新|当前|近日|刚刚|新近|近期')
+
+    def _extract_body_text(html):
+        # 去掉 script/style
+        body = _re.sub(r'<script[\s\S]*?</script>', ' ', html, flags=_re.I)
+        body = _re.sub(r'<style[\s\S]*?</style>', ' ', body, flags=_re.I)
+        # 仅取 article 主体（若有）
+        m = _re.search(r'<article[\s\S]*?</article>', body, _re.I | _re.S)
+        if m:
+            body = m.group(0)
+        return _re.sub(r'<[^>]+>', ' ', body)
+
+    issues = []
+
+    html_files = target_files or _get_all_html_files()
+    for path in html_files:
+        if not path.endswith('.html'):
+            continue
+        if _is_verify_page(path):
+            continue
+        # 信源时效纪律只约束 articles/ 下的分析文章；测评/工具/资源/枢纽页豁免
+        rel = os.path.relpath(path, SITE_ROOT)
+        if 'articles/' not in rel and not (target_files and path in target_files):
+            continue
+        # 跳过纯跳转桩文件
+        try:
+            with open(path, encoding='utf-8') as f:
+                html = f.read()
+        except Exception:
+            continue
+        if 'window.location.replace' in html and '页面已迁移' in html:
+            continue
+
+        # 当前定位判定：title / description / slug 含当前信号
+        head = html[:html.find('</head>')] if '</head>' in html else html[:8000]
+        slug = os.path.basename(path)
+        is_current = bool(CURRENT_SIGNAL.search(head)) or ('2026' in slug)
+
+        if not is_current:
+            continue
+
+        body_text = _extract_body_text(html)
+        # 找所有年份
+        year_matches = list(_re.finditer(r'(19|20)\d{2}', body_text))
+        if not year_matches:
+            continue
+
+        # 排除「明确的全篇历史回顾」信号：若标题/description 显式说「回顾/史/启示/复盘」
+        # 且正文最新年份<=2024，则视为合法历史文，不触发
+        retrospective = _re.search(r'回顾|历史|复盘|启示|演进史|发展史|简史|往事', head)
+        if retrospective:
+            continue
+
+        # 核心判定：正文是否出现 2025/2026 的实质新进展年份
+        has_recent = any(int(m.group(0)) >= 2025 for m in year_matches)
+
+        if not has_recent:
+            # 统计旧年份，辅助说明
+            old_years = sorted({int(m.group(0)) for m in year_matches
+                                if 2000 <= int(m.group(0)) <= STALE_CUTOFF})
+            issues.append(
+                f"{os.path.relpath(path, SITE_ROOT)} | 标注当前(2026/最新)但正文无任何 2025-2026 "
+                f"实质信源，旧年份集中在 {old_years}；疑似用老信源写当前事"
+            )
+
+    if issues:
+        return GateResult("12-信源时效关", False, issues[:25])
+
+    return GateResult("12-信源时效关", True,
+                      ["当前定位文章均含 2025-2026 实质信源；无老信源写当前事"])
+
+
 # ============================================================
 # Helpers
 # ============================================================
@@ -544,6 +648,7 @@ def run_quality_gate(mode="changed"):
         gate_diff(),
         gate_footer_consistency(),
         gate_url_consistency(target_files),  # Gate 11: 始终全站扫描
+        gate_source_freshness(target_files),  # Gate 12: 信源时效关
     ]
     
     # Report

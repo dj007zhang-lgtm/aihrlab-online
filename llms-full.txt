@@ -1,4 +1,3 @@
-/articles/alibaba-1-6-n-ai-restructure-2026.html | 阿里1+6+N全拆解：分权结构如何长出AI原生力 | 2023年3月阿里启动1+6+N变革：六大业务集团独立董事会、云智能集团分拆上市。这套分权结构如何让承载AI的能力成为独立利润中心，成为AI原生组织的早期原型。
 /articles/global-tech-hr-ai-disruption-2026.html | 2026全球HR大洗牌：五巨头如何用AI重写人力资源 | Uber裁减HR部门23%编制、微软向22万员工宣告HR全面重组、IBM的AI代理AskHR接管200个岗位、Meta连续三轮裁员波及HRBP。这不是「HR数字化升级」，而是HR职能本身正在被AI重写。
 # AIHR数智引擎 — 全站内容索引
 
