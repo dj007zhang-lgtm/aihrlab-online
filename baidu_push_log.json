@@ -131,9 +131,13 @@
     "https://www.aihrlab.online/glossary/index.html",
     "https://www.aihrlab.online/articles/ai-skills-based-org-2026.html",
     "https://www.aihrlab.online/articles/pod-org-ai-agent-2026.html",
-    "https://www.aihrlab.online/articles/hr-digital-employee-2026.html"
+    "https://www.aihrlab.online/articles/hr-digital-employee-2026.html",
+    "https://www.aihrlab.online/articles/digital-org-chart-2026.html",
+    "https://www.aihrlab.online/articles/disc-style-test-2026.html",
+    "https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html",
+    "https://www.aihrlab.online/articles/bytedance-performance-review-2026.html"
   ],
-  "total_pushed": 132,
+  "total_pushed": 136,
   "total_urls": 125,
   "history": [
     {
@@ -436,6 +440,14 @@
       "remaining_after": 0,
       "status": "ALL_COMPLETE",
       "note": "No new URLs to push - all 125 unique sitemap URLs already in pushed list (132 entries, incl. encoded/decoded dupes)"
+    },
+    {
+      "date": "2026-07-21",
+      "pushed": 4,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "All sitemap URLs pushed successfully"
     }
   ]
 }
