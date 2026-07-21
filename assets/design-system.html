@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIHR 数智引擎 · Design System</title>
+<style>
+  /* ============================================================
+     AIHR 数智引擎 Design System — Tokens
+     冷峻克制 · AI × HR 编辑型权威范式
+     ============================================================ */
+  :root {
+    /* ---- Neutral / Ink 中性墨阶 ---- */
+    --ink-0:   #FFFFFF;
+    --ink-50:  #F7F8FA;
+    --ink-100: #EEF0F3;
+    --ink-200: #E2E5EA;
+    --ink-300: #CBD0D8;
+    --ink-400: #A6ADB8;
+    --ink-500: #7C8492;
+    --ink-600: #5A626F;
+    --ink-700: #3E4450;
+    --ink-800: #272C36;
+    --ink-900: #161A21;
+    --ink-950: #0D1016;
+
+    /* ---- Brand / 引擎蓝 ---- */
+    --brand-50:  #EEF1FE;
+    --brand-100: #DDE4FC;
+    --brand-200: #C0CCF8;
+    --brand-300: #94A6F1;
+    --brand-400: #637EE8;
+    --brand-500: #3B5BDB;  /* primary */
+    --brand-600: #2F49C2;
+    --brand-700: #253A9E;
+    --brand-800: #1E2F7D;
+    --brand-900: #182461;
+
+    /* ---- Data / 数智青 (图表与数据可视化) ---- */
+    --data-400: #21BFB8;
+    --data-500: #0FA3A0;
+    --data-600: #0B8481;
+
+    /* ---- Signal / 人类暖色 (HR 温度, 极克制使用) ---- */
+    --warm-400: #D9964A;
+    --warm-500: #C2772E;
+    --warm-600: #9E5F22;
+
+    /* ---- Semantic / 语义状态 ---- */
+    --success-500: #1F9D6B;
+    --success-50:  #E7F6EF;
+    --warning-500: #E0A23B;
+    --warning-50:  #FBF1DE;
+    --danger-500:  #D6453D;
+    --danger-50:   #FBE9E8;
+    --info-500:    #3B5BDB;
+    --info-50:     #EEF1FE;
+
+    /* ---- Semantic aliases (语义映射) ---- */
+    --bg:           var(--ink-50);
+    --surface:      var(--ink-0);
+    --surface-sunken: var(--ink-100);
+    --text-primary:   var(--ink-900);
+    --text-secondary: var(--ink-600);
+    --text-muted:     var(--ink-400);
+    --border:         var(--ink-200);
+    --border-strong:  var(--ink-300);
+
+    /* ---- Spacing scale (4pt base) ---- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+
+    /* ---- Radius ---- */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 999px;
+
+    /* ---- Elevation ---- */
+    --shadow-sm: 0 1px 2px rgba(13,16,22,0.06), 0 1px 3px rgba(13,16,22,0.04);
+    --shadow-md: 0 4px 12px rgba(13,16,22,0.08), 0 2px 4px rgba(13,16,22,0.04);
+    --shadow-lg: 0 12px 32px rgba(13,16,22,0.12), 0 4px 8px rgba(13,16,22,0.06);
+
+    /* ---- Typography ---- */
+    --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+    --font-mono: "SF Mono", "JetBrains Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Header ---------- */
+  .ds-header {
+    background: var(--ink-950);
+    color: var(--ink-0);
+    padding: 56px 0 48px;
+    border-bottom: 3px solid var(--brand-500);
+  }
+  .ds-header .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .ds-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--brand-300); margin-bottom: 18px;
+  }
+  .ds-wordmark {
+    font-family: var(--font-serif);
+    font-size: 44px; font-weight: 700; letter-spacing: 0.01em;
+    line-height: 1.1; margin-bottom: 14px;
+  }
+  .ds-wordmark .accent { color: var(--brand-400); }
+  .ds-sub { font-size: 15px; color: var(--ink-400); max-width: 620px; }
+  .ds-meta {
+    margin-top: 28px; display: flex; gap: 28px; flex-wrap: wrap;
+    font-size: 12px; color: var(--ink-500);
+  }
+  .ds-meta b { color: var(--ink-200); font-weight: 600; }
+
+  /* ---------- Layout ---------- */
+  .layout { max-width: 1180px; margin: 0 auto; padding: 0 40px; display: flex; gap: 56px; align-items: flex-start; }
+  .sidebar {
+    position: sticky; top: 24px; flex: 0 0 200px; padding: 40px 0;
+  }
+  .sidebar nav a {
+    display: block; padding: 9px 0; font-size: 13.5px; color: var(--text-secondary);
+    text-decoration: none; border-left: 2px solid transparent; padding-left: 16px; margin-left: -16px;
+    transition: all .15s;
+  }
+  .sidebar nav a:hover { color: var(--text-primary); }
+  .sidebar nav a.active { color: var(--brand-600); border-left-color: var(--brand-500); font-weight: 600; }
+  .sidebar .nav-title { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-400); margin: 0 0 14px 0; }
+  .main { flex: 1; min-width: 0; padding: 40px 0 120px; }
+
+  section { margin-bottom: 88px; scroll-margin-top: 24px; }
+  .sec-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--brand-600); margin-bottom: 10px;
+  }
+  .sec-title { font-family: var(--font-serif); font-size: 30px; font-weight: 700; color: var(--ink-900); margin-bottom: 12px; }
+  .sec-desc { font-size: 14.5px; color: var(--text-secondary); max-width: 680px; margin-bottom: 36px; }
+
+  /* ---------- Color ---------- */
+  .swatch-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 36px; }
+  .swatch { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+  .swatch .chip { height: 72px; }
+  .swatch .meta { padding: 10px 11px 12px; }
+  .swatch .name { font-size: 12px; font-weight: 600; color: var(--text-primary); }
+  .swatch .hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .color-group-title { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin: 0 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+  /* ---------- Typography ---------- */
+  .type-row { display: flex; align-items: baseline; gap: 32px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .type-spec { flex: 0 0 220px; }
+  .type-spec .label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .type-spec .meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+  .type-preview { flex: 1; min-width: 0; color: var(--ink-900); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .t-display { font-family: var(--font-serif); font-size: 40px; font-weight: 700; line-height: 1.2; }
+  .t-h1 { font-family: var(--font-serif); font-size: 32px; font-weight: 700; line-height: 1.25; }
+  .t-h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 600; line-height: 1.3; }
+  .t-h3 { font-family: var(--font-sans); font-size: 20px; font-weight: 600; line-height: 1.4; }
+  .t-body-l { font-family: var(--font-sans); font-size: 16px; font-weight: 400; line-height: 1.65; }
+  .t-body-m { font-family: var(--font-sans); font-size: 14px; font-weight: 400; line-height: 1.6; }
+  .t-caption { font-family: var(--font-sans); font-size: 12px; font-weight: 400; line-height: 1.5; color: var(--text-secondary); }
+  .t-overline { font-family: var(--font-sans); font-size: 11px; font-weight: 600; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand-600); }
+
+  /* ---------- Spacing ---------- */
+  .space-row { display: flex; align-items: center; gap: 24px; padding: 12px 0; }
+  .space-label { flex: 0 0 130px; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); }
+  .space-bar { height: 20px; background: var(--brand-500); border-radius: 3px; }
+  .radius-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 12px; }
+  .radius-item { text-align: center; }
+  .radius-box { height: 80px; background: var(--brand-100); border: 1px solid var(--brand-200); margin-bottom: 10px; }
+  .radius-item .rl { font-size: 12px; font-weight: 600; color: var(--text-primary); }
+  .radius-item .rv { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+  .elev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 12px; }
+  .elev-card { background: var(--surface); border: 1px solid var(--border); height: 110px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); }
+  .elev-card .el { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+  .elev-sm { box-shadow: var(--shadow-sm); }
+  .elev-md { box-shadow: var(--shadow-md); }
+  .elev-lg { box-shadow: var(--shadow-lg); }
+
+  /* ---------- Components ---------- */
+  .comp-block { margin-bottom: 44px; }
+  .comp-head { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+  .comp-note { font-size: 12.5px; color: var(--text-muted); margin-bottom: 18px; }
+  .comp-stage { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+  /* Button */
+  .btn { font-family: var(--font-sans); font-weight: 600; border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; transition: all .15s; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-primary { background: var(--brand-500); color: #fff; }
+  .btn-primary:hover { background: var(--brand-600); }
+  .btn-secondary { background: var(--surface); color: var(--brand-600); border-color: var(--brand-200); }
+  .btn-secondary:hover { border-color: var(--brand-400); background: var(--brand-50); }
+  .btn-ghost { background: transparent; color: var(--brand-600); }
+  .btn-ghost:hover { background: var(--brand-50); }
+  .btn-danger { background: var(--danger-500); color: #fff; }
+  .btn-danger:hover { background: #BE3A33; }
+  .btn-s { font-size: 13px; padding: 7px 14px; }
+  .btn-m { font-size: 14px; padding: 10px 20px; }
+  .btn-l { font-size: 15px; padding: 13px 26px; }
+
+  /* Input */
+  .field { display: flex; flex-direction: column; gap: 7px; min-width: 280px; flex: 1; max-width: 360px; }
+  .field label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .field input { font-family: var(--font-sans); font-size: 14px; padding: 11px 13px; border: 1px solid var(--border-strong); border-radius: var(--radius-md); color: var(--text-primary); background: var(--surface); transition: all .15s; }
+  .field input:focus { outline: none; border-color: var(--brand-400); box-shadow: 0 0 0 3px var(--brand-50); }
+  .field .hint { font-size: 12px; color: var(--text-muted); }
+  .field .hint.err { color: var(--danger-500); }
+
+  /* Tag */
+  .tag { font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: var(--radius-full); display: inline-flex; align-items: center; }
+  .tag-neutral { background: var(--ink-100); color: var(--ink-700); }
+  .tag-brand { background: var(--brand-50); color: var(--brand-700); }
+  .tag-data { background: #E2F5F4; color: var(--data-600); }
+  .tag-warm { background: #F7ECDC; color: var(--warm-600); }
+  .tag-success { background: var(--success-50); color: var(--success-500); }
+  .tag-warning { background: var(--warning-50); color: var(--warm-600); }
+  .tag-danger { background: var(--danger-50); color: var(--danger-500); }
+
+  /* Card */
+  .demo-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm); max-width: 320px; flex: 1; min-width: 260px; }
+  .demo-card h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+  .demo-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Avatar */
+  .avatar { width: 44px; height: 44px; border-radius: var(--radius-full); background: var(--brand-500); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; }
+  .avatar.sm { width: 32px; height: 32px; font-size: 12px; }
+  .avatar.lg { width: 56px; height: 56px; font-size: 18px; }
+  .avatar.neutral { background: var(--ink-700); }
+
+  /* Divider */
+  .div-wrap { width: 100%; max-width: 420px; }
+  .div-label { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+  .divider { height: 1px; background: var(--border); width: 100%; }
+  .divider.strong { background: var(--border-strong); }
+
+  /* Alert */
+  .alert { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: var(--radius-md); font-size: 13.5px; line-height: 1.55; width: 100%; max-width: 520px; }
+  .alert .ico { flex: 0 0 18px; font-weight: 700; margin-top: 1px; }
+  .alert-info { background: var(--info-50); color: var(--brand-700); }
+  .alert-success { background: var(--success-50); color: #157A52; }
+  .alert-warning { background: var(--warning-50); color: var(--warm-600); }
+  .alert-danger { background: var(--danger-50); color: #B23630; }
+
+  .token-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  .token-table th { text-align: left; font-weight: 600; color: var(--text-secondary); padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .token-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-primary); }
+  .token-table td code { font-family: var(--font-mono); font-size: 12px; color: var(--brand-700); }
+  .token-table .role { color: var(--text-muted); }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0 60px; color: var(--text-muted); font-size: 12.5px; }
+  footer .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+</style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="ds-header">
+    <div class="wrap">
+      <div class="ds-eyebrow">Design System · 设计规范</div>
+      <div class="ds-wordmark">AIHR <span class="accent">数智引擎</span></div>
+      <p class="ds-sub">面向「大厂组织变革 × AI 转型」内容矩阵的视觉与组件基线。冷峻克制，以墨阶为骨、引擎蓝为信号，HR 暖色仅作极克制点缀。</p>
+      <div class="ds-meta">
+        <span><b>Version</b> v1.0</span>
+        <span><b>Last updated</b> 2026-07-21</span>
+        <span><b>Owner</b> AIHR 数智引擎</span>
+        <span><b>Scope</b> 公众号 / 长文 / 落地页</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Layout ===== -->
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="nav-title">目录</div>
+      <nav>
+        <a href="#overview" class="active">概览</a>
+        <a href="#color">颜色体系</a>
+        <a href="#type">字体层级</a>
+        <a href="#space">间距规则</a>
+        <a href="#components">基础组件</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+
+      <!-- ===== Overview ===== -->
+      <section id="overview">
+        <div class="sec-eyebrow">Overview</div>
+        <h2 class="sec-title">设计原则</h2>
+        <p class="sec-desc">本系统服务于一个以「硬核、权威、克制」为基调的内容品牌。所有视觉决策服从三条纪律：① 信息优先于装饰；② 单一信号色，克制使用；③ 网格即秩序，间距遵循 4pt 基准。</p>
+
+        <div class="comp-stage" style="display:grid; grid-template-columns: repeat(3,1fr); gap:0; align-items:stretch;">
+          <div style="padding:8px 16px 8px 0;">
+            <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">墨阶为骨</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">以近黑墨色承载正文与结构，灰阶分层表达层级，避免色块喧宾夺主。</div>
+          </div>
+          <div style="padding:8px 16px; border-left:1px solid var(--border);">
+            <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">引擎蓝为信号</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">#3B5BDB 作唯一品牌主色，仅用于关键操作、强调与数据焦点。</div>
+          </div>
+          <div style="padding:8px 0 8px 16px; border-left:1px solid var(--border);">
+            <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">暖色点睛</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">HR 温度用 #C2772E 暖橙表达，仅作标签/强调，绝不成片铺设。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Color ===== -->
+      <section id="color">
+        <div class="sec-eyebrow">Foundations · Color</div>
+        <h2 class="sec-title">颜色体系</h2>
+        <p class="sec-desc">色彩分四族：中性墨阶（结构与文本）、品牌引擎蓝（唯一主色）、数智青（数据可视化）、人类暖色（HR 温度）。语义状态色复用上述色族，保证整体克制。</p>
+
+        <h3 class="color-group-title">Neutral / 中性墨阶</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="chip" style="background:var(--ink-0)"></div><div class="meta"><div class="name">ink-0</div><div class="hex">#FFFFFF</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-50)"></div><div class="meta"><div class="name">ink-50</div><div class="hex">#F7F8FA</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-100)"></div><div class="meta"><div class="name">ink-100</div><div class="hex">#EEF0F3</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-200)"></div><div class="meta"><div class="name">ink-200</div><div class="hex">#E2E5EA</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-300)"></div><div class="meta"><div class="name">ink-300</div><div class="hex">#CBD0D8</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-400)"></div><div class="meta"><div class="name">ink-400</div><div class="hex">#A6ADB8</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-500)"></div><div class="meta"><div class="name">ink-500</div><div class="hex">#7C8492</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-600)"></div><div class="meta"><div class="name">ink-600</div><div class="hex">#5A626F</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-700)"></div><div class="meta"><div class="name">ink-700</div><div class="hex">#3E4450</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-800)"></div><div class="meta"><div class="name">ink-800</div><div class="hex">#272C36</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-900)"></div><div class="meta"><div class="name">ink-900</div><div class="hex">#161A21</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--ink-950)"></div><div class="meta"><div class="name">ink-950</div><div class="hex">#0D1016</div></div></div>
+        </div>
+
+        <h3 class="color-group-title">Brand / 引擎蓝（唯一主色）</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="chip" style="background:var(--brand-50)"></div><div class="meta"><div class="name">brand-50</div><div class="hex">#EEF1FE</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-100)"></div><div class="meta"><div class="name">brand-100</div><div class="hex">#DDE4FC</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-200)"></div><div class="meta"><div class="name">brand-200</div><div class="hex">#C0CCF8</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-300)"></div><div class="meta"><div class="name">brand-300</div><div class="hex">#94A6F1</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-400)"></div><div class="meta"><div class="name">brand-400</div><div class="hex">#637EE8</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-500); box-shadow:inset 0 0 0 2px #fff"></div><div class="meta"><div class="name">brand-500</div><div class="hex">#3B5BDB</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-600)"></div><div class="meta"><div class="name">brand-600</div><div class="hex">#2F49C2</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-700)"></div><div class="meta"><div class="name">brand-700</div><div class="hex">#253A9E</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-800)"></div><div class="meta"><div class="name">brand-800</div><div class="hex">#1E2F7D</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-900)"></div><div class="meta"><div class="name">brand-900</div><div class="hex">#182461</div></div></div>
+        </div>
+
+        <h3 class="color-group-title">Accent / 数智青 &amp; 人类暖色</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="chip" style="background:var(--data-400)"></div><div class="meta"><div class="name">data-400</div><div class="hex">#21BFB8</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--data-500)"></div><div class="meta"><div class="name">data-500</div><div class="hex">#0FA3A0</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--data-600)"></div><div class="meta"><div class="name">data-600</div><div class="hex">#0B8481</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-400)"></div><div class="meta"><div class="name">warm-400</div><div class="hex">#D9964A</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-500)"></div><div class="meta"><div class="name">warm-500</div><div class="hex">#C2772E</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-600)"></div><div class="meta"><div class="name">warm-600</div><div class="hex">#9E5F22</div></div></div>
+        </div>
+
+        <h3 class="color-group-title">Semantic / 语义状态</h3>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="chip" style="background:var(--success-500)"></div><div class="meta"><div class="name">success</div><div class="hex">#1F9D6B</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warning-500)"></div><div class="meta"><div class="name">warning</div><div class="hex">#E0A23B</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--danger-500)"></div><div class="meta"><div class="name">danger</div><div class="hex">#D6453D</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--info-500)"></div><div class="meta"><div class="name">info</div><div class="hex">#3B5BDB</div></div></div>
+        </div>
+
+        <h3 class="color-group-title">语义映射（Semantic Tokens）</h3>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>绑定值</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><code>--bg</code></td><td>ink-50</td><td class="role">页面底色</td></tr>
+            <tr><td><code>--surface</code></td><td>ink-0</td><td class="role">卡片/浮层表面</td></tr>
+            <tr><td><code>--text-primary</code></td><td>ink-900</td><td class="role">主文本</td></tr>
+            <tr><td><code>--text-secondary</code></td><td>ink-600</td><td class="role">次要文本</td></tr>
+            <tr><td><code>--text-muted</code></td><td>ink-400</td><td class="role">辅助/占位</td></tr>
+            <tr><td><code>--border</code></td><td>ink-200</td><td class="role">分隔/描边</td></tr>
+            <tr><td><code>--brand</code></td><td>brand-500</td><td class="role">主操作/强调</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ===== Typography ===== -->
+      <section id="type">
+        <div class="sec-eyebrow">Foundations · Typography</div>
+        <h2 class="sec-title">字体层级</h2>
+        <p class="sec-desc">中文标题采用衬线（Songti / Noto Serif SC）以承载权威与硬核气质；正文与界面元素采用无衬线（PingFang SC / Noto Sans SC）保证可读。英文与数字使用等宽字体呈现 token 等技术信息。</p>
+
+        <div class="type-row">
+          <div class="type-spec"><div class="label">Display</div><div class="meta">40 / 700 · lh 1.2 · Serif</div></div>
+          <div class="type-preview t-display">组织变革的冷观察</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">H1 / 文章主标题</div><div class="meta">32 / 700 · lh 1.25 · Serif</div></div>
+          <div class="type-preview t-h1">当大厂开始重构人才密度</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">H2 / 章节标题</div><div class="meta">24 / 600 · lh 1.3 · Serif</div></div>
+          <div class="type-preview t-h2">AI 不是降本，是重定权责</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">H3 / 小节标题</div><div class="meta">20 / 600 · lh 1.4 · Sans</div></div>
+          <div class="type-preview t-h3">三个被低估的组织信号</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">Body-L / 正文大</div><div class="meta">16 / 400 · lh 1.65 · Sans</div></div>
+          <div class="type-preview t-body-l">权力、筹码与定价权，才是组织叙事里真正不变的硬通货。</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">Body-M / 正文</div><div class="meta">14 / 400 · lh 1.6 · Sans</div></div>
+          <div class="type-preview t-body-m">我们用第一性原理拆解每一次组织动作背后的资源流向。</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">Caption / 注释</div><div class="meta">12 / 400 · lh 1.5 · Sans</div></div>
+          <div class="type-preview t-caption">数据来源：公开财报与企业年报，经交叉核验。</div>
+        </div>
+        <div class="type-row">
+          <div class="type-spec"><div class="label">Overline / 眉标</div><div class="meta">11 / 600 · ls .14 · Sans</div></div>
+          <div class="type-preview t-overline">Field Notes · 一线观察</div>
+        </div>
+      </section>
+
+      <!-- ===== Spacing ===== -->
+      <section id="space">
+        <div class="sec-eyebrow">Foundations · Spacing</div>
+        <h2 class="sec-title">间距规则</h2>
+        <p class="sec-desc">所有间距取自 4pt 基准刻度。组件内边距、栅格间隙、段落节奏统一引用 <code style="font-family:var(--font-mono); font-size:12px; color:var(--brand-700);">--space-*</code> 变量，禁止出现非常规数值。</p>
+
+        <h3 class="color-group-title">Spacing Scale</h3>
+        <div class="space-row"><div class="space-label">--space-1 · 4</div><div class="space-bar" style="width:4px"></div></div>
+        <div class="space-row"><div class="space-label">--space-2 · 8</div><div class="space-bar" style="width:8px"></div></div>
+        <div class="space-row"><div class="space-label">--space-3 · 12</div><div class="space-bar" style="width:12px"></div></div>
+        <div class="space-row"><div class="space-label">--space-4 · 16</div><div class="space-bar" style="width:16px"></div></div>
+        <div class="space-row"><div class="space-label">--space-6 · 24</div><div class="space-bar" style="width:24px"></div></div>
+        <div class="space-row"><div class="space-label">--space-8 · 32</div><div class="space-bar" style="width:32px"></div></div>
+        <div class="space-row"><div class="space-label">--space-12 · 48</div><div class="space-bar" style="width:48px"></div></div>
+        <div class="space-row"><div class="space-label">--space-16 · 64</div><div class="space-bar" style="width:64px"></div></div>
+        <div class="space-row"><div class="space-label">--space-24 · 96</div><div class="space-bar" style="width:96px"></div></div>
+
+        <h3 class="color-group-title" style="margin-top:40px;">Radius / 圆角</h3>
+        <div class="radius-grid">
+          <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-sm)"></div><div class="rl">sm</div><div class="rv">4px</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-md)"></div><div class="rl">md</div><div class="rv">8px</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-lg)"></div><div class="rl">lg</div><div class="rv">12px</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-xl)"></div><div class="rl">xl</div><div class="rv">16px</div></div>
+          <div class="radius-item"><div class="radius-box" style="border-radius:var(--radius-full)"></div><div class="rl">full</div><div class="rv">999px</div></div>
+        </div>
+
+        <h3 class="color-group-title" style="margin-top:40px;">Elevation / 阴影</h3>
+        <div class="elev-grid">
+          <div class="elev-card elev-sm"><div class="el">shadow-sm</div></div>
+          <div class="elev-card elev-md"><div class="el">shadow-md</div></div>
+          <div class="elev-card elev-lg"><div class="el">shadow-lg</div></div>
+        </div>
+      </section>
+
+      <!-- ===== Components ===== -->
+      <section id="components">
+        <div class="sec-eyebrow">Components · Spec</div>
+        <h2 class="sec-title">基础组件规范</h2>
+        <p class="sec-desc">以下为公众号长文、信息卡与落地页共用的基础组件。每个组件定义状态与尺寸变体；交互态（hover/active）以底色与描边变化表达，不引入额外色彩。</p>
+
+        <!-- Button -->
+        <div class="comp-block">
+          <div class="comp-head">Button 按钮</div>
+          <div class="comp-note">主操作唯一使用 brand-500；次级操作描边；危险操作使用 danger。尺寸 S/M/L 对应不同内边距与字号。</div>
+          <div class="comp-stage">
+            <button class="btn btn-primary btn-s">关注我们</button>
+            <button class="btn btn-primary btn-m">阅读全文</button>
+            <button class="btn btn-primary btn-l">订阅深度研究</button>
+            <button class="btn btn-secondary btn-m">次要操作</button>
+            <button class="btn btn-ghost btn-m">文字按钮</button>
+            <button class="btn btn-danger btn-m">取消订阅</button>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="comp-block">
+          <div class="comp-head">Input 输入框</div>
+          <div class="comp-note">标签在上、输入在中、提示在下。聚焦态使用 brand-400 描边 + brand-50 光晕；错误态使用 danger。</div>
+          <div class="comp-stage">
+            <div class="field">
+              <label>邮箱地址</label>
+              <input type="text" placeholder="you@example.com" />
+              <span class="hint">用于接收每周深度研究</span>
+            </div>
+            <div class="field">
+              <label>订阅关键词</label>
+              <input type="text" placeholder="组织变革 / AI转型" style="border-color:var(--danger-500); box-shadow:0 0 0 3px var(--danger-50);" />
+              <span class="hint err">关键词不能为空</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tag -->
+        <div class="comp-block">
+          <div class="comp-head">Tag 标签</div>
+          <div class="comp-note">用于文章分类与状态标记。中性与品牌为主，暖色/状态色仅作语义强调，避免成片使用。</div>
+          <div class="comp-stage">
+            <span class="tag tag-neutral">组织变革</span>
+            <span class="tag tag-brand">AI 转型</span>
+            <span class="tag tag-data">数据洞察</span>
+            <span class="tag tag-warm">一线叙事</span>
+            <span class="tag tag-success">已验证</span>
+            <span class="tag tag-warning">待核验</span>
+            <span class="tag tag-danger">争议</span>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="comp-block">
+          <div class="comp-head">Card 卡片</div>
+          <div class="comp-note">信息聚合单元。白底、1px 描边、shadow-sm；圆角 lg。用于文章摘要卡与数据看板。</div>
+          <div class="comp-stage">
+            <div class="demo-card">
+              <h4>大厂组织冗余清洗</h4>
+              <p>当增长停滞，组织会把结构性冗余当作成本一次性出清——这是系统的自洁，不是惩罚。</p>
+            </div>
+            <div class="demo-card">
+              <h4>AI 重定权责</h4>
+              <p>AI 进入的不是岗位，而是权责链路；它重写的不是人头数，而是决策节点。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar + Divider -->
+        <div class="comp-block">
+          <div class="comp-head">Avatar 头像 &amp; Divider 分割线</div>
+          <div class="comp-note">头像用于作者/信源标识；分割线以 1px 墨阶表达层级，避免装饰性分隔。</div>
+          <div class="comp-stage">
+            <div class="avatar sm neutral">A</div>
+            <div class="avatar">数</div>
+            <div class="avatar lg">HR</div>
+            <div class="div-wrap">
+              <div class="div-label">Divider（默认）</div>
+              <div class="divider"></div>
+              <div style="height:18px"></div>
+              <div class="div-label">Divider（强）</div>
+              <div class="divider strong"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alert -->
+        <div class="comp-block">
+          <div class="comp-head">Alert 提示条</div>
+          <div class="comp-note">用于文内注释、数据口径说明与重要提醒。底色取语义色 50 阶，文字取同色深阶。</div>
+          <div class="comp-stage" style="flex-direction:column; align-items:stretch;">
+            <div class="alert alert-info"><span class="ico">i</span><span><b>口径说明：</b>本文所有组织动作均基于公开财报与年报交叉核验，不含未披露内部信息。</span></div>
+            <div class="alert alert-success"><span class="ico">✓</span><span><b>已验证：</b>样本覆盖 12 家头部科技公司的近三年组织调整。</span></div>
+            <div class="alert alert-warning"><span class="ico">!</span><span><b>待核验：</b>部分海外子公司架构以本地披露为准，可能存在口径差异。</span></div>
+            <div class="alert alert-danger"><span class="ico">×</span><span><b>争议：</b>该结论与主流组织行为学框架存在张力，请独立判断。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="wrap">AIHR 数智引擎 · Design System v1.0 — 本规范为内容矩阵统一视觉基线，修改须经品牌负责人确认。Token 以 CSS 变量落地，可直接交付前端工程。</div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    // 滚动高亮当前章节
+    const links = document.querySelectorAll('.sidebar nav a');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = links.find(l => l.getAttribute('href') === '#' + e.target.id);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => s && obs.observe(s));
+  </script>
+</body>
+</html>
