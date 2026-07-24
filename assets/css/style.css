@@ -311,3 +311,22 @@
 .article-declare strong{color:#1f2937;}
 .article-declare a{color:var(--text-link);text-decoration:none;}
 .article-declare a:hover{text-decoration:underline;}
+
+/* === GEO 内容组件：让文章可被生成式引擎直接抽取引用 === */
+/* 答案前置胶囊（BLUF）：Princeton GEO +41% 引用提升的核心——自包含直接回答 */
+.geo-answer-capsule{margin:1.5rem 0;padding:1.1rem 1.25rem;background:var(--accent-pale);border:1px solid rgba(59,91,219,0.22);border-left:4px solid var(--accent);border-radius:var(--radius-lg);}
+.geo-answer-capsule__label{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.45rem;}
+.geo-answer-capsule__text{font-size:1.02rem;line-height:1.8;color:var(--text);margin:0;}
+.geo-answer-capsule__text strong{color:var(--accent);font-weight:700;}
+/* 关键数据块：具体数字（+33% 引用提升）以可抽取列表呈现 */
+.geo-stats{margin:1.75rem 0;padding:1.1rem 1.25rem;background:var(--bg-subtle);border:1px solid var(--line);border-radius:var(--radius-lg);}
+.geo-stats h3{margin-top:0;font-size:1.02rem;color:var(--text);}
+.geo-stats ul{list-style:none;margin:.6rem 0 0;padding:0;}
+.geo-stats li{position:relative;padding:.5rem 0 .5rem 1.4rem;line-height:1.75;color:var(--text);border-top:1px solid var(--line);}
+.geo-stats li:first-child{border-top:none;}
+.geo-stats li::before{content:"";position:absolute;left:0;top:1.05rem;width:7px;height:7px;border-radius:50%;background:var(--warm-500);}
+.geo-stats strong{color:var(--accent);font-weight:700;}
+/* 专家引语块：署名引用（+41% 引用提升）区别于正文 blockquote */
+.geo-quote{margin:1.75rem 0;padding:1.1rem 1.25rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--warm-500);border-radius:var(--radius-lg);}
+.geo-quote p{margin:0;font-family:var(--font-serif);font-size:1.12rem;line-height:1.85;color:var(--text);font-style:normal;}
+.geo-quote cite{display:block;margin-top:.7rem;font-size:.86rem;font-style:normal;color:var(--text-muted);}
