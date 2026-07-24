@@ -45,6 +45,13 @@
 .related-reading li.rr-feature{grid-column:1/-1;border-left:3px solid var(--accent);padding-left:1rem;margin-bottom:.4rem}
 .related-reading li.rr-feature .rr-title{font-size:1.04rem}
 .related-reading li.rr-feature .rr-desc{font-size:.88rem}
+/* 二跳推荐卡片化（2026-07-24 · D：对抗直接访问跳出率，全站纯 CSS 受益） */
+.related-reading ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.related-reading li{margin:0}
+.related-reading li a{display:block;padding:.72rem .95rem;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--bg-subtle);color:var(--text);font-size:.9rem;line-height:1.55;text-decoration:none;transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease),border-color .18s var(--ease)}
+.related-reading li a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(59,91,219,.12);background:var(--accent-pale);border-color:var(--accent);color:var(--text-link)}
+.related-reading li.rr-feature{border-left-width:4px}
+.related-reading li.rr-feature a{font-size:.95rem}
 
 /* ===== 阅读体验重构（2026-07-17）：互动组件 / 进度条 / 等距段落 ===== */
 /* 正文段落等距节奏 */
