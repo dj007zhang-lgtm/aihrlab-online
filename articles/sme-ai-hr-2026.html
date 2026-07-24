@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中小企业AI+HR：从试用到真用 | AIHR数智引擎</title>
+  <meta name="description" content="97.4% 小微经营者听过 AI，53.2% 试过，仅 33% 真在用。基于 HR Partner、SHRM、赛迪等 2026 报告，拆解中小企业 AI+HR 的真实瓶颈与三件低成本解法。">
+  <meta name="keywords" content="中小企业 AI HR, AI+HR 落地, 中小企业数字化转型, AI 招聘, AI 使用政策">
+  <meta name="answer-what" content="中小企业如何用 AI 做 HR">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="中小企业 AI+HR 的瓶颈不在技术，而在从试用到持续使用的最后一公里；解法不是买系统，而是一页 AI 政策、两个熟工具、三件高 ROI 琐事（招聘、HR 分析、JD 撰写）。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/sme-ai-hr-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="中小企业AI+HR：从试用到真用">
+  <meta property="og:description" content="97.4% 小微经营者听过 AI，53.2% 试过，仅 33% 真在用。拆解中小企业 AI+HR 的真实瓶颈与三件低成本解法。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/sme-ai-hr-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c08-ai-governance-compliance.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c08-ai-governance-compliance.webp">
+  <meta name="twitter:title" content="中小企业AI+HR：从试用到真用">
+  <meta name="twitter:description" content="97.4% 小微经营者听过 AI，53.2% 试过，仅 33% 真在用。拆解中小企业 AI+HR 的真实瓶颈与三件低成本解法。">
+
+  <style>
+    :root {
+      --bg:#fff;--bg-subtle:#fafaf8;--bg-warm:#f7f5f0;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#3B5BDB;--text-link-hover:#2F49C2;
+      --accent:#3B5BDB;--accent-pale:#EEF1FE;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(59,91,219,.35); }
+    .article-body .ilink:hover { background:rgba(59,91,219,.16); }
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "中小企业AI+HR：从试用到真用",
+    "description": "基于 HR Partner、SHRM、赛迪智库等 2026 报告，拆解中小企业 AI+HR 的真实瓶颈（试用到持续使用的最后一公里）与三件低成本解法。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c08-ai-governance-compliance.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Andy Zhang",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c08-ai-governance-compliance.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-07-23",
+    "dateModified": "2026-07-23",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/sme-ai-hr-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/resources/index.html">资源库</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">中小企业</span>
+    <h1>中小企业AI+HR：从试用到真用</h1>
+    <div class="article-meta">
+      <time datetime="2026-07-23">2026年7月23日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>中小企业</span>
+      <span>&middot;</span>
+      <span>阅读约 11 分钟</span>
+    </div>
+    <p class="lead">97.4% 的小微经营者听说过 AI，53.2% 试过，但只有 33% 还在用。这道「漏斗」不是能力问题，而是中小企业 AI+HR 最真实的现状。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c08-ai-governance-compliance.webp"
+         alt="中小企业 AI+HR 落地：从试用到真用"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <div class="article-body">
+
+    <p>「中小企业要不要上 AI 做 HR」已经是个过时的问题。真正的问题藏在一组反差里：绝大多数中小企业主和 HR 早就摸过 AI，但大多数人没把它变成日常。2026 年几份中外报告把这道落差摆在了台面上——它不性感，却比任何「转型宣言」都更接近中小企业的真实处境。</p>
+
+    <p>先把三组数字放在一起看。HR Partner 发布的《The State of AI in Small Business HR 2026》调研了英美澳 20–500 人的中小企业：<strong>80% 的 HR 已经在工作中用 AI 辅助，但只有 23% 的企业写了正式的 AI 使用政策</strong>。赛迪智库中小企业研究所联合网商银行的《AI时代小微经营者观察》给出了更陡的漏斗：中国 1.9 亿户小微经营者中，97.4% 听说过 AI，53.2% 试过，持续使用者只剩 33%。长江商学院 2026 年初对 2016 家规模以上工业企业的调研则显示，整体 AI 渗透率约 10%，且规模越小越低——500 人以上大企业 15.5%，中型企业 9.1%，小型企业仅 5.4%。结论先行：中小企业 AI+HR 的瓶颈，从来不是「要不要上」，而是「用了，能不能真用起来」。</p>
+
+    <h2>一、全球都在「用了，但没真用」</h2>
+
+    <p>把三个样本并排，共性比差异更刺眼：认知和尝鲜早已不是障碍，持续使用才是。而且企业越小，从「试过」到「天天用」的落差越大。</p>
+
+    <table>
+      <thead>
+        <tr><th>报告 / 样本</th><th>「用过 / 试过」</th><th>「持续用 / 有政策」</th><th>核心落差</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HR Partner（英美澳 SMB）</td><td>80% 用 AI 辅助</td><td>23% 有正式政策</td><td>治理缺口 57 个百分点</td></tr>
+        <tr><td>赛迪 × 网商银行（中国小微）</td><td>53.2% 试过</td><td>33% 持续用</td><td>近七成未跨过门槛</td></tr>
+        <tr><td>长江商学院（中国工业企业）</td><td>10% 渗透率</td><td>小型企业仅 5.4%</td><td>规模越小越滞后</td></tr>
+      </tbody>
+    </table>
+
+    <p>HR Partner 还顺手拆解了中小企业的真实焦虑。65% 的受访者最担心 AI 输出的<strong>准确性与可靠性</strong>，62% 最担忧<strong>数据隐私与安全</strong>，而把「失业或岗位变动」列为首要关切的只有 10%。这说明中小企业 HR 怕的不是「被 AI 取代」，而是「用不准、用不安全」。这个心态底色，决定了中小企业的 AI 叙事不该是宏大转型，而该是可控的提效。</p>
+
+    <h2>二、为什么卡在「试用」这一步</h2>
+
+    <p>这不是能力问题，是三道写在账本和现实里的门槛。任何一份「中小企业 AI 失败」的复盘，几乎都能归到这三条。</p>
+
+    <p><strong>第一，成本敏感。</strong>赛迪的数据显示，2026 年一季度中国小微经营者净利润率均值仅 4.4%；58.5% 曾因价格原因放弃购买或停止续费 AI 工具，44% 倾向于只用免费或低价产品。对利润薄如纸的小微来说，一个用不充分的付费工具，比没有工具更让人警惕。</p>
+
+    <p><strong>第二，能力门槛。</strong>AI 降低了操作入口，却抬高了对「提问精准度」和「数据整理能力」的要求——而这恰恰是小微经营者的薄弱环节。赛迪报告里，仅 6% 的小微经营者实现了 AI 流程标准化，71.5% 的 AI 使用者仍停留在初学者或一般水平。工具在手里，活却干不漂亮。</p>
+
+    <p><strong>第三，场景错配。</strong>这是最隐蔽、也最致命的一道。钧田咨询 2026 年的分析显示，中小企业 AI 薪酬系统的采纳率，大型企业 68%、中型 42%，而小微仅 12%、初创 8%——采纳率由「组织准备度、信任机制、数据治理能力」共同决定，而非技术本身。问题是，大量中小企业照搬大企业的剧本：500 人以上大企业单笔 AI 投入在 500 万元以上的占 21.3%，是一场「底层重构」；而 500 人以下中小企业 42.6% 的单笔投入只在 2–10 万元，本该是「局部修补」。用大企业的打法演小企业的戏，必然卡在第三幕。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-hr-landing-3-high-roi-plays.html">AI落地HR实战：314家企业验证的3个高ROI切入点</a></li>
+        <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">AI招聘的算法偏见与合规红线</a></li>
+        <li><a href="/articles/hr-digital-employee-2026.html">HR数字员工：AI Agent落地指南</a></li>
+      </ul>
+    </div>
+
+    <h2>三、解法不是「转型方案」，是三件便宜的小事</h2>
+
+    <p>把「转型」「中台」「底层重构」这些词从中小企业的词典里暂时拿掉。数据指向的解法朴素得不像咨询公司的产出：补一个缺口，用两套工具，钉两三件事。</p>
+
+    <p><strong>第一件：先补那一页 AI 使用政策。</strong>HR Partner 的 80%/23% 缺口，在 2026 年已经从「加分项」变成了合规刚需。欧美陆续出台 AI 职场相关立法，中国《个人信息保护法》对候选人数据的收集与使用也有明确要求。一页纸写清三件事——哪些环节能用 AI、哪些决策必须人工复核、员工和候选人数据怎么存——成本近乎为零，却关掉了最大的隐形风险。对身兼数职的中小企业 HR 来说，这是性价比最高的动作。</p>
+
+    <p><strong>第二件：用你已经在用的工具，别买新系统。</strong>HR Partner 的数据很直白：ChatGPT 个人使用率 72%，Microsoft Copilot 49%。中小企业不买小众的 HR 专业软件，而是把熟悉的工具钉在高频琐事上。通用平台胜在零学习成本、随取随用；昂贵专业系统的「功能冗余」，对小团队反而是负担。</p>
+
+    <p><strong>第三件：把 AI 钉在 2–3 件高 ROI 琐事——招聘和 HR 分析。</strong>招聘是 AI 在 HR 里落地最深的环节：HR Partner 显示 58% 的中小企业用 AI 做招聘相关任务，SHRM 也确认招聘是 AI 使用最普遍的实践区（27%）。中国市场更明显——艾瑞咨询测算 2026 年中国智能招聘市场规模约 85 亿元、同比增长超 30%，北森与智联招聘的联合调研显示超 68% 的中国企业已在招聘中应用 AI，简历初筛是采纳率最高的功能（82%）。另一座金矿是 HR 分析：HR Partner 中 41% 的受访者认为未来 12 个月「HR 报告与分析」最具价值；但 SHRM 同时指出，56% 的企业根本不正式衡量 AI 投入的成效。把散乱的员工数据变成可读的周报洞察，是小团队也用得起的杠杆。</p>
+
+    <blockquote>中小企业 AI+HR 的赢面，不在于谁先买系统，而在于谁先把「试过」变成「天天用」。一页政策、两个熟工具、三件琐事，足够跨过那道门槛。</blockquote>
+
+    <h2>四、给中小企业 HR 的一页清单（可直接抄）</h2>
+
+    <p>如果你是一个人扛下招聘、薪酬、员工关系的 HR，下面是周一早上就能落地的五步，不需要预算，不需要老板签字：</p>
+
+    <ol>
+      <li><strong>今天起草一页 AI 使用政策。</strong>列清：JD 撰写和简历初筛可以用 AI，但最终人选判断必须人工；候选人数据不得进入公共大模型聊天框。</li>
+      <li><strong>工具只用免费层。</strong>ChatGPT 或 Copilot 的免费/基础版，加上你已经在用的办公套件，足以覆盖 80% 的行政琐事。</li>
+      <li><strong>任务锁定三件：</strong>JD 撰写、简历初筛、月度员工数据周报。先把它仨跑顺，再谈别的。</li>
+      <li><strong>凡涉及人的决策，人工必复核。</strong>AI 给排序和建议，你做判断和沟通——这是合规的底线，也是信任的底线。</li>
+      <li><strong>只盯一个指标：</strong>每周省下多少小时。SHRM 提醒多数企业不衡量 AI 成效，而你用这一个数字，就能证明它值不值得继续用。</li>
+    </ol>
+
+    <p>这里有个被忽视的现实：HR Partner 发现 46% 的中小企业 HR 同时管着财务、运营或办公室行政。也就是说，中小企业的 HR 职能本就是「多顶帽子」的超人角色，AI 不是部门级工程，而是单人职能的杠杆。杠杆用对了，一个人能顶过去半个团队的事务量。</p>
+
+    <h2>五、诚实的边界（不假装全知）</h2>
+
+    <p>最后把口径说清楚，免得被当成又一个「AI 万能」的忽悠。HR Partner 的样本是英美澳中小企业，赛迪、长江、钧田是中国数据，<a href="/articles/ai-recruitment-bias-compliance-2026.html" class="ilink">AI 招聘的合规边界</a>在不同法域差异很大。趋势是收敛的——小企业普遍卡在「持续使用」——但绝对值不能直接跨国套。中国小微的漏斗（97/53/33）更陡，部分因为口径不同：西方测的是「职场 AI 辅助」，中国测的是「持续经营使用」，后者本就更严苛。</p>
+
+    <p>AI 也不会取代中小企业的 HR 通才。HR Partner 里仅 10% 担心失业；钧田指出的是角色迁移——从「方案设计者」转向「AI 系统管理者、组织文化设计者」。更要紧的是，AI 做不了的事很明确：信任建立、复杂场景下的判断、以及员工安抚。钧田的总结很到位——AI 处理流程，人工负责沟通。把「提效」说成「替代」，既不准确，也会劝退本就用得不踏实的的小团队。</p>
+
+    <p>所以回到开头那组数字。对中小企业来说，AI+HR 没有捷径，也没有借口。赢面不在于谁先买系统，而在于谁先成为那 33%——用一页政策、两个熟工具、三件琐事，把「试过」变成「天天用」。好内容不教宏大叙事，只告诉一个身兼数职的 HR：周一早上，具体该点开哪个工具，写哪一行字。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-hr-landing-3-high-roi-plays.html">AI落地HR实战：314家企业验证的3个高ROI切入点</a></li>
+        <li><a href="/articles/hr-digital-employee-2026.html">HR数字员工：AI Agent落地指南</a></li>
+        <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">AI招聘的算法偏见与合规红线</a></li>
+        <li><a href="/articles/recruitment-ai-fullstack.html">招聘全链路AI落地：从JD撰写到面试出题的Agent化</a></li>
+        <li><a href="/articles/ai-era-hr-5-misalignments.html">AI时代人力资源管理的5大错位</a></li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+    <section class="references">
+      <h3>参考来源</h3>
+      <ul>
+        <li>HR Partner — The State of AI in Small Business HR 2026（2026-02，调研英美澳 20–500 人中小企业，样本覆盖 HR 专业人士与企业主）</li>
+        <li>SHRM — The State of AI in HR 2026（基于 2025 年 12 月对 1,908 名 HR 从业者的调研，2026 年发布）</li>
+        <li>赛迪智库中小企业研究所 × 网商银行 —《AI时代小微经营者观察》（2026，覆盖中国 1.9 亿户小微经营者）</li>
+        <li>长江商学院 — 2016 家规模以上工业企业 AI 应用专项调研（2026-01，披露实体企业 AI 渗透率与规模分化）</li>
+        <li>钧田咨询 — 2026 中小企业 AI 薪酬系统采纳率与障碍分析（大型企业 68% / 小微 12% 的分层数据）</li>
+        <li>艾瑞咨询 / Gartner（经行业报道转引）— 中国智能招聘市场规模 2026（约 85 亿元，同比 +30%）/ Global HR Technology Survey 2026</li>
+      </ul>
+    </section>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
