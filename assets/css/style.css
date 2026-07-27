@@ -175,6 +175,8 @@
 .card-meta{font-size:0.8rem;color:var(--text-muted,#868e96);margin-top:0.5rem;}
 .hub-links{list-style:none;padding-left:0;margin:1rem 0;}
 .hub-links li{padding:0.5rem 0;border-bottom:1px solid var(--line,#e9ecef);}
+.hub-cross-link{margin:1.75rem 0;padding:0.9rem 1.1rem;background:var(--bg-muted,#f6f7f9);border-left:3px solid var(--engine-blue,#3B5BDB);border-radius:0 8px 8px 0;font-size:0.95rem;color:var(--text,#222);}
+.hub-cross-link a{font-weight:600;color:var(--engine-blue,#3B5BDB);}
 .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0;}
 .compare-table th,.compare-table td{border:1px solid var(--line,#e9ecef);padding:0.6rem 0.9rem;text-align:left;font-size:0.88rem;}
 .compare-table th{background:var(--bg-subtle,#f8f9fa);font-weight:600;}
