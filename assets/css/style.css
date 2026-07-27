@@ -330,3 +330,12 @@
 .geo-quote{margin:1.75rem 0;padding:1.1rem 1.25rem;background:#fff;border:1px solid var(--line);border-left:4px solid var(--warm-500);border-radius:var(--radius-lg);}
 .geo-quote p{margin:0;font-family:var(--font-serif);font-size:1.12rem;line-height:1.85;color:var(--text);font-style:normal;}
 .geo-quote cite{display:block;margin-top:.7rem;font-size:.86rem;font-style:normal;color:var(--text-muted);}
+/* 首屏意图路径枢纽：D 支柱降低跳出的核心改造（首屏 TL;DR 之后即时给下一步） */
+.next-path{margin:1.6rem 0;padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:var(--radius-lg);background:linear-gradient(180deg,var(--accent-pale),var(--bg-subtle));}
+.next-path__label{font-size:.76rem;font-weight:700;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin:0 0 .85rem;}
+.next-path__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem;}
+.next-path__card{display:block;padding:.9rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--bg-card);text-decoration:none;color:var(--text);transition:transform .18s var(--ease),box-shadow .18s var(--ease),border-color .18s var(--ease);}
+.next-path__card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(59,91,219,.14);border-color:var(--accent);color:var(--text-link);}
+.next-path__tag{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:6px;padding:.12rem .5rem;margin-bottom:.45rem;}
+.next-path__title{font-size:.98rem;font-weight:600;line-height:1.45;margin:0 0 .3rem;}
+.next-path__desc{font-size:.82rem;line-height:1.5;color:var(--text-muted);margin:0;}
