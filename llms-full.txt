@@ -3,6 +3,11 @@
 /articles/global-tech-hr-ai-disruption-2026.html | 2026全球HR大洗牌：五巨头如何用AI重写人力资源 | Uber裁减HR部门23%编制、微软向22万员工宣告HR全面重组、IBM的AI代理AskHR接管200个岗位、Meta连续三轮裁员波及HRBP。这不是「HR数字化升级」，而是HR职能本身正在被AI重写。
 /articles/ant-group-ai-org-restructuring-2026.html | 蚂蚁AI重构：砍掉灵光，把筹码压给阿福 | 2026年7月蚂蚁通用AI助手灵光收缩、一号位转岗，健康AI阿福升为战略重心。CFO出身的CEO韩歆毅用AI重新分配筹码，把资源从烧钱抢入口收回离钱最近、且有22年壁垒的医疗健康场景。
 /articles/sme-ai-hr-2026.html | 中小企业AI+HR：从试用到真用 | 97.4% 小微经营者听过 AI，53.2% 试过，仅 33% 真在用。基于 HR Partner、SHRM、赛迪等 2026 报告，拆解中小企业 AI+HR 的真实瓶颈与三件低成本解法。
+/assessments/index.html | 测评方法论枢纽：四套模型讲清各自是什么与边界 | 大五人格、MBTI、DISC、霍兰德 RIASEC 四套主流人才测评模型的定义型综述枢纽。每套讲清维度解释、信效度边界与 AI 时代修正，帮 HR 按场景选对工具、不混用不贴标签。
+/assessments/bigfive.html | 大五人格是什么：五维模型与 AI 时代修正（方法论） | 大五人格（OCEAN）是心理学共识度最高的人格模型，五维连续谱。讲清五维定义、HR 招聘初筛用法，以及 AI 时代外倾/神经质职场含义被重写。
+/assessments/mbti.html | MBTI 是什么：四维度十六型与 AI 时代定位（方法论） | MBTI 源自荣格心理类型，四轴十六型。讲清四个维度、信效度争议，以及 AI 时代该用于团队沟通而非选拔的边界。
+/assessments/disc.html | DISC 是什么：四种行为风格与 AI 时代用法（方法论） | DISC 是职场行为风格模型（支配/影响/稳健/谨慎），只测工作里怎么动。讲清四风格、与大五/MBTI 的边界，以及 AI 时代转向编排人机协作。
+/assessments/holland.html | 霍兰德 RIASEC 是什么：职业兴趣六型与 AI 修正（方法论） | 霍兰德 RIASEC 六型（R/I/A/S/E/C）核心是人与职业兴趣匹配。讲清六型、六边形适配，以及数字时代补入 T（技术型）维度的修正。
 # AIHR数智引擎 — 全站内容索引
 
 > AI时代组织变革实验室。聚焦AI驱动组织变革、大厂组织架构调整、AI人才战略与智能组织设计。
@@ -480,3 +485,25 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 - URL: https://www.aihrlab.online/articles/sme-ai-hr-2026.html
 - 摘要: 97.4% 小微经营者听过 AI，53.2% 试过，仅 33% 真在用。基于 HR Partner、SHRM、赛迪等 2026 报告，拆解中小企业 AI+HR 的真实瓶颈不在技术，而在从试用到持续使用的最后一公里；解法是一页 AI 政策 + 两个熟工具 + 三件高 ROI 琐事。
 
+
+## 测评方法论（定义型 GEO 内容）
+
+### 114. 测评方法论枢纽：四套模型讲清各自是什么与边界
+- URL: https://www.aihrlab.online/assessments/index.html
+- 摘要: 大五人格、MBTI、DISC、霍兰德 RIASEC 四套主流人才测评模型的定义型综述枢纽。每套讲清维度解释、信效度边界与 AI 时代修正，核心原则是按场景选工具、不混用不贴标签：大五用于选拔，MBTI 用于沟通，DISC 用于协作编排，霍兰德用于职业适配。
+
+### 115. 大五人格是什么：五维模型与 AI 时代修正
+- URL: https://www.aihrlab.online/assessments/bigfive.html
+- 摘要: 大五人格（Big Five / OCEAN）是心理学界共识度最高的人格模型，用开放性、责任心、外倾性、宜人性、神经质五个连续维度描述个体差异。讲清五维定义、HR 招聘初筛的维度权重用法，以及 AI 协作时代外倾性不再等于「会来事」、神经质被重新框架为「高敏感度」的职场含义修正。
+
+### 116. MBTI 是什么：四维度十六型与 AI 时代定位
+- URL: https://www.aihrlab.online/assessments/mbti.html
+- 摘要: MBTI 源自荣格心理类型理论，由 Myers 与 Briggs 发展，用外向/内向、感觉/直觉、思考/情感、判断/感知四轴组合出 16 型。讲清四个维度、学术界对其作为选拔工具信效度的保留（强制二分、重测波动、巴纳姆效应），以及 AI 时代应定位为团队沟通语言而非永久标签。
+
+### 117. DISC 是什么：四种行为风格与 AI 时代用法
+- URL: https://www.aihrlab.online/assessments/disc.html
+- 摘要: DISC 是源自马斯顿情绪理论的职场行为风格模型，用支配 D、影响 I、稳健 S、谨慎 C 四个维度刻画人在任务与人际两条轴上的行为倾向。讲清四风格、与大五/MBTI 的边界（只测行为不测人格），以及 AI Agent 进组后其价值从「预测人」转向「编排人—Agent 协作」。
+
+### 118. 霍兰德 RIASEC 是什么：职业兴趣六型与 AI 修正
+- URL: https://www.aihrlab.online/assessments/holland.html
+- 摘要: 霍兰德 RIASEC 用现实 R、研究 I、艺术 A、社会 S、企业 E、常规 C 六个兴趣类型描述人与职业的适配关系，核心是「人岗兴趣匹配」，六型排成相容/冲突的六边形。讲清六型与六边形，以及数字时代经典职业示例过时、Wang 等（2024, Nature Portfolio）补入 T（技术型）维度、ILO（2025）关于生成式 AI 改造而非取代工作的修正。
