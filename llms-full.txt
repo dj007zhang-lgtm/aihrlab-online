@@ -510,3 +510,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 120. 中国劳动力市场AI任务重组：2100万新岗从何而来
 - URL: https://www.aihrlab.online/articles/china-labor-market-ai-task-restructuring-2026.html
 - 摘要: 中国劳动力市场AI任务重组：上海科技大学CEISD基于7.43亿条招聘数据指出，职位消失是伪命题，AI正在重组而非消灭岗位——约2100万新岗由任务重组催生(占18.6%)，收缩集中在月薪5k-8k、1-3年经验的入门中端岗；全球镜鉴(Anthropic观测暴露度、斯坦福Six Facts、WEF)印证同一机制：AI首轮冲击是关门不裁员，年轻人入职放缓。
+
+### 121. Agent ROI现实检验：80%说赚，88%未投产
+- URL: https://www.aihrlab.online/articles/ai-agent-roi-reality-2026.html
+- 摘要: AI Agent 的 ROI 出现严重背离：Anthropic 调研显示 80% 组织称已获可衡量回报，但 Forrester/Anaconda 指出 88% 试点从未投产，Gartner 预测 2027 年前超 40% 项目被取消。回报集中在高体量、低方差任务（客服工单成本降至约 1/9、代码评审降至约 1/66）；死因在评估缺口、治理摩擦、遗留集成与技能断层，而非模型。对 HR 与组织，须把 ROI 度量从采用率改为工作流重构度，并建立分级治理。
