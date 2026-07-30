@@ -836,4 +836,10 @@
     <loc>https://www.aihrlab.online/assessments/holland.html</loc>
     <lastmod>2026-07-28</lastmod>
   </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/genai-productivity-evidence-2026.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
