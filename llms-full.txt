@@ -507,3 +507,6 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 119. 生成式AI提效的真相：2025-2026一线实证拆解
 - URL: https://www.aihrlab.online/articles/genai-productivity-evidence-2026.html
 - 摘要: 生成式AI提效的真相：BCG、MIT、微软研究院等2025-2026年随机实验显示，AI在能力边界内显著提效（咨询多完成12.2%任务、客服新手+34%），但边界外反噬（正确率-19pp、资深开发者-19%）、宏观TFP每年仅被拉动约0.07个百分点、89%高管自报无影响。提效被误读，组织须把AI放在对的位置并守住人的判断。
+### 120. 中国劳动力市场AI任务重组：2100万新岗从何而来
+- URL: https://www.aihrlab.online/articles/china-labor-market-ai-task-restructuring-2026.html
+- 摘要: 中国劳动力市场AI任务重组：上海科技大学CEISD基于7.43亿条招聘数据指出，职位消失是伪命题，AI正在重组而非消灭岗位——约2100万新岗由任务重组催生(占18.6%)，收缩集中在月薪5k-8k、1-3年经验的入门中端岗；全球镜鉴(Anthropic观测暴露度、斯坦福Six Facts、WEF)印证同一机制：AI首轮冲击是关门不裁员，年轻人入职放缓。
