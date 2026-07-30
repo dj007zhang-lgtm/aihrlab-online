@@ -74,7 +74,7 @@
 
 ### 14. AI裁员：管理者不会被AI替代，但「管理」正在被重新定义
 - URL: https://www.aihrlab.online/articles/ai-layoff-manager-redefine.html
-- 摘要: 搜索首页全部文章AI裁员：管理者不会被AI替代2026年6月23日By Andy Zhang阅读时间：约11分钟AI裁员：管理者不会被AI替代，但「管理」正在被重新定义 5月20日，Meta宣布裁员8000人，另将7000人调往AI方向。谷歌已经裁撤了超过三分之一的小团队管理者。只看标题，容易...
+- 摘要: 搜索首页全部文章AI裁员：管理者不会被AI替代2026年6月23日By AIHR数智引擎阅读时间：约11分钟AI裁员：管理者不会被AI替代，但「管理」正在被重新定义 5月20日，Meta宣布裁员8000人，另将7000人调往AI方向。谷歌已经裁撤了超过三分之一的小团队管理者。只看标题，容易...
 
 ### 15. 23万人被AI裁员后，一半的公司后悔了
 - URL: https://www.aihrlab.online/articles/ai-layoff-regret.html
@@ -135,7 +135,7 @@
 
 ### 29. 没有KPI，如何管理天才团队：DeepMind的答案是「科学领导力」
 - URL: https://www.aihrlab.online/articles/deepmind-no-kpi-talent-management.html
-- 摘要: 搜索首页全部文章DeepMind无KPI管理2026年4月7日By Andy Zhang阅读时间：约10分钟没有KPI，如何管理天才团队：DeepMind的答案是「科学领导力」 DeepMind以1100人冲上9000亿估值，却不用传统KPI管理。他们用「科学领导力」框架——以研究影响力代替K...
+- 摘要: 搜索首页全部文章DeepMind无KPI管理2026年4月7日By AIHR数智引擎阅读时间：约10分钟没有KPI，如何管理天才团队：DeepMind的答案是「科学领导力」 DeepMind以1100人冲上9000亿估值，却不用传统KPI管理。他们用「科学领导力」框架——以研究影响力代替K...
 
 ### 30. 德勤2026：85%的战略正在被7%的损耗率吃掉
 - URL: https://www.aihrlab.online/articles/deloitte-2026.html
@@ -183,7 +183,7 @@
 
 ### 42. 效率、判断力与组织记忆：配平你的人机协作方程式
 - URL: https://www.aihrlab.online/articles/human-ai-equation.html
-- 摘要: 搜索首页全部文章人机协作方程式2026年6月23日By Andy Zhang阅读时间：约10分钟效率、判断力与组织记忆：配平你的人机协作方程式 美世2026年《全球人才趋势》报告用了一百多页来解释这几个问题，但它的核心逻辑可以用三分钟讲清楚。重构人机关系方程式，才能驱动企业实现指数级绩效增长。
+- 摘要: 搜索首页全部文章人机协作方程式2026年6月23日By AIHR数智引擎阅读时间：约10分钟效率、判断力与组织记忆：配平你的人机协作方程式 美世2026年《全球人才趋势》报告用了一百多页来解释这几个问题，但它的核心逻辑可以用三分钟讲清楚。重构人机关系方程式，才能驱动企业实现指数级绩效增长。
 
 ### 43. IDC 2026中国企业AI应用成熟度报告 | HR AI Agent选型指南
 - URL: https://www.aihrlab.online/articles/idc-2026-hr-ai-agent-guide.html
@@ -207,7 +207,7 @@
 
 ### 48. KPI物理失效：AI原生组织的效能重构
 - URL: https://www.aihrlab.online/articles/kpi-failure-ai-org-restructure.html
-- 摘要: 搜索首页全部文章KPI物理失效2026年6月23日By Andy Zhang阅读时间：约12分钟KPI物理失效：AI原生组织的效能重构 微软在拆齿轮，字节在碾流量，Kimi甚至连部门都删了。表面上是中外企业的两条路线，底层却交汇于同一个终局：在AI的降维打击下，还在靠清点人头来分配任务的组织，...
+- 摘要: 搜索首页全部文章KPI物理失效2026年6月23日By AIHR数智引擎阅读时间：约12分钟KPI物理失效：AI原生组织的效能重构 微软在拆齿轮，字节在碾流量，Kimi甚至连部门都删了。表面上是中外企业的两条路线，底层却交汇于同一个终局：在AI的降维打击下，还在靠清点人头来分配任务的组织，...
 
 ### 49. 麦肯锡发布的《2026年组织状况报告》深度解读：AI时代的组织进化论
 - URL: https://www.aihrlab.online/articles/mckinsey-2026-org-report-deep-dive.html
@@ -236,7 +236,7 @@
 
 ### 55. 麦肯锡2026断言：人机编排是组织唯一出路
 - URL: https://www.aihrlab.online/articles/mckinsey-human-ai-orchestration.html
-- 摘要: 搜索首页全部文章人机编排2026年6月22日By Andy Zhang阅读时间：约12分钟麦肯锡2026断言：人机编排是组织唯一出路 麦肯锡2026最新报告断言：未来3年，80%的传统企业将在AI变革中出局。胜出关键不是AI使用量，而是人机编排能力。本文详解「私有评估集」和「爬山机器」两大核心概念。
+- 摘要: 搜索首页全部文章人机编排2026年6月22日By AIHR数智引擎阅读时间：约12分钟麦肯锡2026断言：人机编排是组织唯一出路 麦肯锡2026最新报告断言：未来3年，80%的传统企业将在AI变革中出局。胜出关键不是AI使用量，而是人机编排能力。本文详解「私有评估集」和「爬山机器」两大核心概念。
 
 ### 56. 美世2026：人机协作方程式与新一代人才价值公式
 - URL: https://www.aihrlab.online/articles/mercer-2026.html
@@ -330,7 +330,7 @@
 
 ### 79. WWDC2026：Apple Intelligence 2.0给HR启示
 - URL: https://www.aihrlab.online/articles/wwdc-2026-hr-insights.html
-- 摘要: 搜索首页全部文章WWDC 2026 终评WWDC2026：Apple Intelligence 2.0给HR启示2026年6月15日 · Andy Zhang · WWDC 20262026年6月9日，WWDC 2026开幕。这是库克作为CEO主持的最后一届WWDC——9月他将转任董事长，CT...
+- 摘要: 搜索首页全部文章WWDC 2026 终评WWDC2026：Apple Intelligence 2.0给HR启示2026年6月15日 · AIHR数智引擎 · WWDC 20262026年6月9日，WWDC 2026开幕。这是库克作为CEO主持的最后一届WWDC——9月他将转任董事长，CT...
 
 ### 80. 组织进化论：拆解小米2026战略背后的组织变革
 - URL: https://www.aihrlab.online/articles/xiaomi-2026-org-evolution.html
@@ -504,3 +504,6 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 118. 霍兰德 RIASEC 是什么：职业兴趣六型与 AI 修正
 - URL: https://www.aihrlab.online/assessments/holland.html
 - 摘要: 霍兰德 RIASEC 用现实 R、研究 I、艺术 A、社会 S、企业 E、常规 C 六个兴趣类型描述人与职业的适配关系，核心是「人岗兴趣匹配」，六型排成相容/冲突的六边形。讲清六型与六边形，以及数字时代经典职业示例过时、Wang 等（2024, Nature Portfolio）补入 T（技术型）维度、ILO（2025）关于生成式 AI 改造而非取代工作的修正。
+### 119. 生成式AI提效的真相：2025-2026一线实证拆解
+- URL: https://www.aihrlab.online/articles/genai-productivity-evidence-2026.html
+- 摘要: 生成式AI提效的真相：BCG、MIT、微软研究院等2025-2026年随机实验显示，AI在能力边界内显著提效（咨询多完成12.2%任务、客服新手+34%），但边界外反噬（正确率-19pp、资深开发者-19%）、宏观TFP每年仅被拉动约0.07个百分点、89%高管自报无影响。提效被误读，组织须把AI放在对的位置并守住人的判断。
