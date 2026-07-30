@@ -2,8 +2,9 @@
 .DS_Store
 Thumbs.db
 
-# Scripts (internal docs)
-scripts/
+# Scripts: 代码脚本纳入版本控制，内部文档/缓存忽略
+scripts/*.md
+scripts/__pycache__/
 *.md
 # 但 tools/ 下的交付物（GEO清单/发布门禁/选题日历等）需纳入版本控制
 !tools/*.md
