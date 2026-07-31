@@ -518,3 +518,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 122. AI红利卡在组织：88%试了，81%没赚
 - URL: https://www.aihrlab.online/articles/ai-org-redesign-2026.html
 - 摘要: 2026年BCG《AI at Work 2026》(调研11,749人)与麦肯锡《State of Organizations 2026》(调研10,000+高管)同诊：AI采用已过关(74%一线员工成常规用户、88%组织在试)，但81%尚未获显著底线回报、86%自认落地准备不足。红利卡在组织重构——清晰战略让AI业务影响+25个百分点，换更好的工具仅+5个百分点；麦肯锡称须做「双重转型」(技术采纳+结构重设计)，安联以年均60小时学习落地「全民工程」。
+
+### 123. AI引荐实战：让文章被豆包元宝引用的7个写法
+- URL: https://www.aihrlab.online/articles/ai-citation-geo-playbook-2026.html
+- 摘要: GEO（生成式引擎优化）的目标是让文章在被豆包、元宝、Copilot、Perplexity 生成答案时被引用，而非争排名。Princeton 2024 在 10,000 个查询上的实验显示：专家引语+41%、具体数据+33%、权威引用+28%（小站+115%）、流畅度+29%，关键词堆砌−10%。本站 88 个结构化页面已被 Bing Copilot 累计引用 418 次。7 个可复制写法：首段直给答案(BLUF)、每段一个可核实数字、专家引语加一手信源、FAQ 问答对、实体全称缩写、结构化数据三件套(Article+FAQPage+BreadcrumbList)、列表表格优先拒绝空词。
