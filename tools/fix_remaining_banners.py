@@ -17,7 +17,7 @@ FIG_RE = re.compile(r'<figure class="article-banner">.*?</figure>\s*', re.S)
 
 # 需修正的 8 篇
 TARGETS = [
-    'AI裁员7飙到40你的公司在做减法还是乘法',
+    'ai-layoff-7-to-40',
     'ai-hr-landing-3-high-roi-plays',
     'ai-layoff-regret',
     'ai-layoff-to-rebuild-hr-stand-firm',

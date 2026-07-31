@@ -25,7 +25,7 @@
 - 摘要: 搜索首页全部文章2026HR转型图鉴2026年01月10日HR转型2026HR转型图鉴：在 AI 时代，活成组织的
 
 ### 2. AI裁员7%飙到40%：你的公司在做减法还是乘法
-- URL: https://www.aihrlab.online/articles/AI裁员7飙到40你的公司在做减法还是乘法.html
+- URL: https://www.aihrlab.online/articles/ai-layoff-7-to-40.html
 - 摘要: Challenger报告5月AI裁员占比从1月的7%飙到40%，四个月翻了近6倍。但这个数据测量的不是
 
 ### 3. AI不是来抢你饭碗的——真正危险的，是你不知道自己被"有限理性"困住了

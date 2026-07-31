@@ -64,7 +64,7 @@ CLUSTERS = {
         "meta-pod-structure",
     ]),
     "c07-ai-layoff": ("AI裁员与组织收缩", "c07-ai-layoff.png", [
-        "AI裁员7飙到40你的公司在做减法还是乘法",
+        "ai-layoff-7-to-40",
         "ai-layoff-2026-mid-year-review",
         "ai-layoff-230k-regret",
         "ai-layoff-manager-redefine",
