@@ -838,7 +838,7 @@
   </url>
   <url>
     <loc>https://www.aihrlab.online/articles/genai-productivity-evidence-2026.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -851,6 +851,12 @@
   <url>
     <loc>https://www.aihrlab.online/articles/ai-agent-roi-reality-2026.html</loc>
     <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-org-redesign-2026.html</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
