@@ -49,3 +49,7 @@ Allow: /
 
 User-agent: CCBot
 Allow: /
+
+# === 神马搜索爬虫（yisouspider）显式放行 ===
+User-agent: yisouspider
+Allow: /
