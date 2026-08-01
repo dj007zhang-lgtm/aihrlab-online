@@ -526,3 +526,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 124. 人才定价逻辑：一个人值多少钱，岗位就怎么设计
 - URL: https://www.aihrlab.online/articles/talent-pricing-logic-2026.html
 - 摘要: 人才定价不看学历和头衔，看三件事：稀缺性、杠杆、可归因。2026 年 AI 人才薪酬金字塔——从月薪 6 千的数据标注，到年薪 500 至 800 万的顶尖研究员，再到 Meta 用超 2 亿美元从苹果挖走研究员庞若鸣——把这套逻辑演到极致。用定价反推：组织岗位设计本质是给稀缺性、杠杆、可归因三要素安排容器；中层常被优化因高杠杆低可归因；文凭只定价准入资格，高考志愿焦虑是错配。
+
+### 125. 前沿企业：AI Agent 成数字同事，HR 重写什么
+- URL: https://www.aihrlab.online/articles/frontier-firm-ai-agent-2026.html
+- 摘要: 前沿企业（Frontier Firm）是微软 2026《工作趋势指数》提出的概念：围绕人机协作重写 Operating Model，而非把 AI 当工具叠加。微软 telemetry 显示 M365 生态 Agent 同比 +15×；58% 用户产出 year-ago 做不到的工作。但转型悖论显现：65% 怕掉队、仅 13% 因重构被奖励，红利卡在组织。HR 要重写四件事：判断权边界、代理素养（Agent Literacy）、人机编队操作系统、操作系统级 ROI。BCG《AI Radar 2026》：AI 开支翻倍至营收 1.7%，90% CEO 认为 Agent 年内产出可衡量回报，先行者约 70% 员工已再培训。
