@@ -530,3 +530,6 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 125. 前沿企业：AI Agent 成数字同事，HR 重写什么
 - URL: https://www.aihrlab.online/articles/frontier-firm-ai-agent-2026.html
 - 摘要: 前沿企业（Frontier Firm）是微软 2026《工作趋势指数》提出的概念：围绕人机协作重写 Operating Model，而非把 AI 当工具叠加。微软 telemetry 显示 M365 生态 Agent 同比 +15×；58% 用户产出 year-ago 做不到的工作。但转型悖论显现：65% 怕掉队、仅 13% 因重构被奖励，红利卡在组织。HR 要重写四件事：判断权边界、代理素养（Agent Literacy）、人机编队操作系统、操作系统级 ROI。BCG《AI Radar 2026》：AI 开支翻倍至营收 1.7%，90% CEO 认为 Agent 年内产出可衡量回报，先行者约 70% 员工已再培训。
+### 126. 2026上半年AI+HR复盘：3主线与3误判
+- URL: https://www.aihrlab.online/articles/ai-hr-2026-h1-review-mainlines-misjudgments.html
+- 摘要: 2026上半年AI+HR沿三条主线推进：裁员叙事从「经济周期」翻牌为「AI 重构」（Layoffs.fyi 上半年约 12 万/200+ 公司）、AI 决策权从 CIO 上移 CEO（BCG：72% CEO 自认 AI 主决策者、企业计划 AI 支出翻倍至营收 1.7%）、HR 从职能执行者转向组织设计者（微软 Frontier Firm、SHRM 43% HR 已用 AI）。三个误判：把 AI 标签当替代（德银 AI Redundancy Washing + Gartner 裁员与 ROI 无相关）、把上 AI 当自动增效（BCG 仅 10% 成功归因模型、70% 靠组织/人力/技能）、把 HR 当旁观者（Oracle/Amazon HR 裁员比例高于业务）。
