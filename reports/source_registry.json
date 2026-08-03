@@ -1,0 +1,35 @@
+{
+  "updated": "2026-08-03",
+  "note": "机器可读的 allow/deny 信源登记表，供 scripts/fact_risk_census.py 的 report_source_census() 自动比对。allow=已 WebSearch 核验为真的报告；deny=虚构信源/信源层级伪装/归因错误（永久禁用）；deny_publisher=曾张冠李戴的发布方。",
+  "allow": [
+    {"title": "The State of Organizations 2026", "publisher": "McKinsey & Company", "note": "麦肯锡2026全球组织状况报告"},
+    {"title": "HR Monitor 2026", "publisher": "McKinsey & Company"},
+    {"title": "The State of AI in Small Business HR 2026", "publisher": "HR Partner"},
+    {"title": "智能原生研究报告", "publisher": "中国信通院 + 小米"},
+    {"title": "新质驱动·组织向新——2026年人力资源管理趋势报告", "publisher": "北京大学国家发展研究院 + 智联招聘"},
+    {"title": "AI时代人力资源发展报告（2026）", "publisher": "深圳市人力资源管理协会"},
+    {"title": "2026年中国企业AI人才与组织发展报告", "publisher": "InfoQ（极客邦科技）"},
+    {"title": "2026 工作趋势指数", "publisher": "Microsoft"},
+    {"title": "AI Radar 2026", "publisher": "BCG"},
+    {"title": "组织状况报告", "publisher": "McKinsey & Company", "note": "The State of Organizations 2026 中文渲染"},
+    {"title": "组织现状报告", "publisher": "McKinsey & Company", "note": "The State of Organizations 2026 中文渲染"},
+    {"title": "工作趋势指数", "publisher": "Microsoft", "note": "WTI 中文渲染（含 2025/2026）"},
+    {"title": "人力资源管理趋势报告", "publisher": "北京大学国家发展研究院 + 智联招聘", "note": "新质驱动·组织向新 中文短称"},
+    {"title": "AI时代HR发展报告", "publisher": "深圳市人力资源管理协会", "note": "AI时代人力资源发展报告（2026）中文缩写"},
+    {"title": "全球招聘报告", "publisher": "SHRM", "note": "SHRM 2026 招聘/人才趋势报告中文渲染（Finding Talent / 2026 Talent Trends，1268-2094 HR 样本）"},
+    {"title": "全球人力资本趋势报告", "publisher": "Deloitte", "note": "2026 Global Human Capital Trends（89国9000+领导者，与Oxford Economics合作）"},
+    {"title": "未来就业报告", "publisher": "World Economic Forum", "note": "Future of Jobs Report 2025（1000+企业）"},
+    {"title": "AI指数2026", "publisher": "Stanford HAI", "note": "The 2026 AI Index Report（423页）"},
+    {"title": "AI时代小微经营者观察", "publisher": "赛迪智库中小企业研究所 + 网商银行", "note": "2026-06-25发布，97.4%知晓/53.2%尝试/33%持续使用"}
+  ],
+  "deny": [
+    {"title": "2026 AI 组织变革全景图", "publisher": "麦肯锡（虚构）", "reason": "虚构信源"},
+    {"title": "人机协作蓝皮书", "publisher": "麦肯锡（虚构）", "reason": "虚构信源"},
+    {"title": "2026 AI+HR趋势观察报告", "publisher": "深蓝君管理咨询", "reason": "虚构信源/张冠李戴"},
+    {"title": "2026企业人力资源AI应用白皮书", "publisher": "（虚构）", "reason": "虚构信源"},
+    {"title": "全球AI Native组织全景报告", "publisher": "siryzhang.github.io", "reason": "信源层级伪装"},
+    {"title": "全球 AI Native 组织全维度调研与全景报告", "publisher": "siryzhang.github.io", "reason": "信源层级伪装"},
+    {"title": "AI原生组织研究报告", "publisher": "腾讯云开发者社区", "reason": "信源层级伪装(UGC)"}
+  ],
+  "deny_publisher": ["jimo.studio", "深蓝君管理咨询"]
+}

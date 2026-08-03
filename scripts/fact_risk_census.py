@@ -149,9 +149,110 @@ def census(list_level=None):
     return rows
 
 
+# ---------- 报告名/信源真伪候选扫描（盲区补强层） ----------
+# 段落级三锚判定只测「有没有标注出处」，测不出「出处是否真实 / 层级是否伪装」。
+# 本模块扫描全站《...报告...》类引用，对照 reports/source_registry.json 的
+# allow/deny 自动分级，把「需 WebSearch 核验」的候选暴露成可处理 backlog。
+# 注：本模块只做「发现 + 分级」，不做真伪判定——真伪由 WebSearch 三问把关。
+REPORT_KW = re.compile(
+    r'(报告|白皮书|蓝皮书|研究|调研|洞察|年鉴|指数|绿皮书|统计|综述|观察|盘点|分析|图谱|发展报告|年度报告)')
+BOOK = re.compile(r'《([^《》]{2,40}?)》')
+PUB_KW = re.compile(
+    r'(麦肯锡|McKinsey|BCG|波士顿|IDC|Gartner|德勤|Deloitte|普华永道|PwC|埃森哲|Accenture|'
+    r'信通院|中国信通院|工信部|人社部|国家统计局|华为|腾讯|腾讯研究院|阿里|百度|字节|火山引擎|'
+    r'微软|Microsoft|谷歌|Google|OpenAI|清华大学|北大|北京大学|智联|BOSS直聘|猎聘|'
+    r'InfoQ|极客邦|深圳市人力资源管理协会|深圳人协|世界经济论坛|WEF|OECD|ILO|SHRM|'
+    r'Forrester|尼尔森|凯度|艾瑞|易观|QuestMobile|摩根|高盛|中金|中国经营报|科技日报|'
+    r'哈佛|MIT|斯坦福|Stanford|普林斯顿|Princeton|jimo\.studio|深蓝君)')
+
+
+def _norm(s):
+    return re.sub(r'[\s《》（）()·\-—–&./]', '', s).lower()
+
+
+def load_registry():
+    path = 'reports/source_registry.json'
+    if not os.path.exists(path):
+        return {'allow': [], 'deny': [], 'deny_publisher': []}
+    try:
+        return json.load(open(path, encoding='utf-8'))
+    except Exception:
+        return {'allow': [], 'deny': [], 'deny_publisher': []}
+
+
+def report_source_census():
+    """扫描全站《...报告...》类引用，对照 registry 分级：已核验(白)/黑名单(已清)/待核验。"""
+    from collections import Counter, defaultdict
+    reg = load_registry()
+    allow_t = [_norm(x['title']) for x in reg.get('allow', [])]
+    deny_tn = [(_norm(x.get('title', '')), x.get('reason', '')) for x in reg.get('deny', [])]
+    deny_p = [p.lower() for p in reg.get('deny_publisher', [])]
+
+    files = sorted(glob.glob('articles/*.html'))
+    cands = []
+    for p in files:
+        raw = open(p, encoding='utf-8', errors='ignore').read()
+        base = os.path.basename(p)
+        for m in BOOK.finditer(raw):
+            title = m.group(1).strip()
+            if not REPORT_KW.search(title):
+                continue
+            start = m.start()
+            before = raw[max(0, start - 40):start]
+            pub_m = PUB_KW.search(before)
+            publisher = pub_m.group(1) if pub_m else ''
+            ln = raw.count('\n', 0, start) + 1
+            nt, npub = _norm(title), _norm(publisher)
+            status, hit = '待核验', ''
+            for dtn, dr in deny_tn:
+                if dtn and (dtn in nt or nt in dtn):
+                    status, hit = '黑名单(已清)', dr
+                    break
+            if status == '待核验':
+                for dp in deny_p:
+                    if dp and (dp in npub or dp in nt):
+                        status, hit = '黑名单(已清)', '归因错误/虚构出版方'
+                        break
+            if status == '待核验':
+                for at in allow_t:
+                    if at and (at in nt or nt in at):
+                        status, hit = '已核验(白)', 'registry.allow'
+                        break
+            cands.append({'file': base, 'line': ln, 'title': title,
+                          'publisher': publisher, 'status': status, 'note': hit})
+
+    cnt = Counter(c['status'] for c in cands)
+    groups = defaultdict(list)
+    for c in cands:
+        groups[c['status']].append(c)
+
+    print("\n" + "=" * 74)
+    print(f"报告名/信源真伪候选扫描 · {len(files)} 篇 · 命中 {len(cands)} 处")
+    print("=" * 74)
+    print(f"  已核验(白)   {cnt.get('已核验(白)',0):>5} 处  [registry.allow 已知真报告]")
+    print(f"  黑名单(已清) {cnt.get('黑名单(已清)',0):>5} 处  [registry.deny 命中，须不再引用]")
+    print(f"  待核验       {cnt.get('待核验',0):>5} 处  [需 WebSearch 三问核验]")
+
+    print(f"\n【待核验 TOP 40】（WebSearch 核验队列）")
+    for c in groups.get('待核验', [])[:40]:
+        pub = f" [{c['publisher']}]" if c['publisher'] else ''
+        print(f"  {c['file'][:38]:38} L{c['line']:<4} 《{c['title'][:18]}》{pub}")
+
+    os.makedirs('reports', exist_ok=True)
+    json.dump(cands, open('reports/report_source_census.json', 'w', encoding='utf-8'),
+              ensure_ascii=False, indent=1)
+    print("\n候选明细已写入 reports/report_source_census.json")
+    return cands
+
+
 if __name__ == '__main__':
     lv = None
+    only_reports = '--reports-only' in sys.argv
     if '--list' in sys.argv:
         i = sys.argv.index('--list')
         lv = sys.argv[i + 1] if len(sys.argv) > i + 1 else 'R1'
-    census(lv)
+    if only_reports:
+        report_source_census()
+    else:
+        census(lv)
+        report_source_census()

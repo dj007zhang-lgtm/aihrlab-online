@@ -107,6 +107,11 @@
 | 《AI时代人力资源发展报告（2026）》 | 深圳市人力资源管理协会 | 2026.5.23 | 主编宋照礼（新加坡国立大学商学院副教授）；12 大趋势判断 |
 | 《2026年中国企业AI人才与组织发展报告》 | InfoQ（极客邦科技） | 2026 | 1035 份有效样本；「超级员工」概念出处 |
 | 纳德拉「私有评估集 / 爬山机器」 | Satya Nadella | 2026.6 | Microsoft Build 2026（No Priors × Latent Space 特辑）+ Stratechery 访谈 |
+| 《2026 Talent Trends Report》/ Finding Talent | SHRM | 2026 | 2094 / 1268 名 HR  professionals；站内称《2026 全球招聘报告》 |
+| 《2026 Global Human Capital Trends》 | Deloitte（与 Oxford Economics 合作） | 2026.3 | 89 国 9000+ 领导者；站内称《2026 全球人力资本趋势报告》 |
+| 《Future of Jobs Report 2025》 | World Economic Forum | 2025.1 | 1000+ 企业；22% 岗位 2030 前受扰；站内称《未来就业报告》 |
+| 《The 2026 AI Index Report》 | Stanford HAI | 2026.4 | 423 页；中美模型性能差缩至 2.7%；站内称《AI指数2026》 |
+| 《AI时代小微经营者观察》 | 赛迪智库中小企业研究所 + 网商银行 | 2026.6.25 | 97.4% 知晓 / 53.2% 尝试 / 33% 持续使用 |
 
 > ⚠️ 上表只保证**报告存在且发布方正确**，不代表站内引用的每个数字都已逐一比对。
 > 引用具体数值时仍须回原文核对。
