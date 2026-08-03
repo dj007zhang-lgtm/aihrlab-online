@@ -533,3 +533,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 126. 2026上半年AI+HR复盘：3主线与3误判
 - URL: https://www.aihrlab.online/articles/ai-hr-2026-h1-review-mainlines-misjudgments.html
 - 摘要: 2026上半年AI+HR沿三条主线推进：裁员叙事从「经济周期」翻牌为「AI 重构」（Layoffs.fyi 上半年约 12 万/200+ 公司）、AI 决策权从 CIO 上移 CEO（BCG：72% CEO 自认 AI 主决策者、企业计划 AI 支出翻倍至营收 1.7%）、HR 从职能执行者转向组织设计者（微软 Frontier Firm、SHRM 43% HR 已用 AI）。三个误判：把 AI 标签当替代（德银 AI Redundancy Washing + Gartner 裁员与 ROI 无相关）、把上 AI 当自动增效（BCG 仅 10% 成功归因模型、70% 靠组织/人力/技能）、把 HR 当旁观者（Oracle/Amazon HR 裁员比例高于业务）。
+
+### 127. 大厂 AI 产品动态 2026：节奏即组织
+- URL: https://www.aihrlab.online/articles/big-tech-ai-product-dynamics-2026.html
+- 摘要: 产品发布节奏是组织能力的体温计。2026 上半年，微软、谷歌、字节、腾讯、阿里、百度的 AI 产品动作泄漏了各自组织范式——微软把 Agent 写进每个工作流（前沿企业/操作系统重写），谷歌把模型做成入口，字节用内部碾压式 token 文化倒逼，腾讯/阿里走开源+应用双轨，百度在模型厂商生存战里找场景。主线：竞争从「模型参数大」转向「把模型变成日常在跑的组织能力」。HR 可从迭代密度、嵌入手感、内部消耗量三信号读组织健康；红线：发布快≠组织强，产品热闹≠操作系统被重写。
