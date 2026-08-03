@@ -569,6 +569,77 @@ def gate_source_freshness(target_files=None):
 
 
 # ============================================================
+# Gate 13: 硬数据出处关（补「事实真假」防线）
+# ============================================================
+def gate_data_source_attribution(target_files=None):
+    """Gate 13: 硬数据须有出处 — 防止「凭记忆写、数字无源」。
+
+    纪律（内容宪法）：硬事实须可核验、零编造。质量门原 12 关只验证
+    「形态/结构/年份关键词」，不验证「事实是否真实、是否标注来源」。本关
+    补这道最关键的防线：凡定位「当前(2026/最新/当前/近日)」且正文带硬数字
+    （万亿/亿/万/%/倍/×）断言的文章，必须至少满足其一——
+      ① 正文出现信源署名短语（据X披露/来源/IDC/微软/火山引擎/券商/研报…）；
+      ② 存在指向站外域名的外部引用链接。
+    二者皆无 → FAIL（典型失败模式：纯凭记忆写作、未标注任何来源）。
+
+    说明：本关无法判断「标注的数字是否最新/准确」（如 30万亿 vs 120万亿
+    的时效差），那属于主理人发布前的主动核验义务；本关只确保「写了数字就
+    得挂来源」，把无源写作挡在门外。
+    """
+    import re as _re
+    CURRENT_SIGNAL = _re.compile(r'2026|最新|当前|近日|刚刚|新近|近期')
+    NUM = _re.compile(r'[\d.]+[\s]*?(?:万亿|亿|万|%|倍|×|倍于)')
+    SRC_PHRASE = _re.compile(
+        r'据|来源|披露|援引|引自|公开数据|IDC|微软|火山引擎|券商|研报|报告|'
+        r'证券时报|腾讯|字节|百度|阿里|谷歌|公开披露|官方|晚点|第一财经|'
+        r'QuestMobile|野村|GSC|Bing')
+    EXCLUDE_HOSTS = ('aihrlab.online', 'googletagmanager', 'hm.baidu')
+
+    def _is_verify(p):
+        return any(x in os.path.basename(p) for x in ['baidu_', 'google', 'BingSiteAuth', 'verify'])
+
+    def _body_text(html):
+        body = _re.sub(r'<script[\s\S]*?</script>', ' ', html, flags=_re.I)
+        body = _re.sub(r'<style[\s\S]*?</style>', ' ', body, flags=_re.I)
+        m = _re.search(r'<article[\s\S]*?</article>', body, _re.I | _re.S)
+        if m:
+            body = m.group(0)
+        return _re.sub(r'<[^>]+>', ' ', body)
+
+    issues = []
+    html_files = target_files or _get_all_html_files()
+    for path in html_files:
+        if not path.endswith('.html'):
+            continue
+        if _is_verify(path):
+            continue
+        rel = os.path.relpath(path, SITE_ROOT)
+        try:
+            html = open(path, encoding='utf-8', errors='ignore').read()
+        except Exception:
+            continue
+        if 'http-equiv="refresh"' in html:
+            continue
+        head = html[:html.find('</head>')] if '</head>' in html else html[:8000]
+        if not CURRENT_SIGNAL.search(head) and '2026' not in os.path.basename(path):
+            continue
+        body = _body_text(html)
+        if not NUM.search(body):
+            continue
+        ext = _re.findall(r'href="(https?://[^"]+)"', html)
+        ext = [u for u in ext if not any(h in u for h in EXCLUDE_HOSTS)]
+        has_src = bool(SRC_PHRASE.search(body)) or bool(ext)
+        if not has_src:
+            issues.append(
+                f"{rel} | 含硬数字断言但既无信源署名短语、也无站外引用链接；"
+                f"疑似凭记忆写作、数字不可核验")
+    if issues:
+        return GateResult("13-硬数据出处关", False, issues[:25])
+    return GateResult("13-硬数据出处关", True,
+                      ["当前定位且含硬数字的文章均标注信源或含站外引用；无无源写作"])
+
+
+# ============================================================
 # Helpers
 # ============================================================
 
@@ -655,6 +726,7 @@ def run_quality_gate(mode="changed"):
         gate_footer_consistency(),
         gate_url_consistency(target_files),  # Gate 11: 始终全站扫描
         gate_source_freshness(target_files),  # Gate 12: 信源时效关
+        gate_data_source_attribution(target_files),  # Gate 13: 硬数据出处关
     ]
     
     # Report
