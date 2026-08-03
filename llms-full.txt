@@ -354,7 +354,7 @@
 - URL: https://www.aihrlab.online/hub/ai-org-transformation.html
 - 摘要: 全站AI组织变革主题的中心枢纽页。提炼四种大厂AI组织范式（算力驱动型/渐进嵌入型/扁平解耦型/军团深耕型），对比腾讯、阿里、字节、百度、华为、微软、Meta、Anthropic、思科等中外巨头的AI组织重构路径，并给出HR十条可落地行动框架。汇聚27篇深度分析的深读入口，是了解「大厂如何因AI重构组织」的最佳起点。
 
-### 82. 字节豆包30万亿Token背后的组织引擎
+### 82. 字节豆包120万亿Token背后的组织引擎
 - URL: https://www.aihrlab.online/articles/bytedance-doubao-org-engine-2026.html
 - 摘要: 拆解豆包大模型日均Token调用量从2024年1200亿飙到2025年30万亿、年底突破50万亿背后的组织能力。分析字节Stone(基础设施)-Seed(模型)-Flow(产品)三层闭环架构、独立且直汇报CEO的设计、创始人张一鸣亲自参加Seed复盘，论证「模型能力的最后一公里是组织能力」，并给出HR把组织当操作系统设计的四项原则。
 
