@@ -157,7 +157,22 @@
 @media(max-width:980px){.article-layout--with-toc{grid-template-columns:1fr;gap:0;}.toc-sidebar{position:static;margin-top:1.6rem;}}
 /* D 支柱：通用右侧粘性目录栏（宽屏固定右栏，零包裹层改造，兼容 article-layout/article-body/其他结构） */
 .toc-rail{position:fixed;top:96px;right:max(16px,calc(50vw - 600px));width:212px;max-height:calc(100vh - 120px);overflow:auto;z-index:30;}
-@media(max-width:1180px){.toc-rail{display:none;}}
+/* 四好迭代 #1 · TOC 当前章节高亮（桌面导航可读） */
+.toc li a{transition:color .2s var(--ease),border-color .2s var(--ease),padding-left .2s var(--ease);border-left:2px solid transparent;padding-left:0;}
+.toc li a.active{color:var(--accent);font-weight:600;border-left-color:var(--accent);padding-left:.5rem;}
+/* 四好迭代 #1 · 移动端目录抽屉（原 <1180px 完全隐藏 → 重构为可唤起底部抽屉） */
+.toc-fab{display:none;}
+.toc-backdrop{display:none;position:fixed;inset:0;background:rgba(13,16,22,.42);z-index:9989;}
+@media(max-width:1180px){
+  .toc-rail{display:block;position:fixed;top:auto;right:0;left:0;bottom:0;width:100%;max-height:72vh;overflow:auto;transform:translateY(100%);transition:transform .3s var(--ease);background:var(--bg);border-top:1px solid var(--line-strong);border-radius:16px 16px 0 0;padding:1.1rem 1.25rem 1.6rem;box-shadow:0 -8px 30px rgba(13,16,22,.16);z-index:9990;}
+  .toc-rail.open{transform:translateY(0);}
+  .toc-rail .toc h4{display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+  .toc-rail .toc h4::after{content:"\2715";font-size:1rem;color:var(--text-muted);font-weight:400;letter-spacing:0;}
+  .toc-fab{display:inline-flex;align-items:center;gap:.4rem;position:fixed;right:16px;bottom:20px;z-index:9988;background:var(--accent);color:#fff;border:none;border-radius:50px;padding:.6rem .95rem;font-size:.85rem;font-weight:600;font-family:var(--font-sans);box-shadow:0 6px 18px rgba(59,91,219,.35);cursor:pointer;}
+  .toc-fab svg{width:16px;height:16px;}
+  .toc-backdrop.show{display:block;}
+}
+@media(max-width:480px){.toc-fab{right:12px;bottom:14px;padding:.55rem .85rem;font-size:.8rem;}}
 .author-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;}
 .read-time{font-size:0.82rem;color:var(--text-muted,#868e96);}
 .steps-box{border:1px solid var(--line,#e9ecef);border-radius:14px;padding:1.5rem;margin:1.5rem 0;}

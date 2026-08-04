@@ -83,3 +83,46 @@ function trackEvent(name,params={}){if(typeof gtag!=='undefined'){gtag('event',n
     });
   };
 })();
+
+/* ===== 四好迭代 #1：TOC 导航增强（桌面当前章节高亮 + 移动端目录抽屉） ===== */
+(function(){
+  var rail=document.querySelector('.toc-rail');
+  if(!rail)return;
+  var links=Array.prototype.slice.call(rail.querySelectorAll('.toc li a[href^="#"]'));
+  if(!links.length)return;
+  var map={},sections=[];
+  links.forEach(function(a){
+    var id=a.getAttribute('href').slice(1);
+    var sec=id&&document.getElementById(id);
+    if(sec){map[id]=a;sections.push(sec);}
+  });
+  if(!sections.length)return;
+  /* 桌面：当前章节高亮 */
+  function highlight(){
+    var picked=null;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].getBoundingClientRect().top<=110){picked=sections[i];}else{break;}
+    }
+    if(!picked)picked=sections[0];
+    links.forEach(function(a){a.classList.remove('active');});
+    if(picked&&map[picked.id])map[picked.id].classList.add('active');
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(highlight,{rootMargin:'-80px 0px -70% 0px',threshold:[0,1]});
+    sections.forEach(function(s){io.observe(s);});
+  }
+  highlight();
+  /* 移动端：底部抽屉 + 浮动按钮 */
+  var mq=window.matchMedia('(max-width:1180px)');
+  var fab=document.createElement('button');
+  fab.className='toc-fab';fab.type='button';fab.setAttribute('aria-label','打开目录');
+  fab.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>目录';
+  var backdrop=document.createElement('div');backdrop.className='toc-backdrop';
+  function openDrawer(){if(!mq.matches)return;rail.classList.add('open');backdrop.classList.add('show');}
+  function closeDrawer(){rail.classList.remove('open');backdrop.classList.remove('show');}
+  fab.addEventListener('click',function(){rail.classList.contains('open')?closeDrawer():openDrawer();});
+  backdrop.addEventListener('click',closeDrawer);
+  rail.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeDrawer);});
+  var h4=rail.querySelector('.toc h4');if(h4){h4.addEventListener('click',closeDrawer);}
+  document.body.appendChild(backdrop);document.body.appendChild(fab);
+})();
