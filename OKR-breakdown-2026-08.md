@@ -101,18 +101,23 @@
 
 ---
 
-## 六、E 中文引擎索引 0 → 152 URL 全量收录
+## 六、E 中文引擎索引 0 → 152 URL 全量收录（**状态：提交/推送已实现，转验证收录**）
 
-**已完成**：sitemap 152 URL 齐全无桩污染；提交指南 + URL 清单已备（`reports/shenma-quark-submission-2026-08.md` + `sitemap-urls-2026-08.txt`）。
-**阻塞**：神马/通义/夸克需**用户侧登录站长平台执行提交**（沙箱无法代登录）。
+**已实现（用户执行 + AI 脚本）**：
+- sitemap 152 URL 齐全无桩污染（`sitemap.xml`）；
+- **百度主动推送已实现并每日运行**：`baidu_push_daily.py` 经百度搜索资源平台 API（Token 已备），日志 `baidu_push_log.json` 显示 161 条已推送、8/2–8/4 持续推送，并顺带 GSC 提交；
+- **IndexNow 已实现**：`scripts/indexnow_push.py` + `submit-indexnow.sh`，key 文件 `indexnow-key.txt` 已生成，支持 Bing/Yandex/Naver；
+- **神马/通义/夸克 sitemap 已提交**（用户侧执行，`reports/shenma-quark-submission-2026-08.md` 为提交包）。
+
+**当前重心（AI 侧可独立完成）**：从「提交」转「验证收录」——每周 `site:aihrlab.online` 复测各平台收录数，缺录页定向补推。
 
 **执行任务**：
 | # | 动作 | 频率 | 验收标准 | 数据回填 |
 |---|---|---|---|---|
-| E-1 | 用户登录神马站长平台(zhanzhang.sm.cn)批量提交 152 URL | 待用户 | 提交成功，待抓取 | `site:aihrlab.online` 收录数 |
-| E-2 | 用户注册 Bing IndexNow key 解锁直推（当前 `api.indexnow.org` 不可达，key 未注册） | 待用户 | Bing 实时收录 | Bing WMT 抓取统计 |
-| E-3 | 百度主动推送（百度搜索资源平台 API，Token 已备） | 每周 | 推送成功，收录 >0 | 百度「索引量」 |
-| E-4 | 提交后每周 `site:aihrlab.online` 验证收录增长 | 每周 | 收录 URL 单调上升 | 各平台收录报表 |
+| E-1 | 神马/通义/夸克 sitemap 提交（用户已执行） | 已完成 | 提交成功 | `site:aihrlab.online` 收录数 |
+| E-2 | IndexNow 直推（脚本已实现，Bing/Yandex/Naver） | 已自动化 | 实时收录 | Bing WMT 抓取统计 |
+| E-3 | 百度主动推送（脚本每日运行） | 已自动化 | 推送成功，收录 >0 | 百度「索引量」+ `baidu_push_log.json` |
+| E-4 | 每周 `site:aihrlab.online` 验证收录增长，缺录页定向补推 | 每周 | 收录 URL 单调上升 | 各平台收录报表 |
 
 ---
 
