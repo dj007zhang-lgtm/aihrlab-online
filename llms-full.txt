@@ -546,3 +546,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 129. AI重构HR三支柱：COE/SSC/BP的智能化路径
 - URL: https://www.aihrlab.online/articles/hr-three-pillar-ai.html
 - 摘要: HR三支柱（COE专家中心、SSC共享服务中心、HRBP业务伙伴）是Ulrich 1997年提出的经典架构。AI正在重排每一根支柱的分工：SSC的重复事务交给对话式Agent，COE从写制度转向训模型与做诊断，HRBP从传声筒升级为业务参谋。给出HR一号位可落地的三步重构框架与三条合规红线。
+
+### 130. AI重构绩效管理：从年度考核到持续反馈
+- URL: https://www.aihrlab.online/articles/ai-performance-management.html
+- 摘要: AI没有消灭考核，而是把考核从一年一次的对簿公堂改造成持续在线的教练对话。真正杠杆不在评分算法，而在把管理者的反馈能力产品化——用持续反馈替代年度审判、用AI草稿替代空白评分表，把校准权与终审权留在人手里。拆解年度考核失灵的三处硬伤、AI重构绩效的四层逻辑、SAP SuccessFactors等真实产品形态、Gartner 2025关于员工更信算法反馈的数据，以及偏见/黑箱/合规三道红线与HR一号位可落地框架。
