@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""生成文章 OG 封面 (1200x630)：左侧引擎蓝面板 + 白色 AI 字标，右侧标题。
+"""生成文章 OG 封面 (1200x630)：左侧深林绿面板 + 白色 AI 字标，右侧标题。
 用法: python3 scripts/gen_og_cover.py <slug> <标题> [分类]
 """
 import sys, os
@@ -9,9 +9,9 @@ from PIL import Image, ImageDraw, ImageFont
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT = "/System/Library/Fonts/STHeiti Medium.ttc"
 W, H = 1200, 630
-BLUE = (59, 91, 219)      # #3B5BDB 引擎蓝
-ORANGE = (194, 119, 46)   # #C2772E 暖橙
-BG = (250, 250, 248)      # #FAFAF8 微暖背景
+BLUE = (63, 98, 18)      # #3F6212 深林绿（取代引擎蓝）
+ORANGE = (168, 106, 46)   # #A86A2E 陶土棕（取代暖橙）
+BG = (241, 239, 233)      # #F1EFE9 暖沙背景
 DARK = (26, 26, 26)
 WHITE = (255, 255, 255)
 GREY = (120, 120, 120)

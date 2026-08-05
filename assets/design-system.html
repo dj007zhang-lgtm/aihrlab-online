@@ -24,17 +24,17 @@
     --ink-900: #161A21;
     --ink-950: #0D1016;
 
-    /* ---- Brand / 引擎蓝 ---- */
-    --brand-50:  #EEF1FE;
-    --brand-100: #DDE4FC;
-    --brand-200: #C0CCF8;
-    --brand-300: #94A6F1;
-    --brand-400: #637EE8;
-    --brand-500: #3B5BDB;  /* primary */
-    --brand-600: #2F49C2;
-    --brand-700: #253A9E;
-    --brand-800: #1E2F7D;
-    --brand-900: #182461;
+    /* ---- Brand / 深林绿（2026-08-05 取代引擎蓝） ---- */
+    --brand-50:  #ECF3E0;
+    --brand-100: #DCE9C4;
+    --brand-200: #C2D89E;
+    --brand-300: #9CC06A;
+    --brand-400: #6F9A3C;
+    --brand-500: #3F6212;  /* primary */
+    --brand-600: #2F4C0E;
+    --brand-700: #244009;
+    --brand-800: #1A3007;
+    --brand-900: #122105;
 
     /* ---- Data / 数智青 (图表与数据可视化) ---- */
     --data-400: #21BFB8;
@@ -42,9 +42,9 @@
     --data-600: #0B8481;
 
     /* ---- Signal / 人类暖色 (HR 温度, 极克制使用) ---- */
-    --warm-400: #D9964A;
-    --warm-500: #C2772E;
-    --warm-600: #9E5F22;
+    --warm-400: #C08A4A;
+    --warm-500: #A86A2E;
+    --warm-600: #7E4F1E;
 
     /* ---- Semantic / 语义状态 ---- */
     --success-500: #1F9D6B;
@@ -53,11 +53,11 @@
     --warning-50:  #FBF1DE;
     --danger-500:  #D6453D;
     --danger-50:   #FBE9E8;
-    --info-500:    #3B5BDB;
-    --info-50:     #EEF1FE;
+    --info-500:    #3F6212;
+    --info-50:     #ECF3E0;
 
     /* ---- Semantic aliases (语义映射) ---- */
-    --bg:           var(--ink-50);
+    --bg:           #F1EFE9;  /* 暖沙（2026-08-05） */
     --surface:      var(--ink-0);
     --surface-sunken: var(--ink-100);
     --text-primary:   var(--ink-900);
@@ -276,7 +276,7 @@
     <div class="wrap">
       <div class="ds-eyebrow">Design System · 设计规范</div>
       <div class="ds-wordmark">AIHR <span class="accent">数智引擎</span></div>
-      <p class="ds-sub">面向「大厂组织变革 × AI 转型」内容矩阵的视觉与组件基线。冷峻克制，以墨阶为骨、引擎蓝为信号，HR 暖色仅作极克制点缀。</p>
+      <p class="ds-sub">面向「大厂组织变革 × AI 转型」内容矩阵的视觉与组件基线。冷峻克制，以墨阶为骨、深林绿为信号，HR 暖色仅作极克制点缀。</p>
       <div class="ds-meta">
         <span><b>Version</b> v1.0</span>
         <span><b>Last updated</b> 2026-07-21</span>
@@ -313,12 +313,12 @@
             <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">以近黑墨色承载正文与结构，灰阶分层表达层级，避免色块喧宾夺主。</div>
           </div>
           <div style="padding:8px 16px; border-left:1px solid var(--border);">
-            <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">引擎蓝为信号</div>
-            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">#3B5BDB 作唯一品牌主色，仅用于关键操作、强调与数据焦点。</div>
+            <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">深林绿为信号</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">#3F6212 作唯一品牌主色，仅用于关键操作、强调与数据焦点。</div>
           </div>
           <div style="padding:8px 0 8px 16px; border-left:1px solid var(--border);">
             <div style="font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--brand-600); margin-bottom:8px;">暖色点睛</div>
-            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">HR 温度用 #C2772E 暖橙表达，仅作标签/强调，绝不成片铺设。</div>
+            <div style="font-size:13px; color:var(--text-secondary); line-height:1.6;">HR 温度用 #A86A2E 陶土棕表达，仅作标签/强调，绝不成片铺设。</div>
           </div>
         </div>
       </section>
@@ -327,7 +327,7 @@
       <section id="color">
         <div class="sec-eyebrow">Foundations · Color</div>
         <h2 class="sec-title">颜色体系</h2>
-        <p class="sec-desc">色彩分四族：中性墨阶（结构与文本）、品牌引擎蓝（唯一主色）、数智青（数据可视化）、人类暖色（HR 温度）。语义状态色复用上述色族，保证整体克制。</p>
+        <p class="sec-desc">色彩分四族：中性墨阶（结构与文本）、品牌深林绿（唯一主色）、数智青（数据可视化）、人类暖色（HR 温度）。语义状态色复用上述色族，保证整体克制。</p>
 
         <h3 class="color-group-title">Neutral / 中性墨阶</h3>
         <div class="swatch-grid">
@@ -345,18 +345,18 @@
           <div class="swatch"><div class="chip" style="background:var(--ink-950)"></div><div class="meta"><div class="name">ink-950</div><div class="hex">#0D1016</div></div></div>
         </div>
 
-        <h3 class="color-group-title">Brand / 引擎蓝（唯一主色）</h3>
+        <h3 class="color-group-title">Brand / 深林绿（唯一主色）</h3>
         <div class="swatch-grid">
-          <div class="swatch"><div class="chip" style="background:var(--brand-50)"></div><div class="meta"><div class="name">brand-50</div><div class="hex">#EEF1FE</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-100)"></div><div class="meta"><div class="name">brand-100</div><div class="hex">#DDE4FC</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-200)"></div><div class="meta"><div class="name">brand-200</div><div class="hex">#C0CCF8</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-300)"></div><div class="meta"><div class="name">brand-300</div><div class="hex">#94A6F1</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-400)"></div><div class="meta"><div class="name">brand-400</div><div class="hex">#637EE8</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-500); box-shadow:inset 0 0 0 2px #fff"></div><div class="meta"><div class="name">brand-500</div><div class="hex">#3B5BDB</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-600)"></div><div class="meta"><div class="name">brand-600</div><div class="hex">#2F49C2</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-700)"></div><div class="meta"><div class="name">brand-700</div><div class="hex">#253A9E</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-800)"></div><div class="meta"><div class="name">brand-800</div><div class="hex">#1E2F7D</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--brand-900)"></div><div class="meta"><div class="name">brand-900</div><div class="hex">#182461</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-50)"></div><div class="meta"><div class="name">brand-50</div><div class="hex">#ECF3E0</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-100)"></div><div class="meta"><div class="name">brand-100</div><div class="hex">#DCE9C4</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-200)"></div><div class="meta"><div class="name">brand-200</div><div class="hex">#C2D89E</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-300)"></div><div class="meta"><div class="name">brand-300</div><div class="hex">#9CC06A</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-400)"></div><div class="meta"><div class="name">brand-400</div><div class="hex">#6F9A3C</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-500); box-shadow:inset 0 0 0 2px #fff"></div><div class="meta"><div class="name">brand-500</div><div class="hex">#3F6212</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-600)"></div><div class="meta"><div class="name">brand-600</div><div class="hex">#2F4C0E</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-700)"></div><div class="meta"><div class="name">brand-700</div><div class="hex">#244009</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-800)"></div><div class="meta"><div class="name">brand-800</div><div class="hex">#1A3007</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--brand-900)"></div><div class="meta"><div class="name">brand-900</div><div class="hex">#122105</div></div></div>
         </div>
 
         <h3 class="color-group-title">Accent / 数智青 &amp; 人类暖色</h3>
@@ -364,9 +364,9 @@
           <div class="swatch"><div class="chip" style="background:var(--data-400)"></div><div class="meta"><div class="name">data-400</div><div class="hex">#21BFB8</div></div></div>
           <div class="swatch"><div class="chip" style="background:var(--data-500)"></div><div class="meta"><div class="name">data-500</div><div class="hex">#0FA3A0</div></div></div>
           <div class="swatch"><div class="chip" style="background:var(--data-600)"></div><div class="meta"><div class="name">data-600</div><div class="hex">#0B8481</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--warm-400)"></div><div class="meta"><div class="name">warm-400</div><div class="hex">#D9964A</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--warm-500)"></div><div class="meta"><div class="name">warm-500</div><div class="hex">#C2772E</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--warm-600)"></div><div class="meta"><div class="name">warm-600</div><div class="hex">#9E5F22</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-400)"></div><div class="meta"><div class="name">warm-400</div><div class="hex">#C08A4A</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-500)"></div><div class="meta"><div class="name">warm-500</div><div class="hex">#A86A2E</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--warm-600)"></div><div class="meta"><div class="name">warm-600</div><div class="hex">#7E4F1E</div></div></div>
         </div>
 
         <h3 class="color-group-title">Semantic / 语义状态</h3>
@@ -374,7 +374,7 @@
           <div class="swatch"><div class="chip" style="background:var(--success-500)"></div><div class="meta"><div class="name">success</div><div class="hex">#1F9D6B</div></div></div>
           <div class="swatch"><div class="chip" style="background:var(--warning-500)"></div><div class="meta"><div class="name">warning</div><div class="hex">#E0A23B</div></div></div>
           <div class="swatch"><div class="chip" style="background:var(--danger-500)"></div><div class="meta"><div class="name">danger</div><div class="hex">#D6453D</div></div></div>
-          <div class="swatch"><div class="chip" style="background:var(--info-500)"></div><div class="meta"><div class="name">info</div><div class="hex">#3B5BDB</div></div></div>
+          <div class="swatch"><div class="chip" style="background:var(--info-500)"></div><div class="meta"><div class="name">info</div><div class="hex">#3F6212</div></div></div>
         </div>
 
         <h3 class="color-group-title">语义映射（Semantic Tokens）</h3>
