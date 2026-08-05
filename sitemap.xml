@@ -921,4 +921,10 @@
     <loc>https://www.aihrlab.online/articles/ai-hr-2026-h2-outlook.html</loc>
     <lastmod>2026-08-05</lastmod>
   </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/adkar-ai-transformation.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
