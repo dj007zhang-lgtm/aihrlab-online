@@ -559,3 +559,5 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 - 摘要: AI 转型卡在落地，根因是变革管理失败而非技术失败。用 Prosci 的 ADKAR 模型拆解 88% 未投产、约 6% 落地率背后的卡点：多数组织停在 Desire（不愿变）与 Ability（不会变）。给出 HR 一号位把变革管理产品化的可落地框架。
 
 /articles/adkar-ai-transformation.html | ADKAR 复盘：AI 转型为何卡在落地 | AI 转型卡在落地，根因是变革管理失败而非技术失败。用 Prosci 的 ADKAR 模型拆解 88% 未投产、约 6% 落地率背后的卡点：多数组织停在 Desire（不愿变）与 Ability（不会变）。给出 HR 一号位把变革管理产品化的可落地框架。
+
+/articles/ai-rebuild-training-coach-2026.html | AI重构培训：从批量灌输到按需教练 | 麦肯锡说HR要从培训转向筛选，但筛选造不出能力；当AI原生组织最稀缺的编排力仍需内部培养，AI把企业培训从批量灌输重构为任务流中按需发生的教练时刻。

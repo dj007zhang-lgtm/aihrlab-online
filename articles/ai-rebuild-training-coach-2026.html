@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI重构培训：从批量灌输到按需教练 | AIHR数智引擎</title>
+  <meta name="description" content="麦肯锡说HR要从培训转向筛选，但筛选造不出能力。当AI原生组织最稀缺的编排力仍需内部培养，AI把企业培训从批量灌输重构为按需教练。">
+  <meta name="keywords" content="AI重构培训,企业培训,AI教练,按需学习,动态赋能,L&D,技能培训,生成式AI,麦肯锡">
+  <meta name="answer-what" content="企业培训正在被AI重构——从统一发布的课程目录、批量灌输，转向在任务流中按需触达、由AI教练个性化交付的「动态赋能」。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="AI重构培训的本质，是把培训单元从「课程」拆成「在任务流中按需发生的教练时刻」，由AI根据每人技能缺口实时生成、推送、陪练。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-rebuild-training-coach-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI重构培训：从批量灌输到按需教练">
+  <meta property="og:description" content="筛选解决用人，培训解决长能力。当AI原生组织最稀缺的编排力仍需内部培养，培训被重构为任务流中的按需教练。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-rebuild-training-coach-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-rebuild-training-coach-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-rebuild-training-coach-2026.webp">
+  <meta name="twitter:title" content="AI重构培训：从批量灌输到按需教练">
+  <meta name="twitter:description" content="筛选解决用人，培训解决长能力。当AI原生组织最稀缺的编排力仍需内部培养，培训被重构为任务流中的按需教练。">
+
+  <!--
+    ═════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    ═════════════════════════════════════════
+  -->
+  <style>
+    /* ---- 变量 ---- */
+    :root {
+      --bg:#fff;--bg-subtle:#EAE5DA;--bg-warm:#EFE9DD;
+      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
+      --text-link:#365314;--text-link-hover:#223A0C;
+      --accent:#3F6212;--accent-pale:#ECF3E0;
+      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
+      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
+    }
+
+    /* ---- 文章头部 ---- */
+    .article-header { text-align: center; padding: 3rem 0 1.5rem; }
+    .article-header .cat { display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem; }
+    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
+    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
+    .article-meta span { margin:0 .35em; }
+    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
+
+    /* ---- 正文容器 ---- */
+    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
+    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
+    .article-body p:first-of-type { margin-top:0; }
+    .article-body strong { font-weight:700;color:var(--text); }
+
+    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
+    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
+
+    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
+
+    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
+    .article-body li { margin-top:.5em;line-height:1.82; }
+
+    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
+    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
+    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
+
+    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(63,98,18,.35); }
+    .article-body .ilink:hover { background:rgba(63,98,18,.12); }
+
+    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
+    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
+    .inline-related ul { list-style:none;padding:0;margin:0; }
+    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
+    .inline-related li:last-child { border-bottom:none; }
+    .inline-related a { color:var(--text-link);text-decoration:none; }
+    .inline-related a:hover { text-decoration:underline; }
+
+    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
+    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
+    .related-reading ul { list-style:none;padding:0;margin:0; }
+    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
+    .related-reading li:last-child { border-bottom:none; }
+    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
+    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
+
+    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
+    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
+    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
+
+    /* ---- GEO 胶囊（与全站范式一致，由 build_geo_capsules.py 注入）---- */
+    .geo-answer-capsule { max-width:720px;margin:1.5rem auto 0;padding:1.1rem 1.4rem;background:var(--accent-pale);border:1px solid rgba(63,98,18,.25);border-radius:0 12px 12px 0; }
+    .geo-answer-capsule__label { font-size:.78rem;font-weight:700;letter-spacing:.05em;color:var(--accent);margin:0 0 .4rem; }
+    .geo-answer-capsule__text { margin:0;font-size:1.02rem;line-height:1.75;color:var(--text); }
+  </style>
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI重构培训：从批量灌输到按需教练",
+    "description": "麦肯锡说HR要从培训转向筛选，但筛选造不出能力。当AI原生组织最稀缺的编排力仍需内部培养，AI把企业培训从批量灌输重构为按需教练。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-rebuild-training-coach-2026.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "核心方法论研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-rebuild-training-coach-2026.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-rebuild-training-coach-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BWLGRVRRGN');</script>
+  <!-- 百度统计 -->
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <span class="cat">核心方法论</span>
+    <h1>AI重构培训：从批量灌输到按需教练</h1>
+    <div class="article-meta">
+      <time datetime="2026-08-05T13:13:00+08:00">2026年8月5日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>核心方法论</span>
+      <span>&middot;</span>
+      <span>阅读约 9 分钟</span>
+    </div>
+    <p class="lead">麦肯锡 2026 说 HR 要从「培训」转向「筛选」。这话只对了一半——筛选解决「用什么样的人」，却回答不了「已经在船上的人，怎么长出新能力」。当 AI 原生组织最稀缺的编排力、人机协作判断力仍需内部培养，培训不会消失，它只是被 AI 拆成了更小、更准、也更即时的单元。</p>
+  </header>
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">AI 重构培训，是把培训单元从「课程」拆成「在任务流中按需发生的教练时刻」——由 AI 据每人技能缺口实时生成、推送、陪练，而不是把旧课件塞进聊天框。</p>
+    </div>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-rebuild-training-coach-2026.webp"
+         alt="AI重构企业培训：从批量灌输到任务流中按需教练示意"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>企业培训这套运行了二十年的「发布模型」正在失灵。过去 L&amp;D 的打法是：集中内容进 LMS、排课、追踪完成率。AI 把这套逻辑从内部瓦解——不是因为 AI 更能讲课，而是技能的保质期塌得比课程生产周期还快。当一门通识课还在评审流程里，它要讲的那项工具可能已经被迭代掉了。</p>
+
+    <h2>一、为什么「发布课程目录」这套失灵了</h2>
+    <p>WEF《未来就业报告 2025》调查了 1000 多家企业：到 2030 年，劳动者 <strong>39% 的核心技能</strong>将发生变化或过时（较 2023 年的 44% 略有放缓，但仍处高位）；<strong>63% 的雇主</strong>把「技能缺口」列为转型的第一道障碍。更尖锐的是，77% 的雇主计划给员工再培训，可另一边，技术技能的半衰期已经掉到 2.5 年以内（Josh Bersin Company 2026 年的测算）——你花三个月做出来的课件，上线时讲的那项能力可能已经被重新定义。</p>
+    <p>钱没少花，readyness 却没上来。全球企业培训市场已经冲到约 <strong>4000 亿美元</strong>（Josh Bersin Company，2026 年 2 月，覆盖 800 家组织），但 <strong>74% 的高管</strong>承认自己的组织「缺乏在 AI 经济中竞争所需的技能」；不到 30% 的企业对现有的人才技能建设感到满意。只有四分之一的组织把「学习」视为工作本身的一部分，其余四分之三仍把它当成一件独立的事——上完课就回到岗位，中间隔着一道没人 bridging 的沟。</p>
+    <blockquote>这就是「学习悖论」：投入越高，缺口越显形。问题不在预算，在交付形态。当能力以月为单位过期，按季度排课的培训部天然慢半拍。</blockquote>
+
+    <h2>二、麦肯锡的「转向筛选」对，但只回答了一半</h2>
+    <p>麦肯锡 2026 组织报告的核心判断是：在 AI 重构的岗位上，许多能力已经商品化，市场上能买到，就不必内部慢慢培养——所以 HR 要把权重从「培训」挪到「筛选」。这个结论在「能力可被市场供给」的前提下站得住。</p>
+    <p>但它没回答另一半：AI 原生组织真正稀缺的能力，恰恰不在市场里。编排人与多个智能体的协作、在不确定中做人机边界的判断、把 AI 当水电一样嵌入工作流的素养——这些能力没有现成的人才库，买不到，只能自己长。麦肯锡自己也给出过旁证：在其 2026 组织报告中，<strong>70% 岗位的技能已经横跨人机边界</strong>。横跨意味着旧岗位被拆、新能力要补，而这部分补法，外部市场给不了。</p>
+    <p>所以筛选与培训不是二选一，而是双轨：市场能供的，筛；市场供不了的，培。问题从来不是「还要不要培训」，而是「培训以什么形态存在」。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/mckinsey-2026-training-vs-screening.html">麦肯锡2026：HR必须从培训转向筛选</a></li>
+        <li><a href="/articles/ai-performance-management.html">AI重构绩效管理：从年度考核到持续反馈</a></li>
+      </ul>
+    </div>
+
+    <h2>三、AI 重构培训的单元：从「课程」到「教练时刻」</h2>
+    <p>旧单元是「课程」：数周制作、按期发布、千人一面。新单元是「教练时刻」——在任务流里、由 AI 按缺口触发、随做随学。</p>
+    <p>证据在行为数据里。Microsoft《2026 工作趋势指数》（2026 年 6 月，2 万名 AI 用户、10 个市场）显示：<strong>58% 的 AI 用户</strong>表示自己已经能完成一年前做不出的工作，在最先进的「前沿专业人士」群体中这一比例达 <strong>80%–82%</strong>；<strong>86% 的用户</strong>把 AI 产出当作「起点」而非「终稿」。这说明一件事：人不是在课堂里学会用 AI 的，是在真实任务里、边做边被 AI 陪练出来的。培训如果还停在「先上课再上岗」，就错过了学习真正发生的现场。</p>
+    <p>企业学习侧也在同步迁移。据企业学习行业研究（2026），<strong>87% 的 L&amp;D 团队</strong>已经在用 AI，其中约 36% 跑在定义清晰、可复用的流程里；<strong>78% 的企业</strong>计划把 AI 直接用于 L&amp;D 内容生产。微学习的完成率能从约 30% 的基线拉到 <strong>50%–70%</strong>（LinkedIn Learning）——因为单元变小、贴合当下任务，人才愿意点完。AI 导师把「个性化」从口号变成默认：它知道你卡在哪、下一步该给什么、什么难度，并随你的实际表现持续调。</p>
+    <p>Josh Bersin Company 把这种形态叫做「动态赋能（Dynamic Enablement）」：AI 原生、按需、嵌在工作流里。采用它的企业，超出财务目标的可能性是传统培训的 <strong>6 倍</strong>，员工感到潜力被释放的可能性是 <strong>28 倍</strong>，生产率高 <strong>7 倍</strong>，成为好雇主的可能性高 <strong>5 倍</strong>。但现实是：不到 5% 的学习团队真正走到了 AI 原生。</p>
+
+    <h2>四、三个重构杠杆</h2>
+    <h3>杠杆一：用「技能情报」替代「课程目录」</h3>
+    <p>动态赋能的第一性原理，是把「人有什么技能、缺什么、下一步补什么」变成系统实时算出来的事，而不是等培训部排进目录。AI 分析绩效数据、映射能力、预测 emerging gap，自动给每个人排好学习路径——不等课件上线。</p>
+    <h3>杠杆二：在任务流里交付，不在教室里</h3>
+    <p>Just-in-time、对话式、嵌在协作工具里。员工在写方案时问一句「这段怎么更稳」，AI 当场给带出处的建议，并顺手补一节 3 分钟的对应微课。Microsoft 的数据给了一个冷提醒：只有 <strong>24%–26% 的员工</strong>认为领导层在 AI 上「方向清晰、始终一致」。瓶颈从来不是个人愿不愿意学，是组织系统有没有把学习接进工作。</p>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+        <li><a href="/articles/from-company-to-intelligent-organization.html">从公司到智能组织</a></li>
+      </ul>
+    </div>
+
+    <h3>杠杆三：管理者从「培训管理员」变「教练」</h3>
+    <p>AI 接管内容生产与分发后，最稀缺的是把学习变成日常的人——一线管理者。AI 导师负责个性化推送，管理者负责把「学」连到「用」：在周会里追问进展、把新能力写进目标、让会用 AI 的人带不会用的人。这恰好呼应了组织扁平化里中层的重生路径——中层不再是信息中转站，而是团队能力的教练与赋能者。</p>
+
+    <h2>五、边界与风险（不能只唱赞歌）</h2>
+    <p>AI 导师不是 human judgment 的替代品。<strong>86% 的 Microsoft 用户</strong>仍对 AI 产出保留「思考权」；动态赋能成熟度全球仅 5% 触达，主因是数据隐私担忧与缺一套 AI 伦理框架。AI 评估本身也可能带偏：如果训练数据有 bias，个性化推荐会把人推去更窄的轨道。</p>
+    <p>也别过度转向。筛选与培训是两根钢轨，不是谁取代谁。把「转向筛选」读成「不培训」，会让组织在最该内部养能力的环节失速。衡量也一样：ATD 数据显示只有 <strong>35% 的企业</strong>把 L&amp;D 的效果衡量到「完成率」之外。AI 让「技能—业务结果」的挂钩在技术上可行，但组织得真去量，否则预算还是停在「上了多少课」。</p>
+
+    <h2>六、给 HR 一号位的落地清单</h2>
+    <ul>
+      <li><strong>先拆能力清单。</strong>把「市场能供 vs 必须内培」分开，筛、培分轨，别一刀切。市场能买到的能力，用筛选解决；市场没有的编排力、人机判断，用内部培训长。</li>
+      <li><strong>挑一个高暴露岗位做试点。</strong>如 AI 落地协调员或数据分析师，用 AI 导师替代一门通识课，测完成率与上岗速度的差。</li>
+      <li><strong>把「学习接进工作流」写进管理者 KPI。</strong>不只考 L&amp;D 的完课率——对齐 Microsoft 说的那 24% 领导缺口，让系统跟上个人。</li>
+      <li><strong>建技能情报底座。</strong>绩效数据 + 能力模型，让「缺什么」系统算、人确认，而非培训部拍脑袋排目录。</li>
+      <li><strong>给 AI 导师加治理。</strong>评估偏见复核、数据权限边界、把「人保留终稿判断」写进流程，不让那 86% 的思考权流失。</li>
+    </ul>
+    <blockquote>培训没死，它只是从「发课程」变成了「在你需要的一秒，给你刚好那一口」。谁先把这套接进组织，谁就保住了 AI 经济里最贵的东西——人的能力还在长。</blockquote>
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/mckinsey-2026-training-vs-screening.html">麦肯锡2026：HR必须从培训转向筛选</a></li>
+        <li><a href="/articles/ai-performance-management.html">AI重构绩效管理：从年度考核到持续反馈</a></li>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+        <li><a href="/articles/from-company-to-intelligent-organization.html">从公司到智能组织</a></li>
+        <li><a href="/articles/hr-digital-employee-2026.html">HR数字员工：AI Agent落地指南</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
