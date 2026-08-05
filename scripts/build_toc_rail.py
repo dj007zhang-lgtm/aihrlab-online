@@ -92,27 +92,32 @@ def main():
             print(f"[{mode}] {fn}: 跳过 — h2 标题目录化不足 ({heading_like_count}/{len(opens)})")
             continue
 
-        # 文档序收集 (start, end, new_opening_tag_or_None, mid, label)
-        entries = []
+        # 文档序收集：给所有 h2 加 id，但目录只收录「目录化」标题
+        entries = []          # 进入 TOC 的条目
+        all_entries = []      # 所有 h2（用于加 id）
+        toc_i = 0
         for i, m in enumerate(opens, 1):
             attr = m.group(1)
+            txt = heading_labels[i - 1]
             if re.search(r"\bid\s*=", attr):
                 mid = re.search(r'\bid="([^"]+)"', attr).group(1)
                 newtag = None
             else:
                 mid = f"s{i}"
                 newtag = f'<h2{attr} id="{mid}">'
-            txt = heading_labels[i - 1]
-            entries.append((m.start(), m.end(), newtag, mid, txt))
+            all_entries.append((m.start(), m.end(), newtag, mid, txt))
+            if is_heading_like(txt):
+                toc_i += 1
+                entries.append((toc_i, mid, txt))
 
         # 右→左替换开始标签，避免位置漂移
         new_html = html
-        for start, end, newtag, mid, txt in reversed(entries):
+        for start, end, newtag, mid, txt in reversed(all_entries):
             if newtag is not None:
                 new_html = new_html[:start] + newtag + new_html[end:]
 
         # 构建 aside 并插入到「已加 id 的 html」的 </article> 之前
-        ol = "".join(f'<li><a href="#{mid}">{txt}</a></li>' for _, _, _, mid, txt in entries)
+        ol = "".join(f'<li><a href="#{mid}">{txt}</a></li>' for _, mid, txt in entries)
         aside = (
             f'<aside class="toc-rail"><nav class="toc"><h4>目录</h4>'
             f"<ol>{ol}</ol></nav></aside>"

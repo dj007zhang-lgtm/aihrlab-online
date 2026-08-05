@@ -19,6 +19,7 @@ stability_guard.py —— 网站发布前稳定性 / 专业性 / 真实性 自�
   S1 空白页        S2 乱码/编码损坏     S3 结构损坏（标签未闭合）
   S4 组件泄漏      S5 资源加载失败      S6 内部链接失效
   S7 品牌色回退    S8 导航顺序错乱      S9 不安全外链
+  S10 文章页可见面包屑  S11 目录栏细碎化
 
 用法：
   python3 scripts/stability_guard.py --all            # 全站扫描
@@ -76,6 +77,15 @@ MOJIBAKE_RE = re.compile(
     r"Ã©|Ã¨|Ã |Ã¢|Ã¶|Ã¼|Ã±|Ã§|Ã\x9f|â‚¬|â€|â„¢|â€œ|â€\x9d|â€™|Â°|Â°|Ã\u00a0|Ã\u0161"
 )
 REPLACEMENT_CHAR = "\ufffd"
+
+# TOC 目录栏去细碎化：与 build_toc_rail.py 判定保持一致
+TOC_FINE_GRAINED_RE = re.compile(
+    r"^(\d+%的|因为|所以|但是|然而|如果|那么|"
+    r"你的|我的|他的|她的|它的|我们|你们|他们|它们|"
+    r"这|那|这里|那里|看看|想想|说说|聊聊)",
+    re.UNICODE,
+)
+TOC_MIN_LEN = 10
 
 # HTML void 元素（无需闭合）
 VOID_ELEMENTS = {
@@ -217,6 +227,26 @@ DETECTION_ITEMS = [
         "trigger": "外链使用 http://（非 https）或 javascript: 伪协议 → WARN（不阻断发布，但须复核）。",
         "handling": "不阻断发布，但告警。https 缺失会产生混合内容警告并损害信任；"
                    "javascript: 链接多为残留脚本。逐一复核改为 https 或移除。",
+        "autofix": False,
+    },
+    {
+        "id": "S10-BREADCRUMB", "name": "文章页可见面包屑检测", "category": "专业性",
+        "severity": SEVERITY_BLOCKER,
+        "trigger": "文章页（articles/*.html）<body> 内出现可见面包屑（<nav class=\"breadcrumb\">、"
+                   "<div class=\"breadcrumb\">、<nav class=\"breadcrumb-nav\">）。"
+                   "站点页眉主导航已提供位置感，文章正文内再塞面包屑破坏阅读沉浸感。",
+        "handling": "拦截发布。删除文章正文内的可见面包屑组件，保留 <head> 中的 JSON-LD "
+                   "BreadcrumbList 供 SEO。重跑确认 articles/*.html 无可见面包屑。",
+        "autofix": False,
+    },
+    {
+        "id": "S11-TOC-FINE", "name": "目录栏细碎化检测", "category": "内容错乱",
+        "severity": SEVERITY_BLOCKER,
+        "trigger": "右侧目录栏 <aside class=\"toc-rail\"> 中出现目录化不足的条目："
+                   "长度 < 10 字，或以数字/百分比/连词/人称代词/指示代词开头"
+                   "（如「90%的企业…」「因为培训…」「你的团队…」）。",
+        "handling": "拦截发布。目录栏只应承载章节导航，不能是正文句子的复述。"
+                   "运行 scripts/build_toc_rail.py --apply 重建，或手动删除碎片条目。",
         "autofix": False,
     },
 ]
@@ -698,6 +728,59 @@ def check_insecure(files):
     return findings
 
 
+def check_breadcrumb(files):
+    """S10：文章页禁止出现可见面包屑（保留 head 中 JSON-LD BreadcrumbList 给 SEO）。"""
+    findings = []
+    for p in files:
+        if not p.endswith(".html"):
+            continue
+        rel = _rel(p)
+        if not rel.startswith("articles/"):
+            continue
+        html = _read(p)
+        # 桩页豁免
+        if _is_stub(html):
+            continue
+        # 检测正文内可见面包屑：nav/div class 含 breadcrumb
+        for m in re.finditer(r'<(nav|div)\b[^>]*class="[^"]*\bbreadcrumb\b[^"]*"[^>]*>', html, re.S | re.I):
+            # 确认它不在 <head> 里（JSON-LD 不会用这个标签，但防御性）
+            if m.start() < html.find("<body"):
+                continue
+            findings.append(Finding(
+                "S10-BREADCRUMB", SEVERITY_BLOCKER, rel,
+                "文章正文内出现可见面包屑组件，破坏阅读沉浸感",
+                "删除 <body> 内 <nav class=\"breadcrumb\"> / <div class=\"breadcrumb\"> / <nav class=\"breadcrumb-nav\">；"
+                "保留 <head> 中 JSON-LD BreadcrumbList",
+            ))
+            break
+    return findings
+
+
+def check_toc_fine(files):
+    """S11：右侧目录栏不得收录细碎 h2（如「90%的企业…」「因为培训…」「你的团队…」）。"""
+    findings = []
+    strip = re.compile(r"<[^>]+>")
+    for p in files:
+        if not p.endswith(".html"):
+            continue
+        html = _read(p)
+        if "toc-rail" not in html:
+            continue
+        rel = _rel(p)
+        # 提取 toc-rail 中所有条目文本
+        for rail_m in re.finditer(r'<aside class="toc-rail"[^>]*>.*?</aside>', html, re.S):
+            rail = rail_m.group(0)
+            for entry in re.finditer(r'<li><a href="#[^"]+">(.*?)</a></li>', rail, re.S):
+                txt = strip.sub("", entry.group(1)).strip()
+                if len(txt) < TOC_MIN_LEN or TOC_FINE_GRAINED_RE.match(txt):
+                    findings.append(Finding(
+                        "S11-TOC-FINE", SEVERITY_BLOCKER, rel,
+                        f"目录栏出现细碎条目：「{txt[:30]}…」，像正文复述而非章节导航",
+                        "运行 scripts/build_toc_rail.py --apply 重建，或手动删除该碎片条目",
+                    ))
+    return findings
+
+
 # ============================================================
 # 自动修复（仅安全项：S7 品牌色 / S8 导航）
 # ============================================================
@@ -779,6 +862,8 @@ CHECKS = [
     ("S7-BRAND", "品牌色回退检测", check_brand),
     ("S8-NAV", "导航顺序错乱检测", check_nav),
     ("S9-INSECURE", "不安全外链检测", check_insecure),
+    ("S10-BREADCRUMB", "文章页可见面包屑检测", check_breadcrumb),
+    ("S11-TOC-FINE", "目录栏细碎化检测", check_toc_fine),
 ]
 
 

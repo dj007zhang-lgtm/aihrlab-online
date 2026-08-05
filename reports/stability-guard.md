@@ -20,6 +20,8 @@
 | S7-BRAND | 品牌色回退检测 | 专业性 | BLOCKER | 是 |
 | S8-NAV | 导航顺序错乱检测 | 专业性 | BLOCKER | 是 |
 | S9-INSECURE | 不安全外链检测 | 真实性 / 安全 | WARN | 否（告警） |
+| S10-BREADCRUMB | 文章页可见面包屑检测 | 专业性 | BLOCKER | 是 |
+| S11-TOC-FINE | 目录栏细碎化检测 | 内容错乱 | BLOCKER | 是 |
 
 **严重级约定**
 - `BLOCKER`：必然破坏专业形象或可用性 → 进程返回非 0，publish.py 中止推送，零远程写入。
@@ -97,6 +99,22 @@
 - **严重级**：WARN
 - **触发条件**：外链使用 http://（非 https）或 javascript: 伪协议 → WARN（不阻断发布，但须复核）。
 - **处理流程**：不阻断发布，但告警。https 缺失会产生混合内容警告并损害信任；javascript: 链接多为残留脚本。逐一复核改为 https 或移除。
+- **自动修复**：否（人工修复）
+
+### S10-BREADCRUMB · 文章页可见面包屑检测
+
+- **类别**：专业性
+- **严重级**：BLOCKER
+- **触发条件**：文章页（articles/*.html）<body> 内出现可见面包屑（<nav class="breadcrumb">、<div class="breadcrumb">、<nav class="breadcrumb-nav">）。站点页眉主导航已提供位置感，文章正文内再塞面包屑破坏阅读沉浸感。
+- **处理流程**：拦截发布。删除文章正文内的可见面包屑组件，保留 <head> 中的 JSON-LD BreadcrumbList 供 SEO。重跑确认 articles/*.html 无可见面包屑。
+- **自动修复**：否（人工修复）
+
+### S11-TOC-FINE · 目录栏细碎化检测
+
+- **类别**：内容错乱
+- **严重级**：BLOCKER
+- **触发条件**：右侧目录栏 <aside class="toc-rail"> 中出现目录化不足的条目：长度 < 10 字，或以数字/百分比/连词/人称代词/指示代词开头（如「90%的企业…」「因为培训…」「你的团队…」）。
+- **处理流程**：拦截发布。目录栏只应承载章节导航，不能是正文句子的复述。运行 scripts/build_toc_rail.py --apply 重建，或手动删除碎片条目。
 - **自动修复**：否（人工修复）
 
 ## 三、统一预警与拦截机制
