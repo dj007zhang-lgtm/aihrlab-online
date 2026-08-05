@@ -126,3 +126,16 @@ function trackEvent(name,params={}){if(typeof gtag!=='undefined'){gtag('event',n
   var h4=rail.querySelector('.toc h4');if(h4){h4.addEventListener('click',closeDrawer);}
   document.body.appendChild(backdrop);document.body.appendChild(fab);
 })();
+
+/* ===== 二维码唯一运行时护栏（2026-08-05） =====
+   若页面同时存在文章底部二维码与站点页脚二维码，隐藏页脚二维码，
+   确保用户不会在同一页看到两个公众号二维码。此护栏不能替代质量门，
+   仅作为最后一道用户体验兜底。 */
+(function(){
+  if(document.querySelector('.article-footer-qr')){
+    document.querySelectorAll('.footer-col--qr').forEach(function(el){
+      el.style.display='none';
+      console.warn('[AIHR] 已隐藏页脚重复二维码；请在 HTML 中删除 .footer-col--qr 以根治。');
+    });
+  }
+})();

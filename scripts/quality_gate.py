@@ -71,6 +71,43 @@ class GateResult:
 
 
 # ============================================================
+# Gate 0: 二维码唯一关（前置硬关卡，2026-08-05 新增）
+# ============================================================
+def gate_qr_uniqueness(target_files=None):
+    """二维码唯一关：阻断同一页出现两个公众号二维码。
+
+    纪律：每篇文章只能有一处公众号二维码 CTA，即 .article-footer-qr。
+    站点页脚 .footer-col--qr 禁止出现在文章页，避免同一页重复展示。
+    非文章页（首页/关于/资源库等）若需要页脚二维码，须与文章页互斥，
+    且不得与文章内 .article-footer-qr 同时出现。
+    """
+    files = target_files or _get_all_html_files()
+    issues = []
+    for path in files:
+        if not path.endswith('.html'):
+            continue
+        try:
+            with open(path, encoding='utf-8') as f:
+                html = f.read()
+        except Exception:
+            continue
+        has_article_qr = 'class="article-footer-qr"' in html
+        has_footer_qr = 'class="footer-col footer-col--qr"' in html
+        if has_article_qr and has_footer_qr:
+            rel = os.path.relpath(path, SITE_ROOT)
+            issues.append(f"{rel} | 同时存在 .article-footer-qr 与站点页脚 .footer-col--qr，同一页两个二维码")
+        # 额外：articles/ 目录下禁止出现站点页脚二维码
+        rel = os.path.relpath(path, SITE_ROOT)
+        if rel.startswith('articles/') and has_footer_qr:
+            issues.append(f"{rel} | articles/ 目录下禁止出现站点页脚二维码 .footer-col--qr")
+
+    if issues:
+        return GateResult("0-二维码唯一关", False, issues[:15] + ([f"… 共 {len(issues)} 处"] if len(issues) > 15 else []))
+    return GateResult("0-二维码唯一关", True,
+                      ["全站每页仅一处公众号二维码，无 article-footer-qr 与 footer-col--qr 重复"])
+
+
+# ============================================================
 # Gate 1: 内链完整性关（最前置硬关卡）
 # ============================================================
 def gate_link_integrity(target_files=None):
@@ -712,8 +749,9 @@ def run_quality_gate(mode="changed"):
         else:
             target_files = [os.path.join(SITE_ROOT, target_file)]
     
-    # Run all gates（内链完整性为第1关，最前置；H1 完整性为第3关，结构性检查）
+    # Run all gates（二维码唯一为第0关，最前置；内链完整性为第1关；H1 完整性为第3关，结构性检查）
     gates = [
+        gate_qr_uniqueness(target_files),
         gate_link_integrity(target_files),
         gate_structure(target_files),
         gate_h1_integrity(target_files),
