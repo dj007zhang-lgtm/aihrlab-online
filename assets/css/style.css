@@ -224,6 +224,47 @@
 .ext-read{font-size:0.85rem;color:var(--accent,#3F6212);}
 .killer-sec{border:1px solid var(--line,#e9ecef);border-radius:14px;padding:1.25rem;margin:1.5rem 0;}
 
+/* ── v1/v2 正文排版统一（主理人决策：不迁移 DOM，仅 CSS 统一观感） ──
+   旧文模板用 .article-content-wrapper，v2 模板用 .article-body。
+   二者共用同一套正文排版，消除「两套模板渲染不一致」的观感差异。
+   v2 自包含文章的内联 .article-body 规则与以下同源，不会冲突。 */
+.article-body,
+.article-content-wrapper{
+  max-width:720px;
+  margin:0 auto;
+  font-size:17.5px;
+  line-height:1.86;
+  color:#222;
+}
+.article-body p,
+.article-content-wrapper p{margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto;}
+.article-body p:first-of-type,
+.article-content-wrapper p:first-of-type{margin-top:0;}
+.article-body strong,
+.article-content-wrapper strong{font-weight:700;color:var(--text);}
+.article-body h2,
+.article-content-wrapper h2{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text);}
+.article-body h3,
+.article-content-wrapper h3{font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text);}
+.article-body blockquote,
+.article-content-wrapper blockquote{margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8;}
+.article-body ul,
+.article-body ol,
+.article-content-wrapper ul,
+.article-content-wrapper ol{margin:1.15em 0;padding-left:1.6em;}
+.article-body li,
+.article-content-wrapper li{margin-top:.5em;line-height:1.82;}
+.article-body table,
+.article-content-wrapper table{width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.article-body th,
+.article-content-wrapper th{background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong);}
+.article-body td,
+.article-content-wrapper td{padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary);}
+.article-body .ilink,
+.article-content-wrapper .ilink{color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(63,98,18,.35);}
+.article-body .ilink:hover,
+.article-content-wrapper .ilink:hover{background:rgba(63,98,18,.12);}
+
 /* ── 移动端响应式（P0 修复：Mobile CTR=0%） ── */
 @media(max-width:768px){
   /* 基础字号缩放 */
