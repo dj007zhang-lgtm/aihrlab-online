@@ -149,7 +149,7 @@
 .toc-sidebar{position:sticky;top:88px;align-self:start;}
 .toc{background:var(--bg-subtle);border:1px solid var(--line);border-radius:12px;padding:1.05rem 1.15rem;}
 .toc h4{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--text-secondary);text-transform:uppercase;margin:0 0 .7rem;}
-.toc ol{list-style:none;padding:0;margin:0;}
+.toc ol{list-style:decimal;padding-left:1.25rem;margin:0;}
 .toc li{margin:0 0 .55rem;line-height:1.5;}
 .toc li:last-child{margin-bottom:0;}
 .toc li a{color:var(--text-secondary);text-decoration:none;border-bottom:none;font-size:.86rem;}

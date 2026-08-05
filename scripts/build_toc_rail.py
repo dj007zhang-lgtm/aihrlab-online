@@ -25,9 +25,30 @@ ART = os.path.join(ROOT, "articles")
 OPEN = re.compile(r"<h2\b([^>]*)>")          # 仅开始标签
 STRIP = re.compile(r"<[^>]+>")
 
+# h2 标题若读起来像列表项/内容碎片而非目录，右侧 TOC 会变成「把正文句子再列一遍」，
+# 引发阅读焦虑（用户反馈：fine-grained entries）。
+# 判定标准：标题过短；或以「90%的…」「因为…」「你的团队…」等完整句子/列表项开头。
+FINE_GRAINED_RE = re.compile(
+    r"^(\d+%的|因为|所以|但是|然而|如果|那么|"
+    r"你的|我的|他的|她的|它的|我们|你们|他们|它们|"
+    r"这|那|这里|那里|看看|想想|说说|聊聊)",
+    re.UNICODE,
+)
+HEADING_LIKE_MIN_LEN = 10          # 小于此长度视为碎片
+
 
 def plain(text):
     return STRIP.sub("", text).strip()
+
+
+def is_heading_like(text):
+    """返回 True 表示该 h2 文本适合进入目录栏。"""
+    t = text.strip()
+    if len(t) < HEADING_LIKE_MIN_LEN:
+        return False
+    if FINE_GRAINED_RE.match(t):
+        return False
+    return True
 
 
 def main():
@@ -57,6 +78,20 @@ def main():
             skipped_few += 1
             continue
 
+        # 先评估 h2 文本是否足够「目录化」
+        heading_labels = []
+        for i, m in enumerate(opens, 1):
+            cend = html.find("</h2>", m.end())
+            txt = plain(html[m.end():cend]) if cend != -1 else f"第{i}节"
+            heading_labels.append(txt)
+
+        heading_like_count = sum(1 for t in heading_labels if is_heading_like(t))
+        # 目录化标题不足 40% → 这篇文章不适合生成目录栏（避免右侧变成正文句子的复述）
+        if heading_like_count / len(opens) < 0.4:
+            skipped_few += 1
+            print(f"[{mode}] {fn}: 跳过 — h2 标题目录化不足 ({heading_like_count}/{len(opens)})")
+            continue
+
         # 文档序收集 (start, end, new_opening_tag_or_None, mid, label)
         entries = []
         for i, m in enumerate(opens, 1):
@@ -67,8 +102,7 @@ def main():
             else:
                 mid = f"s{i}"
                 newtag = f'<h2{attr} id="{mid}">'
-            cend = html.find("</h2>", m.end())
-            txt = plain(html[m.end():cend]) if cend != -1 else f"第{i}节"
+            txt = heading_labels[i - 1]
             entries.append((m.start(), m.end(), newtag, mid, txt))
 
         # 右→左替换开始标签，避免位置漂移
