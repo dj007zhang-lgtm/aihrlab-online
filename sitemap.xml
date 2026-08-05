@@ -908,4 +908,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-flattening-management-guide.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aihrlab.online/articles/ai-layoff-compliance-guide.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
 </urlset>
