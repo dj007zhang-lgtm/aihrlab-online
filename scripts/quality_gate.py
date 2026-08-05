@@ -80,6 +80,10 @@ def gate_qr_uniqueness(target_files=None):
     站点页脚 .footer-col--qr 禁止出现在文章页，避免同一页重复展示。
     非文章页（首页/关于/资源库等）若需要页脚二维码，须与文章页互斥，
     且不得与文章内 .article-footer-qr 同时出现。
+
+    计数式防护（防复制粘贴多份）：
+    - 同一 HTML 文件内 .article-footer-qr 出现次数必须 == 1；
+    - 同一 HTML 文件内 .footer-col--qr 出现次数必须 == 0（全站禁止页脚二维码）。
     """
     files = target_files or _get_all_html_files()
     issues = []
@@ -91,15 +95,18 @@ def gate_qr_uniqueness(target_files=None):
                 html = f.read()
         except Exception:
             continue
-        has_article_qr = 'class="article-footer-qr"' in html
-        has_footer_qr = 'class="footer-col footer-col--qr"' in html
-        if has_article_qr and has_footer_qr:
-            rel = os.path.relpath(path, SITE_ROOT)
-            issues.append(f"{rel} | 同时存在 .article-footer-qr 与站点页脚 .footer-col--qr，同一页两个二维码")
-        # 额外：articles/ 目录下禁止出现站点页脚二维码
         rel = os.path.relpath(path, SITE_ROOT)
-        if rel.startswith('articles/') and has_footer_qr:
-            issues.append(f"{rel} | articles/ 目录下禁止出现站点页脚二维码 .footer-col--qr")
+        n_article_qr = html.count('class="article-footer-qr"')
+        n_footer_qr = html.count('class="footer-col footer-col--qr"')
+        # 1) 文章内二维码 CTA 必须恰好 1 个
+        if n_article_qr > 1:
+            issues.append(f"{rel} | .article-footer-qr 出现 {n_article_qr} 次（复制粘贴多份），必须恰好 1 个")
+        # 2) 全站禁止站点页脚二维码
+        if n_footer_qr > 0:
+            issues.append(f"{rel} | 出现站点页脚二维码 .footer-col--qr {n_footer_qr} 次，全站禁止")
+        # 3) 两者不得共存（冗余保险）
+        if n_article_qr >= 1 and n_footer_qr >= 1:
+            issues.append(f"{rel} | 同时存在 .article-footer-qr 与 .footer-col--qr，同一页两个二维码")
 
     if issues:
         return GateResult("0-二维码唯一关", False, issues[:15] + ([f"… 共 {len(issues)} 处"] if len(issues) > 15 else []))
