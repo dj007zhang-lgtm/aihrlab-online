@@ -434,3 +434,7 @@
   .site-footer .footer-inner{grid-template-columns:1fr;gap:1.5rem;}
   .footer-brand{max-width:none;}
 }
+
+/* 全站溢出修复：旧文相关阅读/主题簇为 <article> 直接子元素，补齐 720px 约束 */
+.related-reading{max-width:var(--article-width);margin:0 auto;padding:var(--space-2xl) 0;}
+.topic-cluster{max-width:var(--article-width);margin:1.5rem auto;}
