@@ -14,7 +14,15 @@ python3 scripts/publish.py "fix: ..." --dry-run path/to/x.html   # 演练，不�
 
 `publish.py` 内部顺序（任一失败立即中止，不写远程）：
 1. 强制运行 `scripts/quality_gate.py --all`（含 **Gate 0 二维码唯一关**）。
-2. 质量门全绿 → 原子推送 → 远程校验。
+2. 强制运行 `scripts/stability_guard.py --all`（稳定性 / 专业性 / 真实性自检，
+   详见 `reports/stability-guard.md`）。任何 BLOCKER（空白页 / 加载失败 / 内容错乱 /
+   链接失效 / 品牌色回退 / 导航错乱）即中止推送、零远程写入。
+3. 双闸全绿 → 原子推送 → 远程校验。
+
+> 稳定性自检是发布前第二道强制闸门。它专门拦截「让用户秒关页面、拉高跳出率」
+> 的低级硬伤——这是过往几次发布后用户高跳出率的根因。新增 `scripts/stability_guard.py`，
+> 由 `publish.py` 自动调用，无需手动触发；本地实时守护可用
+> `python3 scripts/stability_guard.py --serve`。
 
 ## 1. 新文必须源自模板（强制）
 
@@ -30,7 +38,8 @@ python3 scripts/publish.py "fix: ..." --dry-run path/to/x.html   # 演练，不�
       无任何 `.footer-col--qr`。
 - [ ] 内链文字与目标 H1 **逐字相等**（Gate 10）。
 - [ ] 四源同步：article-index.json / articles/index.html / sitemap.xml / llms-full.txt。
-- [ ] `python3 scripts/publish.py "..." files...` 跑通（质量门全绿 + 推送 + 远程校验）。
+- [ ] `python3 scripts/publish.py "..." files...` 跑通（质量门全绿 + 稳定性自检全绿 + 推送 + 远程校验）。
+- [ ] 稳定性自检无 BLOCKER：`python3 scripts/stability_guard.py --all` 退出码为 0（空白页 / 资源 404 / 链接失效 / 品牌色回退 / 导航错乱 均为 0）。
 
 ## 3. 二维码路径铁律（强制）
 
