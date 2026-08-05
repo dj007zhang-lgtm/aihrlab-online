@@ -135,10 +135,38 @@
     "https://www.aihrlab.online/articles/digital-org-chart-2026.html",
     "https://www.aihrlab.online/articles/disc-style-test-2026.html",
     "https://www.aihrlab.online/articles/ai-org-two-models-compare-2026.html",
-    "https://www.aihrlab.online/articles/bytedance-performance-review-2026.html"
+    "https://www.aihrlab.online/articles/bytedance-performance-review-2026.html",
+    "https://www.aihrlab.online/articles/global-tech-hr-ai-disruption-2026.html",
+    "https://www.aihrlab.online/tools/tarot-test/",
+    "https://www.aihrlab.online/articles/tencent-vs-bytedance-flat-2026.html",
+    "https://www.aihrlab.online/articles/huoshui-plan-2026.html",
+    "https://www.aihrlab.online/articles/ant-group-ai-org-restructuring-2026.html",
+    "https://www.aihrlab.online/articles/sme-ai-hr-2026.html",
+    "https://www.aihrlab.online/hub/ai-native-org.html",
+    "https://www.aihrlab.online/hub/ai-talent-recruiting.html",
+    "https://www.aihrlab.online/hub/ai-layoff-restructuring.html",
+    "https://www.aihrlab.online/hub/ai-landing-playbook.html",
+    "https://www.aihrlab.online/articles/ai-layoff-7-to-40.html",
+    "https://www.aihrlab.online/assessments/bigfive.html",
+    "https://www.aihrlab.online/assessments/index.html",
+    "https://www.aihrlab.online/assessments/mbti.html",
+    "https://www.aihrlab.online/assessments/disc.html",
+    "https://www.aihrlab.online/assessments/holland.html",
+    "https://www.aihrlab.online/articles/genai-productivity-evidence-2026.html",
+    "https://www.aihrlab.online/articles/china-labor-market-ai-task-restructuring-2026.html",
+    "https://www.aihrlab.online/articles/ai-agent-roi-reality-2026.html",
+    "https://www.aihrlab.online/articles/ai-org-redesign-2026.html",
+    "https://www.aihrlab.online/articles/ai-citation-geo-playbook-2026.html",
+    "https://www.aihrlab.online/articles/talent-pricing-logic-2026.html",
+    "https://www.aihrlab.online/articles/frontier-firm-ai-agent-2026.html",
+    "https://www.aihrlab.online/articles/ai-hr-2026-h1-review-mainlines-misjudgments.html",
+    "https://www.aihrlab.online/articles/big-tech-ai-product-dynamics-2026.html",
+    "https://www.aihrlab.online/articles/ai-interview-compliance-2026.html",
+    "https://www.aihrlab.online/articles/hr-three-pillar-ai.html",
+    "https://www.aihrlab.online/articles/ai-performance-management.html"
   ],
-  "total_pushed": 136,
-  "total_urls": 125,
+  "total_pushed": 164,
+  "total_urls": 155,
   "history": [
     {
       "date": "2026-06-29",
@@ -448,6 +476,62 @@
       "remaining_after": 0,
       "status": "ALL_COMPLETE",
       "note": "All sitemap URLs pushed successfully"
+    },
+    {
+      "date": "2026-07-31",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 9,
+      "status": "PARTIAL",
+      "note": "Daily incremental push"
+    },
+    {
+      "date": "2026-08-01",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 2,
+      "status": "PARTIAL"
+    },
+    {
+      "date": "2026-08-02",
+      "pushed": 4,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "所有 sitemap URL 已推送完毕"
+    },
+    {
+      "date": "2026-08-03",
+      "pushed": 0,
+      "failed": 0,
+      "remaining_after": 8,
+      "status": "WEEKLY_REPUSH",
+      "note": "Weekly re-push (Baidu refresh) for bigfive + article; GSC submitted. URLs already in pushed set (no dupe append).",
+      "baidu": {
+        "success": 2,
+        "remain": 8
+      },
+      "gsc": {
+        "https://www.aihrlab.online/tools/bigfive/": 200,
+        "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html": 200
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "All sitemap URLs pushed."
+    },
+    {
+      "date": "2026-08-05",
+      "pushed": 3,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "All sitemap URLs pushed.",
+      "baidu_remain": 7
     }
   ]
 }
