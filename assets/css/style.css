@@ -411,3 +411,26 @@
 .next-path__tag{display:inline-block;font-size:.7rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:6px;padding:.12rem .5rem;margin-bottom:.45rem;}
 .next-path__title{font-size:.98rem;font-weight:600;line-height:1.45;margin:0 0 .3rem;}
 .next-path__desc{font-size:.82rem;line-height:1.5;color:var(--text-muted);margin:0;}
+
+/* ===== 站点 Footer 布局修复（2026-08-05） ===== */
+.site-footer{border-top:1px solid var(--line);background:var(--bg-subtle);margin-top:auto;padding:2.5rem 0 1.5rem;}
+.site-footer .container,
+.site-footer .footer-inner{width:100%;max-width:var(--page-width);margin:0 auto;padding:0 var(--space-lg);}
+.site-footer .footer-grid,
+.site-footer .footer-inner{display:grid;grid-template-columns:minmax(260px,2fr) repeat(auto-fit,minmax(140px,1fr));gap:2rem;align-items:start;}
+.footer-links{display:contents;}
+.footer-brand{max-width:340px;}
+.footer-brand p,.footer-desc{margin:.6rem 0 0;font-size:.9rem;line-height:1.6;color:var(--text-secondary);max-width:320px;}
+.site-logo{display:inline-flex;align-items:center;gap:.5rem;font-size:1.05rem;font-weight:700;color:var(--text);border-bottom:none;}
+.site-logo:hover{color:var(--text);border-bottom:none;}
+.footer-col h4{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin:0 0 .6rem;}
+.footer-col ul{list-style:none;margin:0;padding:0;}
+.footer-col li{margin:.25rem 0;}
+.site-footer .footer-col a{display:block;padding:.35rem 0;font-size:.88rem;color:var(--text-secondary);border-bottom:none;transition:color .15s var(--ease);}
+.site-footer .footer-col a:hover{color:var(--accent);}
+.footer-bottom{text-align:center;font-size:.78rem;color:var(--text-muted);padding-top:1.5rem;margin-top:2rem;border-top:1px solid var(--line);}
+@media(max-width:720px){
+  .site-footer .footer-grid,
+  .site-footer .footer-inner{grid-template-columns:1fr;gap:1.5rem;}
+  .footer-brand{max-width:none;}
+}
