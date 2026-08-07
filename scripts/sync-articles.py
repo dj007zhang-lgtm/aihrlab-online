@@ -51,6 +51,75 @@ CATEGORY_ORDER = [
     '核心方法论',
 ]
 
+# ============ UI 筛选标签集合（与 articles/index.html 的 filter-btn 对齐） ============
+UI_CATEGORIES = {
+    '核心方法论', '组织变革', '大厂实践', 'AI转型', 'AI组织变革', '研究报告',
+}
+
+# 旧分类名 → UI 标签 的归一化映射
+CATEGORY_NORMALIZE = {
+    'AI时代组织变革': '组织变革',
+    'AI裁员': '组织变革',
+    '前沿创新': '核心方法论',
+    '前沿理论': '核心方法论',
+    '行业报告': '研究报告',
+    '权威报告': '研究报告',
+    '权威研究报告': '研究报告',
+    'AI组织': 'AI组织变革',
+    'AI组织变革': 'AI组织变革',
+}
+
+
+def normalize_category(cat):
+    """把任意来源的分类名归一化到 UI 标签集合；无法识别的返回原值。"""
+    if not cat:
+        return ''
+    cat = cat.strip()
+    if cat in UI_CATEGORIES:
+        return cat
+    return CATEGORY_NORMALIZE.get(cat, cat)
+
+
+def infer_category(slug, title):
+    """当文章没有显式 data-category 时，根据 slug + 标题关键词自动推断分类。
+
+    优先级（高→低）：大厂实践 > 研究报告 > AI组织变革 > 组织变革 > AI转型 > 核心方法论。
+    仅输出 UI_CATEGORIES 中的分类名，兜底返回 '核心方法论'。
+    """
+    s = (slug + ' ' + title).lower()
+    # 1) 大厂实践：具体企业 / 产品 / 代表人物（最明确，优先拦截）
+    if re.search(r'alibaba|蚂蚁|ant-|ant group|bytedance|字节|baidu|百度|tencent|腾讯|'
+                 r'huawei|华为|meta|microsoft|微软|anthropic|google|谷歌|amazon|亚马逊|'
+                 r'unitree|宇树|dingtalk|钉钉|nvidia|英伟达|cisco|思科|apple|苹果|kimi|'
+                 r'perplexity|deepmind|openai|jd|京东|pinduoduo|拼多多|keling|可灵|jimeng|'
+                 r'即梦|gtc|musk|karpathy|openclaw|huoshui|活水|lisa su|苏姿丰|amd|'
+                 r'meituan|美团|wangxing|王兴|wwdc|'
+                 r'global-tech|大厂', s):
+        return '大厂实践'
+    # 2) 研究报告：咨询公司 / 数据盘点 / 报告索引 / 年中复盘
+    if re.search(r'mckinsey|deloitte|mercer|idc|凯捷|bcg|麦肯锡|德勤|美世|'
+                 r'报告|report|review|midyear|mid-year|outlook|key-reports|key report|'
+                 r'census|盘点|复盘|年中|白皮书|成熟度|调研|索引', s):
+        return '研究报告'
+    # 3) AI组织变革：AI原生 / 范式 / 组织进化 / 智能组织 / 组织OS / 组织能力 / 组织重构(无企业)
+    if re.search(r'原生组织|ai原生|组织范式|范式图谱|组织进化|组织os|智能组织|'
+                 r'组织能力|组织阳谋|ai组织|ai-org|org-transformation|two-models|'
+                 r'three-routes|军团|组织重构|组织进化论', s):
+        return 'AI组织变革'
+    # 4) 组织变革：通用组织 / HR 话题（裁员 / 绩效 / 培训 / 人才 / 扁平化 / HR转型 / 招聘 / 面试 / 治理 / 技能 / 数字员工 / DRI / 组织图）
+    if re.search(r'裁员|layoff|组织僵化|扁平化|flatten|中层|绩效|培训|人才画像|talent|'
+                 r'岗位|hr转型|hr一号位|轮岗|rotation|组织信号|组织解耦|去经验化|'
+                 r'情境管理|复合型人才|kpi|人才|招聘|recruit|hiring|面试|interview|'
+                 r'治理|governance|技能|skill|数字员工|数字组织|dri|组织图|org-chart|'
+                 r'hr体系|sme|中小企业|bounded|rationality|human-ai|equation|pod|'
+                 r'org-|restructure|rebuild|重组|重构|变革|rigidity|组织|'
+                 r'jobs|digital-employee|change|evaluation|评估', s):
+        return '组织变革'
+    # 5) AI转型：转型 / 落地 / ROI / 选型 / 部署 / 采纳
+    if re.search(r'转型|transformation|落地|landing|roi|选型|部署|采纳|应用', s):
+        return 'AI转型'
+    return '核心方法论'
+
 
 def extract_article_info(filepath, filename):
     """从文章 HTML 中提取标题、分类、日期"""
@@ -84,6 +153,11 @@ def extract_article_info(filepath, filename):
         if tag_match:
             category = re.sub(r'<[^>]+>', '', tag_match.group(1)).strip()
 
+    if not category:
+        category = infer_category(slug, title)
+
+    # 归一化到 UI 筛选标签集合（处理旧分类名 / 显式非 UI 分类）
+    category = normalize_category(category)
     if not category:
         category = '核心方法论'
 
