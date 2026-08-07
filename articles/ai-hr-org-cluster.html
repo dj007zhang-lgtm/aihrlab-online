@@ -30,6 +30,12 @@
 .cluster-body p { margin: 0; color: #868e96; font-size: 0.92rem; line-height: 1.6; }
 .cluster-body .read { display: inline-block; margin-top: 0.5rem; color: #4263eb; font-size: 0.85rem; font-weight: 600; }
 .cluster-footer { max-width: 720px; margin: 0 auto 3rem; padding: 1.5rem; background: #F1EFE9; border-radius: 12px; color: #495057; line-height: 1.8; }
+.cluster-h2, .faq-section h2, .inline-related h2, .related-reading h2, .cluster-footer h2 {
+  font-size: 1.35rem; line-height: 1.4; margin: 2.25rem 0 1rem; color: #212529;
+  border-left: 4px solid #4263eb; padding-left: 0.65rem;
+}
+.cluster-cards { display: grid; gap: 1.25rem; }
+.cluster-summary { margin-top: 1rem; font-weight: 600; color: #212529; }
 </style>
 <script type="application/ld+json">
 {
@@ -108,9 +114,9 @@
     <p class="lead">这组文章构成一个主题簇——从大厂的一手实践（滴滴、Anthropic、五大厂），到 HR 自己的落地框架（如何站稳脚跟、AI 正在改写的<a href="/articles/ai-hr-2026-midyear-three-signals.html" class="ilink">三条暗线</a>）。建议按顺序深读，建立对「AI 时代组织如何被重新设计」的系统认知。</p>
   </div>
 
-  <div class="cluster-grid">
-        <section class="faq-section">
-      <h3>常见问题</h3>
+  <section class="cluster-grid">
+    <section class="faq-section">
+      <h2>常见问题</h2>
       <dl>
       <dt>「AI+HR 组织变革」集群涵盖哪些主题？</dt>
       <dd>覆盖大厂 AI 组织重构（阿里/腾讯/字节/蚂蚁/华为/微软等）、AI 原生组织范式、扁平化与中层演变、人才密度与 DRI 机制，以及 HR 在变革中的角色重构。</dd>
@@ -122,8 +128,9 @@
       <dd>基于各公司公开动作、官方披露与权威第三方报告（麦肯锡/美世/Anthropic 等），并标注时间，避免把旧闻当当前进展。</dd>
       </dl>
     </section>
-</article>
 
+    <h2>五篇主题文章</h2>
+    <div class="cluster-cards">
     <article class="cluster-card">
       <div class="cluster-num">02</div>
       <div class="cluster-body">
@@ -136,7 +143,7 @@
     <article class="cluster-card">
       <div class="cluster-num">03</div>
       <div class="cluster-body">
-        <h3><a href="/articles/big-tech-ai-org-2026.html">2026 大厂 AI 组织变革全景图：阿里腾讯字节百度华为</a></h3>
+        <h3><a href="/articles/big-tech-ai-org-2026.html">2026 大厂 AI 组织变革全景图</a></h3>
         <p>五大厂走了五条不同的路，但底层只有一条逻辑：AI 不再是 CTO 的事，而是 CEO 与 HR 的事。</p>
         <a class="read" href="/articles/big-tech-ai-org-2026.html">深读 →</a>
       </div>
@@ -145,7 +152,7 @@
     <article class="cluster-card">
       <div class="cluster-num">04</div>
       <div class="cluster-body">
-        <h3><a href="/articles/ai-layoff-to-rebuild-hr-stand-firm.html">从 AI 裁员到 AI 重构：HR 如何在组织变革中站稳脚跟</a></h3>
+        <h3><a href="/articles/ai-layoff-to-rebuild-hr-stand-firm.html">从 AI 裁员到 AI 重构：HR 如何站稳脚跟</a></h3>
         <p>以 Meta <a href="/articles/ai-layoff-2026-mid-year-review.html" class="ilink">裁员</a>为样本，给出 HR 的三重困境与三条站稳路径：测绘任务网络、用数据自证、先让自己的团队 AI 化。</p>
         <a class="read" href="/articles/ai-layoff-to-rebuild-hr-stand-firm.html">深读 →</a>
       </div>
@@ -158,34 +165,36 @@
         <p>编制从成本变为现金池、岗位从架构图溶解、HR 自己身在战场却以为在看台——附三个今天就能做的动作。</p>
         <a class="read" href="/articles/ai-hr-2026-midyear-three-signals.html">深读 →</a>
       </div>
+    </article>
+    </div>
 
-<section class="inline-related related-reading">
-        <h3>相关阅读</h3>
-        <ul>
-          <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
-          <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR的第三种范式</a></li>
-          <li><a href="/articles/ai-landing-fails-org-not-changed.html">88%企业AI落地失败，原因不在技</a></li>
-          <li><a href="/articles/ai-era-hr-5-misalignments.html">AI时代人力资源管理的5大错位</a></li>
-          <li><a href="/glossary/index.html">AI+HR 术语词典：20个关键概念的定义与风险边界</a></li>
-        </ul>
-      </section>
-<div class="article-footer-qr">
-  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" src="/assets/images/qrcode-wechat.webp" width="160" height="160">
-  <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
-</div>
-</article>
-  </div>
+    <section class="inline-related related-reading">
+      <h2>相关阅读</h2>
+      <ul>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+        <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR的第三种范式</a></li>
+        <li><a href="/articles/ai-landing-fails-org-not-changed.html">88%企业AI落地失败，原因不在技</a></li>
+        <li><a href="/articles/ai-era-hr-5-misalignments.html">AI时代人力资源管理的5大错位</a></li>
+        <li><a href="/glossary/index.html">AI+HR 术语词典：20个关键概念的定义与风险边界</a></li>
+      </ul>
+    </section>
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" src="/assets/images/qrcode-wechat.webp" width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+  </section>
 
-  <div class="cluster-footer">
-    <strong>怎么用这组主题簇？</strong><br>
-    如果你是 HR 从业者，从 04、05 入手（落地动作最具体）；如果你是管理者或研究者，从 01、02、03 入手（看大厂与顶级 AI 公司怎么组织人才）。五篇互相引用，任意一篇都能把你带回这个总览页。
-  </div>
+  <section class="cluster-footer">
+    <h2>怎么用这组主题簇？</h2>
+    <p>如果你是 HR 从业者，从 04、05 入手（落地动作最具体）；如果你是管理者或研究者，从 01、02、03 入手（看大厂与顶级 AI 公司怎么组织人才）。五篇互相引用，任意一篇都能把你带回这个总览页。</p>
+    <p class="cluster-summary">总结：这组文章不堆概念，而是给你一套可立刻对照的组织诊断框架——从大厂动作看趋势，从 HR 视角拿方法。换句话说，它既是趋势地图，也是你的行动清单。</p>
+  </section>
 </main>
 <footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">© 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
 
       <!-- 相关阅读 -->
       <section class="related-reading">
-        <h3>相关阅读</h3>
+        <h2>相关阅读</h2>
         <ul>
       <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
       <li><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR的第三种范式</a></li>

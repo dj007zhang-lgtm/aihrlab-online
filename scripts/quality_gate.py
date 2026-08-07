@@ -43,6 +43,11 @@ try:
 except ImportError:
     url_consistency_audit = None
 
+try:
+    import reader_perspective_gate
+except ImportError:
+    reader_perspective_gate = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -684,6 +689,124 @@ def gate_data_source_attribution(target_files=None):
 
 
 # ============================================================
+# Gate 14: 读者视角门（以读者身份审视待上线文章，综合>=80 才放行）
+# ============================================================
+def _get_publish_candidates():
+    """待发布文章集合：git 工作区相对 HEAD 变更/新增的 articles/*.html。
+
+    发布流程在原子提交前跑本门，此时待发布文已落盘但未提交，
+    正是「即将上线」的窗口。用 git status --porcelain 抓取
+    修改(M)/未跟踪(??)/重命名(R)的文章，避免漏掉新文。
+    """
+    try:
+        out = subprocess.run(
+            ["git", "-C", SITE_ROOT, "status", "--porcelain"],
+            capture_output=True, text=True, timeout=15,
+        ).stdout
+    except Exception:
+        return []
+    cands = []
+    for line in out.splitlines():
+        if not line.strip():
+            continue
+        path = line[3:].strip()
+        # 处理重命名 "R  old -> new" 形式
+        if " -> " in path:
+            path = path.split(" -> ")[-1].strip()
+        if not path.endswith('.html'):
+            continue
+        if 'articles/' not in path:
+            continue
+        full = os.path.join(SITE_ROOT, path)
+        if os.path.exists(full):
+            cands.append(full)
+    return cands
+
+
+def _looks_like_article(f):
+    """判断是否为含 <article> 正文的真实文章页（排除 listing/索引/工具页）。"""
+    if os.path.basename(f) == 'index.html':
+        return False
+    try:
+        with open(f, encoding='utf-8', errors='ignore') as fh:
+            head = fh.read(200000)
+    except Exception:
+        return False
+    return '<article' in head
+
+
+def _is_redirect_stub(f):
+    """判断是否为「页面已迁移」型重定向桩页（无正文，仅 301/refresh 跳转）。
+
+    这类桩页由历史迁移产生，body 里只有「本页面已迁移至…」+ window.location.replace，
+    不含 <article> 正文。读者视角门的代理信号（H2 数/导语/结语/结构元素）在桩页上
+    必然为 0，会污染全库审计、制造「弱文」假阳性。桩页不应被当作内容评估，
+    也不应被「优化」（它的唯一职责是跳转）。真实正文在 canonical 目标页。
+    """
+    try:
+        with open(f, encoding='utf-8', errors='ignore') as fh:
+            head = fh.read(5000)
+    except Exception:
+        return False
+    return ('window.location.replace' in head) or ('本页面已迁移' in head)
+
+
+def gate_reader_perspective(target_files=None):
+    """Gate 14: 读者视角门——以「读者」身份审视每篇待上线文章。
+
+    评分维度（权重合计 100，综合 >= 80 才放行）：
+      内容价值 25 / 可读性 20 / 结构清晰度 20 / 信息准确度 20 / 阅读流畅度 15
+    每个维度由可机器校验的读者体验代理信号算出 0-100 分，并给出改进建议。
+
+    scope 纪律（来自 quality-gate-playbook）：
+      - 只评估「即将上线的文章」(git 工作区变更/新增的 articles/*.html)。
+      - 仅评估含 <article> 正文的真实文章页，排除 listing/索引/工具页。
+      - 不扫描全站历史债来拦截 —— 否则会误伤已发布内容、把门变成噪音。
+      - 全库审计请用 `python quality_gate.py --reader-audit`（仅报告不拦截）。
+      - 任一待发布文 < 80 即 FAIL，publish.py 据此拦截。
+    """
+    if reader_perspective_gate is None:
+        return GateResult("14-读者视角门", False,
+                          ["reader_perspective_gate.py 未找到，无法执行读者视角评估；"
+                           "请确认 scripts/ 目录下存在该模块"])
+
+    if target_files:
+        files = [f for f in target_files if f.endswith('.html') and 'articles/' in f]
+        audit_mode = False
+    else:
+        files = _get_publish_candidates()
+        audit_mode = (len(files) == 0)
+
+    # 仅评估含 <article> 正文的真实文章页，排除 articles/index.html 等 listing 页
+    files = [f for f in files if _looks_like_article(f)]
+
+    if not files:
+        if audit_mode:
+            return GateResult("14-读者视角门", True,
+                              ["无待上线文章（git status 无变更 articles/），读者视角门进入审计模式，不拦截"])
+        return GateResult("14-读者视角门", True, ["本次无文章类变更，读者视角门跳过"])
+
+    results = reader_perspective_gate.evaluate_articles(files)
+    failed = [r for r in results if not r["passed"]]
+    if failed:
+        details = []
+        for r in failed:
+            details.append(f"{r['rel']} | 综合 {r['composite']} 分 (< 80 拦截)")
+            for k, dv in r["dims"].items():
+                details.append(f"    · {dv['label']}: {dv['score']} 分")
+            for s in r["suggestions"]:
+                details.append(f"    → 建议: {s}")
+        return GateResult("14-读者视角门", False, details[:30])
+
+    summary = []
+    for r in results:
+        dims = "，".join(f"{dv['label']}{dv['score']}" for dv in r["dims"].values())
+        summary.append(f"{r['rel']}: 综合 {r['composite']} 分（{dims}）")
+    tail = "（所有待上线文章读者视角达标，>= 80 分，放行）" if len(summary) <= 10 else ""
+    return GateResult("14-读者视角门", True, summary[:10] + ([tail] if tail else []))
+
+
+# ============================================================
 # Helpers
 # ============================================================
 
@@ -772,6 +895,7 @@ def run_quality_gate(mode="changed"):
         gate_url_consistency(target_files),  # Gate 11: 始终全站扫描
         gate_source_freshness(target_files),  # Gate 12: 信源时效关
         gate_data_source_attribution(target_files),  # Gate 13: 硬数据出处关
+        gate_reader_perspective(target_files),  # Gate 14: 读者视角门（综合>=80 放行）
     ]
     
     # Report
@@ -801,5 +925,34 @@ if __name__ == "__main__":
         mode = "all"
     elif "--page" in sys.argv:
         mode = "single"
-    
+
+    # 读者视角门专用子命令（独立于主质量门运行）
+    if "--reader-selftest" in sys.argv:
+        if reader_perspective_gate is None:
+            print("reader_perspective_gate.py 未找到")
+            sys.exit(1)
+        sys.exit(0 if reader_perspective_gate.selftest() else 1)
+
+    if "--reader-audit" in sys.argv:
+        if reader_perspective_gate is None:
+            print("reader_perspective_gate.py 未找到")
+            sys.exit(1)
+        adir = os.path.join(SITE_ROOT, 'articles')
+        all_html = [os.path.join(adir, f) for f in os.listdir(adir)
+                    if f.endswith('.html') and os.path.basename(f) != 'index.html']
+        stubs = [f for f in all_html if _is_redirect_stub(f)]
+        files = [f for f in all_html if f not in stubs]
+        results = reader_perspective_gate.evaluate_articles(files)
+        results.sort(key=lambda r: r['composite'])
+        print(f"读者视角门 全库审计（仅报告不拦截）：")
+        print(f"  扫描正文页 {len(files)} 篇；跳过迁移桩页 {len(stubs)} 篇（无正文，仅跳转，不计入评估）")
+        fails = 0
+        for r in results:
+            flag = '✅' if r['passed'] else '❌'
+            if not r['passed']:
+                fails += 1
+            print(f"  {flag} {r['composite']:>3}  {r['rel']}")
+        print(f"\n低于 80 分: {fails} 篇（如需拦截，请将这些文纳入待发布集后跑 --all）")
+        sys.exit(0)
+
     sys.exit(run_quality_gate(mode))
