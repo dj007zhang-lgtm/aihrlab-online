@@ -12,5 +12,12 @@ scripts/__pycache__/
 # Google API credentials (DO NOT COMMIT)
 gsc_service_account.json
 
+# GitHub PAT / secrets (DO NOT COMMIT — push protection blocks them)
+.github_token
+scripts/.github_token
+.env
+scripts/.env
+*.env
+
 # Deploy package
 *.tar.gz
