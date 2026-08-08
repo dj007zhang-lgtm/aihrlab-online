@@ -438,3 +438,13 @@
 /* 全站溢出修复：旧文相关阅读/主题簇为 <article> 直接子元素，补齐 720px 约束 */
 .related-reading{max-width:var(--article-width);margin:0 auto;padding:var(--space-2xl) 0;}
 .topic-cluster{max-width:var(--article-width);margin:1.5rem auto;}
+
+/* ===== R2 读者字号调节控件（2026-08-08） ===== */
+/* 控件注入于 .site-nav（与搜索按钮同组）；桌面顶栏常驻，移动端折叠进汉堡菜单。 */
+.font-size-control{display:inline-flex;align-items:center;gap:2px;margin-left:.5rem;padding:.3rem .45rem;border:1px solid var(--line);border-radius:50px;background:var(--bg-subtle);flex-shrink:0;}
+.font-size-control .fs-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;padding:0;border:none;background:transparent;color:var(--text-secondary);font-size:.95rem;font-weight:700;line-height:1;cursor:pointer;border-radius:50%;transition:background .15s var(--ease),color .15s var(--ease);}
+.font-size-control .fs-btn:hover{background:var(--bg-warm);color:var(--text);}
+.font-size-control .fs-val{font-size:.72rem;color:var(--text-muted);min-width:20px;text-align:center;font-variant-numeric:tabular-nums;}
+@media (max-width:768px){
+  .site-nav .font-size-control{margin:var(--space-md) 0 0;align-self:flex-start;}
+}

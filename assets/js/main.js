@@ -158,3 +158,35 @@ try{
 })();
 }catch(e){console.error('[AIHR main.js] module 5 init failed:', e);}
 
+/* ===== R2：读者字号调节（2026-08-08） ===== */
+/* 缩放 html font-size 以级联全部 rem 排版；偏好存入 localStorage；控件注入 .site-nav。
+   单模块故障被 try/catch 隔离，不影响其余功能。 */
+try{
+(function(){
+  var KEY='aihr_fontsize';
+  var MIN=14, MAX=20, DEF=17, STEP=1;
+  function clamp(v){return Math.max(MIN,Math.min(MAX,v));}
+  function current(){var s=parseInt(localStorage.getItem(KEY),10);return (s>=MIN&&s<=MAX)?s:DEF;}
+  function apply(size){document.documentElement.style.fontSize=size+'px';}
+  apply(current());
+  var nav=document.querySelector('.site-nav');
+  if(!nav)return;
+  var ctrl=document.createElement('div');
+  ctrl.className='font-size-control';
+  ctrl.setAttribute('role','group');
+  ctrl.setAttribute('aria-label','调节正文字号');
+  ctrl.innerHTML='<button class="fs-btn" data-fs="dec" type="button" aria-label="减小字号" title="减小字号">A−</button>'+
+                 '<span class="fs-val" aria-live="polite">'+current()+'</span>'+
+                 '<button class="fs-btn" data-fs="inc" type="button" aria-label="增大字号" title="增大字号">A+</button>';
+  var search=nav.querySelector('.nav-search-btn');
+  if(search){nav.insertBefore(ctrl,search);}else{nav.appendChild(ctrl);}
+  function refresh(){var v=ctrl.querySelector('.fs-val');if(v)v.textContent=current();}
+  ctrl.addEventListener('click',function(e){
+    var b=e.target.closest('[data-fs]');if(!b)return;
+    var delta=(b.getAttribute('data-fs')==='inc')?STEP:-STEP;
+    var next=clamp(current()+delta);
+    if(next!==current()){localStorage.setItem(KEY,String(next));apply(next);refresh();}
+  });
+})();
+}catch(e){console.error('[AIHR main.js] module 6 init failed:', e);}
+
