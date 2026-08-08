@@ -48,6 +48,16 @@ try:
 except ImportError:
     reader_perspective_gate = None
 
+try:
+    import check_shared_assets
+except ImportError:
+    check_shared_assets = None
+
+try:
+    import check_article_index
+except ImportError:
+    check_article_index = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -850,6 +860,40 @@ def _get_changed_files():
 
 
 # ============================================================
+# Gate 15: 共享资源完整性关（2026-08-08 新增，架构健壮性护栏）
+# ============================================================
+def gate_shared_assets(target_files=None):
+    """共享资源完整性关：拦住「坏 JS / 缺 main.js / 坏 JSON / 误删共享资源」。
+
+    背景：stability_guard S5 只扫 .html/.css，JS 零校验；此前写出坏 main.js
+    会被两道闸门全绿放行、全站交互静默崩溃。本门关把这条盲区补上。
+    """
+    if check_shared_assets is None:
+        return GateResult("15-共享资源完整性关", False,
+                          ["check_shared_assets.py 未找到，无法执行共享资源扫描"])
+    passed, details = check_shared_assets.run(SITE_ROOT)
+    if passed:
+        return GateResult("15-共享资源完整性关", True,
+                          ["全站 JS 语法有效、JSON 可解析、每页均加载 main.js+style.min.css、规范共享资源存在"])
+    return GateResult("15-共享资源完整性关", False, details[:15])
+
+
+# ============================================================
+# Gate 16: 文章索引完整性关（2026-08-08 新增，架构健壮性护栏）
+# ============================================================
+def gate_article_index(target_files=None):
+    """文章索引完整性关：拦住脏索引（桩页条目 / 英文 slug 标题 / 缺文件 / 重复）。"""
+    if check_article_index is None:
+        return GateResult("16-文章索引完整性关", False,
+                          ["check_article_index.py 未找到，无法执行索引完整性扫描"])
+    passed, details = check_article_index.run(SITE_ROOT)
+    if passed:
+        return GateResult("16-文章索引完整性关", True,
+                          ["article-index.json 条目均指向真实非桩页、标题为中文、无重复"])
+    return GateResult("16-文章索引完整性关", False, details[:15])
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -896,6 +940,8 @@ def run_quality_gate(mode="changed"):
         gate_source_freshness(target_files),  # Gate 12: 信源时效关
         gate_data_source_attribution(target_files),  # Gate 13: 硬数据出处关
         gate_reader_perspective(target_files),  # Gate 14: 读者视角门（综合>=80 放行）
+        gate_shared_assets(target_files),       # Gate 15: 共享资源完整性关
+        gate_article_index(target_files),       # Gate 16: 文章索引完整性关
     ]
     
     # Report

@@ -1,21 +1,9 @@
 [
   {
-    "title": "2026 big tech ai org restructure rigidity",
-    "url": "2026-big-tech-ai-org-restructure-rigidity",
-    "category": "AI组织变革",
-    "date": "2026-07-22"
-  },
-  {
     "title": "2026HR转型：成为组织的首席架构师",
     "url": "2026-hr-transformation-chief-architect",
     "category": "组织变革",
     "date": "2026-01-10"
-  },
-  {
-    "title": "AI裁员7飙到40你的公司在做减法还是乘法",
-    "url": "AI裁员7飙到40你的公司在做减法还是乘法",
-    "category": "组织变革",
-    "date": "2026-08-06"
   },
   {
     "title": "ADKAR 复盘：AI 转型为何卡在落地",
@@ -168,12 +156,6 @@
     "date": "2026-04-08"
   },
   {
-    "title": "ai layoff 2026 manager redefine",
-    "url": "ai-layoff-2026-manager-redefine",
-    "category": "组织变革",
-    "date": "2026-07-22"
-  },
-  {
     "title": "AI裁员2026年中盘点：被裁的都有这三个特征",
     "url": "ai-layoff-2026-mid-year-review",
     "category": "研究报告",
@@ -208,18 +190,6 @@
     "url": "ai-layoff-regret",
     "category": "组织变革",
     "date": "2026-08-06"
-  },
-  {
-    "title": "ai layoff subtraction vs multiplication",
-    "url": "ai-layoff-subtraction-vs-multiplication",
-    "category": "组织变革",
-    "date": "2026-07-28"
-  },
-  {
-    "title": "ai layoff subtraction",
-    "url": "ai-layoff-subtraction",
-    "category": "组织变革",
-    "date": "2026-07-28"
   },
   {
     "title": "从AI裁员到AI重构：HR如何在组织变革中站稳脚跟",
@@ -294,12 +264,6 @@
     "date": "2026-08-06"
   },
   {
-    "title": "alibaba 1 6 n ai restructure 2026",
-    "url": "alibaba-1-6-n-ai-restructure-2026",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
     "title": "阿里AI组织变革：从分权到再集权",
     "url": "alibaba-ai-org-restructuring-2026",
     "category": "大厂实践",
@@ -366,18 +330,6 @@
     "date": "2026-08-06"
   },
   {
-    "title": "bytedance 160b campus recruit",
-    "url": "bytedance-160b-campus-recruit",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
-    "title": "bytedance 7000 campus 7000interns",
-    "url": "bytedance-7000-campus-7000interns",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
     "title": "字节校招7000人：大厂HR去经验化",
     "url": "bytedance-7000-interns",
     "category": "大厂实践",
@@ -400,12 +352,6 @@
     "url": "bytedance-doubao-org-engine-2026",
     "category": "大厂实践",
     "date": "2026-08-06"
-  },
-  {
-    "title": "bytedance doubao org engineer 2026",
-    "url": "bytedance-doubao-org-engineer-2026",
-    "category": "大厂实践",
-    "date": "2026-07-22"
   },
   {
     "title": "字节绩效评估变了:从现金奖金到股权绑定",
@@ -448,12 +394,6 @@
     "url": "dingtalk-ceo-change-control-vs-empowerment",
     "category": "组织变革",
     "date": "2026-08-06"
-  },
-  {
-    "title": "dingtalk ceo change",
-    "url": "dingtalk-ceo-change",
-    "category": "大厂实践",
-    "date": "2026-07-22"
   },
   {
     "title": "DISC行为风格测试：AI时代还测对了什么",
@@ -612,12 +552,6 @@
     "date": "2026-08-06"
   },
   {
-    "title": "kpi failure",
-    "url": "kpi-failure",
-    "category": "组织变革",
-    "date": "2026-07-22"
-  },
-  {
     "title": "麦肯锡2026组织报告：AI时代组织进化论",
     "url": "mckinsey-2026-org-report-deep-dive",
     "category": "研究报告",
@@ -678,12 +612,6 @@
     "date": "2026-03-30"
   },
   {
-    "title": "meta ai layoffs middle managers",
-    "url": "meta-ai-layoffs-middle-managers",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
     "title": "Meta又裁员了：AI正在系统性“优化”掉中层管理",
     "url": "meta-ai-optimizes-middle-managers",
     "category": "大厂实践",
@@ -714,12 +642,6 @@
     "date": "2026-08-06"
   },
   {
-    "title": "microsoft anthropic org restructuring ai era",
-    "url": "microsoft-anthropic-org-restructuring-ai-era",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
     "title": "微软裁4800思科裁4000：AI重构非替代",
     "url": "microsoft-cisco-ai-restructuring-2026",
     "category": "大厂实践",
@@ -742,12 +664,6 @@
     "url": "microsoft-hr-transformation-ai-thinking",
     "category": "大厂实践",
     "date": "2026-04-08"
-  },
-  {
-    "title": "microsoft openai decoupling",
-    "url": "microsoft-openai-decoupling",
-    "category": "大厂实践",
-    "date": "2026-07-22"
   },
   {
     "title": "马斯克2026访谈：AI递归进化，HR边界消失？",
@@ -804,12 +720,6 @@
     "date": "2026-08-01"
   },
   {
-    "title": "tencent 2800 huoshui",
-    "url": "tencent-2800-huoshui",
-    "category": "大厂实践",
-    "date": "2026-07-22"
-  },
-  {
     "title": "腾讯319亿阿里3800亿：HR一号位的终极考卷",
     "url": "tencent-319b-ali-3800b",
     "category": "大厂实践",
@@ -862,12 +772,6 @@
     "url": "unitree-ipo-org-analysis",
     "category": "组织变革",
     "date": "2026-08-06"
-  },
-  {
-    "title": "unitree ipo org design",
-    "url": "unitree-ipo-org-design",
-    "category": "大厂实践",
-    "date": "2026-07-22"
   },
   {
     "title": "王兴美团2000人管理会：经验的清算",
