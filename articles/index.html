@@ -1,4 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://hm.baidu.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,73 +21,7 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online/", "description": "AI时代HR转型与大厂组织变革深度分析", "inLanguage": "zh-CN", "publisher": {"@type": "Organization", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online/", "logo": {"@type": "ImageObject", "url": "https://www.aihrlab.online/assets/images/logo.png"}}}
 </script>
-<style>
-/* 优化相关推荐 - 降低跳出率 */
-.related-articles {
-    margin: 3rem 0 !important;
-    padding: 2rem !important;
-    background: linear-gradient(135deg, #F1EFE9 0%, #EAE5DA 100%) !important;
-    border-radius: 16px !important;
-    border: 2px solid #E3E0D4 !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-}
-.related-articles h3 {
-    font-size: 1.4rem !important;
-    font-weight: 700 !important;
-    color: #212529 !important;
-    margin-bottom: 1.5rem !important;
-    padding-bottom: 0.75rem !important;
-    border-bottom: 3px solid #3F6212 !important;
-}
-.related-card {
-    display: block !important;
-    padding: 1.25rem !important;
-    background: white !important;
-    border-radius: 12px !important;
-    border: 1px solid #E3E0D4 !important;
-    transition: all 0.3s ease !important;
-    text-decoration: none !important;
-    color: inherit !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-}
-.related-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 8px 24px rgba(63,98,18,0.15) !important;
-    border-color: #3F6212 !important;
-}
-.related-tag {
-    display: inline-block !important;
-    font-size: 0.85rem !important;
-    color: #3F6212 !important;
-    font-weight: 600 !important;
-    padding: 0.35rem 0.75rem !important;
-    background: #ECF3E0 !important;
-    border-radius: 20px !important;
-}
 
-/* 筛选栏视觉增强（2026-07-18） */
-.article-filters {
-    padding: 1.25rem 0;
-    margin-bottom: 2.5rem !important;
-    border-bottom: 1px solid var(--line, #e0e0e0);
-}
-.filter-btn {
-    position: relative;
-    letter-spacing: 0.02em;
-}
-.filter-btn.active {
-    font-weight: 700;
-    box-shadow: 0 4px 12px rgba(63,98,18,0.3);
-}
-/* 筛选无结果提示 */
-.filter-empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--text-muted, #888);
-    font-size: 1rem;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1326,7 +1262,7 @@
   </a>
 </article>
 
-</div></section></main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代HR转型与大厂组织变革的深度分析平台。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer><script> (function() { // ========== 配置 ========== var INITIAL_BATCH = 16; // 首屏展示条数 var SCROLL_BATCH = 12; // 滚动每次加载条数 var cards = document.querySelectorAll('.article-card[data-category]'); var current = INITIAL_BATCH; var isLoading = false; // ========== 渲染批次 ========== function updateView() { var visibleCount = 0; cards.forEach(function(card) { if (card.style.display === 'none') return; if (visibleCount >= current) { card.classList.add('card-hidden'); card.classList.remove('card-show'); } else { card.classList.remove('card-hidden'); void card.offsetWidth; card.classList.add('card-show'); } visibleCount++; }); // 更新底部指示器 var totalVisible = getVisibleCards().length; var indicator = document.getElementById('load-indicator'); var allDone = document.getElementById('load-all-done'); if (indicator) indicator.style.display = (current >= totalVisible) ? 'none' : 'block'; if (allDone) allDone.style.display = (current >= totalVisible) ? 'block' : 'none'; } function getVisibleCards() { return Array.prototype.filter.call(cards, function(c) { return c.style.display !== 'none'; }); } // ========== 滚动懒加载 ========== function onScroll() { if (isLoading) return; var visibleCards = getVisibleCards(); if (current >= visibleCards.length) return; var scrollTop = window.pageYOffset || document.documentElement.scrollTop; var windowHeight = window.innerHeight; var docHeight = document.documentElement.scrollHeight; // 距离底部 < 400px 时触发 if (scrollTop + windowHeight >= docHeight - 400) { isLoading = true; var indicator = document.getElementById('load-indicator'); if (indicator) indicator.style.display = 'block'; setTimeout(function() { current += SCROLL_BATCH; updateView(); isLoading = false; }, 300); } } // 节流 scroll 事件 var ticking = false; window.addEventListener('scroll', function() { if (!ticking) { window.requestAnimationFrame(function() { onScroll(); ticking = false; }); ticking = true; } }); // ========== 分类筛选（集成批次逻辑）========== window.filterArticles = function(category, btn) { // 按钮状态 document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); }); btn.classList.add('active'); // 先淡出所有卡片 cards.forEach(function(card) { card.classList.remove('card-show'); card.classList.add('card-hidden'); }); // 延迟后显示匹配的卡片 setTimeout(function() { cards.forEach(function(card) { var cat = card.getAttribute('data-category'); if (category === 'all' || cat === category) { card.style.display = ''; } else { card.style.display = 'none'; } }); // 重置批次，显示前 INITIAL_BATCH 条 current = INITIAL_BATCH; updateView(); }, 180); // 更新 URL hash if (category !== 'all') { history.replaceState(null, '', '#cat=' + encodeURIComponent(category)); } else { history.replaceState(null, '', location.pathname); } }; // ========== 页面加载时初始化 ========== function init() { if (!cards.length) { console.warn('[AIHR] 未找到 .article-card[data-category] 元素'); return; } var hash = location.hash.match(/#cat=(.+)/); if (hash) { var cat = decodeURIComponent(hash[1]); var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]'); if (targetBtn) { filterArticles(cat, targetBtn); } else { updateView(); } } else { updateView(); } } if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); } // ========== spin 动画 ========== var style = document.createElement('style'); style.textContent = '@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}'; document.head.appendChild(style); })(); </script><script src="/assets/js/search.js" defer></script>
+</div></section></main><footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代HR转型与大厂组织变革的深度分析平台。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer><script> (function() {  var INITIAL_BATCH = 16;  var SCROLL_BATCH = 12;  var cards = document.querySelectorAll('.article-card[data-category]'); var current = INITIAL_BATCH; var isLoading = false;  function updateView() { var visibleCount = 0; cards.forEach(function(card) { if (card.style.display === 'none') return; if (visibleCount >= current) { card.classList.add('card-hidden'); card.classList.remove('card-show'); } else { card.classList.remove('card-hidden'); void card.offsetWidth; card.classList.add('card-show'); } visibleCount++; });  var totalVisible = getVisibleCards().length; var indicator = document.getElementById('load-indicator'); var allDone = document.getElementById('load-all-done'); if (indicator) indicator.style.display = (current >= totalVisible) ? 'none' : 'block'; if (allDone) allDone.style.display = (current >= totalVisible) ? 'block' : 'none'; } function getVisibleCards() { return Array.prototype.filter.call(cards, function(c) { return c.style.display !== 'none'; }); }  function onScroll() { if (isLoading) return; var visibleCards = getVisibleCards(); if (current >= visibleCards.length) return; var scrollTop = window.pageYOffset || document.documentElement.scrollTop; var windowHeight = window.innerHeight; var docHeight = document.documentElement.scrollHeight;  if (scrollTop + windowHeight >= docHeight - 400) { isLoading = true; var indicator = document.getElementById('load-indicator'); if (indicator) indicator.style.display = 'block'; setTimeout(function() { current += SCROLL_BATCH; updateView(); isLoading = false; }, 300); } }  var ticking = false; window.addEventListener('scroll', function() { if (!ticking) { window.requestAnimationFrame(function() { onScroll(); ticking = false; }); ticking = true; } });  window.filterArticles = function(category, btn) {  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); }); btn.classList.add('active');  cards.forEach(function(card) { card.classList.remove('card-show'); card.classList.add('card-hidden'); });  setTimeout(function() { cards.forEach(function(card) { var cat = card.getAttribute('data-category'); if (category === 'all' || cat === category) { card.style.display = ''; } else { card.style.display = 'none'; } });  current = INITIAL_BATCH; updateView(); }, 180);  if (category !== 'all') { history.replaceState(null, '', '#cat=' + encodeURIComponent(category)); } else { history.replaceState(null, '', location.pathname); } };  function init() { if (!cards.length) { console.warn('[AIHR] 未找到 .article-card[data-category] 元素'); return; } var hash = location.hash.match(/#cat=(.+)/); if (hash) { var cat = decodeURIComponent(hash[1]); var targetBtn = document.querySelector('.filter-btn[data-filter="' + cat + '"]'); if (targetBtn) { filterArticles(cat, targetBtn); } else { updateView(); } } else { updateView(); } } if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }  var style = document.createElement('style'); style.textContent = '@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}'; document.head.appendChild(style); })(); </script><script src="/assets/js/search.js" defer></script>
 <!-- 百度自动推送 -->
 <script>
 (function(){var u="//zz.bdstatic.com/linksubmit/push.js";

@@ -63,6 +63,11 @@ try:
 except ImportError:
     check_internal_links = None
 
+try:
+    import check_inline_scripts
+except ImportError:
+    check_inline_scripts = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -920,6 +925,28 @@ def gate_internal_links(target_files=None):
 
 
 # ============================================================
+# Gate 18: 内联脚本运行时语法关（R1 冒烟暴露的盲区，2026-08-08 新增）
+# ============================================================
+def gate_inline_scripts(target_files=None):
+    """内联脚本运行时语法关：补 Gate 15 只验 assets/js/*.js 的盲区。
+
+    R1 深色模式冒烟时用真实浏览器抓到：minify 把内联 <script> 压成单行却保留
+    `//` 行注释，第一个 `//` 吞掉其后全部代码 → 整块脚本静默不执行。
+    实际损失：/articles/ 分类筛选与懒加载失效、DQ 打分卡完全不可用、
+    资源库门控弹窗打开后关不掉。页面照常渲染，双闸全绿，监控无感。
+
+    硬失败：内联脚本 node --check 不通过 / 单行脚本残留真 `//` 行注释。
+    """
+    if check_inline_scripts is None:
+        return GateResult("18-内联脚本语法关", False,
+                          ["check_inline_scripts.py 未找到，无法执行内联脚本语法扫描"])
+    passed, details = check_inline_scripts.run(SITE_ROOT)
+    if passed:
+        return GateResult("18-内联脚本语法关", True, details[:3])
+    return GateResult("18-内联脚本语法关", False, details[:15])
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -969,6 +996,7 @@ def run_quality_gate(mode="changed"):
         gate_shared_assets(target_files),       # Gate 15: 共享资源完整性关
         gate_article_index(target_files),       # Gate 16: 文章索引完整性关
         gate_internal_links(target_files),      # Gate 17: 内链图谱健康关（R3 收尾护栏）
+        gate_inline_scripts(target_files),      # Gate 18: 内联脚本语法关（R1 冒烟暴露的运行时盲区）
     ]
     
     # Report
@@ -1012,6 +1040,13 @@ if __name__ == "__main__":
             print("check_internal_links.py 未找到")
             sys.exit(1)
         sys.exit(0 if check_internal_links._selftest() else 1)
+
+    # 内联脚本语法门专用子命令（独立于主质量门运行）
+    if "--inline-scripts-selftest" in sys.argv:
+        if check_inline_scripts is None:
+            print("check_inline_scripts.py 未找到")
+            sys.exit(1)
+        sys.exit(0 if check_inline_scripts._selftest() else 1)
 
     if "--reader-audit" in sys.argv:
         if reader_perspective_gate is None:

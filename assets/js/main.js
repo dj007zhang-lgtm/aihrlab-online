@@ -16,7 +16,7 @@ try{
     collect:'<svg viewBox="0 0 24 24" class="eng-ic"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>',
     share:'<svg viewBox="0 0 24 24" class="eng-ic"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>'
   };
-  var LABELS={like:['认同','已认同'],collect:['收藏','已收藏']};
+  var LABELS={like:['认同','已认同'],collect:['收藏','已收藏'],share:['分享','分享']};
   function getStore(){try{return JSON.parse(localStorage.getItem(STORE_KEY)||'{}');}catch(e){return {};}}
   function setStore(s){try{localStorage.setItem(STORE_KEY,JSON.stringify(s));}catch(e){}}
   function slugFromPath(){var p=location.pathname.split('/articles/')[1];return p?p.replace(/\.html$/,'') : location.pathname;}
@@ -189,4 +189,36 @@ try{
   });
 })();
 }catch(e){console.error('[AIHR main.js] module 6 init failed:', e);}
+
+/* ===== R1：深色模式切换（2026-08-08） ===== */
+/* 复用 R2 注入点 .site-nav；偏好存 localStorage['aihr_theme']；与 head 防闪脚本同源。
+   单模块故障被 try/catch 隔离，不影响其余功能。 */
+try{
+(function(){
+  var KEY='aihr_theme';
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);}
+  function current(){return document.documentElement.getAttribute('data-theme')||'light';}
+  function persist(t){try{localStorage.setItem(KEY,t);}catch(e){}}
+  applyTheme(current());
+  var nav=document.querySelector('.site-nav');
+  if(!nav)return;
+  var ctrl=document.createElement('div');
+  ctrl.className='font-size-control';
+  ctrl.setAttribute('role','group');
+  ctrl.setAttribute('aria-label','切换深色或浅色模式');
+  var btn=document.createElement('button');
+  btn.className='theme-toggle';btn.type='button';
+  function label(){return current()==='dark'?'浅色':'深色';}
+  function aria(){return '切换到'+(current()==='dark'?'浅色':'深色')+'模式';}
+  btn.textContent=label();btn.setAttribute('aria-label',aria());btn.title=aria();
+  ctrl.appendChild(btn);
+  var search=nav.querySelector('.nav-search-btn');
+  if(search){nav.insertBefore(ctrl,search);}else{nav.appendChild(ctrl);}
+  btn.addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';
+    applyTheme(next);persist(next);
+    btn.textContent=label();btn.setAttribute('aria-label',aria());btn.title=aria();
+  });
+})();
+}catch(e){console.error('[AIHR main.js] module 7 init failed:', e);}
 
