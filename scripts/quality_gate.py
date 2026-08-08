@@ -58,6 +58,11 @@ try:
 except ImportError:
     check_article_index = None
 
+try:
+    import check_internal_links
+except ImportError:
+    check_internal_links = None
+
 # ============================================================
 # 配置
 # ============================================================
@@ -894,6 +899,27 @@ def gate_article_index(target_files=None):
 
 
 # ============================================================
+# Gate 17: 内链图谱健康关（R3 收尾护栏）
+# ============================================================
+def gate_internal_links(target_files=None):
+    """内链图谱健康关：拦住 R3 清理过的内链债务回归。
+
+    硬失败（永不合法、纯回归）：死代码 CSS 块 / 遗留 .related-articles DOM /
+    站内绝对 URL 锚点 / related-reading 自引用。
+    告警（不阻塞发布，新文自然状态）：正文页缺 related-reading 区块 / 孤儿。
+    """
+    if check_internal_links is None:
+        return GateResult("17-内链图谱健康关", False,
+                          ["check_internal_links.py 未找到，无法执行内链图谱扫描"])
+    passed, details = check_internal_links.run(SITE_ROOT)
+    if passed:
+        return GateResult("17-内链图谱健康关", True,
+                          ["无死代码 CSS / 遗留 DOM / 绝对 URL / 自引用（孤儿与缺区块为告警项）"])
+    # 区分硬失败与告警：passed=False 表示存在硬失败项
+    return GateResult("17-内链图谱健康关", False, details[:15])
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -942,6 +968,7 @@ def run_quality_gate(mode="changed"):
         gate_reader_perspective(target_files),  # Gate 14: 读者视角门（综合>=80 放行）
         gate_shared_assets(target_files),       # Gate 15: 共享资源完整性关
         gate_article_index(target_files),       # Gate 16: 文章索引完整性关
+        gate_internal_links(target_files),      # Gate 17: 内链图谱健康关（R3 收尾护栏）
     ]
     
     # Report
@@ -978,6 +1005,13 @@ if __name__ == "__main__":
             print("reader_perspective_gate.py 未找到")
             sys.exit(1)
         sys.exit(0 if reader_perspective_gate.selftest() else 1)
+
+    # 内链图谱门专用子命令（独立于主质量门运行）
+    if "--internal-links-selftest" in sys.argv:
+        if check_internal_links is None:
+            print("check_internal_links.py 未找到")
+            sys.exit(1)
+        sys.exit(0 if check_internal_links._selftest() else 1)
 
     if "--reader-audit" in sys.argv:
         if reader_perspective_gate is None:
