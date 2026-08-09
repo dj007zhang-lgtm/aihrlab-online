@@ -564,3 +564,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 /articles/hr-skill-graph-2026.html | 技能图谱是什么：HR 构建方法论 | 技能图谱=连接「人—能力—工作」的可检索事实网，区别于岗位说明书与能力模型；BCG 2026 仅 11% 企业建成企业级技能架构，它是技能本位组织、AI 评估、数字员工编排的共同底座，HR 从采集-标准化-关联-验证-调度五步自建。
 /articles/ai-hr-key-reports-2026.html | 2026 HR×AI 关键报告索引：数据与方法论 | 2026 年 HR×AI 六份权威报告（Gartner/BCG+WFPMA/Microsoft/WEF/Deloitte/PwC）核心数据与 HR 行动含义索引；每份一个决定性数字，逼 HR 重新配置判断权。
 /articles/ai-evaluation-split-2026.html | AI把评估拆成两半：2026人才判断权重构 | Gartner 2026 预测 75% 招聘到 2027 年测 AI 能力、50% 组织到 2026 年底要求无 AI 评估；评估权分裂的本质是判断权重定价，HR 一号位要守住组织判断权。
+
+### 132. 欧盟AI法案延期16个月，HR的8月2日没变
+- URL: https://www.aihrlab.online/articles/eu-ai-act-omnibus-hr-2026.html
+- 摘要: 欧盟《数字综合法案》(Regulation (EU) 2026/1744) 于2026年7月27日生效，将招聘类等附录三独立高风险AI系统的合规期限从2026年8月2日推迟至2027年12月2日；但第50条透明度告知义务与第5条禁止性条款（含职场情绪识别禁令）未延期，2026年8月2日照常适用。存量系统另有反直觉例外。
