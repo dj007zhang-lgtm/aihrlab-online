@@ -126,6 +126,10 @@ def extract_article_info(filepath, filename):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
+    # 跳过重定向桩页（无真实内容，不应进入搜索 / 列表 / 分类 / 标签索引）
+    if re.search(r'window\.location\.replace|本页面已迁移|http-equiv=["\']refresh', content):
+        return None
+
     slug = filename.replace('.html', '')
 
     # 1. 提取标题：优先 article-title，其次 h1，最后用 slug
@@ -234,16 +238,19 @@ def sort_articles(articles):
     return sorted(articles, key=sort_key, reverse=True)
 
 
-def rebuild_index_json(articles):
-    """重建 article-index.json"""
+def rebuild_index_json(articles, tags_map=None):
+    """重建 article-index.json（含可选 tags 维度）"""
     data = []
     for a in articles:
-        data.append({
+        entry = {
             'title': a['title'],
             'url': a['slug'],
             'category': a['category'],
             'date': a['date'],
-        })
+        }
+        if tags_map is not None:
+            entry['tags'] = tags_map.get(a['slug'], [])
+        data.append(entry)
 
     with open(INDEX_JSON, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -280,10 +287,250 @@ def rebuild_index_html(articles):
 
     html = html[:start_idx] + new_block + html[end_idx + len(grid_end_marker):]
 
+    # 3.5 重写时间归档区块（年/月分组，复用内部链接，SEO 友好）
+    html = rebuild_archive_block(html, articles)
+
     with open(INDEX_HTML, 'w', encoding='utf-8') as f:
         f.write(html)
 
     return len(sorted_articles)
+
+
+def build_archive_html(articles):
+    """按年/月分组的时间归档（紧凑内部链接列表）。"""
+    from collections import defaultdict
+    by_year = defaultdict(lambda: defaultdict(list))
+    for a in articles:
+        d = a.get('date', '') or ''
+        if len(d) >= 7 and d[4] == '-':
+            y, m = d[:4], d[5:7]
+            by_year[y][m].append(a)
+    parts = []
+    for y in sorted(by_year.keys(), reverse=True):
+        months = by_year[y]
+        total = sum(len(v) for v in months.values())
+        parts.append('<div class="archive-year"><h3 class="archive-year__h">' + y +
+                     ' 年 <span class="archive-year__count">' + str(total) + ' 篇</span></h3>')
+        for m in sorted(months.keys(), reverse=True):
+            items = months[m]
+            parts.append('<div class="archive-month"><h4 class="archive-month__h">' + str(int(m)) +
+                         ' 月 <span class="archive-month__count">' + str(len(items)) + ' 篇</span></h4><ul class="archive-list">')
+            for a in sorted(items, key=lambda x: x.get('date', ''), reverse=True):
+                dd = a['date'][5:] if len(a.get('date', '')) >= 10 else ''
+                parts.append('<li class="archive-item"><a href="/articles/' + a['slug'] +
+                             '.html"><time datetime="' + a['date'] + '">' + dd + '</time> ' +
+                             a['title'] + '</a></li>')
+            parts.append('</ul></div>')
+        parts.append('</div>')
+    return '\n'.join(parts)
+
+
+def rebuild_archive_block(html, articles):
+    """重写 <!--ARCHIVE_START--><!--ARCHIVE_END--> 之间的归档内容。"""
+    start_marker = '<!--ARCHIVE_START-->'
+    end_marker = '<!--ARCHIVE_END-->'
+    si = html.find(start_marker)
+    ei = html.find(end_marker)
+    if si < 0 or ei < 0 or ei < si:
+        return html
+    new_html = build_archive_html(articles)
+    return html[:si + len(start_marker)] + '\n' + new_html + '\n' + html[ei:]
+
+
+# ============ P1 标签 / 分类体系（2026-08-09） ============
+# 标签为编辑型分类维度：先由关键词推导，写回 tags.json 供人工校正；重跑时尊重已有标注。
+TAG_DEFS = [
+    ('大厂实践', 'bigtech', ['大厂', 'alibaba', '蚂蚁', '字节', '百度', '腾讯', '华为', 'meta', 'microsoft', '微软', 'anthropic', 'google', '谷歌', 'amazon', '英伟达', 'nvidia', 'openai', '美团', '京东', '拼多多', 'apple', '苹果', '阿里']),
+    ('AI裁员', 'layoff', ['裁员', 'layoff', '裁员潮', '优化', '组织瘦身', '降本']),
+    ('组织扁平化', 'flattening', ['扁平化', 'flatten', '中层', '去中层', '层级']),
+    ('组织变革', 'org-change', ['组织变革', '组织重构', '组织进化', '组织能力', '组织设计', '变革', '重组', 'restructure', 'rebuild']),
+    ('敏捷组织', 'agile-org', ['敏捷', 'agile', '小团队', 'pod', '军团', '阿米巴']),
+    ('绩效变革', 'performance', ['绩效', 'okr', 'kpi', '考核', '评价']),
+    ('人才战略', 'talent', ['人才', 'talent', '人才战略', '人才画像', '招聘', 'recruit', 'hiring', '面试', '面试官']),
+    ('技能优先', 'skills-first', ['技能优先', 'skills-first', '技能图谱', '技能']),
+    ('AI转型', 'ai-transformation', ['转型', 'transformation', '落地', 'roi', '选型', '部署', '采纳']),
+    ('AI原生组织', 'ai-native', ['ai原生', '原生组织', '智能组织', '组织os', 'org-os', '组织操作系统']),
+    ('治理与伦理', 'governance', ['治理', 'governance', '伦理', '算法伦理', '合规', 'responsible']),
+    ('智能体', 'agent', ['智能体', 'agent', '数字员工', 'digital employee', 'autonomous']),
+    ('提示词工程', 'prompt', ['提示词', 'prompt', '提示工程']),
+    ('知识管理', 'knowledge', ['知识管理', 'knowledge', '知识库', '第二大脑', 'second brain']),
+    ('HR转型', 'hr-transformation', ['hr转型', 'hr一号位', 'hrbp', '人力资源', '人力资源职能']),
+    ('测评工具', 'assessment', ['测评', '评估', 'assessment', '量表', '人格', '大五', 'mbti', 'disc']),
+    ('远程与混合办公', 'remote', ['远程', '混合办公', 'remote', '分布式', '数字游民']),
+    ('数字化转型', 'digital', ['数字化', 'digital']),
+    ('领导力', 'leadership', ['领导力', 'leader', '管理者', '一号位', 'ceo', 'chro']),
+    ('员工体验', 'ex', ['员工体验', 'ex', 'engagement', '敬业', '留任', '离职']),
+]
+TAG_SLUG = {name: slug for name, slug, _ in TAG_DEFS}
+CATEGORY_SLUG = {
+    '核心方法论': 'methodology',
+    '组织变革': 'org-change',
+    '大厂实践': 'bigtech',
+    'AI转型': 'ai-transformation',
+    'AI组织变革': 'ai-org',
+    '研究报告': 'research-report',
+}
+# 分类 → 同源标签（让分类页与标签体系互通）
+CATEGORY_TAG = {
+    '大厂实践': '大厂实践',
+    '组织变革': '组织变革',
+    'AI转型': 'AI转型',
+    'AI组织变革': 'AI原生组织',
+}
+TAGS_JSON = os.path.join(BASE_DIR, 'assets', 'js', 'tags.json')
+TEMPLATE_TAX = os.path.join(BASE_DIR, 'templates', 'taxonomy.html')
+
+
+def slugify_text(s):
+    s = re.sub(r'[^a-zA-Z0-9]+', '-', s.lower()).strip('-')
+    return s or 'x'
+
+
+def load_tags_override():
+    if os.path.isfile(TAGS_JSON):
+        try:
+            with open(TAGS_JSON, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+
+def save_tags_override(m):
+    with open(TAGS_JSON, 'w', encoding='utf-8') as f:
+        json.dump(m, f, ensure_ascii=False, indent=2)
+
+
+def derive_tags(article):
+    tags = []
+    cat = article.get('category', '')
+    if cat in CATEGORY_TAG:
+        tags.append(CATEGORY_TAG[cat])
+    text = (article.get('title', '') + ' ' + article.get('excerpt', '')).lower()
+    for name, slug, kws in TAG_DEFS:
+        if name in tags:
+            continue
+        for kw in kws:
+            if kw.lower() in text:
+                tags.append(name)
+                break
+    seen = set()
+    out = []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out[:4]
+
+
+def resolve_tags(articles, override):
+    """slug -> [tags]；已有标注优先，缺失则推导并写回 tags.json。"""
+    current_slugs = {a['slug'] for a in articles}
+    override = {k: v for k, v in override.items() if k in current_slugs}
+    result = {}
+    changed = False
+    for a in articles:
+        slug = a['slug']
+        if slug in override:
+            result[slug] = override[slug]
+        else:
+            t = derive_tags(a)
+            result[slug] = t
+            override[slug] = t
+            changed = True
+    if changed:
+        save_tags_override(override)
+    return result
+
+
+def tax_desc(kind, name, n):
+    """生成 ≥50 字、非模板残留的 taxonomy 页 meta description / 导引文案。"""
+    if kind == 'category':
+        return ('AIHR数智引擎「' + name + '」分类聚合页，收录 ' + str(n) + ' 篇深度文章，'
+                '系统梳理 ' + name + ' 相关的战略、组织、人才与治理实践，帮助读者建立体系化认知。')
+    elif kind == 'tag':
+        return ('AIHR数智引擎标签「' + name + '」下的 ' + str(n) + ' 篇精选文章，'
+                '聚焦 ' + name + ' 主题，覆盖前沿趋势、企业实践与方法论，一站式获取硬核深度内容。')
+    return ('AIHR数智引擎内容标签云与分类导航，按主题（AI转型、组织变革、大厂动态、治理、人才等）'
+            '快速检索全部深度文章，构建你的 AI+HR 知识体系。')
+
+
+def render_taxonomy_page(out_path, title, desc, canonical, h1, intro, cards_html, breadcrumb_html):
+    with open(TEMPLATE_TAX, 'r', encoding='utf-8') as f:
+        tpl = f.read()
+    tpl = tpl.replace('<!--TPL_TITLE-->', title)
+    tpl = tpl.replace('<!--TPL_DESC-->', desc)
+    tpl = tpl.replace('<!--TPL_CANONICAL-->', canonical)
+    tpl = tpl.replace('<!--TPL_H1-->', h1)
+    tpl = tpl.replace('<!--TPL_INTRO-->', intro)
+    tpl = tpl.replace('<!--TPL_CARDS-->', cards_html)
+    tpl = tpl.replace('<!--TPL_BREADCRUMB-->', breadcrumb_html)
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(tpl)
+    return out_path
+
+
+def gen_categories(articles):
+    by_cat = {}
+    for a in articles:
+        by_cat.setdefault(a['category'], []).append(a)
+    count = 0
+    for cat, items in by_cat.items():
+        slug = CATEGORY_SLUG.get(cat, slugify_text(cat))
+        cards = '\n'.join(build_card_html(x) for x in sort_articles(items))
+        desc = tax_desc('category', cat, len(items))
+        canonical = 'https://www.aihrlab.online/categories/' + slug + '.html'
+        breadcrumb = '<a href="/articles/index.html">文章</a> / 分类：' + cat
+        out = os.path.join(BASE_DIR, 'categories', slug + '.html')
+        render_taxonomy_page(out, cat + ' · 文章分类 | AIHR数智引擎', desc, canonical, cat, desc, cards, breadcrumb)
+        count += 1
+    return count
+
+
+def gen_tags(articles, tags_map):
+    by_tag = {}
+    for a in articles:
+        for t in tags_map.get(a['slug'], []):
+            by_tag.setdefault(t, []).append(a)
+    count = 0
+    for tag, items in sorted(by_tag.items(), key=lambda kv: -len(kv[1])):
+        slug = TAG_SLUG.get(tag, slugify_text(tag))
+        cards = '\n'.join(build_card_html(x) for x in sort_articles(items))
+        desc = tax_desc('tag', tag, len(items))
+        canonical = 'https://www.aihrlab.online/tags/' + slug + '.html'
+        breadcrumb = '<a href="/tags/index.html">标签</a> / ' + tag
+        out = os.path.join(BASE_DIR, 'tags', slug + '.html')
+        render_taxonomy_page(out, tag + ' · 标签 | AIHR数智引擎', desc, canonical, tag, desc, cards, breadcrumb)
+        count += 1
+    return count
+
+
+def gen_tag_index(articles, tags_map):
+    by_tag = {}
+    for a in articles:
+        for t in tags_map.get(a['slug'], []):
+            by_tag.setdefault(t, []).append(a)
+    by_cat = {}
+    for a in articles:
+        by_cat.setdefault(a['category'], []).append(a)
+    tag_links = ''.join(
+        '<a class="tax-tag" href="/tags/' + TAG_SLUG.get(t, slugify_text(t)) + '.html">' + t + ' <span class="tax-count">' + str(len(items)) + '</span></a>'
+        for t, items in sorted(by_tag.items(), key=lambda kv: -len(kv[1]))
+    )
+    cat_links = ''.join(
+        '<a class="tax-tag" href="/categories/' + CATEGORY_SLUG.get(c, slugify_text(c)) + '.html">' + c + ' <span class="tax-count">' + str(len(items)) + '</span></a>'
+        for c, items in sorted(by_cat.items(), key=lambda kv: -len(kv[1]))
+    )
+    cloud = ('<div class="tax-cloud"><h2 class="tax-h">按标签浏览</h2><div class="tax-tags">' + tag_links +
+             '</div><h2 class="tax-h">按分类浏览</h2><div class="tax-tags">' + cat_links + '</div></div>')
+    title = '标签与分类 | AIHR数智引擎'
+    desc = tax_desc('index', '', 0)
+    canonical = 'https://www.aihrlab.online/tags/index.html'
+    breadcrumb = '<a href="/articles/index.html">文章</a> / 标签与分类'
+    out = os.path.join(BASE_DIR, 'tags', 'index.html')
+    render_taxonomy_page(out, title, desc, canonical, '标签与分类', desc, cloud, breadcrumb)
+    return 1
 
 
 def main():
@@ -311,6 +558,9 @@ def main():
         filepath = os.path.join(ARTICLES_DIR, filename)
         try:
             info = extract_article_info(filepath, filename)
+            if info is None:
+                skipped.append((filename, 'redirect stub (skipped)'))
+                continue
             articles.append(info)
         except Exception as e:
             skipped.append((filename, str(e)))
@@ -329,14 +579,26 @@ def main():
         print(f'  {cat}: {cnt} 篇')
     print()
 
+    # 3.5 解析标签维度（读 tags.json 覆盖；缺失则推导并写回，供人工校正）
+    override = load_tags_override()
+    tags_map = resolve_tags(articles, override)
+    tag_total = sum(len(v) for v in tags_map.values())
+    print(f'标签维度: {len(tags_map)} 篇文章共标注 {tag_total} 个标签')
+
     # 4. 重建 article-index.json
-    json_count = rebuild_index_json(articles)
-    print(f'✓ 已重建 article-index.json ({json_count} 篇)')
+    json_count = rebuild_index_json(articles, tags_map)
+    print(f'✓ 已重建 article-index.json ({json_count} 篇，含 tags 维度)')
 
     # 5. 重建 articles/index.html 卡片
     html_count = rebuild_index_html(articles)
     if html_count:
         print(f'✓ 已重建 articles/index.html 卡片 ({html_count} 篇)')
+
+    # 5.5 生成分类 / 标签 / 标签云 页
+    cat_n = gen_categories(articles)
+    tag_n = gen_tags(articles, tags_map)
+    idx_n = gen_tag_index(articles, tags_map)
+    print(f'✓ 已生成分类页 {cat_n} 个 / 标签页 {tag_n} 个 / 标签云页 {idx_n} 个')
 
     # 6. 检查缺失项
     no_title = [a for a in articles if not a['title'] or a['title'] == a['slug'].replace('-', ' ')]

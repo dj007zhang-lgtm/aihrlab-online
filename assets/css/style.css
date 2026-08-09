@@ -505,3 +505,84 @@
 @media (max-width:768px){
   .site-nav .font-size-control{margin:var(--space-md) 0 0;align-self:flex-start;}
 }
+
+/* ===== P1 订阅 CTA 强化（2026-08-09）：纯 JS 注入组件样式；复用 var() 自动适配深色 ===== */
+/* ① 全站常驻订阅条（默认隐藏，JS 加 .is-visible 后滑入） */
+.subscribe-bar{
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%) translateY(120%);
+  width:100%;max-width:var(--page-width);
+  display:flex;align-items:center;gap:.75rem;
+  padding:.7rem 1rem;
+  background:var(--surface);
+  border-top:1px solid var(--line-strong);
+  box-shadow:0 -6px 28px rgba(13,16,22,.14);
+  z-index:900;
+  font-size:.9rem;color:var(--text);
+  opacity:0;visibility:hidden;
+  transition:transform .35s var(--ease),opacity .35s var(--ease),visibility .35s var(--ease);
+}
+.subscribe-bar.is-visible{transform:translateX(-50%) translateY(0);opacity:1;visibility:visible;}
+.subscribe-bar__text{flex:1;min-width:0;line-height:1.45;}
+.subscribe-bar__text strong{color:var(--accent);font-weight:700;}
+.subscribe-bar__qr{width:44px;height:44px;border-radius:8px;flex:none;border:1px solid var(--line);}
+.subscribe-bar__btn{
+  flex:none;background:var(--accent);color:#fff;border:none;border-radius:999px;
+  padding:.5rem 1rem;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap;
+  transition:background .15s var(--ease);
+}
+.subscribe-bar__btn:hover{background:var(--text-link-hover);}
+.subscribe-bar__close{
+  flex:none;background:none;border:none;color:var(--text-muted);
+  font-size:1.4rem;line-height:1;cursor:pointer;padding:.1rem .35rem;border-radius:6px;
+}
+.subscribe-bar__close:hover{color:var(--text);background:var(--bg-subtle);}
+/* ② 文章页内联 CTA（related-reading 之前，无二维码，按钮平滑滚动到页脚二维码） */
+.inline-cta{
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  margin:2.5rem 0 1rem;padding:1.1rem 1.3rem;
+  background:var(--accent-pale);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+}
+.inline-cta__text{flex:1;min-width:200px;color:var(--text);line-height:1.6;font-size:.95rem;}
+.inline-cta__text strong{color:var(--accent);}
+.inline-cta__btn{
+  flex:none;background:var(--accent);color:#fff;border:none;border-radius:999px;
+  padding:.55rem 1.2rem;font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap;
+  transition:background .15s var(--ease);
+}
+.inline-cta__btn:hover{background:var(--text-link-hover);}
+/* ③ 导航"订阅"锚点按钮（注入 .site-nav，与搜索按钮同组） */
+.nav-subscribe-btn{
+  display:inline-flex;align-items:center;gap:.3rem;
+  background:var(--accent);color:#fff;border:none;border-radius:999px;
+  padding:.4rem .85rem;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap;line-height:1;
+  transition:background .15s var(--ease);
+}
+.nav-subscribe-btn:hover{background:var(--text-link-hover);}
+/* 深色模式：白字按钮改深字保 AA（与 .cta-btn 规则一致） */
+:root[data-theme="dark"] .subscribe-bar__btn,
+:root[data-theme="dark"] .inline-cta__btn,
+:root[data-theme="dark"] .nav-subscribe-btn{color:var(--bg);}
+
+/* ===== P1 标签云 / 分类导航（2026-08-09） ===== */
+.tax-cloud{max-width:var(--page-width);margin:0 auto;}
+.tax-h{font-size:1.05rem;font-weight:700;color:var(--text);margin:1.8rem 0 .9rem;}
+.tax-h:first-child{margin-top:0;}
+.tax-tags{display:flex;flex-wrap:wrap;gap:.6rem;}
+.tax-tag{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--bg-subtle);color:var(--text-secondary);font-size:.9rem;text-decoration:none;transition:all .18s var(--ease);}
+.tax-tag:hover{border-color:var(--accent);color:var(--text-link);background:var(--accent-pale);transform:translateY(-1px);}
+.tax-count{font-size:.75rem;color:var(--text-muted);background:var(--surface);border-radius:999px;padding:.05rem .5rem;min-width:1.6rem;text-align:center;}
+/* 时间归档（P1-Phase3，2026-08-09）：年/月分组内部链接列表 */
+.archive-section{padding:var(--space-2xl) 0 var(--space-3xl);border-top:1px solid var(--line);margin-top:var(--space-2xl);}
+.archive-section .section-title{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin:0 0 var(--space-xl);}
+.archive-year{margin-bottom:var(--space-xl);}
+.archive-year__h{font-size:1.15rem;font-weight:700;color:var(--text);margin:0 0 var(--space-md);display:flex;align-items:baseline;gap:.6rem;}
+.archive-year__count{font-size:.82rem;font-weight:500;color:var(--text-muted);}
+.archive-month{margin:0 0 var(--space-lg) 0;padding-left:var(--space-lg);border-left:2px solid var(--line);}
+.archive-month__h{font-size:1rem;font-weight:600;color:var(--text-secondary);margin:0 0 var(--space-sm);display:flex;align-items:baseline;gap:.5rem;}
+.archive-month__count{font-size:.78rem;font-weight:500;color:var(--text-muted);}
+.archive-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.4rem .8rem;}
+.archive-item{margin:0;padding:0;line-height:1.5;}
+.archive-item a{display:flex;gap:.6rem;align-items:baseline;font-size:.92rem;color:var(--text-secondary);padding:.3rem 0;border-bottom:1px solid transparent;transition:color .18s var(--ease),border-color .18s var(--ease);}
+.archive-item a:hover{color:var(--text-link);border-bottom-color:var(--text-link-hover);text-decoration:none;}
+.archive-item time{flex-shrink:0;font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);min-width:3.2em;}
+@media (max-width:768px){.archive-list{grid-template-columns:1fr;}.archive-month{padding-left:var(--space-md);}}

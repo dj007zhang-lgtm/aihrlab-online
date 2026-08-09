@@ -222,3 +222,72 @@ try{
 })();
 }catch(e){console.error('[AIHR main.js] module 7 init failed:', e);}
 
+/* ===== P1：订阅 CTA 强化（2026-08-09） =====
+   纯 JS 注入，零 HTML 改动。三组件：① 全站常驻订阅条（可关、延迟出现、复用同一二维码）
+   ② 文章页内联 CTA（related-reading 前，无二维码，按钮平滑滚动到页脚二维码）
+   ③ 导航"订阅"锚点（注入 .site-nav，点击滚动到订阅条或页脚二维码）。
+   纪律：文章页不引入第二处二维码；复用 qrcode-wechat.webp；单模块 try/catch 隔离。 */
+try{
+(function(){
+  var QR_SRC='/assets/images/qrcode-wechat.webp';
+  var KEY='aihr_subbar_dismissed';
+  function isDismissed(){try{return localStorage.getItem(KEY)==='1';}catch(e){return false;}}
+  function doDismiss(){try{localStorage.setItem(KEY,'1');}catch(e){}
+    var b=document.getElementById('aihr-subbar');
+    if(b){b.classList.remove('is-visible');document.body.style.paddingBottom='';}
+  }
+  function scrollToQR(){var qr=document.querySelector('.article-footer-qr');if(qr){qr.scrollIntoView({behavior:'smooth',block:'center'});}}
+
+  /* ② 文章页内联 CTA（锚定 .related-reading 或降级到 .article-footer-qr 的父容器，兼容 .article-body / .article-content 两种模板） */
+  var anchor=document.querySelector('.related-reading')||document.querySelector('.article-footer-qr');
+  if(anchor && !document.getElementById('aihr-inline-cta')){
+    var p=anchor.parentNode;
+    if(p){
+      var ic=document.createElement('section');
+      ic.id='aihr-inline-cta';ic.className='inline-cta';
+      ic.innerHTML='<div class="inline-cta__text">读到这里，说明你认可这篇硬核内容。<strong>关注公众号「AIHR数智引擎」</strong>，每周 2 篇 AI 时代组织变革深度分析。</div>'+
+        '<button class="inline-cta__btn" type="button">关注公众号</button>';
+      p.insertBefore(ic,anchor);
+      ic.querySelector('.inline-cta__btn').addEventListener('click',function(){
+        scrollToQR();
+        if(typeof trackEvent==='function'){trackEvent('cta_click',{cta_type:'inline',page_path:window.location.pathname});}
+      });
+    }
+  }
+
+  /* ① 全站常驻订阅条 */
+  if(!document.getElementById('aihr-subbar') && !isDismissed()){
+    var hasFooterQR=!!document.querySelector('.article-footer-qr');
+    var bar=document.createElement('div');
+    bar.id='aihr-subbar';bar.className='subscribe-bar';
+    var qrHtml=hasFooterQR?'':'<img class="subscribe-bar__qr" src="'+QR_SRC+'" alt="AIHR数智引擎公众号二维码" width="44" height="44">';
+    bar.innerHTML='<div class="subscribe-bar__text"><strong>关注 AIHR 数智引擎</strong>，每周 2 篇 AI 时代组织变革硬核文</div>'+qrHtml+
+      '<button class="subscribe-bar__btn" type="button">'+(hasFooterQR?'关注':'扫码关注')+'</button>'+
+      '<button class="subscribe-bar__close" type="button" aria-label="关闭订阅提示">×</button>';
+    document.body.appendChild(bar);
+    bar.querySelector('.subscribe-bar__btn').addEventListener('click',function(){
+      if(hasFooterQR){scrollToQR();}
+      if(typeof trackEvent==='function'){trackEvent('cta_click',{cta_type:'subbar',page_path:window.location.pathname});}
+    });
+    bar.querySelector('.subscribe-bar__close').addEventListener('click',doDismiss);
+    setTimeout(function(){bar.classList.add('is-visible');document.body.style.paddingBottom=bar.offsetHeight+'px';},2500);
+    if(typeof trackEvent==='function'){trackEvent('cta_impression',{cta_type:'subbar',page_path:window.location.pathname});}
+  }
+
+  /* ③ 导航"订阅"锚点 */
+  var nav=document.querySelector('.site-nav');
+  if(nav && !nav.querySelector('.nav-subscribe-btn')){
+    var sb=document.createElement('button');
+    sb.className='nav-subscribe-btn';sb.type='button';sb.textContent='订阅';
+    var search=nav.querySelector('.nav-search-btn');
+    if(search){nav.insertBefore(sb,search);}else{nav.appendChild(sb);}
+    sb.addEventListener('click',function(){
+      var barNode=document.getElementById('aihr-subbar');
+      if(barNode && barNode.classList.contains('is-visible')){barNode.scrollIntoView({behavior:'smooth',block:'center'});}
+      else{scrollToQR();}
+      if(typeof trackEvent==='function'){trackEvent('cta_click',{cta_type:'nav',page_path:window.location.pathname});}
+    });
+  }
+})();
+}catch(e){console.error('[AIHR main.js] module 8 init failed:', e);}
+
