@@ -156,10 +156,9 @@
 .inline-related a{color:var(--text-link);text-decoration:none;}
 .inline-related a:hover{text-decoration:underline;}
 
-/* 正文尾部「本文信源」块 —— 机器可读引用的可见载体(与 .references 同视觉语言, 共用变量自动适配深色) */
+/* 正文尾部「参考信源」块 —— 机器可读引用的可见载体(与 .references 同视觉语言, 共用变量自动适配深色) */
 .verified-sources{margin:2.5rem 0 1rem;padding:1.4rem 1.5rem;background:var(--bg-subtle);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;}
-.verified-sources__title{font-size:1.02rem;font-weight:700;margin:0 0 .35rem;color:var(--text);}
-.verified-sources__intro{font-size:.84rem;line-height:1.6;color:var(--text-muted);margin:0 0 1rem;}
+.verified-sources__title{font-size:1.02rem;font-weight:700;margin:0 0 .85rem;color:var(--text);}
 .verified-sources__list{list-style:none;padding:0;margin:0;counter-reset:ref;}
 .verified-sources__item{position:relative;padding:.55rem 0 .55rem 1.9rem;border-top:1px solid var(--line);}
 .verified-sources__item:first-child{border-top:none;}

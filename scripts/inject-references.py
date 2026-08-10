@@ -41,9 +41,8 @@ def html_block(refs):
         for r in refs
     )
     return (
-        '<section class="verified-sources" aria-label="本文信源">'
-        '<h2 class="verified-sources__title">本文信源</h2>'
-        '<p class="verified-sources__intro">以下为与本文议题相关的已核验一手资料，链接均指向原始发布方。</p>'
+        '<section class="verified-sources" aria-label="参考信源">'
+        '<h2 class="verified-sources__title">参考信源</h2>'
         f'<ul class="verified-sources__list">{items}</ul>'
         "</section>"
     )
@@ -113,14 +112,41 @@ def inject_citation(html, refs):
     return new_html, changed
 
 
+def _is_fresh_block(html):
+    """判断当前 verified-sources 块是否已是新版（标题「参考信源」且无 intro）。"""
+    return (
+        'class="verified-sources"' in html
+        and 'verified-sources__intro' not in html
+        and '>参考信源<' in html
+    )
+
+
+def _remove_stale_block(html):
+    """若存在旧版块（含 intro 或旧标题「本文信源」），将其整段移除以便重新注入。"""
+    if 'class="verified-sources"' not in html:
+        return html
+    if _is_fresh_block(html):
+        return html
+    # 移除整个 <section class="verified-sources" ...>...</section>
+    cleaned = re.sub(
+        r'<section class="verified-sources"[^>]*>.*?</section>',
+        '',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    return cleaned
+
+
 def process_file(path, refs_map, check=False):
     slug = os.path.basename(path)[:-5]  # strip .html
     refs = refs_map.get(slug)
     if not refs:
         return None  # 未命中, 跳过
     html = open(path, encoding="utf-8").read()
-    if "verified-sources" in html:
-        return None  # 已注入, 幂等跳过
+    if _is_fresh_block(html):
+        return None  # 已是最新版, 幂等跳过
+    html = _remove_stale_block(html)
 
     block = html_block(refs)
     new_html = insert_after_qr(html, block)
