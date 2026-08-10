@@ -12,9 +12,11 @@
   2) JSON-LD: 在 Article 的 application/ld+json 对象上加 "citation":[...] 数组。
 
 幂等:
-  - 文件已含 .article-references -> 跳过 (HTML 已注入)。
-  - Article JSON-LD 已含 "citation" -> 跳过 (citation 已注入)。
   - slug 未命中 references.json -> 跳过 (不虚构文章未引用的来源)。
+  - Article JSON-LD 已含 "citation" -> 跳过 (citation 已注入)。
+  - 文件已含 .verified-sources 新版块且 citation 已就位 -> 跳过 (幂等)。
+  - 文件已含 .verified-sources 新版块但 Article 缺 citation (如先有块后补
+    Article 回填的情形) -> 仅补 citation, 不重复注入 HTML 块。
   - 可重跑, 不产生重复块。
 """
 import argparse
@@ -144,24 +146,48 @@ def process_file(path, refs_map, check=False):
     if not refs:
         return None  # 未命中, 跳过
     html = open(path, encoding="utf-8").read()
-    if _is_fresh_block(html):
-        return None  # 已是最新版, 幂等跳过
-    html = _remove_stale_block(html)
 
+    # 1) 始终保持 Article JSON-LD 的 citation 最新 (幂等: 已含则跳过)。
+    #    即使 HTML 信源块已存在, 若当时 Article 尚未回填则 citation 会缺失,
+    #    此处补上 -> 闭合「块在但 JSON-LD 无 citation」的回归缺陷。
+    html, cit_changed = inject_citation(html, refs)
+
+    # 2) HTML 信源块
+    if _is_fresh_block(html):
+        if not cit_changed:
+            return None  # 块已是最新且 citation 已就位 -> 幂等跳过
+        # citation 刚补齐 (此前块在但 JSON-LD 缺 citation), 写回即可
+        if check:
+            return {
+                "slug": slug,
+                "status": "WOULD_CIT",
+                "refs": len(refs),
+                "cit": True,
+                "written": False,
+            }
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        return {
+            "slug": slug,
+            "status": "CIT_ADDED",
+            "refs": len(refs),
+            "cit": True,
+            "written": True,
+        }
+
+    html = _remove_stale_block(html)
     block = html_block(refs)
     new_html = insert_after_qr(html, block)
     if new_html is None:
         return {"slug": slug, "status": "NO_QR_ANCHOR", "written": False}
-    new_html, cit_changed = inject_citation(new_html, refs)
-    if not cit_changed:
-        # 块已插入但 Article JSON-LD 未找到/已含 citation; 仍写回 (块是新增的)
-        pass
+    # citation 已在步骤 1 挂上, 此处重跑为幂等保险
+    new_html, _ = inject_citation(new_html, refs)
     if check:
         return {
             "slug": slug,
             "status": "WOULD_INJECT",
             "refs": len(refs),
-            "cit": cit_changed,
+            "cit": True,
             "written": False,
         }
     with open(path, "w", encoding="utf-8") as f:
@@ -170,7 +196,7 @@ def process_file(path, refs_map, check=False):
         "slug": slug,
         "status": "INJECTED",
         "refs": len(refs),
-        "cit": cit_changed,
+        "cit": True,
         "written": True,
     }
 
