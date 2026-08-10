@@ -17,9 +17,10 @@
         og:description / <h1> / <h2> / 卡片 <h3> / inline-related 链接文字。
         属性值里的合法引号不在检测范围（避免误报）。
 
-  3. 标题超长（> 28 字，移动端 SERP 会被截断）
-     —— 但规则升级：超长标题必须"重写保留原意"，禁止物理截断。
-        本脚本只报超长，是否"重写而非截断"由人工/AI 在修复时保证（见 README 注释）。
+  3. 标题长度健康区间（SEO/GEO 对齐，非硬性 28 字审美上限）
+     —— SERP 中文标题截断点约 30 字（上限≈60 字符）。>60 字必被截断（硬失败，必须重写）；
+        41–60 字软提示（可能截断，不阻断）；15–40 字为健康区间。过短(<15)无搜索意图承诺。
+        超长标题必须"重写保留原意"，禁止物理截断。
 
 用法：
   python3 scripts/check_title_consistency.py            # 全站扫描
@@ -36,8 +37,8 @@ SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 品牌后缀（从 title / og:title 中剥离后再比较）
 BRAND_SUFFIXES = ["| AIHR数智引擎", "|AIHR数智引擎", "| AIHR", "|AIHR", " | AIHR数智引擎"]
 
-# 标题长度上限（移动端 SERP 不截断）
-TITLE_MAX = 28
+# 标题长度健康区间（SEO/GEO 对齐）—— 单一真相源见 title_standards.py
+from title_standards import TITLE_MIN, TITLE_WARN, TITLE_MAX
 
 # 可见文本元素抽取规则
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S | re.I)
@@ -159,12 +160,23 @@ def check_file(path):
                 f" —— title「{title_core}」 vs og「{og_core}」",
             ))
 
-    # ---------- 2. 标题超长 ----------
-    if 0 < len(title_core) > TITLE_MAX:
+    # ---------- 2. 标题长度健康区间（SEO/GEO 对齐）----------
+    tlen = len(title_core)
+    if tlen < TITLE_MIN:
+        issues.append((
+            "WARN",
+            f"{rel}: 核心标题过短（{tlen}字 < {TITLE_MIN}），无搜索意图承诺: 「{title_core}」",
+        ))
+    elif tlen > TITLE_MAX:
         issues.append((
             "FAIL",
-            f"{rel}: 核心标题超长（{len(title_core)}字 > {TITLE_MAX}）"
+            f"{rel}: 核心标题过长（{tlen}字 > {TITLE_MAX}），SERP 必被截断"
             f" —— 必须【重写】保留原意，禁止物理截断: 「{title_core}」",
+        ))
+    elif tlen > TITLE_WARN:
+        issues.append((
+            "WARN",
+            f"{rel}: 核心标题偏长（{tlen}字，41–60 软提示），SERP 可能截断，建议压到 {TITLE_WARN} 字内: 「{title_core}」",
         ))
 
     # ---------- 3. 引号污染（可见文本）----------

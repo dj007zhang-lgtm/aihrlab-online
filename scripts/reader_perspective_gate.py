@@ -348,12 +348,23 @@ def _score_structure(b, html=""):
         s4 = 45
         notes.append("缺明确引言或结语段")
 
-    # S5 标题长度合规（全部 <= 28 字）
-    over = [t for lv, t in headings if len(t) > 28]
-    s5 = 100 if not over else 60
+    # S5 标题长度合规（SEO/GEO 健康区间，单一真相源 title_standards.py）
+    from title_standards import TITLE_MIN, TITLE_WARN, TITLE_MAX
+    over = [t for lv, t in headings if len(t) > TITLE_MAX]
+    warn_long = [t for lv, t in headings if TITLE_WARN < len(t) <= TITLE_MAX]
+    short = [t for lv, t in headings if len(t) < TITLE_MIN]
     subs["overlong_headings"] = len(over)
     if over:
-        notes.append(f"{len(over)} 个标题超 28 字")
+        s5 = 60
+        notes.append(f"{len(over)} 个标题超 {TITLE_MAX} 字（SERP 必截断）")
+    elif warn_long:
+        s5 = 80
+        notes.append(f"{len(warn_long)} 个标题偏长（{TITLE_WARN+1}–{TITLE_MAX} 字，可能截断）")
+    elif short:
+        s5 = 80
+        notes.append(f"{len(short)} 个标题过短（<{TITLE_MIN} 字，无搜索意图）")
+    else:
+        s5 = 100
 
     score = round((s1 + s2 + s3 + s4 + s5) / 5.0)
     return score, subs, notes

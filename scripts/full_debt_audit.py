@@ -15,7 +15,7 @@
   9. JSON-LD 结构化数据（Article/FAQPage）
  10. 模板占位符残留（PLACEHOLDER / TODO / 待填写）
  11. 中文引号规范性（标题/正文中含英文引号）
- 12. 标题长度 >28 字
+ 12. 标题长度 >60 字（SEO/GEO 健康区间，单一真相源 title_standards.py）
  13. redirects.json 源路径在磁盘存在（矛盾）
  14. sitemap URL 对应磁盘文件
  15. article-index.json slug 有效性
@@ -243,7 +243,7 @@ def check_chinese_quotes(articles):
 
 
 def check_title_length(articles):
-    """维度12: 标题 >28 字"""
+    """维度12: 标题 >60 字（SEO/GEO 健康区间）"""
     too_long = []
     title_pat = re.compile(r'<title>([^<]+)</title>')
     for fpath in articles:
@@ -254,7 +254,8 @@ def check_title_length(articles):
             t = tm.group(1).strip()
             # 去掉站点后缀
             t_clean = re.sub(r'\s*[|\-]\s*AIHR.*$', '', t).strip()
-            if len(t_clean) > 28:
+            # 仅 >60 字才算「过长债」（SEO/GEO 健康区间，单一真相源 title_standards.py）
+            if len(t_clean) > 60:
                 too_long.append((os.path.basename(fpath), t_clean, len(t_clean)))
     return too_long
 
@@ -530,7 +531,7 @@ def main():
         print(f'  PASS: {total}/{total} 引号规范')
 
     # --- 维度 12: 标题长度 ---
-    print('\n[维度 12] 标题长度 (>28 字)')
+    print('\n[维度 12] 标题长度 (>60 字，SEO/GEO 健康区间)')
     long_titles = check_title_length(articles)
     if long_titles:
         print(f'  FAIL: {len(long_titles)}/{total} 超长')

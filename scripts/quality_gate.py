@@ -272,6 +272,7 @@ def gate_visual(target_files=None):
 def gate_taste(target_files=None):
     """设计品味检查：排版层级、less-is-more、无 SaaS Landing 风"""
     issues = []
+    warns = []
     checked = 0
     
     files_to_check = target_files or _get_all_html_files()
@@ -298,16 +299,27 @@ def gate_taste(target_files=None):
         if total_inline_css > 6000 and 'tools/' not in rel and 'bridge/' not in rel and not is_v2_template:
             issues.append(f"{rel}: 行内 style 过长 ({total_inline_css}字符)，可能为临时修补")
         
-        # Check 2: 核心标题长度 > 28 字（忽略品牌后缀「| AIHR数智引擎」）
+        # Check 2: 标题长度健康区间（SEO/GEO 对齐，非硬性审美上限）
+        # 依据：Bing/Google 中文标题 SERP 截断点约 30 字（上限≈60 字符），过短(<15)则无搜索意图承诺、
+        #       Bing 会报「title 过短」；意图对齐需「范围+年份+核心词+具体承诺」常需 20–40 字。
+        #       故：<15 硬失败 / 15–40 健康 / 41–60 软提示(不阻断) / >60 硬失败。
         tm = re.search(r'<title>([^<]+)</title>', content)
         if tm:
             full = tm.group(1).strip()
             core = full.split('|')[0].strip()
             if ' - ' in core:
                 core = core.split(' - ')[0].strip()
+            from title_standards import TITLE_MIN, TITLE_WARN, TITLE_MAX
             tlen = len(core)
-            if tlen > 28:
-                issues.append(f"{rel}: 核心标题超长 ({tlen}字): '{core[:30]}...'")
+            # 依据 SEO/GEO 标准（Bing/Google SERP 中文标题可显示约 60 字符）：
+            #   <15 过短 = 软提示(WARN，不阻断；Bing WMT 将「标题过短」列为改善建议而非硬性错误)
+            #   15–40 健康区间 / 41–60 偏长(仅提示) / >60 过长(硬失败，SERP 必截断)
+            if tlen > TITLE_MAX:
+                issues.append(f"{rel}: 核心标题过长 ({tlen}字 > {TITLE_MAX})，SERP 必被截断: '{core[:30]}...'")
+            elif tlen > TITLE_WARN:
+                warns.append(f"{rel}: 核心标题偏长 ({tlen}字)，SERP 可能截断，建议压到 {TITLE_WARN} 字内: '{core[:30]}'")
+            elif tlen < TITLE_MIN:
+                warns.append(f"{rel}: 核心标题过短 ({tlen}字 < {TITLE_MIN})，无搜索意图承诺(SEO/GEO 建议改善): '{core[:30]}'")
         
         # Check 3: Description starts with template residue
         dm = re.search(r'name=["\']description["\'][^>]*content=["\']([^"\']+)"', content)
@@ -324,6 +336,8 @@ def gate_taste(target_files=None):
     
     if issues:
         return GateResult("5-品味关", False, issues)
+    if warns:
+        return GateResult("5-品味关", True, [f"已检查 {checked} 个页面，无硬问题；{len(warns)} 处标题偏长仅提示(不影响发布):"] + warns)
     return GateResult("5-品味关", True, [f"已检查 {checked} 个页面，无品味问题"])
 
 

@@ -6,9 +6,9 @@ unify_titles.py — 全站标题统一脚本（第二步：批量）
 规则（用户决策 + 质量门纪律）：
 1. 所有文章四字段 —— <title> / <h1> / og:title / twitter:title —— 统一为「无后缀规范标题」。
 2. 不追加「｜AIHR数智引擎」等品牌后缀（用户：不专业、多余）。
-3. 规范标题来源：
-   - H1(去后缀) ≤ 28 字 → 直接用 H1。
-   - H1 > 28 字 → 用 LONG_TITLE_MAP 中人工重写、保留原意、≤28 字的版本（严禁物理截断）。
+3. 规范标题来源（长度按 SEO/GEO 健康区间，单一真相源 scripts/title_standards.py）：
+   - H1(去后缀) ≤ 40 字（TITLE_WARN，健康上限）→ 直接用 H1。
+   - H1 > 40 字 → 用 LONG_TITLE_MAP 中人工重写、保留原意、≤40 字的版本（严禁物理截断）。
 4. 重定向桩页（标题含「页面已迁移」或含 http-equiv=refresh）跳过。
 5. 非文章页（首页/列表页/hub）仅清除 <title> 里的品牌后缀并统一已有 og/twitter，不插入新 meta。
 
@@ -29,7 +29,7 @@ INDEX_JSON = os.path.join(ROOT, "assets", "js", "article-index.json")
 
 SUFFIX_PATTERNS = ["｜AIHR数智引擎", "| AIHR数智引擎", "｜ AIHR数智引擎", " | AIHR数智引擎"]
 
-# H1 > 28 字 → 人工重写（保留钩子/原意，≤28 字，无破折号/英文冒号做 spine）
+# H1 > 40 字 → 人工重写（保留钩子/原意，≤40 字，无破折号/英文冒号做 spine）
 LONG_TITLE_MAP = {
     "2026-hr-transformation-chief-architect": "2026HR转型：成为组织的首席架构师",
     "ai-bounded-rationality": "真正危险的不是AI，是你的有限理性",
@@ -167,8 +167,8 @@ def main():
         if not canonical:
             print(f"  [SKIP] 空 canonical: {slug}")
             continue
-        if len(canonical) > 28 and slug not in LONG_TITLE_MAP:
-            print(f"  [WARN] canonical >28 [{len(canonical)}] 且不在 LONG_TITLE_MAP: {slug} -> {canonical}")
+        if len(canonical) > 40 and slug not in LONG_TITLE_MAP:
+            print(f"  [WARN] canonical >40 [{len(canonical)}] 且不在 LONG_TITLE_MAP: {slug} -> {canonical}")
 
         new_html = html
         new_html = set_title_tag(new_html, canonical)

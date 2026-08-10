@@ -3,9 +3,10 @@
 """
 标题修复脚本（一次性清理历史债，配合 check_title_consistency.py）
 ==============================================================
-策略（围绕目标：SERP 标题必须完整、≤28 字、且保留原意，禁止物理截断）：
-  1. 词中截断标题：title_core 改为 H1 全文（若 H1 ≤ 28 字，零语义损失）；
-     若 H1 > 28 字，用 CRAFTED 字典里的【重写】版本（保留核心钩子，非砍半句）。
+策略（围绕目标：SERP 标题必须完整、保留原意，禁止物理截断；长度按 SEO/GEO 健康区间
+  —— 单一真相源 scripts/title_standards.py：<15 过短 / 15–40 健康 / 41–60 软提示 / >60 硬失败）：
+  1. 词中截断标题：title_core 改为 H1 全文（若 H1 ≤ 60 字，零语义损失）；
+     若 H1 > 60 字，用 CRAFTED 字典里的【重写】版本（保留核心钩子，非砍半句）。
   2. 所有 articles/ 页面：og:title 对齐到 title_core（消除 title/og 偏离 WARN）。
   3. 引号清洗：title_core / og:title 中的英文双引号 " 转为「」。
 
@@ -22,7 +23,7 @@ import check_title_consistency as tc
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ARTICLES = os.path.join(SITE_ROOT, "articles")
 
-# H1 > 28 字的文件：人工重写的完整标题（≤28，保留核心钩子，非截断）
+# H1 > 60 字的文件：人工重写的完整标题（保留核心钩子，非截断；旧 CRAFTED 条目为 ≤28 历史版本）
 CRAFTED = {
     "didi-three-hr-leaders.html": "滴滴三任HR负责人：从战争到长期主义",
     "jimeng-organization-logic.html": "拆解即梦Seedance：可复制的组织力",
@@ -84,7 +85,7 @@ def main():
            (og_core and tc._is_midword_chop(old_core, og_core)):
             if fn in CRAFTED:
                 new_core = CRAFTED[fn]
-            elif full_source and len(full_source) <= 28:
+            elif full_source and len(full_source) <= tc.TITLE_MAX:
                 new_core = full_source
             else:
                 # 兜底：不应发生（CRAFTED 已覆盖所有超长 H1）
@@ -114,7 +115,7 @@ def main():
 
     print(f"修复标题 {len(changed)} 个：\n")
     for fn, old, new, ln in changed:
-        flag = "✓≤28" if ln <= 28 else f"✗{ln}超长"
+        flag = "✓OK" if ln <= tc.TITLE_MAX else f"✗{ln}超长"
         print(f"  {fn}")
         print(f"    旧({len(old)}): {old}")
         print(f"    新({ln}): {new}  [{flag}]")

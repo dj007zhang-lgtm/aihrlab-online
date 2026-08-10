@@ -9,7 +9,7 @@
   4. meta description 无 CMS 残留（搜索首页/文章/阅读N/来源）
   5. 文末二维码区块 article-footer-qr 在位
   6. main.js 已加载（追踪脚本配对）
-  7. 标题 ≤ 28 字
+  7. 标题长度（SEO/GEO 健康区间：<15 过短 / 15–40 健康 / 41–60 软提示 / >60 硬失败）
   8. HTML 结构完整性（<style>/<script> 开闭平衡 + </body>/</html> 闭合，防白屏）
   9. og:image / twitter:image 引用的本地文件真实存在（防社交卡片图裂，信任信号）
 用法：python3 tools/validate_article.py [file_or_dir]
@@ -71,12 +71,17 @@ def check_file(path):
     if has_qr_hook and 'assets/js/main.js' not in c:
         issues.append('含二维码钩子但未加载 main.js（追踪失效）')
 
-    # 7. 标题长度
+    # 7. 标题长度（SEO/GEO 健康区间：<15 过短 / 15–40 健康 / 41–60 软提示 / >60 硬失败；
+    #    与 scripts/title_standards.py 单一真相源保持一致）
     tm = re.search(r'<title>(.*?)</title>', c, re.S)
     if tm:
         title = re.sub(r'\s*[|｜\|].*$', '', tm.group(1)).strip()
-        if len(title) > 28:
-            issues.append(f'标题超 28 字 ({len(title)}): {title}')
+        tlen = len(title)
+        if tlen > 60:
+            issues.append(f'标题超 60 字 ({tlen})，SERP 必截断: {title}')
+        elif tlen < 15:
+            issues.append(f'标题过短 ({tlen}字 < 15)，无搜索意图承诺: {title}')
+        # 41–60 仅软提示，不阻断
 
     # 8. HTML 结构完整性（防白屏 / 浏览器把 body 当 CSS 吞掉）
     #    2026-07-13 教训：head 里未闭合 <style> 导致 hero 页白屏，旧校验未拦住
