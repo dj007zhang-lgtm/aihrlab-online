@@ -99,6 +99,23 @@ def main():
         print("用法: python3 scripts/publish.py \"提交说明\" file1 file2 ... [--dry-run]")
         sys.exit(2)
 
+    # STEP 0: 重建 sitemap（保证搜索引擎可发现性与站点同步）
+    # 解决历史债：过去发布从不重建 sitemap / 不通知 Bing，导致 tags 归档页、
+    # 新文章等长期不在 sitemap 中、爬虫只能慢爬。现每次发布自动重建并推送。
+    print("=" * 60)
+    print("STEP 0  重建 sitemap.xml（含新增页面 / tags 归档页）")
+    print("=" * 60)
+    try:
+        subprocess.run(
+            [sys.executable, "scripts/build_sitemap.py"],
+            cwd=SITE_ROOT, check=True,
+        )
+    except Exception as e:
+        print(f"⚠️  sitemap 重建失败（非致命，跳过）: {e}")
+    # 确保 sitemap.xml 进入本次发布清单（若调用方未显式传入）
+    if "sitemap.xml" not in files:
+        files.append("sitemap.xml")
+
     # STEP 1: 质量门（强制）
     if not run_quality_gate():
         print("\n❌ 质量门未全部通过 —— 推送已中止，禁止带病上线。")
@@ -134,7 +151,20 @@ def main():
     if not all_ok:
         print("\n⚠️ 部分文件远程校验失败，请人工复核。")
         sys.exit(1)
-    print("\n✅ 发布完成：质量门通过 + 稳定性自检通过 + 原子推送 + 远程校验全绿。")
+
+    # STEP 5: IndexNow 通知 Bing/Yandex（best-effort，不阻塞发布）
+    # 解决历史债：过去发布从不通知 Bing，导致新内容无法被快速收录。
+    if not dry_run:
+        print("\nSTEP 5  IndexNow 通知搜索引擎（best-effort）")
+        try:
+            subprocess.run(
+                [sys.executable, "scripts/indexnow_push.py"],
+                cwd=SITE_ROOT, timeout=90,
+            )
+        except Exception as e:
+            print(f"  ⚠️  IndexNow 推送未成功（可稍后手动补推）: {e}")
+
+    print("\n✅ 发布完成：质量门通过 + 稳定性自检通过 + 原子推送 + 远程校验全绿 + sitemap 已重建并通知搜索引擎。")
 
 
 if __name__ == "__main__":
