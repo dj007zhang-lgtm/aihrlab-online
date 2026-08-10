@@ -126,6 +126,10 @@ def build_article_block(html, slug):
         # 真实文章必有 published_time; 此分支仅为防御, 不应触达
         published = "2026-01-01T00:00:00+08:00"
 
+    # dateModified: 优先页面自身声明的 article:modified_time, 无则回退 published
+    # (零虚构: 绝不编造 modified; 页面未声明时以 published 为最后修改日)
+    modified = _meta(html, prop="article:modified_time") or published
+
     img_url = og_image or f"https://www.aihrlab.online/assets/images/banners/{slug}.webp"
     w, h = _read_dims(img_url)
     if w and h:
@@ -161,7 +165,7 @@ def build_article_block(html, slug):
         },
         "publisher": {"@type": "Organization", "name": ORG_NAME, "logo": logo},
         "datePublished": published,
-        "dateModified": published,
+        "dateModified": modified,
         "mainEntityOfPage": {"@type": "WebPage", "@id": main_id},
     }
 
