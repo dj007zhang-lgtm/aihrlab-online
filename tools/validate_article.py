@@ -3,7 +3,7 @@
 """发布前主理人自检（非阻塞，质量保障用）。
 
 检查项：
-  1. GA4 gtag 统计代码存在（googletagmanager.com/gtag/js + gtag('config'）
+  1. GA4 gtag 统计代码存在（内联 googletagmanager.com/gtag/js + gtag('config'），或集中式 analytics-loader.js 引用
   2. <meta charset> 声明存在且为 utf-8（防乱码）
   3. Schema JSON-LD 合法（可解析为 dict，含 @context/@type）
   4. meta description 无 CMS 残留（搜索首页/文章/阅读N/来源）
@@ -32,9 +32,13 @@ def check_file(path):
     if 'rel="stylesheet"' not in c:
         issues.append('缺 CSS 样式表 link（整页无样式）')
 
-    # 1. GA4 gtag
-    if 'googletagmanager.com/gtag/js' not in c or not re.search(r"gtag\('config'", c):
-        issues.append('缺 GA4 gtag 统计代码')
+    # 1. GA4 gtag —— 内联 GA 片段 或 集中式 domain-guarded loader 任一即可。
+    #    2026-08-09 起统计统一收口到 analytics-loader.js（仅生产域名才上报，
+    #    避免本地预览/沙箱流量污染数据），故 loader 引用即视为已接好统计。
+    has_inline_ga = ('googletagmanager.com/gtag/js' in c and re.search(r"gtag\('config'", c))
+    has_loader = 'analytics-loader.js' in c
+    if not (has_inline_ga or has_loader):
+        issues.append('缺 GA4 gtag 统计代码（需内联 GA 片段或 analytics-loader.js）')
 
     # 2. charset
     m = re.search(r'<meta[^>]+charset=["\']?([\w-]+)', c, re.I)
