@@ -1,0 +1,92 @@
+{
+ "scanned": 119,
+ "stale": [
+  {
+   "file": "pod-org-ai-agent-2026.html",
+   "year_anchor": [
+    2025
+   ],
+   "nums": [
+    "5倍",
+    "15%"
+   ],
+   "sent": "另一家中国公司出门问问（CEO 李志飞）自 2025 年 8 月起在研发体系推行「液态组织/超级组织」，据其公开分享，产研效率达到以往的 4–5 倍，AI Token 成本约占整体人力成本的 15%，「以前需要两个项目经理管几十人，现在靠 AI Agent 一个人就能完成全流程管理」。"
+  }
+ ],
+ "unanchored": [
+  {
+   "file": "ai-agent-roi-reality-2026.html",
+   "nums": [
+    "80%",
+    "88%"
+   ],
+   "sent": "这也解释了为什么同一批企业会同时出现在“80% 说赚”和“88% 未投产”里：他们确实在部分场景跑出了体感收益（尤其是工程场景，天然自带版本控制、测试流水线和回滚机制，Agent 出错成本可控），但把局部成功复制成组织级投产，是另一场完全不同的仗。"
+  },
+  {
+   "file": "ai-talent-profile-reconstruction-2026.html",
+   "nums": [
+    "10%"
+   ],
+   "sent": "报告援引 LinkedIn 数据，当前全球新聘中超过 10% 的职位头衔在 2000 年还不存在；"
+  },
+  {
+   "file": "anthropic-best-ai-company.html",
+   "nums": [
+    "1万亿"
+   ],
+   "sent": "在 secondary market 上，它现在的估值已经摸到 1 万亿美金，反超了 OpenAI。"
+  },
+  {
+   "file": "bytedance-performance-review-2026.html",
+   "nums": [
+    "1600亿",
+    "120万亿"
+   ],
+   "sent": "延伸阅读 字节1600亿背后的组织阳谋:买算力,不如买「组织能力」 字节豆包120万亿Token背后的组织引擎 字节的情境管理实验:AI 如何把决策权还给一线 为什么是现在:AI军备竞赛下的分配重排 这套调整不是孤立的HR动作。"
+  },
+  {
+   "file": "china-ai-org-three-routes.html",
+   "nums": [
+    "3800亿",
+    "30万亿",
+    "80%"
+   ],
+   "sent": "看看阿里砸下的3800亿、字节燃烧的30万亿Token、Kimi被抹平的部门墙、MiniMax 80%代码由AI写——作为企业的一号位或业务操盘手，你的团队，目前被挂在哪一条进化路线上？"
+  },
+  {
+   "file": "china-labor-market-ai-task-restructuring-2026.html",
+   "nums": [
+    "30%"
+   ],
+   "sent": "约 30%的劳动者 处于零暴露状态——厨师、救生员、调酒师、机修工等体力与现场服务岗位，几乎不受当前AI影响。"
+  },
+  {
+   "file": "jd-pinduoduo-ai-org-2026.html",
+   "nums": [
+    "2万"
+   ],
+   "sent": "结果体现在人效比上：拼多多员工总数仅 2万余人 ，远低于阿里、京东、美团，但人均创收连续多年位居行业前列（每日经济新闻）。"
+  },
+  {
+   "file": "karpathy-ai-replacement-test.html",
+   "nums": [
+    "1.43亿"
+   ],
+   "sent": "他把美国劳工统计局（BLS）里近1.43亿个工作岗位的数据，全部扔给了目前最聪明的大模型，做了一场规模空前的\"AI替代性测试\"。"
+  },
+  {
+   "file": "microsoft-ai-decoupling.html",
+   "nums": [
+    "80%"
+   ],
+   "sent": "你让最赚钱的业务线吸走了所有高管注意力，因为\"它今天贡献了80%的营收\"。"
+  },
+  {
+   "file": "microsoft-decoupling-openai-strategy.html",
+   "nums": [
+    "80%"
+   ],
+   "sent": "你让最赚钱的业务线吸走了所有高管注意力，因为\"它今天贡献了80%的营收\"。"
+  }
+ ]
+}

@@ -70,10 +70,14 @@ TOKEN = _load_token()
 
 
 # Transient errors worth retrying: GitHub flakiness / proxy drops on large
-# blob POSTs, plus 5xx. Blob/tree/commit are content-addressed or parent-linked,
-# so re-POSTing identical content is idempotent — a retry reuses the same sha or
-# creates an orphan object that is simply garbage-collected. Safe to retry.
-_RETRYABLE_HTTP = {408, 409, 422, 500, 502, 503, 504}
+# blob POSTs, plus 5xx. Also 400/429: the sandbox egress proxy occasionally
+# injects a spurious 400 (or GitHub rate-limits 429) mid-batch after a burst of
+# API calls; the same request re-POSTed seconds later succeeds (verified: all
+# 189 blobs re-created fine). Blob/tree/commit are content-addressed or
+# parent-linked, so re-POSTing identical content is idempotent — a retry reuses
+# the same sha or creates an orphan object that is simply garbage-collected.
+# Safe to retry. (A genuinely malformed request still fails after _MAX_RETRIES.)
+_RETRYABLE_HTTP = {400, 408, 409, 422, 429, 500, 502, 503, 504}
 _MAX_RETRIES = 6
 
 

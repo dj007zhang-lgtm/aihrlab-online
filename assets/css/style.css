@@ -5,7 +5,7 @@
   --bg-warm:#EFE9DD;           /* 暖纸 */
   --text:#1a1a1a;              /* 主文本（近黑暖） */
   --text-secondary:#6b6b6b;
-  --text-muted:#9a9a9a;
+  --text-muted:#6b6b6b;        /* 提至 AA≥4.5:1（原 #9a9a9a 仅 2.45:1，体检修复 2026-08-09） */
   --text-link:#365314;         /* 深林绿 forest-700 · AA≥4.5:1（取代引擎蓝） */
   --text-link-hover:#223A0C;   /* forest-800 */
   --accent:#3F6212;            /* 主信号色 forest-500 */
@@ -37,6 +37,8 @@
   --shadow-sm:0 1px 2px rgba(13,16,22,0.06),0 1px 3px rgba(13,16,22,0.04);
   --shadow-md:0 4px 12px rgba(13,16,22,0.08),0 2px 4px rgba(13,16,22,0.04);
   --shadow-lg:0 12px 32px rgba(13,16,22,0.12),0 4px 8px rgba(13,16,22,0.06);
+  /* 微信复制遗留的内联背景语义化（E1 体检修复 2026-08-10）：浅色=原硬编码值，深色=深表面 */
+  --table-header-bg:#f3f4f6;--callout-bg:#f9fafb;
 }
 
 /* ===== R1 深色模式 [data-theme="dark"] 覆写（2026-08-08 立项；token 经 AA 对比度自校验脚本校验） ===== */
@@ -47,7 +49,7 @@
   --bg-warm:#1A1D21;
   --text:#ECEAE4;              /* 暖白（保留 HR 温度，非纯白） */
   --text-secondary:#A6ADB8;    /* ink-400 */
-  --text-muted:#6B7280;
+  --text-muted:#7E8896;        /* 提至 AA≥4.5:1（原 #6B7280 仅 4.05:1；#76808D 在 #16191D 仅 4.40，体检修复 2026-08-09/10） */
   --text-link:#9CC06A;         /* brand-300 · AA on dark (9.47:1) */
   --text-link-hover:#B4E33D;   /* 电光橄榄 electric olive */
   --accent:#6F9A3C;            /* brand-400（深底上保 AA） */
@@ -56,6 +58,8 @@
   --line-strong:rgba(255,255,255,0.14);
   --shadow-card:0 1px 3px rgba(0,0,0,0.4);
   --surface:#16191D;--surface-sunken:#0B0C0E;
+  /* E1 修复：内联背景在深色下转深表面，消除亮斑（与浅色同名变量自然继承） */
+  --table-header-bg:#1f2937;--callout-bg:#16191D;
 }
 :root[data-theme="dark"] ::selection{background:var(--accent);color:var(--bg);}
 /* 组件层硬编码残留的针对性 dark 覆写（仅以下若干处，其余已走 var()） */
@@ -597,3 +601,18 @@
 .archive-item a:hover{color:var(--text-link);border-bottom-color:var(--text-link-hover);text-decoration:none;}
 .archive-item time{flex-shrink:0;font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted);min-width:3.2em;}
 @media (max-width:768px){.archive-list{grid-template-columns:1fr;}.archive-month{padding-left:var(--space-md);}}
+
+/* ===== 可访问性增强（2026-08-09 全站体检修复） ===== */
+/* 1) 键盘焦点可见性：统一 focus-visible 焦点环，补偿全局 outline 实践；
+      仅键盘聚焦时显示，鼠标点击不出现环，符合 WCAG 2.4.7（焦点可见）。 */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:2px;}
+
+/* 2) 锚点 / TOC 跳转目标偏移：避免被 56px sticky header 遮挡（WCAG 2.4.1 旁路与可见性） */
+:where(h1,h2,h3,h4,h5,h6,[id]){scroll-margin-top:calc(var(--header-height) + 16px);}
+
+/* 3) 尊重前庭障碍用户：关闭动画与平滑滚动（WCAG 2.3.3 / prefers-reduced-motion） */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+  html{scroll-behavior:auto !important;}
+}

@@ -163,10 +163,22 @@
     "https://www.aihrlab.online/articles/big-tech-ai-product-dynamics-2026.html",
     "https://www.aihrlab.online/articles/ai-interview-compliance-2026.html",
     "https://www.aihrlab.online/articles/hr-three-pillar-ai.html",
-    "https://www.aihrlab.online/articles/ai-performance-management.html"
+    "https://www.aihrlab.online/articles/ai-performance-management.html",
+    "https://www.aihrlab.online/articles/ai-flattening-management-guide.html",
+    "https://www.aihrlab.online/articles/ai-layoff-compliance-guide.html",
+    "https://www.aihrlab.online/articles/ai-hr-2026-h2-outlook.html",
+    "https://www.aihrlab.online/articles/adkar-ai-transformation.html",
+    "https://www.aihrlab.online/articles/ai-rebuild-training-coach-2026.html",
+    "https://www.aihrlab.online/articles/hr-skill-graph-2026.html",
+    "https://www.aihrlab.online/articles/ai-hr-key-reports-2026.html",
+    "https://www.aihrlab.online/articles/ai-evaluation-split-2026.html",
+    "https://www.aihrlab.online/articles/hr-tech-talent-standard-2026.html",
+    "https://www.aihrlab.online/articles/remote-work-ai-era-2026.html",
+    "https://www.aihrlab.online/articles/global-talent-supply-chain-2026.html",
+    "https://www.aihrlab.online/articles/eu-ai-act-omnibus-hr-2026.html"
   ],
-  "total_pushed": 164,
-  "total_urls": 155,
+  "total_pushed": 176,
+  "total_urls": 167,
   "history": [
     {
       "date": "2026-06-29",
@@ -532,6 +544,57 @@
       "status": "ALL_COMPLETE",
       "note": "All sitemap URLs pushed.",
       "baidu_remain": 7
+    },
+    {
+      "date": "2026-08-07",
+      "pushed": 8,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "baidu_remain": 2
+    },
+    {
+      "date": "2026-08-08",
+      "pushed": 3,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "baidu_remain": 7
+    },
+    {
+      "date": "2026-08-09",
+      "pushed": 1,
+      "failed": 0,
+      "remaining_after": 0,
+      "baidu_remain": 9,
+      "status": "ALL_COMPLETE",
+      "note": "所有 sitemap URL 已推送完毕"
+    },
+    {
+      "date": "2026-08-10",
+      "pushed": 2,
+      "failed": 0,
+      "remaining_after": 8,
+      "baidu_success": 2,
+      "baidu_remain": 8,
+      "baidu_raw": {
+        "remain": 8,
+        "success": 2
+      },
+      "gsc": {
+        "https://www.aihrlab.online/tools/bigfive/": 200,
+        "https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html": 200
+      },
+      "status": "WEEKLY_REPUSH",
+      "note": "大五人格 & 新文收录周复验补推"
+    },
+    {
+      "date": "2026-08-10",
+      "pushed": 0,
+      "failed": 0,
+      "remaining_after": 0,
+      "status": "ALL_COMPLETE",
+      "note": "所有 sitemap URL 已推送完毕"
     }
   ]
 }

@@ -844,6 +844,21 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-08-05T23:55:45.394633"
+    },
+    "https://www.aihrlab.online/articles/hr-tech-talent-standard-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-08-08T00:29:42.631071"
+    },
+    "https://www.aihrlab.online/articles/remote-work-ai-era-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-08-08T00:29:45.780138"
+    },
+    "https://www.aihrlab.online/articles/global-talent-supply-chain-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-08-08T00:29:47.181072"
     }
   },
   "daily_count": {
@@ -864,7 +879,8 @@
     "2026-08-01": 5,
     "2026-08-02": 1,
     "2026-08-03": 1,
-    "2026-08-05": 11
+    "2026-08-05": 11,
+    "2026-08-08": 3
   },
-  "last_updated": "2026-08-05T23:55:45.840224"
+  "last_updated": "2026-08-08T00:29:47.534553"
 }

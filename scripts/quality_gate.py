@@ -947,6 +947,77 @@ def gate_inline_scripts(target_files=None):
 
 
 # ============================================================
+# Gate 19: 结构化数据合法性关（P0 事件盲区补强，2026-08-10 新增）
+# ============================================================
+def gate_structured_data(target_files=None):
+    """结构化数据合法性关：杜绝 JSON-LD 解析失败 / 必填字段缺失类回归。
+
+    P0 历史根因：5 篇 FAQPage JSON-LD 括号缺失（{×9/} ×8）→ 整块结构化数据
+    被搜索引擎丢弃（FAQ Rich Result 失效）。当时 quality_gate 18 道门无一道
+    校验 JSON-LD 合法性，错误能绕过双闸。此门补上该盲区。
+
+    校验项：
+      1) 每个 application/ld+json 块必须 json.loads 通过（括号/语法错误即 FAIL）；
+      2) @type=FAQPage 的块必须含 mainEntity，且每条含 name + acceptedAnswer.text；
+      3) @type=BreadcrumbList 的块必须含 itemListElement。
+    全站扫描（默认 --all）；changed 模式只扫变更文件（新文必过此门）。
+    """
+    import json as _json
+    import re as _re
+    SCRIPT_RE = _re.compile(r'<script([^>]*type="application/ld\+json"[^>]*)>(.*?)</script>', _re.S)
+    files = target_files or _get_all_html_files()
+    issues = []
+    checked = 0
+    for path in files:
+        if not path.endswith('.html'):
+            continue
+        if _is_verify_page(path):
+            continue
+        try:
+            html = open(path, encoding='utf-8', errors='ignore').read()
+        except Exception:
+            continue
+        if 'http-equiv="refresh"' in html:
+            continue
+        blocks = SCRIPT_RE.findall(html)
+        if not blocks:
+            continue
+        checked += 1
+        rel = os.path.relpath(path, SITE_ROOT)
+        for i, (attrs, content) in enumerate(blocks):
+            c = content.strip()
+            try:
+                data = _json.loads(c)
+            except Exception as e:
+                issues.append(f"{rel} | 第{i+1}个 ld+json 块解析失败: {str(e)[:80]}")
+                continue
+            items = data if isinstance(data, list) else [data]
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                t = item.get('@type')
+                if t == 'FAQPage':
+                    me = item.get('mainEntity')
+                    if not me:
+                        issues.append(f"{rel} | FAQPage 缺失 mainEntity")
+                        continue
+                    for qi, q in enumerate(me):
+                        if not q.get('name'):
+                            issues.append(f"{rel} | FAQPage 第{qi+1}条缺 name")
+                        ans = q.get('acceptedAnswer')
+                        if not ans or not ans.get('text'):
+                            issues.append(f"{rel} | FAQPage 第{qi+1}条缺 acceptedAnswer.text")
+                elif t == 'BreadcrumbList':
+                    if not item.get('itemListElement'):
+                        issues.append(f"{rel} | BreadcrumbList 缺失 itemListElement")
+    if issues:
+        return GateResult("19-结构化数据合法性关", False,
+                          issues[:20] + ([f"… 共 {len(issues)} 处"] if len(issues) > 20 else []))
+    return GateResult("19-结构化数据合法性关", True,
+                      [f"已校验 {checked} 个含 ld+json 的页面，全部可解析且必填字段完整"])
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -997,6 +1068,7 @@ def run_quality_gate(mode="changed"):
         gate_article_index(target_files),       # Gate 16: 文章索引完整性关
         gate_internal_links(target_files),      # Gate 17: 内链图谱健康关（R3 收尾护栏）
         gate_inline_scripts(target_files),      # Gate 18: 内联脚本语法关（R1 冒烟暴露的运行时盲区）
+        gate_structured_data(target_files),     # Gate 19: 结构化数据合法性关（P0 盲区补强，2026-08-10）
     ]
     
     # Report
