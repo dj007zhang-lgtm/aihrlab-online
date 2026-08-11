@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人机协作就绪度自测 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="五个维度十五题加权自测，量化组织从「用上 AI」到「用好人机协作」的就绪程度，即时给出分级、逐维短板与落地建议。锚定 HITL 与 centaur / cyborg 协作实证。">
+<meta name="keywords" content="人机协作,Human-in-the-loop,centaur,cyborg,AI协作就绪,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="人机协作就绪度自测 — 资源库浏览器内即用">
+<meta property="og:description" content="五维度加权自测，即时出分与协作落地建议，锚定 HITL 与 centaur / cyborg。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/human-ai-readiness.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/human-ai-readiness.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "人机协作就绪度自测", "item": "https://www.aihrlab.online/resources/human-ai-readiness.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .ar-wrap{ max-width:860px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .ar-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .ar-back:hover{ color:var(--text-link); }
+  .ar-header{ text-align:center; margin-bottom:1.75rem; }
+  .ar-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .ar-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .ar-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .ar-instructions{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-instructions strong{ color:var(--text); }
+  .ar-dim{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .ar-dim-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; gap:1rem; flex-wrap:wrap; }
+  .ar-dim-title{ font-size:1.02rem; font-weight:700; color:var(--text); }
+  .ar-dim-desc{ font-size:0.8rem; color:var(--text-secondary); margin-top:0.2rem; }
+  .ar-tag{ font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:5px; font-weight:600; background:var(--accent-pale); color:var(--accent); white-space:nowrap; }
+  .ar-q{ display:flex; align-items:flex-start; padding:0.65rem 0; border-bottom:1px solid var(--line); gap:0.75rem; }
+  .ar-q:last-child{ border-bottom:none; }
+  .ar-q-label{ flex:1; font-size:0.82rem; color:var(--text); line-height:1.55; }
+  .ar-opts{ display:flex; gap:0.35rem; flex-shrink:0; }
+  .ar-opt{ width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:var(--text-secondary); cursor:pointer; transition:all 0.15s; user-select:none; }
+  .ar-opt:hover{ border-color:var(--accent); color:var(--accent); }
+  .ar-opt.selected{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .ar-score-bar{ margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .ar-score-label{ font-size:0.72rem; color:var(--text-secondary); }
+  .ar-score{ font-size:1.25rem; font-weight:700; color:var(--accent); }
+  .ar-calc{ text-align:center; margin:1.75rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .ar-btn{ background:var(--accent); color:#fff; border:none; padding:0.85rem 2.5rem; border-radius:9px; font-size:0.95rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .ar-btn:hover{ filter:brightness(1.05); }
+  .ar-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  /* 结果卡 */
+  #arResult{ display:none; }
+  #arResult.show{ display:block; }
+  .ar-result{ background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:2rem; margin-bottom:1.5rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .ar-result-score{ font-size:3rem; font-weight:800; margin:0.4rem 0; color:var(--text); }
+  .ar-result-label{ font-size:0.85rem; color:var(--text-secondary); }
+  .ar-result-level{ font-size:1.05rem; font-weight:700; margin:0.75rem 0; }
+  .ar-bar-wrap{ width:100%; height:8px; background:var(--line); border-radius:4px; margin:1.25rem 0; overflow:hidden; }
+  .ar-bar{ height:100%; border-radius:4px; transition:width 0.6s ease; background:var(--accent); }
+  .ar-detail{ text-align:left; margin-top:1.25rem; }
+  .ar-detail h4{ font-size:0.85rem; color:var(--text); margin-bottom:0.5rem; }
+  .ar-detail-row{ display:flex; align-items:center; gap:0.75rem; margin-bottom:0.55rem; }
+  .ar-detail-name{ font-size:0.8rem; color:var(--text); width:8.5rem; flex-shrink:0; }
+  .ar-detail-track{ flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .ar-detail-fill{ height:100%; background:var(--accent); border-radius:4px; }
+  .ar-detail-val{ font-size:0.78rem; color:var(--text-secondary); width:3.5rem; text-align:right; flex-shrink:0; }
+  .ar-recommend{ background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 22%, transparent); border-radius:8px; padding:1rem; margin-top:1rem; text-align:left; }
+  .ar-recommend h4{ font-size:0.82rem; color:var(--accent); margin-bottom:0.5rem; }
+  .ar-recommend ul{ margin:0; padding-left:1.1rem; }
+  .ar-recommend li{ font-size:0.78rem; color:var(--text); line-height:1.8; }
+  /* 资源详情区块 */
+  .ar-about{ max-width:860px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .ar-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .ar-about h2:first-child{ margin-top:0; }
+  .ar-about p, .ar-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .ar-about code{ background:var(--bg-subtle); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.82rem; color:var(--text); }
+  .ar-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  /* ===== 深色：仅 [data-theme=dark] 下中和硬色，浅色零回归 ===== */
+  :root[data-theme="dark"] .ar-result{ box-shadow:none; }
+  @media print { body{ background:#fff; } .ar-btn,.ar-opts{ display:none; } .ar-back{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/human-ai-readiness.html"><span itemprop="name">人机协作就绪度自测</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="ar-wrap">
+  <a class="ar-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="ar-header">
+    <div class="ar-badge">人机协作就绪度 v1.0</div>
+    <h1>人机协作就绪度自测</h1>
+    <p>五个维度、十五题，量化你的组织从「用上 AI」到「用好人机协作」的就绪程度，即时出分、分级与协作落地建议。</p>
+  </div>
+
+  <div class="ar-instructions">
+    <strong>📊 使用说明</strong><br>
+    1. 每题按 1–5 打分：<strong>1 = 完全不符合，5 = 完全符合</strong>（分越高＝该维度越就绪）。<br>
+    2. 五个维度各 3 题，维度得分＝该维度 3 题平均分；<strong>总就绪度＝五个维度得分的等权平均</strong>（各占 20%）。<br>
+    3. 总分映射到四档：<strong>&lt; 2.5 准备不足 / 2.5–3.5 初步就绪 / 3.5–4.3 稳健 / ≥ 4.3 领先</strong>。<br>
+    4. 建议由 HR + 业务一号位共同评，或多人独立评后取均值，避免单人偏差。
+  </div>
+
+  <div class="ar-dim" id="dim1">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">① 任务拆解能力</div><div class="ar-dim-desc">能否把工作拆成「适合 AI / 适合人 / 协作」的任务单元</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 能清晰界定哪些任务适合自动化、哪些必须由人完成</div><div class="ar-opts" data-dim="1" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 能把手工作业拆成「人提需求—AI 执行—人校验」的协作单元</div><div class="ar-opts" data-dim="1" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 对任务的「决策复杂度 / 情感交互 / 创造性」有分级判断方法</div><div class="ar-opts" data-dim="1" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score1">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim2">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">② 人机分工设计</div><div class="ar-dim-desc">是否按「centaur（人主导）/ cyborg（人即回路）」等模式设计协作</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 对不同工作设计了明确的人机协作模式（而非笼统「用 AI」）</div><div class="ar-opts" data-dim="2" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 让 AI 承担重复 / 信息检索，人聚焦判断、创造与关系</div><div class="ar-opts" data-dim="2" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 协作模式随任务复杂度动态调整，而非一成不变</div><div class="ar-opts" data-dim="2" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score2">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim3">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">③ 人在回路治理</div><div class="ar-dim-desc">关键决策节点是否保留「人在回路（HITL）」与责任归属</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 明确了哪些 AI 产出必须有人审核才能进入下游</div><div class="ar-opts" data-dim="3" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 对 AI 产出的准确性、偏见与安全风险有审核机制</div><div class="ar-opts" data-dim="3" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 明确了「人在回路」各节点的责任归属与追责路径</div><div class="ar-opts" data-dim="3" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score3">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim4">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">④ 信任校准</div><div class="ar-dim-desc">人是否对 AI 能力有合理信任（不盲信、不排斥）</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 员工理解 AI 的能力边界，不把未经核验的产出当事实</div><div class="ar-opts" data-dim="4" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 组织对试错与早期不完美有容忍度，鼓励小步快跑</div><div class="ar-opts" data-dim="4" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 有机制收集「人—AI」协作中的反馈并持续校准</div><div class="ar-opts" data-dim="4" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score4">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim5">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">⑤ 复合技能</div><div class="ar-dim-desc">人是否具备与 AI 协作所需的新技能（提示、审校、流程重构）</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 关键岗位已具备提示工程与「人审 AI」的基础能力</div><div class="ar-opts" data-dim="5" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有系统性培训覆盖而非只覆盖先锋员工</div><div class="ar-opts" data-dim="5" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 已识别「AI 增强型」岗位并重新设计其 JD 与晋升通道</div><div class="ar-opts" data-dim="5" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score5">—</span></div>
+  </div>
+
+  <div class="ar-calc">
+    <button class="ar-btn" onclick="calculateAR()">计算就绪度</button>
+    <button class="ar-btn ar-btn--ghost" onclick="resetAR()">重置</button>
+  </div>
+
+  <div id="arResult">
+    <div class="ar-result">
+      <div class="ar-result-label">人机协作就绪度</div>
+      <div class="ar-result-score" id="arScore">—</div>
+      <div class="ar-result-level" id="arLevel"></div>
+      <div class="ar-bar-wrap"><div class="ar-bar" id="arBar"></div></div>
+      <div class="ar-detail">
+        <h4>逐维度明细</h4>
+        <div id="arDetail"></div>
+      </div>
+      <div class="ar-recommend">
+        <h4>优先行动建议</h4>
+        <ul id="arActions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ar-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「用上 AI」和「用好人机协作」是两回事。前者是把工具发给员工，后者是重新设计工作方式——哪些任务交给 AI、哪些必须由人拍板、人在哪里作为「回路」兜底。<strong>人机协作就绪度自测</strong>把这个问题拆成五个维度（任务拆解 / 人机分工 / 人在回路 / 信任校准 / 复合技能），让你在<strong>同一张表、同一套口径</strong>下看到组织离「高效协作」还有多远，而不是停在「大家都在用」的错觉上。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>适用对象</strong>：已部署 AI 工具、希望把「用上」升级为「用好」的团队。</li>
+    <li><strong>谁来打</strong>：HR + 业务一号位共同评，或多人独立评后取均值，避免单人偏差。</li>
+    <li><strong>打分</strong>：每题 1–5，按该描述在<strong>组织当前真实状态</strong>打原始分。</li>
+    <li><strong>出结果</strong>：点「计算就绪度」，立即得到总分、等级与逐维度明细、行动建议。</li>
+    <li><strong>复用</strong>：可把本页打印或截图，用于人机协作设计工作坊。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>本自测锚定两个被广泛验证的人机协作实证概念：</p>
+  <ul>
+    <li><strong>人在回路（HITL, Human-in-the-loop）</strong>：在关键决策节点保留人的审核与责任，是 AI 安全落地的通用护栏，也是 EU AI Act 等治理框架对高风险系统的核心要求。</li>
+    <li><strong>centaur / cyborg 模式</strong>：由国际象棋世界冠军 Garry Kasparov 在「人机对抗」实践中提出——「centaur（人马）」是人主导、机器辅助；「cyborg（半机械）」是人本身即回路、与机器紧密咬合。两者共同说明：<strong>人机协作的胜负不在「谁替代谁」，而在如何分工设计</strong>。</li>
+  </ul>
+  <p>五个维度等权（各 20%），因为协作是系统性能力，任一短板都会成为瓶颈；阈值（2.5 / 3.5 / 4.3）是便于落地的经验切分，应结合岗位性质与风险等级校准。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>岗位族版</strong>：对文职、研发、管理等不同岗位族分别评，识别协作设计重点。</li>
+    <li><strong>季度追踪版</strong>：每季度复评，观察协作就绪度是否随培训提升。</li>
+    <li><strong>风险反推版</strong>：对高风险决策岗位重点加固「人在回路」维度。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：五维度十五题人机协作就绪度自测初版，统一森林绿设计系统，含浏览器内深色模式零回归与「延伸阅读」内链。</li>
+  </ul>
+  <p class="ar-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。自测框架为组织诊断辅助工具，具体协作设计须结合业务实际与合规要求。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/karpathy-ai-replacement-test.html">Karpathy的AI替代测试：击碎职业常识</a></li>
+    <li><a href="/articles/ai-hr-jobs.html">AI接管HR岗位全景图：哪些职能先被Agent替代</a></li>
+    <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('.ar-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const parent = opt.parentElement;
+      parent.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      updateDimScore(parent.dataset.dim);
+    });
+  });
+  function updateDimScore(dimId) {
+    const options = document.querySelectorAll(`.ar-opts[data-dim="${dimId}"]`);
+    let total = 0, count = 0;
+    options.forEach(group => {
+      const selected = group.querySelector('.ar-opt.selected');
+      if (selected) { total += parseInt(selected.dataset.val); count++; }
+    });
+    const score = count > 0 ? (total / count).toFixed(1) : '—';
+    document.getElementById(`score${dimId}`).textContent = score;
+  }
+  const arDimNames = ['任务拆解能力', '人机分工设计', '人在回路治理', '信任校准', '复合技能'];
+  const arAdvice = {
+    1: { low:['先建立「适合 AI / 适合人 / 协作」的任务分级判断方法','把手工作业拆成「人提需求—AI 执行—人校验」的单元'],
+        mid:['对任务按决策复杂度 / 情感交互 / 创造性做分级标签'],
+        high:['把任务拆解方法对外输出，沉淀为协作设计资产'] },
+    2: { low:['为不同工作明确人机协作模式，而非笼统「用 AI」','让 AI 承担重复与检索，人聚焦判断、创造与关系'],
+        mid:['让协作模式随任务复杂度动态调整'],
+        high:['把成熟的协作模式模板化、跨团队复用'] },
+    3: { low:['先明确哪些 AI 产出必须有人审核才能进入下游','建立 AI 产出准确性、偏见与安全的审核机制'],
+        mid:['明确「人在回路」各节点的责任归属与追责路径'],
+        high:['把治理框架升级为可对外审计的制度资产'] },
+    4: { low:['对员工做 AI 能力边界的透明沟通，防止盲信或排斥','设立容忍早期不完美的试错机制'],
+        mid:['建立人—AI 协作反馈的收集与校准机制'],
+        high:['把信任校准经验量化并反哺培训设计'] },
+    5: { low:['启动提示工程与「人审 AI」的基础培训，覆盖多数员工','识别「AI 增强型」岗位并重新设计其 JD 与晋升通道'],
+        mid:['建立内部协作打法共享库，把个人经验变团队资产'],
+        high:['把复合技能体系作为对外招聘与生态合作的核心资产'] }
+  };
+  function band(s){ return s < 2.5 ? 'low' : (s < 3.5 ? 'mid' : 'high'); }
+  function calculateAR() {
+    let scores = [];
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById(`score${i}`);
+      if (el.textContent === '—') { alert('请完成所有五个维度的评分后再计算。'); return; }
+      scores.push(parseFloat(el.textContent));
+    }
+    const avg = (scores.reduce((a,b)=>a+b,0) / scores.length);
+    showResult(scores, avg);
+  }
+  function showResult(scores, avg) {
+    const card = document.getElementById('arResult');
+    card.classList.add('show');
+    document.getElementById('arScore').textContent = avg.toFixed(1) + ' / 5';
+    let levelText, levelColor, barColor, actions = [];
+    if (avg < 2.5) {
+      levelText = '🔴 准备不足 — 先补任务拆解与人在回路的地基';
+      levelColor = '#D6453D'; barColor = '#D6453D';
+    } else if (avg < 3.5) {
+      levelText = '🟡 初步就绪 — 选准协作模式，规模化前先打样';
+      levelColor = '#A86A2E'; barColor = '#A86A2E';
+    } else if (avg < 4.3) {
+      levelText = '🟢 稳健 — 可进入系统化协作推进';
+      levelColor = '#1F9D6B'; barColor = '#1F9D6B';
+    } else {
+      levelText = '🟢 领先 — 已具备对外输出协作方法论的条件';
+      levelColor = '#1F9D6B'; barColor = '#1F9D6B';
+    }
+    document.getElementById('arLevel').textContent = levelText;
+    document.getElementById('arLevel').style.color = levelColor;
+    document.getElementById('arBar').style.background = barColor;
+    document.getElementById('arBar').style.width = `${(avg/5)*100}%`;
+    let detail = '';
+    scores.forEach((s, i) => {
+      detail += `<div class="ar-detail-row"><span class="ar-detail-name">${arDimNames[i]}</span><span class="ar-detail-track"><span class="ar-detail-fill" style="width:${(s/5)*100}%"></span></span><span class="ar-detail-val">${s.toFixed(1)}</span></div>`;
+    });
+    document.getElementById('arDetail').innerHTML = detail;
+    let lowDims = scores.map((s,i)=>({i,s})).sort((a,b)=>a.s-b.s).slice(0,2);
+    lowDims.forEach(d => { actions = actions.concat(arAdvice[d.i+1][band(d.s)]); });
+    const ul = document.getElementById('arActions'); ul.innerHTML = '';
+    actions.forEach(a => { const li = document.createElement('li'); li.textContent = a; ul.appendChild(li); });
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function resetAR() {
+    document.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+    for (let i = 1; i <= 5; i++) document.getElementById(`score${i}`).textContent = '—';
+    document.getElementById('arResult').classList.remove('show');
+  }
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

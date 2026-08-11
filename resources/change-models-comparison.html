@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>变革模型对比速查 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="对比 Kotter 8 步、ADKAR、Lewin 三阶段、Bridges 过渡模型与 McKinsey 7S 五大变革框架的核心回答、阶段、最适合场景与注意点，并提供按适用维度的筛选。">
+<meta name="keywords" content="变革模型,Kotter,ADKAR,Lewin,Bridges,McKinsey 7S,变革管理对比,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="变革模型对比速查 — 资源库浏览器内即用">
+<meta property="og:description" content="五大变革框架的核心回答、阶段与适用场景对比，支持按维度筛选。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/change-models-comparison.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/change-models-comparison.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "变革模型对比速查", "item": "https://www.aihrlab.online/resources/change-models-comparison.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .filter-bar{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .filter-chip{ border:1.5px solid var(--line-strong); background:var(--surface); color:var(--text-secondary); border-radius:20px; padding:0.4rem 0.95rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
+  .filter-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .filter-chip.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cmc-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .cmc-row{ display:grid; grid-template-columns: 1.3fr 1.5fr 2fr 1.4fr 1.6fr; gap:0.8rem; padding:0.95rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .cmc-row:last-child{ border-bottom:none; }
+  .cmc-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.8rem; }
+  .cmc-model{ font-size:0.88rem; color:var(--text); font-weight:700; }
+  .cmc-model small{ display:block; font-weight:400; color:var(--text-muted); font-size:0.7rem; margin-top:0.15rem; }
+  .cmc-cell{ font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+  .cmc-cell b{ color:var(--text); font-weight:600; }
+  .rae-empty{ text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.85rem; }
+  /* 资源详情区块 */
+  .rae-about{ max-width:1100px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .cmc-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .cmc-row{ grid-template-columns:1fr; gap:0.4rem; } .cmc-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/change-models-comparison.html"><span itemprop="name">变革模型对比速查</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">变革模型对比 v1.0</div>
+    <h1>变革模型对比速查</h1>
+    <p>把五个最常被引用的组织变革框架放在一起，对比它们各自回答的核心问题、阶段划分、最适合的场景与容易踩的坑。点上方维度可只看某一类模型。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 怎么读这张表</strong><br>
+    五个模型不是「谁更好」，而是<strong>回答不同问题</strong>：Kotter 管「节奏怎么推」、ADKAR 管「个体为什么变」、Lewin 管「怎么解冻旧状」、Bridges 管「人心理怎么过渡」、7S 管「组织各部件是否对齐」。诊断时先问「我现在卡在哪一类问题」，再选对应模型，而非五套齐上。
+  </div>
+
+  <div class="filter-bar" id="cmcFilter">
+    <button class="filter-chip active" data-g="all">全部模型</button>
+    <button class="filter-chip" data-g="pace">节奏推进</button>
+    <button class="filter-chip" data-g="individual">个体状态</button>
+    <button class="filter-chip" data-g="unfreeze">解冻重构</button>
+    <button class="filter-chip" data-g="transition">心理过渡</button>
+    <button class="filter-chip" data-g="align">组织对齐</button>
+  </div>
+
+  <div class="cmc-matrix" id="cmcMatrix">
+    <div class="cmc-row cmc-row--head">
+      <div>模型</div><div>核心回答</div><div>核心阶段</div><div>最适合</div><div>注意点</div>
+    </div>
+
+    <div class="cmc-row" data-g="pace">
+      <div class="cmc-model">Kotter 8 步<small>J. Kotter, Leading Change</small></div>
+      <div class="cmc-cell">怎么把变革<strong>推起来并不断档</strong></div>
+      <div class="cmc-cell">树立紧迫感 → 指导联盟 → 愿景 → 沟通 → 授权 → 短期胜利 → 巩固推进 → 锚定文化</div>
+      <div class="cmc-cell">大型转型的<strong>节奏与里程碑管理</strong></div>
+      <div class="cmc-cell">只推步骤忽略个体心理，会变成「领导在跑、员工原地」</div>
+    </div>
+
+    <div class="cmc-row" data-g="individual">
+      <div class="cmc-model">ADKAR<small>Prosci</small></div>
+      <div class="cmc-cell">个体<strong>为什么不变、怎么让他变</strong></div>
+      <div class="cmc-cell">认知 Awareness → 意愿 Desire → 知识 Knowledge → 能力 Ability → 强化 Reinforcement</div>
+      <div class="cmc-cell">变革落地受阻、员工「不愿 / 不会」时</div>
+      <div class="cmc-cell">只在组织层发力、不管个体阶段，试点会回落</div>
+    </div>
+
+    <div class="cmc-row" data-g="unfreeze">
+      <div class="cmc-model">Lewin 三阶段<small>K. Lewin</small></div>
+      <div class="cmc-cell">怎么<strong>打破旧平衡、建立新平衡</strong></div>
+      <div class="cmc-cell">解冻 Unfreeze → 变革 Change → 再冻结 Refreeze</div>
+      <div class="cmc-cell">需要「先破后立」的结构性调整</div>
+      <div class="cmc-cell">「再冻结」在快速变化环境里可能过早固化，需配合持续迭代</div>
+    </div>
+
+    <div class="cmc-row" data-g="transition">
+      <div class="cmc-model">Bridges 过渡模型<small>W. Bridges</small></div>
+      <div class="cmc-cell">人<strong>心理怎么从旧身份过渡到新身份</strong></div>
+      <div class="cmc-cell">结束 Ending → 迷惘 Neutral Zone → 新生 New Beginning</div>
+      <div class="cmc-cell">裁员 / 重组 / 合并，关注人的失落与适应</div>
+      <div class="cmc-cell">聚焦心理而非流程，须与节奏 / 结构类模型配合使用</div>
+    </div>
+
+    <div class="cmc-row" data-g="align">
+      <div class="cmc-model">McKinsey 7S<small>McKinsey</small></div>
+      <div class="cmc-cell">组织各部件<strong>是否彼此对齐</strong></div>
+      <div class="cmc-cell">硬：战略 / 结构 / 制度；软：共享价值观 / 风格 / 人员 / 技能（共享价值观为圆心）</div>
+      <div class="cmc-cell">诊断「为什么转型推不动、哪里撕裂」</div>
+      <div class="cmc-cell">只优化单一要素、忽略要素咬合，整体有效性仍低</div>
+    </div>
+
+    <div class="rae-empty" id="cmcEmpty" style="display:none;">该维度下暂无模型。</div>
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「用哪个变革模型」是 HR 与一号位最常问、也最容易乱用的问题——常看到五个模型被生硬叠在同一张 PPT 里，反而让人更糊涂。<strong>变革模型对比速查</strong>不替你选，而是把五个最常被引用的框架<strong>按它们各自回答的问题</strong>并排放：Kotter 管节奏、ADKAR 管个体、Lewin 管解冻、Bridges 管心理、7S 管对齐。让你先看清楚「我卡在哪类问题」，再选对应模型对症下药。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>定位问题</strong>：判断当前卡在「节奏 / 个体 / 解冻 / 心理 / 对齐」哪一类。</li>
+    <li><strong>读行</strong>：每行给出该模型的核心回答、阶段、最适合场景与注意点。</li>
+    <li><strong>用筛选</strong>：点上方维度 chips 只看某一类模型，便于做模型选型。</li>
+    <li><strong>组合用</strong>：多数真实变革需要「节奏（Kotter）+ 个体（ADKAR）+ 对齐（7S）」组合，而非单模型通吃。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>五个模型诞生于不同年代、回答不同层面的问题，本表的价值在于<strong>用「它回答什么问题」替代「它好不好」</strong>：</p>
+  <ul>
+    <li><strong>Kotter 8 步</strong>（1996, Leading Change）提供变革推进的节奏与里程碑。</li>
+    <li><strong>ADKAR</strong>（Prosci）把变革落到个体层面，关注「为什么不变」。</li>
+    <li><strong>Lewin 三阶段</strong>（1950s）是最早的变革过程模型，强调解冻旧状。</li>
+    <li><strong>Bridges 过渡模型</strong>聚焦人心理层面的身份过渡，补足「流程有、人心没跟上」的缺口。</li>
+    <li><strong>McKinsey 7S</strong>（1980s）强调组织要素的整体对齐，而非单一要素优化。</li>
+  </ul>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>诊断版</strong>：对照各行「注意点」自检，定位当前变革的真正卡点。</li>
+    <li><strong>选型版</strong>：据卡点选 1–2 个主模型 + 必要的补充模型。</li>
+    <li><strong>培训版</strong>：用作变革推动者培训的速查底稿。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：五大变革框架对比速查初版，统一森林绿设计系统，含维度筛选与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本表为组织变革辅助参考，具体模型选用须结合业务实际。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/adkar-ai-transformation.html">ADKAR 复盘：AI 转型为何卡在落地</a></li>
+    <li><a href="/articles/mckinsey-hidden-deadlock.html">麦肯锡死局：无制度授权，AI转型是行为艺术</a></li>
+    <li><a href="/articles/ai-hr-org-cluster.html">AI+HR组织变革：从大厂一手实践到HR落地框架</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('#cmcFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#cmcFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const g = chip.dataset.g;
+      let visible = 0;
+      document.querySelectorAll('#cmcMatrix .cmc-row[data-g]').forEach(row => {
+        const show = (g === 'all') || (row.dataset.g === g);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('cmcEmpty').style.display = (g !== 'all' && visible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人机任务分工矩阵 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="按任务特征 × 人机分工模式组织的速查矩阵，标注 AI 自主度、人的角色、适用时机与典型场景，并提供按分工模式的筛选。辅助判断「哪些交给 AI、哪些必须由人」。">
+<meta name="keywords" content="人机任务分工,AI自主度,centaur,人在回路,任务设计,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="人机任务分工矩阵 — 资源库浏览器内即用">
+<meta property="og:description" content="任务特征 × 人机分工模式速查，标注自主度与人的角色，附筛选。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/human-ai-task-matrix.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/human-ai-task-matrix.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "人机任务分工矩阵", "item": "https://www.aihrlab.online/resources/human-ai-task-matrix.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .filter-bar{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .filter-chip{ border:1.5px solid var(--line-strong); background:var(--surface); color:var(--text-secondary); border-radius:20px; padding:0.4rem 0.95rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
+  .filter-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .filter-chip.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .hat-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .hat-row{ display:grid; grid-template-columns: 1.5fr 1.1fr 1.5fr 1.6fr 2fr; gap:0.8rem; padding:0.95rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .hat-row:last-child{ border-bottom:none; }
+  .hat-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.8rem; }
+  .hat-task{ font-size:0.86rem; color:var(--text); font-weight:600; }
+  .hat-task small{ display:block; font-weight:400; color:var(--text-muted); font-size:0.7rem; margin-top:0.15rem; }
+  .hat-badge{ font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:5px; font-weight:700; white-space:nowrap; display:inline-block; }
+  .m-auto{ background:#FBE3E0; color:#D6453D; }
+  .m-aug{ background:var(--accent-pale); color:var(--accent); }
+  .m-centaur{ background:#FBEEDD; color:#A86A2E; }
+  .m-human{ background:var(--bg-subtle); color:var(--text-secondary); }
+  .hat-cell{ font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+  .hat-cell b{ color:var(--text); font-weight:600; }
+  .rae-empty{ text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.85rem; }
+  /* 资源详情区块 */
+  .rae-about{ max-width:1100px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .hat-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .hat-row{ grid-template-columns:1fr; gap:0.4rem; } .hat-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/human-ai-task-matrix.html"><span itemprop="name">人机任务分工矩阵</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">人机任务分工 v1.0 · 锚定 HITL 与 centaur</div>
+    <h1>人机任务分工矩阵</h1>
+    <p>按任务特征 × 人机分工模式组织的速查矩阵，标注 AI 自主度、人的角色、适用时机与典型场景。点上方模式可只看某一类分工。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 怎么读这张表</strong><br>
+    分工模式分四档：<b>全自动</b>（AI 端到端，人仅监督）→ <b>AI 增强 / 人审</b>（AI 出结果、人把关，即人在回路 HITL）→ <b>centaur 人主导</b>（人定方向、AI 辅助，Kasparov 式人马协作）→ <b>保留由人</b>（涉及判断、情感与责任，须人完成）。判断依据：任务的<strong>规则清晰度、容错要求、情感交互密度与责任归属</strong>。本表为辅助参考而非硬规则，应结合岗位性质与风险等级校准。
+  </div>
+
+  <div class="filter-bar" id="hatFilter">
+    <button class="filter-chip active" data-g="all">全部模式</button>
+    <button class="filter-chip" data-g="auto">全自动</button>
+    <button class="filter-chip" data-g="aug">AI 增强 / 人审</button>
+    <button class="filter-chip" data-g="centaur">centaur 人主导</button>
+    <button class="filter-chip" data-g="human">保留由人</button>
+  </div>
+
+  <div class="hat-matrix" id="hatMatrix">
+    <div class="hat-row hat-row--head">
+      <div>任务特征</div><div>AI 自主度</div><div>人的角色</div><div>何时用</div><div>典型场景</div>
+    </div>
+
+    <div class="hat-row" data-g="auto">
+      <div class="hat-task">规则化数据处理<small>高度标准化、可规则化</small></div>
+      <div><span class="hat-badge m-auto">全自动</span></div>
+      <div class="hat-cell">仅做<strong>结果监督与异常处理</strong></div>
+      <div class="hat-cell">任务边界清晰、容错要求低</div>
+      <div class="hat-cell">记账 / 对账、税务申报、周期报表、数据清洗</div>
+    </div>
+
+    <div class="hat-row" data-g="auto">
+      <div class="hat-task">信息检索与摘要<small>有明确来源、低歧义</small></div>
+      <div><span class="hat-badge m-auto">全自动</span></div>
+      <div class="hat-cell">设定检索范围、抽查准确性</div>
+      <div class="hat-cell">需快速聚合公开 / 内部知识</div>
+      <div class="hat-cell">合同 / 判例检索、竞品情报汇总、知识库问答</div>
+    </div>
+
+    <div class="hat-row" data-g="aug">
+      <div class="hat-task">初稿与量产内容<small>有模板、可迭代</small></div>
+      <div><span class="hat-badge m-aug">AI 增强 / 人审</span></div>
+      <div class="hat-cell"><strong>人在回路</strong>审核事实、语气与品牌一致性</div>
+      <div class="hat-cell">量大、需速度、但质量要求可控</div>
+      <div class="hat-cell">营销文案初稿、HR 通知、周报、培训材料</div>
+    </div>
+
+    <div class="hat-row" data-g="aug">
+      <div class="hat-task">质量审核与把关<small>有标准、需判断</small></div>
+      <div><span class="hat-badge m-aug">AI 增强 / 人审</span></div>
+      <div class="hat-cell">AI 标异，人做最终裁定（HITL）</div>
+      <div class="hat-cell">出错成本高、需可追溯</div>
+      <div class="hat-cell">代码评审、简历初筛复核、合规抽检</div>
+    </div>
+
+    <div class="hat-row" data-g="centaur">
+      <div class="hat-task">方案设计与权衡<small>多目标、需综合判断</small></div>
+      <div><span class="hat-badge m-centaur">centaur 人主导</span></div>
+      <div class="hat-cell">人定方向，AI 做方案生成与模拟</div>
+      <div class="hat-cell">问题复杂、无唯一答案</div>
+      <div class="hat-cell">组织设计、薪酬架构、转型路径规划</div>
+    </div>
+
+    <div class="hat-row" data-g="centaur">
+      <div class="hat-task">复杂沟通与协商<small>涉及关系与信任</small></div>
+      <div><span class="hat-badge m-centaur">centaur 人主导</span></div>
+      <div class="hat-cell">人主谈，AI 准备材料与话术建议</div>
+      <div class="hat-cell">高情绪、高关系价值</div>
+      <div class="hat-cell">关键人才保留谈话、劳资协商、客户危机</div>
+    </div>
+
+    <div class="hat-row" data-g="human">
+      <div class="hat-task">情感与关系建立<small>信任、共情、激励</small></div>
+      <div><span class="hat-badge m-human">保留由人</span></div>
+      <div class="hat-cell"><strong>人全程负责</strong>，AI 不替代</div>
+      <div class="hat-cell">涉及人的尊严、情绪与归属</div>
+      <div class="hat-cell">员工辅导、团队凝聚、文化塑造</div>
+    </div>
+
+    <div class="hat-row" data-g="human">
+      <div class="hat-task">高风险与价值决策<small>责任重大、不可逆</small></div>
+      <div><span class="hat-badge m-human">保留由人</span></div>
+      <div class="hat-cell">人担责，AI 仅提供分析支撑</div>
+      <div class="hat-cell">错判代价高、需可解释与可追责</div>
+      <div class="hat-cell">录用 / 淘汰决定、重大投资、伦理边界裁决</div>
+    </div>
+
+    <div class="rae-empty" id="hatEmpty" style="display:none;">该模式下暂无任务类型。</div>
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「哪些事该交给 AI、哪些必须人来做」是岗位重塑的核心，却最容易被「能用 AI 就用」的冲动带偏。<strong>人机任务分工矩阵</strong>不替你下结论，而是把任务按<strong>特征</strong>映射到四种人机分工模式（全自动 / AI 增强人审 / centaur 人主导 / 保留由人），并标注 AI 自主度、人的角色、适用时机与典型场景。它把「替代还是增强」这个被情绪化讨论的问题，拉回到<strong>任务本身的规则清晰度、容错要求、情感密度与责任归属</strong>上。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>定位任务</strong>：在矩阵中找到与目标任务最接近的行。</li>
+    <li><strong>看模式</strong>：全自动 → AI 增强人审（HITL）→ centaur 人主导 → 保留由人，自主度递减、人的责任递增。</li>
+    <li><strong>读角色</strong>：每行给出人在该模式下的具体角色与适用时机。</li>
+    <li><strong>用筛选</strong>：点上方模式 chips 只看某一类分工，便于做岗位 / 流程的任务级拆解。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>本矩阵锚定两个被广泛验证的人机协作概念：</p>
+  <ul>
+    <li><strong>人在回路（HITL, Human-in-the-loop）</strong>：在「AI 增强 / 人审」与「质量把关」类任务中，人作为最终裁定者，是 AI 安全落地的通用护栏，也是 EU AI Act 对高风险系统的核心要求。</li>
+    <li><strong>centaur 协作（Kasparov）</strong>：人定方向、AI 辅助执行，二者紧密咬合——对应「方案设计 / 复杂沟通」等需要综合判断的任务。</li>
+  </ul>
+  <p>自主度递减、人的责任递增的规律，本质是<strong>容错要求与责任归属</strong>在起作用：规则清晰、可纠错的任务更适合自动化；涉及情感、信任与不可逆决策的任务，必须由人兜底。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>岗位拆解版</strong>：对公司各岗位的任务逐行归类，输出「自动化 / 增强 / 人主导 / 保留」清单。</li>
+    <li><strong>风险反推版</strong>：对高风险决策任务重点加固「保留由人」与 HITL。</li>
+    <li><strong>培训投资版</strong>：对「AI 增强人审」类任务规划人审能力培训。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：任务特征 × 人机分工模式速查矩阵初版，统一森林绿设计系统，含模式筛选与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本矩阵为任务设计辅助参考，具体分工须结合岗位性质、风险等级与合规要求。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/karpathy-ai-replacement-test.html">Karpathy的AI替代测试：击碎职业常识</a></li>
+    <li><a href="/articles/ai-talent-profile-reconstruction-2026.html">AI时代人才画像重构：岗位能力模型怎么变</a></li>
+    <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('#hatFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#hatFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const g = chip.dataset.g;
+      let visible = 0;
+      document.querySelectorAll('#hatMatrix .hat-row[data-g]').forEach(row => {
+        const show = (g === 'all') || (row.dataset.g === g);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('hatEmpty').style.display = (g !== 'all' && visible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

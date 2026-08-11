@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 治理合规清单 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="融合 NIST AI RMF、EU AI Act 与 ISO/IEC 42001 的可勾选治理清单，配自评滑块与打印视图，输出组织 AI 治理就绪度与优先加固项。">
+<meta name="keywords" content="AI治理,合规清单,NIST AI RMF,EU AI Act,ISO 42001,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 治理合规清单 — 资源库浏览器内即用">
+<meta property="og:description" content="融合 NIST AI RMF、EU AI Act 与 ISO/IEC 42001 的可勾选治理清单，配自评滑块与打印视图。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-governance-checklist.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-governance-checklist.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 治理合规清单", "item": "https://www.aihrlab.online/resources/ai-governance-checklist.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .crc-wrap{ max-width:860px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .crc-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .crc-back:hover{ color:var(--text-link); }
+  .crc-header{ text-align:center; margin-bottom:1.75rem; }
+  .crc-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .crc-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .crc-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .crc-instructions{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.85; }
+  .crc-instructions strong{ color:var(--text); }
+  .crc-block{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.4rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .crc-block-head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:0.4rem; flex-wrap:wrap; }
+  .crc-block-title{ font-size:1.05rem; font-weight:700; color:var(--text); }
+  .crc-block-sub{ font-size:0.78rem; color:var(--text-secondary); }
+  .crc-row{ display:flex; align-items:center; gap:0.75rem; padding:0.6rem 0; border-bottom:1px solid var(--line); }
+  .crc-row:last-child{ border-bottom:none; }
+  .crc-check{ width:20px; height:20px; flex-shrink:0; accent-color:var(--accent); cursor:pointer; }
+  .crc-row-label{ flex:1; font-size:0.84rem; color:var(--text); line-height:1.5; }
+  .crc-row-label b{ color:var(--text); }
+  .crc-row-label span{ display:block; font-size:0.72rem; color:var(--text-muted); margin-top:0.15rem; }
+  .crc-slider{ width:120px; flex-shrink:0; accent-color:var(--accent); cursor:pointer; }
+  .crc-slider-val{ width:2.6rem; text-align:right; font-size:0.8rem; color:var(--accent); font-weight:600; flex-shrink:0; }
+  .crc-calc{ text-align:center; margin:1.75rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .crc-btn{ background:var(--accent); color:#fff; border:none; padding:0.85rem 2.5rem; border-radius:9px; font-size:0.95rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .crc-btn:hover{ filter:brightness(1.05); }
+  .crc-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  /* 结果卡 */
+  #crcResult{ display:none; }
+  #crcResult.show{ display:block; }
+  .crc-result{ background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:2rem; margin-bottom:1.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .crc-result-score{ font-size:3rem; font-weight:800; margin:0.4rem 0; color:var(--text); text-align:center; }
+  .crc-result-label{ font-size:0.85rem; color:var(--text-secondary); text-align:center; }
+  .crc-result-level{ font-size:1.05rem; font-weight:700; margin:0.75rem 0; text-align:center; }
+  .crc-detail{ margin-top:1.25rem; }
+  .crc-detail h4{ font-size:0.85rem; color:var(--text); margin-bottom:0.6rem; }
+  .crc-detail-row{ display:flex; align-items:center; gap:0.75rem; margin-bottom:0.55rem; }
+  .crc-detail-name{ font-size:0.8rem; color:var(--text); width:9rem; flex-shrink:0; }
+  .crc-detail-track{ flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .crc-detail-fill{ height:100%; background:var(--accent); border-radius:4px; }
+  .crc-detail-val{ font-size:0.78rem; color:var(--text-secondary); width:3rem; text-align:right; flex-shrink:0; }
+  .crc-recommend{ background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 22%, transparent); border-radius:8px; padding:1rem; margin-top:1rem; }
+  .crc-recommend h4{ font-size:0.82rem; color:var(--accent); margin-bottom:0.5rem; }
+  .crc-recommend ul{ margin:0; padding-left:1.1rem; }
+  .crc-recommend li{ font-size:0.78rem; color:var(--text); line-height:1.8; }
+  /* 资源详情区块 */
+  .crc-about{ max-width:860px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .crc-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .crc-about h2:first-child{ margin-top:0; }
+  .crc-about p, .crc-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .crc-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .crc-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  /* ===== 深色：仅 [data-theme=dark] 下中和硬色，浅色零回归 ===== */
+  :root[data-theme="dark"] .crc-result{ box-shadow:none; }
+  @media print {
+    body{ background:#fff; }
+    .crc-btn, .crc-slider{ display:none; }
+    .crc-back{ display:none; }
+    .crc-block{ break-inside:avoid; box-shadow:none; }
+  }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-governance-checklist.html"><span itemprop="name">AI 治理合规清单</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="crc-wrap">
+  <a class="crc-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="crc-header">
+    <div class="crc-badge">AI 治理合规清单 v1.0</div>
+    <h1>AI 治理合规清单</h1>
+    <p>把 NIST AI 风险管理框架（AI RMF）、EU AI Act 与 ISO/IEC 42001 的核心要求揉进一张可勾选、可自评的清单，输出组织 AI 治理就绪度与优先加固项。</p>
+  </div>
+
+  <div class="crc-instructions">
+    <strong>📋 使用说明</strong><br>
+    1. 每个条目左侧<strong>勾选框</strong>＝你认为「本项已落地 / 已具备」（快速落地率用）；右侧<strong>滑块</strong>＝该项的成熟度自评（1 最弱 → 5 最强）。<br>
+    2. 六个治理域共 18 项，覆盖从治理架构到数据合规的全链路。<br>
+    3. 点「计算就绪度」得到总分（1–5）、快速落地率与各域短板；<strong>任意短板域即优先加固对象</strong>。<br>
+    4. 点「打印 / 导出 PDF」可生成合规自查底稿。
+  </div>
+
+  <div class="crc-block" data-fw="govern">
+    <div class="crc-block-head"><div class="crc-block-title">一、治理架构 · Govern</div><div class="crc-block-sub">锚定 NIST AI RMF「治理」职能</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>治理责任归属</b><span>有明确的 AI 治理责任人 / 委员会，权责写入制度</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>政策与流程</b><span>有书面的 AI 使用政策、风险分级与审批流程</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>文化与人效</b><span>建立 AI 素养要求，员工理解风险与责任边界</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-block" data-fw="map">
+    <div class="crc-block-head"><div class="crc-block-title">二、风险识别与映射 · Map / Measure</div><div class="crc-block-sub">锚定 NIST AI RMF「映射 / 评估」职能</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>使用场景映射</b><span>已盘点 AI 使用场景并标注风险等级（含 HR / 招聘等敏感域）</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>影响评估</b><span>对高风险场景做影响 / 偏见评估并记录</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>第三方与模型风险</b><span>对模型 / 供应商做安全审查与持续监控</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-block" data-fw="manage">
+    <div class="crc-block-head"><div class="crc-block-title">三、控制与缓解 · Manage</div><div class="crc-block-sub">锚定 NIST AI RMF「管理」职能</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>人在回路</b><span>关键决策节点保留人工审核与责任归属</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>安全与稳健</b><span>对 AI 产出做准确性、偏见与安全审核</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>事件响应</b><span>有 AI 事故 / 偏差的上报、处置与复盘机制</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-block" data-fw="transparency">
+    <div class="crc-block-head"><div class="crc-block-title">四、透明与可解释</div><div class="crc-block-sub">锚定 EU AI Act「透明度」要求</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>披露与告知</b><span>在适用场景向用户披露「正在使用 AI」</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>可解释性</b><span>对关键决策提供可理解的依据说明</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>记录与追溯</b><span>保留 AI 决策日志，支持审计追溯</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-block" data-fw="accountability">
+    <div class="crc-block-head"><div class="crc-block-title">五、监督与问责</div><div class="crc-block-sub">锚定 EU AI Act / ISO 42001 问责要求</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>合规对齐</b><span>识别所适用的法规义务并列入合规清单</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>管理体系</b><span>建立 AI 管理体系（AIMS）或等效制度</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>持续监督</b><span>有定期审查与独立监督机制（如适用）</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-block" data-fw="data">
+    <div class="crc-block-head"><div class="crc-block-title">六、数据与隐私合规</div><div class="crc-block-sub">锚定数据治理与隐私保护要求</div></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>数据来源合规</b><span>训练 / 输入数据的获取与使用符合授权与许可</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>隐私保护</b><span>对个人数据有脱敏、最小化与访问控制</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+    <div class="crc-row"><input type="checkbox" class="crc-check"><div class="crc-row-label"><b>偏见与公平</b><span>对招聘 / 绩效等敏感场景做 fairness 检查</span></div><input type="range" min="1" max="5" value="3" class="crc-slider"><span class="crc-slider-val">3</span></div>
+  </div>
+
+  <div class="crc-calc">
+    <button class="crc-btn" onclick="calculateCRC()">计算就绪度</button>
+    <button class="crc-btn crc-btn--ghost" onclick="window.print()">打印 / 导出 PDF</button>
+    <button class="crc-btn crc-btn--ghost" onclick="resetCRC()">重置</button>
+  </div>
+
+  <div id="crcResult">
+    <div class="crc-result">
+      <div class="crc-result-label">AI 治理就绪度</div>
+      <div class="crc-result-score" id="crcScore">—</div>
+      <div class="crc-result-level" id="crcLevel"></div>
+      <div class="crc-detail">
+        <h4>各治理域就绪度</h4>
+        <div id="crcDetail"></div>
+      </div>
+      <div class="crc-recommend">
+        <h4>优先加固项</h4>
+        <ul id="crcActions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="crc-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「我们的 AI 用得合规吗」是一个横跨治理、技术、法律与伦理的复杂问题，单看一个标准都会失真。<strong>AI 治理合规清单</strong>把三个被最广泛引用的治理框架——<strong>NIST AI 风险管理框架（AI RMF，2023 年发布）、EU AI Act（Regulation (EU) 2024/1689）、ISO/IEC 42001（2023-12-18 发布，AI 管理体系标准）</strong>——揉进一张可勾选、可自评的清单，让你在<strong>同一张底稿</strong>上看到 AI 治理的全貌，而不是各拿一套语言各自为战。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>适用对象</strong>：已部署或计划规模化部署 AI 的团队（建议治理责任人 + 法务 / 合规 + HR 共评）。</li>
+    <li><strong>勾选</strong>：左侧勾选框标记「本项已落地」，用于快速落地率。</li>
+    <li><strong>自评</strong>：右侧滑块对每项成熟度打 1–5 分。</li>
+    <li><strong>出结果</strong>：点「计算就绪度」，得到总分、快速落地率与各域短板。</li>
+    <li><strong>复用</strong>：点「打印 / 导出 PDF」生成合规自查底稿；对勾选项优先排期落地。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>三个框架分别回答治理的不同问题，互为补充：</p>
+  <ul>
+    <li><strong>NIST AI RMF</strong>提供四职能方法论（Govern / Map / Measure / Manage），回答「怎么系统性管理 AI 风险」。</li>
+    <li><strong>EU AI Act</strong>提供基于风险等级的义务框架（不可接受 / 高 / 有限 / 最小），对高风险系统（含就业、招聘等 HR 场景）设硬性要求，2026-08-02 起相关条款适用。</li>
+    <li><strong>ISO/IEC 42001</strong>提供可认证的 AI 管理体系（AIMS）标准，回答「怎么把治理制度化、可审计」。</li>
+  </ul>
+  <p>任一域成为短板，都会成为合规或安全的瓶颈：治理架构不清晰，再多的控制也是空转；透明与问责缺失，则高风险场景 exposure 陡增。阈值（总分 &lt; 3.0 视为需重点加固）是便于落地的经验切分，应结合所在法域与行业风险等级校准。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>上线前基线版</strong>：新 AI 系统立项时自评一次，作为合规基线。</li>
+    <li><strong>季度复盘版</strong>：每季度复评，观察短板域是否改善。</li>
+    <li><strong>法域对照版</strong>：结合所在法域（如 EU AI Act 适用与否）调整各域权重。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：融合 NIST AI RMF / EU AI Act / ISO 42001 的可勾选治理清单初版，统一森林绿设计系统，含打印视图与「延伸阅读」内链。</li>
+  </ul>
+  <p class="crc-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本清单为合规自查辅助工具，具体合规判定须咨询法律与合规专业人士，并结合所在法域。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/mckinsey-hidden-deadlock.html">麦肯锡死局：无制度授权，AI转型是行为艺术</a></li>
+    <li><a href="/articles/ai-hr-jobs.html">AI接管HR岗位全景图：哪些职能先被Agent替代</a></li>
+    <li><a href="/articles/adkar-ai-transformation.html">ADKAR 复盘：AI 转型为何卡在落地</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('.crc-slider').forEach(s => {
+    s.addEventListener('input', () => {
+      s.parentElement.querySelector('.crc-slider-val').textContent = s.value;
+    });
+  });
+  const crcFwNames = { govern:'治理架构', map:'风险识别与映射', manage:'控制与缓解', transparency:'透明与可解释', accountability:'监督与问责', data:'数据与隐私合规' };
+  function calculateCRC() {
+    const blocks = document.querySelectorAll('.crc-block');
+    let allVals = [];
+    let fwScores = {};
+    blocks.forEach(b => {
+      const fw = b.dataset.fw;
+      const sliders = b.querySelectorAll('.crc-slider');
+      let sum = 0;
+      sliders.forEach(s => { sum += parseInt(s.value); allVals.push(parseInt(s.value)); });
+      fwScores[fw] = sum / sliders.length;
+    });
+    const avg = allVals.reduce((a,b)=>a+b,0) / allVals.length;
+    const checked = document.querySelectorAll('.crc-check:checked').length;
+    const totalChecks = document.querySelectorAll('.crc-check').length;
+    showResult(avg, checked, totalChecks, fwScores);
+  }
+  function showResult(avg, checked, totalChecks, fwScores) {
+    const card = document.getElementById('crcResult');
+    card.classList.add('show');
+    document.getElementById('crcScore').textContent = avg.toFixed(1) + ' / 5';
+    let levelText, levelColor;
+    if (avg < 3.0) { levelText = '🔴 就绪度偏低 — 先补最弱的治理域'; levelColor = '#D6453D'; }
+    else if (avg < 4.0) { levelText = '🟡 初步就绪 — 重点打通短板治理域'; levelColor = '#A86A2E'; }
+    else { levelText = '🟢 就绪度较高 — 可系统化推进并对外审计'; levelColor = '#1F9D6B'; }
+    document.getElementById('crcLevel').textContent = levelText + ` ｜ 快速落地率 ${checked}/${totalChecks}`;
+    document.getElementById('crcLevel').style.color = levelColor;
+    let detail = '';
+    Object.keys(fwScores).forEach(fw => {
+      const v = fwScores[fw];
+      detail += `<div class="crc-detail-row"><span class="crc-detail-name">${crcFwNames[fw]}</span><span class="crc-detail-track"><span class="crc-detail-fill" style="width:${(v/5)*100}%"></span></span><span class="crc-detail-val">${v.toFixed(1)}</span></div>`;
+    });
+    document.getElementById('crcDetail').innerHTML = detail;
+    const weak = Object.keys(fwScores).filter(fw => fwScores[fw] < 3.0).map(fw => crcFwNames[fw]);
+    const ul = document.getElementById('crcActions'); ul.innerHTML = '';
+    if (weak.length === 0) {
+      ul.innerHTML = '<li>六个治理域均未出现明显短板，可进入系统化推进与对外审计阶段。</li>';
+    } else {
+      const advice = {
+        '治理架构': '先补齐 AI 治理责任人与书面政策，把治理从「个人自觉」变成「制度闭环」。',
+        '风险识别与映射': '补场景盘点与影响评估，对 HR / 招聘等敏感域先标注风险等级。',
+        '控制与缓解': '补「人在回路」审核机制与安全 / 事件响应流程，避免高风险产出无人兜底。',
+        '透明与可解释': '补 AI 使用披露与决策可解释性，满足 EU AI Act 透明度要求。',
+        '监督与问责': '补合规对齐与 AI 管理体系（AIMS），让问责可审计、可追责。',
+        '数据与隐私合规': '补数据授权、隐私脱敏与敏感场景 fairness 检查，守住数据与偏见底线。'
+      };
+      weak.forEach(w => { const li = document.createElement('li'); li.textContent = w + '：' + advice[w]; ul.appendChild(li); });
+    }
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function resetCRC() {
+    document.querySelectorAll('.crc-check').forEach(c => c.checked = false);
+    document.querySelectorAll('.crc-slider').forEach(s => { s.value = 3; s.parentElement.querySelector('.crc-slider-val').textContent = '3'; });
+    document.getElementById('crcResult').classList.remove('show');
+  }
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

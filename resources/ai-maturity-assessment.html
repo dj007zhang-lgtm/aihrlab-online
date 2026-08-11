@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 采用成熟度自测 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="五个维度十五题加权自测，映射组织所处的 AI 采用成熟度阶段（零散尝试→转型引领），即时给出阶段判定、逐维短板与晋级路径。综合业界通行成熟度阶梯框架。">
+<meta name="keywords" content="AI成熟度,AI采用阶段,组织AI成熟度,转型路径,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 采用成熟度自测 — 资源库浏览器内即用">
+<meta property="og:description" content="五维度加权自测，映射 AI 采用成熟度阶段，即时出分与晋级路径。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-maturity-assessment.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-maturity-assessment.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 采用成熟度自测", "item": "https://www.aihrlab.online/resources/ai-maturity-assessment.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .ar-wrap{ max-width:860px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .ar-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .ar-back:hover{ color:var(--text-link); }
+  .ar-header{ text-align:center; margin-bottom:1.75rem; }
+  .ar-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .ar-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .ar-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .ar-instructions{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-instructions strong{ color:var(--text); }
+  .ar-dim{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .ar-dim-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; gap:1rem; flex-wrap:wrap; }
+  .ar-dim-title{ font-size:1.02rem; font-weight:700; color:var(--text); }
+  .ar-dim-desc{ font-size:0.8rem; color:var(--text-secondary); margin-top:0.2rem; }
+  .ar-tag{ font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:5px; font-weight:600; background:var(--accent-pale); color:var(--accent); white-space:nowrap; }
+  .ar-q{ display:flex; align-items:flex-start; padding:0.65rem 0; border-bottom:1px solid var(--line); gap:0.75rem; }
+  .ar-q:last-child{ border-bottom:none; }
+  .ar-q-label{ flex:1; font-size:0.82rem; color:var(--text); line-height:1.55; }
+  .ar-opts{ display:flex; gap:0.35rem; flex-shrink:0; }
+  .ar-opt{ width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:var(--text-secondary); cursor:pointer; transition:all 0.15s; user-select:none; }
+  .ar-opt:hover{ border-color:var(--accent); color:var(--accent); }
+  .ar-opt.selected{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .ar-score-bar{ margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .ar-score-label{ font-size:0.72rem; color:var(--text-secondary); }
+  .ar-score{ font-size:1.25rem; font-weight:700; color:var(--accent); }
+  .ar-calc{ text-align:center; margin:1.75rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .ar-btn{ background:var(--accent); color:#fff; border:none; padding:0.85rem 2.5rem; border-radius:9px; font-size:0.95rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .ar-btn:hover{ filter:brightness(1.05); }
+  .ar-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  /* 结果卡 */
+  #arResult{ display:none; }
+  #arResult.show{ display:block; }
+  .ar-result{ background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:2rem; margin-bottom:1.5rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .ar-result-score{ font-size:3rem; font-weight:800; margin:0.4rem 0; color:var(--text); }
+  .ar-result-label{ font-size:0.85rem; color:var(--text-secondary); }
+  .ar-result-level{ font-size:1.05rem; font-weight:700; margin:0.75rem 0; }
+  .ar-bar-wrap{ width:100%; height:8px; background:var(--line); border-radius:4px; margin:1.25rem 0; overflow:hidden; }
+  .ar-bar{ height:100%; border-radius:4px; transition:width 0.6s ease; background:var(--accent); }
+  .ar-detail{ text-align:left; margin-top:1.25rem; }
+  .ar-detail h4{ font-size:0.85rem; color:var(--text); margin-bottom:0.5rem; }
+  .ar-detail-row{ display:flex; align-items:center; gap:0.75rem; margin-bottom:0.55rem; }
+  .ar-detail-name{ font-size:0.8rem; color:var(--text); width:8.5rem; flex-shrink:0; }
+  .ar-detail-track{ flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .ar-detail-fill{ height:100%; background:var(--accent); border-radius:4px; }
+  .ar-detail-val{ font-size:0.78rem; color:var(--text-secondary); width:3.5rem; text-align:right; flex-shrink:0; }
+  .ar-recommend{ background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 22%, transparent); border-radius:8px; padding:1rem; margin-top:1rem; text-align:left; }
+  .ar-recommend h4{ font-size:0.82rem; color:var(--accent); margin-bottom:0.5rem; }
+  .ar-recommend ul{ margin:0; padding-left:1.1rem; }
+  .ar-recommend li{ font-size:0.78rem; color:var(--text); line-height:1.8; }
+  /* 资源详情区块 */
+  .ar-about{ max-width:860px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .ar-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .ar-about h2:first-child{ margin-top:0; }
+  .ar-about p, .ar-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .ar-about code{ background:var(--bg-subtle); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.82rem; color:var(--text); }
+  .ar-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  /* ===== 深色：仅 [data-theme=dark] 下中和硬色，浅色零回归 ===== */
+  :root[data-theme="dark"] .ar-result{ box-shadow:none; }
+  @media print { body{ background:#fff; } .ar-btn,.ar-opts{ display:none; } .ar-back{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-maturity-assessment.html"><span itemprop="name">AI 采用成熟度自测</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="ar-wrap">
+  <a class="ar-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="ar-header">
+    <div class="ar-badge">AI 成熟度自测 v1.0</div>
+    <h1>AI 采用成熟度自测</h1>
+    <p>五个维度、十五题，量化你的组织在 AI 采用旅程中的位置，并映射到「零散尝试 → 转型引领」五阶段，给出晋级路径。</p>
+  </div>
+
+  <div class="ar-instructions">
+    <strong>📊 使用说明</strong><br>
+    1. 每题按 1–5 打分：<strong>1 = 完全不符合，5 = 完全符合</strong>（分越高＝该维度越成熟）。<br>
+    2. 五个维度各 3 题，维度得分＝该维度 3 题平均分；<strong>总成熟度＝五个维度得分的等权平均</strong>（各占 20%）。<br>
+    3. 总分映射到五阶段：<strong>&lt; 1.8 阶段1 / 1.8–2.6 阶段2 / 2.6–3.4 阶段3 / 3.4–4.2 阶段4 / ≥ 4.2 阶段5</strong>。<br>
+    4. 建议由 HR + 业务一号位共同评，或多人独立评后取均值，避免单人偏差。
+  </div>
+
+  <div class="ar-dim" id="dim1">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">① 战略与治理</div><div class="ar-dim-desc">是否有清晰的 AI 战略、治理机制与责任归属</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 有明确的 AI 战略并与业务目标对齐</div><div class="ar-opts" data-dim="1" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有 AI 治理机制（风险、合规、伦理边界）与明确的责任人</div><div class="ar-opts" data-dim="1" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 有衡量 AI 价值的指标与复盘机制</div><div class="ar-opts" data-dim="1" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score1">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim2">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">② 数据与技术基础</div><div class="ar-dim-desc">数据可用性、质量与 AI 平台支撑能力</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 关键业务数据可获取、质量可控且可安全共享</div><div class="ar-opts" data-dim="2" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有统一的 AI / 工具平台支撑复用而非各自为战</div><div class="ar-opts" data-dim="2" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 有可信的模型 / 供应商管理与安全审查流程</div><div class="ar-opts" data-dim="2" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score2">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim3">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">③ 用例与价值落地</div><div class="ar-dim-desc">是否从试点走向可量化、可复制的价值</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 已识别一批高价值 AI 用例并有优先级排序</div><div class="ar-opts" data-dim="3" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 重点用例已产生可量化的业务结果（成本 / 速度 / 质量）</div><div class="ar-opts" data-dim="3" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 成功用例可被复用、模板化并跨业务单元扩散</div><div class="ar-opts" data-dim="3" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score3">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim4">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">④ 组织与人才</div><div class="ar-dim-desc">人才供给、技能培训与文化接受度</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 关键岗位已具备 AI 使用能力并覆盖多数员工</div><div class="ar-opts" data-dim="4" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 已识别并配置推动 AI 的跨职能人才（业务 + 技术 + 数据）</div><div class="ar-opts" data-dim="4" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 员工对 AI 的影响有透明沟通，并有一线参与渠道</div><div class="ar-opts" data-dim="4" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score4">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim5">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">⑤ 规模化与运营</div><div class="ar-dim-desc">是否有机制把试点变成常态化运营能力</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. AI 能力已嵌入标准工作流程，而非依赖个别先锋</div><div class="ar-opts" data-dim="5" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有持续运营、监控与迭代机制保障效果不回落</div><div class="ar-opts" data-dim="5" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. AI 已成为业务创新的常态化引擎，而非一次性项目</div><div class="ar-opts" data-dim="5" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score5">—</span></div>
+  </div>
+
+  <div class="ar-calc">
+    <button class="ar-btn" onclick="calculateAR()">计算成熟度</button>
+    <button class="ar-btn ar-btn--ghost" onclick="resetAR()">重置</button>
+  </div>
+
+  <div id="arResult">
+    <div class="ar-result">
+      <div class="ar-result-label">AI 采用成熟度</div>
+      <div class="ar-result-score" id="arScore">—</div>
+      <div class="ar-result-level" id="arLevel"></div>
+      <div class="ar-bar-wrap"><div class="ar-bar" id="arBar"></div></div>
+      <div class="ar-detail">
+        <h4>逐维度明细</h4>
+        <div id="arDetail"></div>
+      </div>
+      <div class="ar-recommend">
+        <h4>晋级路径建议</h4>
+        <ul id="arActions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ar-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「我们到底处在 AI 转型的哪个阶段」是定战略、排预算、配人才的前提，却最容易被「我们也在用 AI」的错觉掩盖。<strong>AI 采用成熟度自测</strong>把组织的 AI 采用旅程归纳为五个维度（战略治理 / 数据技术 / 用例价值 / 组织人才 / 规模运营），并映射到一个五阶段成熟度阶梯，让你在<strong>同一张表、同一套口径</strong>下看清「现在在哪、下一步去哪」，而不是被零散的试点成功误导。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>适用对象</strong>：正在或计划推进 AI 转型的组织（建议从核心业务单元切入）。</li>
+    <li><strong>谁来打</strong>：HR + 业务一号位共同评，或多人独立评后取均值，避免单人偏差。</li>
+    <li><strong>打分</strong>：每题 1–5，按该描述在<strong>组织当前真实状态</strong>打原始分。</li>
+    <li><strong>出结果</strong>：点「计算成熟度」，立即得到总分、所处阶段与逐维度明细、晋级路径。</li>
+    <li><strong>复用</strong>：可把本页打印或截图，用于转型规划会 / 复盘会。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>成熟度阶段模型是业界（如 Gartner、Deloitte 等机构）广泛采用的 AI / 数字化评估范式，其共同内核是：<strong>AI 采用不是「买工具」而是「组织能力发育」</strong>，从零散尝试逐步走向系统化与转型引领。本自测综合这一通行阶梯归纳为五阶段（零散尝试 → 局部实验 → 功能嵌入 → 系统规模化 → 转型引领），五个维度等权（各 20%），因为任一维度的短板都会卡住整体晋级；阶段阈值（1.8 / 2.6 / 3.4 / 4.2）是便于落地的经验切分，应结合行业与组织规模校准。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>单元对比版</strong>：对各业务单元分别评分，识别「先晋级 / 先补课」的单元。</li>
+    <li><strong>季度追踪版</strong>：每季度复评，观察各维度是否朝更高阶段移动。</li>
+    <li><strong>对标版</strong>：把自评结果与行业基准对照，定位真正的差距而非感知差距。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：五维度十五题成熟度自测初版，统一森林绿设计系统，含浏览器内深色模式零回归与「延伸阅读」内链。</li>
+  </ul>
+  <p class="ar-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。自测框架为组织诊断辅助工具，具体转型决策须结合业务实际。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/mckinsey-2026-org-report-deep-dive.html">麦肯锡2026组织报告：AI时代组织进化论</a></li>
+    <li><a href="/articles/adkar-ai-transformation.html">ADKAR 复盘：AI 转型为何卡在落地</a></li>
+    <li><a href="/articles/2026-hr-transformation-chief-architect.html">2026HR转型：成为组织的首席架构师</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('.ar-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const parent = opt.parentElement;
+      parent.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      updateDimScore(parent.dataset.dim);
+    });
+  });
+  function updateDimScore(dimId) {
+    const options = document.querySelectorAll(`.ar-opts[data-dim="${dimId}"]`);
+    let total = 0, count = 0;
+    options.forEach(group => {
+      const selected = group.querySelector('.ar-opt.selected');
+      if (selected) { total += parseInt(selected.dataset.val); count++; }
+    });
+    const score = count > 0 ? (total / count).toFixed(1) : '—';
+    document.getElementById(`score${dimId}`).textContent = score;
+  }
+  const arDimNames = ['战略与治理', '数据与技术基础', '用例与价值落地', '组织与人才', '规模化与运营'];
+  const arAdvice = {
+    1: { low:['先写出「AI 要改变什么业务结果」的一页纸战略','设立 AI 治理机制与明确责任人，定义风险与伦理边界'],
+        mid:['建立衡量 AI 价值的指标与定期复盘机制'],
+        high:['把战略与治理能力对外输出，沉淀为行业方法论'] },
+    2: { low:['先打通关键业务数据的获取与质量管控','建立统一 AI 平台支撑复用，避免各自为战'],
+        mid:['建立模型 / 供应商管理与安全审查流程'],
+        high:['把数据与技术底座作为对外生态合作的核心资产'] },
+    3: { low:['先识别一批高价值用例并做优先级排序','选 1 个用例跑通可量化的业务结果'],
+        mid:['把成功用例模板化、跨单元扩散'],
+        high:['把用例资产库作为持续创新引擎'] },
+    4: { low:['启动覆盖全员的 AI 基础培训','配置业务 + 技术 + 数据的跨职能 AI 团队'],
+        mid:['建立一线参与 AI 工具选择的渠道，提升拥有感'],
+        high:['把人才与文化建设成果量化并对外输出'] },
+    5: { low:['先让 AI 能力嵌入标准流程，降低对个别先锋的依赖','建立持续运营与迭代机制，防止效果回落'],
+        mid:['把试点成果连成系统化的常态化能力'],
+        high:['让 AI 成为业务创新的常态化引擎，而非一次性项目'] }
+  };
+  function stageOf(s){
+    if (s < 1.8) return { n:1, name:'阶段1 · 零散尝试（Ad-hoc）', color:'#D6453D', band:'low' };
+    if (s < 2.6) return { n:2, name:'阶段2 · 局部实验（Experimenting）', color:'#A86A2E', band:'mid' };
+    if (s < 3.4) return { n:3, name:'阶段3 · 功能嵌入（Functional）', color:'#A86A2E', band:'mid' };
+    if (s < 4.2) return { n:4, name:'阶段4 · 系统规模化（Systemic）', color:'#1F9D6B', band:'high' };
+    return { n:5, name:'阶段5 · 转型引领（Transformational）', color:'#1F9D6B', band:'high' };
+  }
+  function calculateAR() {
+    let scores = [];
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById(`score${i}`);
+      if (el.textContent === '—') { alert('请完成所有五个维度的评分后再计算。'); return; }
+      scores.push(parseFloat(el.textContent));
+    }
+    const avg = (scores.reduce((a,b)=>a+b,0) / scores.length);
+    showResult(scores, avg);
+  }
+  function showResult(scores, avg) {
+    const card = document.getElementById('arResult');
+    card.classList.add('show');
+    document.getElementById('arScore').textContent = avg.toFixed(1) + ' / 5';
+    const st = stageOf(avg);
+    document.getElementById('arLevel').textContent = st.name;
+    document.getElementById('arLevel').style.color = st.color;
+    document.getElementById('arBar').style.background = st.color;
+    document.getElementById('arBar').style.width = `${(avg/5)*100}%`;
+    let detail = '';
+    scores.forEach((s, i) => {
+      detail += `<div class="ar-detail-row"><span class="ar-detail-name">${arDimNames[i]}</span><span class="ar-detail-track"><span class="ar-detail-fill" style="width:${(s/5)*100}%"></span></span><span class="ar-detail-val">${s.toFixed(1)}</span></div>`;
+    });
+    document.getElementById('arDetail').innerHTML = detail;
+    let lowDims = scores.map((s,i)=>({i,s})).sort((a,b)=>a.s-b.s).slice(0,2);
+    let actions = [];
+    lowDims.forEach(d => { actions = actions.concat(arAdvice[d.i+1][stageOf(d.s).band]); });
+    const ul = document.getElementById('arActions'); ul.innerHTML = '';
+    actions.forEach(a => { const li = document.createElement('li'); li.textContent = a; ul.appendChild(li); });
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function resetAR() {
+    document.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+    for (let i = 1; i <= 5; i++) document.getElementById(`score${i}`).textContent = '—';
+    document.getElementById('arResult').classList.remove('show');
+  }
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

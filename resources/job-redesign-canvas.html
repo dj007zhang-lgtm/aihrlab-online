@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岗位重塑画布 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="可填写、可保存、可打印的岗位重塑画布：把岗位拆成任务单元，逐一定义 AI 接管方式与人新增价值，并落到新能力、新 JD 与落地节奏。锚定工作再设计（job redesign）与增强型工作设计。">
+<meta name="keywords" content="岗位重塑,工作再设计,job redesign,AI增强,岗位重构,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="岗位重塑画布 — 资源库浏览器内即用">
+<meta property="og:description" content="可填写、可保存、可打印的岗位重塑框架，把岗位拆成任务单元并定义人机分工。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/job-redesign-canvas.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/job-redesign-canvas.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "岗位重塑画布", "item": "https://www.aihrlab.online/resources/job-redesign-canvas.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .jrc-wrap{ max-width:900px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .jrc-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .jrc-back:hover{ color:var(--text-link); }
+  .jrc-header{ text-align:center; margin-bottom:1.5rem; }
+  .jrc-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .jrc-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .jrc-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .jrc-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .jrc-note strong{ color:var(--text); }
+  .jrc-block{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.4rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .jrc-block-head{ display:flex; align-items:baseline; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
+  .jrc-block-title{ font-size:1.05rem; font-weight:700; color:var(--text); }
+  .jrc-block-sub{ font-size:0.78rem; color:var(--text-secondary); }
+  .jrc-field{ margin-bottom:1rem; }
+  .jrc-field:last-child{ margin-bottom:0; }
+  .jrc-label{ display:block; font-size:0.82rem; color:var(--text); font-weight:600; margin-bottom:0.4rem; }
+  .jrc-label span{ font-weight:400; color:var(--text-muted); font-size:0.74rem; margin-left:0.4rem; }
+  .jrc-input, .jrc-textarea{ width:100%; box-sizing:border-box; padding:0.65rem 0.85rem; border:1.5px solid var(--line-strong); border-radius:8px; font-size:0.85rem; color:var(--text); background:var(--surface); font-family:inherit; line-height:1.6; }
+  .jrc-input:focus, .jrc-textarea:focus{ outline:none; border-color:var(--accent); }
+  .jrc-textarea{ resize:vertical; min-height:90px; }
+  .jrc-task{ border:1px solid var(--line); border-radius:10px; padding:1rem; margin-bottom:0.85rem; background:var(--bg-subtle); }
+  .jrc-task-top{ display:flex; gap:0.75rem; align-items:flex-start; flex-wrap:wrap; }
+  .jrc-task-top .jrc-field{ flex:1; min-width:200px; margin-bottom:0; }
+  .jrc-task-label{ font-size:0.78rem; color:var(--text-secondary); margin:0.6rem 0 0.35rem; }
+  .jrc-seg{ display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .jrc-seg label{ font-size:0.78rem; color:var(--text-secondary); border:1.5px solid var(--line-strong); border-radius:18px; padding:0.3rem 0.8rem; cursor:pointer; display:inline-flex; align-items:center; gap:0.3rem; }
+  .jrc-seg input{ accent-color:var(--accent); }
+  .jrc-seg label:has(input:checked){ border-color:var(--accent); color:var(--accent); background:var(--accent-pale); }
+  .jrc-calc{ text-align:center; margin:1.5rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .jrc-btn{ background:var(--accent); color:#fff; border:none; padding:0.8rem 1.8rem; border-radius:9px; font-size:0.9rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .jrc-btn:hover{ filter:brightness(1.05); }
+  .jrc-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  .jrc-row-2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:640px){ .jrc-row-2{ grid-template-columns:1fr; } }
+  /* 资源详情区块 */
+  .jrc-about{ max-width:900px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .jrc-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .jrc-about h2:first-child{ margin-top:0; }
+  .jrc-about p, .jrc-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .jrc-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .jrc-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .jrc-block{ box-shadow:none; }
+  @media print {
+    body{ background:#fff; }
+    .jrc-btn, .jrc-back{ display:none; }
+    .jrc-block{ break-inside:avoid; box-shadow:none; }
+    .jrc-input, .jrc-textarea{ border-color:#ccc; }
+  }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/job-redesign-canvas.html"><span itemprop="name">岗位重塑画布</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="jrc-wrap">
+  <a class="jrc-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="jrc-header">
+    <div class="jrc-badge">岗位重塑画布 v1.0</div>
+    <h1>岗位重塑画布</h1>
+    <p>把岗位拆成任务单元，逐一定义 AI 接管方式与人新增价值，并落到新能力、新 JD 与落地节奏。可填写、可本地保存、可打印。</p>
+  </div>
+
+  <div class="jrc-note">
+    <strong>🧩 怎么用</strong><br>
+    1. 先填「当前岗位快照」，确认要重塑的对象与现状。<br>
+    2. 在「任务拆解与分工」里，把岗位拆成若干任务单元，每个标注 <strong>AI 接管方式</strong>（自动 / 增强 / 保留人）与 <strong>人的新增价值</strong>。<br>
+    3. 顺流填「新能力 / 新 JD」与「落地节奏」。<br>
+    4. 内容自动<strong>本地保存</strong>（localStorage），可随时回来续填；点「打印 / 导出 PDF」生成汇报底稿。
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">一、当前岗位快照</div><div class="jrc-block-sub">先确认对象与现状</div></div>
+    <div class="jrc-row-2">
+      <div class="jrc-field"><label class="jrc-label">岗位名称</label><input class="jrc-input" data-save="role_name" placeholder="如：招聘专员 / 财务分析师"></div>
+      <div class="jrc-field"><label class="jrc-label">所属部门 / 业务单元</label><input class="jrc-input" data-save="role_dept" placeholder="如：人力资源部"></div>
+    </div>
+    <div class="jrc-field"><label class="jrc-label">当前核心职责 <span>（用 3–5 条描述现状）</span></label><textarea class="jrc-textarea" data-save="role_duties" placeholder="逐条列出该岗位当前承担的核心职责…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">当前最痛的低效点 <span>（AI 最值得切入的地方）</span></label><textarea class="jrc-textarea" data-save="role_pain" placeholder="描述重复性高、规则清晰、或信息密集的环节…"></textarea></div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">二、任务拆解与分工</div><div class="jrc-block-sub">逐任务定义人机分工</div></div>
+    <div id="jrcTasks">
+      <div class="jrc-task">
+        <div class="jrc-task-top">
+          <div class="jrc-field"><label class="jrc-label">任务</label><input class="jrc-input jrc-task-name" placeholder="如：简历初筛"></div>
+        </div>
+        <div class="jrc-task-label">AI 接管方式</div>
+        <div class="jrc-seg">
+          <label><input type="radio" name="m0" value="自动"> 全自动</label>
+          <label><input type="radio" name="m0" value="增强" checked> AI 增强（人审）</label>
+          <label><input type="radio" name="m0" value="保留"> 保留由人</label>
+        </div>
+        <div class="jrc-task-label">人的新增价值（这一项上，人去做什么更有价值的事）</div>
+        <textarea class="jrc-textarea jrc-task-value" placeholder="如：从筛简历转向候选人体验设计与高潜识别…"></textarea>
+      </div>
+    </div>
+    <div class="jrc-calc" style="margin:1rem 0 0;">
+      <button class="jrc-btn jrc-btn--ghost" onclick="addTask()">+ 新增任务单元</button>
+    </div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">三、新能力与新 JD</div><div class="jrc-block-sub">把重塑落到人</div></div>
+    <div class="jrc-field"><label class="jrc-label">岗位需要新增 / 强化的能力</label><textarea class="jrc-textarea" data-save="new_skills" placeholder="如：提示工程、人审 AI、数据分析、复杂沟通…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">重塑后的 JD 摘要 <span>（职责变化一句话）</span></label><textarea class="jrc-textarea" data-save="new_jd" placeholder="描述岗位从「做 X」转为「管 X + 做更有价值的 Y」…"></textarea></div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">四、落地节奏</div><div class="jrc-block-sub">分阶段推进</div></div>
+    <div class="jrc-field"><label class="jrc-label">第一阶段（0–1 月）· 试点</label><textarea class="jrc-textarea" data-save="phase1" placeholder="选哪个任务先跑通「人 + AI」试点…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">第二阶段（1–3 月）· 扩散</label><textarea class="jrc-textarea" data-save="phase2" placeholder="把试点经验模板化、跨任务 / 跨人复制…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">第三阶段（3 月+）· 制度化</label><textarea class="jrc-textarea" data-save="phase3" placeholder="写入 JD、培训与度量，形成常态化能力…"></textarea></div>
+  </div>
+
+  <div class="jrc-calc">
+    <button class="jrc-btn" onclick="saveCanvas()">保存进度</button>
+    <button class="jrc-btn jrc-btn--ghost" onclick="window.print()">打印 / 导出 PDF</button>
+    <button class="jrc-btn jrc-btn--ghost" onclick="clearCanvas()">清空</button>
+  </div>
+</section>
+
+<section class="jrc-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「AI 来了，我的岗位怎么办」最容易引发两种极端：要么恐慌地谈「替代」，要么空洞地谈「转型」。<strong>岗位重塑画布</strong>不站队，而是提供一个<strong>可填写、可落地的工作框架</strong>——把岗位拆成任务单元，逐一定义「哪些交给 AI 自动、哪些由 AI 增强、哪些仍必须由人完成」，并明确「人在被释放出来的时间里去做什么更有价值的事」。它把焦虑翻译成一张可执行的重构蓝图。</p>
+
+  <h2>设计底座</h2>
+  <ul>
+    <li><strong>工作再设计（Job Redesign）</strong>：组织设计领域的经典命题——技术变革不应只问「能替代什么」，更要问「如何重新组合任务，让人与机器各展所长」。</li>
+    <li><strong>增强型工作设计（Augmented Work Design）</strong>：当前 AI 落地研究发现，多数岗位的最优解不是整岗替代，而是「人 + AI」协作下的职责重组——这正对应 ILO、麦肯锡等机构对「岗位被重新组织而非整体消失」的判断。</li>
+    <li><strong>任务级拆解</strong>：画布以「任务单元」为最小粒度，因为它比「岗位」更贴近 AI 的真实作用边界（AI 作用于任务，而非整岗）。</li>
+  </ul>
+
+  <h2>怎么用出价值</h2>
+  <ul>
+    <li><strong>一对一教练</strong>：HR / 管理者与员工共同填画布，把「被替代焦虑」转为「能力升级计划」。</li>
+    <li><strong>组织级盘点</strong>：对一批岗位分别填画布，输出「优先自动化 / 增强 / 保留」三档清单，指导培训投资。</li>
+    <li><strong>汇报底稿</strong>：打印后用于转型规划会，向一号位展示「人去哪了、价值增在哪」。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：可填写、可本地保存、可打印的岗位重塑画布初版，统一森林绿设计系统，含「延伸阅读」内链。</li>
+  </ul>
+  <p class="jrc-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本画布为岗位设计辅助工具，内容保存在你本地浏览器，具体岗位调整须结合业务实际与合规要求。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/ai-talent-profile-reconstruction-2026.html">AI时代人才画像重构：岗位能力模型怎么变</a></li>
+    <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+    <li><a href="/articles/ai-hr-jobs.html">AI接管HR岗位全景图：哪些职能先被Agent替代</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  const KEY = 'aihr_job_redesign_canvas_v1';
+  function addTask(){
+    const wrap = document.getElementById('jrcTasks');
+    const idx = wrap.children.length;
+    const div = document.createElement('div');
+    div.className = 'jrc-task';
+    div.innerHTML = `<div class="jrc-task-top"><div class="jrc-field"><label class="jrc-label">任务</label><input class="jrc-input jrc-task-name" placeholder="如：周报汇总"></div></div><div class="jrc-task-label">AI 接管方式</div><div class="jrc-seg"><label><input type="radio" name="m${idx}" value="自动"> 全自动</label><label><input type="radio" name="m${idx}" value="增强" checked> AI 增强（人审）</label><label><input type="radio" name="m${idx}" value="保留"> 保留由人</label></div><div class="jrc-task-label">人的新增价值</div><textarea class="jrc-textarea jrc-task-value" placeholder="人在这项上转去做更有价值的事…"></textarea>`;
+    wrap.appendChild(div);
+    loadCanvas();
+  }
+  function collect(){
+    const data = {};
+    document.querySelectorAll('[data-save]').forEach(el => { data[el.dataset.save] = el.value; });
+    const tasks = [];
+    document.querySelectorAll('#jrcTasks .jrc-task').forEach(t => {
+      const mode = t.querySelector('input[type=radio]:checked');
+      tasks.push({ name: t.querySelector('.jrc-task-name').value, mode: mode ? mode.value : '', value: t.querySelector('.jrc-task-value').value });
+    });
+    data.tasks = tasks;
+    return data;
+  }
+  function saveCanvas(){
+    try { localStorage.setItem(KEY, JSON.stringify(collect())); alert('已保存到本地浏览器。'); }
+    catch(e){ alert('保存失败：' + e.message); }
+  }
+  function loadCanvas(){
+    let raw; try { raw = localStorage.getItem(KEY); } catch(e){ return; }
+    if (!raw) return;
+    let data; try { data = JSON.parse(raw); } catch(e){ return; }
+    document.querySelectorAll('[data-save]').forEach(el => { if (data[el.dataset.save] !== undefined) el.value = data[el.dataset.save]; });
+    const wrap = document.getElementById('jrcTasks');
+    if (data.tasks && data.tasks.length){
+      wrap.innerHTML = '';
+      data.tasks.forEach((t, idx) => {
+        const div = document.createElement('div');
+        div.className = 'jrc-task';
+        div.innerHTML = `<div class="jrc-task-top"><div class="jrc-field"><label class="jrc-label">任务</label><input class="jrc-input jrc-task-name" placeholder="如：周报汇总"></div></div><div class="jrc-task-label">AI 接管方式</div><div class="jrc-seg"><label><input type="radio" name="m${idx}" value="自动"> 全自动</label><label><input type="radio" name="m${idx}" value="增强"> AI 增强（人审）</label><label><input type="radio" name="m${idx}" value="保留"> 保留由人</label></div><div class="jrc-task-label">人的新增价值</div><textarea class="jrc-textarea jrc-task-value" placeholder="人在这项上转去做更有价值的事…"></textarea>`;
+        div.querySelector('.jrc-task-name').value = t.name || '';
+        div.querySelector('.jrc-task-value').value = t.value || '';
+        const radios = div.querySelectorAll('input[type=radio]');
+        radios.forEach(r => { if (r.value === t.mode) r.checked = true; });
+        wrap.appendChild(div);
+      });
+    }
+  }
+  function clearCanvas(){
+    if (!confirm('确认清空所有已填写内容？此操作不可撤销。')) return;
+    try { localStorage.removeItem(KEY); } catch(e){}
+    document.querySelectorAll('[data-save]').forEach(el => el.value = '');
+    document.querySelectorAll('#jrcTasks .jrc-task').forEach((t, idx) => {
+      t.querySelector('.jrc-task-name').value = '';
+      t.querySelector('.jrc-task-value').value = '';
+      const auto = t.querySelector('input[value="增强"]'); if (auto) auto.checked = true;
+    });
+    document.getElementById('jrcTasks').querySelectorAll('.jrc-task').forEach((t,i)=>{ if(i>0) t.remove(); });
+  }
+  loadCanvas();
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>
