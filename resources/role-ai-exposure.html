@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岗位 AI 暴露度速查矩阵 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="按角色族 × 暴露梯度组织的速查矩阵，基于 ILO Working Paper 140 (2025) 的岗位 AI 暴露指数框架整理，标注驱动因素与诚实校准说明，并提供梯度筛选。">
+<meta name="keywords" content="岗位AI暴露度,AI暴露矩阵,ILO,职业暴露指数,岗位重塑,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="岗位 AI 暴露度速查矩阵 — 资源库浏览器内即用">
+<meta property="og:description" content="基于 ILO WP140(2025) 的岗位 AI 暴露指数框架，角色族 × 暴露梯度速查，附驱动因素与校准说明。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/role-ai-exposure.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/role-ai-exposure.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "岗位 AI 暴露度速查矩阵", "item": "https://www.aihrlab.online/resources/role-ai-exposure.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:960px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-stats{ display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; margin-bottom:1.5rem; }
+  .rae-stat{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:0.9rem 1.1rem; text-align:center; min-width:130px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .rae-stat b{ display:block; font-size:1.4rem; color:var(--accent); font-weight:800; }
+  .rae-stat span{ font-size:0.72rem; color:var(--text-secondary); }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .filter-bar{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .filter-chip{ border:1.5px solid var(--line-strong); background:var(--surface); color:var(--text-secondary); border-radius:20px; padding:0.4rem 0.95rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
+  .filter-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .filter-chip.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .rae-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .rae-row{ display:grid; grid-template-columns: 1.4fr 0.9fr 1.6fr 2.2fr; gap:0.8rem; padding:0.9rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .rae-row:last-child{ border-bottom:none; }
+  .rae-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.8rem; }
+  .rae-row__role{ font-size:0.86rem; color:var(--text); font-weight:600; }
+  .rae-row__role small{ display:block; font-weight:400; color:var(--text-muted); font-size:0.7rem; margin-top:0.15rem; }
+  .rae-badge-g{ font-size:0.68rem; padding:0.18rem 0.5rem; border-radius:5px; font-weight:700; white-space:nowrap; display:inline-block; }
+  .g4{ background:#FBE3E0; color:#D6453D; }
+  .g3{ background:#FBEEDD; color:#A86A2E; }
+  .g2{ background:var(--accent-pale); color:var(--accent); }
+  .g1{ background:var(--bg-subtle); color:var(--text-secondary); }
+  .rae-row__driver{ font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+  .rae-row__calib{ font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+  .rae-row__calib b{ color:var(--text); }
+  .rae-empty{ text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.85rem; }
+  /* 资源详情区块 */
+  .rae-about{ max-width:960px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-about code{ background:var(--bg-subtle); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.82rem; color:var(--text); }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  /* ===== 深色：仅 [data-theme=dark] 下中和硬色，浅色零回归 ===== */
+  :root[data-theme="dark"] .rae-row--head{ box-shadow:none; }
+  @media (max-width:720px){ .rae-row{ grid-template-columns:1fr; gap:0.35rem; } .rae-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/role-ai-exposure.html"><span itemprop="name">岗位 AI 暴露度速查矩阵</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">AI 暴露度速查 v1.0 · 锚定 ILO WP140 (2025)</div>
+    <h1>岗位 AI 暴露度速查矩阵</h1>
+    <p>按角色族 × 暴露梯度组织的速查表，标注驱动因素与诚实校准说明，帮助你判断岗位被 AI 重塑的优先级。</p>
+  </div>
+
+  <div class="rae-stats">
+    <div class="rae-stat"><b>25%</b><span>全球就业有某种<br>GenAI 暴露</span></div>
+    <div class="rae-stat"><b>3.3%</b><span>落入最高暴露<br>等级（Gradient 4）</span></div>
+    <div class="rae-stat"><b>文职最高</b><span>暴露程度最高的<br>职业大类</span></div>
+    <div class="rae-stat"><b>34% vs 11%</b><span>高收入国 vs 低收入国<br>就业暴露率</span></div>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 数据口径与诚实校准</strong><br>
+    本矩阵基于 <strong>ILO Working Paper 140 (2025)《Generative AI and Jobs: A Refined Global Index of Occupational Exposure》</strong> 的岗位 AI 暴露指数框架整理，将职业暴露映射为 4 个行动梯度（G1 最低 → G4 最高）。关键结论：<strong>全球约 1/4 劳动者处于对 GenAI 有某种程度暴露的职业，但仅 3.3% 落入最高暴露等级；文职暴露最高；高暴露职业中女性占比高于男性。</strong><br>
+    本表为<strong>辅助参考而非精确预测</strong>：实际暴露受岗位层级、行业数字化程度与本国劳动力市场影响巨大。ILO 的核心判断是——<strong>多数职业由仍需人力的任务构成，岗位更可能被「重新组织」而非「整体消灭」</strong>。
+  </div>
+
+  <div class="filter-bar" id="raeFilter">
+    <button class="filter-chip active" data-g="all">全部角色族</button>
+    <button class="filter-chip" data-g="4">G4 最高暴露</button>
+    <button class="filter-chip" data-g="3">G3 中高暴露</button>
+    <button class="filter-chip" data-g="2">G2 低中暴露</button>
+    <button class="filter-chip" data-g="1">G1 低 / 未暴露</button>
+  </div>
+
+  <div class="rae-matrix" id="raeMatrix">
+    <div class="rae-row rae-row--head">
+      <div>角色族</div><div>暴露梯度</div><div>主要驱动因素</div><div>诚实校准说明</div>
+    </div>
+
+    <div class="rae-row" data-g="4">
+      <div class="rae-row__role">文职 / 行政办公<small>Clerical &amp; Administrative</small></div>
+      <div><span class="rae-badge-g g4">G4 最高</span></div>
+      <div class="rae-row__driver">文档撰写 / 数据录入 / 日程与邮件协调等高度标准化、可规则化任务</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>ILO 显示文职暴露最高，但层级差异极大——初级文员 &gt; 高管行政；「被重塑」多表现为任务重组而非整岗消失。</div>
+    </div>
+
+    <div class="rae-row" data-g="4">
+      <div class="rae-row__role">客服 / 用户支持<small>Customer Support</small></div>
+      <div><span class="rae-badge-g g4">G4 最高</span></div>
+      <div class="rae-row__driver">标准化问答、工单分类、知识库检索等可被对话式 AI 大规模承接</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>脚本化客服首当其冲，但高情绪波动、复杂纠纷与「真人安抚」期待仍需人，呈「前端自助 + 后端人工」分层。</div>
+    </div>
+
+    <div class="rae-row" data-g="3">
+      <div class="rae-row__role">数据分析 / 报表<small>Data &amp; Reporting</small></div>
+      <div><span class="rae-badge-g g3">G3 中高</span></div>
+      <div class="rae-row__driver">结构化数据处理、常规可视化、周期报表的自动化生成</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>描述性 / 重复性分析被自动化，但问题定义、因果解释与业务决策仍依赖人。</div>
+    </div>
+
+    <div class="rae-row" data-g="3">
+      <div class="rae-row__role">软件开发 / 工程<small>Software Engineering</small></div>
+      <div><span class="rae-badge-g g3">G3 中高</span></div>
+      <div class="rae-row__driver">代码生成、单元测试、文档与样板代码编写的效率显著提升</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>ILO 将计算机相关职业列为中高暴露，但架构设计、系统权衡与复杂调试仍靠人——典型「增强而非替代」。</div>
+    </div>
+
+    <div class="rae-row" data-g="3">
+      <div class="rae-row__role">财务会计<small>Finance &amp; Accounting</small></div>
+      <div><span class="rae-badge-g g3">G3 中高</span></div>
+      <div class="rae-row__driver">记账、对账、税务申报、周期报表等规则化流程</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>核算层自动化快，但职业判断、合规解释与异常处理需人；责任边界限制完全替代。</div>
+    </div>
+
+    <div class="rae-row" data-g="3">
+      <div class="rae-row__role">市场营销 / 内容<small>Marketing &amp; Content</small></div>
+      <div><span class="rae-badge-g g3">G3 中高</span></div>
+      <div class="rae-row__driver">文案初稿、素材量产、A/B 文案变体的批量生成</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>量产内容被重塑，但品牌策略、受众洞察与创意把关保留在人；「量」被 AI 吃掉、「质」仍靠人。</div>
+    </div>
+
+    <div class="rae-row" data-g="3">
+      <div class="rae-row__role">招聘 / 人才获取<small>Recruiting &amp; Talent</small></div>
+      <div><span class="rae-badge-g g3">G3 中高</span></div>
+      <div class="rae-row__driver">简历筛选、初面安排、候选人沟通的标准化环节</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>筛选与调度自动化，但人才评估、关系建立与文化匹配保留在人（对应 DQ 维度③情感交互）。</div>
+    </div>
+
+    <div class="rae-row" data-g="2">
+      <div class="rae-row__role">法务 / 合规<small>Legal &amp; Compliance</small></div>
+      <div><span class="rae-badge-g g2">G2 低中</span></div>
+      <div class="rae-row__driver">合同审查、判例检索、条款摘要的辅助增强</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>检索与摘要被增强，但责任判断、出庭与谈判仍需人；法律风险边界限制替代。</div>
+    </div>
+
+    <div class="rae-row" data-g="2">
+      <div class="rae-row__role">制造一线 / 操作<small>Production &amp; Operations</small></div>
+      <div><span class="rae-badge-g g2">G2 低中</span></div>
+      <div class="rae-row__driver">流程自动化、机器人对物理任务的处理（取决于产线数字化程度）</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>认知任务自动化快于物理任务；实际暴露高度依赖工厂数字化水平与资本投入。</div>
+    </div>
+
+    <div class="rae-row" data-g="2">
+      <div class="rae-row__role">HRBP / 组织发展<small>HRBP &amp; OD</small></div>
+      <div><span class="rae-badge-g g2">G2 低中</span></div>
+      <div class="rae-row__driver">标准化流程（入转调离、政策问答）的部分自动化</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>情感交互、信任建立与组织政治导航是核心壁垒（DQ 维度③），替代慢；HR 更会被「增强」。</div>
+    </div>
+
+    <div class="rae-row" data-g="2">
+      <div class="rae-row__role">专业服务（医疗 / 教育）<small>Health &amp; Education</small></div>
+      <div><span class="rae-badge-g g2">G2 低中</span></div>
+      <div class="rae-row__driver">知识检索、初诊分诊、个性化练习生成的辅助增强</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>作为增强工具价值高，但伦理责任边界、现场判断与人际关系限制替代。</div>
+    </div>
+
+    <div class="rae-row" data-g="1">
+      <div class="rae-row__role">管理者 / 一号位<small>Managers &amp; Executives</small></div>
+      <div><span class="rae-badge-g g1">G1 低</span></div>
+      <div class="rae-row__driver">模糊信息决策、多目标权衡、组织政治隐性知识（DQ 维度②④护城河）</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>最难点替代；但中层管理者可能因「协调层被压缩」而被「优化」（见相关阅读）。</div>
+    </div>
+
+    <div class="rae-row" data-g="1">
+      <div class="rae-row__role">研发 / 产品创新<small>R&amp;D &amp; Product Innovation</small></div>
+      <div><span class="rae-badge-g g1">G1 低 / 未暴露</span></div>
+      <div class="rae-row__driver">无参考模板的新方案、跨领域整合、重新定义问题本身（DQ 维度④）</div>
+      <div class="rae-row__calib"><b>诚实地讲：</b>短期内 AI 增强而非替代；创新者的价值在「问对问题」而非「更快产出」。</div>
+    </div>
+
+    <div class="rae-empty" id="raeEmpty" style="display:none;">该梯度下暂无角色族。</div>
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「我的岗位会不会被 AI 替代」是职场最焦虑也最容易情绪化的问题。<strong>岗位 AI 暴露度速查矩阵</strong>不替你下结论，而是把这个问题锚定到<strong>可引用的权威数据</strong>上：基于 ILO（国际劳工组织）2025 年发布的岗位 AI 暴露指数，把职业按「被 GenAI 重塑的优先级」映射为 4 个梯度，并逐类标注<strong>驱动因素</strong>与<strong>诚实校准说明</strong>，避免把「暴露」等同于「消失」。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>定位角色族</strong>：在矩阵中找到与目标岗位最接近的角色族。</li>
+    <li><strong>看梯度</strong>：G4 最高暴露（优先被重塑）→ G1 低 / 未暴露。</li>
+    <li><strong>读校准</strong>：每行的「诚实校准说明」提示该角色真实的替代边界与例外。</li>
+    <li><strong>用筛选</strong>：点上方梯度 chips 可只看某一暴露档位的角色族，便于做人才盘点。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>锚定 ILO WP140 (2025) 的核心价值在于<strong>用全球可比的暴露指数替代拍脑袋</strong>。该研究的几个稳健发现直接决定了本矩阵的梯度排序：</p>
+  <ul>
+    <li><strong>文职暴露最高</strong>：因其任务最标准化、最易被规则与 GenAI 承接，故排 G4。</li>
+    <li><strong>仅 3.3% 落入最高暴露等级</strong>：提醒我们「暴露广、极危窄」——多数职业只是部分任务被自动化。</li>
+    <li><strong>高暴露中女性占比更高</strong>：因女性更集中于文职 / 客服等高风险职业，提示转型政策须关注性别维度。</li>
+    <li><strong>「转型非消灭」</strong>：岗位更可能被重新组织（任务重组、人机协作），而非整体消失——这也是 DQ 评估与 AI 转型准备度自测共同的方法论底座。</li>
+  </ul>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>人才盘点版</strong>：对公司各岗位套用梯度，输出「优先重塑 / 增强 / 保留」三档清单。</li>
+    <li><strong>招聘反推版</strong>：对低暴露角色族，重点考察其高护城河能力（决策、情感、创造）。</li>
+    <li><strong>培训投资版</strong>：对 G3/G4 角色，规划「任务级」AI 增强培训而非整岗替代。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：基于 ILO WP140(2025) 暴露指数框架的角色族 × 梯度速查矩阵初版，统一森林绿设计系统，含梯度筛选与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本矩阵为组织规划辅助参考，具体人力决策须结合业务实际、岗位层级与合规要求。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/ai-hr-jobs.html">AI接管HR岗位全景图：哪些职能先被Agent替代</a></li>
+    <li><a href="/articles/karpathy-ai-replacement-test.html">Karpathy的AI替代测试：击碎职业常识</a></li>
+    <li><a href="/articles/ai-talent-profile-reconstruction-2026.html">AI时代人才画像重构：岗位能力模型怎么变</a></li>
+    <li><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('#raeFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#raeFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const g = chip.dataset.g;
+      let visible = 0;
+      document.querySelectorAll('#raeMatrix .rae-row[data-g]').forEach(row => {
+        const show = (g === 'all') || (row.dataset.g === g);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('raeEmpty').style.display = (g !== 'all' && visible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>
