@@ -10,13 +10,15 @@
   
   
   
-<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" /><meta charset="utf-8"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>策展 · AI 转型人才对接：企业找人，人才找企业</title>
-<meta name="description" content="企业找不到对的 AI 人，人才找不到认真做 AI 的企业。我们不做算法匹配，用编辑的信任与人工撮合，把两边连起来。提交意图，由主理人一对一帮你对接。不收会员费，只看匹配质量；目前聚焦 AI 与原生组织方向的中高端岗位与人才。">
+
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" /><meta charset="utf-8"/><link href="/favicon.ico" rel="icon" type="image/x-icon"/><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>策展中心 · 编辑精选阅读路径与人才对接 | AIHR数智引擎</title>
+<meta name="description" content="AIHR 策展层：把散落在「学（文章）→用（资源库）→测（测评）→查（术语词典）→串（专题枢纽）」五层的真实资产，用编辑视角串成你该走的路——三条主题阅读路径 + 编辑精选资产 + 人工人才对接。">
 
 
 
-<meta content="企业找不到对的 AI 人，人才找不到认真做 AI 的企业。我们不做算法匹配，用编辑的信任与人工撮合，把两边连起来。提交意图，由主理人一对一帮你对接。不收会员费，只看匹配质量；目前聚焦 AI 与原生组织方向的中高端岗位与人才。" property="og:description"/><meta content="website" property="og:type"/><meta property="og:url" content="https://www.aihrlab.online/bridge/"><meta property="og:image" content="/assets/og-covers/og-ai-recruitment-selection-guide-2026.jpg"><meta property="og:site_name" content="AIHR数智引擎"><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@AIHRLab"><meta name="twitter:title" content="AI 转型人才对接：企业找人，人才找企业"/><meta name="twitter:description" content="企业找不到对的 AI 人，人才找不到认真做 AI 的企业。我们不做算法匹配，用编辑的信任与人工撮合，把两边连起来。提交意图，由主理人一对一帮你对接。不收会员费，只看匹配质量；目前聚焦 AI 与原生组织方向的中高端岗位与人才。"/><meta name="twitter:image" content="/assets/og-covers/og-ai-recruitment-selection-guide-2026.jpg"><meta content="2026-07-10T15:05:00+08:00" property="article:published_time"/>
-<link rel="canonical" href="https://www.aihrlab.online/bridge/"><meta name="last-modified" content="2026-07-10">
+
+<meta content="AIHR 策展层：把散落在「学（文章）→用（资源库）→测（测评）→查（术语词典）→串（专题枢纽）」五层的真实资产，用编辑视角串成你该走的路——三条主题阅读路径 + 编辑精选资产 + 人工人才对接。" property="og:description"/><meta content="website" property="og:type"/><meta property="og:url" content="https://www.aihrlab.online/bridge/"><meta property="og:image" content="/assets/og-covers/og-ai-recruitment-selection-guide-2026.jpg"><meta property="og:site_name" content="AIHR数智引擎"><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@AIHRLab"><meta name="twitter:title" content="策展中心 · 编辑精选阅读路径与人才对接"><meta name="twitter:description" content="把学/用/测/查/串五层的真实资产，用编辑视角串成你该走的路——三条主题阅读路径 + 编辑精选 + 人工人才对接。"/><meta name="twitter:image" content="/assets/og-covers/og-ai-recruitment-selection-guide-2026.jpg"><meta content="2026-08-11T15:05:00+08:00" property="article:published_time"/>
+<link rel="canonical" href="https://www.aihrlab.online/bridge/"><meta name="last-modified" content="2026-08-11">
 <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
@@ -46,6 +48,37 @@
 .bridge-steps li::before{content:counter(step);position:absolute;left:0;top:.1rem;width:1.9rem;height:1.9rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--accent);border:1px solid var(--line);border-radius:50%}
 .bridge-note{font-size:.92rem;line-height:1.7;color:var(--text-muted);margin-top:var(--space-lg)}
 
+/* 策展中心升级：编辑精选阅读路径 + 精选资产卡（复用设计系统变量，inline 不碰全局样式） */
+.curate-intro{font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin:var(--space-lg) 0 var(--space-xl)}
+.curate-intro strong{color:var(--text)}
+
+.curate-paths{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);margin:var(--space-xl) 0}
+.curate-path{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-lg);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.curate-path:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.curate-path h3{margin:var(--space-sm) 0 var(--space-sm);font-size:1.18rem;line-height:1.4}
+.curate-path .why{font-size:.9rem;line-height:1.65;color:var(--text-muted);margin-bottom:var(--space-md)}
+.curate-list{list-style:none;padding:0;margin:0}
+.curate-list li{display:flex;align-items:flex-start;gap:.55rem;padding:.5rem 0;border-top:1px solid var(--line);font-size:.88rem;line-height:1.5}
+.curate-list li:first-child{border-top:0;padding-top:0}
+.layer-tag{flex:0 0 auto;display:inline-block;min-width:1.7rem;text-align:center;font-size:.68rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:var(--radius-sm);padding:.12rem .35rem;margin-top:.05rem;line-height:1.3}
+.curate-list a{color:var(--text-link);text-decoration:none}
+.curate-list a:hover{text-decoration:underline}
+
+.curate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-lg);margin:var(--space-xl) 0}
+.curate-card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-lg);text-decoration:none;color:inherit;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.curate-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.curate-card .cc-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);display:block;margin-bottom:.45rem}
+.curate-card h4{margin:0 0 .45rem;font-size:1.02rem;color:var(--text);line-height:1.4}
+.curate-card p{margin:0;font-size:.86rem;line-height:1.6;color:var(--text-muted)}
+
+.next-steps{display:flex;flex-wrap:wrap;gap:var(--space-md);margin:var(--space-xl) 0;padding:var(--space-lg) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.next-steps a{flex:1;min-width:130px;text-align:center;padding:.8rem 1rem;background:var(--bg-subtle);border:1px solid var(--line);border-radius:var(--radius-md);color:var(--text-link);text-decoration:none;font-weight:500;font-size:.92rem;transition:background .2s var(--ease)}
+.next-steps a:hover{background:var(--accent-pale)}
+
+@media (max-width:820px){
+  .curate-paths{grid-template-columns:1fr}
+  .curate-grid{grid-template-columns:1fr}
+}
 @media (max-width:640px){
   .bridge-paths{grid-template-columns:1fr}
   .bridge-paths .path{padding:0}
@@ -53,8 +86,8 @@
   .bridge-stats .stat-num{font-size:2.1rem}
 }
 </style>
-    <script type="application/ld+json"> {"@type": "WebPage", "name": "策展 · AI 转型人才对接", "description": "企业找不到对的 AI 人，人才找不到认真做 AI 的企业。AIHR数智引擎用编辑信任与人工撮合连接两边，不做算法匹配。", "inLanguage": "zh-CN", "url": "https://www.aihrlab.online/bridge/", "isPartOf": {"@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online"}, "@context": "https://schema.org"} </script>
-    <script type="application/ld+json"> {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "策展", "item": "https://www.aihrlab.online/bridge/"}, {"@type": "ListItem", "position": 3, "name": "AI 转型人才对接", "item": "https://www.aihrlab.online/bridge/"}], "@context": "https://schema.org"} </script>
+    <script type="application/ld+json"> {"@type": "WebPage", "name": "策展中心 · 编辑精选阅读路径与人才对接", "description": "AIHR 策展层把散落在文章、资源库、测评、术语词典与专题枢纽的真实资产，用编辑视角串成你该走的路，并提供人工人才对接。", "inLanguage": "zh-CN", "url": "https://www.aihrlab.online/bridge/", "isPartOf": {"@type": "WebSite", "name": "AIHR数智引擎", "url": "https://www.aihrlab.online"}, "@context": "https://schema.org"} </script>
+    <script type="application/ld+json"> {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "策展", "item": "https://www.aihrlab.online/bridge/"}, {"@type": "ListItem", "position": 3, "name": "策展中心", "item": "https://www.aihrlab.online/bridge/"}], "@context": "https://schema.org"} </script>
     <script type="application/ld+json"> {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "AI 转型人才对接收费吗？", "acceptedAnswer": {"@type": "Answer", "text": "当前阶段完全免费。这是 AIHR数智引擎作为内容品牌的信任建设延伸，不向企业或人才任何一方收费，也不做付费置顶或竞价排名。未来若形态升级，会先与读者共同规划。"}}, {"@type": "Question", "name": "你们用什么做匹配，是算法吗？", "acceptedAnswer": {"@type": "Answer", "text": "不靠算法。由编辑（主理人）基于你提交的意图做人工撮合。这比算法慢，但更准、更可信，也刻意避开了「再做另一个招聘平台」的重复建设。我们相信在 AI+HR 这个垂直领域，信任比数据规模更能解决错配。"}}, {"@type": "Question", "name": "我提交的信息会被泄露吗？", "acceptedAnswer": {"@type": "Answer", "text": "提交内容仅用于双向牵线，不会在未经同意的情况下公开你的具体身份或联系方式。企业侧看到的是脱敏后的需求画像，人才侧同理。真实对接前，双方都先确认意愿。"}}, {"@type": "Question", "name": "哪些企业和人才适合来对接？", "acceptedAnswer": {"@type": "Answer", "text": "只要是「AI 转型」相关的真实需求都欢迎：传统行业想补齐 AI 能力、科技公司扩充 AI 团队；以及有 AI 实践能力（不限于算法工程师，也包括业务+AI 复合、AI 产品、懂数据的运营等）想找对的平台的人。"}}], "@context": "https://schema.org"} </script>
 <script src="/assets/js/analytics-loader.js" defer></script>
 </head>
@@ -64,28 +97,95 @@
 <nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li></ol></nav>
 <div class="article-content">
 <article class="article-content-wrapper">
-<nav class="breadcrumb"><a href="/index.html">首页</a><span class="separator">/</span><a href="/bridge/index.html">策展</a><span class="separator">/</span><span>AI 转型人才对接</span></nav>
+<nav class="breadcrumb"><a href="/index.html">首页</a><span class="separator">/</span><a href="/bridge/index.html">策展</a><span class="separator">/</span><span>策展中心</span></nav>
 
 <header class="article-header">
-<h1>AI 转型人才对接</h1>
-<p class="article-excerpt">企业找不到对的 AI 人，人才找不到认真做 AI 的企业。我们不做算法匹配，用编辑的信任与人工撮合，把两边连起来。</p>
+<h1>策展中心</h1>
+<p class="article-excerpt">我们不只是写文章。AIHR 把散落在文章、资源库、测评、术语词典与专题枢纽里的真实资产，用编辑视角重新串成你该走的路——再顺手把对的人和对的企业牵起来。</p>
 </header>
 
 <section class="article-section">
-<p>2025 到 2026 年，就业市场出现一个诡异的并存：一边是应届生和转岗者喊「工作难找」，一边是制造业、服务业、新兴产业集体喊「招不到人」。新经济行业整体人才供需比升到 <strong>2.23</strong>，但「有人没活干」和「有活没人干」同时发生。</p>
-<p>错配的不是人不够，是<strong>对的人和对的企业没碰上</strong>。而 AI+HR 这个垂直领域更特殊：企业常不知道怎么评估一个 AI 人才到底行不行，人才也分不清哪些企业是「真做转型」、哪些只是挂个 AI 幌子。现有平台用算法和规模去解决，却补不上「信任」这一环。</p>
+<p class="curate-intro">这个站点是一条链路：<strong>学</strong>（文章）→ <strong>用</strong>（资源库）→ <strong>测</strong>（测评）→ <strong>查</strong>（术语词典）→ <strong>串</strong>（专题枢纽）。「策展」是这条链路的桥——我们做两件事：① <strong>编辑精选阅读路径</strong>，把对的资产递到你手；② <strong>人才对接</strong>，用人工撮合把对的人和对的企业牵起来。下面都是已经存在的真实内容，点开即走。</p>
+</section>
 
+<section class="article-section">
+<h2>主题策展 · 三条阅读路径</h2>
+<p>每条路径横向打通五层，标注资产所在层（学 / 用 / 测 / 查 / 串 / 题），你可以顺着任何一条走到底。</p>
+<div class="curate-paths">
+
+<div class="curate-path">
+<span class="path-kicker">路径 A</span>
+<h3>AI 原生组织重构</h3>
+<p class="why">从「转型」走向「原生」：当 AI 成为组织底层，HR 与管理者要重建范式、结构与效能度量。</p>
+<ul class="curate-list">
+<li><span class="layer-tag">学</span><a href="/articles/ai-native-org-hr-2026.html">AI原生企业不是转型：HR必须理解的第三种范式</a></li>
+<li><span class="layer-tag">学</span><a href="/articles/ai-era-org-rigidity.html">AI时代，如何破除组织僵化？三个「反直觉」动作</a></li>
+<li><span class="layer-tag">串</span><a href="/hub/ai-native-org.html">AI 原生组织范式与组织设计（2026 专题枢纽）</a></li>
+<li><span class="layer-tag">用</span><a href="/resources/ai-readiness.html">AI 转型准备度自测</a></li>
+<li><span class="layer-tag">用</span><a href="/resources/ai-transformation-roadmap-manual.html">AI 转型落地路线图手册</a></li>
+<li><span class="layer-tag">测</span><a href="/tools/dri-self-assessment.html">DRI成熟度诊断</a></li>
+<li><span class="layer-tag">查</span><a href="/glossary/index.html">AI+HR 术语词典</a></li>
+</ul>
+</div>
+
+<div class="curate-path">
+<span class="path-kicker">路径 B</span>
+<h3>AI 裁员与组织减法</h3>
+<p class="why">裁员不是终点，是重构的起点。看清减法与乘法的差别，用准备度与变革工具接住震荡。</p>
+<ul class="curate-list">
+<li><span class="layer-tag">学</span><a href="/articles/ai-layoff-7-to-40.html">AI裁员7%飙到40%：你的公司在做减法还是乘法</a></li>
+<li><span class="layer-tag">学</span><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+<li><span class="layer-tag">串</span><a href="/hub/ai-layoff-restructuring.html">AI 裁员与组织减法（2026 专题枢纽）</a></li>
+<li><span class="layer-tag">用</span><a href="/resources/change-readiness-checklist.html">组织变革准备度诊断清单</a></li>
+<li><span class="layer-tag">测</span><a href="/tools/dri-quiz.html">DRI角色成熟度自测</a></li>
+<li><span class="layer-tag">查</span><a href="/glossary/index.html">AI+HR 术语词典</a></li>
+<li><span class="layer-tag">题</span><a href="/tags/layoff.html">AI裁员 主题</a></li>
+</ul>
+</div>
+
+<div class="curate-path">
+<span class="path-kicker">路径 C</span>
+<h3>AI 招聘与人才战略</h3>
+<p class="why">当岗位被拆成能力模块，招聘从「匹配简历」走向「重构画像」。附两套可落地的测评方法论。</p>
+<ul class="curate-list">
+<li><span class="layer-tag">学</span><a href="/articles/ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></li>
+<li><span class="layer-tag">学</span><a href="/articles/ai-skills-based-org-2026.html">技能本位组织：当 AI 把岗位拆成能力模块</a></li>
+<li><span class="layer-tag">学</span><a href="/articles/ai-talent-profile-reconstruction-2026.html">AI时代人才画像重构：岗位能力模型怎么变</a></li>
+<li><span class="layer-tag">串</span><a href="/hub/ai-talent-recruiting.html">AI 人才与招聘重构（2026 专题枢纽）</a></li>
+<li><span class="layer-tag">测</span><a href="/assessments/bigfive.html">大五人格是什么：五维模型与 AI 时代修正（方法论）</a></li>
+<li><span class="layer-tag">测</span><a href="/assessments/disc.html">DISC 是什么：四种行为风格与 AI 时代（方法论）</a></li>
+<li><span class="layer-tag">用</span><a href="/resources/skill-gap-diagnosis.html">技能缺口诊断自测</a></li>
+<li><span class="layer-tag">题</span><a href="/tags/talent.html">人才战略 主题</a></li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="article-section">
+<h2>编辑精选资产</h2>
+<p>从资源库与测评里挑出的高频实用件，打开即用，不走弯路。</p>
+<div class="curate-grid">
+<a class="curate-card" href="/resources/role-ai-exposure.html"><span class="cc-kicker">资源 · 矩阵</span><h4>岗位 AI 暴露度速查矩阵</h4><p>一眼看清你的岗位被 AI 替代/增强的概率分布。</p></a>
+<a class="curate-card" href="/resources/org-7s-assessment.html"><span class="cc-kicker">资源 · 自测</span><h4>McKinsey 7S 组织一致性自测</h4><p>用七个维度诊断组织哪根筋拧着。</p></a>
+<a class="curate-card" href="/resources/ai-governance-checklist.html"><span class="cc-kicker">资源 · 清单</span><h4>AI 治理合规清单</h4><p>上线任何一个 AI 用例前，先过这一遍。</p></a>
+<a class="curate-card" href="/resources/ai-literacy-self-test.html"><span class="cc-kicker">资源 · 自测</span><h4>AI 素养自测</h4><p>团队到底懂不懂 AI，测完有数。</p></a>
+<a class="curate-card" href="/tools/dri-self-assessment.html"><span class="cc-kicker">测评 · 诊断</span><h4>DRI成熟度诊断</h4><p>单一责任人机制，你的团队处在哪一级。</p></a>
+<a class="curate-card" href="/assessments/holland.html"><span class="cc-kicker">测评 · 方法论</span><h4>霍兰德 RIASEC：六型与 AI 时代修正</h4><p>经典职业兴趣模型在 AI 时代的重新校准。</p></a>
+</div>
+</section>
+
+<section class="article-section">
+<h2>人才对接 · 人工策展式牵线</h2>
+<p>这是策展层的第二个动作，也是本站最「重信任」的差异化服务。我们不做算法匹配，用编辑的信任与人工撮合，把企业侧与人才侧连起来。</p>
 <div class="bridge-stats">
 <div class="stat"><span class="stat-num">2.23</span><span class="stat-label">新经济人才供需比，近三年新高</span></div>
 <div class="stat"><span class="stat-num">−40%</span><span class="stat-label">面向 1 年经验岗位的新发量</span></div>
 <div class="stat"><span class="stat-num">两端</span><span class="stat-label">企业喊缺人，人才喊没岗</span></div>
 </div>
-
 <blockquote>我们不建另一个招聘平台，而是用已经积累的编辑信任，做一件更简单也更难被替代的事——人工策展式牵线。</blockquote>
-</section>
 
-<section class="article-section">
-<h2>两条路径，一个入口</h2>
+<h2 style="margin-top:var(--space-xl)">两条路径，一个入口</h2>
 <div class="bridge-paths">
 <div class="path">
 <span class="path-kicker">企业侧</span>
@@ -100,10 +200,8 @@
 <p class="path-note">提交后 → 主理人帮你对接到真实有需求的企业侧，也把你纳入后续的「AIHR 信号」人才观察。</p>
 </div>
 </div>
-</section>
 
-<section class="article-section">
-<h2>怎么提交</h2>
+<h2 style="margin-top:var(--space-xl)">怎么提交</h2>
 <ol class="bridge-steps">
 <li>扫码关注公众号 <strong>AIHR数智引擎</strong></li>
 <li>回复「对接」并注明你的角色（企业 / 人才）</li>
@@ -130,6 +228,18 @@
 <summary style="cursor:pointer;font-weight:500;">哪些企业和人才适合来对接？</summary>
 <p style="color:var(--text-muted);margin:.75rem 0 0;line-height:1.7;">只要是「AI 转型」相关的真实需求都欢迎：传统行业想补齐 AI 能力、科技公司扩充 AI 团队；以及有 AI 实践能力（不限于算法工程师，也包括业务+AI 复合、AI 产品、懂数据的运营等）想找对的平台的人。</p>
 </details>
+</section>
+
+<section class="article-section">
+<h2>下一步去哪</h2>
+<div class="next-steps">
+<a href="/articles/index.html">全部文章</a>
+<a href="/resources/index.html">资源库</a>
+<a href="/tools/index.html">在线测评</a>
+<a href="/hub/index.html">专题枢纽</a>
+<a href="/glossary/index.html">术语词典</a>
+<a href="/tags/index.html">标签总览</a>
+</div>
 </section>
 
 <div class="article-footer-qr">
