@@ -52,7 +52,10 @@ def _all_html(site_root):
             dirs.remove("node_modules")
         for f in files:
             if f.endswith(".html"):
-                out.append(os.path.join(root, f))
+                full = os.path.join(root, f)
+                if os.path.relpath(full, site_root).replace(os.sep, '/').startswith("templates/"):
+                    continue  # 模板片段源（_chrome.html / section-index.html）非部署页，跳过共享资源校验
+                out.append(full)
     return out
 
 

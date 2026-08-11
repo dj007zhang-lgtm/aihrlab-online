@@ -852,7 +852,10 @@ def _get_all_html_files():
         for f in files:
             if f.endswith('.html'):
                 fp = os.path.join(root, f)
+                rel = os.path.relpath(fp, SITE_ROOT).replace(os.sep, '/')
                 if 'design-system' in fp:  # 设计系统规范文档（assets/design-system.html）非内容页，跳过内容校验
+                    continue
+                if rel.startswith('templates/'):  # 模板片段源（_chrome.html / section-index.html）非部署页，跳过全站内容校验
                     continue
                 results.append(fp)
     return results

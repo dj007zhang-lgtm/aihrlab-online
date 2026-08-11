@@ -72,6 +72,8 @@ def find_missing_h1(site_root=SITE_ROOT):
             if not fn.endswith('.html'):
                 continue
             fpath = os.path.join(root, fn)
+            if os.path.relpath(fpath, site_root).replace(os.sep, '/').startswith('templates/'):
+                continue  # 模板片段源（_chrome.html / section-index.html）非部署页，跳过 H1 校验
             try:
                 with open(fpath, 'r', encoding='utf-8', errors='ignore') as fh:
                     content = fh.read()
