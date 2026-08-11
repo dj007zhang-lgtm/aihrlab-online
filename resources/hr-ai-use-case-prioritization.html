@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR AI 用例优先级矩阵 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="把 HR 场景的 AI 用例按「价值 / 可行性 / 数据就绪 / 合规风险」四维拆解，给出优先级建议，支持按职能筛选。帮你判断先上哪个、避开哪个、哪个要等数据或合规就位。">
+<meta name="keywords" content="HR AI 用例,优先级矩阵,招聘AI,绩效AI,薪酬AI,培训AI,员工体验,组织发展,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="HR AI 用例优先级矩阵 — 资源库浏览器内即用">
+<meta property="og:description" content="HR AI 用例四维优先级矩阵，支持按职能筛选。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/hr-ai-use-case-prioritization.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/hr-ai-use-case-prioritization.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "HR AI 用例优先级矩阵", "item": "https://www.aihrlab.online/resources/hr-ai-use-case-prioritization.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .filter-bar{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .filter-chip{ border:1.5px solid var(--line-strong); background:var(--surface); color:var(--text-secondary); border-radius:20px; padding:0.4rem 0.95rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
+  .filter-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .filter-chip.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cmc-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .cmc-row{ display:grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr 0.9fr 1.6fr; gap:0.6rem; padding:0.85rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .cmc-row:last-child{ border-bottom:none; }
+  .cmc-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.78rem; }
+  .cmc-model{ font-size:0.84rem; color:var(--text); font-weight:700; }
+  .cmc-cell{ font-size:0.78rem; color:var(--text-secondary); line-height:1.55; }
+  .cmc-cell b{ color:var(--text); font-weight:600; }
+  .rae-empty{ text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.85rem; }
+  .rae-about{ max-width:1100px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .cmc-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .cmc-row{ grid-template-columns:1fr; gap:0.3rem; } .cmc-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/hr-ai-use-case-prioritization.html"><span itemprop="name">HR AI 用例优先级矩阵</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">HR AI 用例优先级 v1.0</div>
+    <h1>HR AI 用例优先级矩阵</h1>
+    <p>把 HR 各职能的 AI 用例按「价值 / 可行性 / 数据就绪 / 合规风险」四维拆解，给出优先级建议。点上方法域可只看某一职能，帮你决定先上哪个、避开哪个、哪个要等数据或合规就位。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 怎么读这张表</strong><br>
+    优先级不是「谁最酷就用谁」，而是<strong>价值 × 可行性，再被合规与数据卡住</strong>。记号含义：价值 / 可行性 / 数据就绪用「高 / 中 / 低」；合规风险用「高 / 中 / 低」表示<strong>需要投入的治理成本</strong>（高＝须先建公平、个保、审计机制）。建议栏给出动手顺序。
+  </div>
+
+  <div class="filter-bar" id="cmcFilter">
+    <button class="filter-chip active" data-g="all">全部</button>
+    <button class="filter-chip" data-g="recruit">招聘</button>
+    <button class="filter-chip" data-g="perf">绩效</button>
+    <button class="filter-chip" data-g="comp">薪酬</button>
+    <button class="filter-chip" data-g="learn">培训</button>
+    <button class="filter-chip" data-g="ex">员工体验</button>
+    <button class="filter-chip" data-g="od">组织发展</button>
+  </div>
+
+  <div class="cmc-matrix" id="cmcMatrix">
+    <div class="cmc-row cmc-row--head">
+      <div>用例</div><div>价值</div><div>可行性</div><div>数据就绪</div><div>合规风险</div><div>优先级建议</div>
+    </div>
+
+    <div class="cmc-row" data-g="recruit">
+      <div class="cmc-model">简历解析与初筛</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">高</div><div class="cmc-cell">高</div><div class="cmc-cell"><b>中高</b></div>
+      <div class="cmc-cell">优先上：先用规则 + 人工复核，做 fairness 测试再放量</div>
+    </div>
+
+    <div class="cmc-row" data-g="recruit">
+      <div class="cmc-model">招聘外呼与面试安排</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">快速试：流程性、低风险，适合作为首个试点</div>
+    </div>
+
+    <div class="cmc-row" data-g="recruit">
+      <div class="cmc-model">AI 面试官</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell"><b>高</b></div>
+      <div class="cmc-cell">谨慎上：须先立公平、可解释与人工否决，对接 EU AI Act 高风险义务</div>
+    </div>
+
+    <div class="cmc-row" data-g="perf">
+      <div class="cmc-model">绩效评语辅助生成</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div>
+      <div class="cmc-cell">可上：作为草稿辅助，保留管理者终审与可追溯</div>
+    </div>
+
+    <div class="cmc-row" data-g="perf">
+      <div class="cmc-model">目标设定 / OKR 教练</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">中等推进：依赖管理者采纳，先做小范围陪练</div>
+    </div>
+
+    <div class="cmc-row" data-g="comp">
+      <div class="cmc-model">薪酬带宽分析与对标</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div>
+      <div class="cmc-cell">重点上：价值高，但须做好薪酬保密与公平口径</div>
+    </div>
+
+    <div class="cmc-row" data-g="comp">
+      <div class="cmc-model">薪酬沟通话术生成</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">快速试：低风险辅助，宜早落地攒信心</div>
+    </div>
+
+    <div class="cmc-row" data-g="learn">
+      <div class="cmc-model">个性化学习路径推荐</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">优先上：价值与可行性兼高，合规负担轻</div>
+    </div>
+
+    <div class="cmc-row" data-g="learn">
+      <div class="cmc-model">培训内容生成</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">高</div><div class="cmc-cell">高</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">快速试：素材生产提效明显，需人工校验准确性</div>
+    </div>
+
+    <div class="cmc-row" data-g="ex">
+      <div class="cmc-model">员工问答助手 / HRSSC</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div>
+      <div class="cmc-cell">优先上：覆盖广、见效快，须做好个保与脱敏</div>
+    </div>
+
+    <div class="cmc-row" data-g="ex">
+      <div class="cmc-model">离职风险预警</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell"><b>中高</b></div>
+      <div class="cmc-cell">审慎上：涉及员工画像，须透明、可申诉、防歧视</div>
+    </div>
+
+    <div class="cmc-row" data-g="od">
+      <div class="cmc-model">组织网络分析 / 人才盘点</div>
+      <div class="cmc-cell">高</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div>
+      <div class="cmc-cell">重点上：支撑组织诊断，须匿名化与用途限定</div>
+    </div>
+
+    <div class="cmc-row" data-g="od">
+      <div class="cmc-model">OD 诊断报告生成</div>
+      <div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">中</div><div class="cmc-cell">低</div>
+      <div class="cmc-cell">中等推进：作为分析草稿，保留顾问终审</div>
+    </div>
+
+    <div class="rae-empty" id="cmcEmpty" style="display:none;">该职能下暂无用例。</div>
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「我们 HR 还能用 AI 干点啥」是高频问题，但真正难的不是列清单，而是<strong>排优先级</strong>：资源有限，先上哪个才能既出价值又不踩雷。HR AI 用例优先级矩阵把每个用例拆成<strong>价值、可行性、数据就绪、合规风险</strong>四个维度，让排序从「拍脑袋」变成「看约束」——价值高且可行高的先上，合规风险高的先补机制再上。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>定位职能</strong>：点上方法域 chips 只看某一职能（如招聘），便于局部排序。</li>
+    <li><strong>读行</strong>：每行给出四维评级与优先级建议。</li>
+    <li><strong>排序逻辑</strong>：价值 × 可行性高的「优先上」；合规风险高的「先建机制再上」；数据就绪低的「先补数据」。</li>
+    <li><strong>组合用</strong>：建议从「快速试」类低风险用例攒早期胜利，再攻坚高价值高合规用例。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>HR 场景的 AI 落地常被两类隐性成本卡住：<strong>数据</strong>（历史数据质量、口径、权限）与<strong>合规</strong>（公平、个保、可解释）。本矩阵的价值在于把这两类约束显式标出，避免「价值高就盲目上、上线才发现数据或合规没就位」的翻车。评级为经验性判断，应结合所在组织的数据基础、法域与风险偏好校准。</p>
+  <p>落地时建议同步参考 AI 治理合规清单、EU AI Act 高风险义务与算法偏见合规要求，把治理动作前置到选型阶段。</p>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：HR AI 用例四维优先级矩阵初版，统一森林绿设计系统，含职能筛选与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本矩阵为选型辅助工具，具体合规义务须咨询法律与合规专业人士，并结合所在法域与最新修订。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">AI 招聘合规与算法偏见：HR 的底线与操作</a></li>
+    <li><a href="/articles/agent-interviewer-boundary-2026.html">AI 面试官上岗：HR 如何守住公平与合规底线</a></li>
+    <li><a href="/articles/eu-ai-act-omnibus-hr-2026.html">EU AI Act Omnibus 与 HR：高风险义务怎么落地</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('#cmcFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#cmcFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const g = chip.dataset.g;
+      let visible = 0;
+      document.querySelectorAll('#cmcMatrix .cmc-row[data-g]').forEach(row => {
+        const show = (g === 'all') || (row.dataset.g === g);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('cmcEmpty').style.display = (g !== 'all' && visible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 风险分类矩阵 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="按 EU AI Act 风险分级（不可接受 / 高 / 有限 / 最小）组织的 AI 风险分类矩阵，标注典型场景、核心义务与 HR 相关示例，并提供 HR 场景专项行，支持按通用分级或 HR 场景筛选。">
+<meta name="keywords" content="AI风险分级,EU AI Act,高风险,招聘AI,员工监控,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 风险分类矩阵 — 资源库浏览器内即用">
+<meta property="og:description" content="按风险分级与 HR 场景组织的 AI 风险分类矩阵。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-risk-tier-matrix.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-risk-tier-matrix.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 风险分类矩阵", "item": "https://www.aihrlab.online/resources/ai-risk-tier-matrix.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:1100px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .filter-bar{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .filter-chip{ border:1.5px solid var(--line-strong); background:var(--surface); color:var(--text-secondary); border-radius:20px; padding:0.4rem 0.95rem; font-size:0.8rem; cursor:pointer; transition:all 0.15s; }
+  .filter-chip:hover{ border-color:var(--accent); color:var(--accent); }
+  .filter-chip.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .cmc-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .cmc-row{ display:grid; grid-template-columns: 1fr 1.8fr 1.8fr 1.6fr; gap:0.8rem; padding:0.95rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .cmc-row:last-child{ border-bottom:none; }
+  .cmc-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.8rem; }
+  .cmc-model{ font-size:0.88rem; color:var(--text); font-weight:700; }
+  .cmc-model small{ display:block; font-weight:400; color:var(--text-muted); font-size:0.7rem; margin-top:0.15rem; }
+  .cmc-cell{ font-size:0.78rem; color:var(--text-secondary); line-height:1.6; }
+  .cmc-cell b{ color:var(--text); font-weight:600; }
+  .rae-empty{ text-align:center; padding:1.5rem; color:var(--text-muted); font-size:0.85rem; }
+  .rae-about{ max-width:1100px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .cmc-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .cmc-row{ grid-template-columns:1fr; gap:0.4rem; } .cmc-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-risk-tier-matrix.html"><span itemprop="name">AI 风险分类矩阵</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">AI 风险分类矩阵 v1.0</div>
+    <h1>AI 风险分类矩阵</h1>
+    <p>按 EU AI Act 的风险分级（不可接受 / 高 / 有限 / 最小）组织的 AI 风险分类矩阵，标注典型场景、核心义务与 HR 相关示例，并单列 HR 场景。点上方可只看通用分级或 HR 场景。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 怎么读这张表</strong><br>
+    风险分级的意义在于<strong>「对的事用对的力度管」</strong>：不可接受的直接禁止，高风险的强监管，有限风险的透明度要求，最小风险的轻监管。HR 场景（招聘、绩效、监控）多落入高风险或有限风险，是组织最容易踩红线、也最该提前对齐的地方。
+  </div>
+
+  <div class="filter-bar" id="cmcFilter">
+    <button class="filter-chip active" data-g="all">全部</button>
+    <button class="filter-chip" data-g="gen">通用分级</button>
+    <button class="filter-chip" data-g="hr">HR 场景</button>
+  </div>
+
+  <div class="cmc-matrix" id="cmcMatrix">
+    <div class="cmc-row cmc-row--head">
+      <div>风险等级</div><div>典型场景</div><div>核心义务</div><div>HR 相关示例</div>
+    </div>
+
+    <div class="cmc-row" data-g="gen">
+      <div class="cmc-model">不可接受<small>Unacceptable</small></div>
+      <div class="cmc-cell">社会评分、操纵性 AI、利用漏洞的政府式监控等</div>
+      <div class="cmc-cell"><b>禁止</b>在欧盟市场提供或使用</div>
+      <div class="cmc-cell">—（HR 场景原则上不落入此级，但须警惕「隐性社会评分」式用法）</div>
+    </div>
+
+    <div class="cmc-row" data-g="gen hr">
+      <div class="cmc-model">高风险<small>High</small></div>
+      <div class="cmc-cell">就业、招聘、教育、关键基础设施、执法等影响重大权利的系统</div>
+      <div class="cmc-cell">风险识别、数据治理、人工监督、透明度、合规评估与注册</div>
+      <div class="cmc-cell">AI 简历筛选、候选人打分、裁员决策辅助——须做偏见测试与人工复核</div>
+    </div>
+
+    <div class="cmc-row" data-g="gen">
+      <div class="cmc-model">有限风险<small>Limited</small></div>
+      <div class="cmc-cell">与用户直接交互的 AI（聊天机器人、生成内容）、深度合成</div>
+      <div class="cmc-cell"><b>透明度</b>义务：告知用户正在与 AI 交互 / 内容为 AI 生成</div>
+      <div class="cmc-cell">面向员工的 AI 助手、自动生成的招聘沟通文案（须明示 AI 生成）</div>
+    </div>
+
+    <div class="cmc-row" data-g="gen">
+      <div class="cmc-model">最小风险<small>Minimal</small></div>
+      <div class="cmc-cell">垃圾邮件过滤、游戏 AI、大多数内部效率工具</div>
+      <div class="cmc-cell">轻监管，鼓励自愿遵循最佳实践</div>
+      <div class="cmc-cell">内部会议纪要整理、周报草稿生成等低风险效率工具</div>
+    </div>
+
+    <div class="cmc-row" data-g="hr">
+      <div class="cmc-model">HR 专项 · 招聘 / 筛选<small>高 / 有限</small></div>
+      <div class="cmc-cell">简历解析、初筛、视频面试分析、候选人匹配</div>
+      <div class="cmc-cell">按高风险对齐：数据治理、偏见测试、人工监督；透明告知</div>
+      <div class="cmc-cell">避免代理歧视；保留人工否决；可解释与可追溯</div>
+    </div>
+
+    <div class="cmc-row" data-g="hr">
+      <div class="cmc-model">HR 专项 · 监控 / 绩效<small>高 / 有限</small></div>
+      <div class="cmc-cell">员工行为监控、情绪分析、绩效自动评估</div>
+      <div class="cmc-cell">高风险对齐 + 隐私保护；敏感场景需更强知情同意</div>
+      <div class="cmc-cell">警惕「持续性监控」滑向不可接受；明确数据用途与边界</div>
+    </div>
+
+    <div class="rae-empty" id="cmcEmpty" style="display:none;">该维度下暂无条目。</div>
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「这个 AI 要用多严的合规」答案取决于它落在哪个风险等级。<strong>AI 风险分类矩阵</strong>把 EU AI Act 的四级风险框架与 HR 场景对齐，让你一眼看清「某类用法该走禁止 / 强监管 / 透明 / 轻监管」，而不是所有 AI 一刀切或全凭感觉。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>定位等级</strong>：判断你打算用的 AI 落到哪一级，对应什么义务。</li>
+    <li><strong>读行</strong>：每行给出典型场景、核心义务与 HR 相关示例。</li>
+    <li><strong>用筛选</strong>：点上方 chips 只看通用分级或 HR 场景。</li>
+    <li><strong>重点看 HR</strong>：招聘与监控多落入高 / 有限风险，是最该提前对齐的红线区。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>EU AI Act（Regulation (EU) 2024/1689）以<strong>风险分级</strong>作为强制义务的核心逻辑：不可接受风险直接禁止；高风险系统须满足数据治理、人工监督、透明度与合规评估等硬性要求（高风险义务自 2026-08-02 起适用）；有限风险主要承担透明度义务；最小风险轻监管。其中就业、招聘等 HR 场景被明确列为高风险，因为直接影响个人重大权利。本表把该分级与 HR 实际用法对齐，帮助组织「对的事用对的力度管」。具体义务须结合最新法规与所在法域，并咨询法律与合规专业人士。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>立项自检版</strong>：新 AI 用例先定位风险等级，再决定合规投入。</li>
+    <li><strong>红线清单版</strong>：据「不可接受 / 高风险」列出组织内禁止与强监管清单。</li>
+    <li><strong>培训版</strong>：用作 HR / 合规培训的速查底稿。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：风险分级矩阵初版，统一森林绿设计系统，含 HR 专项行与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本表为风险分类参考辅助工具，具体合规义务须咨询法律与合规专业人士，并结合所在法域与最新修订。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/eu-ai-act-omnibus-hr-2026.html">EU AI Act Omnibus 与 HR：高风险义务怎么落地</a></li>
+    <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">AI 招聘合规与算法偏见：HR 的底线与操作</a></li>
+    <li><a href="/articles/agent-interviewer-boundary-2026.html">AI 面试官上岗：HR 如何守住公平与合规底线</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('#cmcFilter .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#cmcFilter .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const g = chip.dataset.g;
+      let visible = 0;
+      document.querySelectorAll('#cmcMatrix .cmc-row[data-g]').forEach(row => {
+        const tags = row.dataset.g.split(' ');
+        const show = (g === 'all') || tags.includes(g);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('cmcEmpty').style.display = (g !== 'all' && visible === 0) ? 'block' : 'none';
+    });
+  });
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 治理中国监管速查 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="面向 HR 与合规负责人的中国生成式 AI 监管速查手册：以《生成式人工智能服务管理暂行办法》（2023-08-15 施行）为主线，梳理适用范围、核心义务、关键节点及与 HR 场景相关的实操要点。">
+<meta name="keywords" content="中国AI监管,生成式AI办法,算法备案,安全评估,AI合规,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 治理中国监管速查 — 资源库浏览器内即用">
+<meta property="og:description" content="以生成式 AI 办法为主线的中国 AI 监管速查手册。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/china-ai-regulation-manual.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/china-ai-regulation-manual.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 治理中国监管速查", "item": "https://www.aihrlab.online/resources/china-ai-regulation-manual.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:980px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .cmc-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:1rem 0 1.5rem; }
+  .cmc-row{ display:grid; grid-template-columns: 1.2fr 2.6fr; gap:0.8rem; padding:0.85rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .cmc-row:last-child{ border-bottom:none; }
+  .cmc-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.82rem; }
+  .cmc-model{ font-size:0.86rem; color:var(--text); font-weight:700; }
+  .cmc-cell{ font-size:0.82rem; color:var(--text-secondary); line-height:1.7; }
+  .rae-about{ max-width:980px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.6rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about h3{ font-size:1.02rem; color:var(--text); margin:1.2rem 0 0.4rem; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul, .rae-about ol{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-about strong{ color:var(--text); }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .cmc-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .cmc-row{ grid-template-columns:1fr; gap:0.3rem; } .cmc-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/china-ai-regulation-manual.html"><span itemprop="name">AI 治理中国监管速查</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">中国 AI 监管速查 v1.0</div>
+    <h1>AI 治理中国监管速查</h1>
+    <p>以《生成式人工智能服务管理暂行办法》为主线，为 HR 与合规负责人梳理中国生成式 AI 监管的适用范围、核心义务、关键节点，以及与 HR 场景真正相关的实操要点。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 读前提醒</strong><br>
+    本办法的约束主体是<strong>「面向境内公众提供生成式 AI 服务」的提供者</strong>。企业内部的 HR / 员工侧 AI 工具若仅内部使用、不对外提供生成式服务，本办法的<strong>直接约束相对间接</strong>；但一旦涉及对外服务、算法备案 / 安全评估情形，或触碰个人信息与数据，仍需对接《个人信息保护法》《数据安全法》等。下文会明确区分「直接适用」与「间接受影响」。
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>一、是什么</h2>
+  <p>《<strong>生成式人工智能服务管理暂行办法</strong>》由国家互联网信息办公室等七部门联合发布（七部门令 第 15 号），于 <strong>2023 年 7 月 13 日公布，2023 年 8 月 15 日起正式施行</strong>。它是国内针对生成式 AI 服务上线与运营的主要合规依据之一，确立了「发展与安全并重、促进创新与依法治理结合」的基本取向。</p>
+
+  <h2>二、适用范围</h2>
+  <ul>
+    <li><strong>直接适用</strong>：向中华人民共和国境内公众提供生成式人工智能服务的<strong>提供者</strong>（如面向用户的聊天、写作、图像、代码生成等服务）。</li>
+    <li><strong>间接受影响</strong>：企业内部使用的 AI 工具，虽非「向公众提供」，但涉及训练数据来源、个人信息处理、算法推荐等时，仍可能触发其他相关法规。</li>
+    <li><strong>特别规定优先</strong>：深度合成、算法推荐等有专门规定的，从其规定（如《互联网信息服务深度合成管理规定》《互联网信息服务算法推荐管理规定》）。</li>
+  </ul>
+
+  <h2>三、核心义务（提供者）</h2>
+  <div class="cmc-matrix">
+    <div class="cmc-row cmc-row--head"><div>义务</div><div>要点</div></div>
+    <div class="cmc-row"><div class="cmc-model">内容合规</div><div class="cmc-cell">坚持社会主义核心价值观，不得生成违法内容；采取措施防止生成违法不良信息</div></div>
+    <div class="cmc-row"><div class="cmc-model">尊重权益</div><div class="cmc-cell">尊重知识产权，不得侵害他人合法权益；对个人信息处理须合法、正当、必要</div></div>
+    <div class="cmc-row"><div class="cmc-model">数据质量</div><div class="cmc-cell">训练数据来源合法，保证真实性、准确性、客观性、多样性，提升质量、减少偏见</div></div>
+    <div class="cmc-row"><div class="cmc-model">标识与透明</div><div class="cmc-cell">对生成内容进行适当标识，对影响用户权益的需明示 AI 身份与机制</div></div>
+    <div class="cmc-row"><div class="cmc-model">备案与评估</div><div class="cmc-cell">具有舆论属性或社会动员能力的，按相关规定履行<strong>算法备案</strong>与<strong>安全评估</strong></div></div>
+    <div class="cmc-row"><div class="cmc-model">投诉与纠偏</div><div class="cmc-cell">建立投诉举报机制，对违法内容及时处置，并受理用户更正、删除等请求</div></div>
+  </div>
+
+  <h2>四、与 HR 场景相关的要点</h2>
+  <h3>1. 内部 HR 工具：以数据与个保法为主线</h3>
+  <p>企业用 AI 做简历解析、内部助手、培训生成等，若仅内部使用，本办法直接约束较弱，但<strong>《个人信息保护法》</strong>对候选人 / 员工个人信息的处理（收集、使用、留存）提出明确要求；涉及大规模自动化决策的，还应关注算法公平与可解释。</p>
+  <h3>2. 对外提供的招聘 / 测评服务：触发本办法</h3>
+  <p>若企业对外提供 AI 招聘、AI 测评等生成式服务，则落入本办法提供者义务，须关注内容合规、标识、数据来源与备案 / 评估。</p>
+  <h3>3. 算法推荐与歧视风险</h3>
+  <p>《互联网信息服务算法推荐管理规定》要求保障用户权益、算法透明，并不得利用算法实施不合理差别待遇。招聘场景的 AI 筛选尤其须防范代理歧视与偏见。</p>
+
+  <h2>五、HR 可落地的实操清单</h2>
+  <ol>
+    <li><strong>分清边界</strong>：先判断你的 AI 用法是「对外提供」还是「内部使用」，决定适用哪套合规框架。</li>
+    <li><strong>数据先行</strong>：无论哪类用法，先把个人信息的授权、最小化、脱敏与留存规则立起来。</li>
+    <li><strong>偏见测试</strong>：对招聘 / 绩效等敏感场景做 fairness 检查，保留人工否决与可追溯。</li>
+    <li><strong>对外明示</strong>：凡是对外生成内容或影响用户权益，做好 AI 身份与生成内容标识。</li>
+    <li><strong>关注更新</strong>：监管口径持续演进，定期对照最新规定与主管部门指引。</li>
+  </ol>
+
+  <h2>六、与其他框架的关系</h2>
+  <p>本办法与 EU AI Act、NIST AI RMF、ISO/IEC 42001 并行存在、互不替代：前者是<strong>具强制约束力的国内部门规章</strong>，后两者分别是国际法规与标准。跨国组织需同时对齐「国内合规底线 + 国际方法论 + 价值原则」。</p>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：以生成式 AI 办法为主线的中国 AI 监管速查手册初版，统一森林绿设计系统，含核心义务表与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本手册为监管参考辅助工具，具体合规义务须咨询法律与合规专业人士，并结合最新规定与所在情形。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">AI 招聘合规与算法偏见：HR 的底线与操作</a></li>
+    <li><a href="/articles/agent-interviewer-boundary-2026.html">AI 面试官上岗：HR 如何守住公平与合规底线</a></li>
+    <li><a href="/articles/eu-ai-act-omnibus-hr-2026.html">EU AI Act Omnibus 与 HR：高风险义务怎么落地</a></li>
+  </ul>
+</section>
+</main>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 转型落地路线图手册 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="把 AI 转型拆成可执行的五阶段路线图：从战略锚定、试点验证、规模化、制度固化到能力外溢，每阶段给出关键里程碑、量化指标与常见翻车点。锚定 ADKAR、Kotter 8 步与 McKinsey 7S。">
+<meta name="keywords" content="AI转型路线图,转型阶段,规模化,制度固化,ADKAR,Kotter,McKinsey 7S,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 转型落地路线图手册 — 资源库浏览器内即用">
+<meta property="og:description" content="五阶段 AI 转型落地路线图，含里程碑、指标与翻车点。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-transformation-roadmap-manual.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-transformation-roadmap-manual.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 转型落地路线图手册", "item": "https://www.aihrlab.online/resources/ai-transformation-roadmap-manual.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .rae-wrap{ max-width:980px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .rae-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .rae-back:hover{ color:var(--text-link); }
+  .rae-header{ text-align:center; margin-bottom:1.5rem; }
+  .rae-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .rae-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .rae-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .rae-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .rae-note strong{ color:var(--text); }
+  .cmc-matrix{ border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:1rem 0 1.5rem; }
+  .cmc-row{ display:grid; grid-template-columns: 1.2fr 2.6fr; gap:0.8rem; padding:0.85rem 1.1rem; border-bottom:1px solid var(--line); align-items:start; }
+  .cmc-row:last-child{ border-bottom:none; }
+  .cmc-row--head{ background:var(--bg-subtle); font-weight:700; color:var(--text); font-size:0.82rem; }
+  .cmc-model{ font-size:0.86rem; color:var(--text); font-weight:700; }
+  .cmc-cell{ font-size:0.82rem; color:var(--text-secondary); line-height:1.7; }
+  .rae-about{ max-width:980px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .rae-about h2{ font-size:1.25rem; color:var(--text); margin:1.6rem 0 0.6rem; }
+  .rae-about h2:first-child{ margin-top:0; }
+  .rae-about h3{ font-size:1.02rem; color:var(--text); margin:1.2rem 0 0.4rem; }
+  .rae-about p, .rae-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .rae-about ul, .rae-about ol{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .rae-about strong{ color:var(--text); }
+  .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .cmc-row--head{ box-shadow:none; }
+  @media (max-width:860px){ .cmc-row{ grid-template-columns:1fr; gap:0.3rem; } .cmc-row--head{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-transformation-roadmap-manual.html"><span itemprop="name">AI 转型落地路线图手册</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="rae-wrap">
+  <a class="rae-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="rae-header">
+    <div class="rae-badge">AI 转型路线图 v1.0</div>
+    <h1>AI 转型落地路线图手册</h1>
+    <p>把「上 AI」从一句口号拆成可执行的五阶段：战略锚定 → 试点验证 → 规模化 → 制度固化 → 能力外溢。每阶段给出关键里程碑、量化指标与常见翻车点——帮你判断现在在哪、下一步往哪走。</p>
+  </div>
+
+  <div class="rae-note">
+    <strong>📌 读前提醒</strong><br>
+    路线图不是「买工具然后全员用」的线性清单。大量转型停在<strong>试点热闹、规模无力、制度缺位</strong>——工具先凉、组织没变。本手册的价值在于把转型落到<strong>阶段 × 里程碑 × 指标</strong>，让你先看清卡在哪一程，再决定发力点。框架锚定 ADKAR（个体采用）、Kotter 8 步（变革节奏）与 McKinsey 7S（组织一致性）。
+  </div>
+</section>
+
+<section class="rae-about">
+  <h2>一、五阶段全景</h2>
+  <div class="cmc-matrix">
+    <div class="cmc-row cmc-row--head"><div>阶段</div><div>核心命题与交付物</div></div>
+    <div class="cmc-row"><div class="cmc-model">① 战略锚定</div><div class="cmc-cell">回答「为什么变、变到哪」。明确转型北极星指标（如人均产出、周期缩短率）、对标对象与边界；产出转型章程与一号位背书。对应 Kotter「建立紧迫感 + 指导联盟」。</div></div>
+    <div class="cmc-row"><div class="cmc-model">② 试点验证</div><div class="cmc-cell">在 1–2 个高价值场景跑通「人 + 流程 + AI」闭环，拿到可量化早期胜利。对应 ADKAR 的「认知 / 意愿」建立与 Knowledge 起步。</div></div>
+    <div class="cmc-row"><div class="cmc-model">③ 规模化</div><div class="cmc-cell">把试点方法论复制到多团队，建立复用模板、内部市场与赋能机制。对应 7S 的「系统 / 技能 / 风格」对齐。</div></div>
+    <div class="cmc-row"><div class="cmc-model">④ 制度固化</div><div class="cmc-cell">把新工作方式写入考核、激励、岗位与治理，防回弹。对应 ADKAR 的 Reinforcement 与 Kotter「巩固成果」。</div></div>
+    <div class="cmc-row"><div class="cmc-model">⑤ 能力外溢</div><div class="cmc-cell">把沉淀的能力与方法论对外输出（生态、行业、雇主品牌），形成复利。转型从「内部工程」升级为「组织资产」。</div></div>
+  </div>
+
+  <h2>二、每阶段怎么判过关</h2>
+  <h3>① 战略锚定</h3>
+  <ul>
+    <li><strong>里程碑</strong>：转型章程发布、北极星指标确定、指导联盟成立、预算与权责明确。</li>
+    <li><strong>量化指标</strong>：一号位公开承诺次数 ≥ 1；北极星指标可拆解到团队级；首批场景清单 ≥ 3 个高价值候选。</li>
+    <li><strong>翻车点</strong>：只有 IT 推、业务无感；指标虚（「提升效率」无可度量口径）。</li>
+  </ul>
+  <h3>② 试点验证</h3>
+  <ul>
+    <li><strong>里程碑</strong>：至少 1 个场景端到端跑通，产出早期胜利报告。</li>
+    <li><strong>量化指标</strong>：试点场景周期缩短率 / 错误率改善有基线对照；用户净推荐值（eNPS）正向。</li>
+    <li><strong>翻车点</strong>：试点选了「好做但无关紧要」的活，赢了也没说服力。</li>
+  </ul>
+  <h3>③ 规模化</h3>
+  <ul>
+    <li><strong>里程碑</strong>：复用模板上线、内部赋能体系运行、跨团队复制 ≥ 3 个。</li>
+    <li><strong>量化指标</strong>：活跃采用团队数、人均 AI 任务渗透率、模板复用率。</li>
+    <li><strong>翻车点</strong>：复制靠「人盯人」，无模板无平台，规模即混乱。</li>
+  </ul>
+  <h3>④ 制度固化</h3>
+  <ul>
+    <li><strong>里程碑</strong>：新工作方式写入考核 / 激励 / 岗位说明书；治理与合规机制就位。</li>
+    <li><strong>量化指标</strong>：采用行为纳入考核的岗位比例；回弹率（试点后打回原状的比例）下降。</li>
+    <li><strong>翻车点</strong>：靠自觉维持，试点一停就回原形。</li>
+  </ul>
+  <h3>⑤ 能力外溢</h3>
+  <ul>
+    <li><strong>里程碑</strong>：方法论对外输出（白皮书 / 行业分享 / 生态合作）；形成可复用资产。</li>
+    <li><strong>量化指标</strong>：对外产出数、外部引用 / 合作数、雇主品牌相关申请量变化。</li>
+    <li><strong>翻车点</strong>：把内部经验当成机密捂着，失去复利与外溢红利。</li>
+  </ul>
+
+  <h2>三、与框架的对应关系</h2>
+  <p>不同阶段由不同经典框架主导诊断：</p>
+  <ul>
+    <li><strong>ADKAR</strong>（Prosci）：贯穿全程，尤其用于判断个体采用是否断链（认知 → 意愿 → 知识 → 能力 → 强化）。</li>
+    <li><strong>Kotter 8 步</strong>：提供变革节奏——建立紧迫感、指导联盟、愿景、赋能、短期胜利、巩固、锚定文化。</li>
+    <li><strong>McKinsey 7S</strong>：在规模化与固化阶段用于体检组织一致性（战略 / 结构 / 制度 / 共享价值观 / 风格 / 人员 / 技能）。</li>
+    <li><strong>NIST AI RMF</strong>：在制度固化阶段对齐 AI 风险管理（Govern / Map / Measure / Manage）。</li>
+  </ul>
+
+  <h2>四、HR 的角色清单</h2>
+  <ol>
+    <li><strong>战略锚定</strong>：把转型目标翻译为人才与组织能力缺口；主导变革沟通。</li>
+    <li><strong>试点验证</strong>：选业务代表共建，做场景化赋能而非泛培训。</li>
+    <li><strong>规模化</strong>：建内部赋能体系、沉淀岗位新 JD 与能力模型。</li>
+    <li><strong>制度固化</strong>：把采用行为纳入考核激励、更新岗位与治理。</li>
+    <li><strong>能力外溢</strong>：把组织经验对外输出，沉淀雇主品牌资产。</li>
+  </ol>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：五阶段 AI 转型落地路线图手册初版，统一森林绿设计系统，含阶段矩阵、过关指标与「延伸阅读」内链。</li>
+  </ul>
+  <p class="rae-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本手册为转型规划辅助工具，具体节奏须结合业务实际与组织成熟度。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/adkar-ai-transformation.html">ADKAR 复盘：AI 转型为何卡在落地</a></li>
+    <li><a href="/articles/mckinsey-hidden-deadlock.html">麦肯锡死局：无制度授权，AI转型是行为艺术</a></li>
+    <li><a href="/articles/ai-landing-fails-org-not-changed.html">AI 落地失败：组织没变，工具先凉</a></li>
+  </ul>
+</section>
+</main>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 项目 ROI 画布 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="可填写、可保存、可打印的 AI 项目 ROI 画布：把项目拆成快照、投入、收益、度量与节奏四块，落到可量化的投入产出与评判标准。锚定投资回报与价值度量方法。">
+<meta name="keywords" content="AI项目,ROI,投资回报,价值度量,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 项目 ROI 画布 — 资源库浏览器内即用">
+<meta property="og:description" content="可填写、可保存、可打印的 AI 项目 ROI 规划框架。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-project-roi-canvas.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-project-roi-canvas.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 项目 ROI 画布", "item": "https://www.aihrlab.online/resources/ai-project-roi-canvas.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .jrc-wrap{ max-width:900px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .jrc-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .jrc-back:hover{ color:var(--text-link); }
+  .jrc-header{ text-align:center; margin-bottom:1.5rem; }
+  .jrc-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .jrc-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .jrc-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .jrc-note{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:0.9rem 1.15rem; margin-bottom:1.5rem; font-size:0.82rem; color:var(--text-secondary); line-height:1.8; }
+  .jrc-note strong{ color:var(--text); }
+  .jrc-block{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.4rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .jrc-block-head{ display:flex; align-items:baseline; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
+  .jrc-block-title{ font-size:1.05rem; font-weight:700; color:var(--text); }
+  .jrc-block-sub{ font-size:0.78rem; color:var(--text-secondary); }
+  .jrc-field{ margin-bottom:1rem; }
+  .jrc-field:last-child{ margin-bottom:0; }
+  .jrc-label{ display:block; font-size:0.82rem; color:var(--text); font-weight:600; margin-bottom:0.4rem; }
+  .jrc-label span{ font-weight:400; color:var(--text-muted); font-size:0.74rem; margin-left:0.4rem; }
+  .jrc-input, .jrc-textarea{ width:100%; box-sizing:border-box; padding:0.65rem 0.85rem; border:1.5px solid var(--line-strong); border-radius:8px; font-size:0.85rem; color:var(--text); background:var(--surface); font-family:inherit; line-height:1.6; }
+  .jrc-input:focus, .jrc-textarea:focus{ outline:none; border-color:var(--accent); }
+  .jrc-textarea{ resize:vertical; min-height:90px; }
+  .jrc-calc{ text-align:center; margin:1.5rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .jrc-btn{ background:var(--accent); color:#fff; border:none; padding:0.8rem 1.8rem; border-radius:9px; font-size:0.9rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .jrc-btn:hover{ filter:brightness(1.05); }
+  .jrc-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  .jrc-row-2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:640px){ .jrc-row-2{ grid-template-columns:1fr; } }
+  .jrc-about{ max-width:900px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .jrc-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .jrc-about h2:first-child{ margin-top:0; }
+  .jrc-about p, .jrc-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .jrc-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .jrc-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .jrc-block{ box-shadow:none; }
+  @media print { body{ background:#fff; } .jrc-btn, .jrc-back{ display:none; } .jrc-block{ break-inside:avoid; box-shadow:none; } .jrc-input, .jrc-textarea{ border-color:#ccc; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-project-roi-canvas.html"><span itemprop="name">AI 项目 ROI 画布</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="jrc-wrap">
+  <a class="jrc-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="jrc-header">
+    <div class="jrc-badge">AI 项目 ROI 画布 v1.0</div>
+    <h1>AI 项目 ROI 画布</h1>
+    <p>把「上不上这个 AI 项目」从拍脑袋变成可填写、可衡量的规划：项目快照、投入成本、预期收益、度量与节奏四块，落到可量化的投入产出与评判标准。可保存、可打印。</p>
+  </div>
+
+  <div class="jrc-note">
+    <strong>🧩 怎么用</strong><br>
+    1. 先填「项目快照」，确认要解决的真问题与 AI 作用边界。<br>
+    2. 在「投入成本」与「预期收益」里，尽量<strong>量化</strong>（工时、金额、错误率），避免「提升效率」这类空话。<br>
+    3. 在「度量与节奏」里写清<strong>怎么算成功、分几阶段</strong>。<br>
+    4. 内容自动<strong>本地保存</strong>（localStorage），可随时回来续填；点「打印 / 导出 PDF」生成汇报底稿。
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">一、项目快照</div><div class="jrc-block-sub">先确认对象与真问题</div></div>
+    <div class="jrc-row-2">
+      <div class="jrc-field"><label class="jrc-label">项目名称</label><input class="jrc-input" data-save="proj_name" placeholder="如：招聘初筛 AI 化"></div>
+      <div class="jrc-field"><label class="jrc-label">所属部门 / 业务单元</label><input class="jrc-input" data-save="proj_dept" placeholder="如：人力资源部"></div>
+    </div>
+    <div class="jrc-field"><label class="jrc-label">要解决的真问题 <span>（现状痛点，而非「想用 AI」）</span></label><textarea class="jrc-textarea" data-save="proj_problem" placeholder="描述当前最痛、最值得花资源解决的环节…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">AI 的作用边界 <span>（AI 负责哪段，人不负责哪段）</span></label><textarea class="jrc-textarea" data-save="proj_scope" placeholder="明确 AI 接管 / 增强 / 不涉及的边界…"></textarea></div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">二、投入成本</div><div class="jrc-block-sub">把代价算清楚</div></div>
+    <div class="jrc-row-2">
+      <div class="jrc-field"><label class="jrc-label">工具 / 订阅 / 算力</label><textarea class="jrc-textarea" data-save="cost_tool" placeholder="列出 License、API、算力等直接成本…"></textarea></div>
+      <div class="jrc-field"><label class="jrc-label">人力 / 时间</label><textarea class="jrc-textarea" data-save="cost_people" placeholder="开发、配置、运维投入的人月…"></textarea></div>
+    </div>
+    <div class="jrc-row-2">
+      <div class="jrc-field"><label class="jrc-label">培训 / 变革成本</label><textarea class="jrc-textarea" data-save="cost_training" placeholder="培训、沟通、流程重构的投入…"></textarea></div>
+      <div class="jrc-field"><label class="jrc-label">隐性 / 风险成本</label><textarea class="jrc-textarea" data-save="cost_hidden" placeholder="试错、返工、合规与切换风险…"></textarea></div>
+    </div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">三、预期收益</div><div class="jrc-block-sub">尽量量化</div></div>
+    <div class="jrc-row-2">
+      <div class="jrc-field"><label class="jrc-label">可量化收益</label><textarea class="jrc-textarea" data-save="benefit_quant" placeholder="工时节省 X 人月、错误率下降 X%、处理时长下降 X%…"></textarea></div>
+      <div class="jrc-field"><label class="jrc-label">收入 / 体验影响</label><textarea class="jrc-textarea" data-save="benefit_revenue" placeholder="转化提升、候选人体验、留存等可衡量影响…"></textarea></div>
+    </div>
+    <div class="jrc-field"><label class="jrc-label">定性收益 <span>（难以货币化但重要，如风险降低、能力沉淀）</span></label><textarea class="jrc-textarea" data-save="benefit_qual" placeholder="描述难以量化但真实的价值…"></textarea></div>
+  </div>
+
+  <div class="jrc-block">
+    <div class="jrc-block-head"><div class="jrc-block-title">四、度量与节奏</div><div class="jrc-block-sub">怎么算成功</div></div>
+    <div class="jrc-field"><label class="jrc-label">成功度量标准 <span>（可观测、可对比的指标）</span></label><textarea class="jrc-textarea" data-save="metrics" placeholder="如：初筛时长由 Xh 降至 Yh，且offer质量不降…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">第一阶段（0–1 月）· 试点</label><textarea class="jrc-textarea" data-save="phase1" placeholder="选哪个场景跑通、用什么指标验收…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">第二阶段（1–3 月）· 扩散</label><textarea class="jrc-textarea" data-save="phase2" placeholder="模板化、跨场景 / 跨人复制…"></textarea></div>
+    <div class="jrc-field"><label class="jrc-label">第三阶段（3 月+）· 制度化</label><textarea class="jrc-textarea" data-save="phase3" placeholder="写入流程、度量与预算，常态化…"></textarea></div>
+  </div>
+
+  <div class="jrc-calc">
+    <button class="jrc-btn" onclick="saveCanvas()">保存进度</button>
+    <button class="jrc-btn jrc-btn--ghost" onclick="window.print()">打印 / 导出 PDF</button>
+    <button class="jrc-btn jrc-btn--ghost" onclick="clearCanvas()">清空</button>
+  </div>
+</section>
+
+<section class="jrc-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「上 AI 项目」最容易被一句「提升效率」带过，等到复盘才发现没人对 ROI 负责。<strong>AI 项目 ROI 画布</strong>不替你算账，而是提供一个<strong>可填写、可较真的规划框架</strong>——把项目拆成快照、投入、收益、度量与节奏四块，逼你把「提升效率」翻译成可观测、可对比的指标，让「值不值」在立项前就摊开谈。</p>
+
+  <h2>设计底座</h2>
+  <ul>
+    <li><strong>投资回报（ROI）逻辑</strong>：任何投入都应回到「代价 vs 价值」的对照，AI 项目也不例外；难点不在公式，而在把收益与成本都<strong>尽可能量化</strong>。</li>
+    <li><strong>价值度量先于工具</strong>：先定义成功标准（可观测指标），再选工具——避免「有了锤子找钉子」。</li>
+    <li><strong>分阶段验证</strong>：用试点 → 扩散 → 制度化三阶段，让 ROI 在过程中被持续验证，而非上线即定论。</li>
+  </ul>
+
+  <h2>怎么用出价值</h2>
+  <ul>
+    <li><strong>立项评审</strong>：填完画布作为立项材料，与一号位对齐「怎么算成功」。</li>
+    <li><strong>优先级排序</strong>：多个候选项目分别填画布，按「收益确定性 / 投入」排序，先投高确定性。</li>
+    <li><strong>复盘底稿</strong>：项目跑完后回看画布，对照原假设看偏差。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：可填写、可本地保存、可打印的 AI 项目 ROI 画布初版，统一森林绿设计系统，含「延伸阅读」内链。</li>
+  </ul>
+  <p class="jrc-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。本画布为项目规划辅助工具，内容保存在你本地浏览器，具体投资决策须结合业务实际。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/ai-agent-roi-reality-2026.html">AI Agent 的 ROI 真相：2026 年落地现实检验</a></li>
+    <li><a href="/articles/ai-era-high-roi-4-things.html">AI 时代高 ROI 的 4 件事：别把力气用错地方</a></li>
+    <li><a href="/articles/ai-hr-landing-3-high-roi-plays.html">AI 落地三板斧：HR 高 ROI 打法</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  const KEY = 'aihr_ai_project_roi_canvas_v1';
+  function collect(){
+    const data = {};
+    document.querySelectorAll('[data-save]').forEach(el => { data[el.dataset.save] = el.value; });
+    return data;
+  }
+  function saveCanvas(){
+    try { localStorage.setItem(KEY, JSON.stringify(collect())); alert('已保存到本地浏览器。'); }
+    catch(e){ alert('保存失败：' + e.message); }
+  }
+  function loadCanvas(){
+    let raw; try { raw = localStorage.getItem(KEY); } catch(e){ return; }
+    if (!raw) return;
+    let data; try { data = JSON.parse(raw); } catch(e){ return; }
+    document.querySelectorAll('[data-save]').forEach(el => { if (data[el.dataset.save] !== undefined) el.value = data[el.dataset.save]; });
+  }
+  function clearCanvas(){
+    if (!confirm('确认清空所有已填写内容？此操作不可撤销。')) return;
+    try { localStorage.removeItem(KEY); } catch(e){}
+    document.querySelectorAll('[data-save]').forEach(el => el.value = '');
+  }
+  loadCanvas();
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>

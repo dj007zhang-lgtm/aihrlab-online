@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 采用阻力自测 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="五个维度十五题加权自测，量化组织对 AI 的采用阻力（认知 / 意愿 / 知识 / 能力 / 强化），即时给出逐维短板与破阻优先级。锚定 ADKAR 变革模型。">
+<meta name="keywords" content="AI采用阻力,ADKAR,变革阻力,落地卡点,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="AI 采用阻力自测 — 资源库浏览器内即用">
+<meta property="og:description" content="五维度加权自测，即时出分与破阻优先级，锚定 ADKAR。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/ai-adoption-resistance.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/ai-adoption-resistance.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "AI 采用阻力自测", "item": "https://www.aihrlab.online/resources/ai-adoption-resistance.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .ar-wrap{ max-width:860px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .ar-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .ar-back:hover{ color:var(--text-link); }
+  .ar-header{ text-align:center; margin-bottom:1.75rem; }
+  .ar-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .ar-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .ar-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .ar-instructions{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-instructions strong{ color:var(--text); }
+  .ar-dim{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .ar-dim-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; gap:1rem; flex-wrap:wrap; }
+  .ar-dim-title{ font-size:1.02rem; font-weight:700; color:var(--text); }
+  .ar-dim-desc{ font-size:0.8rem; color:var(--text-secondary); margin-top:0.2rem; }
+  .ar-tag{ font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:5px; font-weight:600; background:var(--accent-pale); color:var(--accent); white-space:nowrap; }
+  .ar-q{ display:flex; align-items:flex-start; padding:0.65rem 0; border-bottom:1px solid var(--line); gap:0.75rem; }
+  .ar-q:last-child{ border-bottom:none; }
+  .ar-q-label{ flex:1; font-size:0.82rem; color:var(--text); line-height:1.55; }
+  .ar-opts{ display:flex; gap:0.35rem; flex-shrink:0; }
+  .ar-opt{ width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:var(--text-secondary); cursor:pointer; transition:all 0.15s; user-select:none; }
+  .ar-opt:hover{ border-color:var(--accent); color:var(--accent); }
+  .ar-opt.selected{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .ar-score-bar{ margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .ar-score-label{ font-size:0.72rem; color:var(--text-secondary); }
+  .ar-score{ font-size:1.25rem; font-weight:700; color:var(--accent); }
+  .ar-calc{ text-align:center; margin:1.75rem 0; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+  .ar-btn{ background:var(--accent); color:#fff; border:none; padding:0.85rem 2.5rem; border-radius:9px; font-size:0.95rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .ar-btn:hover{ filter:brightness(1.05); }
+  .ar-btn--ghost{ background:transparent; color:var(--text-secondary); border:1.5px solid var(--line-strong); box-shadow:none; }
+  #arResult{ display:none; }
+  #arResult.show{ display:block; }
+  .ar-result{ background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:2rem; margin-bottom:1.5rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .ar-result-score{ font-size:3rem; font-weight:800; margin:0.4rem 0; color:var(--text); }
+  .ar-result-label{ font-size:0.85rem; color:var(--text-secondary); }
+  .ar-result-level{ font-size:1.05rem; font-weight:700; margin:0.75rem 0; }
+  .ar-bar-wrap{ width:100%; height:8px; background:var(--line); border-radius:4px; margin:1.25rem 0; overflow:hidden; }
+  .ar-bar{ height:100%; border-radius:4px; transition:width 0.6s ease; background:var(--accent); }
+  .ar-detail{ text-align:left; margin-top:1.25rem; }
+  .ar-detail h4{ font-size:0.85rem; color:var(--text); margin-bottom:0.5rem; }
+  .ar-detail-row{ display:flex; align-items:center; gap:0.75rem; margin-bottom:0.55rem; }
+  .ar-detail-name{ font-size:0.8rem; color:var(--text); width:8.5rem; flex-shrink:0; }
+  .ar-detail-track{ flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .ar-detail-fill{ height:100%; background:var(--accent); border-radius:4px; }
+  .ar-detail-val{ font-size:0.78rem; color:var(--text-secondary); width:3.5rem; text-align:right; flex-shrink:0; }
+  .ar-recommend{ background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 22%, transparent); border-radius:8px; padding:1rem; margin-top:1rem; text-align:left; }
+  .ar-recommend h4{ font-size:0.82rem; color:var(--accent); margin-bottom:0.5rem; }
+  .ar-recommend ul{ margin:0; padding-left:1.1rem; }
+  .ar-recommend li{ font-size:0.78rem; color:var(--text); line-height:1.8; }
+  .ar-about{ max-width:860px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .ar-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .ar-about h2:first-child{ margin-top:0; }
+  .ar-about p, .ar-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .ar-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .ar-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  :root[data-theme="dark"] .ar-result{ box-shadow:none; }
+  @media print { body{ background:#fff; } .ar-btn,.ar-opts{ display:none; } .ar-back{ display:none; } }
+</style>
+<script src="/assets/js/search.js" defer></script>
+</head>
+<body data-section-unified="true">
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html" class="active" aria-current="page">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/ai-adoption-resistance.html"><span itemprop="name">AI 采用阻力自测</span></a><meta itemprop="position" content="3"></li></ol></nav>
+
+<main class="main-content">
+<section class="ar-wrap">
+  <a class="ar-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="ar-header">
+    <div class="ar-badge">AI 采用阻力自测 v1.0</div>
+    <h1>AI 采用阻力自测</h1>
+    <p>五个维度、各三题，量化组织对 AI 的采用阻力——从「认不认知」到「愿不愿意」、再到「会不会、能不能、有没有被巩固」，即时出分与破阻优先级。锚定 ADKAR 变革模型。</p>
+  </div>
+
+  <div class="ar-instructions">
+    <strong>📊 使用说明</strong><br>
+    1. 每题按 1–5 打分：<strong>1 = 完全不符合，5 = 完全符合</strong>（分越高＝该环节阻力越小）。<br>
+    2. 五个维度各 3 题，对应 ADKAR 的 A-D-K-A-R；<strong>总就绪＝五维等权平均</strong>（各 20%）。<br>
+    3. 总分映射到三档：<strong>&lt; 2.8 阻力明显 / 2.8–3.7 部分松动 / ≥ 3.7 基本贯通</strong>。<br>
+    4. 建议由 HR + 变革推动者共同评，或多人独立评后取均值。
+  </div>
+
+  <div class="ar-dim" id="dim1">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">① 认知 Awareness</div><div class="ar-dim-desc">员工是否理解「为什么必须变」</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 团队清楚 AI 对本岗位 / 本业务的真实影响，而非停留在模糊的「趋势」</div><div class="ar-opts" data-dim="1" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有清晰、可信的变革叙事，解释「不变会怎样、变了能得到什么」</div><div class="ar-opts" data-dim="1" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 一线能说出 AI 与自身工作的关联，而非觉得「那是上面的事」</div><div class="ar-opts" data-dim="1" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score1">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim2">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">② 意愿 Desire</div><div class="ar-dim-desc">员工是否愿意参与改变</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 团队对「用 AI 把工作做得更好」有正向预期，而非抵触或恐慌</div><div class="ar-opts" data-dim="2" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 个体利益与变革方向一致（如减负、成长），而非「变了反而更糟」</div><div class="ar-opts" data-dim="2" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 有机制化解焦虑（如透明沟通、对「被替代」恐惧的直面回应）</div><div class="ar-opts" data-dim="2" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score2">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim3">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">③ 知识 Knowledge</div><div class="ar-dim-desc">员工是否知道「怎么变」</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 团队知道 AI 在本岗位的具体用法与边界，而非只会打开聊天框</div><div class="ar-opts" data-dim="3" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有可获取的知识源（手册、案例、内部分享）支撑持续学习</div><div class="ar-opts" data-dim="3" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 知识传递是场景化的（结合真实任务），而非泛泛的概念培训</div><div class="ar-opts" data-dim="3" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score3">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim4">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">④ 能力 Ability</div><div class="ar-dim-desc">员工是否具备执行能力</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 团队能稳定地把 AI 用于真实工作产出，而非偶尔试一下</div><div class="ar-opts" data-dim="4" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 有实践机会与即时反馈，能在干中学、边用边改</div><div class="ar-opts" data-dim="4" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 关键岗位已具备推动转型所需的复合能力（提示、数据、流程重构）</div><div class="ar-opts" data-dim="4" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score4">—</span></div>
+  </div>
+
+  <div class="ar-dim" id="dim5">
+    <div class="ar-dim-head"><div><div class="ar-dim-title">⑤ 强化 Reinforcement</div><div class="ar-dim-desc">是否有机制巩固改变</div></div><span class="ar-tag">权重 20%</span></div>
+    <div class="ar-q"><div class="ar-q-label">1. 新工作方式被纳入考核、激励与制度，而非靠自觉维持</div><div class="ar-opts" data-dim="5" data-q="1"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">2. 对采用良好的团队 / 个人有正向认可，形成示范效应</div><div class="ar-opts" data-dim="5" data-q="2"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-q"><div class="ar-q-label">3. 有机制防止「试点热闹、回头打回原形」的回弹</div><div class="ar-opts" data-dim="5" data-q="3"><div class="ar-opt" data-val="1">1</div><div class="ar-opt" data-val="2">2</div><div class="ar-opt" data-val="3">3</div><div class="ar-opt" data-val="4">4</div><div class="ar-opt" data-val="5">5</div></div></div>
+    <div class="ar-score-bar"><span class="ar-score-label">维度得分</span><span class="ar-score" id="score5">—</span></div>
+  </div>
+
+  <div class="ar-calc">
+    <button class="ar-btn" onclick="calculateAR()">计算阻力</button>
+    <button class="ar-btn ar-btn--ghost" onclick="resetAR()">重置</button>
+  </div>
+
+  <div id="arResult">
+    <div class="ar-result">
+      <div class="ar-result-label">AI 采用就绪度</div>
+      <div class="ar-result-score" id="arScore">—</div>
+      <div class="ar-result-level" id="arLevel"></div>
+      <div class="ar-bar-wrap"><div class="ar-bar" id="arBar"></div></div>
+      <div class="ar-detail">
+        <h4>逐维度明细</h4>
+        <div id="arDetail"></div>
+      </div>
+      <div class="ar-recommend">
+        <h4>优先破阻项</h4>
+        <ul id="arActions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ar-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「我们推了 AI，但大家不用」是落地里最常见的抱怨。问题往往不在工具，而在<strong>采用链条某环断了</strong>：有人根本没理解为什么要变（认知缺），有人心里不想变（意愿缺），有人不知道怎么变（知识缺），有人没能力变（能力缺），还有人试点完又退回原状（强化缺）。<strong>AI 采用阻力自测</strong>把这条链路拆成五个对应 ADKAR 的维度，让你<strong>先定位断在哪环</strong>，再对症下药。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>适用对象</strong>：正在或计划推进 AI 落地、但遇到采用阻力的团队。</li>
+    <li><strong>谁来打</strong>：HR + 变革推动者共同评，或多人独立评后取均值。</li>
+    <li><strong>打分</strong>：每题 1–5，按该描述在组织当前真实状态打原始分。</li>
+    <li><strong>出结果</strong>：点「计算阻力」，立即得到总分、等级与逐维度明细、破阻优先级。</li>
+    <li><strong>复用</strong>：可把本页打印或截图，用于变革复盘会 / 阻力诊断。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>ADKAR（Prosci）把变革落到<strong>个体层面</strong>，强调变革要一个一个人地过：Awareness（认知为什么变）→ Desire（愿意变）→ Knowledge（知道怎么变）→ Ability（能够变）→ Reinforcement（巩固不变回）。它是一个<strong>有序序列</strong>——前一环不通，后一环再用力也白费。本自测把五环等权（各 20%），是因为任一环成为短板都会让整体采用卡住；阈值（2.8 / 3.7）是便于落地的经验切分，应结合团队规模与行业校准。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>诊断版</strong>：对照各环「注意点」自检，定位当前采用断点。</li>
+    <li><strong>干预版</strong>：据断点选 1–2 个主干预动作，而非五环齐推。</li>
+    <li><strong>追踪版</strong>：每季度复评，观察阻力是否真正下降。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.0（2026-08-11）</strong>：五维度自测初版，统一森林绿设计系统，含浏览器内深色模式零回归与「延伸阅读」内链。</li>
+  </ul>
+  <p class="ar-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。自测框架为采用诊断辅助工具，具体干预方案须结合业务实际。</p>
+</section>
+
+<section class="related-reading">
+  <h3>相关阅读</h3>
+  <ul>
+    <li><a href="/articles/adkar-ai-transformation.html">ADKAR 复盘：AI 转型为何卡在落地</a></li>
+    <li><a href="/articles/mckinsey-hidden-deadlock.html">麦肯锡死局：无制度授权，AI转型是行为艺术</a></li>
+    <li><a href="/articles/ai-landing-fails-org-not-changed.html">AI 落地失败：组织没变，工具先凉</a></li>
+  </ul>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('.ar-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const parent = opt.parentElement;
+      parent.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      updateDimScore(parent.dataset.dim);
+    });
+  });
+  function updateDimScore(dimId) {
+    const options = document.querySelectorAll(`.ar-opts[data-dim="${dimId}"]`);
+    let total = 0, count = 0;
+    options.forEach(group => {
+      const selected = group.querySelector('.ar-opt.selected');
+      if (selected) { total += parseInt(selected.dataset.val); count++; }
+    });
+    const score = count > 0 ? (total / count).toFixed(1) : '—';
+    document.getElementById(`score${dimId}`).textContent = score;
+  }
+  const arDimNames = ['认知', '意愿', '知识', '能力', '强化'];
+  const arAdvice = {
+    1: { low:['先讲清「为什么必须变」的变革叙事，落到本岗位真实影响','让一线能说出 AI 与自身工作的关联，而非觉得事不关己'],
+        mid:['把变革叙事与业务结果挂钩，提升可信度'],
+        high:['把已形成的认知共识对外输出，沉淀为雇主品牌资产'] },
+    2: { low:['对齐个体利益与变革方向，化解「变了更糟」的预期','建立透明沟通机制，直面「被替代」焦虑'],
+        mid:['用早期胜利强化正向预期'],
+        high:['把愿意变的文化沉淀为组织惯例'] },
+    3: { low:['提供场景化知识（结合真实任务），而非泛概念培训','建立可获取的知识源（手册 / 案例 / 内部分享）'],
+        mid:['把知识传递嵌入日常工作流'],
+        high:['把知识资产作为对外分享的方法论'] },
+    4: { low:['提供实践机会与即时反馈，边用边改','识别关键岗位的复合能力缺口并补强'],
+        mid:['让能力在真实产出中稳定下来'],
+        high:['把能力体系作为核心竞争力对外输出'] },
+    5: { low:['把新工作方式纳入考核与激励，防止靠自觉维持','建立防回弹机制，避免试点后打回原形'],
+        mid:['用正向认可形成示范效应'],
+        high:['把巩固机制制度化，可对外审计'] }
+  };
+  function band(s){ return s < 2.8 ? 'low' : (s < 3.7 ? 'mid' : 'high'); }
+  function calculateAR() {
+    let scores = [];
+    for (let i = 1; i <= 5; i++) {
+      const el = document.getElementById(`score${i}`);
+      if (el.textContent === '—') { alert('请完成所有五个维度的评分后再计算。'); return; }
+      scores.push(parseFloat(el.textContent));
+    }
+    const avg = (scores.reduce((a,b)=>a+b,0) / scores.length);
+    showResult(scores, avg);
+  }
+  function showResult(scores, avg) {
+    const card = document.getElementById('arResult');
+    card.classList.add('show');
+    document.getElementById('arScore').textContent = avg.toFixed(1) + ' / 5';
+    let levelText, levelColor, barColor, actions = [];
+    if (avg < 2.8) {
+      levelText = '🔴 阻力明显 — 先补最弱的采用环节';
+      levelColor = '#D6453D'; barColor = '#D6453D';
+    } else if (avg < 3.7) {
+      levelText = '🟡 部分松动 — 打通短板环节，避免局部热闹';
+      levelColor = '#A86A2E'; barColor = '#A86A2E';
+    } else {
+      levelText = '🟢 基本贯通 — 可系统推进并固化机制';
+      levelColor = '#1F9D6B'; barColor = '#1F9D6B';
+    }
+    document.getElementById('arLevel').textContent = levelText;
+    document.getElementById('arLevel').style.color = levelColor;
+    document.getElementById('arBar').style.background = barColor;
+    document.getElementById('arBar').style.width = `${(avg/5)*100}%`;
+    let detail = '';
+    scores.forEach((s, i) => {
+      detail += `<div class="ar-detail-row"><span class="ar-detail-name">${arDimNames[i]}</span><span class="ar-detail-track"><span class="ar-detail-fill" style="width:${(s/5)*100}%"></span></span><span class="ar-detail-val">${s.toFixed(1)}</span></div>`;
+    });
+    document.getElementById('arDetail').innerHTML = detail;
+    let lowDims = scores.map((s,i)=>({i,s})).sort((a,b)=>a.s-b.s).slice(0,2);
+    lowDims.forEach(d => { actions = actions.concat(arAdvice[d.i+1][band(d.s)]); });
+    const ul = document.getElementById('arActions'); ul.innerHTML = '';
+    actions.forEach(a => { const li = document.createElement('li'); li.textContent = a; ul.appendChild(li); });
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function resetAR() {
+    document.querySelectorAll('.ar-opt').forEach(o => o.classList.remove('selected'));
+    for (let i = 1; i <= 5; i++) document.getElementById(`score${i}`).textContent = '—';
+    document.getElementById('arResult').classList.remove('show');
+  }
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+</body></html>
