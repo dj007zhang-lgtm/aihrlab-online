@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DQ 可替代岗位评估表 | AIHR数智引擎 — 资源库浏览器内即用</title>
+<meta name="description" content="DQ（Displaceability Quotient）岗位 AI 替代风险评估：从流程标准化、决策复杂度、情感交互密度、创造性需求四个维度，量化每个岗位被 AI 替代的风险，浏览器内直接打分、即时出结果。AIHR数智引擎资源库出品。">
+<meta name="keywords" content="DQ评估,岗位AI替代风险,AI替代岗位,DQ打分卡,AI转型岗位盘点,人力资源规划,AIHR数智引擎">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+<meta property="og:title" content="DQ 可替代岗位评估表 — 资源库浏览器内即用">
+<meta property="og:description" content="从流程标准化、决策复杂度、情感交互密度、创造性需求四个维度，量化岗位 AI 替代风险，打分即时出结果。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.aihrlab.online/resources/dq-evaluation.html">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="canonical" href="https://www.aihrlab.online/resources/dq-evaluation.html">
+<script type="application/ld+json"> { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"}, {"@type": "ListItem", "position": 2, "name": "资源库", "item": "https://www.aihrlab.online/resources/"}, {"@type": "ListItem", "position": 3, "name": "DQ 可替代岗位评估表", "item": "https://www.aihrlab.online/resources/dq-evaluation.html"} ] } </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+<style>
+  /* ===== 森林绿系：浅色 ===== */
+  .dq-wrap{ max-width:860px; margin:0 auto; padding:2rem 1rem 3rem; }
+  .dq-back{ display:inline-block; color:var(--text-secondary); font-size:0.875rem; text-decoration:none; margin-bottom:1.25rem; }
+  .dq-back:hover{ color:var(--text-link); }
+  .dq-header{ text-align:center; margin-bottom:1.75rem; }
+  .dq-badge{ display:inline-block; background:var(--accent-pale); color:var(--accent); padding:0.25rem 0.85rem; border-radius:20px; font-size:0.75rem; font-weight:600; margin-bottom:0.75rem; }
+  .dq-header h1{ font-size:1.55rem; color:var(--text); margin-bottom:0.5rem; letter-spacing:-0.01em; }
+  .dq-header p{ color:var(--text-secondary); font-size:0.9rem; }
+  .dq-instructions{ background:var(--bg-subtle); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.85; }
+  .dq-instructions strong{ color:var(--text); }
+  .dq-instructions .dq-anchor{ display:block; margin-top:0.5rem; background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 25%, transparent); border-radius:6px; padding:0.55rem 0.8rem; font-size:0.8rem; color:var(--text); }
+  .dq-dim{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.5rem; margin-bottom:1.25rem; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .dq-dim-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; gap:1rem; flex-wrap:wrap; }
+  .dq-dim-title{ font-size:1.02rem; font-weight:700; color:var(--text); }
+  .dq-dim-desc{ font-size:0.8rem; color:var(--text-secondary); margin-top:0.2rem; }
+  .dq-tag{ font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:5px; font-weight:600; background:var(--accent-pale); color:var(--accent); white-space:nowrap; }
+  .dq-q{ display:flex; align-items:flex-start; padding:0.65rem 0; border-bottom:1px solid var(--line); gap:0.75rem; }
+  .dq-q:last-child{ border-bottom:none; }
+  .dq-q-label{ flex:1; font-size:0.82rem; color:var(--text); line-height:1.55; }
+  .dq-opts{ display:flex; gap:0.35rem; flex-shrink:0; }
+  .dq-opt{ width:32px; height:32px; border-radius:50%; border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:var(--text-secondary); cursor:pointer; transition:all 0.15s; user-select:none; }
+  .dq-opt:hover{ border-color:var(--accent); color:var(--accent); }
+  .dq-opt.selected{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  .dq-score-bar{ margin-top:1rem; padding-top:0.75rem; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+  .dq-score-label{ font-size:0.72rem; color:var(--text-secondary); }
+  .dq-score{ font-size:1.25rem; font-weight:700; color:var(--accent); }
+  .dq-calc{ text-align:center; margin:1.75rem 0; }
+  .dq-btn{ background:var(--accent); color:#fff; border:none; padding:0.85rem 2.5rem; border-radius:9px; font-size:0.95rem; font-weight:600; cursor:pointer; box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 30%, transparent); }
+  .dq-btn:hover{ filter:brightness(1.05); }
+  /* 结果卡 */
+  #dqResult{ display:none; }
+  #dqResult.show{ display:block; }
+  .dq-result{ background:var(--surface); border:1.5px solid var(--line); border-radius:14px; padding:2rem; margin-bottom:1.5rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+  .dq-result-score{ font-size:3rem; font-weight:800; margin:0.4rem 0; color:var(--text); }
+  .dq-result-label{ font-size:0.85rem; color:var(--text-secondary); }
+  .dq-result-level{ font-size:1.05rem; font-weight:700; margin:0.75rem 0; }
+  .dq-bar-wrap{ width:100%; height:8px; background:var(--line); border-radius:4px; margin:1.25rem 0; overflow:hidden; }
+  .dq-bar{ height:100%; border-radius:4px; transition:width 0.6s ease; background:var(--accent); }
+  .dq-detail{ text-align:left; margin-top:1.25rem; }
+  .dq-detail h4{ font-size:0.85rem; color:var(--text); margin-bottom:0.5rem; }
+  .dq-detail pre{ font-size:0.8rem; color:var(--text-secondary); line-height:1.7; white-space:pre-wrap; font-family:inherit; margin:0; }
+  .dq-recommend{ background:var(--accent-pale); border:1px solid color-mix(in srgb,var(--accent) 22%, transparent); border-radius:8px; padding:1rem; margin-top:1rem; text-align:left; }
+  .dq-recommend h4{ font-size:0.82rem; color:var(--accent); margin-bottom:0.5rem; }
+  .dq-recommend ul{ margin:0; padding-left:1.1rem; }
+  .dq-recommend li{ font-size:0.78rem; color:var(--text); line-height:1.8; }
+  /* 资源详情区块（#549 标准六区） */
+  .dq-about{ max-width:860px; margin:0 auto; padding:2.5rem 1rem 1rem; border-top:1px solid var(--line); }
+  .dq-about h2{ font-size:1.25rem; color:var(--text); margin:1.5rem 0 0.6rem; }
+  .dq-about h2:first-child{ margin-top:0; }
+  .dq-about p, .dq-about li{ font-size:0.9rem; color:var(--text-secondary); line-height:1.85; }
+  .dq-about ul{ margin:0.4rem 0 0.4rem 1.2rem; }
+  .dq-about code{ background:var(--bg-subtle); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.82rem; color:var(--text); }
+  .dq-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
+  /* ===== 深色：仅 [data-theme=dark] 下中和硬色，浅色零回归 ===== */
+  :root[data-theme="dark"] .dq-result{ box-shadow:none; }
+  @media print { body{ background:#fff; } .dq-btn,.dq-opts{ display:none; } .dq-back{ display:none; } }
+</style>
+</head>
+<body>
+<nav class="breadcrumb-nav" aria-label="面包屑导航"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">首页</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/index.html"><span itemprop="name">资源库</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/resources/dq-evaluation.html"><span itemprop="name">DQ 可替代岗位评估表</span></a><meta itemprop="position" content="3"></li></ol></nav>
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main class="main-content">
+<section class="dq-wrap">
+  <a class="dq-back" href="/resources/index.html">&larr; 返回资源库</a>
+  <div class="dq-header">
+    <div class="dq-badge">DQ · Displaceability Quotient 评估框架 v1.1</div>
+    <h1>企业级 AI 可替代岗位评估表</h1>
+    <p>从四个维度量化评估每个岗位的 AI 替代风险，浏览器内直接打分、即时出结果。</p>
+  </div>
+
+  <div class="dq-instructions">
+    <strong>📊 使用说明</strong><br>
+    1. 为组织架构中的每个关键岗位填写本打分卡（建议由 HRBP + 直属上级共同评分）。<br>
+    2. 每题打分 1–5：<strong>1 = 完全符合 / 高度同意，5 = 完全不符合 / 几乎不发生</strong>（所有维度同向评分，分低 = 易替代）。<br>
+    3. 维度得分 = 该维度下 4 题平均分；总分 <strong>DQ = ①×30% + ②×25% + ③×25% + ④×20%</strong>。<br>
+    4. <strong>DQ &lt; 2.0</strong> → 🔴 高风险，建议 12 个月内启动 AI 替代计划；<strong>DQ 2.0–3.5</strong> → 🟡 中风险，混合模式；<strong>DQ &gt; 3.5</strong> → 🟢 低风险，重点能力提升。
+    <span class="dq-anchor">💡 <strong>评分锚点</strong>：1 分 = 该描述在每日工作中出现频率 ≥ 80%；5 分 = 该描述几乎不发生（≤ 10%）。维度②③④由系统在计分环节统一翻转，你只需按真实频率打原始分。</span>
+  </div>
+
+  <div class="dq-dim" id="dim1">
+    <div class="dq-dim-head"><div><div class="dq-dim-title">① 流程标准化程度</div><div class="dq-dim-desc">评估该岗位工作是否已被 SOP / 规则明确描述，输出是否可量化验证</div></div><span class="dq-tag">权重 30%</span></div>
+    <div class="dq-q"><div class="dq-q-label">1. 该岗位的核心工作已有明确的 SOP 或操作手册</div><div class="dq-opts" data-dim="1" data-q="1"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">2. 该岗位的输出结果可以用明确的指标进行量化验收</div><div class="dq-opts" data-dim="1" data-q="2"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">3. 该岗位的操作步骤均可通过系统日志、文档或数据留痕被完整记录</div><div class="dq-opts" data-dim="1" data-q="3"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">4. 该岗位的错误后果可以通过自动化测试 / 规则检测发现</div><div class="dq-opts" data-dim="1" data-q="4"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-score-bar"><span class="dq-score-label">维度得分</span><span class="dq-score" id="score1">—</span></div>
+  </div>
+
+  <div class="dq-dim" id="dim2">
+    <div class="dq-dim-head"><div><div class="dq-dim-title">② 决策复杂度</div><div class="dq-dim-desc">评估该岗位是否需要处理模糊信息、多目标权衡、或高度情境化判断</div></div><span class="dq-tag">权重 25%</span></div>
+    <div class="dq-q"><div class="dq-q-label">1. 该岗位每天需要处理大量信息不完整或相互矛盾的情况</div><div class="dq-opts" data-dim="2" data-q="1"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">2. 该岗位的决策需要在多个相互冲突的目标之间做权衡</div><div class="dq-opts" data-dim="2" data-q="2"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">3. 该岗位的决策高度依赖对公司政治 / 文化的隐性理解</div><div class="dq-opts" data-dim="2" data-q="3"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">4. 该岗位经常出现「没有标准答案」的开放式问题</div><div class="dq-opts" data-dim="2" data-q="4"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-score-bar"><span class="dq-score-label">维度得分</span><span class="dq-score" id="score2">—</span></div>
+  </div>
+
+  <div class="dq-dim" id="dim3">
+    <div class="dq-dim-head"><div><div class="dq-dim-title">③ 情感交互密度</div><div class="dq-dim-desc">评估该岗位是否需要通过共情、信任建立、情绪安抚等「高情感劳动」完成任务</div></div><span class="dq-tag">权重 25%</span></div>
+    <div class="dq-q"><div class="dq-q-label">1. 该岗位需要频繁处理员工的负面情绪（焦虑 / 愤怒 / 沮丧）</div><div class="dq-opts" data-dim="3" data-q="1"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">2. 该岗位的核心价值之一是「建立信任关系」而非「交付交付物」</div><div class="dq-opts" data-dim="3" data-q="2"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">3. 该岗位需要高语境的文化敏感度（如跨文化沟通、组织政治导航）</div><div class="dq-opts" data-dim="3" data-q="3"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">4. 该岗位的服务对象对「真人回应」有明确的情感期待</div><div class="dq-opts" data-dim="3" data-q="4"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-score-bar"><span class="dq-score-label">维度得分</span><span class="dq-score" id="score3">—</span></div>
+  </div>
+
+  <div class="dq-dim" id="dim4">
+    <div class="dq-dim-head"><div><div class="dq-dim-title">④ 创造性需求</div><div class="dq-dim-desc">评估该岗位是否需要在约束条件之外产生全新方案，或处理从未出现过的问题</div></div><span class="dq-tag">权重 20%</span></div>
+    <div class="dq-q"><div class="dq-q-label">1. 该岗位需要频繁产出「没有参考模板」的新方案</div><div class="dq-opts" data-dim="4" data-q="1"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">2. 该岗位的工作成果具有显著的「个人风格」差异性</div><div class="dq-opts" data-dim="4" data-q="2"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">3. 该岗位需要跨领域知识整合（如技术 + 商业 + 组织行为学）</div><div class="dq-opts" data-dim="4" data-q="3"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-q"><div class="dq-q-label">4. 该岗位经常需要重新定义「问题本身」而非解决既定问题</div><div class="dq-opts" data-dim="4" data-q="4"><div class="dq-opt" data-val="1">1</div><div class="dq-opt" data-val="2">2</div><div class="dq-opt" data-val="3">3</div><div class="dq-opt" data-val="4">4</div><div class="dq-opt" data-val="5">5</div></div></div>
+    <div class="dq-score-bar"><span class="dq-score-label">维度得分</span><span class="dq-score" id="score4">—</span></div>
+  </div>
+
+  <div class="dq-calc"><button class="dq-btn" onclick="calculateDQ()">计算 DQ 总分</button></div>
+
+  <div id="dqResult">
+    <div class="dq-result">
+      <div class="dq-result-label">你的岗位 DQ 得分</div>
+      <div class="dq-result-score" id="dqScore">—</div>
+      <div class="dq-result-level" id="dqLevel"></div>
+      <div class="dq-bar-wrap"><div class="dq-bar" id="dqBar"></div></div>
+      <div class="dq-detail">
+        <h4>维度明细</h4>
+        <pre id="dqDetail"></pre>
+      </div>
+      <div class="dq-recommend">
+        <h4>行动建议</h4>
+        <ul id="dqActions"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dq-about">
+  <h2>这个工具在解决什么</h2>
+  <p>「哪些岗位会被 AI 替代」是组织规划里最容易情绪化、也最容易拍脑袋的问题。<strong>DQ（Displaceability Quotient，可替代商数）评估表</strong>把它变成一个可重复、可比较的量化动作：用四个彼此正交的维度刻画一份工作的「可机械化程度」，让 HR 与业务一号位在<strong>同一张表、同一套口径</strong>下讨论替代优先级，而不是各凭直觉。</p>
+
+  <h2>如何使用</h2>
+  <ul>
+    <li><strong>适用对象</strong>：组织架构中的关键岗位（建议从人数多、成本高的岗位切入）。</li>
+    <li><strong>谁来打</strong>：HRBP + 直属上级共同评，避免单人偏差；每个岗位单独一张卡。</li>
+    <li><strong>打分</strong>：每题 1–5，按该描述在<strong>每日真实工作中出现的频率</strong>打原始分，系统自动翻转反向维度。</li>
+    <li><strong>出结果</strong>：点「计算 DQ 总分」，立即得到总分、风险等级与逐维度明细、行动建议。</li>
+    <li><strong>复用</strong>：可把本页打印为纸质打分卡，或截图结果用于组织盘点会议。</li>
+  </ul>
+
+  <h2>为什么有效</h2>
+  <p>四个维度对应工作被 AI 替代的四条「护城河」：</p>
+  <ul>
+    <li><strong>流程标准化</strong>（权重 30%）：SOP 越清晰、输出越可量化验收，越容易被流程自动化 / Agent 接管——这是替代的第一道门槛。</li>
+    <li><strong>决策复杂度</strong>（25%）：模糊信息、多目标权衡、组织政治隐性知识，是当下大模型最不稳定的区域。</li>
+    <li><strong>情感交互密度</strong>（25%）：情感劳动（共情、信任建立、情绪安抚）与「真人回应」期待，是用户对 AI 接受度最低的环节，也是 HR、管理者类岗位的核心壁垒。</li>
+    <li><strong>创造性需求</strong>（20%）：无模板的新方案、跨领域整合、重新定义问题本身——这类任务短期内更适配「AI 增强人」而非「AI 替代人」。</li>
+  </ul>
+  <p>权重反映了一个经验判断：<strong>流程可标准化是替代的充要条件中最先被满足的</strong>，故给最高权重；其余三项是「难替代」的叠加保护，按对组织价值的贡献递减赋权。区间阈值（2.0 / 3.5）是便于落地的经验切分，应结合行业与岗位层级校准。</p>
+
+  <h2>变体</h2>
+  <ul>
+    <li><strong>个人自检版</strong>：把「岗位」替换为「我的日常工作」，用于个人判断哪些任务该交给 AI、哪些能力要重点投资。</li>
+    <li><strong>团队矩阵版</strong>：对部门内所有岗位批量评分，按 DQ 降序排列，输出「优先替代 / 混合 / 增强」三档清单。</li>
+    <li><strong>招聘反推版</strong>：用低 DQ 维度反推「这个岗位该招什么样的人」——重点考察决策、情感、创造三项。</li>
+  </ul>
+
+  <h2>更新日志</h2>
+  <ul>
+    <li><strong>v1.1（2026-08-10）</strong>：迁入资源库并统一森林绿设计系统；补全浏览器内深色模式零回归；新增「资源详情」区块（场景 / 如何使用 / 预览 / 为什么有效 / 变体 / 更新日志）。</li>
+    <li><strong>v1.0</strong>：四维度十六题框架 + 加权 DQ 评分 + 风险分级与行动建议初版。</li>
+  </ul>
+  <p class="dq-foot">AIHR 数智引擎 · 资源库「浏览器内即用」系列原型。评估框架为组织规划辅助工具，具体替代决策须结合业务实际与合规要求。</p>
+</section>
+</main>
+
+<script>
+  document.querySelectorAll('.dq-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const parent = opt.parentElement;
+      parent.querySelectorAll('.dq-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      updateDimScore(parent.dataset.dim);
+    });
+  });
+  function updateDimScore(dimId) {
+    const options = document.querySelectorAll(`.dq-opts[data-dim="${dimId}"]`);
+    let total = 0, count = 0;
+    const needReverse = (parseInt(dimId) >= 2); // 维度②③④反向计分
+    options.forEach(group => {
+      const selected = group.querySelector('.dq-opt.selected');
+      if (selected) {
+        let val = parseInt(selected.dataset.val);
+        if (needReverse) val = 6 - val;
+        total += val; count++;
+      }
+    });
+    const score = count > 0 ? (total / count).toFixed(1) : '—';
+    document.getElementById(`score${dimId}`).textContent = score;
+  }
+  function calculateDQ() {
+    let scores = [];
+    for (let i = 1; i <= 4; i++) {
+      const el = document.getElementById(`score${i}`);
+      if (el.textContent === '—') { alert('请完成所有四个维度的评分后再计算。'); return; }
+      scores.push(parseFloat(el.textContent));
+    }
+    const dq = (scores[0]*0.30 + scores[1]*0.25 + scores[2]*0.25 + scores[3]*0.20).toFixed(1);
+    showResult(scores, parseFloat(dq));
+  }
+  function showResult(scores, dq) {
+    const card = document.getElementById('dqResult');
+    card.classList.add('show');
+    document.getElementById('dqScore').textContent = dq;
+    let levelText, levelColor, barColor, actions;
+    if (dq < 2.0) {
+      levelText = '🔴 高风险 — AI 可高度替代，建议 12 个月内启动替代计划';
+      levelColor = '#D6453D'; barColor = '#D6453D';
+      actions = [
+        '立即启动该岗位的 AI 替代可行性评估（POC）',
+        '保留该岗位最优秀的 1–2 人转型为「AI 训练师 / 监督者」',
+        '制定 12 个月渐进式替代路线图，避免激进裁员引发组织震荡',
+        '将释放的人力成本重新投入高 DQ 岗位的人才获取'
+      ];
+    } else if (dq < 3.5) {
+      levelText = '🟡 中风险 — 建议混合模式（AI 辅助 + 人工审核）';
+      levelColor = '#A86A2E'; barColor = '#A86A2E';
+      actions = [
+        '识别该岗位中低 DQ 子任务（标准化部分），优先用 AI 替代',
+        '重新设计岗位 JD：将「执行」权重降低，将「判断 / 创意」权重提高',
+        '为该岗位配备 AI 工具培训，目标是「1 人 + AI = 原团队产出」',
+        '设立「人机协作效率」新 KPI，6 个月后复评 DQ 变化'
+      ];
+    } else {
+      levelText = '🟢 低风险 — AI 难以替代，重点放在能力提升';
+      levelColor = '#1F9D6B'; barColor = '#1F9D6B';
+      actions = [
+        '将该岗位列为「AI 增强优先」而非「AI 替代」对象',
+        '投资该岗位的 AI 工具赋能（如 AI 研究助手、决策支持系统）',
+        '将该岗位的高绩效员工列为关键人才，制定留任计划',
+        '鼓励该岗位员工参与 AI 工具的设计与评估（他们是最好的 AI 采纳推动者）'
+      ];
+    }
+    document.getElementById('dqLevel').textContent = levelText;
+    document.getElementById('dqLevel').style.color = levelColor;
+    document.getElementById('dqBar').style.background = barColor;
+    document.getElementById('dqBar').style.width = `${(dq/5)*100}%`;
+    const dimNames = ['流程标准化', '决策复杂度', '情感交互密度', '创造性需求'];
+    let detail = '';
+    scores.forEach((s, i) => {
+      const bar = '█'.repeat(Math.round(s)) + '░'.repeat(5 - Math.round(s));
+      detail += `${dimNames[i]}：${s}  ${bar}\n`;
+    });
+    document.getElementById('dqDetail').textContent = detail;
+    const ul = document.getElementById('dqActions'); ul.innerHTML = '';
+    actions.forEach(a => { const li = document.createElement('li'); li.textContent = a; ul.appendChild(li); });
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/content-protect.js" defer></script>
+</body></html>
