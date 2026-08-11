@@ -1,0 +1,20 @@
+{
+  "section": "resources",
+  "label": "资源库",
+  "title": "HR 转型落地工具箱",
+  "description": "AIHR数智引擎资源库：可交互评估工具与轻量可复用资产一站式获取。深度操作手册见「深度手册」子类。",
+  "updated": "2026-08-11",
+  "items": [
+    {
+      "url": "dq-evaluation.html",
+      "title": "企业级 AI 可替代岗位 DQ 评估表",
+      "date": "2026-08-11",
+      "tags": ["AI替代", "岗位评估", "组织变革"],
+      "excerpt": "浏览器内即用的岗位可替代性评估工具，按 6 大维度打分，实时生成风险矩阵与处置建议。无需下载、无需留资。",
+      "section": "resources",
+      "type": "interactive",
+      "format": "网页交互",
+      "audience": "HR / 业务管理者"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "section": "products",
+  "label": "深度手册",
+  "title": "深度手册：从方法到链路",
+  "description": "AIHR数智引擎资源库的「深度手册」子类：把方法论展开为完整可执行流程，含诊断口径、量化指标体系、可编辑模板与场景化提示词。",
+  "updated": "2026-08-11",
+  "items": [
+    {
+      "url": "dri-toolkit.html",
+      "title": "DRI 落地指南",
+      "date": "2026-08-11",
+      "tags": ["DRI", "责任机制", "组织变革"],
+      "excerpt": "从李开复×苏姿丰对谈中提炼的 DRI（单一责任人）方法论，展开为可执行流程：选任标准矩阵、AI 链路标注模板、成熟度自测、四步法 SOP 与 3 个行业案例。",
+      "section": "products",
+      "type": "manual",
+      "format": "网页手册",
+      "audience": "HR / 业务管理者"
+    },
+    {
+      "url": "iceberg-manual.html",
+      "title": "降本增效冰山模型 · 完整操作手册",
+      "date": "2026-08-11",
+      "tags": ["降本增效", "诊断框架", "冰山模型"],
+      "excerpt": "把「降本增效」拆到水面下：10 大破局心法完整展开，配可编辑诊断模板、量化指标体系与跨行业对标区间。先诊断，再动手。",
+      "section": "products",
+      "type": "manual",
+      "format": "网页手册",
+      "audience": "HR / 业务管理者"
+    },
+    {
+      "url": "prompt-handbook-v2.html",
+      "title": "HR 全场景 AI 提示词工程手册 v2.0",
+      "date": "2026-08-11",
+      "tags": ["提示词", "AI提效", "HR"],
+      "excerpt": "50+ 条可直接复制的场景提示词，覆盖招聘、绩效、薪酬、培训、OD 五大模块，附 DeepSeek / ChatGPT 双模型适配与脱敏使用须知。",
+      "section": "products",
+      "type": "manual",
+      "format": "网页手册",
+      "audience": "HR 从业者"
+    }
+  ]
+}

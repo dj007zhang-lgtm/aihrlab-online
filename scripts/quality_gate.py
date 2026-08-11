@@ -993,6 +993,9 @@ def gate_structured_data(target_files=None):
             continue
         if 'http-equiv="refresh"' in html:
             continue
+        # 模板是骨架（含 PLACEHOLDER 占位符），非发布页，跳过结构化数据校验
+        if '/templates/' in path.replace(os.sep, '/'):
+            continue
         blocks = SCRIPT_RE.findall(html)
         if not blocks:
             continue
@@ -1029,6 +1032,80 @@ def gate_structured_data(target_files=None):
                           issues[:20] + ([f"… 共 {len(issues)} 处"] if len(issues) > 20 else []))
     return GateResult("19-结构化数据合法性关", True,
                       [f"已校验 {checked} 个含 ld+json 的页面，全部可解析且必填字段完整"])
+
+
+# ============================================================
+# Gate 20 — 内联样式契约关（2026-08-11 新增）
+# ============================================================
+
+# 统一设计系统的组件词汇表。任何元素同时携带其中某个类 AND 内联 style 属性，
+# 即视为漂移违规：组件外观必须来自 CSS，禁止用内联 style 硬编码已知组件效果。
+KNOWN_COMPONENT_TOKENS = {
+    # 版块/资源组件（M2 新增下沉的共享类）
+    "section-hero", "section-hero__label", "section-hero__title", "section-hero__sub",
+    "section-title", "resource-grid", "resource-card", "resource-card__tag",
+    "resource-card__title", "resource-card__excerpt", "resource-card__meta",
+    "resource-card__cta", "crosslink-banner", "breadcrumb-nav", "site-header",
+    "site-nav", "site-footer", "container", "main-content",
+    # 文章/通用共享组件
+    "hero", "hero-label", "hero-sub", "article-grid", "article-card", "card-tag",
+    "card-excerpt", "card-meta", "btn", "btn-primary", "text-accent",
+    "asset-card", "verdict", "callout", "related-reading", "verified-sources",
+    "toc-rail", "glossary-term", "geo-answer-capsule", "article-footer-qr",
+}
+
+def gate_inline_style_contract(target_files=None):
+    """内联样式契约关（2026-08-11 新增）：阻断「已知组件类 + 内联 style」漂移。
+
+    根因：此前非文章版块（resources/products/glossary…）手写时直接在内联 style
+    里写组件外观，导致宽屏下卡片铺满视口、右侧空旷等漂移（iceberg-manual 即一例）。
+    统一规范要求组件外观一律来自 CSS，禁止用内联 style 硬编码已知组件效果。
+
+    渐进生效：
+      - 页面声明 <body data-section-unified="true"> 即已签署统一契约 →
+        发现违规即 BLOCKER（强约束，零回归）。
+      - 未签署的存量页 → 仅 WARN（提示性，不阻断发布，避免误伤历史页）。
+    """
+    import re as _re
+    # 同时匹配 style 在 class 前/后的两种属性顺序，且限制在同一标签内（[^>]*）
+    TAG_RE = _re.compile(
+        r'<[a-zA-Z][^>]*\bclass="([^"]*)"[^>]*\bstyle="([^"]*)"'
+        r'|<[a-zA-Z][^>]*\bstyle="([^"]*)"[^>]*\bclass="([^"]*)"',
+        _re.IGNORECASE)
+    files = target_files or _get_all_html_files()
+    blockers = []
+    warns = []
+    checked = 0
+    for path in files:
+        if not path.endswith('.html'):
+            continue
+        if _is_verify_page(path):
+            continue
+        try:
+            html = open(path, encoding='utf-8', errors='ignore').read()
+        except Exception:
+            continue
+        if 'http-equiv="refresh"' in html:
+            continue
+        unified = 'data-section-unified="true"' in html
+        for m in TAG_RE.findall(html):
+            cls = m[0] or m[3]
+            if not cls:
+                continue
+            tokens = set(cls.split())
+            hit = tokens & KNOWN_COMPONENT_TOKENS
+            if hit:
+                rel = os.path.relpath(path, SITE_ROOT)
+                msg = f"{rel} → 已知组件类 [{', '.join(sorted(hit))}] 含内联 style（应从 CSS 取样式）"
+                (blockers if unified else warns).append(msg)
+        checked += 1
+    if blockers:
+        return GateResult("20-内联样式契约关", False,
+                          blockers[:15] + ([f"… 共 {len(blockers)} 处强制违规"] if len(blockers) > 15 else []))
+    if warns:
+        return GateResult("20-内联样式契约关", True,
+                          [f"已扫描 {checked} 个页面；{len(warns)} 处存量内联 style 提示（未签署统一契约，仅提示不阻断）:"] + warns[:10])
+    return GateResult("20-内联样式契约关", True, [f"已扫描 {checked} 个页面，无内联 style 漂移"])
 
 
 # ============================================================
@@ -1083,6 +1160,7 @@ def run_quality_gate(mode="changed"):
         gate_internal_links(target_files),      # Gate 17: 内链图谱健康关（R3 收尾护栏）
         gate_inline_scripts(target_files),      # Gate 18: 内联脚本语法关（R1 冒烟暴露的运行时盲区）
         gate_structured_data(target_files),     # Gate 19: 结构化数据合法性关（P0 盲区补强，2026-08-10）
+        gate_inline_style_contract(target_files),  # Gate 20: 内联样式契约关（2026-08-11 新增，阻断组件内联 style 漂移）
     ]
     
     # Report
