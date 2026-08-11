@@ -334,6 +334,31 @@
 .article-body .ilink:hover,
 .article-content-wrapper .ilink:hover{background:rgba(63,98,18,.12);}
 
+/* 公众号二维码卡片（文章/产品页底部统一滚动目标） */
+.article-footer-qr{
+  max-width:var(--article-width);
+  margin:2.5rem auto 1.5rem;
+  padding:1.5rem;
+  background:var(--bg-subtle);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  text-align:left;
+}
+.article-footer-qr img{
+  width:140px;height:140px;
+  border-radius:8px;
+  flex:none;
+  display:block;
+}
+.article-footer-qr p{
+  margin:0;
+  color:var(--text-secondary);
+  line-height:1.65;
+}
+.article-footer-qr strong{color:var(--text);}
+
 /* ── 移动端响应式（P0 修复：Mobile CTR=0%） ── */
 @media(max-width:768px){
   /* 基础字号缩放 */
@@ -366,7 +391,7 @@
   /* 互动区按钮 */
   .eg-btn{padding:0.4em 0.8em;font-size:0.78rem;}
   /* QR 码区域 */
-  .article-footer-qr{text-align:center;padding:var(--space-xl) var(--space-md);}
+  .article-footer-qr{flex-direction:column;text-align:center;padding:var(--space-xl) var(--space-md);gap:1rem;}
   .article-footer-qr img{width:140px;height:140px;}
   /* Footer 堆叠 */
   .footer-inner{flex-direction:column;text-align:center;gap:var(--space-lg);}
