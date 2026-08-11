@@ -94,7 +94,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
 <script src="/assets/js/analytics-loader.js" defer></script>
 </head>
-<body data-section-unified="true"><header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>    <div class="article-content"><article class="article-content-wrapper"><header class="article-header"><h1 class="article-title" style="font-size: 2rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.03em; margin-bottom: 1rem;">你今天消耗了多少Token？大厂KPI的新玩法</h1><p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.7;">你今天消耗了多少Token？</p>
+<body><header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/">文章</a><a href="/resources/">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span></button></nav></div></header>    <div class="article-content"><article class="article-content-wrapper"><header class="article-header"><h1 class="article-title" style="font-size: 2rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.03em; margin-bottom: 1rem;">你今天消耗了多少Token？大厂KPI的新玩法</h1><p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.7;">你今天消耗了多少Token？</p>
   <div class="article-meta"><time datetime="2026-04-12">2026年04月12日</time> <span class="article-update-badge">更新于 2026年7月1日</span><span class="tag">大厂实践</span></div><div class="article-tags"><span>AI组织变革</span></div></header>
     <div class="geo-answer-capsule">
       <p class="geo-answer-capsule__label">核心结论</p>
@@ -106,20 +106,20 @@
 <div class="continue-reading-card">
 <h4>相关阅读</h4>
 <ul>
-  <li><a href="/articles/ai-layoff-7-to-40.html">AI裁员7%飙到40%：你的公司在做减法还是乘法</a></li>
-  <li><a href="/articles/anthropic-danger-signals.html">Anthropic内部实录：用这6个危险信号，拆掉你团队的冗余流程</a></li>
-  <li><a href="/articles/kpi-failure-ai-org-restructure.html"><a href="/articles/kpi-failure-ai-org-restructure.html" class="ilink">KPI物理失效：AI原生组织的效能重构</a>与技能度量</a></li>
+  <li class="rr-feature"><a href="/articles/ai-layoff-7-to-40.html"><span class="rr-title">AI裁员7%飙到40%：你的公司在做减法还是乘法</span><span class="rr-desc">Challenger报告5月AI裁员占比从1月的7%飙到40%，四个月翻了近6倍。但这个…</span></a></li>
+  <li><a href="/articles/anthropic-danger-signals.html"><span class="rr-title">Anthropic内部实录：用这6个危险信号，拆掉你团队的冗余流程</span><span class="rr-desc">绝大多数企业应对AI浪潮的方式，是在旧架构上小心翼翼地外挂大模型。但Anthropic却…</span></a></li>
+  <li><a href="/articles/kpi-failure-ai-org-restructure.html"><span class="rr-title">KPI物理失效：AI原生组织的效能重构</span><span class="rr-desc">微软在拆齿轮，字节在碾流量，Kimi甚至连部门都删了。表面上是中外企业的两条路线，底层却…</span></a></li>
 </ul>
 </div>
 <p>斯坦福的研究指出，员工为达标过度依赖AI，停止深度思考，决策能力下降12%。新入职的工程师越来越依赖AI补全代码，对底层逻辑的理解逐年下降。一旦AI服务中断，很多人甚至不知道从哪里开始手写。更隐蔽的风险是：很多优质创意来自工程师在枯燥验证中积累的灵感，当这些工作全部交给AI，经验和灵感也一同被抹杀。自动化提升了，但产品创新的土壤在消失。</p><p>长此以往，整个行业会陷入"AI复制AI"的恶性循环。</p><p>阿里巴巴已经意识到这个问题，正在从Token消耗量转向业务价值与投入产出比。强制推行AI工具本身没有错，错的是衡量指标——用成本工具衡量价值创造，从一开始就搞错了方向。</p><p>学会用AI，但不要被AI用。守住创新、判断、连接这些不可替代的能力，成为"AI协作者"，而不是"AI操作员"。</p><p>问题是：在这场变革里，你积攒的那点职场溢价还剩多少？</p><p>埃森哲AI晋升考核改革：一场关于"权力再分配"的静默革命</p><p>纳瓦尔最新播客启示：AI时代，组织如何用"判断力绩效"替代"执行绩效"</p><p>别再用工业时代的尺子，量AI时代的特种兵：2026绩效管理这样做</p><p>Meta 2026 AI绩效改革：3大变革如何重塑你的职场竞争力？</p><p>当"变革超载"成为新常态：HR如何从"推动者"进化为"减负师"</p><p><a href="/articles/ai-change-hr-heart.html" class="ilink">AI变革推不动？HR你要明白：算法再精，不如人心安</a></p><p><a href="/articles/ai-hr-2026-midyear-three-signals.html" class="ilink">组织变革</a>，HR到底要交付的是什么？</p><p>AI in HR：微软智能代理战略下的人才管理新范式与工作变革</p></div><!-- 相关阅读 -->
 <section class="inline-related related-reading">
         <h3>相关阅读</h3>
         <ul>
-          <li><a href="/articles/keling-ai-innovation-path.html">从「能不能」到「敢不敢」：可灵AI创新路径的组织启示</a></li>
-          <li><a href="/articles/meta-ai-optimizes-middle-managers.html">Meta又裁员了：AI正在系统性'优化'掉中层管理者</a></li>
-          <li><a href="/articles/drucker-ai-era-answer.html">AI时代，德鲁克依然是答案——只是问题变了</a></li>
-          <li><a href="/articles/ai-landing-fails-org-not-changed.html">88%企业AI落地失败，原因不在技术，在组织没变</a></li>
-          <li><a href="/glossary/index.html">AI+HR 术语词典：20个关键概念的定义与风险边界</a></li>
+          <li class="rr-feature"><a href="/articles/keling-ai-innovation-path.html"><span class="rr-title">从「能不能」到「敢不敢」：可灵AI创新路径的组织启示</span><span class="rr-desc">当「赛马机制」开始失效——在中国互联网圈，赛马机制几乎是一种信仰。可灵 AI 如何用组织…</span></a></li>
+          <li><a href="/articles/meta-ai-optimizes-middle-managers.html"><span class="rr-title">Meta又裁员了：AI正在系统性&#x27;优化&#x27;掉中层管理者</span><span class="rr-desc">Meta连续裁员，AI正在系统性「优化」掉中层管理者——这不是个案，而是组织用AI重新为…</span></a></li>
+          <li><a href="/articles/drucker-ai-era-answer.html"><span class="rr-title">AI时代，德鲁克依然是答案——只是问题变了</span><span class="rr-desc">2024年的某个下午，某互联网公司CHO（首席人力资源官）在高管会上提出一个令人不安的问…</span></a></li>
+          <li><a href="/articles/ai-landing-fails-org-not-changed.html"><span class="rr-title">88%企业AI落地失败，原因不在技术，在组织没变</span><span class="rr-desc">这两组数据的逻辑关系值得深思：AI落地失败的症结，不在于&#x27;技术不够好&#x27;，而在于&#x27;组织没有…</span></a></li>
+          <li><a href="/glossary/index.html"><span class="rr-title">AI+HR 术语词典：20个关键概念的定义与风险边界</span><span class="rr-desc">AI+HR 术语词典：20 个关键概念的定义、对 HR 的意义与风险边界，附权威文章内链…</span></a></li>
         </ul>
       </section>
 <div class="article-footer-qr">
@@ -134,7 +134,7 @@ var s=document.createElement('script');s.src=u;
 var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);
 })();
 </script>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">在线测评</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">© 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
   <script src="/assets/js/content-protect.js" defer></script>
 </body>
 </html>

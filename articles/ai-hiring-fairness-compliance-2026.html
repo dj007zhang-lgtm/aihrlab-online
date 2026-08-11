@@ -84,10 +84,9 @@
     <script type="application/ld+json"> {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "小公司用SaaS招聘工具也要自己担责吗？", "acceptedAnswer": {"@type": "Answer", "text": "要。监管的责任主体是「使用AI做录用决策的企业」，不是工具供应商。即使你只是采购了第三方ATS或AI面试产品，一旦它的评分影响了谁入围，合规义务就在你这边。选供应商时要让它提供偏见审计报告和模型说明，但这不能替代你自己的终审与记录。"}}, {"@type": "Question", "name": "怎么快速做一次偏见审计？", "acceptedAnswer": {"@type": "Answer", "text": "最低成本的做法是看「通过率差异」：把AI初筛通过的候选人按性别、年龄层、地域分组，比较各组通过率；再对比「AI通过但人类终面淘汰」的比例，如果某组明显偏高，就说明算法在替你做有偏的预筛选。季度跑一次即可发现大部分问题。"}}, {"@type": "Question", "name": "中国法律对AI招聘有强制要求吗？", "acceptedAnswer": {"@type": "Answer", "text": "目前是「算法备案+深度合成标识+生成式AI内容责任」的组合框架，且细则在持续收紧。若你的AI面试用了生成式模型自动出题或评分，需履行内容标识义务；若属于算法推荐服务，需按要求备案。具体落地口径建议跟随网信办与人社部门的最新指引。"}}, {"@type": "Question", "name": "AI面试录像算深度合成吗？需要告知吗？", "acceptedAnswer": {"@type": "Answer", "text": "纯录音录像不属于深度合成，但必须在面试前明确告知候选人「本环节使用AI进行记录/辅助评估」。只有当AI生成了合成形象、虚拟面试官或自动评分话术时，才触发深度合成标识义务。无论哪种，透明度告知都是底线。"}}, {"@type": "Question", "name": "人类终审会不会让AI失去意义？", "acceptedAnswer": {"@type": "Answer", "text": "不会。终审不等于「重做一遍」——HR只需对AI标记出的高风险差异、边缘候选、以及落选争议案例做复核，而非审每一份简历。这样既保留AI的效率杠杆，又把法律和伦理的最终责任握在人手里，正是EU AI Act「人类监督」条款的本意。"}}], "@context": "https://schema.org"} </script>
 
 <script src="/assets/js/analytics-loader.js" defer></script>
-<script src="/assets/js/search.js" defer></script>
 </head>
-<body data-section-unified="true">
-<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+<body>
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/">文章</a><a href="/resources/">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span></button></nav></div></header>
     <div class="article-content">
 <article class="article-content-wrapper">
 
@@ -200,11 +199,11 @@
 <section class="related-reading">
         <h3>相关阅读</h3>
         <ul>
-          <li><a href="/articles/ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></li>
-          <li><a href="/articles/eu-ai-act-omnibus-hr-2026.html">欧盟AI法案延期16个月，HR的8月2日没变</a></li>
-          <li><a href="/articles/recruitment-ai-fullstack.html">招聘全链路AI落地：从JD撰写到面试出题的Agent化</a></li>
-          <li><a href="/articles/ai-hr-jobs.html">AI接管HR岗位全景图：哪些职能先被Agent替代</a></li>
-          <li><a href="/glossary/index.html">AI+HR 术语词典：20个关键概念的定义与风险边界</a></li>
+          <li class="rr-feature"><a href="/articles/ai-recruitment-selection-guide-2026.html"><span class="rr-title">简历匹配已成过去式：AI招聘选型的避坑与实战指南</span><span class="rr-desc">讲真，最近这一年听到最多的抱怨是：「我们花了大几十万上的 AI 招聘系统，怎么用着用着就…</span></a></li>
+          <li><a href="/articles/eu-ai-act-omnibus-hr-2026.html"><span class="rr-title">欧盟AI法案延期16个月，HR的8月2日没变</span><span class="rr-desc">欧盟《数字综合法案》Regulation (EU) 2026/1744 已于 2026 …</span></a></li>
+          <li><a href="/articles/recruitment-ai-fullstack.html"><span class="rr-title">招聘全链路AI落地：从JD撰写到面试出题的Agent化</span><span class="rr-desc">AI面试官已成为校招标配，全球招聘需求下滑20%。本篇文章拆解从JD生成、人才寻访到自动…</span></a></li>
+          <li><a href="/articles/ai-hr-jobs.html"><span class="rr-title">AI接管HR岗位全景图：哪些职能先被Agent替代</span><span class="rr-desc">逐一拆解招聘、薪酬、绩效、培训、员工关系、组织发展六大模块的AI替代可行性。规律很明显：…</span></a></li>
+          <li><a href="/glossary/index.html"><span class="rr-title">AI+HR 术语词典：20个关键概念的定义与风险边界</span><span class="rr-desc">AI+HR 术语词典：20 个关键概念的定义、对 HR 的意义与风险边界，附权威文章内链…</span></a></li>
         </ul>
       </section>
 <div class="article-footer-qr">
@@ -216,5 +215,5 @@
 <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/content-protect.js" defer></script>
 
-<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI时代组织变革实验室。从职能管理者到组织架构师的知识中枢。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
 </body></html>
