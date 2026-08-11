@@ -1,0 +1,97 @@
+{
+  "section": "tools",
+  "label": "测评",
+  "title": "在线测评工具集",
+  "description": "AIHR数智引擎自评工具集：基于学术框架的人格、职业、组织诊断与 AI 替代风险测评。免费，即时出结果，无需注册。",
+  "updated": "2026-08-11",
+  "items": [
+    {
+      "url": "bigfive/",
+      "title": "大五人格测评",
+      "date": "2026-08-11",
+      "tags": ["大五人格", "性格测评", "HR"],
+      "excerpt": "基于心理学界最被认可的大五人格模型（OCEAN），从开放性、尽责性、外向性、宜人性、神经质五个维度画出你的性格剖面图，并附 HR 视角的用人与协作解读。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页测评",
+      "audience": "个人 / HR"
+    },
+    {
+      "url": "mbti/",
+      "title": "MBTI 职业性格测试",
+      "date": "2026-08-11",
+      "tags": ["MBTI", "职业性格", "团队"],
+      "excerpt": "基于荣格心理类型理论，24 题免费版快速定位你的 MBTI 类型，并附职业倾向与团队协作出路解读；完整版 48 题给出更精细剖面。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页测评",
+      "audience": "个人 / HR"
+    },
+    {
+      "url": "ai-risk-test/",
+      "title": "突围 · AI 替代风险测评",
+      "date": "2026-08-11",
+      "tags": ["AI替代", "职业风险", "突围"],
+      "excerpt": "从任务可编码性、技能半衰期、组织依赖度三个维度评估你的替代风险等级，输出个性化突围路线图——而不是一个冷冰冰的分数。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页测评",
+      "audience": "个人 / HR"
+    },
+    {
+      "url": "dri-self-assessment.html",
+      "title": "DRI 成熟度自测表",
+      "date": "2026-08-11",
+      "tags": ["DRI", "责任机制", "组织"],
+      "excerpt": "系统评估团队的 DRI（直接负责人）机制当前水位：决策权归属是否清晰、信息流转效率如何、问责机制到不到位。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页自测",
+      "audience": "HR / 业务管理者"
+    },
+    {
+      "url": "dri-quiz.html",
+      "title": "DRI 快速诊断",
+      "date": "2026-08-11",
+      "tags": ["DRI", "快速诊断", "团队"],
+      "excerpt": "10 道核心题目，覆盖决策链条、责任归属、信息透明三个维度。适合会议开场或周会前快速自检。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页自测",
+      "audience": "HR / 业务管理者"
+    },
+    {
+      "url": "disc-test/",
+      "title": "DISC 行为风格测试",
+      "date": "2026-08-11",
+      "tags": ["DISC", "行为风格", "协作"],
+      "excerpt": "基于 Marston 的 DISC 模型，24 题快速测出你的主导风格（支配/影响/稳健/谨慎），生成四风格深度报告，解读行为特质、团队角色与沟通建议。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页测评",
+      "audience": "个人 / HR"
+    },
+    {
+      "url": "holland/",
+      "title": "霍兰德职业兴趣测评",
+      "date": "2026-08-11",
+      "tags": ["霍兰德", "职业兴趣", "RIASEC"],
+      "excerpt": "基于 Holland 经典 RIASEC 兴趣理论，并含技术型 T 共七个维度。21 题免费版快速画出兴趣轮廓；完整版 63 题给出主导代码、岗位方向与「如何与 AI 协作」的切入点解读。",
+      "section": "tools",
+      "type": "assessment",
+      "format": "网页测评",
+      "audience": "个人 / HR"
+    },
+    {
+      "url": "tarot-test/",
+      "title": "自我觉察卡牌",
+      "date": "2026-08-11",
+      "tags": ["自我觉察", "心理投射", "荣格"],
+      "excerpt": "基于荣格原型与心理投射原理的轻量自我觉察工具。22 张大阿尔克那三牌阵，照见你此刻的议题、内在张力与可迈的一步。非占卜、不预测命运，意义由你自己的理解赋予。",
+      "section": "tools",
+      "type": "interactive",
+      "format": "网页交互",
+      "audience": "个人"
+    }
+  ]
+}
