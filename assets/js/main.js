@@ -291,3 +291,28 @@ try{
 })();
 }catch(e){console.error('[AIHR main.js] module 8 init failed:', e);}
 
+/* ===== P1：时间归档每月折叠（2026-08-12） =====
+   每月默认折叠超出 ARCHIVE_MONTH_PREVIEW 的文章，附「展开全部 N 篇」按钮。
+   渐进增强：无 JS 时全部可见；加载后由前端折叠，避免单月（≥30 篇）一面墙导致视觉失衡。 */
+try{
+(function(){
+  var toggles = document.querySelectorAll('[data-archive-toggle]');
+  if(!toggles.length) return;
+  Array.prototype.forEach.call(toggles, function(btn){
+    var month = btn.closest('.archive-month');
+    if(!month) return;
+    var list = month.querySelector('.archive-list');
+    if(!list) return;
+    var cm = (btn.textContent || '').match(/(\d+)\s*篇/);
+    btn.dataset.count = cm ? cm[1] : '';
+    month.classList.add('is-collapsible');
+    list.classList.add('is-collapsed');
+    btn.addEventListener('click', function(){
+      var collapsed = list.classList.toggle('is-collapsed');
+      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      btn.textContent = collapsed ? ('展开全部 ' + btn.dataset.count + ' 篇') : '收起';
+    });
+  });
+})();
+}catch(e){console.error('[AIHR main.js] module 9 init failed:', e);}
+

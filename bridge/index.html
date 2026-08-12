@@ -106,8 +106,22 @@
 <p class="bridge-lede">一端是用人的真实难题，一端是待证的能力。我们架一座以能力为尺的桥，把两端放上同一张图——招聘，于是回到它本来的样子。</p>
 
 <svg class="bridge-hero-svg" viewBox="0 0 720 320" role="img" aria-label="AIHR 用一座以能力为尺的桥，把招聘方真实需求与求职方可核验能力连接起来">
-  <line x1="130" y1="96" x2="130" y2="246" stroke="var(--line-strong)" stroke-width="2"/>
-  <line x1="590" y1="96" x2="590" y2="246" stroke="var(--line-strong)" stroke-width="2"/>
+  <!-- 左桥墩：锥形塔身 + 柱头拱座 + 基座 + 砌缝 -->
+  <g class="pier">
+    <rect x="111" y="243" width="38" height="8" rx="1" fill="var(--line-strong)" opacity="0.5"/>
+    <path d="M117 243 L124 96 L136 96 L143 243 Z" fill="var(--bg-subtle)" stroke="var(--line-strong)" stroke-width="1.6"/>
+    <rect x="114" y="88" width="32" height="9" rx="1.5" fill="var(--line-strong)" opacity="0.7"/>
+    <line x1="121" y1="150" x2="139" y2="150" stroke="var(--line)" stroke-width="1" opacity="0.55"/>
+    <line x1="119" y1="196" x2="141" y2="196" stroke="var(--line)" stroke-width="1" opacity="0.55"/>
+  </g>
+  <!-- 右桥墩：镜像 -->
+  <g class="pier">
+    <rect x="571" y="243" width="38" height="8" rx="1" fill="var(--line-strong)" opacity="0.5"/>
+    <path d="M577 243 L584 96 L596 96 L603 243 Z" fill="var(--bg-subtle)" stroke="var(--line-strong)" stroke-width="1.6"/>
+    <rect x="574" y="88" width="32" height="9" rx="1.5" fill="var(--line-strong)" opacity="0.7"/>
+    <line x1="581" y1="150" x2="599" y2="150" stroke="var(--line)" stroke-width="1" opacity="0.55"/>
+    <line x1="579" y1="196" x2="601" y2="196" stroke="var(--line)" stroke-width="1" opacity="0.55"/>
+  </g>
   <path class="bridge-arc" d="M130 96 Q360 44 590 96" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
   <circle cx="245" cy="76" r="5" fill="var(--accent)"/>
   <circle cx="360" cy="70" r="5" fill="var(--accent)"/>

@@ -167,10 +167,29 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
         })
         if verbose:
             print(f"  blob {rel} ({len(content)} bytes) -> {blob_sha[:8]}")
-    new_tree = _req("POST", "trees", {"base_tree": base_tree_sha, "tree": tree_entries})
+    # Chunked tree creation.
+    # ROOT CAUSE (2026-08-13): the sandbox egress proxy returns HTTP 404 on
+    # large tree POST bodies (the 226-file publish 404'd on `POST trees`, while
+    # a 2-entry tree POST succeeded). GitHub's Git Data tree API accepts a
+    # base_tree, so we build the final tree incrementally in small batches:
+    # each batch POSTs a tree whose base_tree is the previous batch's sha. The
+    # result is identical to a single large tree, but every POST body stays
+    # small enough for the proxy. Blob/tree/commit are content-addressed or
+    # parent-linked, so re-POSTing is idempotent and safe to retry.
+    CHUNK = 25
+    cur_base = base_tree_sha
+    final_tree_sha = base_tree_sha
+    for i in range(0, len(tree_entries), CHUNK):
+        chunk = tree_entries[i:i + CHUNK]
+        resp = _req("POST", "trees", {"base_tree": cur_base, "tree": chunk})
+        cur_base = resp["sha"]
+        final_tree_sha = cur_base
+        if verbose:
+            print(f"  tree chunk {i // CHUNK + 1} "
+                  f"({len(chunk)} files) -> {cur_base[:8]}")
     new_commit = _req("POST", "commits", {
         "message": message,
-        "tree": new_tree["sha"],
+        "tree": final_tree_sha,
         "parents": [commit_sha],
     })
     new_sha = new_commit["sha"]

@@ -296,8 +296,18 @@ def rebuild_index_html(articles):
     return len(sorted_articles)
 
 
+# 每月默认预览条数；超出部分折叠，点击「展开全部 N 篇」展开。
+# 目的：单月创作量上升（≥30 篇）后，时间归档仍保持各月视觉均衡，不出现某一月一面墙。
+ARCHIVE_MONTH_PREVIEW = 8
+
+
 def build_archive_html(articles):
-    """按年/月分组的时间归档（紧凑内部链接列表）。"""
+    """按年/月分组的时间归档（紧凑内部链接列表）。
+
+    每月默认只渲染前 ARCHIVE_MONTH_PREVIEW 篇（按日期倒序），其余标记
+    .archive-item--hidden 并由前端在加载后折叠，附「展开全部 N 篇」按钮。
+    无 JS 时全部可见（渐进增强，保证 SEO 与可访问性）。
+    """
     from collections import defaultdict
     by_year = defaultdict(lambda: defaultdict(list))
     for a in articles:
@@ -312,15 +322,28 @@ def build_archive_html(articles):
         parts.append('<div class="archive-year"><h3 class="archive-year__h">' + y +
                      ' 年 <span class="archive-year__count">' + str(total) + ' 篇</span></h3>')
         for m in sorted(months.keys(), reverse=True):
-            items = months[m]
+            items = sorted(months[m], key=lambda x: x.get('date', ''), reverse=True)
+            n = len(items)
+            preview = items[:ARCHIVE_MONTH_PREVIEW]
+            rest = items[ARCHIVE_MONTH_PREVIEW:]
             parts.append('<div class="archive-month"><h4 class="archive-month__h">' + str(int(m)) +
-                         ' 月 <span class="archive-month__count">' + str(len(items)) + ' 篇</span></h4><ul class="archive-list">')
-            for a in sorted(items, key=lambda x: x.get('date', ''), reverse=True):
+                         ' 月 <span class="archive-month__count">' + str(n) + ' 篇</span></h4>')
+            parts.append('<ul class="archive-list">')
+            for a in preview:
                 dd = a['date'][5:] if len(a.get('date', '')) >= 10 else ''
                 parts.append('<li class="archive-item"><a href="/articles/' + a['slug'] +
                              '.html"><time datetime="' + a['date'] + '">' + dd + '</time> ' +
                              a['title'] + '</a></li>')
-            parts.append('</ul></div>')
+            for a in rest:
+                dd = a['date'][5:] if len(a.get('date', '')) >= 10 else ''
+                parts.append('<li class="archive-item archive-item--hidden"><a href="/articles/' + a['slug'] +
+                             '.html"><time datetime="' + a['date'] + '">' + dd + '</time> ' +
+                             a['title'] + '</a></li>')
+            parts.append('</ul>')
+            if rest:
+                parts.append('<button type="button" class="archive-toggle" data-archive-toggle '
+                             'aria-expanded="false">展开全部 ' + str(n) + ' 篇</button>')
+            parts.append('</div>')
         parts.append('</div>')
     return '\n'.join(parts)
 

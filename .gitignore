@@ -6,6 +6,9 @@ Thumbs.db
 scripts/*.md
 scripts/__pycache__/
 *.md
+# Python 缓存
+__pycache__/
+*.pyc
 # 但 tools/ 下的交付物（GEO清单/发布门禁/选题日历等）需纳入版本控制
 !tools/*.md
 
@@ -21,3 +24,6 @@ scripts/.env
 
 # Deploy package
 *.tar.gz
+
+# 临时备份目录
+assets/images/banners/_backup/
