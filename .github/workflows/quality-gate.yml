@@ -1,4 +1,4 @@
-name: Quality Gate
+name: Publish Guard (双闸)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  quality-gate:
+  double-gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,5 +16,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Run Quality Gate (full site)
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Quality Gate (21关)
         run: python3 scripts/quality_gate.py --all
+      - name: Stability Guard (11项 BLOCKER 拦截)
+        run: python3 scripts/stability_guard.py --all
