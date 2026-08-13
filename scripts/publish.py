@@ -22,6 +22,7 @@ import sys
 import os
 import subprocess
 import urllib.request
+import urllib.parse
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(SITE_ROOT, "scripts"))
@@ -38,7 +39,8 @@ def verify_remote_exists(files):
     all_ok = True
     for f in files:
         try:
-            req = urllib.request.Request(f"{g.CONTENTS}/{f}?ref={g.BRANCH}")
+            enc = urllib.parse.quote(f, safe="/")
+            req = urllib.request.Request(f"{g.CONTENTS}/{enc}?ref={g.BRANCH}")
             req.add_header("Authorization", f"Bearer {g.TOKEN}")
             req.add_header("User-Agent", "aihr-sync")
             with urllib.request.urlopen(req, timeout=60) as r:
