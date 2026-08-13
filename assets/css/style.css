@@ -682,3 +682,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
   html{scroll-behavior:auto !important;}
 }
+
+/* 时间归档大幅简化：默认折叠为 <details>，不干扰正文阅读流 (2026-08-13) */
+.archive-section--mini{padding:var(--space-lg) 0;}
+.archive-mini{margin-top:var(--space-2xl);}
+.archive-mini__summary{display:flex;align-items:center;gap:.5rem;font-size:1.05rem;font-weight:700;color:var(--text);cursor:pointer;list-style:none;padding:.7rem 0;border-top:1px solid var(--line);}
+.archive-mini__summary::-webkit-details-marker{display:none;}
+.archive-mini__summary::after{content:'▾';margin-left:auto;font-size:.9rem;color:var(--text-muted);transition:transform .2s var(--ease);}
+.archive-mini[open] .archive-mini__summary::after{transform:rotate(180deg);}
+.archive-mini__body{margin-top:var(--space-md);}
+:root[data-theme="dark"] .archive-mini__summary{border-top-color:var(--line);}
+
+
+/* 分类筛选条：滚动时常驻，便于随时切换主题 (2026-08-13) */
+.article-filters{position:sticky;top:var(--header-height);z-index:20;background:var(--bg);padding:.6rem 0;margin-bottom:var(--space-xl);}

@@ -204,23 +204,23 @@ def extract_article_info(filepath, filename):
 
 
 def build_card_html(article):
-    """生成单篇文章卡片的 HTML"""
+    """生成单篇文章卡片的 HTML（含 2 行摘要，提升可扫性）"""
     slug = article['slug']
     title = html_lib.escape(article['title'])
     category = html_lib.escape(article['category'])
     date = article['date']
     date_display = date.replace('-', '.') if date else ''
 
-    # 摘要截断到 100 字
     excerpt = article.get('excerpt', '')
     if len(excerpt) > 100:
         excerpt = excerpt[:100] + '...'
     excerpt = html_lib.escape(excerpt)
+    excerpt_html = f'\n    <p class="card-excerpt">{excerpt}</p>' if excerpt else ''
 
     return f'''<article class="article-card" data-category="{category}">
   <a href="/articles/{slug}.html" class="card-link">
     <span class="card-tag">{category}</span>
-    <h3 class="article-title">{title}</h3>
+    <h3 class="article-title">{title}</h3>{excerpt_html}
     <time class="article-date" datetime="{date}">{date_display}</time>
   </a>
 </article>'''
