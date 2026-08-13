@@ -23,5 +23,20 @@
     ],
     "sitemap_urls_before": 209,
     "sitemap_urls_after": 209
+  },
+  {
+    "date": "2026-08-13 12:49",
+    "commit": "808e29647c8e9d8e5c11e73b0f911760b4eabeae",
+    "message": "feat: 重构文章列表页——折叠时间归档+卡片摘要+常驻筛选条",
+    "files_count": 5,
+    "files": [
+      "articles/index.html",
+      "scripts/sync-articles.py",
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 209,
+    "sitemap_urls_after": 209
   }
 ]
