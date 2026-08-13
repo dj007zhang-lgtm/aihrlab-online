@@ -54,23 +54,30 @@ try{
 }catch(e){console.error('[AIHR main.js] module 2 init failed:', e);}
 
 
-/* ===== 文章列表页：分类筛选（2026-07-18） ===== */
+/* ===== 文章列表页：分类筛选 + 页码分页（2026-08-13 重构） =====
+   取代原「无限滚动 + 时间归档」：读者要的是「我在第几页、还有几页」，不是「2026 年 3 月有哪些文章」。
+   单一真相源：卡片可见 = 命中当前分类 && 落在当前页区间。避免此前内联脚本与本模块各定义一份
+   filterArticles 导致的覆盖冲突。渐进增强：无 JS 时全部卡片可见（HTML 保留全量内链，SEO 面不丢）。 */
 try{
 (function(){
   var grid=document.getElementById('article-grid');
   if(!grid)return; /* 非列表页不执行 */
-  var cards=grid.querySelectorAll('.article-card');
-  var btns=document.querySelectorAll('.filter-btn');
+  var cards=Array.prototype.slice.call(grid.querySelectorAll('.article-card'));
+  if(!cards.length)return;
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+  var pager=document.getElementById('pagination');
+  /* 安全兜底：页面若没有分页容器（如历史遗留的聚合页），一律全量显示，
+     绝不允许「卡片被截断却没有翻页控件」导致内容不可达。 */
+  var paged=!!pager;
+  var PAGE_SIZE=24;
+  var state={cat:'all',page:1};
 
-  /* 动态填充数量徽章 */
+  /* 分类数量徽章 */
   var counts={all:cards.length};
-  cards.forEach(function(c){
-    var cat=c.getAttribute('data-category')||'';
-    counts[cat]=(counts[cat]||0)+1;
-  });
+  cards.forEach(function(c){var k=c.getAttribute('data-category')||'';counts[k]=(counts[k]||0)+1;});
   btns.forEach(function(b){
     var f=b.getAttribute('data-filter')||'all';
-    if(counts[f]!==undefined){
+    if(counts[f]!==undefined&&!b.querySelector('.filter-count')){
       var sp=document.createElement('span');
       sp.className='filter-count';
       sp.textContent=counts[f];
@@ -78,21 +85,106 @@ try{
     }
   });
 
-  window.filterArticles=function(category,clickedBtn){
-    btns.forEach(function(b){b.classList.remove('active');});
-    if(clickedBtn)clickedBtn.classList.add('active');
-    cards.forEach(function(card){
-      if(category==='all'||card.getAttribute('data-category')===category){
-        card.style.display='';
-        card.style.opacity='1';
-        card.style.transform='translateY(0)';
-      }else{
-        card.style.opacity='0';
-        card.style.transform='translateY(8px)';
-        setTimeout(function(){card.style.display='none';},200);
-      }
+  function matched(){
+    if(state.cat==='all')return cards;
+    return cards.filter(function(c){return c.getAttribute('data-category')===state.cat;});
+  }
+
+  /* 页码窗口：首页 + 末页 + 当前±1，其余省略号 */
+  function pageWindow(cur,total){
+    var out=[],i;
+    if(total<=7){for(i=1;i<=total;i++)out.push(i);return out;}
+    out.push(1);
+    var s=Math.max(2,cur-1),e=Math.min(total-1,cur+1);
+    if(s>2)out.push('gap');
+    for(i=s;i<=e;i++)out.push(i);
+    if(e<total-1)out.push('gap');
+    out.push(total);
+    return out;
+  }
+
+  function renderPager(total,count){
+    if(!pager)return;
+    if(total<=1){pager.innerHTML='';pager.hidden=true;return;}
+    pager.hidden=false;
+    var h='<button type="button" class="page-btn page-btn--nav" data-page="'+(state.page-1)+'"'+
+          (state.page===1?' disabled':'')+' aria-label="上一页">上一页</button>';
+    pageWindow(state.page,total).forEach(function(x){
+      if(x==='gap'){h+='<span class="page-ellipsis" aria-hidden="true">...</span>';return;}
+      h+='<button type="button" class="page-btn'+(x===state.page?' is-active':'')+'" data-page="'+x+'"'+
+         (x===state.page?' aria-current="page"':'')+'>'+x+'</button>';
     });
+    h+='<button type="button" class="page-btn page-btn--nav" data-page="'+(state.page+1)+'"'+
+       (state.page===total?' disabled':'')+' aria-label="下一页">下一页</button>';
+    h+='<span class="page-meta">第 '+state.page+' / '+total+' 页 · 共 '+count+' 篇</span>';
+    pager.innerHTML=h;
+  }
+
+  function render(scrollUp){
+    var list=matched();
+    if(!paged){
+      cards.forEach(function(c){c.style.display='none';});
+      list.forEach(function(c){c.style.display='';});
+      return;
+    }
+    var total=Math.max(1,Math.ceil(list.length/PAGE_SIZE));
+    if(state.page>total)state.page=total;
+    if(state.page<1)state.page=1;
+    cards.forEach(function(c){c.style.display='none';});
+    var start=(state.page-1)*PAGE_SIZE;
+    list.slice(start,start+PAGE_SIZE).forEach(function(c){c.style.display='';});
+    renderPager(total,list.length);
+    syncHash();
+    if(scrollUp){
+      var anchor=document.querySelector('.article-filters')||grid;
+      var top=anchor.getBoundingClientRect().top+(window.pageYOffset||0)-80;
+      try{window.scrollTo({top:top<0?0:top,behavior:'smooth'});}catch(err){window.scrollTo(0,top<0?0:top);}
+    }
+  }
+
+  function syncHash(){
+    var parts=[];
+    if(state.cat!=='all')parts.push('cat='+encodeURIComponent(state.cat));
+    if(state.page>1)parts.push('p='+state.page);
+    try{history.replaceState(null,'',parts.length?'#'+parts.join('&'):location.pathname);}catch(err){}
+  }
+
+  if(pager){
+    pager.addEventListener('click',function(ev){
+      var b=ev.target&&ev.target.closest?ev.target.closest('.page-btn'):null;
+      if(!b||b.disabled)return;
+      var n=parseInt(b.getAttribute('data-page'),10);
+      if(isNaN(n))return;
+      state.page=n;
+      render(true);
+    });
+  }
+
+  function setActive(){
+    btns.forEach(function(b){b.classList.remove('active');});
+    var t=btns.filter(function(b){return (b.getAttribute('data-filter')||'all')===state.cat;})[0];
+    if(t)t.classList.add('active');
+  }
+
+  window.filterArticles=function(category,clickedBtn){
+    state.cat=category||'all';
+    state.page=1;
+    if(clickedBtn){
+      btns.forEach(function(b){b.classList.remove('active');});
+      clickedBtn.classList.add('active');
+    }else{setActive();}
+    render(false);
   };
+
+  /* 首屏：从 hash 恢复分类与页码（#cat=xxx&p=2） */
+  var hash=location.hash.replace(/^#/,'');
+  if(hash){
+    var mc=hash.match(/cat=([^&]+)/),mp=hash.match(/p=(\d+)/);
+    if(mc)state.cat=decodeURIComponent(mc[1]);
+    if(mp)state.page=parseInt(mp[1],10)||1;
+  }
+  setActive();
+  render(false);
 })();
 }catch(e){console.error('[AIHR main.js] module 3 init failed:', e);}
 
@@ -291,28 +383,5 @@ try{
 })();
 }catch(e){console.error('[AIHR main.js] module 8 init failed:', e);}
 
-/* ===== P1：时间归档每月折叠（2026-08-12） =====
-   每月默认折叠超出 ARCHIVE_MONTH_PREVIEW 的文章，附「展开全部 N 篇」按钮。
-   渐进增强：无 JS 时全部可见；加载后由前端折叠，避免单月（≥30 篇）一面墙导致视觉失衡。 */
-try{
-(function(){
-  var toggles = document.querySelectorAll('[data-archive-toggle]');
-  if(!toggles.length) return;
-  Array.prototype.forEach.call(toggles, function(btn){
-    var month = btn.closest('.archive-month');
-    if(!month) return;
-    var list = month.querySelector('.archive-list');
-    if(!list) return;
-    var cm = (btn.textContent || '').match(/(\d+)\s*篇/);
-    btn.dataset.count = cm ? cm[1] : '';
-    month.classList.add('is-collapsible');
-    list.classList.add('is-collapsed');
-    btn.addEventListener('click', function(){
-      var collapsed = list.classList.toggle('is-collapsed');
-      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-      btn.textContent = collapsed ? ('展开全部 ' + btn.dataset.count + ' 篇') : '收起';
-    });
-  });
-})();
-}catch(e){console.error('[AIHR main.js] module 9 init failed:', e);}
+/* 模块 9（时间归档每月折叠）已于 2026-08-13 随时间归档区块整体下线，改用页码分页。 */
 

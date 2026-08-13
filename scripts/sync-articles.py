@@ -287,77 +287,14 @@ def rebuild_index_html(articles):
 
     html = html[:start_idx] + new_block + html[end_idx + len(grid_end_marker):]
 
-    # 3.5 重写时间归档区块（年/月分组，复用内部链接，SEO 友好）
-    html = rebuild_archive_block(html, articles)
-
     with open(INDEX_HTML, 'w', encoding='utf-8') as f:
         f.write(html)
 
     return len(sorted_articles)
 
 
-# 每月默认预览条数；超出部分折叠，点击「展开全部 N 篇」展开。
-# 目的：单月创作量上升（≥30 篇）后，时间归档仍保持各月视觉均衡，不出现某一月一面墙。
-ARCHIVE_MONTH_PREVIEW = 8
-
-
-def build_archive_html(articles):
-    """按年/月分组的时间归档（紧凑内部链接列表）。
-
-    每月默认只渲染前 ARCHIVE_MONTH_PREVIEW 篇（按日期倒序），其余标记
-    .archive-item--hidden 并由前端在加载后折叠，附「展开全部 N 篇」按钮。
-    无 JS 时全部可见（渐进增强，保证 SEO 与可访问性）。
-    """
-    from collections import defaultdict
-    by_year = defaultdict(lambda: defaultdict(list))
-    for a in articles:
-        d = a.get('date', '') or ''
-        if len(d) >= 7 and d[4] == '-':
-            y, m = d[:4], d[5:7]
-            by_year[y][m].append(a)
-    parts = []
-    for y in sorted(by_year.keys(), reverse=True):
-        months = by_year[y]
-        total = sum(len(v) for v in months.values())
-        parts.append('<div class="archive-year"><h3 class="archive-year__h">' + y +
-                     ' 年 <span class="archive-year__count">' + str(total) + ' 篇</span></h3>')
-        for m in sorted(months.keys(), reverse=True):
-            items = sorted(months[m], key=lambda x: x.get('date', ''), reverse=True)
-            n = len(items)
-            preview = items[:ARCHIVE_MONTH_PREVIEW]
-            rest = items[ARCHIVE_MONTH_PREVIEW:]
-            parts.append('<div class="archive-month"><h4 class="archive-month__h">' + str(int(m)) +
-                         ' 月 <span class="archive-month__count">' + str(n) + ' 篇</span></h4>')
-            parts.append('<ul class="archive-list">')
-            for a in preview:
-                dd = a['date'][5:] if len(a.get('date', '')) >= 10 else ''
-                parts.append('<li class="archive-item"><a href="/articles/' + a['slug'] +
-                             '.html"><time datetime="' + a['date'] + '">' + dd + '</time> ' +
-                             a['title'] + '</a></li>')
-            for a in rest:
-                dd = a['date'][5:] if len(a.get('date', '')) >= 10 else ''
-                parts.append('<li class="archive-item archive-item--hidden"><a href="/articles/' + a['slug'] +
-                             '.html"><time datetime="' + a['date'] + '">' + dd + '</time> ' +
-                             a['title'] + '</a></li>')
-            parts.append('</ul>')
-            if rest:
-                parts.append('<button type="button" class="archive-toggle" data-archive-toggle '
-                             'aria-expanded="false">展开全部 ' + str(n) + ' 篇</button>')
-            parts.append('</div>')
-        parts.append('</div>')
-    return '\n'.join(parts)
-
-
-def rebuild_archive_block(html, articles):
-    """重写 <!--ARCHIVE_START--><!--ARCHIVE_END--> 之间的归档内容。"""
-    start_marker = '<!--ARCHIVE_START-->'
-    end_marker = '<!--ARCHIVE_END-->'
-    si = html.find(start_marker)
-    ei = html.find(end_marker)
-    if si < 0 or ei < 0 or ei < si:
-        return html
-    new_html = build_archive_html(articles)
-    return html[:si + len(start_marker)] + '\n' + new_html + '\n' + html[ei:]
+# 时间归档（年/月分组）已于 2026-08-13 整体下线：对读者价值≈0，改用 main.js 页码分页。
+# 全量文章链接仍完整保留在卡片网格中，内部链接的 SEO 面不受影响。
 
 
 # ============ P1 标签 / 分类体系（2026-08-09） ============
