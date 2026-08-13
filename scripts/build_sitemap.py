@@ -15,6 +15,7 @@ build_sitemap.py — 重建 aihrlab.online 的 sitemap.xml
 接线: 由 scripts/publish.py 在每次发布前调用，保证 sitemap 与站点同步。
 """
 import os
+import re
 import sys
 import subprocess
 import datetime
@@ -46,6 +47,17 @@ def is_excluded(name: str) -> bool:
     return False
 
 
+def is_redirect_page(relpath: str) -> bool:
+    """检测页面是否为 meta-refresh 重定向桩页（不应进 sitemap）。"""
+    p = os.path.join(ROOT, relpath)
+    try:
+        with open(p, "r", encoding="utf-8") as f:
+            head = f.read(4096)
+    except Exception:
+        return False
+    return bool(re.search(r'<meta[^>]*http-equiv\s*=\s*["\']?refresh["\']?', head, re.I))
+
+
 def lastmod_for(relpath: str) -> str:
     """优先用 git 最近提交日期，失败回退到文件 mtime，再回退今天。"""
     try:
@@ -72,7 +84,7 @@ def collect() -> list:
     for fn in sorted(os.listdir(ROOT)):
         if not fn.endswith(".html"):
             continue
-        if is_excluded(fn):
+        if is_excluded(fn) or is_redirect_page(fn):
             continue
         rel = fn
         entries.append((f"{HOST}/{fn}", lastmod_for(rel)))
@@ -83,9 +95,9 @@ def collect() -> list:
         for fn in sorted(os.listdir(art_dir)):
             if not fn.endswith(".html"):
                 continue
-            if fn.startswith("_") or "stub" in fn.lower():
-                continue
             rel = f"articles/{fn}"
+            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel):
+                continue
             entries.append((f"{HOST}/articles/{fn}", lastmod_for(rel)))
 
     # 3) 标签/归档页
@@ -96,6 +108,32 @@ def collect() -> list:
                 continue
             rel = f"tags/{fn}"
             entries.append((f"{HOST}/tags/{fn}", lastmod_for(rel)))
+
+    # 4) 内容子目录（资源库/深度手册/测评/枢纽/词典/分类等）
+    #    与整站「学→用→测→查→串」分层链路对齐，均为一等公民内容页。
+    #    不扫 assets/（静态资源目录，含即将废弃的旧 DQ 重定向页）。
+    EXTRA_DIRS = [
+        "resources",   # 用：资源库
+        "products",    # 深度手册（资源库子类）
+        "tools",       # 测：测评聚合
+        "assessments", # 测：测评详情
+        "bridge",      # 策展
+        "hub",         # 串：主题枢纽
+        "glossary",    # 查：术语词典
+        "categories",  # 文章分类聚合
+        "compare",     # 横向对比专题
+    ]
+    for d in EXTRA_DIRS:
+        sub = os.path.join(ROOT, d)
+        if not os.path.isdir(sub):
+            continue
+        for fn in sorted(os.listdir(sub)):
+            if not fn.endswith(".html"):
+                continue
+            rel = f"{d}/{fn}"
+            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel):
+                continue
+            entries.append((f"{HOST}/{d}/{fn}", lastmod_for(rel)))
 
     # 去重并排序（URL 稳定顺序，便于 diff）
     seen = {}

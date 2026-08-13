@@ -111,8 +111,18 @@ def _req(method, path, body=None):
                     f"GitHub API {e.code} on {method} {path}: {body_txt}"
                 ) from e
             # non-retryable (400/401/403/404) — fail fast with body
+            # 2026-08-13 补强：写类端点 404 最常见根因是 token 缺 scope
+            # （只勾 workflow 漏勾 repo → blob/tree/commit 全 404；
+            #  只勾 repo 漏勾 workflow → .github/workflows/* 写 404）。
+            # 把 cryptic 404 翻成人话，避免再次出现"发了错 token 还以为是代理抖动"。
+            hint = ""
+            if e.code == 404 and ("blobs" in path or "trees" in path
+                                  or "commits" in path or "refs/heads" in path):
+                hint = ("（疑似 token 缺 repo 写 scope；若路径在 .github/workflows/ 下"
+                        "还需 workflow scope。请在 GitHub 重新生成 PAT 并勾选"
+                        " repo(或 public_repo) + workflow）")
             raise RuntimeError(
-                f"GitHub API {e.code} on {method} {path}: {body_txt}"
+                f"GitHub API {e.code} on {method} {path}: {body_txt}{hint}"
             ) from e
         except (urllib.error.URLError, socket.timeout, ConnectionError,
                 TimeoutError) as e:
@@ -140,6 +150,34 @@ def create_blob(content_bytes):
     return resp["sha"]
 
 
+def verify_token_scopes():
+    """发布前 scope 预检：探测 token 是否具备 repo 写 scope。
+
+    根因（2026-08-13 低级失误）：用户重新生成 PAT 时只勾了 workflow，漏勾 repo，
+    导致 POST blobs 稳定 404；当时错误信息只有 'GitHub API 404' 无 scope 提示，
+    误判为代理抖动，浪费多轮。本函数把这件事变成发布前的确定性预检。
+
+    做法：向 blobs 端点 POST 一个极小探针 blob。
+      - 201 且返回 sha  → repo 写 scope OK（探针 blob 未被任何 tree/commit 引用，
+        GitHub 自动 GC，无副作用）；
+      - 404            → 确定性缺 repo scope，返回 (False, 人话提示)；
+      - 其他异常（含代理偶发抖动）→ 返回 (None, 提示)，不阻断，让真实写操作暴露真相，
+        避免把代理 404 误判成 scope 缺失而误杀合法发布。
+    """
+    marker = base64.b64encode(b"__aihr_scope_probe__").decode()
+    try:
+        r = _req("POST", "blobs", {"content": marker, "encoding": "base64"})
+        if isinstance(r, dict) and "sha" in r:
+            return True, "token 具备 repo 写 scope（workflow 文件写操作由真实提交暴露）"
+        return False, f"probe blob 返回异常结构: {r!r}"
+    except RuntimeError as e:
+        if "404" in str(e):
+            return False, ("token 缺 repo 写 scope（POST blobs 返回 404）。"
+                           "请在 GitHub 重新生成 PAT 并勾选 repo(或 public_repo)；"
+                           "若还要提交 .github/workflows/* 还需 workflow scope")
+        return None, f"scope 预检未定性（{e}），继续由真实写操作判定"
+
+
 def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
     """Create ONE commit containing ALL given files (new or updated).
 
@@ -151,6 +189,12 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
     if not local_rel_paths:
         print("  [atomic] no files to commit")
         return None
+    # 发布前 scope 预检：确定性缺 repo scope 直接拦下，避免中途静默 404。
+    ok, msg = verify_token_scopes()
+    if ok is False:
+        raise RuntimeError(f"[发布预检失败] {msg}")
+    elif ok is None:
+        print(f"  [warn] {msg}")
     commit_sha, base_tree_sha = get_base()
     if verbose:
         print(f"  [atomic] base {commit_sha[:8]} tree {base_tree_sha[:8]}")

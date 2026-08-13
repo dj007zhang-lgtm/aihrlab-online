@@ -1112,6 +1112,98 @@ def gate_inline_style_contract(target_files=None):
 
 
 # ============================================================
+# Gate 21 — Sitemap 卫生关（GSC de-indexing 事件盲区补强，2026-08-13）
+# ============================================================
+
+def gate_sitemap_hygiene(target_files=None):
+    """Sitemap 卫生关：杜绝 sitemap.xml 含软 404 / 重定向桩页，整域被 Google 取消索引。
+
+    根因（2026-08-13 低级失误）：M0 发布时 sitemap.xml 含 17 个 meta-refresh 重定向桩
+    页（"页面已迁移"，仅一句跳转文案）。Google 抓取后判定为软 404 / 低质量，
+    整域质量评分被拖垮，有效索引页从 ~90 暴跌到 3。当时 21 道门无一校验
+    「sitemap 输出是否含软 404/重定向页」——build_sitemap.py 的排除列表是源头治理，
+    但没有任何门验证其 OUTPUT 干净（防御纵深缺口）。本门关补上这条盲区。
+
+    与 Gate 11 互补：Gate 11 查「孤儿重定向桩（在 sitemap 之外）」，本门关查
+    「sitemap 之内仍混入重定向桩 / 全站重定向桩缺 noindex」。
+
+    校验项（全站扫描 sitemap.xml 与本地文件）：
+      1) sitemap.xml 中每个 URL 对应的本地 HTML 不得是 meta-refresh 重定向桩；
+      2) 全站所有 meta-refresh 重定向桩页必须带 <meta name="robots" content="noindex">，
+         否则即便不被 sitemap 提交，直接抓取也会被当软 404 拖累整域。
+    """
+    import xml.etree.ElementTree as ET
+    SITEMAP = os.path.join(SITE_ROOT, "sitemap.xml")
+    if not os.path.exists(SITEMAP):
+        return GateResult("21-Sitemap卫生关", True,
+                          ["sitemap.xml 不存在，跳过（发布时由 build_sitemap.py 生成）"])
+
+    try:
+        tree = ET.parse(SITEMAP)
+    except Exception as e:
+        return GateResult("21-Sitemap卫生关", False, [f"sitemap.xml 解析失败: {e}"])
+    ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = [u.text for u in tree.findall(".//s:loc", ns)]
+
+    issues = []
+
+    # 1) sitemap 中的每个 URL 不得是 meta-refresh 重定向桩
+    in_sitemap_redirects = []
+    for u in urls:
+        rel = u.split("://", 1)[-1].split("/", 1)[-1] if "://" in u else u.lstrip("/")
+        p = os.path.join(SITE_ROOT, rel)
+        if not os.path.exists(p):
+            continue
+        try:
+            head = open(p, encoding="utf-8", errors="ignore").read(8192)
+        except Exception:
+            continue
+        is_redirect = bool(re.search(r'<meta[^>]*http-equiv\s*=\s*["\']?refresh', head, re.I))
+        if is_redirect:
+            has_noi = bool(re.search(
+                r'name\s*=\s*["\']?robots["\']?[^>]*content\s*=\s*["\']?noindex', head, re.I))
+            if not has_noi:
+                in_sitemap_redirects.append(rel)
+    if in_sitemap_redirects:
+        issues.append(
+            f"sitemap.xml 含 {len(in_sitemap_redirects)} 个重定向/软404桩页"
+            f"（Google 会判定整域低质、触发 de-indexing）: " +
+            "、".join(in_sitemap_redirects[:10]))
+
+    # 2) 全站所有 meta-refresh 重定向桩页必须带 noindex
+    site_redirects_noindex_missing = []
+    for root, dirs, files in os.walk(SITE_ROOT):
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'node_modules']
+        for f in files:
+            if not f.endswith(".html"):
+                continue
+            fp = os.path.join(root, f)
+            try:
+                head = open(fp, encoding="utf-8", errors="ignore").read(8192)
+            except Exception:
+                continue
+            if re.search(r'<meta[^>]*http-equiv\s*=\s*["\']?refresh', head, re.I):
+                if not re.search(
+                        r'name\s*=\s*["\']?robots["\']?[^>]*content\s*=\s*["\']?noindex',
+                        head, re.I):
+                    site_redirects_noindex_missing.append(
+                        os.path.relpath(fp, SITE_ROOT))
+
+    if site_redirects_noindex_missing:
+        issues.append(
+            f"全站 {len(site_redirects_noindex_missing)} 个重定向桩页缺 noindex"
+            f"（直接抓取也会被当软404，拖累整域质量评分）: " +
+            "、".join(site_redirects_noindex_missing[:10]))
+
+    if issues:
+        return GateResult("21-Sitemap卫生关", False,
+                          issues[:15] + ([f"… 共 {len(issues)} 类问题"] if len(issues) > 15 else []))
+    return GateResult("21-Sitemap卫生关", True,
+                      [f"sitemap.xml 含 {len(urls)} URL，均无重定向/软404桩页；"
+                       f"全站重定向桩页均带 noindex"])
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -1164,6 +1256,7 @@ def run_quality_gate(mode="changed"):
         gate_inline_scripts(target_files),      # Gate 18: 内联脚本语法关（R1 冒烟暴露的运行时盲区）
         gate_structured_data(target_files),     # Gate 19: 结构化数据合法性关（P0 盲区补强，2026-08-10）
         gate_inline_style_contract(target_files),  # Gate 20: 内联样式契约关（2026-08-11 新增，阻断组件内联 style 漂移）
+        gate_sitemap_hygiene(target_files),  # Gate 21: Sitemap 卫生关（2026-08-13 GSC de-indexing 事件盲区补强）
     ]
     
     # Report
