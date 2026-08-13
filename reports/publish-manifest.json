@@ -11,5 +11,17 @@
     ],
     "sitemap_urls_before": 209,
     "sitemap_urls_after": 209
+  },
+  {
+    "date": "2026-08-13 12:30",
+    "commit": "94a976f1f2498d1f3447501d1bcbf9457d792d0b",
+    "message": "docs: 零曝光真实分层归因(推翻'Google对新站不友好')+ 纠正 MEMORY 含糊归因",
+    "files_count": 2,
+    "files": [
+      "reports/zero-exposure-attribution-2026-08-13.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 209,
+    "sitemap_urls_after": 209
   }
 ]
