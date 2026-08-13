@@ -1,0 +1,15 @@
+[
+  {
+    "date": "2026-08-13 12:23",
+    "commit": "471ebb02382d4cfb6a5b254d7fe43862de781766",
+    "message": "feat: 搜索生命体征主动监控机制(vitals_monitor + 发布印记 + 周级 automation)",
+    "files_count": 3,
+    "files": [
+      "tools/vitals_monitor.py",
+      "scripts/publish.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 209,
+    "sitemap_urls_after": 209
+  }
+]
