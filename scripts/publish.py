@@ -20,9 +20,12 @@ publish.py —— 网站唯一强制发布入口（MANDATORY PUBLISHING GATEWAY�
 """
 import sys
 import os
+import json
+import re
 import subprocess
 import urllib.request
 import urllib.parse
+from datetime import datetime
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(SITE_ROOT, "scripts"))
@@ -74,6 +77,35 @@ def run_stability_guard():
     return proc.returncode == 0
 
 
+def count_sitemap_urls():
+    """sitemap.xml 当前 URL 数（发布印记用，监测覆盖率是否骤减）。"""
+    p = os.path.join(SITE_ROOT, "sitemap.xml")
+    if not os.path.exists(p):
+        return 0
+    return len(re.findall(r"<loc>", open(p, encoding="utf-8").read()))
+
+
+def write_publish_manifest(entry):
+    """追加一行发布印记到 reports/publish-manifest.json。
+
+    印记 = 每次发布的 date / commit / message / files_count / sitemap 覆盖率前后。
+    用途：若某次发布导致 sitemap URL 骤减（如重蹈 2026-08 软 404 连坐），
+    可在此溯源是哪次 commit、覆盖了哪些文件。印记本身在发布后由独立的小提交
+    落库，保证 commit 字段填的是真实的内容 commit sha。
+    """
+    p = os.path.join(SITE_ROOT, "reports", "publish-manifest.json")
+    arr = []
+    if os.path.exists(p):
+        try:
+            arr = json.load(open(p, encoding="utf-8"))
+        except Exception:
+            arr = []
+    arr.append(entry)
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(arr, f, ensure_ascii=False, indent=2)
+    print(f"  印记已写 reports/publish-manifest.json（共 {len(arr)} 条）")
+
+
 def main():
     args = sys.argv[1:]
     if not args:
@@ -104,6 +136,7 @@ def main():
     # STEP 0: 重建 sitemap（保证搜索引擎可发现性与站点同步）
     # 解决历史债：过去发布从不重建 sitemap / 不通知 Bing，导致 tags 归档页、
     # 新文章等长期不在 sitemap 中、爬虫只能慢爬。现每次发布自动重建并推送。
+    sitemap_before = count_sitemap_urls()  # 印记：发布前覆盖率
     print("=" * 60)
     print("STEP 0  重建 sitemap.xml（含新增页面 / tags 归档页）")
     print("=" * 60)
@@ -117,6 +150,10 @@ def main():
     # 确保 sitemap.xml 进入本次发布清单（若调用方未显式传入）
     if "sitemap.xml" not in files:
         files.append("sitemap.xml")
+    sitemap_after = count_sitemap_urls()   # 印记：发布后覆盖率
+    if sitemap_before != sitemap_after:
+        delta = sitemap_after - sitemap_before
+        print(f"  sitemap 覆盖率变化：{sitemap_before} → {sitemap_after}（{delta:+d}）")
 
     # STEP 1: 质量门（强制）
     if not run_quality_gate():
@@ -166,7 +203,30 @@ def main():
         except Exception as e:
             print(f"  ⚠️  IndexNow 推送未成功（可稍后手动补推）: {e}")
 
-    print("\n✅ 发布完成：质量门通过 + 稳定性自检通过 + 原子推送 + 远程校验全绿 + sitemap 已重建并通知搜索引擎。")
+    # STEP 6: 发布印记落库（主理人监控闭环的一部分）
+    # 把本次发布写成一行印记（date/commit/message/files/sitemap 覆盖率前后），
+    # 并提交为独立小提交——保证 commit 字段是真实的内容 commit sha，供事后溯源
+    # （若某次发布导致 sitemap 覆盖率骤减，可在此定位元凶 commit）。
+    if not dry_run:
+        entry = {
+            "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "commit": sha,
+            "message": message,
+            "files_count": len(files),
+            "files": files,
+            "sitemap_urls_before": sitemap_before,
+            "sitemap_urls_after": sitemap_after,
+        }
+        write_publish_manifest(entry)
+        try:
+            g.atomic_commit(["reports/publish-manifest.json"],
+                            f"chore: publish manifest record (commit {sha[:8]})",
+                            verbose=False)
+            print("  印记已提交（独立小提交）。")
+        except Exception as e:
+            print(f"  ⚠️  印记落库失败（不影响已发布内容）: {e}")
+
+    print("\n✅ 发布完成：质量门通过 + 稳定性自检通过 + 原子推送 + 远程校验全绿 + sitemap 已重建并通知搜索引擎 + 发布印记已留痕。")
 
 
 if __name__ == "__main__":
