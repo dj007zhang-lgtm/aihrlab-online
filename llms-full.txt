@@ -568,3 +568,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 132. 欧盟AI法案延期16个月，HR的8月2日没变
 - URL: https://www.aihrlab.online/articles/eu-ai-act-omnibus-hr-2026.html
 - 摘要: 欧盟《数字综合法案》(Regulation (EU) 2026/1744) 于2026年7月27日生效，将招聘类等附录三独立高风险AI系统的合规期限从2026年8月2日推迟至2027年12月2日；但第50条透明度告知义务与第5条禁止性条款（含职场情绪识别禁令）未延期，2026年8月2日照常适用。存量系统另有反直觉例外。
+
+### 133. 大厂 AI 部门拆分合并：组织能力还是政治秀
+- URL: https://www.aihrlab.online/articles/bigtech-ai-dept-split-merge-2026.html
+- 摘要: 2025 到 2026，大厂密集重组 AI 部门。微软建 CoreAI、Meta 组超级智能实验室，但 HR 要分清真重组与政治秀：看预算编制、决策权、激励是否随结构走，而非看新闻稿标题。给出三条判别信号与 HR 一号位拿到重组消息时该问的四句话。
