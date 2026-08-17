@@ -572,3 +572,8 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 133. 大厂 AI 部门拆分合并：组织能力还是政治秀
 - URL: https://www.aihrlab.online/articles/bigtech-ai-dept-split-merge-2026.html
 - 摘要: 2025 到 2026，大厂密集重组 AI 部门。微软建 CoreAI、Meta 组超级智能实验室，但 HR 要分清真重组与政治秀：看预算编制、决策权、激励是否随结构走，而非看新闻稿标题。给出三条判别信号与 HR 一号位拿到重组消息时该问的四句话。
+### 134. 大厂 AI 组织变革后，HR 的第一个 90 天
+- URL: https://www.aihrlab.online/articles/hr-90-days-after-ai-org-change-2026.html
+- 摘要: 大厂把 AI 组织重画之后，真正决定成败的是之后的 90 天。HR 分三拍落地：0–30 天盘清决策权与编制，31–60 天试点人机协作工作设计，61–90 天固化成岗位与考核。架构图是公告，90 天是落地。Gartner、Deloitte、Microsoft 2026 一手数据锚定每一步交付物。
+
+/articles/hr-90-days-after-ai-org-change-2026.html | 大厂 AI 组织变革后，HR 的第一个 90 天 | 大厂把 AI 组织重画之后，真正决定成败的是之后的 90 天。HR 分三拍落地：0–30 天盘清决策权与编制，31–60 天试点人机协作工作设计，61–90 天固化成岗位与考核。
