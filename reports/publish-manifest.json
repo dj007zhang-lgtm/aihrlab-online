@@ -305,5 +305,18 @@
     ],
     "sitemap_urls_before": 211,
     "sitemap_urls_after": 211
+  },
+  {
+    "date": "2026-08-17 15:49",
+    "commit": "5810988345f934c48843e0f9d66c20766d02374d",
+    "message": "style: 品牌任务 DEP（CHG-20260817-001）index hero 风格③ + about 风格①",
+    "files_count": 2,
+    "files": [
+      "index.html",
+      "about.html"
+    ],
+    "sitemap_urls_before": 211,
+    "sitemap_urls_after": 211,
+    "note": "scoped 2-file brand DEP；sitemap 未重建以规避 26 个未发布 WIP 页导致的 sitemap→404 回归（pre-existing debt）"
   }
 ]
