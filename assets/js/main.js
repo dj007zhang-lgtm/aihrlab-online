@@ -337,7 +337,7 @@ try{
     if(p){
       var ic=document.createElement('section');
       ic.id='aihr-inline-cta';ic.className='inline-cta';
-      ic.innerHTML='<div class="inline-cta__text">读到这里，说明你认可这篇硬核内容。<strong>关注公众号「AIHR数智引擎」</strong>，每周 2 篇 AI 时代组织变革深度分析。</div>'+
+      ic.innerHTML='<div class="inline-cta__text">读到这里，说明你认可这篇硬核内容。<strong>关注公众号「AIHR数智引擎」</strong>，获取 AI 时代组织变革的深度研判。</div>'+
         '<button class="inline-cta__btn" type="button">关注公众号</button>';
       p.insertBefore(ic,anchor);
       ic.querySelector('.inline-cta__btn').addEventListener('click',function(){
@@ -353,7 +353,7 @@ try{
     var bar=document.createElement('div');
     bar.id='aihr-subbar';bar.className='subscribe-bar';
     var qrHtml=hasFooterQR?'':'<img class="subscribe-bar__qr" src="'+QR_SRC+'" alt="AIHR数智引擎公众号二维码" width="44" height="44">';
-    bar.innerHTML='<div class="subscribe-bar__text"><strong>关注 AIHR 数智引擎</strong>，每周 2 篇 AI 时代组织变革硬核文</div>'+qrHtml+
+    bar.innerHTML='<div class="subscribe-bar__text"><strong>关注 AIHR 数智引擎</strong>，获取 AI 时代组织变革的深度研判</div>'+qrHtml+
       '<button class="subscribe-bar__btn" type="button">'+(hasFooterQR?'关注':'扫码关注')+'</button>'+
       '<button class="subscribe-bar__close" type="button" aria-label="关闭订阅提示">×</button>';
     document.body.appendChild(bar);
