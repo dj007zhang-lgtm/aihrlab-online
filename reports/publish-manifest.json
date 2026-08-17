@@ -355,5 +355,20 @@
     "sitemap_urls_before": 211,
     "sitemap_urls_after": 211,
     "note": "P0 refactor：25 篇「既引又内联」中 pod-redesign-fails-2026 因预存双闸 BLOCKER（缺 banner org-control-plane-2026.webp）排除，不在此 commit；该草稿本就不在 sitemap"
+  },
+  {
+    "date": "2026-08-17 21:03",
+    "commit": "457e0382dbe6c548b7a233ff324eedd267b5eb82",
+    "message": "feat: 发布《阵型谁都能贴，机制抄不到：为什么盲目改Pod的企业多数会死掉？》+ 补齐控制平面 banner (CHG-20260817-007)",
+    "files_count": 5,
+    "files": [
+      "articles/pod-redesign-fails-2026.html",
+      "assets/images/banners/org-control-plane-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 212,
+    "sitemap_urls_after": 212
   }
 ]
