@@ -33,6 +33,7 @@
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="dns-prefetch" href="//hm.baidu.com">
   <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
   <script src="/assets/js/search.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 
@@ -47,82 +48,7 @@
   <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c17-ai-tools-efficiency.webp">
   <meta name="twitter:description" content="2026年，HR领域的AI叙事变了。过去我们谈「AI工具」——聊天机器人答疑问、算法筛简历；今年主角换成了「AI Agent」：它会自己打电话邀约候选人、自己协调面试官日程、自己生成合规的入职合同。">
 
-  <style>
-    /* ---- 变量 ---- */
-    :root {
-      --bg:#fff;--bg-subtle:#EAE5DA;--bg-warm:#EFE9DD;
-      --text:#1a1a1a;--text-secondary:#5b5b5b;--text-muted:#9a9a9a;
-      --text-link:#365314;--text-link-hover:#223A0C;
-      --accent:#3F6212;--accent-pale:#ECF3E0;
-      --line:rgba(0,0,0,0.08);--line-strong:rgba(0,0,0,0.14);
-      --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
-      --font-serif:'Georgia','Noto Serif SC','STSong','SimSun',serif;
-    }
-
-    /* ---- 文章头部（防御性 !important 覆盖所有外部冲突） ---- */
-    .article-header { display:block!important;text-align:center!important;padding:3rem 0 1.5rem!important;visibility:visible!important;overflow:visible!important;max-width:none!important;height:auto!important; }
-    .article-header .cat { display:inline-block!important;font-size:.75rem!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--accent)!important;background:var(--accent-pale)!important;padding:.3em.9em!important;border-radius:50px!important;margin-bottom:.8rem!important;visibility:visible!important; }
-    .article-header h1 { font-size:2.1rem;font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text); }
-    .article-meta { color:var(--text-muted);font-size:.88rem;line-height:1.6; }
-    .article-meta span { margin:0 .35em; }
-    .article-header .lead { font-family:var(--font-serif);font-size:1.15rem;line-height:1.78;color:var(--text-secondary);max-width:680px;margin:1.2rem auto 0;text-align:left; }
-
-    /* ---- 正文容器 ---- */
-    .article-body { max-width:720px;margin:0 auto;font-size:17.5px;line-height:1.86;color:#222; }
-    .article-body p { margin-top:1.35em;letter-spacing:.004em;text-align:justify;text-justify:auto; }
-    .article-body p:first-of-type { margin-top:0; }
-    .article-body strong { font-weight:700;color:var(--text); }
-
-    /* ---- h2 节标题 + 分隔线节奏 ---- */
-    .article-body h2 { font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--text); }
-    .article-body h3 { font-size:1.18rem;font-weight:700;margin-top:1.8rem;margin-bottom:.5rem;color:var(--text); }
-
-    /* ---- blockquote 暖色卡片 ---- */
-    .article-body blockquote { margin:1.8em 0;padding:1em 1.3em;background:var(--bg-warm);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;color:var(--text-secondary);font-family:var(--font-serif);line-height:1.8; }
-
-    /* ---- 列表 ---- */
-    .article-body ul,.article-body ol { margin:1.15em 0;padding-left:1.6em; }
-    .article-body li { margin-top:.5em;line-height:1.82; }
-
-    /* ---- 表格 ---- */
-    .article-body table { width:100%;border-collapse:collapse;margin:1.8em 0;font-size:.92rem;border:1px solid var(--line);border-radius:10px;overflow:hidden; }
-    .article-body th { background:var(--bg-subtle);text-align:left;padding:.75em 1em;border-bottom:1px solid var(--line-strong); }
-    .article-body td { padding:.75em 1em;border-bottom:1px solid var(--line);color:var(--text-secondary); }
-
-    /* ---- 内联链接高亮 ---- */
-    .article-body .ilink { color:var(--text-link);background:var(--accent-pale);border-radius:3px;padding:.05em .22em;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-decoration:none;border-bottom:1px solid rgba(63,98,18,.35); }
-    .article-body .ilink:hover { background:rgba(63,98,18,.12); }
-
-    /* ---- 内联延伸阅读（降跳出率核心杠杆）---- */
-    .inline-related { margin:2rem 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border-left:3px solid var(--accent);border-radius:0 10px 10px 0; }
-    .inline-related__label { font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block; }
-    .inline-related ul { list-style:none;padding:0;margin:0; }
-    .inline-related li { padding:.3rem 0;font-size:.92rem;border-bottom:1px dashed var(--line); }
-    .inline-related li:last-child { border-bottom:none; }
-    .inline-related a { color:var(--text-link);text-decoration:none; }
-    .inline-related a:hover { text-decoration:underline; }
-
-    /* ---- 相关阅读 ---- */
-    .related-reading { margin:3rem 0 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line); }
-    .related-reading h3 { font-size:1.15rem;font-weight:700;margin-bottom:.8rem;color:var(--text); }
-    .related-reading ul { list-style:none;padding:0;margin:0; }
-    .related-reading li { padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,0.05);font-size:.95rem;line-height:1.6; }
-    .related-reading li:last-child { border-bottom:none; }
-    .related-reading a { color:var(--text-link);text-decoration:none;transition:color .2s; }
-    .related-reading a:hover { color:var(--text-link-hover);text-decoration:underline; }
-
-    /* ---- 公众号二维码 ---- */
-    .article-footer-qr { background:linear-gradient(135deg,#f8f9fb 0%,#eef2fa 100%);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem 0 0; }
-    .article-footer-qr img { border-radius:12px;margin-bottom:.75rem; }
-    .article-footer-qr p { margin:0;font-size:.9rem;color:#555; }
-
-    /* ---- 参考来源（极简格式：仅作者+作品名，3-5条）---- */
-    .references { margin:2rem 0 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border:1px solid rgba(0,0,0,0.06);border-radius:10px; }
-    .references h3 { font-size:1rem;font-weight:700;margin-bottom:.7rem;color:var(--text); }
-    .references ul { list-style:none;padding:0;margin:0; }
-    .references li { font-size:.84rem;line-height:1.65;color:#666;margin-bottom:.35rem;padding-left:1em;position:relative; }
-    .references li::before { content:"—";position:absolute;left:0;color:#bbb; }
-  </style>
+  
 
   <!-- ===== Schema.org Article JSON-LD ===== -->
   <script type="application/ld+json">{
