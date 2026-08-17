@@ -318,5 +318,42 @@
     "sitemap_urls_before": 211,
     "sitemap_urls_after": 211,
     "note": "scoped 2-file brand DEP；sitemap 未重建以规避 26 个未发布 WIP 页导致的 sitemap→404 回归（pre-existing debt）"
+  },
+  {
+    "date": "2026-08-17 20:18",
+    "commit": "b2cd6c025d18c97a05a4337f3a5036f9429f1bad",
+    "message": "P0 内容集合化地基：抽内联 CSS → 共享 article.css（24 篇 live 文章+模板+article.css，零回归）",
+    "files_count": 26,
+    "files": [
+      "assets/css/article.css",
+      "templates/article-v2.html",
+      "articles/ai-evaluation-split-2026.html",
+      "articles/ai-hr-2026-midyear-three-signals.html",
+      "articles/ai-hr-key-reports-2026.html",
+      "articles/ai-hr-landing-3-high-roi-plays.html",
+      "articles/ai-hr-org-cluster.html",
+      "articles/ai-layoff-2026-mid-year-review.html",
+      "articles/ai-layoff-to-rebuild-hr-stand-firm.html",
+      "articles/ai-org-two-models-compare-2026.html",
+      "articles/ai-rebuild-training-coach-2026.html",
+      "articles/ai-skills-based-org-2026.html",
+      "articles/ant-group-ai-org-restructuring-2026.html",
+      "articles/bigtech-ai-dept-split-merge-2026.html",
+      "articles/bytedance-performance-review-2026.html",
+      "articles/digital-org-chart-2026.html",
+      "articles/disc-style-test-2026.html",
+      "articles/eu-ai-act-omnibus-hr-2026.html",
+      "articles/global-tech-hr-ai-disruption-2026.html",
+      "articles/hr-90-days-after-ai-org-change-2026.html",
+      "articles/hr-digital-employee-2026.html",
+      "articles/hr-skill-graph-2026.html",
+      "articles/huoshui-plan-2026.html",
+      "articles/pod-org-ai-agent-2026.html",
+      "articles/sme-ai-hr-2026.html",
+      "articles/tencent-vs-bytedance-flat-2026.html"
+    ],
+    "sitemap_urls_before": 211,
+    "sitemap_urls_after": 211,
+    "note": "P0 refactor：25 篇「既引又内联」中 pod-redesign-fails-2026 因预存双闸 BLOCKER（缺 banner org-control-plane-2026.webp）排除，不在此 commit；该草稿本就不在 sitemap"
   }
 ]
