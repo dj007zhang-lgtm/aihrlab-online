@@ -588,5 +588,19 @@
     ],
     "sitemap_urls_before": 213,
     "sitemap_urls_after": 213
+  },
+  {
+    "date": "2026-08-18 14:44",
+    "commit": "content-production-20260818",
+    "message": "content: 新增34篇文章，达到180篇目标",
+    "files_count": 34,
+    "files": [
+      "articles/*.html",
+      "assets/images/banners/*.webp",
+      "assets/js/article-index.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 221,
+    "sitemap_urls_after": 255
   }
 ]
