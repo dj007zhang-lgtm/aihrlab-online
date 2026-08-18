@@ -370,5 +370,29 @@
     ],
     "sitemap_urls_before": 212,
     "sitemap_urls_after": 212
+  },
+  {
+    "date": "2026-08-17 21:50",
+    "commit": "9a5e4f8be7f4049c33f8020bfe7f512219133829",
+    "message": "tone: re-tone meta-300b-ai-layoff 去审判腔/去宿命框/补图注 (T2)",
+    "files_count": 2,
+    "files": [
+      "articles/meta-300b-ai-layoff.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 212,
+    "sitemap_urls_after": 212
+  },
+  {
+    "date": "2026-08-18 09:29",
+    "commit": "39cc0ed348694927be7c7346f00e58d0c78370d9",
+    "message": "tone: re-tone meta-300b-ai-layoff 去审判腔/去宿命框/补图注 (T2)",
+    "files_count": 2,
+    "files": [
+      "articles/meta-300b-ai-layoff.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 212,
+    "sitemap_urls_after": 212
   }
 ]
