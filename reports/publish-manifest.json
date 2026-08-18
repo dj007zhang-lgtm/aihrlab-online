@@ -602,5 +602,17 @@
     ],
     "sitemap_urls_before": 221,
     "sitemap_urls_after": 255
+  },
+  {
+    "date": "2026-08-18 18:24",
+    "commit": "137c51793ac8af185f21e5a5e4043c3a45dd76c4",
+    "message": "fix: P1 调性清零 (R-16/R-17/Gate10)",
+    "files_count": 2,
+    "files": [
+      "reports/publish-manifest.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 255,
+    "sitemap_urls_after": 255
   }
 ]
