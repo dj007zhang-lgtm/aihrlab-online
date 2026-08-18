@@ -575,5 +575,18 @@
     ],
     "sitemap_urls_before": 212,
     "sitemap_urls_after": 212
+  },
+  {
+    "date": "2026-08-18 12:56",
+    "commit": "6c199213a6a5756d63836f6f7bd5a6f3d4fb35ef",
+    "message": "fix: alibaba-1-6-n-ai-restructure 补 main.js 引用 + 更新 redirects.json",
+    "files_count": 3,
+    "files": [
+      "articles/alibaba-1-6-n-ai-restructure-2026.html",
+      "redirects.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 213,
+    "sitemap_urls_after": 213
   }
 ]
