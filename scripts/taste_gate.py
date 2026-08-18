@@ -60,6 +60,12 @@ def gate_title(d):
     for w in BANNED_TITLE:
         if w in t:
             reasons.append(f"标题含违禁调性词「{w}」")
+    # R-16：标题不得含品牌后缀（| AIHR数智引擎）
+    if "| AIHR数智引擎" in t or "｜AIHR数智引擎" in t:
+        reasons.append("标题含品牌后缀（R-16）")
+    # R-17：title 必须与 h1 一致
+    if d["title"] and d["h1"] and d["title"] != d["h1"]:
+        reasons.append(f"title ≠ h1（R-17）: title='{d['title']}' h1='{d['h1']}'")
     return reasons, warns
 
 
