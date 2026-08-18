@@ -1,0 +1,644 @@
+{
+  "generated": "2026-08-17T12:48:14",
+  "source": "user-folder-ingest",
+  "caliber": "trailing-30d, daily grain, ingested weekly",
+  "bing": {
+    "daily": [
+      {
+        "date": "2026-07-18",
+        "impressions": 174,
+        "clicks": 15
+      },
+      {
+        "date": "2026-07-19",
+        "impressions": 265,
+        "clicks": 21
+      },
+      {
+        "date": "2026-07-20",
+        "impressions": 273,
+        "clicks": 21
+      },
+      {
+        "date": "2026-07-21",
+        "impressions": 169,
+        "clicks": 4
+      },
+      {
+        "date": "2026-07-22",
+        "impressions": 285,
+        "clicks": 18
+      },
+      {
+        "date": "2026-07-23",
+        "impressions": 282,
+        "clicks": 22
+      },
+      {
+        "date": "2026-07-24",
+        "impressions": 286,
+        "clicks": 23
+      },
+      {
+        "date": "2026-07-25",
+        "impressions": 228,
+        "clicks": 26
+      },
+      {
+        "date": "2026-07-26",
+        "impressions": 319,
+        "clicks": 26
+      },
+      {
+        "date": "2026-07-27",
+        "impressions": 361,
+        "clicks": 21
+      },
+      {
+        "date": "2026-07-28",
+        "impressions": 185,
+        "clicks": 6
+      },
+      {
+        "date": "2026-07-29",
+        "impressions": 151,
+        "clicks": 4
+      },
+      {
+        "date": "2026-07-30",
+        "impressions": 335,
+        "clicks": 18
+      },
+      {
+        "date": "2026-07-31",
+        "impressions": 345,
+        "clicks": 19
+      },
+      {
+        "date": "2026-08-01",
+        "impressions": 45,
+        "clicks": 1
+      },
+      {
+        "date": "2026-08-02",
+        "impressions": 103,
+        "clicks": 2
+      },
+      {
+        "date": "2026-08-03",
+        "impressions": 119,
+        "clicks": 6
+      },
+      {
+        "date": "2026-08-04",
+        "impressions": 110,
+        "clicks": 3
+      },
+      {
+        "date": "2026-08-05",
+        "impressions": 129,
+        "clicks": 5
+      },
+      {
+        "date": "2026-08-06",
+        "impressions": 163,
+        "clicks": 6
+      },
+      {
+        "date": "2026-08-07",
+        "impressions": 77,
+        "clicks": 3
+      },
+      {
+        "date": "2026-08-08",
+        "impressions": 94,
+        "clicks": 3
+      },
+      {
+        "date": "2026-08-09",
+        "impressions": 263,
+        "clicks": 13
+      },
+      {
+        "date": "2026-08-10",
+        "impressions": 302,
+        "clicks": 20
+      },
+      {
+        "date": "2026-08-11",
+        "impressions": 304,
+        "clicks": 18
+      },
+      {
+        "date": "2026-08-12",
+        "impressions": 292,
+        "clicks": 18
+      },
+      {
+        "date": "2026-08-13",
+        "impressions": 345,
+        "clicks": 20
+      }
+    ],
+    "totals": {
+      "impressions": 6004,
+      "clicks": 362
+    },
+    "window": "2026-07-18~2026-08-13"
+  },
+  "bing_ai": {
+    "daily": [
+      {
+        "date": "2026-06-25",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-06-26",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-06-27",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-06-28",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-06-29",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-06-30",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-01",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-02",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-03",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-04",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-05",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-07-06",
+        "citations": 18,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-07",
+        "citations": 14,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-08",
+        "citations": 2,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-09",
+        "citations": 15,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-10",
+        "citations": 3,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-11",
+        "citations": 10,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-12",
+        "citations": 14,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-13",
+        "citations": 8,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-14",
+        "citations": 14,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-07-15",
+        "citations": 26,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-07-16",
+        "citations": 39,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-07-17",
+        "citations": 20,
+        "cited_pages": 4
+      },
+      {
+        "date": "2026-07-18",
+        "citations": 14,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-19",
+        "citations": 19,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-07-20",
+        "citations": 51,
+        "cited_pages": 3
+      },
+      {
+        "date": "2026-07-21",
+        "citations": 18,
+        "cited_pages": 4
+      },
+      {
+        "date": "2026-07-22",
+        "citations": 52,
+        "cited_pages": 7
+      },
+      {
+        "date": "2026-07-23",
+        "citations": 23,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-24",
+        "citations": 58,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-07-25",
+        "citations": 28,
+        "cited_pages": 1
+      },
+      {
+        "date": "2026-07-26",
+        "citations": 53,
+        "cited_pages": 4
+      },
+      {
+        "date": "2026-07-27",
+        "citations": 63,
+        "cited_pages": 6
+      },
+      {
+        "date": "2026-07-28",
+        "citations": 22,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-07-29",
+        "citations": 21,
+        "cited_pages": 3
+      },
+      {
+        "date": "2026-07-30",
+        "citations": 91,
+        "cited_pages": 3
+      },
+      {
+        "date": "2026-07-31",
+        "citations": 44,
+        "cited_pages": 4
+      },
+      {
+        "date": "2026-08-01",
+        "citations": 0,
+        "cited_pages": 0
+      },
+      {
+        "date": "2026-08-02",
+        "citations": 15,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-08-03",
+        "citations": 20,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-08-04",
+        "citations": 30,
+        "cited_pages": 6
+      },
+      {
+        "date": "2026-08-05",
+        "citations": 20,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-08-06",
+        "citations": 32,
+        "cited_pages": 7
+      },
+      {
+        "date": "2026-08-07",
+        "citations": 9,
+        "cited_pages": 2
+      },
+      {
+        "date": "2026-08-08",
+        "citations": 14,
+        "cited_pages": 3
+      },
+      {
+        "date": "2026-08-09",
+        "citations": 29,
+        "cited_pages": 4
+      },
+      {
+        "date": "2026-08-10",
+        "citations": 36,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-08-11",
+        "citations": 61,
+        "cited_pages": 5
+      },
+      {
+        "date": "2026-08-12",
+        "citations": 47,
+        "cited_pages": 6
+      },
+      {
+        "date": "2026-08-13",
+        "citations": 70,
+        "cited_pages": 8
+      }
+    ],
+    "totals": {
+      "citations": 1123
+    },
+    "window": "2026-06-25~2026-08-13"
+  },
+  "gsc": {
+    "daily": [
+      {
+        "date": "2026-07-18",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 6.0
+      },
+      {
+        "date": "2026-07-19",
+        "impressions": 2,
+        "clicks": 0,
+        "position": 11.5
+      },
+      {
+        "date": "2026-07-20",
+        "impressions": 3,
+        "clicks": 0,
+        "position": 9.7
+      },
+      {
+        "date": "2026-07-21",
+        "impressions": 3,
+        "clicks": 0,
+        "position": 6.0
+      },
+      {
+        "date": "2026-07-22",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 14.0
+      },
+      {
+        "date": "2026-07-23",
+        "impressions": 2,
+        "clicks": 0,
+        "position": 4.5
+      },
+      {
+        "date": "2026-07-24",
+        "impressions": 3,
+        "clicks": 0,
+        "position": 12.0
+      },
+      {
+        "date": "2026-07-25",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 6.0
+      },
+      {
+        "date": "2026-07-26",
+        "impressions": 5,
+        "clicks": 0,
+        "position": 7.4
+      },
+      {
+        "date": "2026-07-27",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-07-28",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-07-29",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-07-30",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-07-31",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-01",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 7.0
+      },
+      {
+        "date": "2026-08-02",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-03",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 4.0
+      },
+      {
+        "date": "2026-08-04",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-05",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-06",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-07",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 1.0
+      },
+      {
+        "date": "2026-08-08",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-09",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 2.0
+      },
+      {
+        "date": "2026-08-10",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 5.0
+      },
+      {
+        "date": "2026-08-11",
+        "impressions": 1,
+        "clicks": 0,
+        "position": 3.0
+      },
+      {
+        "date": "2026-08-12",
+        "impressions": 2,
+        "clicks": 0,
+        "position": 2.5
+      },
+      {
+        "date": "2026-08-13",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      },
+      {
+        "date": "2026-08-14",
+        "impressions": 0,
+        "clicks": 0,
+        "position": 0.0
+      }
+    ],
+    "totals": {
+      "impressions": 29,
+      "clicks": 0
+    },
+    "window": "2026-07-18~2026-08-14",
+    "valid_pages": 3,
+    "valid_pages_reported_on": "2026-08-17",
+    "valid_pages_source": "user GSC dashboard (索引 -> 网页 -> 有效网页数)"
+  },
+  "baidu": {
+    "pv": 2288,
+    "uv": 1904,
+    "avg_bounceRatio": 0.9466,
+    "avg_duration": "00:02:21",
+    "by_source": [],
+    "top_entry_pages": [
+      {
+        "page": "https://www.aihrlab.online/articles/big-tech-ai-",
+        "pv": 1117,
+        "uv": 1044,
+        "bounceRatio": 0.9848
+      },
+      {
+        "page": "https://www.aihrlab.online",
+        "pv": 191,
+        "uv": 130,
+        "bounceRatio": 0.8702
+      },
+      {
+        "page": "https://www.aihrlab.online/hub/ai-org-transfor",
+        "pv": 105,
+        "uv": 96,
+        "bounceRatio": 0.9795999999999999
+      },
+      {
+        "page": "https://www.aihrlab.online/articles/hr-digital-e",
+        "pv": 91,
+        "uv": 82,
+        "bounceRatio": 0.9390000000000001
+      },
+      {
+        "page": "https://www.aihrlab.online/articles/mckinsey-2",
+        "pv": 78,
+        "uv": 78,
+        "bounceRatio": 1.0
+      }
+    ],
+    "new_vs_return": {
+      "new": {
+        "pv": 1781,
+        "uv": 1724,
+        "bounceRatio": 0.968
+      },
+      "return": {
+        "pv": 84,
+        "uv": 79,
+        "bounceRatio": 0.6121
+      }
+    },
+    "daily": [
+      {
+        "date": "2026-08-17",
+        "bounceRatio": 0.9466
+      }
+    ]
+  }
+}

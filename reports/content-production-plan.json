@@ -1,0 +1,313 @@
+[
+  {
+    "title": "谷歌的AI组织实验：Waymo和DeepMind的两种范式",
+    "slug": "google-ai-org-experiment-2026",
+    "topic": "谷歌AI组织",
+    "keywords": [
+      "谷歌",
+      "Waymo",
+      "DeepMind",
+      "AI组织",
+      "组织范式"
+    ]
+  },
+  {
+    "title": "谷歌AI人才战略：从校园招聘到内部重构",
+    "slug": "google-ai-talent-strategy-2026",
+    "topic": "谷歌AI组织",
+    "keywords": [
+      "谷歌",
+      "AI人才",
+      "校园招聘",
+      "组织重构"
+    ]
+  },
+  {
+    "title": "AI时代的CEO新职责：从决策者到架构师",
+    "slug": "ai-ceo-new-responsibility-2026",
+    "topic": "AI领导力",
+    "keywords": [
+      "CEO",
+      "领导力",
+      "AI时代",
+      "组织架构"
+    ]
+  },
+  {
+    "title": "CHRO在AI转型中的核心角色：从人事到战略",
+    "slug": "chro-ai-transformation-role-2026",
+    "topic": "AI领导力",
+    "keywords": [
+      "CHRO",
+      "HR转型",
+      "AI转型",
+      "战略角色"
+    ]
+  },
+  {
+    "title": "组织韧性测试：AI时代企业的危机应对能力",
+    "slug": "org-resilience-ai-era-2026",
+    "topic": "组织韧性",
+    "keywords": [
+      "组织韧性",
+      "危机应对",
+      "AI时代",
+      "变革管理"
+    ]
+  },
+  {
+    "title": "从Netflix到微软：企业韧性文化的两种路径",
+    "slug": "org-resilience-culture-compare-2026",
+    "topic": "组织韧性",
+    "keywords": [
+      "组织韧性",
+      "Netflix",
+      "微软",
+      "企业文化"
+    ]
+  },
+  {
+    "title": "AI时代的人才评估革命：从简历到技能图谱",
+    "slug": "ai-talent-assessment-revolution-2026",
+    "topic": "人才评估",
+    "keywords": [
+      "人才评估",
+      "技能图谱",
+      "AI招聘",
+      "能力建模"
+    ]
+  },
+  {
+    "title": "技能本位组织：AI如何重写人才定价逻辑",
+    "slug": "skill-based-org-ai-pricing-2026",
+    "topic": "人才评估",
+    "keywords": [
+      "技能本位",
+      "人才定价",
+      "AI时代",
+      "组织能力"
+    ]
+  },
+  {
+    "title": "AI伦理治理：企业如何建立负责任的AI系统",
+    "slug": "ai-ethics-governance-enterprise-2026",
+    "topic": "AI伦理",
+    "keywords": [
+      "AI伦理",
+      "治理",
+      "负责任AI",
+      "企业合规"
+    ]
+  },
+  {
+    "title": "算法公平性审计：HR如何检测招聘AI的偏见",
+    "slug": "algorithm-fairness-audit-hr-2026",
+    "topic": "AI伦理",
+    "keywords": [
+      "算法公平",
+      "AI偏见",
+      "招聘AI",
+      "审计"
+    ]
+  },
+  {
+    "title": "混合办公的AI赋能：从灵活到高效",
+    "slug": "hybrid-work-ai-enablement-2026",
+    "topic": "远程协作",
+    "keywords": [
+      "混合办公",
+      "AI赋能",
+      "远程协作",
+      "效率"
+    ]
+  },
+  {
+    "title": "AI协作工具矩阵：2026年企业选择指南",
+    "slug": "ai-collaboration-tools-matrix-2026",
+    "topic": "远程协作",
+    "keywords": [
+      "AI协作",
+      "工具矩阵",
+      "企业选择",
+      "效率工具"
+    ]
+  },
+  {
+    "title": "2026大厂AI产品竞速：微软谷歌Meta字节谁最快",
+    "slug": "bigtech-ai-product-race-2026",
+    "topic": "AI产品",
+    "keywords": [
+      "大厂AI",
+      "产品动态",
+      "微软",
+      "谷歌",
+      "Meta",
+      "字节"
+    ]
+  },
+  {
+    "title": "AI产品发布节奏：组织能力的体温计",
+    "slug": "ai-product-release-rhythm-2026",
+    "topic": "AI产品",
+    "keywords": [
+      "AI产品",
+      "发布节奏",
+      "组织能力",
+      "管理"
+    ]
+  },
+  {
+    "title": "大厂AI产品陷阱：过度包装与真实价值的错位",
+    "slug": "bigtech-ai-product-traps-2026",
+    "topic": "AI产品",
+    "keywords": [
+      "AI产品",
+      "陷阱",
+      "过度包装",
+      "价值评估"
+    ]
+  },
+  {
+    "title": "HR Agent实战指南：从概念验证到组织落地",
+    "slug": "hr-agent-practical-guide-2026",
+    "topic": "HR Agent",
+    "keywords": [
+      "HR Agent",
+      "实战指南",
+      "组织落地",
+      "AI应用"
+    ]
+  },
+  {
+    "title": "HR Agent ROI测算：80%企业说的 vs 88%企业做的",
+    "slug": "hr-agent-roi-reality-2026",
+    "topic": "HR Agent",
+    "keywords": [
+      "HR Agent",
+      "ROI",
+      "企业实践",
+      "落地效果"
+    ]
+  },
+  {
+    "title": "AI原生组织的十种形态：从创业公司到巨头",
+    "slug": "ai-native-org-forms-2026",
+    "topic": "AI原生组织",
+    "keywords": [
+      "AI原生组织",
+      "组织形态",
+      "创业公司",
+      "巨头"
+    ]
+  },
+  {
+    "title": "人机协同的十种模式：从辅助到共生",
+    "slug": "human-ai-collaboration-models-2026",
+    "topic": "人机协作",
+    "keywords": [
+      "人机协同",
+      "协作模式",
+      "AI辅助",
+      "共生"
+    ]
+  },
+  {
+    "title": "AI转型的十大失败模式：从技术债到文化债",
+    "slug": "ai-transformation-failures-2026",
+    "topic": "AI转型",
+    "keywords": [
+      "AI转型",
+      "失败模式",
+      "技术债",
+      "文化债"
+    ]
+  },
+  {
+    "title": "Agent时代的组织架构：从层级到网络",
+    "slug": "agent-era-org-structure-2026",
+    "topic": "组织架构",
+    "keywords": [
+      "Agent",
+      "组织架构",
+      "层级",
+      "网络"
+    ]
+  },
+  {
+    "title": "AI时代的绩效革命：从KPI到OKR到价值流",
+    "slug": "ai-performance-revolution-2026",
+    "topic": "绩效管理",
+    "keywords": [
+      "绩效管理",
+      "KPI",
+      "OKR",
+      "价值流"
+    ]
+  },
+  {
+    "title": "AI人才争夺战：2026年大厂薪酬战背后",
+    "slug": "ai-talent-war-2026",
+    "topic": "人才竞争",
+    "keywords": [
+      "AI人才",
+      "争夺战",
+      "大厂",
+      "薪酬"
+    ]
+  },
+  {
+    "title": "组织变革的AI杠杆：用技术推动结构性转型",
+    "slug": "ai-leverage-org-transformation-2026",
+    "topic": "组织变革",
+    "keywords": [
+      "组织变革",
+      "AI杠杆",
+      "技术推动",
+      "结构性转型"
+    ]
+  },
+  {
+    "title": "AI时代的领导力发展：从管理到赋能",
+    "slug": "ai-leadership-development-2026",
+    "topic": "领导力发展",
+    "keywords": [
+      "领导力",
+      "发展",
+      "管理",
+      "赋能"
+    ]
+  },
+  {
+    "title": "企业AI治理框架：从合规到战略",
+    "slug": "enterprise-ai-governance-framework-2026",
+    "topic": "AI治理",
+    "keywords": [
+      "AI治理",
+      "框架",
+      "合规",
+      "战略"
+    ]
+  },
+  {
+    "title": "AI原生招聘：从筛选到匹配的范式转移",
+    "slug": "ai-native-recruitment-2026",
+    "topic": "AI招聘",
+    "keywords": [
+      "AI招聘",
+      "范式转移",
+      "筛选",
+      "匹配"
+    ]
+  },
+  {
+    "title": "数字员工管理指南：从雇佣到协作",
+    "slug": "digital-employee-management-guide-2026",
+    "topic": "数字员工",
+    "keywords": [
+      "数字员工",
+      "管理",
+      "雇佣",
+      "协作"
+    ]
+  }
+]

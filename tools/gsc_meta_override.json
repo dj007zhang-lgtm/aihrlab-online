@@ -1,0 +1,6 @@
+{
+  "valid_pages": 3,
+  "reported_on": "2026-08-17",
+  "source": "user GSC dashboard (索引 -> 网页 -> 有效网页数)",
+  "note": "GSC 导出 CSV 不含有效页数，此值由用户每周在 GSC 仪表盘读取后填入。deindex 事件 90->3，8/13 修复上线后截至本日报仍=3（恢复未验证，处 1-4 周 ETA 窗口内）。"
+}
