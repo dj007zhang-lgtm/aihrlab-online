@@ -556,5 +556,24 @@
     ],
     "sitemap_urls_before": 212,
     "sitemap_urls_after": 212
+  },
+  {
+    "date": "2026-08-18 11:49",
+    "commit": "4fd4efc77970c18ef64c4e5a2f5fb6d8198aee57",
+    "message": "fix: 修复 R-16/R-17 品牌后缀 + Gate 10 延伸阅读截断（P1 清零）",
+    "files_count": 9,
+    "files": [
+      "articles/ai-hr-org-cluster.html",
+      "articles/ai-layoff-7-to-40.html",
+      "articles/ai-performance-management.html",
+      "articles/bigtech-ai-dept-split-merge-2026.html",
+      "articles/hr-90-days-after-ai-org-change-2026.html",
+      "articles/hr-tech-talent-standard-2026.html",
+      "articles/hr-three-pillar-ai.html",
+      "articles/pod-redesign-fails-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 212,
+    "sitemap_urls_after": 212
   }
 ]
