@@ -955,5 +955,89 @@
     "sitemap_urls_before": 255,
     "sitemap_urls_after": 254,
     "note": "运行 sync-articles.py 重建 articles/index.html 与 article-index.json；删除 bigtech-ai-product-traps-2026.html（全文16处PLACEHOLDER占位符，质量门/稳定门拦截）；质量门22/22+稳定门11/11通过"
+  },
+  {
+    "date": "2026-08-19 11:16",
+    "commit": "c46fcde0247cb561de4bc91cfe1c8dcc45134d31",
+    "message": "fix: 修复 article-index.html 索引重复与 stale JSON-LD ItemList（stub 页 + 双 slug 清理 + 重建 JSON-LD）",
+    "files_count": 28,
+    "files": [
+      "articles/adkar-ai-transformation.html",
+      "articles/ai-hr-landing-3-high-roi-plays.html",
+      "articles/ai-layoff-230k-regret.html",
+      "articles/ai-layoff-7-to-40.html",
+      "articles/ai-layoff-manager-redefine.html",
+      "articles/ai-layoff-regret.html",
+      "articles/bytedance-campus-7000.html",
+      "articles/dri-kaifu-lisa-su.html",
+      "articles/index.html",
+      "articles/karpathy-ai-replacement-test.html",
+      "articles/mckinsey-2026-ai-automation-sector-impact.html",
+      "articles/mckinsey-6-percent-trust-architecture.html",
+      "articles/mckinsey-6pct-trust.html",
+      "articles/mckinsey-hidden-deadlock.html",
+      "assets/js/article-index.json",
+      "categories/org-change.html",
+      "categories/research-report.html",
+      "hub/ai-landing-playbook.html",
+      "hub/ai-layoff-restructuring.html",
+      "redirects.json",
+      "scripts/sync-articles.py",
+      "sitemap.xml",
+      "tags/ai-transformation.html",
+      "tags/index.html",
+      "tags/layoff.html",
+      "tags/org-change.html",
+      "tags/talent.html"
+    ],
+    "sitemap_urls_before": 254,
+    "sitemap_urls_after": 252,
+    "note": "INC-20260819-001 根因修复：① ai-layoff-230k-regret + mckinsey-6-percent-trust 双 slug 转为 redirect stub；② article-index.json 清除重复项（179→177）；③ JSON-LD ItemList 重建；④ sitemap 移除旧 slug"
+  },
+  {
+    "date": "2026-08-19 14:26",
+    "commit": "06c7383ffdade0cbc242808d683370c6878cad1b",
+    "message": "chore: Gate 11 升级多源查重 + 同步脚本职责清单",
+    "files_count": 1,
+    "files": [
+      "scripts/sync-articles-responsibilities.md"
+    ],
+    "sitemap_urls_before": 252,
+    "sitemap_urls_after": 252,
+    "note": "新增 sync-articles.py 职责文档，明确各输出块写作者与校验门"
+  },
+  {
+    "date": "2026-08-19 14:27",
+    "commit": "93e232918bca16cef09b945126be0a1727956653",
+    "message": "chore: 回填 CHG-002/003 发布状态",
+    "files_count": 1,
+    "files": [
+      "reports/process/registries/CHANGES.md"
+    ],
+    "sitemap_urls_before": 252,
+    "sitemap_urls_after": 252
+  },
+  {
+    "date": "2026-08-19 14:50",
+    "commit": "3d5211fc7815b94e774a4e17fb022cb4b4a1b12b",
+    "message": "fix: 索引重复修复 + Gate 11 升级 + 职责清单（merge commit）",
+    "files_count": 0,
+    "files": [],
+    "sitemap_urls_before": 252,
+    "sitemap_urls_after": 252,
+    "note": "merge c46fcde + 06c7383 的原子提交，无文件变更"
+  },
+  {
+    "date": "2026-08-19 16:48",
+    "commit": "1678e2e3c17416cf0b407fd7fc46d9c668842658",
+    "message": "fix: Gate 11 升级 6d/6e + 补充职责清单",
+    "files_count": 2,
+    "files": [
+      "reports/sync-articles-responsibilities.md",
+      "scripts/url_consistency_audit.py"
+    ],
+    "sitemap_urls_before": 252,
+    "sitemap_urls_after": 252,
+    "note": "Gate 11 新增 6d（HTML 卡片网格重复检测）+ 6e（index.json 与 HTML 交叉验证）"
   }
 ]
