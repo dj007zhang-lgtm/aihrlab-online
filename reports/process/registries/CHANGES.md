@@ -13,4 +13,10 @@
 
 | CHG-20260817-007 | `articles/pod-redesign-fails-2026.html`（控制平面/Pod 改组深度文；原 P0 排除草稿，补齐 banner + 信源复核 + 双闸清零后收口）+ `assets/images/banners/org-control-plane-2026.webp`（新建 1200×821 WEBP）+ `assets/js/article-index.json`/`articles/index.html`（索引同步） | 架构蓝图 P0（pod-redesign 为 P0 排除草稿的收口）/ 内容宪法 | 457e0382 | 已发布（DEP 收口 2026-08-17） | 架构蓝图 P0 / DES-20260817-001 | TST-20260817-007 | Coinbase 信源修正为 DRI 单一责任人表述（信源复核 #639）；QR CTA 修复为规范「HR 变革」（Gate8）；原双闸 BLOCKER（缺 banner/Gate11 URL 不一致）已清零；收口了 CHG-20260817-006 排除的 pod-redesign-fails-2026 草稿 |
 
+| CHG-20260819-001 | 旧 slug 页改写 redirect stub（`ai-layoff-230k-regret.html` + `mckinsey-6-percent-trust-architecture.html`，均加 noindex/canonical/meta-refresh）；全站 20 个文件内链改写指向 canonical；`redirects.json` 登记；`sync-articles.py` 新增 `rebuild_index_jsonld()`；重跑 sync 索引 179→177，零重复，22/22 pass | INC-20260819-001 修复 | c46fcde0 | 已发布（DEP 收口 2026-08-19） | INC-20260819-001 | — | 根因：sync-articles 职责盲区 + Gate 11 单源检测 + 旧 slug 未清理 |
+
 <!-- 发布后回填：commit sha、HEAD、sitemap 覆盖率前后 → 同步 DEPLOYS.md -->
+
+| CHG-20260819-002 | Gate 11 URL一致性关升级：check_6_duplicates_and_anomalies 新增双轨查重（index.json slug + HTML卡片网格h3标题 + 交叉验证），防止单一数据源盲区 | INC-20260819-001 预防措施 | [待发布sha] | 待发布 | INC-20260819-001 | — | 根因：Gate 11只查index.json，HTML卡片网格h3不在视野 |
+
+| CHG-20260819-003 | 新建 `scripts/sync-articles-responsibilities.md` 职责清单文档，定义 sync-articles.py 所有输出块的写作者、触发点、校验门，对应 LSN-20260819-001 | INC-20260819-001 预防措施 | [待发布sha] | 待发布 | INC-20260819-001 | — | 根因：sync-articles.py职责盲区，JSON-LD ItemList长期stale |
