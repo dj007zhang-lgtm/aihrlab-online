@@ -293,6 +293,53 @@ def rebuild_index_html(articles):
     return len(sorted_articles)
 
 
+def rebuild_index_jsonld(articles):
+    """重建 articles/index.html 中 CollectionPage 的 ItemList 结构化数据。
+
+    必须与卡片网格使用同一份「干净文章列表」（已排除 redirect stub），
+    否则会出现「页面已迁移」桩页 + 重复 title（如《23万人被AI裁员后…》重复出现）。
+    历史上该块由旧逻辑生成且 sync 脚本从不重写，导致索引长期含桩页与重复项。
+    """
+    with open(INDEX_HTML, 'r', encoding='utf-8') as f:
+        html = f.read()
+
+    target = None
+    for blk in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        content = blk.group(1)
+        try:
+            data = json.loads(content)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(data, dict) and data.get('@type') == 'CollectionPage':
+            target = (blk, data)
+            break
+
+    if target is None:
+        print('  ✗ 未找到 CollectionPage JSON-LD 块，跳过 ItemList 更新')
+        return False
+
+    blk, data = target
+    sorted_articles = sort_articles(articles)
+    item_list = []
+    for i, a in enumerate(sorted_articles, start=1):
+        item_list.append({
+            '@type': 'ListItem',
+            'position': i,
+            'name': a['title'],
+            'url': f'https://www.aihrlab.online/articles/{a["slug"]}.html',
+        })
+    data['mainEntity'] = {'@type': 'ItemList', 'itemListElement': item_list}
+
+    new_json = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
+    new_block = f'<script type="application/ld+json">{new_json}</script>'
+    html = html[:blk.start()] + new_block + html[blk.end():]
+
+    with open(INDEX_HTML, 'w', encoding='utf-8') as f:
+        f.write(html)
+
+    return len(item_list)
+
+
 # 时间归档（年/月分组）已于 2026-08-13 整体下线：对读者价值≈0，改用 main.js 页码分页。
 # 全量文章链接仍完整保留在卡片网格中，内部链接的 SEO 面不受影响。
 
@@ -553,6 +600,12 @@ def main():
     html_count = rebuild_index_html(articles)
     if html_count:
         print(f'✓ 已重建 articles/index.html 卡片 ({html_count} 篇)')
+
+    # 5.2 重建 articles/index.html 的 CollectionPage ItemList 结构化数据
+    #     必须与卡片同源（同一份干净文章列表），防止桩页与重复 title 残留
+    jsonld_count = rebuild_index_jsonld(articles)
+    if jsonld_count:
+        print(f'✓ 已重建 articles/index.html ItemList 结构化数据 ({jsonld_count} 篇)')
 
     # 5.5 生成分类 / 标签 / 标签云 页
     cat_n = gen_categories(articles)
