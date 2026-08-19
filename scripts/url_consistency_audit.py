@@ -256,6 +256,8 @@ def check_6_duplicates_and_anomalies():
        - sitemap 重复 URL
        - 磁盘上有重定向桩但 redirects.json 无记录
        - 磁盘上有多个同名/近似文件
+       - HTML 卡片网格 h3 标题重复（6d）
+       - article-index.json 与 HTML 卡片网格交叉验证（6e）
     """
     issues = []
 
@@ -298,6 +300,32 @@ def check_6_duplicates_and_anomalies():
         if count > 1:
             issues.append(f"article-index.json 重复 slug ({count}次): {slug}")
 
+    # 6d: 检查 HTML 卡片网格（article-grid）中 h3 标题是否有重复
+    # 这是历史盲区：旧版本只查 article-index.json，不扫描 HTML 实际内容
+    index_html_path = os.path.join(SITE_ROOT, "articles", "index.html")
+    if os.path.exists(index_html_path):
+        with open(index_html_path, 'r', encoding='utf-8') as f:
+            index_html = f.read()
+        # 提取所有 h3.article-title 标题
+        card_titles = re.findall(r'<h3 class="article-title">(.*?)</h3>', index_html)
+        card_title_counts = Counter(card_titles)
+        for title, count in card_title_counts.items():
+            if count > 1:
+                issues.append(f"HTML 卡片网格重复标题 ({count}次): {title}")
+
+    # 6e: 交叉验证 article-index.json 与 HTML 卡片网格标题一致性
+    # 确保两个数据源保持一致，防止不同步导致的数据差异
+    index_titles = set(a.get('title', '') for a in articles)
+    card_title_set = set(card_titles) if card_titles else set()
+
+    missing_in_card = index_titles - card_title_set
+    for title in missing_in_card:
+        issues.append(f"article-index.json 中有但 HTML 卡片网格中缺失: {title}")
+
+    missing_in_index = card_title_set - index_titles
+    for title in missing_in_index:
+        issues.append(f"HTML 卡片网格中有但 article-index.json 中缺失: {title}")
+
     return issues
 
 
@@ -324,7 +352,7 @@ def main():
         ("5-内链断裂扫描", check_5_broken_internal_links,
          "全站所有内联 .html 链接目标是否存在"),
         ("6-重复与异常", check_6_duplicates_and_anomalies,
-         "sitemap重复/孤立重定向桩/index重复slug"),
+         "sitemap重复/孤立重定向桩/index重复slug/HTML卡片重复/交叉验证"),
     ]
 
     total_issues = 0
