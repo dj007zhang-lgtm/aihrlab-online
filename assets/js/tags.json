@@ -864,5 +864,19 @@
   "ai-scale-deployment-2026": [
     "AI转型",
     "组织变革"
+  ],
+  "ai-ethics-performance-evaluation-2026": [
+    "绩效变革",
+    "AI转型",
+    "测评工具"
+  ],
+  "ai-native-org-capability-boundary-2026": [
+    "大厂实践",
+    "组织变革",
+    "AI原生组织",
+    "智能体"
+  ],
+  "sme-owner-ai-architect-2026": [
+    "AI转型"
   ]
 }

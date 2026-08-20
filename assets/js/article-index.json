@@ -199,6 +199,17 @@
     ]
   },
   {
+    "title": "当AI开始写绩效评语：算法问责与可解释性红线",
+    "url": "ai-ethics-performance-evaluation-2026",
+    "category": "治理与伦理 · HR 合规",
+    "date": "2026-08-20",
+    "tags": [
+      "绩效变革",
+      "AI转型",
+      "测评工具"
+    ]
+  },
+  {
     "title": "AI把评估拆成两半：2026人才判断权重构",
     "url": "ai-evaluation-split-2026",
     "category": "核心方法论",
@@ -448,6 +459,18 @@
       "AI原生组织",
       "组织变革",
       "AI转型"
+    ]
+  },
+  {
+    "title": "AI原生组织不是范式切换：是能力边界的重写",
+    "url": "ai-native-org-capability-boundary-2026",
+    "category": "AI原生组织 · 架构重构",
+    "date": "2026-08-20",
+    "tags": [
+      "大厂实践",
+      "组织变革",
+      "AI原生组织",
+      "智能体"
     ]
   },
   {
@@ -1822,6 +1845,15 @@
     "date": "2026-07-23",
     "tags": [
       "组织变革"
+    ]
+  },
+  {
+    "title": "30人公司的AI HR：owner当架构师，不是加工具",
+    "url": "sme-owner-ai-architect-2026",
+    "category": "中小企业 · AI+HR",
+    "date": "2026-08-20",
+    "tags": [
+      "AI转型"
     ]
   },
   {

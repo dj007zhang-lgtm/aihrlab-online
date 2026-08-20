@@ -200,6 +200,10 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
         print(f"  [atomic] base {commit_sha[:8]} tree {base_tree_sha[:8]}")
     tree_entries = []
     for rel in local_rel_paths:
+        # Normalize: convert absolute paths to relative paths under ROOT
+        abs_path = os.path.abspath(rel)
+        if abs_path.startswith(ROOT):
+            rel = os.path.relpath(abs_path, ROOT)
         p = os.path.join(ROOT, rel)
         content = open(p, "rb").read()
         blob_sha = create_blob(content)
