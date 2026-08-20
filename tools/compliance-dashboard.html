@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>内容合规审核仪表盘 · AIHR数智引擎</title>
+<style>
+  :root {
+    --bg: #0B0C0E; --surface: #16191D; --text: #ECEAE4; --muted: #9a958c;
+    --accent: #6F9A3C; --warn: #C9A227; --fail: #C44536; --crit: #B22222;
+    --border: #2a2e34;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; padding: 32px; line-height: 1.6; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 24px; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .card .v { font-size: 32px; font-weight: 700; }
+  .card .l { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .card.ok .v { color: var(--accent); }
+  .card.warn .v { color: var(--warn); }
+  .card.fail .v { color: var(--fail); }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+  .panel h2 { font-size: 16px; margin-bottom: 16px; }
+  svg { width: 100%; height: 280px; }
+  .bar { display: flex; height: 28px; border-radius: 6px; overflow: hidden; margin: 8px 0; }
+  .bar > div { display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; }
+  a { color: var(--accent); text-decoration: none; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; }
+  .pill.crit { background: var(--crit); color: #fff; }
+  .pill.fail { background: var(--fail); color: #fff; }
+  .pill.warn { background: var(--warn); color: #000; }
+  .empty { color: var(--muted); font-size: 13px; padding: 12px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>内容合规审核仪表盘</h1>
+  <p class="sub">自动化内容主理人 · 三维审核（专业性 / 真实性 / 调性合规）· 更新于 20260820</p>
+
+  <div class="cards">
+    <div class="card ok"><div class="v">100.0%</div><div class="l">合规率（无 CRITICAL）</div></div>
+    <div class="card"><div class="v">93.6</div><div class="l">平均合规分 / 100</div></div>
+    <div class="card fail"><div class="v">0</div><div class="l">CRITICAL 违规</div></div>
+    <div class="card warn"><div class="v">421</div><div class="l">WARN 待复核</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>合规率与平均分趋势</h2>
+    <svg viewBox="0 0 1000 280" preserveAspectRatio="none">
+      <line x1="40" y1="240" x2="980" y2="240" stroke="#2a2e34" stroke-width="1"/>
+      <line x1="40" y1="40" x2="40" y2="240" stroke="#2a2e34" stroke-width="1"/>
+      <circle cx="60.0" cy="40.0" r="4" fill="#6F9A3C"/><line x1="60.0" y1="40.0" x2="366.6666666666667" y2="40.0" stroke="#6F9A3C" stroke-width="2"/><circle cx="366.6666666666667" cy="40.0" r="4" fill="#6F9A3C"/><line x1="366.6666666666667" y1="40.0" x2="673.3333333333334" y2="40.0" stroke="#6F9A3C" stroke-width="2"/><circle cx="673.3333333333334" cy="40.0" r="4" fill="#6F9A3C"/><line x1="673.3333333333334" y1="40.0" x2="980.0" y2="40.0" stroke="#6F9A3C" stroke-width="2"/><circle cx="980.0" cy="40.0" r="4" fill="#6F9A3C"/><line x1="980.0" y1="40.0" x2="1286.6666666666667" y2="40.0" stroke="#6F9A3C" stroke-width="2"/>
+      <circle cx="60.0" cy="56.0" r="3" fill="#4a90d9"/><circle cx="366.6666666666667" cy="54.19999999999999" r="3" fill="#4a90d9"/><circle cx="673.3333333333334" cy="53.0" r="3" fill="#4a90d9"/><circle cx="980.0" cy="52.80000000000001" r="3" fill="#4a90d9"/>
+    </svg>
+    <p class="sub" style="margin-top:8px">绿=合规率% · 蓝=平均合规分 · 横轴=扫描批次（4 次）</p>
+  </div>
+
+  <div class="panel">
+    <h2>违规分布（按维度）</h2>
+    <div class="bar">
+      <div style="width:59.241706161137444%;background:var(--crit)">250 专业性</div>
+      <div style="width:28.90995260663507%;background:var(--warn)">122 真实性</div>
+      <div style="width:11.848341232227488%;background:var(--fail)">50 调性合规</div>
+    </div>
+    <p class="sub">基于最新一次扫描的 422 条发现聚合</p>
+  </div>
+
+  <div class="panel">
+    <h2>人工复核队列（CRITICAL / FAIL）</h2>
+    <table><tr><th>文章</th><th>分类</th><th>合规分</th><th>问题</th></tr><tr><td><a href="/articles/ai-citation-geo-playbook-2026.html">AI引荐实战：让文章被豆包元宝引用的7个写法</a></td><td></td><td>81</td><td><span class="pill fail">R-15 标题自标出处</span></td></tr></table>
+  </div>
+
+  <p class="sub">数据来源：reports/compliance/audit-log.jsonl · 由 content_compliance_auditor.py 驱动</p>
+</div>
+</body>
+</html>

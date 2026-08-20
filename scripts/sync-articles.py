@@ -158,6 +158,11 @@ def extract_article_info(filepath, filename):
             category = re.sub(r'<[^>]+>', '', tag_match.group(1)).strip()
 
     if not category:
+        cat_span = re.search(r'<span class="cat">([^<]+)</span>', content)
+        if cat_span:
+            category = cat_span.group(1).strip()
+
+    if not category:
         category = infer_category(slug, title)
 
     # 归一化到 UI 筛选标签集合（处理旧分类名 / 显式非 UI 分类）

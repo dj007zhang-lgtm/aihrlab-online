@@ -24,7 +24,7 @@
   {
     "title": "Agent时代的组织架构：从层级到网络",
     "url": "agent-era-org-structure-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -59,7 +59,7 @@
   {
     "title": "变革AI：当AI从工具变成变革主体",
     "url": "ai-as-transformative-agent-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -79,7 +79,7 @@
   {
     "title": "AI时代的CEO新职责：从决策者到架构师",
     "url": "ai-ceo-new-responsibility-2026",
-    "category": "核心方法论",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -121,7 +121,7 @@
   {
     "title": "AI协作工具矩阵：2026年企业选择指南",
     "url": "ai-collaboration-tools-matrix-2026",
-    "category": "核心方法论",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -177,9 +177,20 @@
     ]
   },
   {
+    "title": "AI时代的能力重构：从技能到判断力",
+    "url": "ai-era-skill-rebuild-judgment-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "组织变革",
+      "技能优先",
+      "AI转型"
+    ]
+  },
+  {
     "title": "AI伦理治理：企业如何建立负责任的AI系统",
     "url": "ai-ethics-governance-enterprise-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -190,7 +201,7 @@
   {
     "title": "AI把评估拆成两半：2026人才判断权重构",
     "url": "ai-evaluation-split-2026",
-    "category": "组织变革",
+    "category": "核心方法论",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -294,7 +305,7 @@
   {
     "title": "2026 HR×AI 关键报告索引：数据与方法论",
     "url": "ai-hr-key-reports-2026",
-    "category": "研究报告",
+    "category": "核心方法论",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -420,7 +431,7 @@
   {
     "title": "AI时代的领导力发展：从管理到赋能",
     "url": "ai-leadership-development-2026",
-    "category": "核心方法论",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -431,7 +442,7 @@
   {
     "title": "组织变革的AI杠杆：用技术推动结构性转型",
     "url": "ai-leverage-org-transformation-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -442,7 +453,7 @@
   {
     "title": "AI原生组织的十种形态：从创业公司到巨头",
     "url": "ai-native-org-forms-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -463,6 +474,18 @@
     ]
   },
   {
+    "title": "AI原生组织的度量体系：从KPI到价值流",
+    "url": "ai-native-org-metrics-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "AI原生组织",
+      "组织变革",
+      "绩效变革",
+      "AI转型"
+    ]
+  },
+  {
     "title": "AI原生组织范式图谱：从重构到删除",
     "url": "ai-native-org-paradigm-map-2026",
     "category": "AI组织变革",
@@ -477,7 +500,7 @@
   {
     "title": "AI原生组织的十项修炼：从理念到实践",
     "url": "ai-native-org-practice-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -488,7 +511,7 @@
   {
     "title": "AI原生招聘：从筛选到匹配的范式转移",
     "url": "ai-native-recruitment-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -507,13 +530,34 @@
     ]
   },
   {
+    "title": "变革AI的组织韧性：如何在AI转型中保持组织弹性",
+    "url": "ai-org-resilience-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "AI转型",
+      "组织变革"
+    ]
+  },
+  {
     "title": "人工智能两大组织对比：差的不只是用不用AI",
     "url": "ai-org-two-models-compare-2026",
-    "category": "AI组织变革",
+    "category": "组织变革",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
       "组织扁平化"
+    ]
+  },
+  {
+    "title": "组织如何学会使用AI：从个人效率到集体智能",
+    "url": "ai-organizational-intelligence-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "AI原生组织",
+      "组织变革",
+      "AI转型"
     ]
   },
   {
@@ -530,7 +574,7 @@
   {
     "title": "AI时代的绩效革命：从KPI到OKR到价值流",
     "url": "ai-performance-revolution-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -541,7 +585,7 @@
   {
     "title": "AI产品发布节奏：组织能力的体温计",
     "url": "ai-product-release-rhythm-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -552,7 +596,7 @@
   {
     "title": "2026中国科技大厂AI产品动态全景：发布节奏暴露组织范式",
     "url": "ai-product-release-rhythm-org-health-2026",
-    "category": "大厂实践",
+    "category": "大厂实践 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -562,7 +606,7 @@
   {
     "title": "AI重构培训：从批量灌输到按需教练",
     "url": "ai-rebuild-training-coach-2026",
-    "category": "组织变革",
+    "category": "核心方法论",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -592,6 +636,16 @@
     ]
   },
   {
+    "title": "AI转型的规模化部署：从试点到组织级采纳",
+    "url": "ai-scale-deployment-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "AI转型",
+      "组织变革"
+    ]
+  },
+  {
     "title": "越用AI越听不见真话：组织信号系统崩溃",
     "url": "ai-silent-org-signals",
     "category": "组织变革",
@@ -604,7 +658,7 @@
   {
     "title": "AI时代的技能重塑：从岗位到能力的范式转移",
     "url": "ai-skill-rebuild-paradigm-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -626,7 +680,7 @@
   {
     "title": "AI时代的人才评估革命：从简历到技能图谱",
     "url": "ai-talent-assessment-revolution-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -661,7 +715,7 @@
   {
     "title": "AI人才争夺战：2026年大厂薪酬战背后",
     "url": "ai-talent-war-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -683,7 +737,7 @@
   {
     "title": "算法公平性审计：HR如何检测招聘AI的偏见",
     "url": "algorithm-fairness-audit-hr-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -695,7 +749,7 @@
   {
     "title": "阿里1+6+N重组：一场AI倒逼下的组织轮回",
     "url": "alibaba-1-6-n-ai-restructure-2026",
-    "category": "大厂实践",
+    "category": "大厂组织变革",
     "date": "2026-07-21",
     "tags": [
       "大厂实践",
@@ -717,7 +771,7 @@
   {
     "title": "蚂蚁AI重构：砍掉灵光，把筹码压给阿福",
     "url": "ant-group-ai-org-restructuring-2026",
-    "category": "大厂实践",
+    "category": "大厂组织变革",
     "date": "2026-07-21",
     "tags": [
       "大厂实践",
@@ -788,7 +842,7 @@
   {
     "title": "大厂 AI 部门拆分合并：组织能力还是政治秀",
     "url": "bigtech-ai-dept-split-merge-2026",
-    "category": "大厂实践",
+    "category": "组织变革",
     "date": "2026-08-13",
     "tags": [
       "大厂实践",
@@ -798,7 +852,7 @@
   {
     "title": "大厂AI组织变革复盘：成功与失败的边界",
     "url": "bigtech-ai-org-lessons-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -809,7 +863,7 @@
   {
     "title": "2026大厂AI产品竞速：微软谷歌Meta字节谁最快",
     "url": "bigtech-ai-product-race-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -895,7 +949,7 @@
   {
     "title": "字节跳动绩效评估变革2026：从现金到股权的深度转型",
     "url": "bytedance-performance-reform-2026",
-    "category": "大厂实践",
+    "category": "绩效变革 / 大厂实践",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -907,7 +961,7 @@
   {
     "title": "字节绩效评估变了:从现金奖金到股权绑定",
     "url": "bytedance-performance-review-2026",
-    "category": "大厂实践",
+    "category": "大厂组织变革",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -972,7 +1026,7 @@
   {
     "title": "数字员工与智能体：概念辨析与落地路径",
     "url": "digital-agent-vs-intelligent-agent-2026",
-    "category": "组织变革",
+    "category": "智能体 / HR转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -983,7 +1037,7 @@
   {
     "title": "数字员工管理指南：从雇佣到协作",
     "url": "digital-employee-management-guide-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1015,7 +1069,7 @@
   {
     "title": "DISC行为风格测试：AI时代还测对了什么",
     "url": "disc-style-test-2026",
-    "category": "核心方法论",
+    "category": "组织变革",
     "date": "2026-07-20",
     "tags": [
       "智能体",
@@ -1047,7 +1101,7 @@
   {
     "title": "企业AI治理框架：从合规到战略",
     "url": "enterprise-ai-governance-framework-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1058,7 +1112,7 @@
   {
     "title": "欧盟AI法案延期16个月，HR的8月2日没变",
     "url": "eu-ai-act-omnibus-hr-2026",
-    "category": "核心方法论",
+    "category": "组织变革",
     "date": "2026-08-09",
     "tags": [
       "人才战略",
@@ -1111,7 +1165,7 @@
   {
     "title": "出海2.0：全球人才供应链与本地化合规用工",
     "url": "global-talent-supply-chain-2026",
-    "category": "组织变革",
+    "category": "组织变革 · 全球化人才",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1122,7 +1176,7 @@
   {
     "title": "2026全球HR大洗牌：五巨头如何用AI重写人力资源",
     "url": "global-tech-hr-ai-disruption-2026",
-    "category": "大厂实践",
+    "category": "组织变革",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -1134,7 +1188,7 @@
   {
     "title": "谷歌的AI组织实验：Waymo和DeepMind的两种范式",
     "url": "google-ai-org-experiment-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -1145,7 +1199,7 @@
   {
     "title": "谷歌AI人才战略：从校园招聘到内部重构",
     "url": "google-ai-talent-strategy-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -1175,7 +1229,7 @@
   {
     "title": "大厂AI组织变革之后：HR第一个90天做什么",
     "url": "hr-90-days-after-ai-org-change-2026",
-    "category": "大厂实践",
+    "category": "AI组织变革",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -1187,7 +1241,7 @@
   {
     "title": "HR Agent落地指南：从概念到组织的三步框架",
     "url": "hr-agent-landing-guide-2026",
-    "category": "组织变革",
+    "category": "智能体 / HR转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1198,7 +1252,7 @@
   {
     "title": "HR Agent实战指南：从概念验证到组织落地",
     "url": "hr-agent-practical-guide-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1215,6 +1269,16 @@
       "AI转型",
       "组织变革",
       "智能体"
+    ]
+  },
+  {
+    "title": "HR如何说服老板投资AI：从成本账到价值账",
+    "url": "hr-ai-investment-case-2026",
+    "category": "AI转型",
+    "date": "2026-08-20",
+    "tags": [
+      "组织变革",
+      "AI转型"
     ]
   },
   {
@@ -1272,7 +1336,7 @@
   {
     "title": "技能图谱是什么：HR 构建方法论",
     "url": "hr-skill-graph-2026",
-    "category": "组织变革",
+    "category": "核心方法论",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1316,7 +1380,7 @@
   {
     "title": "人机协同的边界：何时该用AI，何时该用人",
     "url": "human-ai-boundary-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1326,7 +1390,7 @@
   {
     "title": "人机协同的十种模式：从辅助到共生",
     "url": "human-ai-collaboration-models-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革"
@@ -1347,7 +1411,7 @@
   {
     "title": "活水不是福利：腾讯3个月开闸，字节仅35%流得动",
     "url": "huoshui-plan-2026",
-    "category": "大厂实践",
+    "category": "大厂组织变革",
     "date": "2026-07-21",
     "tags": [
       "大厂实践",
@@ -1358,7 +1422,7 @@
   {
     "title": "混合办公的AI赋能：从灵活到高效",
     "url": "hybrid-work-ai-enablement-2026",
-    "category": "核心方法论",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "远程与混合办公"
@@ -1427,7 +1491,7 @@
   {
     "title": "麦肯锡2026 AI自动化行业影响解读：谁先被替代，谁后",
     "url": "mckinsey-2026-ai-automation-sector-impact",
-    "category": "研究报告",
+    "category": "治理与伦理 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革"
@@ -1664,7 +1728,7 @@
   {
     "title": "组织韧性测试：AI时代企业的危机应对能力",
     "url": "org-resilience-ai-era-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1674,7 +1738,7 @@
   {
     "title": "从Netflix到微软：企业韧性文化的两种路径",
     "url": "org-resilience-culture-compare-2026",
-    "category": "大厂实践",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "大厂实践",
@@ -1685,7 +1749,7 @@
   {
     "title": "组织变革的成本核算：AI投资的真实回报",
     "url": "org-transformation-cost-roi-2026",
-    "category": "AI组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "AI原生组织",
@@ -1708,7 +1772,7 @@
   {
     "title": "阵型谁都能贴，机制抄不到：为什么盲目改Pod的企业多数会死掉？",
     "url": "pod-redesign-fails-2026",
-    "category": "组织变革",
+    "category": "AI原生组织",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1742,7 +1806,7 @@
   {
     "title": "技能本位组织：AI如何重写人才定价逻辑",
     "url": "skill-based-org-ai-pricing-2026",
-    "category": "组织变革",
+    "category": "组织变革 / AI转型",
     "date": "2026-08-18",
     "tags": [
       "组织变革",
@@ -1754,7 +1818,7 @@
   {
     "title": "中小企业AI+HR：从试用到真用",
     "url": "sme-ai-hr-2026",
-    "category": "组织变革",
+    "category": "中小企业",
     "date": "2026-07-23",
     "tags": [
       "组织变革"
@@ -1827,7 +1891,7 @@
   {
     "title": "腾讯拆职级、字节拆中层：AI 扁平化的两种语法",
     "url": "tencent-vs-bytedance-flat-2026",
-    "category": "大厂实践",
+    "category": "组织变革",
     "date": "2026-07-21",
     "tags": [
       "大厂实践",

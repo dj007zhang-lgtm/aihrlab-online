@@ -175,10 +175,20 @@
     "https://www.aihrlab.online/articles/hr-tech-talent-standard-2026.html",
     "https://www.aihrlab.online/articles/remote-work-ai-era-2026.html",
     "https://www.aihrlab.online/articles/global-talent-supply-chain-2026.html",
-    "https://www.aihrlab.online/articles/eu-ai-act-omnibus-hr-2026.html"
+    "https://www.aihrlab.online/articles/eu-ai-act-omnibus-hr-2026.html",
+    "https://www.aihrlab.online/articles/agent-era-org-structure-2026.html",
+    "https://www.aihrlab.online/articles/ai-as-transformative-agent-2026.html",
+    "https://www.aihrlab.online/articles/ai-ceo-new-responsibility-2026.html",
+    "https://www.aihrlab.online/articles/ai-collaboration-tools-matrix-2026.html",
+    "https://www.aihrlab.online/articles/ai-employee-engagement-commitment.html",
+    "https://www.aihrlab.online/articles/ai-employee-experience-meaning.html",
+    "https://www.aihrlab.online/articles/ai-era-skill-rebuild-judgment-2026.html",
+    "https://www.aihrlab.online/articles/ai-ethics-governance-enterprise-2026.html",
+    "https://www.aihrlab.online/articles/ai-leadership-development-2026.html",
+    "https://www.aihrlab.online/articles/ai-leverage-org-transformation-2026.html"
   ],
-  "total_pushed": 176,
-  "total_urls": 167,
+  "total_pushed": 186,
+  "total_urls": 256,
   "history": [
     {
       "date": "2026-06-29",
@@ -595,6 +605,15 @@
       "remaining_after": 0,
       "status": "ALL_COMPLETE",
       "note": "所有 sitemap URL 已推送完毕"
+    },
+    {
+      "date": "2026-08-20",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 96,
+      "status": "PARTIAL",
+      "baidu_remain": 0,
+      "baidu_success": 1
     }
   ]
 }

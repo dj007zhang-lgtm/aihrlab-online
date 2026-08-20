@@ -128,11 +128,6 @@
   "ai-layoff-2026-mid-year-review": [
     "AI裁员"
   ],
-  "ai-layoff-230k-regret": [
-    "组织变革",
-    "AI裁员",
-    "人才战略"
-  ],
   "ai-layoff-7-to-40": [
     "组织变革",
     "AI裁员",
@@ -445,10 +440,6 @@
     "技能优先",
     "AI转型"
   ],
-  "mckinsey-6-percent-trust-architecture": [
-    "组织变革",
-    "AI转型"
-  ],
   "mckinsey-6pct-trust": [
     "组织变革",
     "AI转型"
@@ -756,12 +747,6 @@
     "组织变革",
     "AI转型"
   ],
-  "bigtech-ai-product-traps-2026": [
-    "大厂实践",
-    "组织变革",
-    "AI转型",
-    "测评工具"
-  ],
   "bytedance-performance-reform-2026": [
     "大厂实践",
     "组织变革",
@@ -851,5 +836,33 @@
     "人才战略",
     "技能优先",
     "智能体"
+  ],
+  "ai-era-skill-rebuild-judgment-2026": [
+    "组织变革",
+    "技能优先",
+    "AI转型"
+  ],
+  "ai-native-org-metrics-2026": [
+    "AI原生组织",
+    "组织变革",
+    "绩效变革",
+    "AI转型"
+  ],
+  "ai-organizational-intelligence-2026": [
+    "AI原生组织",
+    "组织变革",
+    "AI转型"
+  ],
+  "hr-ai-investment-case-2026": [
+    "组织变革",
+    "AI转型"
+  ],
+  "ai-org-resilience-2026": [
+    "AI转型",
+    "组织变革"
+  ],
+  "ai-scale-deployment-2026": [
+    "AI转型",
+    "组织变革"
   ]
 }

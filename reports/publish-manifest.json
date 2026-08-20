@@ -1039,5 +1039,37 @@
     "sitemap_urls_before": 252,
     "sitemap_urls_after": 252,
     "note": "Gate 11 新增 6d（HTML 卡片网格重复检测）+ 6e（index.json 与 HTML 交叉验证）"
+  },
+  {
+    "seq": 27,
+    "date": "2026-08-20",
+    "time": "09:15",
+    "commit": "6ed923b3",
+    "type": "content",
+    "summary": "补充 AI 转型分类 4 篇新文章（组织智能/投资论证/能力重构/度量体系）",
+    "files": 17,
+    "gates": "22/22 PASS"
+  },
+  {
+    "seq": 28,
+    "date": "2026-08-20",
+    "time": "09:30",
+    "commit": "dbd945e8",
+    "type": "content",
+    "summary": "补充 AI 转型分类 4 篇新文章 + 修正索引分类",
+    "files": 18,
+    "gates": "22/22 PASS"
+  },
+  {
+    "seq": 29,
+    "date": "2026-08-20",
+    "time": "22:15",
+    "commit": "6063e61b",
+    "type": "content",
+    "summary": "发布 AI原生组织/中小企业AI-HR/算法问责 三篇深度文",
+    "files": 10,
+    "gates": "22/22 PASS",
+    "sitemap_before": 266,
+    "sitemap_after": 266
   }
 ]

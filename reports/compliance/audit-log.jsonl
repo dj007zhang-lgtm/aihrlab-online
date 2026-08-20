@@ -1,0 +1,4 @@
+{"run_date": "20260820", "timestamp": "2026-08-20T20:19:26.036799", "total": 200, "compliance_rate": 100.0, "avg_score": 92.0, "critical_total": 0, "fail_total": 12, "warn_total": 496}
+{"run_date": "20260820", "timestamp": "2026-08-20T20:20:25.874824", "total": 200, "compliance_rate": 100.0, "avg_score": 92.9, "critical_total": 0, "fail_total": 16, "warn_total": 421}
+{"run_date": "20260820", "timestamp": "2026-08-20T20:20:53.243832", "total": 200, "compliance_rate": 100.0, "avg_score": 93.5, "critical_total": 0, "fail_total": 4, "warn_total": 421}
+{"run_date": "20260820", "timestamp": "2026-08-20T20:21:07.883068", "total": 200, "compliance_rate": 100.0, "avg_score": 93.6, "critical_total": 0, "fail_total": 1, "warn_total": 421}

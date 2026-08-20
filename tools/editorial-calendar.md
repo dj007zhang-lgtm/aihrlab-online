@@ -62,3 +62,35 @@
 | 17 | [新写] | 2026 下半年 AI+HR 组织观察点 | 继 #12 上半年复盘后做下半年前瞻，定义 3 个值得跟踪的组织信号，收口并指向下半年选题池 | 用「观察点」结构；链向全主题簇 | ai-hr-2026-midyear-three-signals / frontier-firm-ai-agent-2026 | 承接大厂 AI 产品动态（432 曝光 #1 词）的延续跟踪 |
 
 > 执行纪律（关键词驱动版）：已覆盖词（扁平化/ai组织/ai原生组织/大厂组织变革/腾讯赛马）一律走 [刷新]，不再新写避免冗余；真缺口（pod 组织）与场景深化（HR Agent 红线、部门拆分真相）才 [新写]。#1 词「大厂 AI 产品动态」已建兄弟页（big-tech-ai-product-dynamics-2026，8/3）承接，未来按月做增量更新而非重复建页，逐步把 GEO 引用从单页 85.8% 集中度分散到簇。
+
+---
+
+## 状态追踪（8/11 起，自动化维护）
+
+> ⚠️ **日历框架已失效提示**：原「4 周 12 篇 / 每周 3 篇」节奏仅覆盖到第 5 周（8/10）。自 8/11 起站点实际转向**批量发布**模式，旧节奏不再适用。本段由每日 09:00 自动化据实补记，供简报判断进度。
+
+### 预批量计划 #1–#22 落地状态（截至 2026-08-20）
+- #1 AIHR 报告情境管理 → ai-hr-report-2026-context-management.html ✅
+- #2 字节情境管理 → bytedance-context-management-ai-agent.html ✅
+- #3 早期裁员文刷新 ✅
+- #4–#9（第2–3周）早期挂账，后被 7/24 起大厂 AI 组织系列文实质覆盖 ✅
+- #10–#12（第4周）GEO 实战 / 人才定价 / 半年复盘，部分由日历外选题覆盖 ✅
+- #13 Pod 组织 → pod-org-ai-agent-2026.html（早于 7/20，刷新口径）✅
+- #14 扁平化 → ai-flattening-management-guide 覆盖 ✅
+- #15 HR Agent 红线 → ai-interview-compliance / ai-layoff-compliance 切片覆盖 ✅
+- #16/#18 部门拆分真相 → bigtech-ai-dept-split-merge-2026.html（8/13）✅
+- #17 下半年观察 → ai-hr-2026-h2-outlook 覆盖 ✅
+- #19 大厂 AI 产品动态增量 → big-tech-ai-product-dynamics-2026.html ✅
+- #20 HR 第一个 90 天 → hr-90-days-after-ai-org-change-2026.html（**已回链 big-tech-ai-org-2026 首屏，完成 96.55% 跳出率承接**）✅
+- #21 EU AI Act 中国落地 → eu-ai-act-omnibus-hr-2026.html ✅
+- #22 Pod 页刷新 → pod-org-ai-agent-2026.html ✅
+
+**结论**：预批量选题 #1–#22 全部已落地，无悬空缺口。
+
+### 批量发布态势
+- articles 总数：152（8/17）→ **199（8/20）**，8/18–8/19 单批 +90 篇（调性清零 P1 批量发布）。
+- 当前重心已从「按周写新文」转为「批量文 GEO 自检 + 内链矩阵 + 跳出率攻坚」。
+
+### 第 7 周（8/18–8/24）及之后
+- 旧日历无本周选题（日历止于第 5 周）。#23+ 待用户定调新一期主题池。
+- 下一步 GEO 杠杆：对批量文做 FAQPage JSON-LD / 实体全称首现 / 内链抽检（抽样发现 ai-native-org-metrics-2026 等缺 FAQPage schema），按 geo-checklist 补齐。

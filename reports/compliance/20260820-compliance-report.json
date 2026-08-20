@@ -1,0 +1,4864 @@
+{
+  "run_date": "20260820",
+  "total": 200,
+  "compliance_rate": 100.0,
+  "avg_score": 93.6,
+  "critical_total": 0,
+  "fail_total": 1,
+  "warn_total": 421,
+  "passed": 200,
+  "articles": [
+    {
+      "slug": "2026-big-tech-ai-org-restructure-rigidity",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "2026-hr-transformation-chief-architect",
+      "title": "2026HR转型：成为组织的首席架构师",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['57%', '10万', '2100万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "AI裁员7飙到40你的公司在做减法还是乘法",
+      "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "adkar-ai-transformation",
+      "title": "ADKAR 复盘：AI 转型为何卡在落地",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['88%', '80%', '12%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "agent-era-org-structure-2026",
+      "title": "Agent时代的组织架构：从层级到网络",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "agent-interviewer-boundary-2026",
+      "title": "AI面试的边界：Agent面试官能管到哪一步",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['76%', '35%', '58%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-agent-roi-reality-2026",
+      "title": "Agent ROI现实检验：80%说赚，88%未投产",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '88%', '80%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-as-transformative-agent-2026",
+      "title": "变革AI：当AI从工具变成变革主体",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-bounded-rationality",
+      "title": "真正危险的不是AI，是你的有限理性",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['7%', '40%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩塌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-ceo-new-responsibility-2026",
+      "title": "AI时代的CEO新职责：从决策者到架构师",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-change-hr-heart",
+      "title": "AI变革推不动？HR你要明白：算法再精，不如人心安",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['7%', '40%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-11 诗意隐喻",
+          "level": "WARN",
+          "evidence": "命中「骨血」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-citation-geo-playbook-2026",
+      "title": "AI引荐实战：让文章被豆包元宝引用的7个写法",
+      "category": "",
+      "score": 81,
+      "counts": {
+        "critical": 0,
+        "fail": 1,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['41%', '33%', '28%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-15 标题自标出处",
+          "level": "FAIL",
+          "evidence": "命中「一手信源」（位于标题）"
+        }
+      ],
+      "needs_review": true
+    },
+    {
+      "slug": "ai-coding-efficiency-org-evolution",
+      "title": "AI Coding的效能传导：从个体提速到组织进化",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['37%', '27%', '6.2%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-collaboration-tools-matrix-2026",
+      "title": "AI协作工具矩阵：2026年企业选择指南",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-employee-engagement-commitment",
+      "title": "AI如何重塑员工敬业度：从交易型到承诺型",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['29%', '29%', '35%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-employee-experience-meaning",
+      "title": "AI时代的员工体验：从满意度到意义感",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['78%', '35%', '78%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-era-high-roi-4-things",
+      "title": "AI时代，职场回报率超高的四件小事",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-era-hr-5-misalignments",
+      "title": "AI时代人力资源管理的5大错位",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-era-org-rigidity",
+      "title": "AI时代，如何破除组织僵化？三个「反直觉」动作",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['68%', '23%', '17%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-era-skill-rebuild-judgment-2026",
+      "title": "AI时代的能力重构：从技能到判断力",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-ethics-governance-enterprise-2026",
+      "title": "AI伦理治理：企业如何建立负责任的AI系统",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-evaluation-split-2026",
+      "title": "AI把评估拆成两半：2026人才判断权重构",
+      "category": "核心方法论",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-flatten-org-middle-managers-2026",
+      "title": "AI正在消灭中层？组织扁平化的真实路径",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '20%', '20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-flattening-management-guide",
+      "title": "AI时代扁平化管理：HR一号位落地框架",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '41%', '37%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-governance-gap-hr-2026",
+      "title": "AI治理鸿沟：80%用AI，仅23%立规矩",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hiring-fairness-compliance-2026",
+      "title": "AI面试官上岗：HR如何守住公平与合规的底线",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-2026-h1-review-mainlines-misjudgments",
+      "title": "2026上半年AI+HR复盘：3主线与3误判",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['12 万', '72%', '1.7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-11 诗意隐喻",
+          "level": "WARN",
+          "evidence": "命中「骨骼」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-2026-h2-outlook",
+      "title": "2026下半年AI+HR组织观察点",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-2026-midyear-three-signals",
+      "title": "2026上半年：AI正在改写HR的三条暗线",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「一定会」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩塌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-jobs",
+      "title": "AI接管HR岗位全景图：哪些职能先被Agent替代",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['7%', '40%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-key-reports-2026",
+      "title": "2026 HR×AI 关键报告索引：数据与方法论",
+      "category": "核心方法论",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['75%', '38%', '86%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-landing-3-high-roi-plays",
+      "title": "AI落地HR实战：314家企业验证的3个高ROI切入点",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「注定失败」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-org-cluster",
+      "title": "AI+HR组织变革：从大厂一手实践到HR落地框架（深读路线）",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['88%', '20%', '88%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-hr-report-2026-context-management",
+      "title": "AI时代HR发展报告：从管控走向情境",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['16万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-interview-compliance-2026",
+      "title": "AI 面试合规红线：把同意权与复核权留在人手里",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-landing-fails-org-not-changed",
+      "title": "88%企业AI落地失败，原因不在技术，在组织没变",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['88%', '88%', '88%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-2026-manager-redefine",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-2026-mid-year-review",
+      "title": "AI裁员2026年中盘点：被裁的都有这三个特征",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['8 万', '2.1 万', '20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-230k-regret",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-7-to-40",
+      "title": "AI裁员7%飙到40%：你的公司在做减法还是乘法",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['7%', '40%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-compliance-guide",
+      "title": "AI裁员留痕合规：一份给HR的合法操作清单",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-manager-redefine",
+      "title": "AI裁员：管理者不会被AI替代，但「管理」正在被重新定义",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['35%', '23万', '23万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-regret",
+      "title": "23万人被AI裁员后，一半的公司后悔了",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['23万', '23万', '55%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-subtraction-vs-multiplication",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-subtraction",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-layoff-to-rebuild-hr-stand-firm",
+      "title": "从AI裁员到AI重构：HR如何在组织变革中站稳脚跟",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「谷歌」正文含数值 ['29%', '3 万', '12 倍'] 与账本 ['850 万', '43 万亿', '1900 亿'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-leadership-development-2026",
+      "title": "AI时代的领导力发展：从管理到赋能",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-leverage-org-transformation-2026",
+      "title": "组织变革的AI杠杆：用技术推动结构性转型",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-org-forms-2026",
+      "title": "AI原生组织的十种形态：从创业公司到巨头",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-org-hr-2026",
+      "title": "AI原生企业不是转型：HR必须理解的第三种范式",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '3800亿', '30万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-org-metrics-2026",
+      "title": "AI原生组织的度量体系：从KPI到价值流",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-org-paradigm-map-2026",
+      "title": "AI原生组织范式图谱：从重构到删除",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['4万', '2.5万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-org-practice-2026",
+      "title": "AI原生组织的十项修炼：从理念到实践",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-native-recruitment-2026",
+      "title": "AI原生招聘：从筛选到匹配的范式转移",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-org-redesign-2026",
+      "title": "AI红利卡在组织：88%试了，81%没赚",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['88%', '81%', '88%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-org-resilience-2026",
+      "title": "变革AI的组织韧性：如何在AI转型中保持组织弹性",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-org-two-models-compare-2026",
+      "title": "人工智能两大组织对比：差的不只是用不用AI",
+      "category": "AI时代组织变革",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['73%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「拓扑」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-organizational-intelligence-2026",
+      "title": "组织如何学会使用AI：从个人效率到集体智能",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-performance-management",
+      "title": "AI重构绩效管理：从年度考核到持续反馈",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['87%', '87%', '23%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-performance-revolution-2026",
+      "title": "AI时代的绩效革命：从KPI到OKR到价值流",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-product-release-rhythm-2026",
+      "title": "AI产品发布节奏：组织能力的体温计",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-product-release-rhythm-org-health-2026",
+      "title": "2026中国科技大厂AI产品动态全景：发布节奏暴露组织范式",
+      "category": "大厂实践 / AI转型",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['30%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-rebuild-training-coach-2026",
+      "title": "AI重构培训：从批量灌输到按需教练",
+      "category": "核心方法论",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-recruitment-bias-compliance-2026",
+      "title": "AI招聘的算法偏见与合规红线",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-recruitment-selection-guide-2026",
+      "title": "简历匹配已成过去式：AI招聘选型的避坑与实战指南",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-scale-deployment-2026",
+      "title": "AI转型的规模化部署：从试点到组织级采纳",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-silent-org-signals",
+      "title": "越用AI越听不见真话：组织信号系统崩溃",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['2100亿', '15万', '100万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-skill-rebuild-paradigm-2026",
+      "title": "AI时代的技能重塑：从岗位到能力的范式转移",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-skills-based-org-2026",
+      "title": "技能本位组织：当 AI 把岗位拆成能力模块",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['73%', '56%', '73%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-talent-assessment-revolution-2026",
+      "title": "AI时代的人才评估革命：从简历到技能图谱",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-talent-profile-reconstruction-2026",
+      "title": "AI时代人才画像重构：岗位能力模型怎么变",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-talent-review-ninebox-2026",
+      "title": "人才盘点：从能力建模到九宫格自动化",
+      "category": "",
+      "score": 76,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 8
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「O*NET 26.2 Content Model」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The State of AI in HR 2026」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「9 Box Grid: A Complete Guide to Talent Reviews」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「9-Box Grid &amp; Alternatives」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Bias laundering: when AI makes manager bias look objective」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「EU AI Act — Annex III: High-risk AI systems」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「EEOC — ADA and the Use of Software, Algorithms, and AI to Assess Job Applicants and Employees」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「AI Bias in Performance Management: the compliance blind spot after the hire」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-talent-war-2026",
+      "title": "AI人才争夺战：2026年大厂薪酬战背后",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "ai-transformation-failures-2026",
+      "title": "AI转型的十大失败模式：从技术债到文化债",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "algorithm-fairness-audit-hr-2026",
+      "title": "算法公平性审计：HR如何检测招聘AI的偏见",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "alibaba-1-6-n-ai-restructure-2026",
+      "title": "阿里1+6+N重组：一场AI倒逼下的组织轮回",
+      "category": "大厂组织变革",
+      "score": 79,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 7
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「阿里组织架构变革：从1+6+N到电商事业群」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「拆分又合并！阿里两年架构轮回背后，藏着大企业生存智慧」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['3800亿', '120万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        },
+        {
+          "rule": "R-11 诗意隐喻",
+          "level": "WARN",
+          "evidence": "命中「呼吸」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "alibaba-ai-org-restructuring-2026",
+      "title": "阿里AI组织变革：从分权到再集权",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['3800 亿', '120万亿', '3800亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "ant-group-ai-org-restructuring-2026",
+      "title": "蚂蚁AI重构：砍掉灵光，把筹码压给阿福",
+      "category": "大厂组织变革",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['3.82 亿', '1.67 亿', '2897 万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "anthropic-best-ai-company",
+      "title": "拆解 Anthropic：AI公司，也是一种组织发明",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「一定是」"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「100% 的人」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1 万亿', '50%', '80%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "anthropic-danger-signals",
+      "title": "Anthropic实录：6个危险信号拆冗余流程",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '7%', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "anthropic-engineer-three-stages",
+      "title": "Anthropic报告：AI时代工程师三阶跃迁",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "baidu-tp-reform",
+      "title": "百度取消T/P序列：AI时代的人才价值重估",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1291亿', '3%', '26%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "big-tech-ai-org-2026",
+      "title": "2026五大厂AI组织变革对比：阿里腾讯字节华为百度如何重装",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有组织都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「谷歌」正文含数值 ['1600 亿', '120 万', '1600 亿'] 与账本 ['850 万', '43 万亿', '1900 亿'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "big-tech-ai-product-dynamics-2026",
+      "title": "大厂 AI 产品动态 2026：节奏即组织",
+      "category": "",
+      "score": 67,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 11
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Microsoft 365 Copilot 2026 年 8 月发布说明（Agent Store 治理 + Claude 模型支持）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Google DeepMind：Introducing Gemini 3.7 Flash」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「字节跳动发布原生音视频全双工大模型 SeedRealtime，豆包全量上线」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「豆包上车特斯拉中国车机 + 工作任务模式更新」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「腾讯混元发布 Hy ASR 3.0 preview」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「腾讯云 Agent Memory 2.0.0 上线」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Alibaba Cloud：Qwen3.8-Max 发布（首次开源 Max 级权重）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Baidu ERNIE 5.0」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bigtech-ai-dept-split-merge-2026",
+      "title": "大厂 AI 部门拆分合并：组织能力还是政治秀",
+      "category": "组织变革",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['143 亿', '49%', '88%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bigtech-ai-org-lessons-2026",
+      "title": "大厂AI组织变革复盘：成功与失败的边界",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "bigtech-ai-product-race-2026",
+      "title": "2026大厂AI产品竞速：微软谷歌Meta字节谁最快",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "bigtech-ai-reorg-2026",
+      "title": "大厂AI组织重构：谁在真做谁在跟风",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['120万亿', '200%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bigtech-hr-rotation-2026",
+      "title": "大厂HR轮岗：AI时代如何炼出复合型人才",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-160b-ai-org",
+      "title": "字节1600亿背后的组织阳谋：买算力，不如买「组织能力」",
+      "category": "",
+      "score": 82,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 6
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-160b-campus-recruit",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-7000-campus-7000interns",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-7000-interns",
+      "title": "字节校招7000人：大厂HR去经验化",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['50%', '1600亿', '120万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-campus-7000",
+      "title": "字节校招7000人：大厂HR体系「去经验化」",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['50%', '1600亿', '120万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-context-management-ai-agent",
+      "title": "字节的情境管理实验：AI 如何把决策权还给一线",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-07 slogan替代脊梁",
+          "level": "WARN",
+          "evidence": "命中「不可逆的趋势」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-doubao-org-engine-2026",
+      "title": "字节豆包120万亿Token背后的组织引擎",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-doubao-org-engineer-2026",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-performance-reform-2026",
+      "title": "字节跳动绩效评估变革2026：从现金到股权的深度转型",
+      "category": "绩效变革 / 大厂实践",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['25%', '75%', '25%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "bytedance-performance-review-2026",
+      "title": "字节绩效评估变了:从现金奖金到股权绑定",
+      "category": "大厂组织变革",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['100%', '100%', '25%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "china-ai-org-three-routes",
+      "title": "2026中国AI组织三条路线",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "china-labor-market-ai-task-restructuring-2026",
+      "title": "中国劳动力市场AI任务重组：2100万新岗从何而来",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "chro-ai-transformation-role-2026",
+      "title": "CHRO在AI转型中的核心角色：从人事到战略",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "deepmind-no-kpi-talent-management",
+      "title": "无KPI管天才团队：DeepMind的科学领导力",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['9000亿', '9000 亿', '9000亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "deloitte-2026",
+      "title": "德勤2026：85%的战略正在被7%的损耗率吃掉",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['85%', '7%', '85%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "digital-agent-vs-intelligent-agent-2026",
+      "title": "数字员工与智能体：概念辨析与落地路径",
+      "category": "智能体 / HR转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "digital-employee-management-guide-2026",
+      "title": "数字员工管理指南：从雇佣到协作",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "digital-org-chart-2026",
+      "title": "数字化人员组织架构图：从静态PPT到实时组织数据流",
+      "category": "AI时代组织变革",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['8 万', '73%', '20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "dingtalk-ceo-change-control-vs-empowerment",
+      "title": "钉钉换帅：7.5万字打翻的不只是一个CEO",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['7.5万', '300万', '7.5万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-11 诗意隐喻",
+          "level": "WARN",
+          "evidence": "命中「血液」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "dingtalk-ceo-change",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "disc-style-test-2026",
+      "title": "DISC行为风格测试：AI时代还测对了什么",
+      "category": "AI时代组织变革",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['73%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "dri-kaifu-lisa-su",
+      "title": "李开复×苏姿丰对谈：未来HR只有一个核心岗位，叫DRI",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「一定是」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1370亿', '7%', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "drucker-ai-era-answer",
+      "title": "AI时代，德鲁克依然是答案——只是问题变了",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '70%', '3.75亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "enterprise-ai-governance-framework-2026",
+      "title": "企业AI治理框架：从合规到战略",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "eu-ai-act-omnibus-hr-2026",
+      "title": "欧盟AI法案延期16个月，HR的8月2日没变",
+      "category": "组织变革",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "fat-donglai-you-cant-learn",
+      "title": "胖东来你学不会：视人为「人」，才是护城河",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "from-company-to-intelligent-organization",
+      "title": "从公司到智能组织：AI时代范式变革",
+      "category": "",
+      "score": 82,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 6
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「必然会」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['2.5万', '3800亿', '30万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "frontier-firm-ai-agent-2026",
+      "title": "前沿企业：AI Agent 成数字同事，HR 重写什么",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['58%', '80%', '65%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "genai-productivity-evidence-2026",
+      "title": "生成式AI提效的真相：2025-2026一线实证拆解",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['26%', '12.2%', '89%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "global-talent-supply-chain-2026",
+      "title": "出海2.0：全球人才供应链与本地化合规用工",
+      "category": "组织变革 · 全球化人才",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "global-tech-hr-ai-disruption-2026",
+      "title": "2026全球HR大洗牌：五巨头如何用AI重写人力资源",
+      "category": "AI时代组织变革",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['23%', '22万', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "google-ai-org-experiment-2026",
+      "title": "谷歌的AI组织实验：Waymo和DeepMind的两种范式",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "google-ai-talent-strategy-2026",
+      "title": "谷歌AI人才战略：从校园招聘到内部重构",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "gtc2026-ai-infrastructure-org-evolution",
+      "title": "GTC2026：算力基建时代的组织演进",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「必然会」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "gtc2026-org-evolution",
+      "title": "GTC2026：算力时代的组织演进与HR启示",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「必然会」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-90-days-after-ai-org-change-2026",
+      "title": "大厂AI组织变革之后：HR第一个90天做什么",
+      "category": "AI组织变革",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Escaping the pilot trap: Building HR for the agentic era」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「HR Monitor 2026: A turning point for the people function」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Productivity reimagined」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「摩根士丹利：AI时代HR不能再只管理人数」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Gartner 2026 CHRO Priorities」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-agent-landing-guide-2026",
+      "title": "HR Agent落地指南：从概念到组织的三步框架",
+      "category": "智能体 / HR转型",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-agent-practical-guide-2026",
+      "title": "HR Agent实战指南：从概念验证到组织落地",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-agent-roi-reality-2026",
+      "title": "HR Agent ROI测算：80%企业说的 vs 88%企业做的",
+      "category": "AI转型",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '88%', '80%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-ai-investment-case-2026",
+      "title": "HR如何说服老板投资AI：从成本账到价值账",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-ai-prompt-toolbox-21",
+      "title": "高效HR的AI工具箱：21个精准提示词，重塑核心工作流",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-ai-transition-roadmap-2026",
+      "title": "AI转型的HR路线图：从规划到落地的90天",
+      "category": "AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-bigfive-recruitment-screening",
+      "title": "HR 怎么用大五人格做招聘初筛",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-digital-employee-2026",
+      "title": "HR数字员工：AI Agent落地指南",
+      "category": "AI时代组织变革",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-handle-boss-ai-fever",
+      "title": "面对老板的AI狂热和焦虑，HR该如何从容破局？",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-skill-graph-2026",
+      "title": "技能图谱是什么：HR 构建方法论",
+      "category": "核心方法论",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「一定会」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['11%', '11%', '11%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-tech-talent-standard-2026",
+      "title": "你采购的不是效率：AI 招聘系统正在接管人才定义权",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hr-three-pillar-ai",
+      "title": "AI重构HR三支柱：COE/SSC/BP的智能化路径",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "huawei-hr-leaders-history",
+      "title": "华为历任HR一号位：一部组织能力的进化史",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20 万', '20 万', '20 万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "human-ai-boundary-2026",
+      "title": "人机协同的边界：何时该用AI，何时该用人",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "human-ai-collaboration-models-2026",
+      "title": "人机协同的十种模式：从辅助到共生",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "human-ai-equation",
+      "title": "效率、判断力与组织记忆：配平你的人机协作方程式",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['70%', '7%', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "huoshui-plan-2026",
+      "title": "活水不是福利：腾讯3个月开闸，字节仅35%流得动",
+      "category": "大厂组织变革",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['35%', '35%', '35%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "hybrid-work-ai-enablement-2026",
+      "title": "混合办公的AI赋能：从灵活到高效",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "idc-2026-hr-ai-agent-guide",
+      "title": "IDC 2026：HR AI Agent选型指南",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['78%', '22%', '78%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "jd-pinduoduo-ai-org-2026",
+      "title": "京东拼多多的AI组织重构：重装与原生两条路",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['2万', '90%', '2万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "jimeng-organization-logic",
+      "title": "拆解即梦Seedance：AI时代组织重构逻辑",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '10倍', '5倍'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "karpathy-ai-replacement-test",
+      "title": "Karpathy的AI替代测试：击碎职业常识",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「一定是」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「凉透」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "keling-ai-innovation-path",
+      "title": "从「能不能」到「敢不敢」：可灵AI创新路径的组织启示",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['120%', '100%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "kpi-failure-ai-org-restructure",
+      "title": "KPI物理失效：AI原生组织的效能重构",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '80%', '80%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "kpi-failure",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-2026-ai-automation-sector-impact",
+      "title": "麦肯锡2026 AI自动化行业影响解读：谁先被替代，谁后",
+      "category": "治理与伦理 / AI转型",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「必然导致」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-2026-org-report-deep-dive",
+      "title": "麦肯锡2026组织报告：AI时代组织进化论",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['86%', '86%', '75%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-2026-organization-report",
+      "title": "麦肯锡2026组织报告：AI时代的人才筛选论",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['86%', '86%', '86%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-2026-training-vs-screening",
+      "title": "麦肯锡2026：HR必须从培训转向筛选",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['90%', '46%', '55%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-6-percent-trust-architecture",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-6pct-trust",
+      "title": "麦肯锡6%落地率：AI-First信任架构怎么搭",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['6%', '88%', '6%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-hidden-deadlock",
+      "title": "麦肯锡死局：无制度授权，AI转型是行为艺术",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['88%', '39%', '43%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mckinsey-human-ai-orchestration",
+      "title": "麦肯锡2026：70%岗位技能横跨人机边界，怎么编排",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['70%', '70%', '1万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "mercer-2026",
+      "title": "美世2026：人机协作方程式与新一代人才价值公式",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['4倍', '7%', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-300b-ai-layoff",
+      "title": "Meta加码300亿买算力，裁员8000人拆金字塔",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['300亿', '300亿', '300 亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-ai-code-75-percent",
+      "title": "Meta变脸：AI代码75%，工程师成AI产品经理",
+      "category": "",
+      "score": 88,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 4
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['75%', '75%', '75%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-ai-layoffs-middle-managers",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-ai-optimizes-middle-managers",
+      "title": "Meta又裁员了：AI正在系统性“优化”掉中层管理者",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1.6 万', '20%', '1.6万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-layoffs-middle-managers",
+      "title": "Meta又裁员了：AI正在系统性优化掉中层管理者",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "meta-pod-structure",
+      "title": "Meta Pod结构全拆解：工程师创业式的小团队如何运转",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['75%', '7%', '40%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-ai-decoupling",
+      "title": "微软暗线：1370亿避开OpenAI的组织解耦",
+      "category": "",
+      "score": 79,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 7
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1370亿', '1370亿', '1370亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩了」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-anthropic-ai-org-restructure",
+      "title": "微软砸架构Anthropic灭中层：组织底层代码重构",
+      "category": "",
+      "score": 73,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 9
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['22万', '78%', '22%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-anthropic-org-restructuring-ai-era",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-cisco-ai-restructuring-2026",
+      "title": "微软裁4800思科裁4000：AI重构非替代",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「慌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-decoupling-openai-strategy",
+      "title": "微软暗线：纳德拉的组织依赖解耦局",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-hr-system-overhaul",
+      "title": "重磅｜微软打响第一枪：爆改HR体系，让组织像AI一样思考",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-hr-transformation-ai-thinking",
+      "title": "微软爆改HR体系：让组织像AI一样思考",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1370亿', '80%', '7%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "microsoft-openai-decoupling",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "musk-2026-ai-interview",
+      "title": "马斯克2026访谈：AI递归进化，HR边界消失？",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "musk-2026-ai-recursive-evolution",
+      "title": "马斯克2026：当AI递归进化，HR边界消失？",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "openclaw-ai-agent-management",
+      "title": "OpenClaw走红：HR如何管隐形AI员工",
+      "category": "",
+      "score": 85,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 5
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['300亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩塌」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "org-resilience-ai-era-2026",
+      "title": "组织韧性测试：AI时代企业的危机应对能力",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "org-resilience-culture-compare-2026",
+      "title": "从Netflix到微软：企业韧性文化的两种路径",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "org-transformation-cost-roi-2026",
+      "title": "组织变革的成本核算：AI投资的真实回报",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "pod-org-ai-agent-2026",
+      "title": "Pod组织是什么：当AI agent坐进最小作战单元，科层制如何被重写",
+      "category": "AI时代组织变革",
+      "score": 79,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 7
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['30%', '2 亿', '100%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩塌」"
+        },
+        {
+          "rule": "R-06 焦虑叙事",
+          "level": "WARN",
+          "evidence": "命中「崩塌」"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「液态」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "pod-redesign-fails-2026",
+      "title": "阵型谁都能贴，机制抄不到：为什么盲目改Pod的企业多数会死掉？",
+      "category": "AI原生组织",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "recruitment-ai-fullstack",
+      "title": "招聘全链路AI落地：从JD撰写到面试出题的Agent化",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「Future of Jobs Report 2025」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '20%', '20%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "remote-work-ai-era-2026",
+      "title": "远程办公没有退潮：灵活性正在变成一种薪酬",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「所有人都」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "skill-based-org-ai-pricing-2026",
+      "title": "技能本位组织：AI如何重写人才定价逻辑",
+      "category": "组织变革 / AI转型",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "sme-ai-hr-2026",
+      "title": "中小企业AI+HR：从试用到真用",
+      "category": "中小企业",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "talent-pricing-logic-2026",
+      "title": "人才定价逻辑：一个人值多少钱，岗位就怎么设计",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['800 万', '2 亿', '220 万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-2800-huoshui",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-319b-ali-3800b",
+      "title": "腾讯319亿阿里3800亿：HR一号位的关键战役",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['319亿', '3800亿', '319亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-ai-lab-disbanded",
+      "title": "腾讯AI Lab落幕：大模型时代的组织巷战",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['10%', '300亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「耦合」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-huawei-hr-rotation-mechanism-2026",
+      "title": "腾讯活水与华为轮岗：AI人才流动机制",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['1万', '1万', '8.7万'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-huoshui-internal-mobility",
+      "title": "腾讯活水计划：内部人才流动机制与HR启示",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Talent Trends Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['8.7万', '15.9%', '20.1%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-teg-cadre-activation",
+      "title": "腾讯TEG干部激活：10%中干重配与AI时代组织变阵",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "tencent-vs-bytedance-flat-2026",
+      "title": "腾讯拆职级、字节拆中层：AI 扁平化的两种语法",
+      "category": "组织变革",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "token-kpi-new-corporate-metrics",
+      "title": "你今天消耗了多少Token？大厂KPI的新玩法",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['80%', '55%', '80%'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "unitree-flat-org-trap",
+      "title": "宇树扁平化陷阱：人多了，效率为何更低",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "绝对化断言(夸大风险)",
+          "level": "WARN",
+          "evidence": "疑似绝对化表述：「必然导致」"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['10 亿', '10%', '42.02亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「熵增」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "unitree-ipo-org-analysis",
+      "title": "拆解宇树科技招股书：硬科技组织不需要「平庸的管理」",
+      "category": "",
+      "score": 97,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 1
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "unitree-ipo-org-design",
+      "title": "页面已迁移",
+      "category": "",
+      "score": 100,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 0
+      },
+      "findings": [],
+      "needs_review": false
+    },
+    {
+      "slug": "wangxing-meituan-management-talk",
+      "title": "王兴美团2000人管理会：经验的清算",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['2000亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "wwdc-2026-hr-insights",
+      "title": "WWDC2026：Apple智能给HR的启示",
+      "category": "",
+      "score": 91,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 3
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「The 2026 AI Index Report」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "事实数值待复核",
+          "level": "WARN",
+          "evidence": "实体「字节」正文含数值 ['20%', '3800亿', '30万亿'] 与账本 ['63 万亿', '3.45 亿', '49.2%'] 未对齐"
+        },
+        {
+          "rule": "R-10 物理借词框架",
+          "level": "WARN",
+          "evidence": "命中「路由器」"
+        }
+      ],
+      "needs_review": false
+    },
+    {
+      "slug": "xiaomi-2026-org-evolution",
+      "title": "组织进化论：拆解小米2026战略背后的组织变革",
+      "category": "",
+      "score": 94,
+      "counts": {
+        "critical": 0,
+        "fail": 0,
+        "warn": 2
+      },
+      "findings": [
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「智能原生研究报告（2026年）」不在 allow/deny 登记表，需人工核验"
+        },
+        {
+          "rule": "信源未登记(待核验)",
+          "level": "WARN",
+          "evidence": "信源「2026 Global Human Capital Trends」不在 allow/deny 登记表，需人工核验"
+        }
+      ],
+      "needs_review": false
+    }
+  ]
+}
