@@ -185,10 +185,20 @@
     "https://www.aihrlab.online/articles/ai-era-skill-rebuild-judgment-2026.html",
     "https://www.aihrlab.online/articles/ai-ethics-governance-enterprise-2026.html",
     "https://www.aihrlab.online/articles/ai-leadership-development-2026.html",
-    "https://www.aihrlab.online/articles/ai-leverage-org-transformation-2026.html"
+    "https://www.aihrlab.online/articles/ai-leverage-org-transformation-2026.html",
+    "https://www.aihrlab.online/articles/ai-ethics-performance-evaluation-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-org-capability-boundary-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-org-forms-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-org-metrics-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-org-practice-2026.html",
+    "https://www.aihrlab.online/articles/ai-native-recruitment-2026.html",
+    "https://www.aihrlab.online/articles/ai-org-resilience-2026.html",
+    "https://www.aihrlab.online/articles/ai-organizational-intelligence-2026.html",
+    "https://www.aihrlab.online/articles/ai-performance-revolution-2026.html",
+    "https://www.aihrlab.online/articles/ai-product-release-rhythm-2026.html"
   ],
-  "total_pushed": 186,
-  "total_urls": 256,
+  "total_pushed": 196,
+  "total_urls": 266,
   "history": [
     {
       "date": "2026-06-29",
@@ -614,6 +624,14 @@
       "status": "PARTIAL",
       "baidu_remain": 0,
       "baidu_success": 1
+    },
+    {
+      "date": "2026-08-21",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 96,
+      "status": "PARTIAL",
+      "baidu_remain": 0
     }
   ]
 }
