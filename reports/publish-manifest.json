@@ -1071,5 +1071,18 @@
     "gates": "22/22 PASS",
     "sitemap_before": 266,
     "sitemap_after": 266
+  },
+  {
+    "date": "2026-08-23 00:30",
+    "commit": "75acc2f622f0179a7cbddb03b3d3db2fbdef7a8a",
+    "message": "发布ONA文章",
+    "files_count": 3,
+    "files": [
+      "articles/organizational-network-analysis-ona-2026.html",
+      "assets/images/banners/organizational-network-analysis-ona-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 270,
+    "sitemap_urls_after": 270
   }
 ]
