@@ -195,9 +195,19 @@
     "https://www.aihrlab.online/articles/ai-org-resilience-2026.html",
     "https://www.aihrlab.online/articles/ai-organizational-intelligence-2026.html",
     "https://www.aihrlab.online/articles/ai-performance-revolution-2026.html",
-    "https://www.aihrlab.online/articles/ai-product-release-rhythm-2026.html"
+    "https://www.aihrlab.online/articles/ai-product-release-rhythm-2026.html",
+    "https://www.aihrlab.online/articles/ai-product-release-rhythm-org-health-2026.html",
+    "https://www.aihrlab.online/articles/ai-scale-deployment-2026.html",
+    "https://www.aihrlab.online/articles/ai-skill-rebuild-paradigm-2026.html",
+    "https://www.aihrlab.online/articles/ai-talent-assessment-revolution-2026.html",
+    "https://www.aihrlab.online/articles/ai-talent-review-ninebox-2026.html",
+    "https://www.aihrlab.online/articles/ai-talent-war-2026.html",
+    "https://www.aihrlab.online/articles/ai-transformation-failures-2026.html",
+    "https://www.aihrlab.online/articles/algorithm-fairness-audit-hr-2026.html",
+    "https://www.aihrlab.online/articles/alibaba-1-6-n-ai-restructure-2026.html",
+    "https://www.aihrlab.online/articles/bigtech-ai-dept-split-merge-2026.html"
   ],
-  "total_pushed": 196,
+  "total_pushed": 206,
   "total_urls": 266,
   "history": [
     {
@@ -632,6 +642,14 @@
       "remaining_after": 96,
       "status": "PARTIAL",
       "baidu_remain": 0
+    },
+    {
+      "date": "2026-08-22",
+      "pushed": 10,
+      "failed": 0,
+      "remaining_after": 86,
+      "status": "PARTIAL",
+      "note": "Daily incremental push"
     }
   ]
 }
