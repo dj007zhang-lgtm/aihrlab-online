@@ -1084,5 +1084,18 @@
     ],
     "sitemap_urls_before": 270,
     "sitemap_urls_after": 270
+  },
+  {
+    "date": "2026-08-23 00:33",
+    "commit": "6bff01f6cc35be6424bbfa63b4cff36bb10a49ed",
+    "message": "发布变革管理方法论文章",
+    "files_count": 3,
+    "files": [
+      "articles/change-management-methodology-2026.html",
+      "assets/images/banners/change-management-methodology-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 271,
+    "sitemap_urls_after": 271
   }
 ]
