@@ -1210,5 +1210,24 @@
     ],
     "sitemap_urls_before": 283,
     "sitemap_urls_after": 283
+  },
+  {
+    "date": "2026-08-24 00:36",
+    "commit": "f28b9e178cb2552cac7bec4c14fe1993c4794579",
+    "message": "feat: 发布文章19-21-AI原生组织/人才获取/文化诊断",
+    "files_count": 9,
+    "files": [
+      "articles/ai-native-organizational-design-2026.html",
+      "articles/talent-acquisition-strategy-2026.html",
+      "articles/organizational-culture-diagnosis-2026.html",
+      "assets/images/banners/ai-native-organizational-design-2026.webp",
+      "assets/images/banners/talent-acquisition-strategy-2026.webp",
+      "assets/images/banners/organizational-culture-diagnosis-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 286,
+    "sitemap_urls_after": 286
   }
 ]
