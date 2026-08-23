@@ -1136,5 +1136,16 @@
     ],
     "sitemap_urls_before": 275,
     "sitemap_urls_after": 275
+  },
+  {
+    "date": "2026-08-23 13:33",
+    "commit": "3acc94fb12a98d9455046534b2c5e734bdc80ddf",
+    "message": "fix: rebuild sitemap for Article 10",
+    "files_count": 1,
+    "files": [
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 275,
+    "sitemap_urls_after": 275
   }
 ]
