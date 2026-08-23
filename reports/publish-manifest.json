@@ -1191,5 +1191,24 @@
     ],
     "sitemap_urls_before": 280,
     "sitemap_urls_after": 280
+  },
+  {
+    "date": "2026-08-24 00:32",
+    "commit": "44d9dfca176ec84fd846e4567f2e763c7671cb91",
+    "message": "feat: 发布文章16-18-组织敏捷/员工体验/变革阻力",
+    "files_count": 9,
+    "files": [
+      "articles/organizational-design-agility-2026.html",
+      "articles/employee-experience-design-2026.html",
+      "articles/change-resistance-diagnosis-2026.html",
+      "assets/images/banners/organizational-design-agility-2026.webp",
+      "assets/images/banners/employee-experience-design-2026.webp",
+      "assets/images/banners/change-resistance-diagnosis-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 283,
+    "sitemap_urls_after": 283
   }
 ]
