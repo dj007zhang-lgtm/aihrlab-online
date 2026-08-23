@@ -1112,5 +1112,17 @@
     ],
     "sitemap_urls_before": 273,
     "sitemap_urls_after": 273
+  },
+  {
+    "date": "2026-08-23 13:18",
+    "commit": "4174bf50edb15d94a1ba7cab3199b1d1391844e2",
+    "message": "feat: Article 8 远程团队管理挑战",
+    "files_count": 2,
+    "files": [
+      "articles/remote-team-management-challenges-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 274,
+    "sitemap_urls_after": 274
   }
 ]
