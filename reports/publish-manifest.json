@@ -1172,5 +1172,24 @@
     ],
     "sitemap_urls_before": 277,
     "sitemap_urls_after": 277
+  },
+  {
+    "date": "2026-08-24 00:29",
+    "commit": "075d4cdceecd984db71164229737ae41f4363b5c",
+    "message": "feat: 发布文章13-15-领导力/绩效/团队效能",
+    "files_count": 9,
+    "files": [
+      "articles/leadership-development-ai-era-2026.html",
+      "articles/performance-management-system-2026.html",
+      "articles/team-effectiveness-framework-2026.html",
+      "assets/images/banners/leadership-development-ai-era-2026.webp",
+      "assets/images/banners/performance-management-system-2026.webp",
+      "assets/images/banners/team-effectiveness-framework-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 280,
+    "sitemap_urls_after": 280
   }
 ]
