@@ -1,0 +1,236 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>员工体验设计：从「福利」到「战略资产」的跃迁 | AIHR数智引擎</title>
+<meta name="description" content="AIHR数智引擎——专注 AI 时代 HR 转型与组织变革深度分析，提供硬核长文与权威测评工具，帮你建立 AI 组织竞争力。">
+
+
+
+  ">
+  <meta name="keywords" content="员工体验,HR战略,组织设计,员工旅程,满意度,Gartner">
+  <meta name="answer-what" content="AI时代企业如何设计员工体验">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="员工体验不是福利，是战略资产。本文拆解Gartner研究，给出员工体验设计的四步法。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/employee-experience-design-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="员工体验设计：从「福利」到「战略资产」的跃迁">
+  <meta property="og:description" content="员工体验不是福利，是战略资产。本文拆解Gartner研究，告诉你为什么员工体验质量与组织绩效相关系数达0.68，以及如何设计。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/employee-experience-design-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/employee-experience-design-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/employee-experience-design-2026.webp">
+  <meta name="twitter:title" content="员工体验设计：从「福利」到「战略资产」的跃迁">
+  <meta name="twitter:description" content="员工体验不是福利，是战略资产。本文拆解Gartner研究，告诉你为什么员工体验质量与组织绩效相关系数达0.68，以及如何设计。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "员工体验设计：从「福利」到「战略资产」的跃迁",
+    "description": "2025年Gartner研究显示，员工体验质量与组织绩效的相关系数达到0.68。本文拆解员工体验设计的五个触点和四步法。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/employee-experience-design-2026.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/employee-experience-design-2026.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "",
+    "dateModified": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/employee-experience-design-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">组织变革</span>
+    <h1>员工体验设计：从「福利」到「战略资产」的跃迁</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-08-24">2026年8月24日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>组织变革</span>
+      <span>&middot;</span>
+      <span>阅读约 10 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">2025年Gartner研究显示，员工体验质量与组织绩效的相关系数达到0.68，超过任何单一福利项目的效果。员工体验不是「让员工开心」，是「让员工高效工作」。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/employee-experience-design-2026.webp"
+         alt="员工体验设计主题图"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>当AI正在重写工作方式，「员工体验」这个概念正在从HR的「软话题」变成组织的「硬资产」。不是因为我们更关心员工感受了，是因为数据证明：体验质量直接决定绩效质量。</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/leadership-development-ai-era-2026.html">AI时代的领导力发展：从管理控制到教练赋能</a></li>
+        <li><a href="/articles/team-effectiveness-framework-2026.html">团队效能的可设计性：为什么好团队不是选出来的，是设计出来的</a></li>
+        <li><a href="/articles/org-diagnosis-framework-2026.html">组织诊断的正确姿势：别急着问问题，先看懂结构</a></li>
+        <li><a href="/articles/change-management-methodology-2026.html">ADKAR变革管理框架：为什么70%转型失败死于变革阻力</a></li>
+        <li><a href="/articles/talent-development-framework-2026.html">人才发展体系重构：从培训到能力地图</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
