@@ -1229,5 +1229,26 @@
     ],
     "sitemap_urls_before": 286,
     "sitemap_urls_after": 286
+  },
+  {
+    "date": "2026-08-24 00:42",
+    "commit": "10519da32fe52b16b5e5e8b53ddf0fe8218f174e",
+    "message": "feat: 发布文章22-25-HR转型/数据分析/敏捷HR/未来工作",
+    "files_count": 11,
+    "files": [
+      "articles/hr-transformation-roadmap-2026.html",
+      "articles/data-driven-hr-analytics-2026.html",
+      "articles/agile-hr-practices-2026.html",
+      "articles/future-of-work-hr-2026.html",
+      "assets/images/banners/hr-transformation-roadmap-2026.webp",
+      "assets/images/banners/data-driven-hr-analytics-2026.webp",
+      "assets/images/banners/agile-hr-practices-2026.webp",
+      "assets/images/banners/future-of-work-hr-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 290,
+    "sitemap_urls_after": 290
   }
 ]
