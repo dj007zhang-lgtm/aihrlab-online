@@ -2201,5 +2201,65 @@
       "组织设计"
     ],
     "reading_time": 10
+  },
+  {
+    "title": "HR转型路线图：从「事务处理」到「战略赋能」的四步跃迁",
+    "slug": "hr-transformation-roadmap-2026",
+    "url": "hr-transformation-roadmap-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "HR转型",
+      "人力资源",
+      "AI时代",
+      "Deloitte",
+      "人力资本"
+    ],
+    "reading_time": 10
+  },
+  {
+    "title": "数据驱动HR分析：从「经验判断」到「算法决策」",
+    "slug": "data-driven-hr-analytics-2026",
+    "url": "data-driven-hr-analytics-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "HR分析",
+      "数据驱动",
+      "预测分析",
+      "Gartner",
+      "人才分析"
+    ],
+    "reading_time": 10
+  },
+  {
+    "title": "敏捷HR实践：从「流程控制」到「适应驱动」",
+    "slug": "agile-hr-practices-2026",
+    "url": "agile-hr-practices-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "敏捷HR",
+      "Scrum",
+      "Kanban",
+      "设计思维",
+      "Netflix"
+    ],
+    "reading_time": 10
+  },
+  {
+    "title": "未来工作下的HR战略：从「管理员工」到「设计工作」",
+    "slug": "future-of-work-hr-2026",
+    "url": "future-of-work-hr-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "未来工作",
+      "远程办公",
+      "零工经济",
+      "麦肯锡",
+      "WEF"
+    ],
+    "reading_time": 10
   }
 ]
