@@ -1159,5 +1159,18 @@
     ],
     "sitemap_urls_before": 276,
     "sitemap_urls_after": 276
+  },
+  {
+    "date": "2026-08-24 00:24",
+    "commit": "dc02cfd89a82acf1b621eb782e81cf1454d74696",
+    "message": "feat: 发布文章12-组织诊断框架",
+    "files_count": 3,
+    "files": [
+      "articles/org-diagnosis-framework-2026.html",
+      "assets/images/banners/org-diagnosis-framework-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 277,
+    "sitemap_urls_after": 277
   }
 ]
