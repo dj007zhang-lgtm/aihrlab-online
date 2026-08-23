@@ -1097,5 +1097,20 @@
     ],
     "sitemap_urls_before": 271,
     "sitemap_urls_after": 271
+  },
+  {
+    "date": "2026-08-23 12:27",
+    "commit": "ea13c5a3331d1a571645add4cfc7179846d0c04f",
+    "message": "feat: 发布文章6-7：组织文化债务+AI治理框架",
+    "files_count": 5,
+    "files": [
+      "articles/organizational-culture-debt-2026.html",
+      "articles/ai-governance-framework-2026.html",
+      "assets/images/banners/organizational-culture-debt-2026.webp",
+      "assets/images/banners/ai-governance-framework-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 273,
+    "sitemap_urls_after": 273
   }
 ]
