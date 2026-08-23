@@ -1124,5 +1124,17 @@
     ],
     "sitemap_urls_before": 274,
     "sitemap_urls_after": 274
+  },
+  {
+    "date": "2026-08-23 13:32",
+    "commit": "d8fadeedc450390542ffb8c4b06fcfbc9d26a0ca",
+    "message": "feat: Article 10 人才发展体系重构",
+    "files_count": 2,
+    "files": [
+      "articles/talent-development-framework-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 275,
+    "sitemap_urls_after": 275
   }
 ]
