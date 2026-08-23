@@ -2156,5 +2156,50 @@
       "McKinsey"
     ],
     "reading_time": 10
+  },
+  {
+    "title": "AI原生组织设计：从「工具升级」到「范式重构」",
+    "slug": "ai-native-organizational-design-2026",
+    "url": "ai-native-organizational-design-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "AI原生组织",
+      "组织设计",
+      "人机协同",
+      "Gartner",
+      "麦肯锡"
+    ],
+    "reading_time": 10
+  },
+  {
+    "title": "AI时代人才获取策略：从「招聘」到「人才战略」",
+    "slug": "talent-acquisition-strategy-2026",
+    "url": "talent-acquisition-strategy-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "人才获取",
+      "招聘策略",
+      "雇主品牌",
+      "LinkedIn",
+      "人才地图"
+    ],
+    "reading_time": 10
+  },
+  {
+    "title": "组织文化诊断：看见看不见的约束",
+    "slug": "organizational-culture-diagnosis-2026",
+    "url": "organizational-culture-diagnosis-2026",
+    "date": "2026-08-24",
+    "category": "组织变革",
+    "tags": [
+      "组织文化",
+      "文化诊断",
+      "HBR",
+      "德鲁克",
+      "组织设计"
+    ],
+    "reading_time": 10
   }
 ]
