@@ -1147,5 +1147,17 @@
     ],
     "sitemap_urls_before": 275,
     "sitemap_urls_after": 275
+  },
+  {
+    "date": "2026-08-23 20:15",
+    "commit": "088e87cd3125ca60842614a11a00e577f778f09d",
+    "message": "feat: Article 11 数字化转型组织能力",
+    "files_count": 2,
+    "files": [
+      "articles/digital-transformation-org-capability-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 276,
+    "sitemap_urls_after": 276
   }
 ]
