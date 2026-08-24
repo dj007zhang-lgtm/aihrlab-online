@@ -265,3 +265,14 @@
 - `reports/architecture-target-state-spec.md` / `aihr-reconstruction-team.md` — 架构终点态 / 子代理职能
 - `tools/vitals_monitor.py` — 搜索生命体征监控器（P0/P1/BLOCKED/STALE）
 - `scripts/publish.py` + `scripts/git_atomic.py` — 双闸发布 + 原子提交
+
+---
+
+## 九、状态更新日志（主理人周复盘锚点）
+
+> 最近复盘：2026-08-24（P0 触发）｜ 详情 `reports/weekly-review-2026-08-24.md`
+
+- **P0（Google 索引未恢复）**：GSC 有效页 3 / 28 日点击 0；Bing 健康（6,004 曝光 / 362 点击）。根因＝8/13 去索引事故恢复期未完，需用户在 GSC 侧动作（重提交 sitemap + 请求编入索引）。ETA 1–4 周。
+- **双闸**：本周修复 `compliance-dashboard.html`（缺 CSS 链接 + meta）+ 19 标签页过度宣称措辞，22 文件发布（commit `f7295500`），quality_gate 22/22 + stability_guard 11/11 全绿。
+- **待用户**：2 篇模板桩文章（`hr-transformation-roadmap-2026`、`data-driven-hr-analytics-2026`，空 H1/空 title）补全或下架；神马/夸克 152 URL 提交（E 轴）；GA4 + 公众号转化数据补拉（C/F 轴）。
+- 数据快照 STALE（~10 天）→ 用户本地补拉 `python3 tools/metrics_pull.py --gsc --days 30` 并提交仓库。
