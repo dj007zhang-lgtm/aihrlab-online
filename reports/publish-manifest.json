@@ -1250,5 +1250,37 @@
     ],
     "sitemap_urls_before": 290,
     "sitemap_urls_after": 290
+  },
+  {
+    "date": "2026-08-24 12:08",
+    "commit": "f7295500827d1785e1c6378345ae2f6104eba6f9",
+    "message": "fix: 修复合规仪表盘 CSS 链接/meta 缺失 + 标签页过度宣称措辞对齐冷峻调性",
+    "files_count": 22,
+    "files": [
+      "tools/compliance-dashboard.html",
+      "scripts/sync-articles.py",
+      "tags/agent.html",
+      "tags/agile-org.html",
+      "tags/ai-native.html",
+      "tags/ai-transformation.html",
+      "tags/assessment.html",
+      "tags/bigtech.html",
+      "tags/digital.html",
+      "tags/ex.html",
+      "tags/flattening.html",
+      "tags/governance.html",
+      "tags/hr-transformation.html",
+      "tags/layoff.html",
+      "tags/leadership.html",
+      "tags/org-change.html",
+      "tags/performance.html",
+      "tags/prompt.html",
+      "tags/remote.html",
+      "tags/skills-first.html",
+      "tags/talent.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 291,
+    "sitemap_urls_after": 291
   }
 ]
