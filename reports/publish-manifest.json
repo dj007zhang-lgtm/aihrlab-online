@@ -1282,5 +1282,19 @@
     ],
     "sitemap_urls_before": 291,
     "sitemap_urls_after": 291
+  },
+  {
+    "date": "2026-08-24 12:12",
+    "commit": "7d3aef294d7c5d4db9c0a92d2849a19b0f847e1d",
+    "message": "docs: 周复盘 2026-08-24 + 仪表盘指向同步（owner-playbook/roadmap）",
+    "files_count": 4,
+    "files": [
+      "reports/weekly-review-2026-08-24.md",
+      "reports/owner-playbook.md",
+      "reports/roadmap-2026-08.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 291,
+    "sitemap_urls_after": 291
   }
 ]
