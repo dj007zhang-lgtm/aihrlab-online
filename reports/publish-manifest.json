@@ -1308,5 +1308,17 @@
     ],
     "sitemap_urls_before": 298,
     "sitemap_urls_after": 298
+  },
+  {
+    "date": "2026-08-25 12:35",
+    "commit": "b3d0e11867a69a88a9e485b6d42cc113895ac5aa",
+    "message": "chore: 同步分类标签页",
+    "files_count": 2,
+    "files": [
+      "categories/ai-org.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 298,
+    "sitemap_urls_after": 298
   }
 ]
