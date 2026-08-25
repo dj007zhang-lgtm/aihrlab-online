@@ -1296,5 +1296,17 @@
     ],
     "sitemap_urls_before": 291,
     "sitemap_urls_after": 291
+  },
+  {
+    "date": "2026-08-25 12:34",
+    "commit": "b052b0b8eaecb8005cc0608f09a4a5cbb83ca285",
+    "message": "chore: 同步分类标签页",
+    "files_count": 2,
+    "files": [
+      "categories/ai-hr.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 298,
+    "sitemap_urls_after": 298
   }
 ]
