@@ -1320,5 +1320,20 @@
     ],
     "sitemap_urls_before": 298,
     "sitemap_urls_after": 298
+  },
+  {
+    "date": "2026-08-25 13:24",
+    "commit": "422fd4d3df3f986d06fd7bbe46ffb2e7921147a0",
+    "message": "fix: 补全缺失的4个banner图片并更新正见正念底线",
+    "files_count": 5,
+    "files": [
+      "assets/images/banners/digital-transformation-org-capability-2026.webp",
+      "assets/images/banners/remote-team-management-challenges-2026.webp",
+      "assets/images/banners/talent-development-framework-2026.webp",
+      "reports/content-redlines.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 298,
+    "sitemap_urls_after": 298
   }
 ]
