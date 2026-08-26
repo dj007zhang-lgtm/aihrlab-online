@@ -581,3 +581,6 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 135. 技能本位组织：岗位制失灵后怎么重搭
 - URL: https://www.aihrlab.online/articles/skills-based-organization-2026.html
 - 摘要: 岗位制正在失灵——Deloitte 2026 显示 71% 员工已在做岗位职责外的工作，仅 24% 与同岗同级别同事做相同工作。技能本位组织（SBO）把管理单元从岗位换成技能，用共享分类法、技能映射、技能驱动决策、持续验证四根支柱重构人才系统；Mercer 称完全落地的仅 1%。
+### 136. AI 改写继任规划：领导力管道怎么重搭
+- URL: https://www.aihrlab.online/articles/ai-succession-planning-2026.html
+- 摘要: 岗位被 AI 拆成技能，继任规划却还建立在岗位与年资上。Heidrick 2026 显示新任标普500董事仅 19% 有科技经历、6% 在科技委；Spencer Stuart 2026 要求未来 CEO 必须精通 AI；Gartner 把继任管道断裂列为 AI 九大人才风险之一。重建方向：把 AI 素养写进接班人标准、把管道从事件式改成持续式、用潜力与广度替代年资与深度。
