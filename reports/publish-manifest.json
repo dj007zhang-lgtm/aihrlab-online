@@ -1335,5 +1335,18 @@
     ],
     "sitemap_urls_before": 298,
     "sitemap_urls_after": 298
+  },
+  {
+    "date": "2026-08-27 22:07",
+    "commit": "852b9a18b6a701af9806b59cf2d42e0a54037d8f",
+    "message": "feat: AI继任规划深度文",
+    "files_count": 3,
+    "files": [
+      "articles/ai-succession-planning-2026.html",
+      "assets/images/banners/ai-succession-planning-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 299,
+    "sitemap_urls_after": 299
   }
 ]
