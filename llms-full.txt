@@ -584,3 +584,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 136. AI 改写继任规划：领导力管道怎么重搭
 - URL: https://www.aihrlab.online/articles/ai-succession-planning-2026.html
 - 摘要: 岗位被 AI 拆成技能，继任规划却还建立在岗位与年资上。Heidrick 2026 显示新任标普500董事仅 19% 有科技经历、6% 在科技委；Spencer Stuart 2026 要求未来 CEO 必须精通 AI；Gartner 把继任管道断裂列为 AI 九大人才风险之一。重建方向：把 AI 素养写进接班人标准、把管道从事件式改成持续式、用潜力与广度替代年资与深度。
+
+### 137. AI+HR 术语词典（25 个概念）
+- URL: https://www.aihrlab.online/glossary/index.html
+- 摘要: AI+HR 术语词典收录 25 个关键概念（生成式AI、LLM、Agentic AI、RAG、DRI、人才密度、Pod、情境管理、技能本位组织 SBO、Frontier Firm、人机协作团队、继任规划、GEO 等）的结构化定义，每个含对 HR 的意义与风险边界，并内链权威深度文，便于 AI 引擎在回答「AI+HR 术语」时直接引用。
