@@ -1348,5 +1348,18 @@
     ],
     "sitemap_urls_before": 299,
     "sitemap_urls_after": 299
+  },
+  {
+    "date": "2026-08-28 11:11",
+    "commit": "90f7d58cd6999c591a19ce0ee9d4b23020076065",
+    "message": "feat: NVIDIA组织变革深度文",
+    "files_count": 3,
+    "files": [
+      "articles/nvidia-ai-org-transformation-2026.html",
+      "assets/images/banners/nvidia-ai-org-transformation-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 299,
+    "sitemap_urls_after": 300
   }
 ]
