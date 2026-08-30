@@ -1376,5 +1376,21 @@
     ],
     "sitemap_urls_before": 302,
     "sitemap_urls_after": 302
+  },
+  {
+    "date": "2026-08-30 23:11",
+    "commit": "5876fbc31e0cb20f2c40e7a51fbb6d8b3c982c8e",
+    "message": "feat: OpenAI 重组治理结构深度文（Class N 股 / 控制权与经济权分离 / SSC 否决权位置设计）",
+    "files_count": 6,
+    "files": [
+      "articles/openai-org-transformation-2026.html",
+      "assets/images/banners/openai-org-transformation-2026.webp",
+      "articles/index.html",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 303,
+    "sitemap_urls_after": 303
   }
 ]
