@@ -1392,5 +1392,21 @@
     ],
     "sitemap_urls_before": 303,
     "sitemap_urls_after": 303
+  },
+  {
+    "date": "2026-08-30 23:19",
+    "commit": "c74e719673a15d89c91ccdf1743921b87a0017cc",
+    "message": "feat: DeepSeek 崛起组织设计深度文（幻方全资供养/无VC董事会/扁平两层/资源无界/开源权重人才杠杆）",
+    "files_count": 6,
+    "files": [
+      "articles/deepseek-rise-2026.html",
+      "assets/images/banners/deepseek-rise-2026.webp",
+      "articles/index.html",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 304,
+    "sitemap_urls_after": 304
   }
 ]
