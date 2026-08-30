@@ -1408,5 +1408,21 @@
     ],
     "sitemap_urls_before": 304,
     "sitemap_urls_after": 304
+  },
+  {
+    "date": "2026-08-30 23:30",
+    "commit": "0ea2d008f8f559c003ac4669abded9744df80d9b",
+    "message": "feat: 企业 AI 落地深度文（88% 采用 vs 5.5% 高绩效；瓶颈在工作流重构/治理纪律/人才能力；McKinsey+Gartner+Stanford+BCG 硬数据）",
+    "files_count": 6,
+    "files": [
+      "articles/industry-ai-adoption-2026.html",
+      "assets/images/banners/industry-ai-adoption-2026.webp",
+      "articles/index.html",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 305,
+    "sitemap_urls_after": 305
   }
 ]
