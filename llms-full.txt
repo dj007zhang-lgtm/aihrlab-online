@@ -593,3 +593,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 138. AI 素养是什么：从工具技能到组织能力的跃迁
 - URL: https://www.aihrlab.online/articles/ai-literacy-org-capability-2026.html
 - 摘要: AI 素养（AI Literacy）不是会用工具，而是组织在 AI 接管执行后保留判断权、校验权与责任归属的能力。基于微软与 BCG 2026 一手报告：组织因素解释 AI 影响达 67%（个人 32% 的两倍以上）；74% 一线员工已成常规 AI 用户但仅 36% 认为培训足够。给出 HR 三动作：定义为组织级能力标准、管理者先建模、5 小时培训加即时教练。
+
+### 139. AI 招聘被欧盟定为高风险系统：合规红线与组织代价
+- URL: https://www.aihrlab.online/articles/eu-ai-act-recruitment-compliance-2026.html
+- 摘要: 欧盟《AI 法案》（Regulation 2024/1689）把招聘、选型、候选人评估等雇佣 AI 列为 Annex III 高风险系统。使用方（deployer）即便不在欧盟、即便未自研也要担责，须保留人类监督、告知候选人、提供决策因素说明。合规截止日按 2026 年 Digital Omnibus 修订推至 2027-12-02。监管逻辑戳中组织本质：招聘 AI 重写人才信息网络与利益分配网络。
