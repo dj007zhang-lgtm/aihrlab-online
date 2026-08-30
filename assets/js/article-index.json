@@ -503,6 +503,18 @@
     ]
   },
   {
+    "title": "AI 素养是什么：从工具技能到组织能力的跃迁",
+    "url": "ai-literacy-org-capability-2026",
+    "category": "组织变革",
+    "date": "2026-08-30",
+    "tags": [
+      "组织变革",
+      "大厂实践",
+      "技能优先",
+      "AI转型"
+    ]
+  },
+  {
     "title": "AI原生组织不是范式切换：是能力边界的重写",
     "url": "ai-native-org-capability-boundary-2026",
     "category": "AI原生组织 · 架构重构",
@@ -760,6 +772,17 @@
       "组织变革",
       "人才战略",
       "技能优先"
+    ]
+  },
+  {
+    "title": "AI 改写继任规划：领导力管道怎么重搭",
+    "url": "ai-succession-planning-2026",
+    "category": "组织变革",
+    "date": "2026-08-27",
+    "tags": [
+      "组织变革",
+      "技能优先",
+      "领导力"
     ]
   },
   {
@@ -1927,6 +1950,18 @@
     ]
   },
   {
+    "title": "NVIDIA 的组织操作系统：黄仁勋如何把 GPU 公司改造成 AI 时代的「基础设施」",
+    "url": "nvidia-ai-org-transformation-2026",
+    "category": "大厂实践",
+    "date": "2026-08-27",
+    "tags": [
+      "大厂实践",
+      "组织变革",
+      "AI转型",
+      "AI原生组织"
+    ]
+  },
+  {
     "title": "OpenClaw走红：HR如何管隐形AI员工",
     "url": "openclaw-ai-agent-management",
     "category": "AI组织变革",
@@ -2318,19 +2353,6 @@
       "AI原生组织",
       "组织变革",
       "领导力"
-    ]
-  },
-  {
-    "title": "AI 改写继任规划：领导力管道怎么重搭",
-    "url": "ai-succession-planning-2026",
-    "category": "组织变革",
-    "date": "2026-08-26",
-    "tags": [
-      "组织变革",
-      "继任规划",
-      "AI原生组织",
-      "领导力管道",
-      "人才战略"
     ]
   }
 ]
