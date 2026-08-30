@@ -1029,5 +1029,33 @@
     "组织变革",
     "人才战略",
     "AI转型"
+  ],
+  "ai-literacy-org-capability-2026": [
+    "组织变革",
+    "大厂实践",
+    "技能优先",
+    "AI转型"
+  ],
+  "ai-succession-planning-2026": [
+    "组织变革",
+    "技能优先",
+    "领导力"
+  ],
+  "nvidia-ai-org-transformation-2026": [
+    "大厂实践",
+    "组织变革",
+    "AI转型",
+    "AI原生组织"
+  ],
+  "eu-ai-act-recruitment-compliance-2026": [
+    "人才战略",
+    "AI转型",
+    "治理与伦理",
+    "测评工具"
+  ],
+  "openai-org-transformation-2026": [
+    "大厂实践",
+    "组织变革",
+    "AI转型"
   ]
 }
