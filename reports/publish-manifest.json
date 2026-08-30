@@ -1364,5 +1364,17 @@
     ],
     "sitemap_urls_before": 302,
     "sitemap_urls_after": 302
+  },
+  {
+    "date": "2026-08-30 23:05",
+    "commit": "e1bafdc70dfff5e89de996bbba2e860c62f839c5",
+    "message": "fix(facts): 清除 NVIDIA 文虚构数据「生态锁定率99%」+ 修正创办人/年限/fabless 事实错误",
+    "files_count": 2,
+    "files": [
+      "articles/nvidia-ai-org-transformation-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 302,
+    "sitemap_urls_after": 302
   }
 ]
