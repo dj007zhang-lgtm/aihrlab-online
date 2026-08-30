@@ -1350,16 +1350,19 @@
     "sitemap_urls_after": 299
   },
   {
-    "date": "2026-08-28 11:11",
-    "commit": "90f7d58cd6999c591a19ce0ee9d4b23020076065",
-    "message": "feat: NVIDIA组织变革深度文",
-    "files_count": 3,
+    "date": "2026-08-30 18:56",
+    "commit": "ecd46e53a6776adb82afc343d3ed1c2cf4816c60",
+    "message": "feat(aihr): AI招聘hub 新文 欧盟AI法案将招聘AI列为高风险",
+    "files_count": 6,
     "files": [
-      "articles/nvidia-ai-org-transformation-2026.html",
-      "assets/images/banners/nvidia-ai-org-transformation-2026.webp",
+      "articles/eu-ai-act-recruitment-compliance-2026.html",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "llms-full.txt",
+      "hub/ai-talent-recruiting.html",
       "sitemap.xml"
     ],
-    "sitemap_urls_before": 299,
-    "sitemap_urls_after": 300
+    "sitemap_urls_before": 302,
+    "sitemap_urls_after": 302
   }
 ]
