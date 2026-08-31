@@ -597,3 +597,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 139. AI 招聘被欧盟定为高风险系统：合规红线与组织代价
 - URL: https://www.aihrlab.online/articles/eu-ai-act-recruitment-compliance-2026.html
 - 摘要: 欧盟《AI 法案》（Regulation 2024/1689）把招聘、选型、候选人评估等雇佣 AI 列为 Annex III 高风险系统。使用方（deployer）即便不在欧盟、即便未自研也要担责，须保留人类监督、告知候选人、提供决策因素说明。合规截止日按 2026 年 Digital Omnibus 修订推至 2027-12-02。监管逻辑戳中组织本质：招聘 AI 重写人才信息网络与利益分配网络。
+
+### 140. 技能图谱：组织能力地图怎么搭才不是摆设
+- URL: https://www.aihrlab.online/articles/skills-graph-2026.html
+- 摘要: 技能图谱（skills graph）把组织能力拆成可量化、带关系的技能节点，连接「谁会什么—工作要什么—战略缺什么」，是技能本位组织（SBO）的数据底座而非岗位说明书升级版。Mercer 2025/2026 显示仅 38% 组织有统一企业级技能库；Workday 2025 显示仅 32% 管理者相信现有技能匹配未来需求；Gloat 2026 图谱含 240 万节点、1,870 万关系。多数失败不在技术而在治理：定义、验证、治理三件事，验证还需含无 AI 的人类判断以防 GenAI 虚高技能。
