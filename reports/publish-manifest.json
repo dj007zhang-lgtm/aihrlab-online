@@ -1424,5 +1424,33 @@
     ],
     "sitemap_urls_before": 305,
     "sitemap_urls_after": 305
+  },
+  {
+    "date": "2026-08-31 09:32",
+    "commit": "093bc0bcb6e8c7aefa2734627aa5dd059a9dd607",
+    "message": "feat: publish 技能图谱 (skills-graph-2026) | sync indexes/sitemap/llms | fix ask/ shared scripts (gate15)",
+    "files_count": 18,
+    "files": [
+      "articles/skills-graph-2026.html",
+      "assets/images/banners/skills-graph-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml",
+      "llms-full.txt",
+      "ask/index.html",
+      "tags/index.html",
+      "categories/ai-hr.html",
+      "categories/ai-org.html",
+      "categories/ai-transformation.html",
+      "categories/ai.html",
+      "categories/bigtech.html",
+      "categories/hr.html",
+      "categories/methodology.html",
+      "categories/org-change.html",
+      "categories/research-report.html",
+      "categories/x.html"
+    ],
+    "sitemap_urls_before": 305,
+    "sitemap_urls_after": 306
   }
 ]
