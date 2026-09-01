@@ -1,0 +1,40 @@
+# ============================================================
+# AIHR 站内问答 · Cloudflare Worker 部署配置
+# 说明：本 Worker 是「无服务器中继」，前端只发问题，密钥仅存于此环境变量。
+# 部署：在 assets/qa/ 目录执行  npx wrangler deploy
+# ============================================================
+
+name = "aihr-qa-relay"
+main = "worker.js"
+compatibility_date = "2026-02-01"
+# 免费套餐即可覆盖本 MVP（每日请求/CPU 极低）；无需绑定付费资源。
+
+# ---- 明文变量（非机密，可入库） ----
+[vars]
+# 知识库 JSON 地址（GitHub Pages 上的构建产物）
+KB_URL = "https://aihrlab.online/assets/qa/kb.json"
+# 模型（agnes-2.0-flash 性价比高；也可换 agnes-2.5-pro / agnes-2.5-pro-beta）
+AGNES_MODEL = "agnes-2.0-flash"
+# 允许跨域调用的站点来源（必须含问答页实际部署的 origin）
+ALLOWED_ORIGINS = "https://aihrlab.online,https://www.aihrlab.online"
+# 召回段落数
+TOP_K = "6"
+# 每 IP 每分钟请求上限（防刷）
+RATE_LIMIT_PER_MIN = "20"
+# 每日输出 token 预算（best-effort 内存计数；≈ 数十元上限）
+DAILY_TOKEN_BUDGET = "200000"
+# 单次回答最大输出 token
+MAX_TOKENS = "800"
+
+# ---- 机密（务必用 Secret，勿写明文） ----
+# 执行：npx wrangler secret put AGNES_API_KEY
+#   然后粘贴 agnes-ai 平台申请的 API key（sk-...）
+# AGNES_API_KEY 不在本文件中、不进仓库、不进前端。
+
+# ---- 可选：绑定自定义子域（推荐，便于稳定 CORS 与品牌） ----
+# 在 Cloudflare 控制台给 aihrlab.online 添加自定义域后启用：
+# routes = [
+#   { pattern = "qa.aihrlab.online/*", custom_domain = true }
+# ]
+# 启用后，前端 endpoint 填 https://qa.aihrlab.online/ask
+# 且 ALLOWED_ORIGINS 仍填站点来源（aihrlab.online），无需把 worker 域加进白名单。

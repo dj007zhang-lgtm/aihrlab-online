@@ -19,6 +19,7 @@
 #   git_atomic.atomic_commit(files, "msg", dry_run=True)   # builds objects, no ref update
 #   git_atomic.verify_remote(["articles/x.html"], needle="geo-answer-capsule")
 import os, base64, json, time, socket, urllib.request, urllib.error
+import concurrent.futures
 
 REPO = "dj007zhang-lgtm/aihrlab-online"
 BRANCH = "main"
@@ -198,7 +199,8 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
     commit_sha, base_tree_sha = get_base()
     if verbose:
         print(f"  [atomic] base {commit_sha[:8]} tree {base_tree_sha[:8]}")
-    tree_entries = []
+    # Build blob payloads first (disk reads are cheap, local).
+    blob_jobs = []
     for rel in local_rel_paths:
         # Normalize: convert absolute paths to relative paths under ROOT
         abs_path = os.path.abspath(rel)
@@ -206,7 +208,27 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
             rel = os.path.relpath(abs_path, ROOT)
         p = os.path.join(ROOT, rel)
         content = open(p, "rb").read()
-        blob_sha = create_blob(content)
+        blob_jobs.append((rel, content))
+
+    # CONCURRENCY FIX (2026-09-01): serial blob POSTs across the sandbox egress
+    # proxy exceeded the 400s Bash timeout (Exit 137) at ~357 files. Blobs are
+    # content-addressed and idempotent, so creating them concurrently is safe.
+    # _req() already retries transient 400/429/5xx, so a bounded pool does not
+    # risk correctness. 8 workers keeps proxy pressure moderate (avoids 429
+    # bursts) while cutting wall-clock to ~1/8 of the serial path.
+    N_WORKERS = 8
+    blob_shas = [None] * len(blob_jobs)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=N_WORKERS) as ex:
+        fut_to_idx = {
+            ex.submit(create_blob, content): i
+            for i, (rel, content) in enumerate(blob_jobs)
+        }
+        for fut in concurrent.futures.as_completed(fut_to_idx):
+            i = fut_to_idx[fut]
+            blob_shas[i] = fut.result()  # propagates on genuine (non-retryable) error
+
+    tree_entries = []
+    for (rel, content), blob_sha in zip(blob_jobs, blob_shas):
         tree_entries.append({
             "path": rel,
             "mode": "100644",
