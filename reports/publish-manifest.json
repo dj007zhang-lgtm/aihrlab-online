@@ -2025,5 +2025,17 @@
     ],
     "sitemap_urls_before": 314,
     "sitemap_urls_after": 314
+  },
+  {
+    "date": "2026-09-02 15:01",
+    "commit": "790e30644fce4f1f9685ee1fb38ad1ae8b78db9a",
+    "message": "fix: Copilot prompt 重构——资料放 user message，系统提示只约束规则；增强 CoT/资料复述过滤，直接输出最终答案",
+    "files_count": 2,
+    "files": [
+      "assets/qa/worker.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
