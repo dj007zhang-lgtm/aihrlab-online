@@ -1,0 +1,386 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI简历初筛实操：怎么搭一套不误杀人的筛子 | AIHR数智引擎</title>
+<meta name="description" content="初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。">
+
+
+
+  ">
+  <meta name="keywords" content="AI简历筛选,简历初筛,AI招聘,误杀率,招聘实操,算法审计,Local Law 144,招聘提示词">
+  <meta name="answer-what" content="AI简历初筛的正确做法是把输出从「总分」改成「证据加原文加不确定项」，配三层筛法（淘汰项、证据打分、人工复核带），并对被拒样本做固定比例抽样回评以测量误杀率。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-resume-screening-playbook-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI简历初筛实操：怎么搭一套不误杀人的筛子">
+  <meta property="og:description" content="初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-resume-screening-playbook-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta name="twitter:title" content="AI简历初筛实操：怎么搭一套不误杀人的筛子">
+  <meta name="twitter:description" content="初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI简历初筛实操：怎么搭一套不误杀人的筛子",
+    "description": "初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-resume-screening-playbook-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI招聘</span>
+    <h1>AI简历初筛实操：怎么搭一套不误杀人的筛子</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-09-02">2026年9月2日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI招聘</span>
+      <span>&middot;</span>
+      <span>阅读约 15 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">初筛真正的麻烦不在于AI会筛错，在于它筛错的时候你永远不知道。被误杀的人不会来投诉，他们只是去了别家。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c09-ai-recruitment-selection.webp"
+         alt="AI简历初筛实操"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>    <div class="geo-answer-capsule">
+      <p><strong>AI简历初筛实操：怎么搭一套不误杀人的筛子？</strong>搭一套不误杀的初筛，关键是三件事：把AI的输出从「总分」改成「证据加原文加不确定项」；用三层筛法把决策权分层（淘汰项、证据打分、人工复核带）；每周固定抽取被拒样本做人工回评来测量误杀率。此外要认清合规边界：扫描简历库不算自动化决策工具，但排序打分算。</p>
+    </div>
+
+    <nav class="toc"><h4>目录</h4><ol>
+      <li><a href="#s1">不要问AI「这个人合适吗」</a></li>
+      <li><a href="#s2">三层筛法：把决策权切开</a></li>
+      <li><a href="#s3">提示词：只要证据，不要结论</a></li>
+      <li><a href="#s4">词汇错配：误杀的主要来源</a></li>
+      <li><a href="#s5">误杀率怎么测：固定比例抽样回评</a></li>
+      <li><a href="#s6">合规边界：什么算自动化决策工具，什么不算</a></li>
+      <li><a href="#s7">上线节奏：前八周怎么跑</a></li>
+      <li><a href="#sources">事实与数据来源</a></li>
+    </ol></nav>
+
+    <section id="s1"><h2>不要问AI「这个人合适吗」</h2>
+
+      <p>让AI给一个总分，看起来效率最高，实际上有三个问题：</p>
+      <ul>
+        <li><strong>分数不可解释</strong>。85分和82分的差距在哪，你不知道。候选人问起来你也答不上。</li>
+        <li><strong>分数不可比</strong>。不同岗位的评分尺度不一样，跨岗位横向比较没有意义，但系统往往会诱导你这么做。</li>
+        <li><strong>不确定性被藏进了分数</strong>。一份信息不全的简历和一份信息充分的简历，AI可能给出同样自信的分数。</li>
+      </ul>
+      <p>正确的提问方式换一下：这份简历里，有没有 X 的具体证据。</p>
+      <p>区别在哪：前者是让AI做判断，后者是让AI找证据。判断留给人。这个区别决定了后面出问题的时候，你能不能追溯。</p>
+    </section>
+
+    <section id="s2"><h2>三层筛法：把决策权切开</h2>
+
+      <table>
+        <thead><tr><th>层</th><th>做什么</th><th>AI的角色</th><th>人的角色</th></tr></thead>
+        <tbody>
+          <tr><td>第一层 淘汰项</td><td>不满足法定或业务硬性前提的直接排除</td><td>执行</td><td>定义条目，并逐条说明理由</td></tr>
+          <tr><td>第二层 证据打分</td><td>对每个评估维度找简历中的证据</td><td>提取证据与原文</td><td>判断证据是否成立</td></tr>
+          <tr><td>第三层 人工复核带</td><td>分数落在中间区间的全部人工看</td><td>不参与</td><td>全部</td></tr>
+        </tbody>
+      </table>
+      <p>两个关键设计：</p>
+      <ul>
+        <li><strong>第一层的条目要少</strong>。每加一条淘汰项，都在扩大那片你看不见的损失。写之前先问：不满足这条的人，有没有可能干好这活。</li>
+        <li><strong>第三层的区间宽度是管理决策</strong>。带宽越宽，人看得多，误杀少但成本高。建议从「中段30%」起步，再按实测误杀率调。</li>
+      </ul>
+    </section>
+
+    <section id="s3"><h2>提示词：只要证据，不要结论</h2>
+
+      <pre><code>你是招聘助理，负责从简历中提取证据，不做录用判断。
+
+【岗位要求】
+（只贴硬门槛和评分维度，不要贴整份JD）
+
+【简历】
+（粘贴简历文本）
+
+对每个维度，按下面格式输出：
+- 维度名：
+- 简历中的依据：（原文引用，不要改写；没有就写「未提及」）
+- 证据强度：强 / 弱 / 未提及
+- 需要人工确认的点：（如果有）
+
+约束：
+1. 不要给出总分、排名，也不要给出「是否建议进入面试」的结论。
+2. 不要用简历里没有的信息做推断。
+3. 如果简历中的表述与岗位要求的用词不同，但很可能指向同一件事，明确指出并说明理由，不要直接判为不匹配。
+4. 如果简历存在解析异常（时间线断裂、字段缺失、排版导致的信息错位），标记为「需人工确认」，不要按缺失处理。</code></pre>
+      <p>第3条约束是整段提示词里最重要的。它专门针对下一节要讲的词汇错配。</p>
+      <p>第4条是针对解析失败的防御。简历解析出问题的时候，系统默认的表现是「这个人没有相关经验」，而不是「我看不清」。这两者对候选人的结果一样，但后者你还有机会补救。</p>
+    </section>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-jd-writing-playbook-2026.html">AI写JD实操手册：把岗位需求翻译成可判定的匹配标准</a></li>
+        <li><a href="/articles/ai-structured-interview-playbook-2026.html">AI设计结构化面试实操：从能力模型到可打分的题库</a></li>
+      </ul>
+    </div>
+
+    <section id="s4"><h2>词汇错配：误杀的主要来源</h2>
+
+      <p>机制很简单：同一件事在不同公司有不同叫法。项目管理、项目交付、项目集管理，指的可能就是同一类工作。基于关键词匹配的系统会把它当成三件事，然后判其中两件为不匹配。</p>
+      <p>哈佛商学院 Fuller 团队的研究里有一个典型例子：退伍军人被系统性过滤，原因是他们的技能描述方式与雇主搜索的关键词不匹配，而不是能力不匹配。同一份研究指出，美国约半数公司的筛选规则会排除简历有6个月以上空档的人。</p>
+      <p>两类误杀要分开处理：</p>
+      <ul>
+        <li><strong>词汇错配</strong>：做过，但用的词不一样。防御靠同义词表和提示词里的显式要求。</li>
+        <li><strong>路径错配</strong>：能力够，但路径不是标准路径。非科班、转行、自学、职业中断后回归。这一类比词汇错配更难发现，因为它不会触发任何「用词不同」的信号。</li>
+      </ul>
+      <p>防御动作有三个，按成本从低到高：</p>
+      <ul>
+        <li>在提示词里显式要求AI报告「用词不同但很可能指向同一件事」的情况，这一步零成本。</li>
+        <li>按岗位维护同义词表，每次发现误杀就补一条。</li>
+        <li>把误杀样本定期回流，检查是不是同一类背景的人反复被过滤。这一步能发现系统性偏差，而不只是个别案例。</li>
+      </ul>
+    </section>
+
+    <section id="s5"><h2>误杀率怎么测：固定比例抽样回评</h2>
+
+      <p>具体动作，四步：</p>
+      <ul>
+        <li>每周从被AI拒绝的简历里随机抽10%，样本量不少于20份。少于20份的统计说明不了任何问题。</li>
+        <li>由不参与初筛的人独立看一遍，通常是招聘经理或另一位招聘官，判断「该不该进入面试」。</li>
+        <li>计算：认为该进但被AI拒绝的条数 ÷ 抽样总数，得到误杀率。</li>
+        <li>每个误杀样本都要归因，四选一：词汇错配、路径错配、维度定义有问题、AI误读。</li>
+      </ul>
+      <p>误杀率的目标定在多少，是管理决策不是技术常数，取决于这个岗位的人才稀缺程度和你的招聘产能。但有两条纪律不能破：</p>
+      <ul>
+        <li>上线后前三个月必须每周测。不能只在「感觉最近候选人质量不对」的时候才测，那时候你已经损失了三个月的人。</li>
+        <li>误杀率上升时先查维度定义，不要急着调AI。多数情况下问题出在你给的标准本身，不在模型。</li>
+      </ul>
+    </section>
+
+    <section id="s6"><h2>合规边界：什么算自动化决策工具，什么不算</h2>
+
+      <p>纽约市2021年第144号地方法（Local Law 144）的官方常见问题解答，给了一条对实操非常有用的分界线。</p>
+      <p><strong>不属于</strong>（不需要偏见审计和通知）：</p>
+      <ul>
+        <li>用工具扫描简历库</li>
+        <li>向潜在候选人做外呼</li>
+        <li>邀请他人申请</li>
+      </ul>
+      <p><strong>属于</strong>（需要年度独立偏见审计，并提前通知候选人）：</p>
+      <ul>
+        <li>用工具评估或筛选候选人，包括用简历筛选软件决定谁进入面试</li>
+      </ul>
+      <p>判断「实质性协助或替代人工判断」的三种情形，满足其一即落入范围：工具输出是决策的唯一依据；工具输出的权重高于其他任何因素；工具被用来推翻人工已经做出的判断。</p>
+      <p>这一条对实操的意义很直接：很多团队以为「最后人看一眼就不算自动化决策」，但如果AI排序在最终决策里的权重最高，仍然落在监管范围内。人在环路里（human in the loop）不等于人在做决策。</p>
+      <p>另外三个执行细节：</p>
+      <ul>
+        <li>偏见审计必须由独立审计方执行，不能是使用或开发该工具的主体。</li>
+        <li>审计有效期一年，到期要重做。</li>
+        <li>需提前10个工作日通知候选人（适用于纽约市居民）。</li>
+      </ul>
+    </section>
+
+    <section id="s7"><h2>上线节奏：前八周怎么跑</h2>
+
+      <ul>
+        <li><strong>第1至4周</strong>：AI只做标注，不做决策。人做全部判断，系统记录AI与人的每一次分歧。</li>
+        <li><strong>第5至8周</strong>：AI只过滤第一层的淘汰项，其余全部给人。</li>
+        <li><strong>第9周起</strong>：按实测误杀率决定是否扩大AI的过滤范围。</li>
+      </ul>
+      <p>前四周的分歧记录是这套方法里最值钱的资产。它直接告诉你AI在哪些维度上跟你不一致，而这些维度就是后面需要重点校准的地方。跳过这一步直接全量上线，等于放弃了唯一一次低成本了解系统行为的机会。</p>
+    </section>
+
+    <section id="sources"><h2>事实与数据来源</h2>
+      <ul>
+        <li>自动化决策工具的适用边界：纽约市消费者与劳动者保护局（DCWP），Local Law 144 of 2021 官方常见问题解答：扫描简历库、向潜在候选人外呼、邀请他人申请不属于需要审计的用途；用于评估或筛选候选人则属于。审计须由独立审计方执行、有效期一年、需提前10个工作日通知。「实质性协助」的三种情形：输出为唯一依据、权重高于其他因素、用于推翻人工判断</li>
+        <li>词汇错配与路径错配造成的系统性过滤：Fuller, J. B. 等，《Hidden Workers: Untapped Talent》（哈佛商学院与 Accenture，2021）：退伍军人因技能描述方式与雇主关键词不匹配被系统性过滤；约半数美国公司设置排除简历空档超6个月者的规则</li>
+        <li>三层筛法、抽样比例、上线节奏：本文作者基于招聘实践的整理，抽样比例与上线节奏为操作建议而非实证结论</li>
+      </ul>
+    </section>
+</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-jd-writing-playbook-2026.html">AI写JD实操手册：把岗位需求翻译成可判定的匹配标准</a></li>
+        <li><a href="/articles/ai-structured-interview-playbook-2026.html">AI设计结构化面试实操：从能力模型到可打分的题库</a></li>
+        <li><a href="/articles/algorithm-fairness-audit-hr-2026.html">算法公平性审计：HR如何检测招聘AI的偏见</a></li>
+        <li><a href="/articles/ai-recruitment-bias-compliance-2026.html">算法不制造偏见，它把偏见固定下来：亚马逊招聘引擎拆解</a></li>
+        <li><a href="/articles/eu-ai-act-recruitment-compliance-2026.html">招聘AI被欧盟定为高风险：合规可以延期，举证责任不能</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

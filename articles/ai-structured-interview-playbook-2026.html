@@ -1,0 +1,387 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI设计结构化面试实操：从能力模型到可打分的题库 | AIHR数智引擎</title>
+<meta name="description" content="AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。">
+
+
+
+  ">
+  <meta name="keywords" content="结构化面试,AI面试题,行为锚定,BARS,面试官校准,AI招聘,招聘实操,面试效度">
+  <meta name="answer-what" content="用AI设计结构化面试的核心动作是一次性生成主问题加三层追问链加四档行为锚点，并把AI能干的部分（出题、题量、记录、量表初稿）与只能人做的部分（面试官培训、不讨论候选人的纪律、统计预测的决策机制）明确切开。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-structured-interview-playbook-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI设计结构化面试实操：从能力模型到可打分的题库">
+  <meta property="og:description" content="AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-structured-interview-playbook-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta name="twitter:title" content="AI设计结构化面试实操：从能力模型到可打分的题库">
+  <meta name="twitter:description" content="AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI设计结构化面试实操：从能力模型到可打分的题库",
+    "description": "AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-structured-interview-playbook-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI招聘</span>
+    <h1>AI设计结构化面试实操：从能力模型到可打分的题库</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-09-02">2026年9月2日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI招聘</span>
+      <span>&middot;</span>
+      <span>阅读约 15 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">AI能替代的，是把能力维度翻译成可打分行为问题这门手艺。它替代不了的，是让一群面试官对同一份回答打出接近的分数。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c09-ai-recruitment-selection.webp"
+         alt="AI设计结构化面试实操"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>    <div class="geo-answer-capsule">
+      <p><strong>AI设计结构化面试实操：从能力模型到可打分的题库？</strong>用AI设计结构化面试，核心动作是一次生成四件套：主问题、三层追问链、四档行为锚点、红旗信号清单。但要先认清分工：Campion 等人梳理的15个结构化要素里，AI能接的主要在内容维度（出题、题型、题量、记录），而评估维度中真正决定效度的几项（面试官培训、面试间不讨论候选人、用统计预测而非临床预测）只能由人完成。</p>
+    </div>
+
+    <nav class="toc"><h4>目录</h4><ol>
+      <li><a href="#s1">结构化的15个要素，哪些能交给AI</a></li>
+      <li><a href="#s2">第一步：把能力维度写成可观察的行为</a></li>
+      <li><a href="#s3">提示词：一次生成主问题加追问链加锚点</a></li>
+      <li><a href="#s4">行为锚点怎么写才不是废话</a></li>
+      <li><a href="#s5">面试官一致性校准</a></li>
+      <li><a href="#s6">一个必须明说的取舍：限制追问提升效度但伤害体验</a></li>
+      <li><a href="#s7">题库的版本管理与退役</a></li>
+      <li><a href="#sources">事实与数据来源</a></li>
+    </ol></nav>
+
+    <section id="s1"><h2>结构化的15个要素，哪些能交给AI</h2>
+
+      <p>Campion 等人在1997年梳理出结构化面试的15个要素，分成两类：影响面试内容的前7项，影响评估过程的后8项。Levashina 等人在2014年用专家判断法验证了这个分类，邀请47位人事选拔领域的专家、回收30份有效问卷（受访者平均18年学术经验），15项里14项的分类获得支持。</p>
+      <p>逐条看哪些能交给AI：</p>
+      <table>
+        <thead><tr><th>要素</th><th>AI的角色</th></tr></thead>
+        <tbody>
+          <tr><td>题目基于工作分析</td><td>可辅助，前提是工作分析本身由人完成</td></tr>
+          <tr><td>对所有候选人问同样的问题</td><td>可保证，题库本身就是这个作用</td></tr>
+          <tr><td>限制追问和发挥</td><td>部分可交，靠预置追问链，见第六节</td></tr>
+          <tr><td>使用更好的题型（情境、过去行为、背景、工作知识）</td><td>擅长</td></tr>
+          <tr><td>更长的面试或更多题目</td><td>可保证题量</td></tr>
+          <tr><td>控制无关信息</td><td>人做</td></tr>
+          <tr><td>对每个回答分别评分</td><td>可辅助</td></tr>
+          <tr><td>使用锚定评分量表</td><td>可生成初稿，人审定</td></tr>
+          <tr><td>做详细记录</td><td>擅长，转录与整理</td></tr>
+          <tr><td>使用多位面试官</td><td>人做</td></tr>
+          <tr><td>同一批面试官面所有候选人</td><td>人做，排期问题</td></tr>
+          <tr><td>面试之间不讨论候选人</td><td>人做，靠纪律</td></tr>
+          <tr><td>提供充分的面试官培训</td><td>人做</td></tr>
+          <tr><td>用统计预测而非临床预测</td><td>人做，这是决策机制</td></tr>
+        </tbody>
+      </table>
+      <p>结论很清楚：AI能接的活集中在内容维度，以及评估维度里的量表初稿和记录。而评估维度中真正决定效度的那几项，面试官培训、面试间不讨论候选人、用统计而不是整体印象做预测，全是人的事。</p>
+      <p>这意味着一件事：买了AI出题工具但面试官不培训，效度不会自动提高。</p>
+    </section>
+
+    <section id="s2"><h2>第一步：把能力维度写成可观察的行为</h2>
+
+      <p>先看反例：沟通能力、抗压能力、学习能力。这三个词有个共同问题，不可观察。两个面试官对同一个人的「沟通能力」打分，大概率不一致，因为他们脑中的定义不同。</p>
+      <p>改成可观察的表述：在信息不完整的情况下，能说清自己的假设并给出可执行的结论。</p>
+      <p>检验标准只有一条：这句话能不能变成一句追问？「说一个你在信息不全时必须做决定的例子，你当时怎么向相关方说明你的假设？」能，就合格。答不上来，说明还是个形容词。</p>
+      <p>数量上，每个岗位的能力维度控制在4到6个。超过6个，一场面试根本问不完，或者每个维度都只能问到很浅的层次，反而比少问几个维度更差。</p>
+    </section>
+
+    <section id="s3"><h2>提示词：一次生成主问题加追问链加锚点</h2>
+
+      <pre><code>你是工业组织心理学顾问，帮我为一个岗位设计结构化面试题。
+
+【岗位】
+岗位名称：
+核心交付（入职一年内要交出什么）：
+
+【能力维度】
+（列出4到6个维度，每个维度附一句可观察的行为描述）
+
+对每个维度，输出四部分：
+
+1. 主问题：一个开放式的过去行为问题，要求候选人描述具体经历。不要问假设性的「你会怎么做」。
+2. 追问链：三层。第一层确认情境（时间、角色、约束条件）；第二层确认行为（他本人具体做了什么，不是团队做了什么）；第三层确认结果（发生了什么，怎么衡量的）。
+3. 行为锚点：四档（优秀、合格、待改进、不合格），每档用具体行为描述，不要用形容词。
+4. 红旗信号：这个维度上，哪些回答听起来不错但实际信息量低。
+
+约束：
+1. 不要生成可以用网上标准答案回答的问题。
+2. 每个追问必须指向候选人的具体行为，不要指向他的自我评价。
+3. 锚点描述必须是可观察的行为，不能是「能力强」「意识好」这类评价。
+4. 如果某个能力维度不适合用过去行为问题考察，直接说明，并给出替代题型。</code></pre>
+      <p>几条设计意图值得单独说明：</p>
+      <ul>
+        <li>要求「过去行为」而不是「假设情境」，是因为过去的行为有细节可以追问验证，假设性回答容易用标准答案覆盖。</li>
+        <li>三层追问链对应的是信息完整性。第一层防的是候选人讲一个不属于自己的故事，第二层防的是「我们团队做了什么」变成「我做了什么」，第三层防的是没有结果的漂亮过程。</li>
+        <li>「红旗信号」这一项是让AI反过来帮面试官识别包装。它会输出类似「大量使用『我们』而说不清自己角色」「结果描述只有方向没有数字」这类可操作的提示。</li>
+      </ul>
+    </section>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-jd-writing-playbook-2026.html">AI写JD实操手册：把岗位需求翻译成可判定的匹配标准</a></li>
+      </ul>
+    </div>
+
+    <section id="s4"><h2>行为锚点怎么写才不是废话</h2>
+
+      <p>反例，形容词量表：</p>
+      <ul>
+        <li>优秀：沟通能力强</li>
+        <li>合格：沟通能力一般</li>
+        <li>不合格：沟通能力差</li>
+      </ul>
+      <p>问题在于三个面试官会打出三个不同的分，因为每个人对「强」的定义不一样。这种量表看起来在做结构化，实际上没有降低任何主观性。</p>
+      <p>正例，行为量表：</p>
+      <ul>
+        <li><strong>优秀</strong>：主动指出自己掌握的信息有哪些缺口，说明基于什么假设做的判断，并在事后验证假设</li>
+        <li><strong>合格</strong>：在被追问时能说清信息来源和判断依据</li>
+        <li><strong>待改进</strong>：需要反复引导才说出关键信息，说不清信息来源</li>
+        <li><strong>不合格</strong>：把推测当成事实陈述，被指出后仍坚持</li>
+      </ul>
+      <p>判据：把锚点里的形容词删掉，看剩下的是不是还是一句完整的话。是，就合格。删掉形容词之后什么都不剩的，就是废话。</p>
+    </section>
+
+    <section id="s5"><h2>面试官一致性校准</h2>
+
+      <p>四步：</p>
+      <ul>
+        <li>选3份真实回答的录音或逐字稿。</li>
+        <li>所有面试官独立打分，不看别人的分。</li>
+        <li>汇总看分差，重点看分歧集中在哪个维度。</li>
+        <li>对分歧最大的维度重新对齐锚点定义，再打一轮。</li>
+      </ul>
+      <p>AI能帮的部分：把分差可视化，找出分歧集中在哪个维度，把同一份回答的不同面试官记录并排展示。这些是数据处理，确实省时间。</p>
+      <p>AI帮不了的部分：让面试官承认自己打错了。这一步是组织问题不是技术问题。如果校准会的结果永远是「大家都对，只是标准不同」，那这个环节就白做了。</p>
+      <p>频率：每换一批面试官做一次；同一批面试官每季度做一次。</p>
+    </section>
+
+    <section id="s6"><h2>一个必须明说的取舍：限制追问提升效度但伤害体验</h2>
+
+      <p>Campion 等人在梳理15个要素时明确指出，有几项提升效度的做法会同时带来负面反应：限制追问和发挥、拉长面试、控制无关信息、不让候选人提问。这些做法会让候选人和面试官都感到不舒服，而面试同时还承担着吸引候选人的功能。</p>
+      <p>这个取舍必须明说，不能假装不存在。</p>
+      <p>本文的选择：追问不能省。省掉追问会丢掉最关键的信息，也就是他到底做了什么，而不是他说他会什么。但追问要预置在题库里，而不是让面试官临场自由发挥。这样既拿到信息，又保证不同候选人受到的追问是可比的。</p>
+      <p>至于「不让候选人提问」，这一条在实操里基本不可执行，也没必要。候选人提问环节本身就是吸引环节的一部分。折中做法：把提问统一放到面试最后，不计入评分。</p>
+    </section>
+
+    <section id="s7"><h2>题库的版本管理与退役</h2>
+
+      <p>每道题记录三个字段：使用次数、区分度、面试官反馈。</p>
+      <p>区分度怎么看：这道题上得高分的候选人，后面实际表现是不是更好。这需要跟入职后表现做关联，是滞后数据，也是很多团队不做题库退役的真正原因，因为要等。</p>
+      <p>退役条件，满足其一即可：</p>
+      <ul>
+        <li>连续两个招聘周期区分度低于设定值</li>
+        <li>候选人普遍反映这道题被反复问到，说明题目已经外泄</li>
+        <li>岗位核心交付发生变化</li>
+      </ul>
+      <p>题库不做退役的后果很具体：题目越堆越多，面试官开始挑着问，结构化就退化成了半结构化。这时候你会以为自己还在做结构化面试，实际上已经不是了。</p>
+    </section>
+
+    <section id="sources"><h2>事实与数据来源</h2>
+      <ul>
+        <li>结构化面试的15个要素：Campion, M. A., Palmer, D. K., &amp; Campion, J. E. (1997). A Review of Structure in the Selection Interview. Personnel Psychology, 50(3), 655–702：提出15个结构化要素，分影响面试内容的维度与影响评估过程的维度；同时指出限制追问、拉长面试、控制无关信息、禁止候选人提问虽提升效度但会带来负面反应</li>
+        <li>15要素分类的专家验证：Levashina, J., Hartwell, C. J., Morgeson, F. P., &amp; Campion, M. A. (2014). The Structured Employment Interview: Narrative and Quantitative Review of the Research Literature. Personnel Psychology, 67(1)：邀请47位人事选拔领域专家、回收30份问卷（平均18年学术经验），15项中14项的分类获得统计支持</li>
+        <li>结构化程度与效度的关系：Huffcutt, A. I., &amp; Arthur, W. (1994). Hunter and Hunter (1984) Revisited: Interview Validity for Entry-Level Jobs. Journal of Applied Psychology, 79(2)</li>
+        <li>提示词模板、行为锚点判据、校准流程、题库退役条件：本文作者基于招聘实践的整理，属操作建议而非实证结论</li>
+      </ul>
+    </section>
+</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-jd-writing-playbook-2026.html">AI写JD实操手册：把岗位需求翻译成可判定的匹配标准</a></li>
+        <li><a href="/articles/agent-interviewer-boundary-2026.html">AI面试85%一致性背后：它测的到底是不是能力</a></li>
+        <li><a href="/articles/ai-recruiting-analytics-playbook-2026.html">AI做招聘数据复盘实操：只统计转化率是不够的</a></li>
+        <li><a href="/articles/ai-hiring-fairness-compliance-2026.html">AI面试官上岗：HR如何守住公平与合规的底线</a></li>
+        <li><a href="/articles/ai-interview-compliance-2026.html">AI 面试合规红线：把同意权与复核权留在人手里</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI做招聘数据复盘实操：只统计转化率是不够的 | AIHR数智引擎</title>
+<meta name="description" content="招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。">
+
+
+
+  ">
+  <meta name="keywords" content="招聘数据分析,招聘漏斗,渠道质量,Quality of Hire,招聘复盘,AI招聘,招聘实操">
+  <meta name="answer-what" content="招聘数据复盘要建三层指标（效率、质量、错配），渠道质量要看四个维度（进入量、通过率、入职率、留存率），失败原因归类必须先建固定编码表再让AI归类，并坚决不上报会激励刷量的指标。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-recruiting-analytics-playbook-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI做招聘数据复盘实操：只统计转化率是不够的">
+  <meta property="og:description" content="招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-recruiting-analytics-playbook-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta name="twitter:title" content="AI做招聘数据复盘实操：只统计转化率是不够的">
+  <meta name="twitter:description" content="招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI做招聘数据复盘实操：只统计转化率是不够的",
+    "description": "招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-recruiting-analytics-playbook-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI招聘</span>
+    <h1>AI做招聘数据复盘实操：只统计转化率是不够的</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-09-02">2026年9月2日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI招聘</span>
+      <span>&middot;</span>
+      <span>阅读约 14 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">招聘复盘之所以没人看，是因为它只报漏斗速度：进入多少、通过多少、发了几个offer，这些数字不回答招进来的人后来怎么样。本文给三层指标（效率、质量、错配）、A–F+Z 失败原因固定码表、可直接复制的编码提示词，以及一份周报模板，让复盘从汇报动作变成改进行动。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c09-ai-recruitment-selection.webp"
+         alt="AI做招聘数据复盘实操"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>    <div class="geo-answer-capsule">
+      <p><strong>AI做招聘数据复盘实操：只统计转化率是不够的？</strong>招聘数据复盘要补的核心是一组滞后指标：入职90天内失败、试用期未通过、首年主动离职。渠道质量也不能只看进入量和通过率，要加到四维（进入量、通过率、入职率、留存率）。让AI归类失败原因之前必须先建固定编码表，否则AI每次发明一套分类，结果不可比。</p>
+    </div>
+
+    <nav class="toc"><h4>目录</h4><ol>
+      <li><a href="#s1">三层指标体系：效率、质量、错配</a></li>
+      <li><a href="#s2">渠道质量的四个维度，只看前两个会误判</a></li>
+      <li><a href="#s3">失败原因编码表：让AI归类的前提是先有码表</a></li>
+      <li><a href="#s4">提示词：归类与归因</a></li>
+      <li><a href="#s5">周报模板，可直接复制</a></li>
+      <li><a href="#s6">哪些指标坚决不上报</a></li>
+      <li><a href="#s7">一个反直觉：漏斗越快不等于越好</a></li>
+      <li><a href="#sources">事实与数据来源</a></li>
+    </ol></nav>
+
+    <section id="s1"><h2>三层指标体系：效率、质量、错配</h2>
+
+      <table>
+        <thead><tr><th>层</th><th>包含什么</th><th>获取难度</th></tr></thead>
+        <tbody>
+          <tr><td>效率层</td><td>招聘周期、各环节耗时、面试官时间投入</td><td>低，系统里就有</td></tr>
+          <tr><td>质量层</td><td>各环节通过率、offer接受率</td><td>低</td></tr>
+          <tr><td>错配层</td><td>入职90天内失败、试用期未通过、首年主动离职</td><td>高，数据分散在HRIS、用人部门、财务三处</td></tr>
+        </tbody>
+      </table>
+      <p>第三层最常被漏掉，也最贵。漏掉的原因不是不知道它重要，是这些数据滞后且分散，没人愿意花力气去串。</p>
+      <p>一个直接判断：如果你的招聘复盘报告里一个滞后指标都没有，那它不是复盘，是进度汇报。</p>
+    </section>
+
+    <section id="s2"><h2>渠道质量的四个维度，只看前两个会误判</h2>
+
+      <ul>
+        <li><strong>进入量</strong></li>
+        <li><strong>通过率</strong></li>
+        <li><strong>入职率</strong></li>
+        <li><strong>留存率</strong>，入职后6个月与12个月</li>
+      </ul>
+      <p>常见错误是只看前两维。一个渠道进入量大、通过率高，但入职后半年内人全走了，它不是好渠道，它是一个把不合适的人高效送进来的渠道。按前两维打分，它会排第一。</p>
+      <p>四维也解决了一个实际问题，就是渠道预算怎么分。单看进入量会持续投给量大的渠道，单看通过率会投给筛得最狠的渠道，两个方向都会跑偏。</p>
+    </section>
+
+    <section id="s3"><h2>失败原因编码表：让AI归类的前提是先有码表</h2>
+
+      <p>这一步是整篇的技术核心。</p>
+      <p>没有码表就让AI归类，等于让AI发明分类。每次的分类都不一样，结果不可比，趋势也就看不出来。这不是AI的能力问题，是任务定义的问题。</p>
+      <p>先给一份可用的码表，只做一级，不要一上来就做二级，二级会让编码者之间的一致性迅速崩掉：</p>
+      <table>
+        <thead><tr><th>码</th><th>含义</th><th>计入规则</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>能力与岗位要求不匹配</td><td>面试时已存在的能力差距</td></tr>
+          <tr><td>B</td><td>期望错配</td><td>薪资、职级、工作内容、汇报关系与预期不符</td></tr>
+          <tr><td>C</td><td>流程体验问题</td><td>响应慢、反馈缺失、面试官表现导致候选人退出</td></tr>
+          <tr><td>D</td><td>竞争对手截胡</td><td>候选人接受了其他offer</td></tr>
+          <tr><td>E</td><td>岗位本身发生变化</td><td>编制冻结、需求调整、岗位重新定义</td></tr>
+          <tr><td>F</td><td>在职表现问题</td><td>入职后才显现的适配问题</td></tr>
+          <tr><td>Z</td><td>原因不明</td><td>信息不足，不猜测</td></tr>
+        </tbody>
+      </table>
+      <p>两条编码纪律：</p>
+      <ul>
+        <li>一个案例只编一个码，选最主要的那个。多编码会让统计结果无法解释。</li>
+        <li>Z码的比例要单独盯。如果超过20%，说明问题出在信息采集本身，不是分析环节。</li>
+      </ul>
+    </section>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-candidate-outreach-playbook-2026.html">AI做候选人触达实操：个性化不是插入姓名</a></li>
+      </ul>
+    </div>
+
+    <section id="s4"><h2>提示词：归类与归因</h2>
+
+      <pre><code>下面是一些招聘失败案例的记录，包含面试官备注、候选人反馈、流程日志。
+
+【编码表】
+（粘贴上面的码表，含每个码的定义与计入规则）
+
+【任务】
+对每个案例：
+1. 从编码表里选一个最合适的码。只能从表里选，不要新建分类。
+2. 引用原文中的具体语句作为归类依据。
+3. 如果信息不足，标 Z，并把缺失的具体信息列出来。
+4. 不要推测，不要补充原文没有的内容。
+
+输出格式：
+案例编号 / 编码 / 依据原文 / 缺失信息（若有）</code></pre>
+      <p>第3条是设计的关键：让AI把「我不知道」明确说出来，而不是硬塞一个分类。Z码本身是信号，不是失败。它告诉你该补什么数据。</p>
+      <p>跑完一轮之后，把编码结果按岗位、渠道、面试官三个维度交叉看。这一步人来做，AI负责前面的归类。</p>
+    </section>
+
+    <section id="s5"><h2>周报模板，可直接复制</h2>
+
+      <p>四个部分，每部分不超过三行：</p>
+      <ul>
+        <li><strong>在招岗位与关键进展</strong>：本周在招岗位数，关键岗位卡在哪一环。</li>
+        <li><strong>漏斗快照</strong>：本周进入、本周淘汰、本周推进，当前堆积在哪一环。</li>
+        <li><strong>错配信号</strong>：本周新增失败案例的编码分布，只报异常。</li>
+        <li><strong>下周要动的三件事</strong>：写清楚动哪个环节，预期影响什么。</li>
+      </ul>
+      <p>第三条的「只报异常」很重要。如果每周都把全部编码列一遍，等于没有重点。只报与过去四周均值偏离明显的类别，其余的略过。</p>
+      <p>第四条的「三件事」要具体到可验证。写「加强候选人沟通」这种，下周复盘时无法判断做没做。写「把终面反馈时长从平均5天压到2天」，下周就能看数字。</p>
+    </section>
+
+    <section id="s6"><h2>哪些指标坚决不上报</h2>
+
+      <p>指标会塑造行为，所以选什么指标等于在选什么行为。</p>
+      <p>三类不报：</p>
+      <ul>
+        <li><strong>面试场次</strong>。会激励刷量，把不必要的人推进面试。</li>
+        <li><strong>触达人数</strong>。同上，会激励批量发送。</li>
+        <li><strong>offer数</strong>。不区分质量，会激励降低标准。</li>
+      </ul>
+      <p>这三类的共同问题是：它们都可以通过降低标准轻松做高，而报表上看不出质量下降。</p>
+      <p>替代方案：报「进入面试后到offer的转化率」和「入职6个月留存率」。这两个指标刷不了，因为分子分母互相牵制。</p>
+    </section>
+
+    <section id="s7"><h2>一个反直觉：漏斗越快不等于越好</h2>
+
+      <p>周期压缩到某个点之后，质量会掉。因为压缩周期最常用的手段是砍环节，减少面试官、缩短评估，而砍掉的都是信息采集。</p>
+      <p>正确做法：找到自己组织的拐点，而不是追行业基准。方法很具体，把招聘周期和错配率放在一起做散点，找错配率开始上升的那个周期值。</p>
+      <p>这个值每个组织不一样，跟行业基准无关。同一家公司的不同职能序列也可能不同，技术岗和销售岗的拐点通常差很远。</p>
+    </section>
+
+    <section id="sources"><h2>事实与数据来源</h2>
+      <ul>
+        <li>漏斗前段通过率本身需要被审计：Fuller, J. B. 等，《Hidden Workers: Untapped Talent》（哈佛商学院与 Accenture，2021）：超过90%使用招聘管理系统的雇主依赖系统做首轮筛选或排序（中等技能岗位94%，高技能岗位92%）；调研样本中仅约五分之一的 hidden workers 能通过首轮</li>
+        <li>三层指标体系、渠道四维、失败原因编码表、周报模板：本文作者基于招聘实践的整理，属操作框架而非实证结论</li>
+      </ul>
+    </section>
+</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-candidate-outreach-playbook-2026.html">AI做候选人触达实操：个性化不是插入姓名</a></li>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-structured-interview-playbook-2026.html">AI设计结构化面试实操：从能力模型到可打分的题库</a></li>
+        <li><a href="/articles/entry-level-jobs-ai-talent-pipeline-2026.html">AI 抬高了初级岗位的门槛，中层三年后从哪来</a></li>
+        <li><a href="/articles/ai-talent-assessment-revolution-2026.html">AI时代的人才评估革命：从简历到技能图谱</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

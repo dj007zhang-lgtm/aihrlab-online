@@ -1,0 +1,380 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI写JD实操手册：把岗位需求翻译成可判定的匹配标准 | AIHR数智引擎</title>
+<meta name="description" content="AI写JD能省下的那两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。">
+
+
+
+  ">
+  <meta name="keywords" content="AI写JD,JD撰写,岗位描述,招聘实操,AI招聘,人才获取,招聘提示词">
+  <meta name="answer-what" content="用AI写JD的核心动作不是让它生成文案，而是先用它做需求澄清，再用反向校验（让AI描述谁不该投）倒逼JD收敛，最后做过词审查与可测性检查。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="AI写JD省下的两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-jd-writing-playbook-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI写JD实操手册：把岗位需求翻译成可判定的匹配标准">
+  <meta property="og:description" content="AI写JD能省下的那两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-jd-writing-playbook-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta name="twitter:title" content="AI写JD实操手册：把岗位需求翻译成可判定的匹配标准">
+  <meta name="twitter:description" content="AI写JD能省下的那两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI写JD实操手册：把岗位需求翻译成可判定的匹配标准",
+    "description": "AI写JD能省下的那两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-jd-writing-playbook-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI招聘</span>
+    <h1>AI写JD实操手册：把岗位需求翻译成可判定的匹配标准</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-09-02">2026年9月2日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI招聘</span>
+      <span>&middot;</span>
+      <span>阅读约 14 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">AI写JD能省下的那两小时不是重点。重点是它能暴露你没想清楚的地方：一份让AI也描述不出「谁不该投」的JD，说明它还没写清楚。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c09-ai-recruitment-selection.webp"
+         alt="AI写JD实操手册"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>    <div class="geo-answer-capsule">
+      <p><strong>AI写JD实操手册：把岗位需求翻译成可判定的匹配标准？</strong>用AI写JD的正确顺序是三段：先让它做需求澄清而不是动笔，再用反向校验让它描述「谁不该投」和「谁会被劝退」来暴露JD的漏洞，最后过两道门槛（用词审查与可测性检查）。真正的产出不是一段文案，是一组能在面试里验证的判定标准。</p>
+    </div>
+
+    <nav class="toc"><h4>目录</h4><ol>
+      <li><a href="#s1">JD是一份筛选器的规格说明，不是一段文案</a></li>
+      <li><a href="#s2">第一步：五段结构，别让AI从空白开始</a></li>
+      <li><a href="#s3">第二步：给AI的是原始信息，不是让它凭空创作</a></li>
+      <li><a href="#s4">第三步：反向校验，让AI描述谁不该投</a></li>
+      <li><a href="#s5">第四步：硬门槛与软门槛分开写</a></li>
+      <li><a href="#s6">第五步：用词审查，这一步AI会放大已有偏差</a></li>
+      <li><a href="#s7">发布前的最后一道：可测性检查</a></li>
+      <li><a href="#sources">事实与数据来源</a></li>
+    </ol></nav>
+
+    <section id="s1"><h2>JD是一份筛选器的规格说明，不是一段文案</h2>
+
+      <p>一份JD同时在干三件事：吸引该投的人、劝退不该投的人、给后面几轮面试定下判定标准。</p>
+      <p>大部分JD只做了第一件，还做得很用力。第二件和第三件交给运气，然后怪候选人质量差。</p>
+      <p>判断一份JD写得好不好，有一个直接的检验方法：看它能不能让不合适的人自己退出。如果所有人都觉得自己合适，这份JD就是失败的，它写的不是标准，是愿景。</p>
+      <p>AI在这个环节的价值不是替你写得更快。是它能把「要什么人」这句模糊的话，逼成一组可执行、可验证、可反驳的判定标准。</p>
+    </section>
+
+    <section id="s2"><h2>第一步：五段结构，别让AI从空白开始</h2>
+
+      <p>直接让AI「写一个XX岗位的JD」，它会给你一份语法通顺、结构完整、毫无信息量的东西。因为它只能从同类JD的平均水平起步。</p>
+      <p>正确的做法是先给它结构。一份JD应当包含五段，每段回答一个不同的问题：</p>
+      <table>
+        <thead><tr><th>段落</th><th>回答什么问题</th><th>最常见的错误</th></tr></thead>
+        <tbody>
+          <tr><td>岗位为什么存在</td><td>这个坑为什么空出来，要解决什么问题</td><td>写成部门介绍和业务愿景</td></tr>
+          <tr><td>核心交付</td><td>入职半年到一年要交出什么</td><td>写成职责清单，全是动词没有结果</td></tr>
+          <tr><td>能力硬门槛</td><td>不能妥协的最低条件</td><td>把「想要」全写成「必须」</td></tr>
+          <tr><td>协作界面</td><td>向谁汇报、跟谁配合、能动用多少资源</td><td>整段缺失</td></tr>
+          <tr><td>明确排除项</td><td>什么情况下这个岗位不适合你</td><td>几乎没人写</td></tr>
+        </tbody>
+      </table>
+      <p>第五段最反直觉，也最有用。写下排除项会减少不合格投递，省下的筛选时间是净收益。而且它是后面反向校验的基础：你写不出排除项，说明你没想清楚边界在哪。</p>
+    </section>
+
+    <section id="s3"><h2>第二步：给AI的是原始信息，不是让它凭空创作</h2>
+
+      <p>这一步的输出不是JD，是整理过的需求。喂给AI的应该是业务背景：团队现在的状况、真实的痛点、上一任在这个位置上卡在哪、这个岗位未来12个月最硬的一件事。</p>
+      <p>提示词：</p>
+      <pre><code>你是招聘顾问。我要写一个岗位JD，先不要动笔，先帮我把原始信息整理成结构。
+
+【岗位基本信息】
+岗位名称：
+汇报对象：
+团队规模与构成：
+
+【业务背景】
+这个岗位为什么现在开（业务发生了什么变化）：
+上一任在这个位置上卡住的地方：
+未来12个月这个岗位最硬的一件事：
+
+【我已经想到的要求】
+（先不区分强弱，全部列出来）
+
+请输出三项：
+1. 上面这些要求里，哪些是「不满足就做不了」，哪些是「有更好」。分别列出，并说明你的判断依据。
+2. 我漏掉了什么：基于上面的业务背景，有哪些关键要求我没想到。
+3. 我的要求之间有没有互相矛盾的地方，逐条指出。</code></pre>
+      <p>这个提示词的关键在「先不要动笔」。三项输出里，第三项（矛盾检测）通常最有用：「要求五年经验且薪资封顶在初级区间」「要求能独立带队但汇报层级只有一级」这类矛盾，写的时候很容易忽略，但它会直接影响后面能不能招到。</p>
+    </section>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-structured-interview-playbook-2026.html">AI设计结构化面试实操：从能力模型到可打分的题库</a></li>
+      </ul>
+    </div>
+
+    <section id="s4"><h2>第三步：反向校验，让AI描述谁不该投</h2>
+
+      <p>这是整篇里最核心的一个动作，也是大部分团队没有做的一步。</p>
+      <p>JD写完以后，把它喂回给AI，让它反过来描述两类人：</p>
+      <pre><code>这是我已经写好的JD：
+（粘贴JD全文）
+
+请回答三个问题，不要修改JD本身：
+
+1. 描述三类看到这份JD会投递、但实际明显不匹配的人。说清楚他们为什么会误判。
+2. 描述两类真正合适、但会被这份JD劝退的人。说清楚具体是哪句话劝退了他们。
+3. 这份JD里，有哪些要求是无法在面试中验证的。逐条列出。</code></pre>
+      <p>三类输出分别对应三种问题：</p>
+      <ul>
+        <li><strong>第一类多</strong>：JD太宽。吸引来的是「觉得自己能干」的人，而不是「干过」的人。要收紧核心交付的描述，加入具体场景。</li>
+        <li><strong>第二类多</strong>：门槛写得太死，把合格的人过滤掉了。这种情况多半出在学历、年限这类替代指标上，而不是能力描述上。</li>
+        <li><strong>第三类多</strong>：这些要求留着只会同时误导候选人和面试官。删掉，或者改写成可观察的行为。</li>
+      </ul>
+      <p>第二类值得多说一句。把「本科及以上」「五年以上」这类硬指标写进去的成本很低，代价要到半年后才发现：你的候选池里全是同一类背景的人，而你可能根本不需要这个约束。</p>
+    </section>
+
+    <section id="s5"><h2>第四步：硬门槛与软门槛分开写</h2>
+
+      <p>把每一条要求标成 H 或 S：</p>
+      <ul>
+        <li><strong>H（硬门槛）</strong>：不满足就做不了，且你必须能说出为什么。数量控制在5条以内。</li>
+        <li><strong>S（软门槛）</strong>：加分项，不满足也不影响进入流程。</li>
+      </ul>
+      <p>「5条」不是理论推导出来的数字，是操作约束：超过5条以后，逐条解释「为什么不满足就做不了」会变得困难，一困难就说明里面混进了软门槛。</p>
+      <p>这个约束有实证依据。哈佛商学院 Joseph Fuller 主持的研究发现，美国约半数公司的筛选规则会排除「过去6个月没有就业」或「简历空档超过6个月」的申请者。这类规则与能不能干这活没有必然关系，却系统性地把人挡在门外。同一份研究里，约九成使用招聘管理系统的高管承认，系统让他们看不到本来可能合适的候选人。</p>
+      <p>操作上就一句话：把每条要求单独拎出来问，「不满足这条的人，有没有可能干好这活」。答案是「有」的，降级成 S。</p>
+    </section>
+
+    <section id="s6"><h2>第五步：用词审查，这一步AI会放大已有偏差</h2>
+
+      <p>Gaucher、Friesen 与 Kay 在2011年发表于《人格与社会心理学杂志》的研究给出了一个扎实的结论：招聘启事里的男性化用词（例如强调支配、进攻、竞争的词汇）会降低女性对这份工作的吸引力评价和归属感评价，而这个效果与她们对自己能力的判断无关。研究中没有任何一个参与者意识到是性别化语言在起作用。</p>
+      <p>三个执行要点：</p>
+      <ul>
+        <li>这不是AI带来的新问题，人写的JD一样有。但AI会放大它，因为训练语料里技术岗JD的用词本来就有偏向。</li>
+        <li>研究最关键的发现是「没人察觉」。所以不能指望写的时候注意一下，必须做成独立的检查步骤。</li>
+        <li>修法不是把男性化词换成女性化词。研究同样发现简单互换会带来意料之外的效果。正确做法是换成中性的、描述工作本身而不是描述人特质的表达。</li>
+      </ul>
+      <p>提示词：</p>
+      <pre><code>请审查下面这份JD的用词，做三件事：
+（粘贴JD全文）
+
+1. 标出所有带有性别刻板印象倾向的词，包括强调支配、进攻、竞争的一类，也包括强调顺从、支持、体贴的一类。
+2. 对每个词给出替换为中性表达的建议，替换后必须仍然是描述工作本身，而不是描述人的特质。
+3. 检查是否有年龄、婚育、地域的隐性暗示（例如「年轻有活力」「能适应高强度加班」「本地户口优先」）。</code></pre>
+      <p>第三条在中文语境下尤其不能省。年龄与婚育暗示在本地JD里的出现频率明显高于欧美同类岗位，而这一条同时踩合规风险。</p>
+    </section>
+
+    <section id="s7"><h2>发布前的最后一道：可测性检查</h2>
+
+      <p>每条要求过一遍：面试时怎么验证这句话？</p>
+      <ul>
+        <li>能答上来的，保留。而且你答上来的那个方式，本身就可以变成一道面试题。</li>
+        <li>答不上来的，删掉或者改写。「有主人翁意识」「抗压能力强」这类，要么删，要么改写成可观察的行为。</li>
+      </ul>
+      <p>一个简单的判据：把要求里的形容词换成动词。换不了的，多半是没法验证的。「沟通能力强」换成「在信息不全时能说明自己的假设并交付可执行结论」，就变成了可以追问的事情。</p>
+      <p>做完这一步，这份JD才算同时满足了它该干的三件事。它不再是文案，是一组判定标准。</p>
+    </section>
+
+    <section id="sources"><h2>事实与数据来源</h2>
+      <ul>
+        <li>性别化用词对求职者的影响：Gaucher, D., Friesen, J., &amp; Kay, A. C. (2011). Evidence That Gendered Wording in Job Advertisements Exists and Sustains Gender Inequality. Journal of Personality and Social Psychology, 101(1), 109–128。研究中女性对男性化用词版本的吸引力评分为 4.16，女性化用词版本为 4.50（6分制）；归属感评分 3.98 对 4.31（7分制）；全部五项研究中无参与者察觉到性别化语言的存在</li>
+        <li>筛选规则造成的隐形损失：Fuller, J. B. 等，哈佛商学院 Managing the Future of Work 项目与 Accenture，《Hidden Workers: Untapped Talent》（2021）：调研 8,720 名 hidden workers 与 2,275 名高管（美国、英国、德国）；约半数美国公司设置排除「近6个月未就业」或「简历空档超6个月」者的规则；约九成使用招聘管理系统的高管承认系统让他们错过可能合适的候选人</li>
+        <li>五段结构、反向校验、硬门槛数量约束、可测性检查：本文作者基于招聘实践的整理，属操作建议而非实证结论</li>
+      </ul>
+    </section>
+</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-structured-interview-playbook-2026.html">AI设计结构化面试实操：从能力模型到可打分的题库</a></li>
+        <li><a href="/articles/ai-recruitment-selection-guide-2026.html">简历匹配已成过去式：AI招聘选型的避坑与实战指南</a></li>
+        <li><a href="/articles/ai-talent-profile-reconstruction-2026.html">AI时代人才画像重构：岗位能力模型怎么变</a></li>
+        <li><a href="/articles/hr-bigfive-recruitment-screening.html">HR 怎么用大五人格做招聘初筛</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

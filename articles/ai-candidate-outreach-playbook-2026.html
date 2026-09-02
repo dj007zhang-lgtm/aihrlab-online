@@ -1,0 +1,372 @@
+<!--
+  ═══════════════════════════════════════════════════════
+  AIHR 文章模板 v2（基于 prototype-reading-experience.html）
+  
+  使用方法：复制此文件 → 替换所有占位符 → 改文件名
+  禁止：删除任何样式块/结构块/改变 DOM 层级关系
+  
+  结构总览：
+    head  SEO meta + Schema + 内联 v2 CSS 全量
+    body  site-header → article → site-footer
+            article 内部：
+              .article-header   (cat标签 + H1 + meta行 + lead导语)
+              .article-banner  (WebP首屏图)
+              .article-body     (正文 + h2/h3/blockquote/ul/table)
+                └─ .inline-related  (内联延伸阅读，降跳出率)
+              .related-reading     (相关阅读，5条上限)
+              .article-footer-qr   (公众号二维码)
+  ═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <!-- ===== 预连接 ===== -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis">
+
+  <!-- ===== Favicon ===== -->
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <!-- ===== 基础 meta ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI做候选人触达实操：个性化不是插入姓名 | AIHR数智引擎</title>
+<meta name="description" content="把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。">
+
+
+
+  ">
+  <meta name="keywords" content="候选人触达,AI Sourcing,人才库激活,招聘外呼,AI招聘,招聘实操,雇主品牌">
+  <meta name="answer-what" content="用AI做候选人触达的核心动作是先由人提取一条可验证的具体证据作为钩子，再让AI按三段式结构（钩子、价值含不适合什么人、低成本行动）生成，并对回复率、进入流程率、到面率三项指标一起看。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-candidate-outreach-playbook-2026.html">
+
+  <!-- ===== 样式表 ===== -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <!-- ===== Open Graph / Twitter Card ===== -->
+  <meta property="og:title" content="AI做候选人触达实操：个性化不是插入姓名">
+  <meta property="og:description" content="把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-candidate-outreach-playbook-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp">
+  <meta name="twitter:title" content="AI做候选人触达实操：个性化不是插入姓名">
+  <meta name="twitter:description" content="把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。">
+
+  <!--
+    ════════════════════════════════════════
+    v2 排版内联样式，完整全量，禁止删减
+    来源：prototype-reading-experience.html Prototype ② 单篇
+    作用域说明：
+      - .article-header / .article-body 包含所有文章内容区样式
+      - .related-reading / .article-footer-qr 尾页样式
+      - 所有尾页区块必须在 .article-body 的 </div> 之内！
+    ════════════════════════════════════════
+  -->
+  
+
+  <!-- ===== Schema.org Article JSON-LD ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI做候选人触达实操：个性化不是插入姓名",
+    "description": "把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+      "width": 1200,
+      "height": 821
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/c09-ai-recruitment-selection.webp",
+        "width": 1200,
+        "height": 821
+      }
+    },
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-candidate-outreach-playbook-2026.html"
+    }
+  }
+  </script>
+  <!-- Google Analytics (gtag.js) -->
+  
+  
+  <!-- 百度统计 -->
+  
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<!-- ===== 站点导航 ===== -->
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">☰</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="搜索文章"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>搜索</span><span class="shortcut-hint"><kbd>⌘</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <!-- ═══ 文章头部 ═══ -->
+  <header class="article-header">
+    <!-- 分类标签（pill 形式，放在 H1 上方） -->
+    <span class="cat">AI招聘</span>
+    <h1>AI做候选人触达实操：个性化不是插入姓名</h1>
+    <!-- Meta 行 -->
+    <div class="article-meta">
+      <time datetime="2026-09-02">2026年9月2日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI招聘</span>
+      <span>&middot;</span>
+      <span>阅读约 14 分钟</span>
+    </div>
+    <!-- Lead 导语段（衬线字体，一句话说清"为什么读这篇"） -->
+    <p class="lead">把姓名和公司名填进模板不叫个性化，那叫邮件合并。个性化是说出「为什么是你」，而这句话的前提是你真的看到了他做过的某件具体的事。</p>
+  </header>
+
+  <!-- ═══ Banner 首屏图（WebP，eager 加载）═══ -->
+  <figure class="article-banner">
+    <img src="/assets/images/banners/c09-ai-recruitment-selection.webp"
+         alt="AI做候选人触达实操"
+         width="1200" height="821"
+         loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+
+  <!-- ═══ 正文容器（包含正文 + 所有尾页区块）═══ -->
+  <div class="article-body">
+
+    <!-- ═════ 正文段落开始 ═════ -->
+
+    <!-- 第一段：承接 lead，展开背景/问题 -->
+    <p>    <div class="geo-answer-capsule">
+      <p><strong>AI做候选人触达实操：个性化不是插入姓名？</strong>用AI做候选人触达的正确做法是三段式：先由人提取一条可验证的具体证据作为钩子，再让AI按「钩子、价值（必须写明不适合什么人）、低成本行动」的结构生成，最后由人改写关键三处。度量也不能只看回复率，要把回复率、回复后进入流程率、回复后到面率放在一起看，才能区分话术是在筛选还是在诱导。</p>
+    </div>
+
+    <nav class="toc"><h4>目录</h4><ol>
+      <li><a href="#s1">批量生成加批量发送，等于把骚扰自动化</a></li>
+      <li><a href="#s2">第一步：分层，不是所有人都值得同样的力气</a></li>
+      <li><a href="#s3">第二步：钩子从哪来</a></li>
+      <li><a href="#s4">提示词与三段式结构</a></li>
+      <li><a href="#s5">人工改写的红线在哪</a></li>
+      <li><a href="#s6">合规边界：触达环节可以用AI写，不要用AI筛</a></li>
+      <li><a href="#s7">度量：回复率是个坏指标</a></li>
+      <li><a href="#s8">跟进节奏与退出条件</a></li>
+      <li><a href="#sources">事实与数据来源</a></li>
+    </ol></nav>
+
+    <section id="s1"><h2>批量生成加批量发送，等于把骚扰自动化</h2>
+
+      <p>AI把生成成本降到接近零，但信任成本一分没降。发得更多不等于回得更多，通常相反：收件人能一眼看出模板，而模板化的触达会同时损害雇主品牌，这个损失是长期的。</p>
+      <p>一个简单判断：把你的触达信息里的姓名和公司名删掉，如果剩下的内容对所有人都适用，那它就是模板。不管它读起来多流畅。</p>
+    </section>
+
+    <section id="s2"><h2>第一步：分层，不是所有人都值得同样的力气</h2>
+
+      <table>
+        <thead><tr><th>层级</th><th>是谁</th><th>投入</th></tr></thead>
+        <tbody>
+          <tr><td>银牌候选人</td><td>进过终面，被拒或自己退出</td><td>值得手写钩子，转化成本最低</td></tr>
+          <tr><td>沉睡人才库</td><td>投过、沟通过，没进流程</td><td>半定制</td></tr>
+          <tr><td>完全冷启动</td><td>无历史接触</td><td>可模板化，但要控制量</td></tr>
+        </tbody>
+      </table>
+      <p>分配原则：把70%的时间花在第一层。这些人对公司已有了解，转化路径最短。</p>
+      <p>大部分团队的做法正好相反，把力气花在量最大的第三层，因为那看起来更像在工作。发出去五百条带来的心理满足感，远大于认真写二十条。</p>
+    </section>
+
+    <section id="s3"><h2>第二步：钩子从哪来</h2>
+
+      <p>个性化的本质是一条具体证据：他做过的某个项目、发过的某篇文章、某次分享里的一个观点、作品集里的某个决定。</p>
+      <p>三个来源，按可信度排序：</p>
+      <ul>
+        <li><strong>公开发表的内容</strong>，文章、演讲、开源贡献。最可信，可验证。</li>
+        <li><strong>作品集或项目描述</strong>。可信，但你需要先理解上下文再引用，否则容易闹笑话。</li>
+        <li><strong>履历里的某段经历</strong>。要小心，涉及隐私判断，且信息可能过时。</li>
+      </ul>
+      <p>一条硬纪律：钩子里的证据必须由人确认真实存在。</p>
+      <p>这是AI最容易出事的地方。它会生成「我看到你在某公司主导了某项目」这种流畅但不实的话。一旦被候选人发现，这条线索彻底废掉，而且很可能被截图传播，损害的是雇主品牌而不是这一条信息。</p>
+    </section>
+
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="/articles/ai-recruiting-analytics-playbook-2026.html">AI做招聘数据复盘实操：只统计转化率是不够的</a></li>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+      </ul>
+    </div>
+
+    <section id="s4"><h2>提示词与三段式结构</h2>
+
+      <pre><code>帮我写一条候选人触达信息。
+
+【候选人的具体证据】
+（由人填写，必须是可验证的公开信息。不要推断，不要补充）
+
+【岗位】
+岗位名称：
+这个岗位最硬的一件事：
+这个岗位明确不适合什么人：
+
+【结构】
+1. 钩子：一句话说明我看到了你做的哪件具体的事，以及它为什么让我想到你。不要夸奖，说事实。
+2. 价值：说清这个岗位要解决什么问题，以及它不适合什么人。不要只说好的一面。
+3. 行动：一个低成本的回应方式。
+
+【约束】
+1. 长度控制在150字以内。
+2. 不要使用「优秀的」「卓越的」「顶尖」这类形容词。
+3. 不要使用「机会难得」「不容错过」这类催促表达。
+4. 第二段的「不适合什么人」必须写，这是建立信任的部分。
+5. 如果提供的证据不足以支撑钩子，直接说明，不要编造。</code></pre>
+      <p>最后一条约束是纯防御性的：让AI在信息不足时说「不够」，而不是自己补上。宁可少发一条，不要发错一条。</p>
+      <p>「不适合什么人」这一项值得单独解释。它看起来在劝退，实际提升的是回复质量。说清不匹配之处，会让不适合的人自己退出，也会让适合的人觉得你在认真对待他的时间。</p>
+    </section>
+
+    <section id="s5"><h2>人工改写的红线在哪</h2>
+
+      <p>必须人写的三处：</p>
+      <ul>
+        <li><strong>钩子里的证据</strong>。AI会编，而且编得很自然。</li>
+        <li><strong>岗位的不匹配之处</strong>。只有你知道这份工作的真实状况。</li>
+        <li><strong>对对方时间的任何承诺</strong>。「只需要15分钟」这类话你要兑现。</li>
+      </ul>
+      <p>可以交给AI的：句式整理、长度压缩、语气统一，以及把同一条信息改写成不同渠道的版本（邮件、站内信、短消息）。</p>
+      <p>一个实用的检查方法：把AI生成的版本出声念一遍。念到某一句你觉得「这话我说不出口」，那句通常就是越界的。</p>
+    </section>
+
+    <section id="s6"><h2>合规边界：触达环节可以用AI写，不要用AI筛</h2>
+
+      <p>纽约市 Local Law 144 的官方解答给的分界线在这里非常实用：向潜在候选人做外呼、邀请他人申请，不属于需要偏见审计的用途。但一旦用AI给候选人打分排序，就进入了自动化决策工具的范围。</p>
+      <p>三条实操红线：</p>
+      <ul>
+        <li>用AI写触达信息：可以。</li>
+        <li>用AI决定先联系谁，也就是基于打分做排序：要谨慎，关键看这个排序在最终决策里的权重。</li>
+        <li>用AI排除某些人不联系：高风险。这一条最接近「实质性替代人工判断」，因为被排除的人不会出现在任何人的视野里。</li>
+      </ul>
+    </section>
+
+    <section id="s7"><h2>度量：回复率是个坏指标</h2>
+
+      <p>只看回复率会激励更煽动的话术，而不是更准确的匹配。</p>
+      <p>三个指标一起看：</p>
+      <ul>
+        <li><strong>回复率</strong>：信息有没有被打开、有没有打动人。</li>
+        <li><strong>回复后进入流程率</strong>：钩子是不是找对了人。</li>
+        <li><strong>回复后到面率</strong>：价值描述是不是诚实。如果这一项低，多半是岗位描述在触达阶段被美化了，候选人到场后发现不是那么回事。</li>
+      </ul>
+      <p>三个一起看才能区分两种完全不同的失败：话术在筛选（回复率低但进入率高，这可能是健康的），还是话术在诱导（回复率高但进入率低，说明钩子找错了人或者做了过度承诺）。只看回复率，这两种情况看起来一模一样。</p>
+    </section>
+
+    <section id="s8"><h2>跟进节奏与退出条件</h2>
+
+      <p>固定的触达次数上限，建议2到3次，超过就停。</p>
+      <ul>
+        <li><strong>第1次</strong>：钩子加价值加行动。</li>
+        <li><strong>第2次</strong>（间隔5到7个工作日）：换一个角度，不要重复第一次的话术，可以补充一条新信息，比如岗位进展、团队变化。</li>
+        <li><strong>第3次</strong>（可选）：明确的结束语，说明这次不合适，但希望保留联系。</li>
+      </ul>
+      <p>退出要发一条明确的结束语，而不是沉默。沉默的代价是这个人以后大概率不会再回应你；明确的结束至少保留未来重启的可能。</p>
+    </section>
+
+    <section id="sources"><h2>事实与数据来源</h2>
+      <ul>
+        <li>触达与评估筛选的合规分界：纽约市消费者与劳动者保护局（DCWP），Local Law 144 of 2021 官方常见问题解答：向潜在候选人做外呼、邀请他人申请不属于需要审计的用途；用于评估或筛选候选人则属于</li>
+        <li>分层策略、三段式结构、人工改写红线、三项度量指标：本文作者基于招聘实践的整理，属操作建议而非实证结论</li>
+      </ul>
+    </section>
+</p>
+
+    <!-- 后续段落...按需使用以下元素： -->
+    <!-- <h2>节标题（自动带分隔线）</h2> -->
+    <!-- <p>正文段落（justify 两端对齐）</p> -->
+    <!-- <blockquote>引用/论点卡片（暖色背景+左侧 accent 竖线）</blockquote> -->
+    <!-- <ul><li>列表项</li></ul> -->
+    <!-- <table><thead><tr><th>表头</th></tr></thead><tbody><tr><td>数据</td></tr></tbody></table> -->
+    <!-- <h3>小节标题</h3> -->
+    <!-- 内联延伸阅读（降跳出率，在相关段落后插入）： -->
+    <!--
+    <div class="inline-related">
+      <p class="inline-related__label">延伸阅读</p>
+      <ul>
+        <li><a href="#">相关文章标题</a></li>
+        <li><a href="#">另一篇相关文章</a></li>
+      </ul>
+    </div>
+    -->
+
+    <!-- ═════ 正文段落结束 ═════ -->
+
+
+    <!-- ══════════════════════════════════════
+         尾页区块（RQS 顺序，不可打乱）
+         所有区块必须在 .article-body 的 </div> 之内！
+         ══════════════════════════════════════ -->
+
+    <!-- ★ 相关阅读（5 条上限，差异化+双向互链）★ -->
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-recruiting-analytics-playbook-2026.html">AI做招聘数据复盘实操：只统计转化率是不够的</a></li>
+        <li><a href="/articles/ai-resume-screening-playbook-2026.html">AI简历初筛实操：怎么搭一套不误杀人的筛子</a></li>
+        <li><a href="/articles/ai-native-recruitment-2026.html">AI原生招聘：从筛选到匹配的范式转移</a></li>
+        <li><a href="/articles/recruitment-ai-fullstack.html">全链路Agent化之后，招聘官的价值移到哪</a></li>
+        <li><a href="/articles/ai-interview-arms-race-2026.html">面试官和候选人都上了AI：这场军备竞赛没有赢家</a></li>
+      </ul>
+    </section>
+
+    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+</article>
+</main>
+
+<!--
+  ===== 站点 Footer =====
+  纪律：站点 Footer 禁止放置公众号二维码。
+  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
+  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
+-->
+<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p class="footer-desc">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col"><h4>内容</h4><ul><li><a href="/articles/index.html">全部文章</a></li><li><a href="/hub/ai-org-transformation.html">AI 组织变革枢纽</a></li><li><a href="/glossary/index.html">AI+HR 术语词典</a></li><li><a href="/bridge/index.html">策展与测评</a></li></ul></div><div class="footer-col"><h4>关于</h4><ul><li><a href="/about.html">关于我们</a></li><li><a href="/resources/index.html">资源库</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
