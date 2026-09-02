@@ -102,6 +102,8 @@ def count_all(site_root=SITE_ROOT):
             if not fn.endswith('.html'):
                 continue
             fpath = os.path.join(root, fn)
+            if os.path.relpath(fpath, site_root).replace(os.sep, '/').startswith('templates/'):
+                continue  # 与 find_missing_h1 保持一致：模板片段源非部署页，不计入统计
             try:
                 with open(fpath, 'r', encoding='utf-8', errors='ignore') as fh:
                     content = fh.read()

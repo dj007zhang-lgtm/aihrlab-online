@@ -22,6 +22,9 @@ scripts/.github_token
 scripts/.env
 *.env
 
+# Cloudflare Workers local dev secrets (DO NOT COMMIT — use `wrangler secret put` for prod)
+.dev.vars
+
 # Deploy package
 *.tar.gz
 

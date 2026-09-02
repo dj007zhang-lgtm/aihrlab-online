@@ -65,6 +65,7 @@ QR_IN_FOOTER_RE = re.compile(r'<div class="article-footer-qr">.*?</div>\s*(?=<di
 SHARED_SCRIPTS = [
     ('analytics-loader.js', '<script src="/assets/js/analytics-loader.js" defer></script>'),
     ('js/main.js',          '<script src="/assets/js/main.js" defer></script>'),
+    ('js/qa-config.js',     '<script src="/assets/js/qa-config.js" defer></script>'),
     ('js/search.js',        '<script src="/assets/js/search.js" defer></script>'),
 ]
 PROTECT_SCRIPT = ('content-protect.js', '<script src="/assets/js/content-protect.js" defer></script>')

@@ -214,9 +214,10 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
     # proxy exceeded the 400s Bash timeout (Exit 137) at ~357 files. Blobs are
     # content-addressed and idempotent, so creating them concurrently is safe.
     # _req() already retries transient 400/429/5xx, so a bounded pool does not
-    # risk correctness. 8 workers keeps proxy pressure moderate (avoids 429
-    # bursts) while cutting wall-clock to ~1/8 of the serial path.
-    N_WORKERS = 8
+    # risk correctness. 8 workers beat the timeout but tripped GitHub's
+    # secondary rate limit (403) on POST blobs; dial down to 2 workers to stay
+    # under the content-creation threshold while still beating the 400s limit.
+    N_WORKERS = 2
     blob_shas = [None] * len(blob_jobs)
     with concurrent.futures.ThreadPoolExecutor(max_workers=N_WORKERS) as ex:
         fut_to_idx = {
@@ -247,29 +248,46 @@ def atomic_commit(local_rel_paths, message, dry_run=False, verbose=True):
     # small enough for the proxy. Blob/tree/commit are content-addressed or
     # parent-linked, so re-POSTing is idempotent and safe to retry.
     CHUNK = 25
-    cur_base = base_tree_sha
-    final_tree_sha = base_tree_sha
-    for i in range(0, len(tree_entries), CHUNK):
-        chunk = tree_entries[i:i + CHUNK]
-        resp = _req("POST", "trees", {"base_tree": cur_base, "tree": chunk})
-        cur_base = resp["sha"]
-        final_tree_sha = cur_base
-        if verbose:
-            print(f"  tree chunk {i // CHUNK + 1} "
-                  f"({len(chunk)} files) -> {cur_base[:8]}")
-    new_commit = _req("POST", "commits", {
-        "message": message,
-        "tree": final_tree_sha,
-        "parents": [commit_sha],
-    })
-    new_sha = new_commit["sha"]
-    if dry_run:
-        print(f"  [DRY-RUN] created orphan commit {new_sha[:8]} "
-              f"({len(tree_entries)} files); ref NOT updated")
-        return new_sha
-    _req("PATCH", f"refs/heads/{BRANCH}", {"sha": new_sha, "force": False})
-    print(f"  [atomic] pushed {new_sha[:8]} ({len(tree_entries)} files) -> {BRANCH}")
-    return new_sha
+
+    def _build_tree_on(base_tree_sha):
+        cur_base = base_tree_sha
+        for i in range(0, len(tree_entries), CHUNK):
+            chunk = tree_entries[i:i + CHUNK]
+            resp = _req("POST", "trees", {"base_tree": cur_base, "tree": chunk})
+            cur_base = resp["sha"]
+            if verbose:
+                print(f"  tree chunk {i // CHUNK + 1} "
+                      f"({len(chunk)} files) -> {cur_base[:8]}")
+        return cur_base
+
+    # If another push lands between get_base() and PATCH refs/heads/main,
+    # GitHub returns 422 "Update is not a fast forward". Rebase onto the new
+    # HEAD and retry (blobs are already created; re-POSTing trees is idempotent).
+    for outer in range(3):
+        commit_sha, base_tree_sha = get_base()
+        final_tree_sha = _build_tree_on(base_tree_sha)
+        new_commit = _req("POST", "commits", {
+            "message": message,
+            "tree": final_tree_sha,
+            "parents": [commit_sha],
+        })
+        new_sha = new_commit["sha"]
+        if dry_run:
+            print(f"  [DRY-RUN] created orphan commit {new_sha[:8]} "
+                  f"({len(tree_entries)} files); ref NOT updated")
+            return new_sha
+        try:
+            _req("PATCH", f"refs/heads/{BRANCH}",
+                 {"sha": new_sha, "force": False})
+            print(f"  [atomic] pushed {new_sha[:8]} "
+                  f"({len(tree_entries)} files) -> {BRANCH}")
+            return new_sha
+        except RuntimeError as e:
+            if "Update is not a fast forward" in str(e) and outer < 2:
+                print(f"  [rebase] remote {BRANCH} moved; "
+                      f"retrying onto new HEAD (attempt {outer + 2}/3)...")
+                continue
+            raise
 
 
 def verify_remote(rel_paths, needle=None):
