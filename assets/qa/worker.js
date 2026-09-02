@@ -165,10 +165,41 @@ function buildSystemPrompt(chunks) {
     '3. 回答中自然地引用来源；结尾列出 2-4 条最相关的参考链接（格式：「标题：URL」）。',
     '4. 使用简体中文，语气专业、克制、像活人专家；不要营销腔、不要夸大、不要渲染焦虑、不要使用对称排比等 AI 腔。',
     '5. 回答要有信息密度，直给结论与依据，避免空泛铺垫。',
+    '6. **严禁输出思考过程、分析步骤、资料片段复述、"用户询问"、"让我分析"、"片段N"等前缀。直接给出最终答案，不要任何前戏。**',
     '',
     '资料片段（按相关度排序）：',
     ...parts,
   ].join('\n');
+}
+
+// ---------- 过滤 reasoning 模型的 CoT 输出 ----------
+// 部分模型会把内心独白放在 reasoning_content，前端直接展示会显得啰嗦。
+// 这里做一层保守过滤：只要还在 CoT 区域，就不输出；一旦越过 CoT 进入正文，后续全透传。
+function makeCoTFilter() {
+  let buf = '';
+  let inAnswer = false;
+  const cotLineRe = /^\s*(?:用户|让我|我需要|我首先|首先|接下来|然后|最后|综上所述|基于|从|分析|总结|片段\d+[：:]|资料片段|可见|因此).*$/;
+  return function (text) {
+    if (inAnswer) return text;
+    buf += text;
+    // 把整个缓冲区按行检查；若全是 CoT 行则继续缓存不输出
+    const lines = buf.split('\n');
+    let allCoT = true;
+    let firstRealIdx = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].trim() && !cotLineRe.test(lines[i])) {
+        allCoT = false;
+        firstRealIdx = i;
+        break;
+      }
+    }
+    if (allCoT) return '';
+    // 已出现非 CoT 内容，把从第一行真实内容开始的部分输出
+    inAnswer = true;
+    const out = lines.slice(firstRealIdx).join('\n');
+    buf = '';
+    return out;
+  };
 }
 
 // ---------- SSE 行读取（解析 LLM 流，OpenAI 兼容） ----------
@@ -220,6 +251,7 @@ async function* streamLLM(systemPrompt, question, env) {
   const reader = resp.body.getReader();
   const decoder = new TextDecoder();
   let buf = '';
+  const filterCoT = makeCoTFilter();
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -235,8 +267,11 @@ async function* streamLLM(systemPrompt, question, env) {
         const json = JSON.parse(payload);
         const delta = json.choices && json.choices[0] && json.choices[0].delta;
         // agnes-2.0-flash 等推理模型会把流式输出放在 reasoning_content，content 可能为空
-        const text = delta && (delta.content || delta.reasoning_content);
-        if (text) yield { text };
+        let text = delta && (delta.content || delta.reasoning_content);
+        if (text) {
+          text = filterCoT(text);
+          if (text) yield { text };
+        }
       } catch (_) {
         // 忽略不完整片段
       }
