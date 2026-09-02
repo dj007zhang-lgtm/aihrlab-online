@@ -2037,5 +2037,20 @@
     ],
     "sitemap_urls_before": 314,
     "sitemap_urls_after": 314
+  },
+  {
+    "date": "2026-09-02 16:15",
+    "commit": "ead01196c20343a124325cd50479e9da87b8af07",
+    "message": "feat: Copilot 完整答案形态——正文 [N] 上标引用 + 编号参考来源；同步 worker.js / widget.js / widget.css / search.js",
+    "files_count": 5,
+    "files": [
+      "assets/qa/worker.js",
+      "assets/qa/widget.js",
+      "assets/qa/widget.css",
+      "assets/js/search.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
