@@ -2013,5 +2013,17 @@
     ],
     "sitemap_urls_before": 314,
     "sitemap_urls_after": 314
+  },
+  {
+    "date": "2026-09-02 10:46",
+    "commit": "672a437d410ece044832cb199fa820057aa0a6bd",
+    "message": "fix: Copilot 过滤 reasoning 模型 CoT 前戏，直接输出最终答案",
+    "files_count": 2,
+    "files": [
+      "assets/qa/worker.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
