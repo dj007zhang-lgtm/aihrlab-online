@@ -148,41 +148,63 @@ function retrieve(question, kb, topK) {
   return scored.slice(0, topK);
 }
 
-// ---------- 构造系统提示词 ----------
-function buildSystemPrompt(chunks) {
+// ---------- 构造系统提示词与资料上下文 ----------
+// 把资料放在 user message 里，system 只放角色与硬规则。实测若资料放在 system
+// prompt 中，模型容易把「复述片段」当成答案；拆到 user message 后更听话。
+function buildMessages(chunks, question) {
   const parts = chunks.map((c, i) => {
     const ch = c.ch; // retrieve 返回的是 {ch, score}
     const heading = ch.heading ? `（小节：${ch.heading}）` : '';
-    return `【片段 ${i + 1}】来源：${ch.title}（${ch.url}）${heading}\n${ch.text}`;
+    return `[${i + 1}] 来源：${ch.title}｜${ch.url}${heading ? '｜' + heading : ''}\n${ch.text}`;
   });
-  return [
+  const system = [
     '你是「AIHR数智引擎」网站的知识库问答助手，由资深 HR/OD 专家视角作答。',
-    '下面提供了从本站已发布文章中检索到的资料片段，每段都带有来源标题与 URL。',
-    '',
-    '硬规则（必须严格遵守）：',
-    '1. 只能依据下方「资料片段」作答，不得编造事实、数据或结论，不得引入资料之外的信息。',
-    '2. 只有当下方资料片段中确实没有任何与用户问题相关的信息时，才明确回答：「本站资料暂未收录该问题的相关内容」，并建议用户浏览相关文章或留言补充；若资料片段中已有相关信息（哪怕仅部分相关），必须直接基于资料作答，严禁在未提供答案的情况下声称「未收录」或前缀「未收录」。',
-    '3. 回答中自然地引用来源；结尾列出 2-4 条最相关的参考链接（格式：「标题：URL」）。',
-    '4. 使用简体中文，语气专业、克制、像活人专家；不要营销腔、不要夸大、不要渲染焦虑、不要使用对称排比等 AI 腔。',
-    '5. 回答要有信息密度，直给结论与依据，避免空泛铺垫。',
-    '6. **严禁输出思考过程、分析步骤、资料片段复述、"用户询问"、"让我分析"、"片段N"等前缀。直接给出最终答案，不要任何前戏。**',
-    '',
-    '资料片段（按相关度排序）：',
-    ...parts,
+    '你只能依据用户提供的「参考资料」作答，不得编造事实、数据或结论，不得引入资料之外的信息。',
+    '若参考资料中完全没有相关信息，明确回答：「本站资料暂未收录该问题的相关内容」，并建议换一种问法或留言补充。',
+    '若参考资料中有相关信息，必须直接给出整合后的最终答案，不要复述资料、不要罗列片段、不要输出思考过程。',
+    '答案中自然地引用来源（可用 [N] 标注）；结尾列出 2-4 条最相关的参考链接（格式：「标题：URL」）。',
+    '使用简体中文，语气专业、克制、像活人专家；不要营销腔、不要夸大、不要渲染焦虑、不要使用对称排比等 AI 腔。',
+    '回答要有信息密度，直给结论与依据，避免空泛铺垫。',
   ].join('\n');
+  const user = [
+    `问题：${question}`,
+    '',
+    '参考资料（按相关度排序，已提供来源，直接基于它们回答）：',
+    parts.join('\n\n'),
+    '',
+    '要求：直接输出最终答案，不要复述上述参考资料，不要列出「关键信息点」「片段N」「分析过程」等中间结构。',
+  ].join('\n');
+  return { system, user };
 }
 
 // ---------- 过滤 reasoning 模型的 CoT 输出 ----------
-// 部分模型会把内心独白放在 reasoning_content，前端直接展示会显得啰嗦。
-// 这里做一层保守过滤：只要还在 CoT 区域，就不输出；一旦越过 CoT 进入正文，后续全透传。
+// 部分模型会把内心独白/资料复述放在 reasoning_content 或 content 前半段，前端直接
+// 展示会显得啰嗦。这里做两层过滤：
+// 1. 保守的 CoT 行过滤：只要还在 CoT 区域，就不输出；一旦越过 CoT 进入正文，后续全透传。
+// 2. 最终答案提取：如果模型输出「最终答案：...」或「答案：...」，只取后面的部分。
 function makeCoTFilter() {
   let buf = '';
   let inAnswer = false;
-  const cotLineRe = /^\s*(?:用户|让我|我需要|我首先|首先|接下来|然后|最后|综上所述|基于|从|分析|总结|片段\d+[：:]|资料片段|可见|因此).*$/;
+  let finalAnswerPrefixStripped = false;
+  // 匹配用户截图里出现的 CoT/复述结构：
+  // - 片段2详细介绍了...
+  // 片段2详细介绍了...
+  // 关键信息点：
+  // 我需要整合...
+  // 用户询问...
+  const cotLineRe = /^\s*(?:[-•*]\s*)?(?:用户|让我|我需要|我首先|首先|接下来|然后|最后|综上所述|基于|从|分析|总结|可见|因此|关键信息点|信息点|参考资料|资料片段|回答如下|最终答案[:：]|答案[:：]|片段\d+\s*(?:详细)?(?:介绍|提供|说明|指出|提到)[:：]?|片段\d+[:：]).*$/;
   return function (text) {
-    if (inAnswer) return text;
+    if (inAnswer) {
+      if (!finalAnswerPrefixStripped) {
+        const m = text.match(/(?:最终答案|答案)\s*[:：]\s*/);
+        if (m) {
+          finalAnswerPrefixStripped = true;
+          return text.slice(m[0].length);
+        }
+      }
+      return text;
+    }
     buf += text;
-    // 把整个缓冲区按行检查；若全是 CoT 行则继续缓存不输出
     const lines = buf.split('\n');
     let allCoT = true;
     let firstRealIdx = -1;
@@ -194,25 +216,24 @@ function makeCoTFilter() {
       }
     }
     if (allCoT) return '';
-    // 已出现非 CoT 内容，把从第一行真实内容开始的部分输出
     inAnswer = true;
     const out = lines.slice(firstRealIdx).join('\n');
     buf = '';
+    // 首段如果还带着「最终答案：」前缀，剥掉
+    const m = out.match(/^(?:最终答案|答案)\s*[:：]\s*/);
+    if (m) return out.slice(m[0].length);
     return out;
   };
 }
 
 // ---------- SSE 行读取（解析 LLM 流，OpenAI 兼容） ----------
-async function* streamLLM(systemPrompt, question, env) {
+async function* streamLLM(messages, env) {
   const model = env.AGNES_MODEL || 'agnes-2.0-flash';
   const maxTokens = parseInt(env.MAX_TOKENS || '800', 10);
   const url = 'https://apihub.agnes-ai.com/v1/chat/completions';
   const body = {
     model,
-    messages: [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: question },
-    ],
+    messages,
     stream: true,
     max_tokens: maxTokens,
     temperature: 0.3,
@@ -409,7 +430,7 @@ export default {
     }
     const sources = Array.from(sourcesMap.values()).slice(0, 4);
 
-    const systemPrompt = buildSystemPrompt(topChunks);
+    const messages = buildMessages(topChunks, question);
 
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
@@ -428,7 +449,7 @@ export default {
           return;
         }
         try {
-          for await (const ev of streamLLM(systemPrompt, question, env)) {
+          for await (const ev of streamLLM(messages, env)) {
             if (ev.error) {
               send({ type: 'error', message: ev.error });
               break;
