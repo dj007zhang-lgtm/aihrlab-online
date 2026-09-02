@@ -1945,5 +1945,18 @@
     ],
     "sitemap_urls_before": 309,
     "sitemap_urls_after": 309
+  },
+  {
+    "date": "2026-09-02 10:29",
+    "commit": "def832509a8b60b3a97844072a784980e06fcbe5",
+    "message": "fix: Copilot 思考文案改为'正在思考…'；Worker 兼容 agnes 推理模型 reasoning_content 并加 429 退避重试",
+    "files_count": 3,
+    "files": [
+      "assets/qa/widget.js",
+      "assets/qa/worker.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
