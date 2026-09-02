@@ -1958,5 +1958,21 @@
     ],
     "sitemap_urls_before": 314,
     "sitemap_urls_after": 314
+  },
+  {
+    "date": "2026-09-02 10:29",
+    "commit": "2a5a96a57579c650f775960bfdeba65e63d9a0af",
+    "message": "上线5篇AI招聘实操教程文(操作层干货)+修复sync日期污染bug：date提取新增JSON-LD/OG/git兜底，索引90篇误标当天→修复为真实日期",
+    "files_count": 6,
+    "files": [
+      "articles/ai-jd-writing-playbook-2026.html",
+      "articles/ai-resume-screening-playbook-2026.html",
+      "articles/ai-structured-interview-playbook-2026.html",
+      "articles/ai-candidate-outreach-playbook-2026.html",
+      "articles/ai-recruiting-analytics-playbook-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
