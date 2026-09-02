@@ -21,16 +21,57 @@ AIHR 数智引擎 — 文章同步脚本
 
 约定:
     - 分类为空时默认填 "核心方法论"
-    - 日期为空时默认填文件修改日期
     - 卡片按日期倒序排列（最新在前）
+
+日期提取优先级（2026-09-02 修订，勿回退）:
+    1. <time datetime="YYYY-MM-DD">
+    2. JSON-LD "datePublished"
+    3. OG meta article:published_time
+    4. git 首次提交日期（--diff-filter=A）
+    5. 文件 mtime —— 仅保底，会输出 ⚠ 告警
+
+    ⚠ 严禁把 mtime 提前或单独作为兜底：sync 自身会重写 articles/*.html，
+    mtime 会被刷成运行当天，导致全站发布日期被污染。
+    历史事故：2026-09-02，90 篇已发布文章在索引页被误标为当天发布日期。
 """
 
 import os
 import re
 import json
+import subprocess
 import html as html_lib
 from datetime import datetime
 from collections import Counter
+
+# 日期兜底告警：文件既无 datetime / JSON-LD / OG 日期，git 也查不到提交记录
+DATE_WARNINGS = []
+
+# git 首次提交日期缓存（同一 run 内复用，避免 N 次子进程）
+_GIT_DATE_CACHE = {}
+
+
+def git_first_commit_date(filepath: str) -> str:
+    """取文件在 git 中的首次提交日期（%cs = YYYY-MM-DD）。
+
+    与 build_sitemap.lastmod_for 的区别：那个取最近一次提交，这里取最早一次，
+    因为发布日期应当是"文章第一次出现"的时间。
+    """
+    rel = os.path.relpath(filepath, BASE_DIR)
+    if rel in _GIT_DATE_CACHE:
+        return _GIT_DATE_CACHE[rel]
+    date = ''
+    try:
+        out = subprocess.run(
+            ['git', 'log', '--diff-filter=A', '--format=%cs', '--', rel],
+            cwd=BASE_DIR, capture_output=True, text=True, timeout=15,
+        )
+        if out.returncode == 0 and out.stdout.strip():
+            # --diff-filter=A 只保留新增提交，取最后一行即最早一次
+            date = out.stdout.strip().splitlines()[-1].strip()
+    except Exception:
+        date = ''
+    _GIT_DATE_CACHE[rel] = date
+    return date
 
 # ============ 路径配置 ============
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -184,9 +225,28 @@ def extract_article_info(filepath, filename):
             pub_date = raw
 
     if not pub_date:
-        # 用文件修改时间
+        # 从 JSON-LD 结构化数据提取（权威发布日期，优先于 mtime）
+        ld_match = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})', content)
+        if ld_match:
+            pub_date = ld_match.group(1)
+
+    if not pub_date:
+        # 从 OG meta 提取
+        og_match = re.search(r'article:published_time"\s+content="(\d{4}-\d{2}-\d{2})', content)
+        if og_match:
+            pub_date = og_match.group(1)
+
+    if not pub_date:
+        # 倒数第二兜底：文件首次提交日期（git）。
+        # 注意：绝不能用 mtime —— sync 自身会重写文件，mtime 会被刷成当天，
+        # 造成全站发布日期被污染（2026-09-02 事故：90 篇被误标为当天）。
+        pub_date = git_first_commit_date(filepath)
+
+    if not pub_date:
+        # 最后兜底：文件修改时间（不可信，仅保底不崩）
         mtime = os.path.getmtime(filepath)
         pub_date = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+        DATE_WARNINGS.append(os.path.basename(filepath))
 
     # 4. 提取摘要（meta description 或正文首段）
     excerpt = ''
@@ -640,6 +700,13 @@ def main():
         print(f'\n⚠ 缺少日期的文章 ({len(no_date)}):')
         for a in no_date:
             print(f'    - {a["slug"]}')
+
+    if DATE_WARNINGS:
+        print(f'\n⚠ 日期回退到 mtime（不可信）的文章 ({len(DATE_WARNINGS)}):')
+        for fn in DATE_WARNINGS:
+            print(f'    - {fn}')
+        print('    这些文件既无 datetime / JSON-LD datePublished / OG published_time，')
+        print('    git 也查不到新增记录。日期会随每次 sync 漂移，请补写日期标注。')
 
     print()
     print('✓ 同步完成')
