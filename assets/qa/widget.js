@@ -144,7 +144,7 @@
       turn.appendChild(el('div', 'qa-q', question));
       var a = el('div', 'qa-a');
       var aText = el('div', 'qa-a-text is-empty is-streaming');
-      aText.textContent = '正在检索站内资料…';
+      aText.textContent = '正在思考…';
       a.appendChild(aText);
       var sourcesBox = el('div', 'qa-sources');
       a.appendChild(sourcesBox);

@@ -186,20 +186,34 @@ async function* streamLLM(systemPrompt, question, env) {
     max_tokens: maxTokens,
     temperature: 0.3,
   };
-  const resp = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + env.AGNES_API_KEY,
-    },
-    body: JSON.stringify(body),
-  });
+
+  // 对 agnes-ai 的 429 做一次退避重试（Cloudflare Worker IP 池可能触发瞬时限流）
+  let resp;
+  let lastErr = null;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    resp = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'text/event-stream',
+        Authorization: 'Bearer ' + env.AGNES_API_KEY,
+      },
+      body: JSON.stringify(body),
+    });
+    if (resp.ok || resp.status !== 429) break;
+    lastErr = await resp.text().catch(() => '');
+    if (attempt === 0) {
+      await new Promise((r) => setTimeout(r, 800));
+    }
+  }
+
   if (!resp.ok) {
     let msg = 'agnes-ai 调用失败（' + resp.status + '）';
     try {
       const e = await resp.json();
       if (e && e.error && e.error.message) msg = e.error.message;
     } catch (_) {}
+    if (lastErr && !msg.includes(lastErr)) msg += ' ' + lastErr.slice(0, 200);
     yield { error: msg, status: resp.status };
     return;
   }
@@ -220,7 +234,9 @@ async function* streamLLM(systemPrompt, question, env) {
       try {
         const json = JSON.parse(payload);
         const delta = json.choices && json.choices[0] && json.choices[0].delta;
-        if (delta && delta.content) yield { text: delta.content };
+        // agnes-2.0-flash 等推理模型会把流式输出放在 reasoning_content，content 可能为空
+        const text = delta && (delta.content || delta.reasoning_content);
+        if (text) yield { text };
       } catch (_) {
         // 忽略不完整片段
       }
