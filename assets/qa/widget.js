@@ -40,6 +40,28 @@
     return n;
   }
 
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"]/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch];
+    });
+  }
+
+  // 把正文里的 [N] 引用渲染成上标链接；其余文本做 HTML 转义。
+  function renderCitations(rawText) {
+    var out = '';
+    var last = 0;
+    var re = /\[(\d+)\]/g;
+    var m;
+    while ((m = re.exec(rawText)) !== null) {
+      out += escapeHTML(rawText.slice(last, m.index));
+      var n = m[1];
+      out += '<sup class="qa-cite"><a href="#qa-ref-' + n + '" class="qa-cite-link">[' + n + ']</a></sup>';
+      last = m.index + m[0].length;
+    }
+    out += escapeHTML(rawText.slice(last));
+    return out;
+  }
+
   function buildWidget(root) {
     var endpoint = resolveEndpoint(root);
 
@@ -187,16 +209,21 @@
               return;
             }
             sourcesBox.appendChild(el('div', 'qa-sources-label', '参考来源'));
-            sources.forEach(function (s) {
+            sources.forEach(function (s, idx) {
               var link = el('a', 'qa-source');
               link.href = s.url;
+              link.id = 'qa-ref-' + (idx + 1);
               link.target = '_blank';
               link.rel = 'noopener noreferrer';
+              link.appendChild(el('span', 'qa-source-idx', '[' + (idx + 1) + '] '));
               link.appendChild(el('span', 'qa-source-title', s.title || s.url));
               if (s.heading) link.appendChild(el('span', 'qa-source-heading', '小节：' + s.heading));
               sourcesBox.appendChild(link);
             });
           }
+
+          // 累积原始文本，每次重新渲染以保证 [N] 上标链接完整
+          var answerRaw = '';
 
           function handleEvent(evt) {
             if (!evt || typeof evt !== 'object') return;
@@ -206,9 +233,10 @@
               if (firstDelta) {
                 firstDelta = false;
                 aText.classList.remove('is-empty');
-                aText.textContent = '';
+                answerRaw = '';
               }
-              aText.textContent += evt.text || '';
+              answerRaw += evt.text || '';
+              aText.innerHTML = renderCitations(answerRaw);
               scrollDown();
             } else if (evt.type === 'error') {
               aText.classList.remove('is-streaming');

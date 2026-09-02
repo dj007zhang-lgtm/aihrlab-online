@@ -65,10 +65,17 @@
   background:var(--bg-subtle);border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:8px;padding:.5rem .7rem;transition:border-color .2s var(--ease),transform .2s var(--ease);}
 .qa-source:hover{border-color:var(--accent);transform:translateX(2px);}
+.qa-source-idx{font-size:.82rem;color:var(--text-muted);font-variant-numeric:tabular-nums;}
 .qa-source-title{font-size:.9rem;font-weight:600;color:var(--text-link);line-height:1.4;}
 .qa-source-heading{display:block;font-size:.78rem;color:var(--text-muted);margin-top:.15rem;line-height:1.4;}
 
 .qa-sources-empty{font-size:.82rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;}
+
+/* 正文内引用上标 */
+.qa-cite{display:inline-block;margin-left:1px;}
+.qa-cite-link{font-size:.72rem;line-height:1;text-decoration:none;color:var(--accent);font-weight:600;}
+.qa-cite-link:hover{text-decoration:underline;}
+[data-theme="dark"] .qa-cite-link{color:#9CC06A;}
 
 /* 配置提示 / 错误提示 */
 .qa-config-note,.qa-error{
