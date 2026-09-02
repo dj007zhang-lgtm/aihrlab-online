@@ -605,3 +605,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 141. 算法管理：员工监控怎么管才不反噬
 - URL: https://www.aihrlab.online/articles/algorithmic-management-workplace-2026.html
 - 摘要: 算法管理（含电子绩效监控 EPM）把对员工的观察、评分、调度交给系统。Ravid 等人 2023 年 Personnel Psychology 元分析（K=94、N=23,461）显示无证据表明 EPM 提升绩效且普遍增压；Schlund 与 Zitek 2024 实验表明算法监控比人工更损自主感、更引发抵抗，框定为发展性反馈则负面效应消失。欧盟《AI 法案》已禁职场情绪识别、中国 2026 年算法治理赋予新就业群体算法规则知情权/参与权/选择权。HR 管的是框架、同意、可解释与人工复核，而非装不装。
+
+### 142. AI 抬高了初级岗位的门槛，中层三年后从哪来
+- URL: https://www.aihrlab.online/articles/entry-level-jobs-ai-talent-pipeline-2026.html
+- 摘要: AI 没有整体拆掉初级岗位，而是抬高了门槛：PwC 2026 AI Jobs Barometer 显示被资深化的初级岗增长 35%、其余缩减 10%，高暴露初级岗要求资深技能概率为低暴露岗 7 倍；斯坦福 ADP 数据示 22-25 岁在高暴露职业相对就业降 13%，机制是 AI 替代校园显性知识而非工作长出的隐性知识。组织的真缺口是判断力养成路径断裂，HR 应重建养成场（核验 AI 产出、差异比对、做实习转正主渠道、编制表标注跨期置换），而非把初级岗数量补回来。
