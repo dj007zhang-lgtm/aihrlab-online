@@ -60,7 +60,7 @@
       '.search-dialog .search-send-btn:disabled{opacity:.5;cursor:default;}' +
       ':root[data-theme="dark"] .search-dialog .search-send-btn{background:#6F9A3C;color:#0B0C0E;}' +
       '.search-dialog .search-close-btn{appearance:none;border:none;background:transparent;font-size:24px;line-height:1;color:var(--text-muted);cursor:pointer;padding:0 4px;}' +
-      '.search-dialog .search-results{flex:1;overflow-y:auto;padding:12px 16px;min-height:120px;}' +
+      '.search-dialog .search-results{flex:1;overflow-y:auto;padding:14px 16px;min-height:120px;scroll-behavior:smooth;}' +
       '.search-dialog .search-footer{padding:10px 16px;border-top:1px solid var(--border, rgba(0,0,0,.08));font-size:12px;color:var(--text-muted);}' +
       '.search-dialog .search-footer kbd{font-family:inherit;font-size:11px;background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:1px 5px;}' +
       '.search-dialog .search-no-results{font-size:14px;color:var(--text-muted);padding:14px 4px;}' +
@@ -68,26 +68,27 @@
       '.search-dialog .search-result-item:hover{background:var(--bg-subtle);}' +
       '.search-dialog .result-title{font-size:15px;font-weight:600;color:var(--text-link,#3F6212);line-height:1.4;}' +
       '.search-dialog .result-category{font-size:12px;color:var(--text-muted);margin-top:4px;}' +
-      '.search-dialog .qa-answer{white-space:pre-wrap;line-height:1.7;font-size:14px;color:#1A1A17;padding:14px 4px;max-height:46vh;overflow:auto;word-break:break-word;}' +
+      '.search-dialog .qa-conv{display:flex;flex-direction:column;gap:18px;padding:4px 0;}' +
+      '.search-dialog .qa-turn{display:flex;flex-direction:column;gap:8px;padding:14px 14px 12px;border-radius:12px;background:var(--bg-subtle,rgba(0,0,0,.03));border:1px solid var(--line,rgba(0,0,0,.06));}' +
+      ':root[data-theme="dark"] .search-dialog .qa-turn{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);}' +
+      '.search-dialog .qa-q{font-size:14px;color:#1A1A17;background:rgba(63,98,18,.12);align-self:flex-end;max-width:84%;padding:9px 14px;border-radius:14px 14px 4px 14px;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,.06);}' +
+      ':root[data-theme="dark"] .search-dialog .qa-q{color:#ECEAE4;background:rgba(111,154,60,.22);box-shadow:none;}' +
+      '.search-dialog .qa-answer{white-space:pre-wrap;line-height:1.75;font-size:14px;color:#1A1A17;padding:2px 2px 4px;word-break:break-word;}' +
       ':root[data-theme="dark"] .search-dialog .qa-answer{color:#ECEAE4;}' +
-      '.search-dialog .qa-conv{display:flex;flex-direction:column;gap:14px;max-height:52vh;overflow:auto;padding:4px 0;}' +
-      '.search-dialog .qa-turn{display:flex;flex-direction:column;gap:4px;}' +
-      '.search-dialog .qa-q{font-size:13px;color:#1A1A17;background:rgba(63,98,18,.1);align-self:flex-end;max-width:86%;padding:8px 12px;border-radius:12px 12px 2px 12px;line-height:1.5;}' +
-      ':root[data-theme="dark"] .search-dialog .qa-q{color:#ECEAE4;background:rgba(111,154,60,.18);}' +
       '.search-dialog .qa-cite{display:inline-block;margin-left:1px;}' +
       '.search-dialog .qa-cite-link{font-size:10px;line-height:1;text-decoration:none;color:#3F6212;font-weight:600;}' +
       ':root[data-theme="dark"] .search-dialog .qa-cite-link{color:#9CC06A;}' +
       '.search-dialog .qa-cite-link:hover{text-decoration:underline;}' +
-      '.search-dialog .qa-sources{margin-top:10px;border-top:1px solid var(--border, rgba(0,0,0,.08));padding-top:10px;display:flex;flex-direction:column;gap:6px;}' +
-      ':root[data-theme="dark"] .search-dialog .qa-sources{border-color:rgba(255,255,255,.1);}' +
-      '.search-dialog .qa-sources-title{font-size:12px;color:#6b7280;margin-bottom:2px;}' +
+      '.search-dialog .qa-sources{margin-top:10px;padding:10px 12px;border-radius:8px;background:rgba(63,98,18,.05);display:flex;flex-direction:column;gap:6px;}' +
+      ':root[data-theme="dark"] .search-dialog .qa-sources{background:rgba(111,154,60,.1);}' +
+      '.search-dialog .qa-sources-title{font-size:12px;color:#6b7280;font-weight:500;}' +
       ':root[data-theme="dark"] .search-dialog .qa-sources-title{color:#9aa0a6;}' +
       '.search-dialog .qa-source-item{display:flex;gap:6px;font-size:13px;color:#3F6212;text-decoration:none;align-items:baseline;}' +
       '.search-dialog .qa-source-item:hover{text-decoration:underline;}' +
       ':root[data-theme="dark"] .search-dialog .qa-source-item{color:#9CC06A;}' +
       '.search-dialog .qa-source-idx{color:#9aa0a6;font-variant-numeric:tabular-nums;}' +
       ':root[data-theme="dark"] .search-dialog .qa-source-idx{color:#6b7280;}' +
-      '.search-dialog .qa-thinking,.search-dialog .qa-hint,.search-dialog .qa-error{font-size:13px;color:#6b7280;padding:14px 4px;line-height:1.6;}' +
+      '.search-dialog .qa-thinking,.search-dialog .qa-hint,.search-dialog .qa-error{font-size:13px;color:#6b7280;padding:10px 2px;line-height:1.6;}' +
       '.search-dialog .qa-error{color:#C44536;}' +
       ':root[data-theme="dark"] .search-dialog .qa-error{color:#e8826f;}' +
       '.search-dialog .qa-hint{font-size:13px;color:#6b7280;}';
@@ -181,12 +182,12 @@
     for (var i = 0; i < tabs.length; i++) {
       tabs[i].classList.toggle('active', tabs[i].getAttribute('data-mode') === m);
     }
-    if (m === 'ai') {
-      input.placeholder = '问 AI 任何关于组织、AI、人才战略的问题…';
-      if (sendBtn) sendBtn.style.display = '';
-      footerEl.innerHTML = '<kbd>Enter</kbd> 发送 · <kbd>Esc</kbd> 关闭';
-      if (!input.value.trim()) renderAIHint();
-    } else {
+      if (m === 'ai') {
+        input.placeholder = aiConversation.length ? '继续追问…' : '问 AI 任何关于组织、AI、人才战略的问题…';
+        if (sendBtn) sendBtn.style.display = '';
+        footerEl.innerHTML = '<kbd>Enter</kbd> 发送 · <kbd>Esc</kbd> 关闭';
+        if (!input.value.trim()) renderAIHint();
+      } else {
       input.placeholder = '搜索文章...';
       if (sendBtn) sendBtn.style.display = 'none';
       footerEl.innerHTML = '按 <kbd>↑</kbd><kbd>↓</kbd> 导航 · <kbd>Enter</kbd> 打开 · <kbd>Esc</kbd> 关闭';
@@ -234,7 +235,7 @@
     a.innerHTML = aiText ? renderCitations(aiText) : '（暂无回答）';
     turn.appendChild(a);
     aiConvEl.appendChild(turn);
-    if (aiConvEl.scrollTo) aiConvEl.scrollTop = aiConvEl.scrollHeight;
+    scrollToBottom();
   }
 
   function getQAEndpoint() {
@@ -272,6 +273,7 @@
     }
     // 新会话（无历史）首次建容器；后续追问追加 turn（连续问题维持上下文）
     if (aiConversation.length === 0 && !aiConvEl) renderAIContainer();
+    if (input) input.value = '';
     startTurn(query);
     attemptAI(query);
   }
@@ -285,6 +287,11 @@
   }
 
   // 开始新一轮：在对话流末尾追加「用户问题 + 空答案框 + 来源区」
+  function scrollToBottom() {
+    if (!resultsContainer) return;
+    resultsContainer.scrollTop = resultsContainer.scrollHeight;
+  }
+
   function startTurn(query) {
     if (!aiConvEl) renderAIContainer();
     var turn = document.createElement('div');
@@ -305,7 +312,7 @@
     turn.appendChild(aiSourcesEl);
     aiConvEl.appendChild(turn);
     aiAnswerRaw = '';
-    if (aiConvEl.scrollTo) aiConvEl.scrollTop = aiConvEl.scrollHeight;
+    scrollToBottom();
   }
 
   function attemptAI(query) {
@@ -478,6 +485,7 @@
     if (!text) return;
     aiAnswerRaw += text;
     aiAnswerEl.innerHTML = renderCitations(aiAnswerRaw);
+    scrollToBottom();
   }
 
   function safeHref(u) {
@@ -491,13 +499,13 @@
     aiSourcesEl.innerHTML = '';
     if (!sources || sources.length === 0) {
       var note = document.createElement('div');
-      note.className = 'qa-sources-label';
+      note.className = 'qa-sources-title';
       note.textContent = '未检索到可引用的站内文章';
       aiSourcesEl.appendChild(note);
       return;
     }
     var title = document.createElement('div');
-    title.className = 'qa-sources-label';
+    title.className = 'qa-sources-title';
     title.textContent = '参考来源（' + sources.length + '）';
     aiSourcesEl.appendChild(title);
     for (var i = 0; i < sources.length; i++) {
@@ -536,6 +544,12 @@
     ensureAnswerEl();
     if (aiSourcesEl && aiSourcesEl.children.length === 0 && sources && sources.length) {
       renderSources(sources);
+    }
+    scrollToBottom();
+    if (input) {
+      input.value = '';
+      input.placeholder = '继续追问…';
+      input.focus();
     }
   }
 
