@@ -138,6 +138,16 @@
     ]
   },
   {
+    "title": "AI 接管思考之后：被悄悄掏空的组织能力",
+    "url": "ai-cognitive-offloading-deskilling-2026",
+    "category": "组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "组织变革",
+      "大厂实践"
+    ]
+  },
+  {
     "title": "AI协作工具矩阵：2026年企业选择指南",
     "url": "ai-collaboration-tools-matrix-2026",
     "category": "组织变革 / AI转型",
@@ -1185,9 +1195,9 @@
     ]
   },
   {
-    "title": "2026中国AI组织三条路线",
+    "title": "AI组织进化论：阿里、字节、Kimi的2026三条路线",
     "url": "china-ai-org-three-routes",
-    "category": "AI组织变革",
+    "category": "大厂实践",
     "date": "2026-01-01",
     "tags": [
       "AI原生组织",
@@ -2477,21 +2487,6 @@
       "AI原生组织",
       "组织变革",
       "领导力"
-    ]
-  },
-  {
-    "title": "AI 接管思考之后：被悄悄掏空的组织能力",
-    "url": "ai-cognitive-offloading-deskilling-2026",
-    "category": "组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "认知外包",
-      "能力萎缩",
-      "去技能化",
-      "AI与批判性思维",
-      "组织能力",
-      "人机协作",
-      "知识工作者"
     ]
   }
 ]
