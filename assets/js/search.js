@@ -70,6 +70,10 @@
       '.search-dialog .result-category{font-size:12px;color:var(--text-muted);margin-top:4px;}' +
       '.search-dialog .qa-answer{white-space:pre-wrap;line-height:1.7;font-size:14px;color:#1A1A17;padding:14px 4px;max-height:46vh;overflow:auto;word-break:break-word;}' +
       ':root[data-theme="dark"] .search-dialog .qa-answer{color:#ECEAE4;}' +
+      '.search-dialog .qa-conv{display:flex;flex-direction:column;gap:14px;max-height:52vh;overflow:auto;padding:4px 0;}' +
+      '.search-dialog .qa-turn{display:flex;flex-direction:column;gap:4px;}' +
+      '.search-dialog .qa-q{font-size:13px;color:#1A1A17;background:rgba(63,98,18,.1);align-self:flex-end;max-width:86%;padding:8px 12px;border-radius:12px 12px 2px 12px;line-height:1.5;}' +
+      ':root[data-theme="dark"] .search-dialog .qa-q{color:#ECEAE4;background:rgba(111,154,60,.18);}' +
       '.search-dialog .qa-cite{display:inline-block;margin-left:1px;}' +
       '.search-dialog .qa-cite-link{font-size:10px;line-height:1;text-decoration:none;color:#3F6212;font-weight:600;}' +
       ':root[data-theme="dark"] .search-dialog .qa-cite-link{color:#9CC06A;}' +
@@ -197,13 +201,61 @@
   }
 
   function renderAIHint() {
-    resultsContainer.innerHTML = '<div class="qa-hint">输入你的问题，回车发送。答案只引用站内已发文章并标注出处；未覆盖的问题会明说未收录。</div>';
+    if (aiConversation.length > 0) {
+      // 切回 AI tab 时对话仍在：重建对话流容器并把历史渲染成只读气泡
+      resultsContainer.innerHTML = '';
+      aiConvEl = null;
+      for (var i = 0; i < aiConversation.length; i += 2) {
+        var u = aiConversation[i];
+        var a = aiConversation[i + 1];
+        if (!u) break;
+        addHistoryTurn(u.text, a ? a.text : '');
+      }
+    } else {
+      resultsContainer.innerHTML = '<div class="qa-hint">输入你的问题，回车发送。答案只引用站内已发文章并标注出处；未覆盖的问题会明说未收录。</div>';
+    }
+  }
+
+  // 渲染历史轮（只读）：用户问题 + 已生成的答案
+  function addHistoryTurn(userText, aiText) {
+    if (!aiConvEl) {
+      aiConvEl = document.createElement('div');
+      aiConvEl.className = 'qa-conv';
+      resultsContainer.appendChild(aiConvEl);
+    }
+    var turn = document.createElement('div');
+    turn.className = 'qa-turn';
+    var q = document.createElement('div');
+    q.className = 'qa-q';
+    q.textContent = userText;
+    turn.appendChild(q);
+    var a = document.createElement('div');
+    a.className = 'qa-answer';
+    a.innerHTML = aiText ? renderCitations(aiText) : '（暂无回答）';
+    turn.appendChild(a);
+    aiConvEl.appendChild(turn);
+    if (aiConvEl.scrollTo) aiConvEl.scrollTop = aiConvEl.scrollHeight;
   }
 
   function getQAEndpoint() {
     if (window.AIHR_QA_ENDPOINT) return window.AIHR_QA_ENDPOINT;
     var meta = document.querySelector('meta[name="aihr-qa-endpoint"]');
     return meta ? (meta.getAttribute('content') || '') : '';
+  }
+
+  // ---- Copilot 自动重试：429 / 5xx / 服务繁忙时自动重发，最多 3 次 ----
+  var aiRetryCount = 0;
+  var AI_MAX_RETRY = 3;
+  var AI_RETRY_DELAY = 3000;
+
+  // 多轮对话：维护对话历史，供追问时回传 Worker 维持上下文（与元器智能体一致的连续问题体验）
+  var aiConversation = [];
+  var AI_MAX_HISTORY = 10; // 最近 10 轮
+  var aiConvEl = null; // 对话流容器（切 tab 重建时复用）
+
+  function isRetryableMsg(msg) {
+    if (!msg) return false;
+    return /429|较忙|限流|服务.*忙|AI 服务|稍后|retry|繁忙/i.test(msg);
   }
 
   function askAI(query) {
@@ -213,46 +265,121 @@
       renderAIUnavailable();
       return;
     }
-    aiBusy = true;
-    updateSendState();
-    aiAnswerEl = null;
-    aiSourcesEl = null;
-    aiThinkingEl = null;
-    aiAnswerRaw = '';
+    if (!aiBusy) {
+      aiBusy = true;
+      updateSendState();
+      aiRetryCount = 0;
+    }
+    // 新会话（无历史）首次建容器；后续追问追加 turn（连续问题维持上下文）
+    if (aiConversation.length === 0 && !aiConvEl) renderAIContainer();
+    startTurn(query);
+    attemptAI(query);
+  }
 
+  function renderAIContainer() {
     resultsContainer.innerHTML = '';
+    aiConvEl = document.createElement('div');
+    aiConvEl.className = 'qa-conv';
+    resultsContainer.appendChild(aiConvEl);
+    aiAnswerRaw = '';
+  }
+
+  // 开始新一轮：在对话流末尾追加「用户问题 + 空答案框 + 来源区」
+  function startTurn(query) {
+    if (!aiConvEl) renderAIContainer();
+    var turn = document.createElement('div');
+    turn.className = 'qa-turn';
+    var q = document.createElement('div');
+    q.className = 'qa-q';
+    q.textContent = query;
+    turn.appendChild(q);
     aiAnswerEl = document.createElement('div');
     aiAnswerEl.className = 'qa-answer';
     aiThinkingEl = document.createElement('div');
     aiThinkingEl.className = 'qa-thinking';
     aiThinkingEl.textContent = '正在思考…';
     aiAnswerEl.appendChild(aiThinkingEl);
+    turn.appendChild(aiAnswerEl);
     aiSourcesEl = document.createElement('div');
     aiSourcesEl.className = 'qa-sources';
+    turn.appendChild(aiSourcesEl);
+    aiConvEl.appendChild(turn);
+    aiAnswerRaw = '';
+    if (aiConvEl.scrollTo) aiConvEl.scrollTop = aiConvEl.scrollHeight;
+  }
 
-    resultsContainer.appendChild(aiAnswerEl);
-    resultsContainer.appendChild(aiSourcesEl);
-
+  function attemptAI(query) {
+    var endpoint = getQAEndpoint();
+    if (!endpoint) {
+      renderAIUnavailable();
+      aiBusy = false;
+      updateSendState();
+      return;
+    }
     var sources = [];
+    var pendingSources = null;
+    var sourcesRendered = false;
+    function maybeRenderSources() {
+      if (!sourcesRendered && pendingSources) renderSources(pendingSources);
+    }
+    // 重试前重置答案区（保留容器），首次仅确保提示文案
+    if (aiRetryCount > 0) {
+      aiAnswerRaw = '';
+      if (aiAnswerEl) aiAnswerEl.innerHTML = '';
+      if (aiThinkingEl) {
+        aiThinkingEl.textContent = 'AI 服务较忙，正在重试（第 ' + aiRetryCount + ' 次）…';
+        aiThinkingEl.style.display = '';
+      }
+      if (aiSourcesEl) aiSourcesEl.innerHTML = '';
+      sourcesRendered = false;
+      pendingSources = null;
+    } else if (aiThinkingEl) {
+      aiThinkingEl.textContent = '正在思考…';
+    }
+    // 多轮：把当前轮之前的历史回传 Worker（最近 AI_MAX_HISTORY 轮）
+    var historyPayload = aiConversation
+      .slice(-AI_MAX_HISTORY * 2)
+      .map(function (h) {
+        return { role: h.role, text: h.text };
+      });
     fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
-      body: JSON.stringify({ question: query }),
+      body: JSON.stringify({ question: query, history: historyPayload }),
     })
       .then(function (res) {
-        if (!res.ok) throw new Error('服务返回 ' + res.status);
-        if (!res.body) throw new Error('当前环境不支持流式读取');
+        if (res.status === 429) throw { retryable: true, message: 'AI 服务当前请求量较大（429）' };
+        if (res.status >= 500) throw { retryable: true, message: '问答服务暂时不稳定（HTTP ' + res.status + '）' };
+        if (!res.ok) throw { retryable: false, message: '服务返回 ' + res.status };
+        if (!res.body) throw { retryable: false, message: '当前环境不支持流式读取' };
         return readSSE(res.body.getReader(), function (evt) {
           if (evt.type === 'sources') {
-            sources = evt.sources || [];
-            renderSources(sources);
+            // 先缓存，等答案开始后再渲染
+            pendingSources = evt.sources || [];
           } else if (evt.type === 'delta') {
-            ensureAnswerEl();
+            if (aiThinkingEl && aiAnswerRaw === '') {
+              maybeRenderSources();
+            }
             appendDelta(evt.text || '');
           } else if (evt.type === 'done') {
-            finishAI(sources);
+            maybeRenderSources();
+            finishAI(pendingSources || sources);
+            // 多轮：把这一轮问答存入历史（供后续追问维持上下文）
+            if (aiAnswerRaw) {
+              aiConversation.push({ role: 'user', text: query });
+              aiConversation.push({ role: 'assistant', text: aiAnswerRaw });
+              if (aiConversation.length > AI_MAX_HISTORY * 2) {
+                aiConversation = aiConversation.slice(-AI_MAX_HISTORY * 2);
+              }
+            }
           } else if (evt.type === 'error') {
-            renderAIError(evt.message || '问答服务出错');
+            maybeRenderSources();
+            var m = evt.message || '问答服务出错';
+            if (isRetryableMsg(m) && aiRetryCount < AI_MAX_RETRY) {
+              scheduleAIRetry(query);
+              return;
+            }
+            renderAIError(m);
           }
         });
       })
@@ -261,10 +388,28 @@
         updateSendState();
       })
       .catch(function (err) {
+        if (err && err.name === 'AbortError') return; // 主动 abort（重试流程），不报错
+        var retryable = err && err.retryable;
+        var msg = err && err.message ? err.message : '网络异常，未能连接到问答服务';
+        if (retryable && aiRetryCount < AI_MAX_RETRY) {
+          scheduleAIRetry(query);
+          return;
+        }
         aiBusy = false;
         updateSendState();
-        renderAIError(err && err.message ? err.message : '网络异常，未能连接到问答服务');
+        renderAIError(msg);
       });
+  }
+
+  function scheduleAIRetry(query) {
+    aiRetryCount++;
+    if (aiThinkingEl) {
+      aiThinkingEl.textContent =
+        'AI 服务较忙，' + AI_RETRY_DELAY / 1000 + ' 秒后自动重试（第 ' + aiRetryCount + ' 次）…';
+    }
+    setTimeout(function () {
+      attemptAI(query);
+    }, AI_RETRY_DELAY);
   }
 
   function readSSE(reader, onEvent) {
@@ -346,32 +491,43 @@
     aiSourcesEl.innerHTML = '';
     if (!sources || sources.length === 0) {
       var note = document.createElement('div');
-      note.className = 'qa-sources-title';
+      note.className = 'qa-sources-label';
       note.textContent = '未检索到可引用的站内文章';
       aiSourcesEl.appendChild(note);
       return;
     }
     var title = document.createElement('div');
-    title.className = 'qa-sources-title';
+    title.className = 'qa-sources-label';
     title.textContent = '参考来源（' + sources.length + '）';
     aiSourcesEl.appendChild(title);
     for (var i = 0; i < sources.length; i++) {
       var s = sources[i];
       var a = document.createElement('a');
-      a.className = 'qa-source-item';
+      a.className = 'qa-source';
       a.target = '_blank';
-      a.rel = 'noopener';
+      a.rel = 'noopener noreferrer';
       a.id = 'aih-search-ref-' + (i + 1);
       var href = safeHref(s.url);
-      if (href) a.href = href;
-      else a.setAttribute('aria-disabled', 'true');
+      if (href) {
+        a.href = href;
+        a.title = href;
+      } else {
+        a.setAttribute('aria-disabled', 'true');
+      }
       var idx = document.createElement('span');
       idx.className = 'qa-source-idx';
-      idx.textContent = '[' + (i + 1) + ']';
+      idx.textContent = '[' + (i + 1) + '] ';
       var label = document.createElement('span');
+      label.className = 'qa-source-title';
       label.textContent = (s.title || s.url || '站内文章');
       a.appendChild(idx);
       a.appendChild(label);
+      if (s.heading) {
+        var heading = document.createElement('span');
+        heading.className = 'qa-source-heading';
+        heading.textContent = '小节：' + s.heading;
+        a.appendChild(heading);
+      }
       aiSourcesEl.appendChild(a);
     }
   }
@@ -424,6 +580,9 @@
     overlay.classList.remove('active');
     dialog.classList.remove('active');
     currentIndex = -1;
+    // 关闭弹窗即新会话：清空多轮对话历史（避免下次打开残留悬空 DOM）
+    aiConversation = [];
+    aiConvEl = null;
     if (input) input.value = '';
     mode = 'article';
     var tabs = dialog.querySelectorAll('.search-tab');

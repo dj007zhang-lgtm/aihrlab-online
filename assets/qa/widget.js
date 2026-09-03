@@ -3,6 +3,7 @@
    - 纯前端，零依赖；直接注入任意页面的 [data-qa-widget] 容器
    - 调 Cloudflare Worker（中继持密钥）→ SSE 流式渲染
    - 安全：API key 不进前端；回答只渲染文本（textContent，零 XSS 注入）
+   - 健壮性：429 / 服务繁忙时自动重试（最多 3 次，间隔 3 秒），不白屏
    ============================================================ */
 (function () {
   'use strict';
@@ -154,7 +155,24 @@
       scrollDown();
     }
 
-    // 流式提问
+    // 判断服务返回的错误是否可重试（429 / 限流 / 服务繁忙）
+    function isRetryableMsg(msg) {
+      if (!msg) return false;
+      return /429|较忙|限流|服务.*忙|AI 服务|稍后|retry|繁忙/i.test(msg);
+    }
+
+    function finalize() {
+      busy = false;
+      send.disabled = false;
+      input.disabled = false;
+      input.focus();
+    }
+
+    // 多轮对话：维护对话历史，供追问时回传 Worker 维持上下文
+    var conversation = [];
+    var MAX_HISTORY = 10; // 最近 10 轮
+
+    // 流式提问（含自动重试：429 / 服务繁忙时 3 秒后自动重发，最多 3 次）
     function ask(question) {
       if (busy) return;
       busy = true;
@@ -177,122 +195,191 @@
       // 隐藏示例，减少干扰
       if (exWrap && exWrap.parentNode) exWrap.style.display = 'none';
 
-      var controller = new AbortController();
+      var retryCount = 0;
+      var MAX_RETRY = 3;
+      var RETRY_DELAY_MS = 3000;
+      var controller = null;
+      var scheduledRetry = false;
 
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
-        body: JSON.stringify({ question: question }),
-        signal: controller.signal,
-      })
-        .then(function (resp) {
-          if (resp.status === 429) {
-            throw new Error('提问过于频繁，请稍后再试。');
-          }
-          if (resp.status === 403) {
-            throw new Error('当前来源未被允许访问问答服务（需在 Worker 配置 CORS 白名单）。');
-          }
-          if (!resp.ok) {
-            throw new Error('问答服务暂不可用（HTTP ' + resp.status + '）。');
-          }
-          if (!resp.body) throw new Error('当前浏览器不支持流式响应。');
+      function scheduleRetry() {
+        scheduledRetry = true;
+        retryCount++;
+        if (controller) controller.abort();
+        aText.classList.add('is-empty', 'is-streaming');
+        aText.textContent =
+          'AI 服务较忙，' + RETRY_DELAY_MS / 1000 + ' 秒后自动重试（第 ' + retryCount + ' 次）…';
+        scrollDown();
+        setTimeout(attempt, RETRY_DELAY_MS);
+      }
 
-          var reader = resp.body.getReader();
-          var decoder = new TextDecoder();
-          var buf = '';
-          var firstDelta = true;
+      function attempt() {
+        scheduledRetry = false;
+        controller = new AbortController();
 
-          function renderSources(sources) {
-            sourcesBox.innerHTML = '';
-            if (!sources || !sources.length) {
-              sourcesBox.appendChild(el('div', 'qa-sources-empty', '（未匹配到站内文献）'));
-              return;
+        // 多轮：把当前轮之前的历史回传 Worker（最近 MAX_HISTORY 轮）
+        var historyPayload = conversation
+          .slice(-MAX_HISTORY * 2)
+          .map(function (h) {
+            return { role: h.role, text: h.text };
+          });
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
+          body: JSON.stringify({ question: question, history: historyPayload }),
+          signal: controller.signal,
+        })
+          .then(function (resp) {
+            if (resp.status === 429) {
+              throw { retryable: true, message: 'AI 服务当前请求量较大（429），正在自动重试…' };
             }
-            sourcesBox.appendChild(el('div', 'qa-sources-label', '参考来源'));
-            sources.forEach(function (s, idx) {
-              var link = el('a', 'qa-source');
-              link.href = s.url;
-              link.id = 'qa-ref-' + (idx + 1);
-              link.target = '_blank';
-              link.rel = 'noopener noreferrer';
-              link.appendChild(el('span', 'qa-source-idx', '[' + (idx + 1) + '] '));
-              link.appendChild(el('span', 'qa-source-title', s.title || s.url));
-              if (s.heading) link.appendChild(el('span', 'qa-source-heading', '小节：' + s.heading));
-              sourcesBox.appendChild(link);
-            });
-          }
-
-          // 累积原始文本，每次重新渲染以保证 [N] 上标链接完整
-          var answerRaw = '';
-
-          function handleEvent(evt) {
-            if (!evt || typeof evt !== 'object') return;
-            if (evt.type === 'sources') {
-              renderSources(evt.sources);
-            } else if (evt.type === 'delta') {
-              if (firstDelta) {
-                firstDelta = false;
-                aText.classList.remove('is-empty');
-                answerRaw = '';
-              }
-              answerRaw += evt.text || '';
-              aText.innerHTML = renderCitations(answerRaw);
-              scrollDown();
-            } else if (evt.type === 'error') {
-              aText.classList.remove('is-streaming');
-              aText.classList.add('is-empty');
-              aText.textContent = '';
-              showError('回答生成出错：' + (evt.message || '未知错误'));
-            } else if (evt.type === 'done') {
-              if (firstDelta) {
-                // 无 delta（如零召回兜底文本已通过 delta 下发；此分支仅保险）
-                aText.classList.remove('is-empty');
-                if (!aText.textContent) aText.textContent = '（暂无回答）';
-              }
+            if (resp.status === 403) {
+              throw {
+                retryable: false,
+                message: '当前来源未被允许访问问答服务（需在 Worker 配置 CORS 白名单）。',
+              };
             }
-          }
+            if (resp.status >= 500) {
+              throw {
+                retryable: true,
+                message: '问答服务暂时不稳定（HTTP ' + resp.status + '），正在自动重试…',
+              };
+            }
+            if (!resp.ok) {
+              throw { retryable: false, message: '问答服务暂不可用（HTTP ' + resp.status + '）。' };
+            }
+            if (!resp.body) throw { retryable: false, message: '当前浏览器不支持流式响应。' };
 
-          function pump() {
-            return reader.read().then(function (r) {
-              if (r.done) {
-                aText.classList.remove('is-streaming');
+            var reader = resp.body.getReader();
+            var decoder = new TextDecoder();
+            var buf = '';
+            var firstDelta = true;
+            var pendingSources = null;
+            var sourcesRendered = false;
+
+            function renderSources(sources) {
+              sourcesBox.innerHTML = '';
+              if (!sources || !sources.length) {
+                sourcesBox.appendChild(el('div', 'qa-sources-empty', '（未匹配到站内文献）'));
                 return;
               }
-              buf += decoder.decode(r.value, { stream: true });
-              var parts = buf.split('\n\n');
-              buf = parts.pop();
-              for (var i = 0; i < parts.length; i++) {
-                var s = parts[i].trim();
-                if (!s || s.indexOf('data:') !== 0) continue;
-                var payload = s.slice(5).trim();
-                if (!payload) continue;
-                var evt;
-                try {
-                  evt = JSON.parse(payload);
-                } catch (e) {
-                  continue;
-                }
-                handleEvent(evt);
-              }
-              scrollDown();
-              return pump();
-            });
-          }
+              sourcesBox.appendChild(el('div', 'qa-sources-label', '参考来源'));
+              sources.forEach(function (s, idx) {
+                var link = el('a', 'qa-source');
+                link.href = s.url;
+                link.id = 'qa-ref-' + (idx + 1);
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.title = s.url;
+                link.appendChild(el('span', 'qa-source-idx', '[' + (idx + 1) + '] '));
+                link.appendChild(el('span', 'qa-source-title', s.title || s.url));
+                if (s.heading) link.appendChild(el('span', 'qa-source-heading', '小节：' + s.heading));
+                sourcesBox.appendChild(link);
+              });
+              sourcesRendered = true;
+            }
 
-          return pump();
-        })
-        .catch(function (err) {
-          aText.classList.remove('is-streaming', 'is-empty');
-          aText.textContent = '';
-          if (err && err.name === 'AbortError') return;
-          showError(err && err.message ? err.message : '网络异常，无法连接问答服务。');
-        })
-        .then(function () {
-          busy = false;
-          send.disabled = false;
-          input.disabled = false;
-          input.focus();
-        });
+            function maybeRenderSources() {
+              if (!sourcesRendered && pendingSources) renderSources(pendingSources);
+            }
+
+            // 累积原始文本，每次重新渲染以保证 [N] 上标链接完整
+            var answerRaw = '';
+
+            function handleEvent(evt) {
+              if (!evt || typeof evt !== 'object') return;
+              if (evt.type === 'sources') {
+                // 答案先于来源：先缓存，等第一个 delta 出来再一起渲染
+                pendingSources = evt.sources || [];
+              } else if (evt.type === 'delta') {
+                if (firstDelta) {
+                  firstDelta = false;
+                  aText.classList.remove('is-empty');
+                  answerRaw = '';
+                  maybeRenderSources();
+                }
+                answerRaw += evt.text || '';
+                aText.innerHTML = renderCitations(answerRaw);
+                scrollDown();
+              } else if (evt.type === 'error') {
+                // 流中途出错：可重试则自动重试（不立即报错），否则致命报错
+                var m = evt.message || '未知错误';
+                if (isRetryableMsg(m) && retryCount < MAX_RETRY) {
+                  scheduleRetry();
+                  return;
+                }
+                aText.classList.remove('is-streaming');
+                aText.classList.add('is-empty');
+                aText.textContent = '';
+                maybeRenderSources();
+                showError('回答生成出错：' + m);
+              } else if (evt.type === 'done') {
+                maybeRenderSources();
+                if (firstDelta) {
+                  // 无 delta（如零召回兜底文本已通过 delta 下发；此分支仅保险）
+                  aText.classList.remove('is-empty');
+                  if (!aText.textContent) aText.textContent = '（暂无回答）';
+                }
+                // 多轮：把这一轮问答存入历史（供后续追问维持上下文）。done 仅触发一次，重试不会重复 push。
+                if (!turn._stored && answerRaw) {
+                  turn._stored = true;
+                  conversation.push({ role: 'user', text: question });
+                  conversation.push({ role: 'assistant', text: answerRaw });
+                  if (conversation.length > MAX_HISTORY * 2) {
+                    conversation = conversation.slice(-MAX_HISTORY * 2);
+                  }
+                }
+              }
+            }
+
+            function pump() {
+              return reader.read().then(function (r) {
+                if (r.done) {
+                  aText.classList.remove('is-streaming');
+                  return;
+                }
+                buf += decoder.decode(r.value, { stream: true });
+                var parts = buf.split('\n\n');
+                buf = parts.pop();
+                for (var i = 0; i < parts.length; i++) {
+                  var s = parts[i].trim();
+                  if (!s || s.indexOf('data:') !== 0) continue;
+                  var payload = s.slice(5).trim();
+                  if (!payload) continue;
+                  var evt;
+                  try {
+                    evt = JSON.parse(payload);
+                  } catch (e) {
+                    continue;
+                  }
+                  handleEvent(evt);
+                }
+                scrollDown();
+                return pump();
+              });
+            }
+
+            return pump();
+          })
+          .catch(function (err) {
+            if (err && err.name === 'AbortError') return; // 主动 abort（重试流程），不报错
+            var retryable = err && err.retryable;
+            var msg = err && err.message ? err.message : '网络异常，无法连接问答服务。';
+            if (retryable && retryCount < MAX_RETRY) {
+              scheduleRetry();
+              return;
+            }
+            aText.classList.remove('is-streaming', 'is-empty');
+            aText.textContent = '';
+            showError(msg);
+          })
+          .then(function () {
+            // 仅在确定不再重试时释放输入（重试期间 busy 保持）
+            if (!scheduledRetry) finalize();
+          });
+      }
+
+      attempt();
     }
 
     form.addEventListener('submit', function (e) {

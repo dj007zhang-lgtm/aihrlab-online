@@ -11,8 +11,8 @@ compatibility_date = "2026-02-01"
 
 # ---- 明文变量（非机密，可入库） ----
 [vars]
-# 知识库 JSON 地址（GitHub Pages 上的构建产物）
-KB_URL = "https://aihrlab.online/assets/qa/kb.json"
+# 知识库 JSON 地址（GitHub Pages 上的构建产物；直连 www 主域，避免裸域 301 重定向）
+KB_URL = "https://www.aihrlab.online/assets/qa/kb.json"
 # 模型（agnes-2.0-flash 性价比高；也可换 agnes-2.5-pro / agnes-2.5-pro-beta）
 AGNES_MODEL = "agnes-2.0-flash"
 # 允许跨域调用的站点来源（必须含问答页实际部署的 origin）
@@ -25,6 +25,19 @@ RATE_LIMIT_PER_MIN = "20"
 DAILY_TOKEN_BUDGET = "200000"
 # 单次回答最大输出 token
 MAX_TOKENS = "800"
+# 全局令牌桶 RPM（跨 isolate 经 KV 整形，压低聚合限流概率；需绑定 QA_RATE）
+# 元器 API 并发上限=10，故此处设 10，避免令牌桶放行量超过上游并发而触发 429
+GLOBAL_RPM = "10"
+# LLM 后端切换：agnes（直连 agnes-ai，CF→CF 易 1015）| yuanqi（腾讯元器，根治 1015）
+LLM_BACKEND = "yuanqi"
+# 腾讯元器智能体 ID（= 后台 appid；明文非机密）
+# 注意：以体验链接里的 appid 为准（2026-09-03 实测验证 200）。此前记录的
+# 2098534462990922041 为复制错位，实测 400，已废弃。
+YUANQI_ASSISTANT_ID = "2095344629909220416"
+# 腾讯元器 API 地址（默认官方，非 Cloudflare 终点）
+YUANQI_API_URL = "https://yuanqi.tencent.com/openapi/v1/agent/chat/completions"
+# 元器 appkey 为机密，用 Secret 注入：npx wrangler secret put YUANQI_APPKEY
+# 然后粘贴元器后台「应用发布 → API 管理」生成的 token（= Bearer 值）
 
 # ---- 机密（务必用 Secret，勿写明文） ----
 # 执行：npx wrangler secret put AGNES_API_KEY
@@ -38,3 +51,14 @@ MAX_TOKENS = "800"
 # ]
 # 启用后，前端 endpoint 填 https://qa.aihrlab.online/ask
 # 且 ALLOWED_ORIGINS 仍填站点来源（aihrlab.online），无需把 worker 域加进白名单。
+
+# ---- KV 绑定（方案 B：答案缓存 + 全局令牌桶，压低 1015 触发率） ----
+# 在 Cloudflare 控制台 Workers → KV 创建两个 namespace：QA_CACHE、QA_RATE
+# 把各自返回的 id 填到下方 binding 对应的 id 字段，然后本地执行 `wrangler deploy`。
+# 未绑定 KV 时 Worker 自动降级：无限流 / 无缓存（仅前端自动重试生效）。
+# [[kv_namespaces]]
+# binding = "QA_CACHE"
+# id = "填入_QA_CACHE_namespace_id"
+# [[kv_namespaces]]
+# binding = "QA_RATE"
+# id = "填入_QA_RATE_namespace_id"
