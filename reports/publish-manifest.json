@@ -2052,5 +2052,17 @@
     ],
     "sitemap_urls_before": 314,
     "sitemap_urls_after": 314
+  },
+  {
+    "date": "2026-09-03 08:57",
+    "commit": "8833f3eb5c4d2d8f5e934c2e60decfa1be7461fa",
+    "message": "fix: Copilot Worker 429重试与限流保护",
+    "files_count": 2,
+    "files": [
+      "assets/qa/worker.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 314,
+    "sitemap_urls_after": 314
   }
 ]
