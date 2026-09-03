@@ -72,9 +72,39 @@ try{
   var PAGE_SIZE=24;
   var state={cat:'all',page:1};
 
-  /* 分类数量徽章 */
-  var counts={all:cards.length};
-  cards.forEach(function(c){var k=c.getAttribute('data-category')||'';counts[k]=(counts[k]||0)+1;});
+  /* 分类分段匹配：data-category 允许「主类 / 子类」「主类 · 子类」复合写法。
+     命中任一分段即归入该分类，避免复合分类在精确匹配下整体不可见（2026-09-03 修复，
+     修复前 235 篇中 52 篇在任何分类筛选下都不可达）。 */
+  function segs(c){
+    var v=c.getAttribute('data-category')||'',arr=v.split(/[\/\u00b7]/),out=[],i,t;
+    for(i=0;i<arr.length;i++){t=arr[i].replace(/^\s+|\s+$/g,'');if(t)out.push(t);}
+    return out;
+  }
+  var CATS=[];
+  btns.forEach(function(b){
+    var f=b.getAttribute('data-filter')||'all';
+    if(f!=='all'&&f!=='\u5176\u4ed6'&&CATS.indexOf(f)===-1)CATS.push(f);
+  });
+  function hitCat(c,f){
+    var s=segs(c),i;
+    for(i=0;i<s.length;i++){if(s[i]===f)return true;}
+    return false;
+  }
+  function isOther(c){
+    var i;
+    for(i=0;i<CATS.length;i++){if(hitCat(c,CATS[i]))return false;}
+    return true;
+  }
+
+  /* 分类数量徽章：复合分类同时计入命中的每个分类，故各分类计数之和可大于总数 */
+  var counts={all:cards.length},ci;
+  for(ci=0;ci<CATS.length;ci++)counts[CATS[ci]]=0;
+  counts['\u5176\u4ed6']=0;
+  cards.forEach(function(c){
+    var hit=false,ck;
+    for(ck=0;ck<CATS.length;ck++){if(hitCat(c,CATS[ck])){counts[CATS[ck]]++;hit=true;}}
+    if(!hit)counts['\u5176\u4ed6']++;
+  });
   btns.forEach(function(b){
     var f=b.getAttribute('data-filter')||'all';
     if(counts[f]!==undefined&&!b.querySelector('.filter-count')){
@@ -87,7 +117,8 @@ try{
 
   function matched(){
     if(state.cat==='all')return cards;
-    return cards.filter(function(c){return c.getAttribute('data-category')===state.cat;});
+    if(state.cat==='\u5176\u4ed6')return cards.filter(isOther);
+    return cards.filter(function(c){return hitCat(c,state.cat);});
   }
 
   /* 页码窗口：首页 + 末页 + 当前±1，其余省略号 */
