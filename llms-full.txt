@@ -633,3 +633,27 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 135. AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务
 - URL: https://www.aihrlab.online/articles/ai-task-level-work-redesign-2026.html
 - 摘要: 微软研究院基于 2024 年 20 万条 Copilot 对话为 785 个职业测算AI 适用性评分，三个构成维度全在任务层。北大国发院基于智联招聘2018 至 2024 年约 125 万条招聘广告的研究发现，高暴露岗位薪资增幅下降、内部差距扩大、门槛同步上升。变化不在岗位，在任务束。
+
+### 147. 麦肯锡 18 种原子能力：为什么清单列完，组织还是不会用
+- URL: https://www.aihrlab.online/articles/mckinsey-atomic-capabilities-2026.html
+- 摘要: 麦肯锡把组织能力拆成不可再分的「原子能力」单元，真正的难点不在列出 18 种维度，而在工程化：把能力单元映射到任务流、接成技能图谱、嵌进工作流。多数组织停在了清单这一步，因为没解决能力单元如何被调用。
+
+### 148. 赛马机制：用组织冗余竞速，替代中央指派
+- URL: https://www.aihrlab.online/articles/bytedance-tencent-horse-race-2026.html
+- 摘要: 赛马机制是多团队并行竞速、胜者上位的组织结构选择，本质是用内部冗余竞速替代中央计划，换取信息发现速度。它常败在「冗余有了、记忆没建」，多个团队跑完就清零、不复盘、不沉淀，于是同样的组织错误反复发生。
+
+### 149. AI 协作开发模式下的工程组织架构：当编码被接管，单元怎么重排
+- URL: https://www.aihrlab.online/articles/ai-collab-engineering-org-2026.html
+- 摘要: 当 AI 承担大量编码，工程组织的单元从「人 + 角色」下沉为「人 + agent 编队」。这不是效率工具问题，是组织结构问题：评审链、决策权与汇报关系都被改写。Teams of Teams 的逻辑在 AI 时代出现一类非人节点。
+
+### 150. 中台退潮：当 AI 把协调能力内化，独立中台层还有必要吗
+- URL: https://www.aihrlab.online/articles/ant-middle-platform-decline-2026.html
+- 摘要: 中台是为复用而建的信息与能力中枢。它的退潮来自一个组织临界点，当协调成本超过复用收益，独立中台层就从资产变成摩擦。AI 时代，业务侧用智能体自取能力，正在把协调能力内化，进一步稀释中台作为独立层的必要性。
+
+### 151. 端到端组织革命：重写信息网络，更要重写利益分配网络
+- URL: https://www.aihrlab.online/articles/end-to-end-org-revolution-2026.html
+- 摘要: OD 的第一性原理是，组织等于信息网络加利益分配网络。端到端转型的失败，八成出在只重写了流程（信息）却没动激励（利益）。AI 时代信息网络被重写，利益网络若滞后，转型只会造出一条更快的断头路。
+
+### 152. AI 原生治理：当决策权下沉到任务，董事会监督怎么重装
+- URL: https://www.aihrlab.online/articles/ai-native-governance-tasks-2026.html
+- 摘要: AI 原生组织不是加 AI 工具，是决策权从岗位和层级下沉到任务。治理架构要围绕「谁对哪类任务的最终判断负责」重构，董事会从逐事审批退为风险边界设定者与例外仲裁者。当决策节点里出现非人参与者，问责归属必须重新定义。
