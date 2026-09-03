@@ -2213,5 +2213,17 @@
     ],
     "sitemap_urls_before": 320,
     "sitemap_urls_after": 320
+  },
+  {
+    "date": "2026-09-03 20:46",
+    "commit": "9f86503fc8e277a09dbbb603e3e8cb6e84e12461",
+    "message": "fix: 搜索弹窗默认问AI + 全新UI样式",
+    "files_count": 2,
+    "files": [
+      "assets/js/search.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 320,
+    "sitemap_urls_after": 320
   }
 ]
