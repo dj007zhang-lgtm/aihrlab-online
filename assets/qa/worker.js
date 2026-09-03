@@ -46,6 +46,10 @@ const rateBuckets = new Map(); // ip -> {ts, count}
 let dayTokenUsed = 0;
 let dayTokenStamp = newDateStamp();
 
+// agnes-ai 出口限流保护：同一 isolate 内控制连续调用最小间隔，降低 Cloudflare 1015 概率
+let lastAgnesRequestAt = 0;
+const MIN_AGNES_INTERVAL_MS = 600;
+
 function newDateStamp() {
   const d = new Date();
   return d.getUTCFullYear() * 10000 + (d.getUTCMonth() + 1) * 100 + d.getUTCDate();
@@ -149,35 +153,55 @@ function retrieve(question, kb, topK) {
 }
 
 // ---------- 构造系统提示词与资料上下文 ----------
-// 把资料放在 user message 里，system 只放角色与硬规则。实测若资料放在 system
-// prompt 中，模型容易把「复述片段」当成答案；拆到 user message 后更听话。
+// 关键教训（实测多轮）：agnes-2.0-flash 这类推理模型会把 user message 里的「参考资料」
+// 和「格式要求」原样复述进输出。所以：
+//  1) 资料单独放一条 user 消息，并明确标注「仅供作答依据，不是你的输出内容」；
+//  2) 用一条 assistant 确认 + 一条 few-shot 干净答案做格式锚点，引导模型直接输出连贯段落；
+//  3) system 把「禁止复述检索格式 / 思考语句 / 格式要求 / 编号列表」写死；
+//  4) 流式侧再用 makeCoTFilter 做硬兜底（见下）。
 function buildMessages(chunks, question) {
   const parts = chunks.map((c, i) => {
     const ch = c.ch; // retrieve 返回的是 {ch, score}
     const heading = ch.heading ? `（小节：${ch.heading}）` : '';
-    return `[${i + 1}] 来源：${ch.title}｜${ch.url}${heading ? '｜' + heading : ''}\n${ch.text}`;
+    return `[${i + 1}] ${ch.title}｜${ch.url}${heading ? '｜' + heading : ''}\n${ch.text}`;
   });
   const system = [
     '你是「AIHR数智引擎」网站的知识库问答助手，由资深 HR/OD 专家视角作答。',
-    '你只能依据用户提供的「参考资料」作答，不得编造事实、数据或结论，不得引入资料之外的信息。',
-    '若参考资料中完全没有相关信息，明确回答：「本站资料暂未收录该问题的相关内容」，并建议换一种问法或留言补充。',
-    '若参考资料中有相关信息，必须直接给出整合后的最终答案，不要复述资料、不要罗列片段、不要输出思考过程。',
-    '使用简体中文，语气专业、克制、像活人专家；不要营销腔、不要夸大、不要渲染焦虑、不要使用对称排比等 AI 腔。',
-    '回答要有信息密度，直给结论与依据，避免空泛铺垫。',
-  ].join('\n');
-  const user = [
-    `问题：${question}`,
+    '你只能依据下方「参考资料」作答，不得编造事实、数据或结论，不得引入资料之外的信息。',
+    '若参考资料中完全没有相关信息，只回答：「本站资料暂未收录该问题的相关内容」，并建议换一种问法或留言补充。',
+    '若参考资料中有相关信息，直接给出整合后的最终答案。',
     '',
-    '参考资料（按相关度排序，已提供来源编号 [1]、[2]…，直接基于它们回答）：',
-    parts.join('\n\n'),
+    '【绝对禁止】你的输出中不得出现以下任何内容，一旦发现立即整段删除：',
+    '1. 参考资料原文、检索格式（如「[1] 来源：…」「来源：…」「资料片段」「片段N」）、对资料的要点罗列或复述；',
+    '2. 任何思考 / 过渡语句：「我需要…」「让我分析…」「根据资料…」「以下是…」「首先 / 其次 / 最后」「用户询问…」；',
+    '3. 对问题或格式要求的复述（如「我需要按照格式要求回答…」「回答格式要求…」）；',
+    '4. 数字编号列表（1. 2. 3.）或分点清单、对称排比等 AI 腔。',
     '',
-    '回答格式要求（必须遵守）：',
-    '1. 用编号列表组织最终答案（1. 2. 3. …），每一点讲清楚一个观点或事实。',
-    '2. 每个观点或关键事实后用 [N] 标注来源编号，与参考资料中的 [N] 一一对应（例如「腾讯活水计划 2012 年启动[1]」「2025 年 8 月门槛降至 3 个月[2]」）。',
-    '3. 不要复述「片段N详细介绍了…」「关键信息点」等中间结构；直接输出最终答案本身。',
-    '4. 答案正文结束后，另起一行写「参考来源：」，按 [N] 编号列出 2-4 条参考链接，格式：「[N] 标题：https://…URL」。',
+    '你的输出只能是：',
+    '① 1-2 段连贯的中文正文，直接以答案第一句话开头；句中在观点或关键事实后用 [N] 标注来源编号，与参考资料中的 [N] 一一对应；',
+    '② 正文结束后另起一行写「参考来源：」，按 [N] 编号列出 2-4 条链接，格式「[N] 标题：URL」。',
+    '使用简体中文，语气专业、克制、像活人专家；不要营销腔、不要夸大、不要渲染焦虑。',
   ].join('\n');
-  return { system, user };
+
+  // few-shot：用一次真实问答做格式锚点，让模型模仿「连贯段落 + [N] 引用 + 参考来源」的形态
+  const fewShotQuestion = '腾讯活水计划是什么？';
+  const fewShotAnswer = [
+    '腾讯活水计划是腾讯内部的员工转岗机制[1]，2012 年启动，允许入职满 1 年且绩效在 2 星及以上的员工跨部门申请，原部门管理者不得无正当理由阻挠[1]。',
+    '2025 年 8 月，腾讯针对 AI 战略部门（混元大模型、元宝、微信电商、微信大模型）做了专项调整：转岗门槛降至入职 3 个月、取消绩效限制、交接期压缩至 30 天，目的是提升内部人才流动性，让人才向 AI 战略方向快速配置[2]。',
+    '',
+    '参考来源：',
+    '[1] 腾讯活水计划机制详解：https://aihrlab.online/articles/tencent-huoshui-internal-mobility.html',
+    '[2] 腾讯 AI 战略人才流动专项调整：https://aihrlab.online/articles/tencent-ai-strategy-talent.html',
+  ].join('\n');
+
+  return [
+    { role: 'system', content: system },
+    { role: 'user', content: '【参考资料，仅供你作答依据，不是你的输出内容，不要复述】\n' + parts.join('\n\n') },
+    { role: 'assistant', content: '我已阅读上述参考资料，将仅基于它们作答，不会复述资料原文或检索格式。' },
+    { role: 'user', content: `问题：${fewShotQuestion}\n\n请直接输出最终答案（1-2 段连贯正文 + 结尾参考来源列表），不要任何前戏。` },
+    { role: 'assistant', content: fewShotAnswer },
+    { role: 'user', content: `现在请回答这个问题：${question}` },
+  ];
 }
 
 // ---------- 过滤 reasoning 模型的 CoT 输出 ----------
@@ -189,13 +213,14 @@ function makeCoTFilter() {
   let buf = '';
   let inAnswer = false;
   let finalAnswerPrefixStripped = false;
-  // 匹配用户截图里出现的 CoT/复述结构：
-  // - 片段2详细介绍了...
-  // 片段2详细介绍了...
-  // 关键信息点：
-  // 我需要整合...
-  // 用户询问...
-  const cotLineRe = /^\s*(?:[-•*]\s*)?(?:用户|让我|我需要|我首先|首先|接下来|然后|最后|综上所述|基于|从|分析|总结|可见|因此|关键信息点|信息点|参考资料|资料片段|回答如下|最终答案[:：]|答案[:：]|片段\d+\s*(?:详细)?(?:介绍|提供|说明|指出|提到)[:：]?|片段\d+[:：]).*$/;
+  // 匹配推理模型/复述会吐出来的所有垃圾结构（用户实测截图已覆盖）：
+  // - [1] 来源：招聘全链路...        （检索资料格式）
+  // - - 提到AI接管...  - 核心洞察：... （资料 bullet）
+  // - 根据这些资料，我需要整合...      （思考过渡）
+  // - 我需要按照格式要求回答...        （格式要求复述）
+  // - 1. AI招聘正在从...  2. 招聘全链路... （编号列表中间整理）
+  // - 用户询问... 让我分析资料片段... 片段2详细介绍了... 关键信息点：
+  const cotLineRe = /^(?:\s*(?:[-•*]\s*)?)?(?:\[?\d+\]?\s*来源[:：]|[-•*]\s*(?:提到|核心洞察|关键|洞察|总结|分析|说明|指出|提供|关键事实|据|报道|资料显示)|根据这些资料|根据资料|根据参考|我需要|让我|首先分析|首先|其次|最后|综上所述|基于上述|从资料|分析如下|总结如下|可见|因此|关键信息点|信息点|参考资料|资料片段|回答如下|最终答案[:：]|答案[:：]|用户询问|以下是|下面我|核心洞察[:：]|关键洞察|格式要求|让我分析|片段\d+\s*(?:详细)?(?:介绍|提供|说明|指出|提到)[:：]?|片段\d+[:：]|\d+[.、)）]\s).*$/;
   return function (text) {
     if (inAnswer) {
       if (!finalAnswerPrefixStripped) {
@@ -242,34 +267,66 @@ async function* streamLLM(messages, env) {
     temperature: 0.3,
   };
 
-  // 对 agnes-ai 的 429 做一次退避重试（Cloudflare Worker IP 池可能触发瞬时限流）
+  // 对 agnes-ai / Cloudflare 层的 429/5xx/网络抖动做指数退避重试
   let resp;
   let lastErr = null;
-  for (let attempt = 0; attempt < 2; attempt++) {
-    resp = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/event-stream',
-        Authorization: 'Bearer ' + env.AGNES_API_KEY,
-      },
-      body: JSON.stringify(body),
-    });
-    if (resp.ok || resp.status !== 429) break;
-    lastErr = await resp.text().catch(() => '');
-    if (attempt === 0) {
-      await new Promise((r) => setTimeout(r, 800));
+  const maxAttempts = 4;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const sinceLast = Date.now() - lastAgnesRequestAt;
+    if (sinceLast < MIN_AGNES_INTERVAL_MS) {
+      await new Promise((r) => setTimeout(r, MIN_AGNES_INTERVAL_MS - sinceLast));
+    }
+    lastAgnesRequestAt = Date.now();
+    try {
+      resp = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/event-stream',
+          Authorization: 'Bearer ' + env.AGNES_API_KEY,
+        },
+        body: JSON.stringify(body),
+      });
+    } catch (netErr) {
+      lastErr = String(netErr.message || netErr);
+      resp = null;
+    }
+    if (!resp) {
+      // 网络层失败，继续重试
+    } else if (resp.ok) {
+      break;
+    } else if (resp.status === 429 || resp.status >= 500) {
+      lastErr = await resp.text().catch(() => '');
+      const delay = 500 * Math.pow(2, attempt) + Math.floor(Math.random() * 300);
+      if (attempt < maxAttempts - 1) {
+        await new Promise((r) => setTimeout(r, delay));
+        continue;
+      }
+    } else {
+      // 4xx 客户端错误不重试
+      break;
     }
   }
 
-  if (!resp.ok) {
-    let msg = 'agnes-ai 调用失败（' + resp.status + '）';
+  if (!resp || !resp.ok) {
+    let msg = 'AI 服务调用失败';
+    if (!resp) {
+      msg = 'AI 服务网络连接失败，请稍后重试';
+    } else if (resp.status === 429 || (lastErr && lastErr.includes('1015'))) {
+      msg = 'AI 服务当前较忙，请稍后再试（429）';
+    } else {
+      msg = 'agnes-ai 调用失败（' + resp.status + '）';
+    }
     try {
       const e = await resp.json();
       if (e && e.error && e.error.message) msg = e.error.message;
     } catch (_) {}
-    if (lastErr && !msg.includes(lastErr)) msg += ' ' + lastErr.slice(0, 200);
-    yield { error: msg, status: resp.status };
+    if (lastErr && !msg.includes(lastErr)) {
+      // 只把简洁错误码带出来，避免把整段 Cloudflare HTML 塞给用户
+      const snippet = lastErr.slice(0, 120).replace(/\s+/g, ' ');
+      if (snippet && !msg.includes(snippet)) msg += ' ' + snippet;
+    }
+    yield { error: msg, status: resp ? resp.status : 0 };
     return;
   }
   const reader = resp.body.getReader();
