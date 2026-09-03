@@ -46,26 +46,31 @@ def extract(html):
 
 def gate_title(d):
     reasons, warns = [], []
-    t = d["title"] or d["h1"]
-    if not t:
+    # 页面展示标题以 h1 为准；<title> 允许带品牌后缀
+    display_title = d["h1"] or d["title"]
+    title = d["title"] or ""
+    h1 = d["h1"] or ""
+    if not display_title:
         reasons.append("无标题")
         return reasons, warns
-    n = len(t)
+    n = len(display_title)
     if n > 60:
-        reasons.append(f"标题过长({n}字>60)")
+        reasons.append(f"展示标题过长({n}字>60)")
     elif n < 15:
-        warns.append(f"标题偏短({n}字<15)")
-    if t.endswith("？") or t.endswith("?"):
+        warns.append(f"展示标题偏短({n}字<15)")
+    if display_title.endswith("？") or display_title.endswith("?"):
         warns.append("标题以问号结尾(恐慌/悬念腔，需确认有由头)")
     for w in BANNED_TITLE:
-        if w in t:
+        if w in display_title:
             reasons.append(f"标题含违禁调性词「{w}」")
-    # R-16：标题不得含品牌后缀（| AIHR数智引擎）
-    if "| AIHR数智引擎" in t or "｜AIHR数智引擎" in t:
-        reasons.append("标题含品牌后缀（R-16）")
-    # R-17：title 必须与 h1 一致
-    if d["title"] and d["h1"] and d["title"] != d["h1"]:
-        reasons.append(f"title ≠ h1（R-17）: title='{d['title']}' h1='{d['h1']}'")
+    # R-16：页面展示标题（h1）不得含品牌后缀
+    if "| AIHR数智引擎" in h1 or "｜AIHR数智引擎" in h1:
+        reasons.append("h1 含品牌后缀（R-16）")
+    # R-17：<title> 应等于 h1 或 h1 + " | AIHR数智引擎"
+    if title and h1:
+        expected = h1 + " | AIHR数智引擎"
+        if title != h1 and title != expected:
+            reasons.append(f"<title> 与 h1 不一致（R-17）: title='{title}' h1='{h1}'")
     return reasons, warns
 
 

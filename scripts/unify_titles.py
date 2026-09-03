@@ -3,19 +3,26 @@
 """
 unify_titles.py — 全站标题统一脚本（第二步：批量）
 
-规则（用户决策 + 质量门纪律）：
+⚠️  状态：已冻结（2026-09-03）
+2026-09-03 用户校准：页面展示标题（h1/og:title/twitter:title）必须干净，但 <title> 允许保留
+「 | AIHR数智引擎」品牌后缀。本脚本会批量 stripping 所有字段的后缀，与现行纪律冲突，
+除非明确决定恢复「四字段全干净」旧口径，否则不应再执行 --apply。
+
+历史规则（留档）：
 1. 所有文章四字段 —— <title> / <h1> / og:title / twitter:title —— 统一为「无后缀规范标题」。
-2. 不追加「｜AIHR数智引擎」等品牌后缀（用户：不专业、多余）。
+2. 不追加「｜AIHR数智引擎」等品牌后缀。
 3. 规范标题来源（长度按 SEO/GEO 健康区间，单一真相源 scripts/title_standards.py）：
    - H1(去后缀) ≤ 40 字（TITLE_WARN，健康上限）→ 直接用 H1。
    - H1 > 40 字 → 用 LONG_TITLE_MAP 中人工重写、保留原意、≤40 字的版本（严禁物理截断）。
 4. 重定向桩页（标题含「页面已迁移」或含 http-equiv=refresh）跳过。
 5. 非文章页（首页/列表页/hub）仅清除 <title> 里的品牌后缀并统一已有 og/twitter，不插入新 meta。
 
-幂等：重复执行应产生 0 改动。
-用法：
-  python3 scripts/unify_titles.py            # dry-run
-  python3 scripts/unify_titles.py --apply    # 写入
+如需仅修复「页面展示标题意外带后缀」的个案，建议用 sed/perl 针对 h1/og/twitter 局部处理，
+不要运行本脚本的全字段 strip。
+
+用法（仅保留 dry-run 供审计）：
+  python3 scripts/unify_titles.py            # dry-run，显示会改动哪些文件
+  python3 scripts/unify_titles.py --apply    # ❌ 已不建议执行
 """
 import re
 import sys

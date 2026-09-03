@@ -91,7 +91,7 @@
   {
     "title": "AI做候选人触达实操：个性化不是插入姓名",
     "url": "ai-candidate-outreach-playbook-2026",
-    "category": "AI招聘",
+    "category": "核心方法论",
     "date": "2026-09-02",
     "tags": []
   },
@@ -426,7 +426,7 @@
   {
     "title": "AI写JD实操手册：把岗位需求翻译成可判定的匹配标准",
     "url": "ai-jd-writing-playbook-2026",
-    "category": "AI招聘",
+    "category": "大厂实践",
     "date": "2026-09-02",
     "tags": []
   },
@@ -736,7 +736,7 @@
   {
     "title": "AI做招聘数据复盘实操：只统计转化率是不够的",
     "url": "ai-recruiting-analytics-playbook-2026",
-    "category": "AI招聘",
+    "category": "研究报告",
     "date": "2026-09-02",
     "tags": [
       "人才战略"
@@ -767,7 +767,7 @@
   {
     "title": "AI简历初筛实操：怎么搭一套不误杀人的筛子",
     "url": "ai-resume-screening-playbook-2026",
-    "category": "AI招聘",
+    "category": "核心方法论",
     "date": "2026-09-02",
     "tags": []
   },
@@ -816,7 +816,7 @@
   {
     "title": "AI设计结构化面试实操：从能力模型到可打分的题库",
     "url": "ai-structured-interview-playbook-2026",
-    "category": "AI招聘",
+    "category": "组织变革",
     "date": "2026-09-02",
     "tags": [
       "人才战略"
@@ -2477,6 +2477,21 @@
       "AI原生组织",
       "组织变革",
       "领导力"
+    ]
+  },
+  {
+    "title": "AI 接管思考之后：被悄悄掏空的组织能力",
+    "url": "ai-cognitive-offloading-deskilling-2026",
+    "category": "组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "认知外包",
+      "能力萎缩",
+      "去技能化",
+      "AI与批判性思维",
+      "组织能力",
+      "人机协作",
+      "知识工作者"
     ]
   }
 ]

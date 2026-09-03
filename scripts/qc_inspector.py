@@ -127,55 +127,85 @@ def parse_quality_gate(output):
 
 
 def check_title_issues():
-    """专项检查标题问题（R-16, R-17）"""
+    """专项检查标题问题（R-16, R-17）
+
+    口径（2026-09-03 校准）：
+    - <title> 允许带「 | AIHR数智引擎」品牌后缀；页面展示标题（h1/og:title/twitter:title）必须干净。
+    - R-16：h1 / og:title / twitter:title 不得含品牌后缀。
+    - R-17：h1 == og:title == twitter:title；<title> == h1 或 h1 + " | AIHR数智引擎"。
+    - 标题长度按页面展示标题（h1）判定，避免 suffix 干扰。
+    """
     issues = []
-    
+    BRAND_SUFFIX = " | AIHR数智引擎"
+    SUFFIX_VARIANTS = ["| AIHR数智引擎", "｜AIHR数智引擎"]
+
     for html_file in sorted(ARTICLES_DIR.glob("*.html")):
         content = html_file.read_text(encoding="utf-8")
-        
-        # 提取 title
+
+        # 提取各字段
         title_match = re.search(r'<title[^>]*>([^<]+)</title>', content, re.IGNORECASE)
         title = title_match.group(1).strip() if title_match else ""
-        
-        # 提取 h1
+
         h1_match = re.search(r'<h1[^>]*>([^<]+)</h1>', content, re.IGNORECASE)
         h1 = h1_match.group(1).strip() if h1_match else ""
-        
-        # 检查 R-16: 品牌后缀
-        if "| AIHR数智引擎" in title or "｜AIHR数智引擎" in title:
+
+        og_match = re.search(r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)', content, re.IGNORECASE)
+        og_title = og_match.group(1).strip() if og_match else ""
+
+        tw_match = re.search(r'<meta[^>]+name=["\']twitter:title["\'][^>]+content=["\']([^"\']+)', content, re.IGNORECASE)
+        tw_title = tw_match.group(1).strip() if tw_match else ""
+
+        # 检查 R-16: 页面展示标题含品牌后缀
+        for field_name, field_value in [("h1", h1), ("og:title", og_title), ("twitter:title", tw_title)]:
+            if any(s in field_value for s in SUFFIX_VARIANTS):
+                issues.append({
+                    "severity": "P1",
+                    "type": "N",
+                    "file": f"articles/{html_file.name}",
+                    "message": f"{field_name} 含品牌后缀: {field_value}",
+                    "rule": "R-16"
+                })
+
+        # 检查 R-17: title 与 h1 的关系
+        if title and h1:
+            expected_title = h1 + BRAND_SUFFIX
+            if title != h1 and title != expected_title:
+                issues.append({
+                    "severity": "P1",
+                    "type": "N",
+                    "file": f"articles/{html_file.name}",
+                    "message": f"<title> 与 h1 不一致: title='{title}' h1='{h1}'",
+                    "rule": "R-17"
+                })
+
+        # 检查 og:title / twitter:title 与 h1 一致性
+        if h1:
+            for field_name, field_value in [("og:title", og_title), ("twitter:title", tw_title)]:
+                if field_value and field_value != h1:
+                    issues.append({
+                        "severity": "P1",
+                        "type": "N",
+                        "file": f"articles/{html_file.name}",
+                        "message": f"{field_name} ≠ h1: {field_value} / h1={h1}",
+                        "rule": "R-17"
+                    })
+
+        # 检查标题长度（按页面展示标题 h1，避免 suffix 干扰）
+        display_title = h1 or title
+        if len(display_title) > 60:
             issues.append({
                 "severity": "P1",
                 "type": "N",
                 "file": f"articles/{html_file.name}",
-                "message": f"标题含品牌后缀: {title}",
-                "rule": "R-16"
-            })
-        
-        # 检查 R-17: title ≠ h1
-        if title and h1 and title != h1:
-            issues.append({
-                "severity": "P1",
-                "type": "N",
-                "file": f"articles/{html_file.name}",
-                "message": f"title ≠ h1: title='{title}' h1='{h1}'",
-                "rule": "R-17"
-            })
-        
-        # 检查标题长度
-        if len(title) > 60:
-            issues.append({
-                "severity": "P1",
-                "type": "N",
-                "file": f"articles/{html_file.name}",
-                "message": f"标题过长 ({len(title)}字): {title}",
+                "message": f"展示标题过长 ({len(display_title)}字): {display_title}",
                 "rule": "T1"
             })
-        elif len(title) < 15 and title:
+        elif len(display_title) < 15 and display_title:
             issues.append({
                 "severity": "P3",
                 "type": "N",
                 "file": f"articles/{html_file.name}",
-                "message": f"标题过短 ({len(title)}字): {title}",
+                "message": f"展示标题过短 ({len(display_title)}字): {display_title}",
                 "rule": "T1"
             })
     
