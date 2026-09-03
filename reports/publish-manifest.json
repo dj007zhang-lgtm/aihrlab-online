@@ -2185,5 +2185,21 @@
     ],
     "sitemap_urls_before": 315,
     "sitemap_urls_after": 315
+  },
+  {
+    "date": "2026-09-03 19:36",
+    "commit": "929b4d73f986218799433ec32490bd5f6705e649",
+    "message": "feat: 路A元器知识库生成+本地来源卡片 + 多轮连续对话",
+    "files_count": 6,
+    "files": [
+      "assets/qa/worker.js",
+      "assets/qa/widget.js",
+      "assets/js/search.js",
+      "assets/qa/wrangler.toml",
+      "assets/qa/kb.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 320,
+    "sitemap_urls_after": 320
   }
 ]
