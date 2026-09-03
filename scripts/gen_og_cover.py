@@ -60,8 +60,8 @@ def gen(slug, title, cat="核心方法论"):
     f_cat = font(26)
     d.text((485, 70), cat, font=f_cat, fill=GREY)
 
-    out = os.path.join(BASE, "assets", "og-covers", f"og-{slug}.png")
-    img.save(out, "PNG")
+    out = os.path.join(BASE, "assets", "images", "og-covers", f"og-{slug}.jpg")
+    img.save(out, "JPEG", quality=92)
     print("wrote", out)
 
 
