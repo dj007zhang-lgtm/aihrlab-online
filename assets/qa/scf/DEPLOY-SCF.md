@@ -61,5 +61,11 @@ curl -N -X POST https://qa.aihrlab.online/ask -H 'Content-Type: application/json
 - **内容更新**：`kb.json` 由 `scripts/build_qa_kb.py` 生成（源在 `assets/qa/kb.json`）。
   站内新增文章后，需重新生成 `kb.json` 并**重新打包部署 SCF**（SCF 不自动拉取）。
 - **冷启动**：首请求会读 kb.json 建索引（2MB，约百毫秒级），之后内存常驻。
-- **密钥轮换**：若 `av1gm9S...` 泄露或元器后台重置，仅在 SCF 环境变量改 `YUANQI_APPKEY` 即可，前端无需改动。
+- **密钥轮换**：若 `<YUANQI_APPKEY_FROM_CONSOLE>` 泄露或元器后台重置，仅在 SCF 环境变量改 `YUANQI_APPKEY` 即可，前端无需改动。
 - **降级**：元器不可达时返回友好错误事件，来源卡片照常由本地 KB 兜底发送，不丢引用。
+
+## 更新代码（重新上传 SCF）
+如果后续修改了 `index.js` / `widget.js` 等文件，需要把新代码同步到 SCF：
+1. 重新打包本目录：`zip -r ../aihr-qa-scf.zip index.js scf_bootstrap kb.json package.json`
+2. 腾讯云 SCF 控制台 → 函数 `aihr-qa-scf` → 函数代码 → 上传新 zip 包。
+3. 等待函数重新部署（约 10–20 秒），再访问 `/health` 验证。
