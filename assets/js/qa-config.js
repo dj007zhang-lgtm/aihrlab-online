@@ -15,6 +15,6 @@
   'use strict';
   // 已存在则不覆盖（允许页面级 meta 或内联覆盖优先）。
   if (window.AIHR_QA_ENDPOINT && window.AIHR_QA_ENDPOINT !== '') return;
-  // 生产端点（腾讯云 SCF Web 函数 /ask 地址，绑自定义域 qa.aihrlab.online）
-  window.AIHR_QA_ENDPOINT = "https://qa.aihrlab.online/ask";
+  // 生产端点（腾讯云 SCF Web 函数 /ask 地址；自定义域 qa.aihrlab.online 绑定后改回）
+  window.AIHR_QA_ENDPOINT = "https://1425212639-dmm4freccz.ap-guangzhou.tencentscf.com/ask";
 })();
