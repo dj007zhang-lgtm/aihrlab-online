@@ -657,3 +657,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 152. AI 原生治理：当决策权下沉到任务，董事会监督怎么重装
 - URL: https://www.aihrlab.online/articles/ai-native-governance-tasks-2026.html
 - 摘要: AI 原生组织不是加 AI 工具，是决策权从岗位和层级下沉到任务。治理架构要围绕「谁对哪类任务的最终判断负责」重构，董事会从逐事审批退为风险边界设定者与例外仲裁者。当决策节点里出现非人参与者，问责归属必须重新定义。
+
+### 153. AI 改写组织学习：记下来，不等于学会
+- URL: https://www.aihrlab.online/articles/ai-organizational-learning-2026.html
+- 摘要: AI 没有让组织停止学习，它改写了学习的回路。经典组织学习理论（Argyris 单环/双环、March 探索/利用）假设学习由人完成，当 AI 接管记录、起草、分析，单环被加速、双环被架空、知识存进模型权重而非组织记忆、探索被利用挤占。组织必须把“与 AI 一起学习”设计成一项能力，而非工具的自然副产物。
