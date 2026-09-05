@@ -1,7 +1,7 @@
 /* AIHR 站内问答（copilot）端点配置
  * -------------------------------------------------------------
- * 部署时把 Cloudflare Worker 的完整 /ask 地址填到 AIHR_QA_ENDPOINT。
- * 例如：window.AIHR_QA_ENDPOINT = "https://aihr-qa.your-subdomain.workers.dev/ask";
+ * 部署时把腾讯云 SCF Web 函数的完整 /ask 地址填到 AIHR_QA_ENDPOINT。
+ * 例如：window.AIHR_QA_ENDPOINT = "https://qa.aihrlab.online/ask";
  * 该值与 /ask/ 独立页挂件共用同一契约（POST {question}，SSE 回传 sources/delta/done/error）。
  *
  * 留空（""）时：
@@ -15,6 +15,6 @@
   'use strict';
   // 已存在则不覆盖（允许页面级 meta 或内联覆盖优先）。
   if (window.AIHR_QA_ENDPOINT && window.AIHR_QA_ENDPOINT !== '') return;
-  // 生产端点（Cloudflare Worker /ask 地址）
-  window.AIHR_QA_ENDPOINT = "https://aihr-qa-relay.dj007zhang.workers.dev/ask";
+  // 生产端点（腾讯云 SCF Web 函数 /ask 地址，绑自定义域 qa.aihrlab.online）
+  window.AIHR_QA_ENDPOINT = "https://qa.aihrlab.online/ask";
 })();

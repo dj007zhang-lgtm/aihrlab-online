@@ -60,7 +60,8 @@
       last = m.index + m[0].length;
     }
     out += escapeHTML(rawText.slice(last));
-    return out;
+    // 保留后端下发的换行（降级作答为结构化文本，含段落与 ■ 标题）
+    return out.replace(/\n/g, '<br>');
   }
 
   function buildWidget(root) {
@@ -79,8 +80,8 @@
     if (!endpoint || endpoint.indexOf('REPLACE_WITH') === 0) {
       var note = el('div', 'qa-config-note');
       note.innerHTML =
-        '问答服务尚未接入。请在部署 Cloudflare Worker 后，于挂载点设置 ' +
-        '<code>data-qa-endpoint="https://你的worker/ask"</code>，' +
+        '问答服务尚未接入。请在部署腾讯云 SCF 后端后，于挂载点设置 ' +
+        '<code>data-qa-endpoint="https://qa.aihrlab.online/ask"</code>，' +
         '或在前脚本定义 <code>window.AIHR_QA_ENDPOINT</code>。';
       wrap.appendChild(note);
       root.appendChild(wrap);
