@@ -286,6 +286,40 @@
 
             // 累积原始文本，每次重新渲染以保证 [N] 上标链接完整
             var answerRaw = '';
+            // 平滑打字机队列：把后端下发的较大 delta 拆成逐字/逐小片输出，避免大段涌现
+            var typeQueue = [];
+            var typingTimer = null;
+            var TYPING_INTERVAL_MS = 18; // 约 55 字/秒，既平滑又不拖沓
+
+            function flushTyping() {
+              if (typingTimer) {
+                clearTimeout(typingTimer);
+                typingTimer = null;
+              }
+              if (!typeQueue.length) return;
+              answerRaw += typeQueue.join('');
+              typeQueue = [];
+              aText.innerHTML = renderCitations(answerRaw);
+              scrollDown();
+            }
+
+            function scheduleTyping() {
+              if (typingTimer) return;
+              function tick() {
+                if (!typeQueue.length) {
+                  typingTimer = null;
+                  return;
+                }
+                // 队列积压时一次多吐几个字，但上限 4 个，保持视觉上连续而非涌现
+                var chunkSize = Math.max(1, Math.min(4, Math.floor(typeQueue.length / 8) + 1));
+                var chunk = typeQueue.splice(0, chunkSize).join('');
+                answerRaw += chunk;
+                aText.innerHTML = renderCitations(answerRaw);
+                scrollDown();
+                typingTimer = setTimeout(tick, TYPING_INTERVAL_MS);
+              }
+              tick();
+            }
 
             function handleEvent(evt) {
               if (!evt || typeof evt !== 'object') return;
@@ -299,9 +333,9 @@
                   answerRaw = '';
                   maybeRenderSources();
                 }
-                answerRaw += evt.text || '';
-                aText.innerHTML = renderCitations(answerRaw);
-                scrollDown();
+                var text = evt.text || '';
+                for (var i = 0; i < text.length; i++) typeQueue.push(text[i]);
+                scheduleTyping();
               } else if (evt.type === 'error') {
                 // 流中途出错：可重试则自动重试（不立即报错），否则致命报错
                 var m = evt.message || '未知错误';
@@ -309,12 +343,14 @@
                   scheduleRetry();
                   return;
                 }
+                flushTyping(); // 先吐出已收到的内容，再清空并报错
                 aText.classList.remove('is-streaming');
                 aText.classList.add('is-empty');
                 aText.textContent = '';
                 maybeRenderSources();
                 showError('回答生成出错：' + m);
               } else if (evt.type === 'done') {
+                flushTyping(); // 确保流末尾剩余字符全部落盘
                 maybeRenderSources();
                 if (firstDelta) {
                   // 无 delta（如零召回兜底文本已通过 delta 下发；此分支仅保险）
@@ -336,6 +372,7 @@
             function pump() {
               return reader.read().then(function (r) {
                 if (r.done) {
+                  flushTyping(); // 流结束时把队列里剩余字符全部落盘
                   aText.classList.remove('is-streaming');
                   return;
                 }
@@ -370,11 +407,13 @@
               scheduleRetry();
               return;
             }
+            flushTyping(); // 终止未完成的打字机动画，避免计时器泄漏
             aText.classList.remove('is-streaming', 'is-empty');
             aText.textContent = '';
             showError(msg);
           })
           .then(function () {
+            flushTyping(); // 保险：任何路径结束都清空队列
             // 仅在确定不再重试时释放输入（重试期间 busy 保持）
             if (!scheduledRetry) finalize();
           });
