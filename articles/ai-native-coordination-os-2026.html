@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人机协同的操作系统：组织怎么协调 | AIHR数智引擎</title>
+  <meta name="description" content="组织的协调长期靠规则、角色、惯例三件套。AI 原生组织把这三者重写为协调操作系统：规则变策略 agent，角色变人机编队，惯例变可回放 workflow。本文基于 McKinsey、HCLSoftware、Camunda 等 2026 一手研究，拆解协调机制本身被重写的路径。">
+  <meta name="keywords" content="协调机制,coordination,规则角色惯例,agentic workflow,人机编队,组织设计,麦肯锡2026,流程编排,AI原生组织">
+  <meta name="answer-what" content="AI 原生组织把组织的协调机制本身重写了一遍，而不是简单换了一套协作工具。经典协调三件套是规则、角色、惯例；AI 原生组织将其重写为一个可运行、可审计、可回放的协调操作系统：规则变成可执行的策略 agent（policy agent），角色变成人机编队（human-AI formation），惯例变成可回放的 workflow。竞争的分水岭，从谁的 AI 工具更多，转向谁的协调机制先被装进操作系统。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="组织靠规则、角色、惯例三件套协调分散劳动。Okhuysen 与 Bechky（2009）将其归为五类协调机制，并指向可问责、可预测、共同理解三个整合条件。AI 原生组织把这三者重写为协调操作系统：规则变成可执行的策略 agent，从文档里的 SOP 变成流程中实时判断与拦截的代码；角色变成人机编队，一个人带一队 agent 对结果负责；惯例变成可回放的 workflow，从默会配合变成可审计、能复盘的数字化流程。2026 年一手研究支撑这一转向：McKinsey《State of Organizations 2026》（10,000+ 高管、15 国、16 行业）显示 88% 组织已在试 AI、81% 未获实质收益，差距正落在是否重写了协调机制；HCLSoftware《Tech Trends 2026》（173 位 CXO）显示 81% 企业已运行或试点自主 agent，拐点在于编排而非任务加速；Camunda《2026 Agentic AI Report》指出 80% 企业缺乏 agent 可见性，缺的是把 agent 接入流程的编排层。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-coordination-os-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="人机协同的操作系统：组织怎么协调">
+  <meta property="og:description" content="规则变策略 agent，角色变人机编队，惯例变可回放 workflow。AI 原生组织重写的不是工具，而是协调机制本身。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-coordination-os-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-coordination-os-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-coordination-os-2026.webp">
+  <meta name="twitter:title" content="人机协同的操作系统：组织怎么协调">
+  <meta name="twitter:description" content="规则变策略 agent，角色变人机编队，惯例变可回放 workflow。AI 原生组织重写的不是工具，而是协调机制本身。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "人机协同的操作系统：组织怎么协调",
+    "description": "组织的协调长期靠规则、角色、惯例三件套。AI 原生组织把这三者重写为协调操作系统：规则变策略 agent，角色变人机编队，惯例变可回放 workflow。本文基于 McKinsey、HCLSoftware、Camunda 等 2026 一手研究，拆解协调机制本身被重写的路径。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-coordination-os-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-coordination-os-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-coordination-os-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["协调机制","coordination","规则角色惯例","agentic workflow","人机编队","组织设计","麦肯锡2026","流程编排","AI原生组织"],
+    "wordCount": "4800",
+    "timeRequired": "PT16M",
+    "citation": [
+      {"@type": "Article", "name": "Okhuysen G.A., Bechky B.A. (2009), 'Coordination in Organizations: An Integrative Perspective', Academy of Management Annals, Vol.3(1), pp.463-502. 经典综述，将组织协调机制归为五类（计划与规则、对象与表征、角色、惯例、邻近性），并指出这些机制须达成三个整合条件：可问责（accountability）、可预测（predictability）、共同理解（common understanding）。本文以规则、角色、惯例三件套作为分析底座", "url": "https://www.tandfonline.com/doi/abs/10.1080/19416520903047186"},
+      {"@type": "Article", "name": "McKinsey & Company (2026), 'The State of Organizations 2026: Three tectonic forces that are reshaping organizations'. 基于 15 国、16 行业、10,000+ 高级管理者的全球调研。核心数据：88% 组织已在试验 AI，但 81% 尚未获得显著底线收益；约 2/3 受访者认为组织结构过于复杂、效率不足；72% 高管称地缘政治不确定性正在影响组织决策。报告将“从结构到流程（from structure to flow）”列为生产率新前沿，并指出 AI 原生组织的关键是重设计 workflow 与决策机制，而非叠加工具", "url": "https://www.mckinsey.com/~/media/mckinsey/business%20functions/people%20and%20organizational%20performance/our%20insights/the%20state%20of%20organizations/2026/the-state-of-organizations-2026-vf.pdf"},
+      {"@type": "Article", "name": "McKinsey Global Institute (2025 末至 2026), 'Agents, Robots, and Us: Skill Partnerships in the Age of AI'. 测算现有技术理论上可自动化美国 57% 的工时（agent 占 44 个百分点、机器人占 13 个）；超过 70% 的今日技能同时出现在可自动化与不可自动化两侧；AI 素养需求两年增长约 7 倍；若重设计整条 workflow 而非只自动化孤立任务，到 2030 年可为美国经济年增约 2.9 万亿美元。报告分析 190 个业务流程，结论指向“虚拟同事”嵌入重设计后的流程", "url": "https://www.mckinsey.com/mgi/our-research/agents-robots-and-us-skill-partnerships-in-the-age-of-ai"},
+      {"@type": "Article", "name": "HCLSoftware (2026), 'Tech Trends 2026'. 覆盖 173 位 CXO 与资深技术决策者的主研究。81% 企业已在运行或试点自主 AI agent；采用主因为运营效率（61%）与结果导向自动化（55%）。报告把 2026 定为“智能委托（intelligence delegation）”的 crossover 年，明确拐点在于“编排（orchestration）而非任务加速”，并警示约四分之一部署 agent 的企业缺乏充分治理框架、56% 采用混合治理", "url": "https://www.voicendata.com/artificialintelligence/agentic-ai-enterprises-build-a-new-nervous-system-for-work-11164089"},
+      {"@type": "Article", "name": "Camunda (2026), '2026 Agentic AI Report'. 80% 企业缺乏对 agent 的可见性，66% 受合规问题掣肘；报告提出“agentic orchestration”混合模型，把确定性编排（合规关键路径）、动态编排（agent 在边界内推理）与人在环升级结合。引用 Deloitte 预测：自主 agent 市场 2026 年达 85 亿美元、2030 年达 350 亿美元，有效编排可再高 15% 至 30%；Gartner 显示多 agent 咨询量在 2024 Q1 至 2025 Q2 间飙升 1,445%", "url": "https://agentmarketcap.ai/blog/2026/04/05/camunda-agentic-ai-report-process-orchestration-enterprise-agent-layer"},
+      {"@type": "Article", "name": "Google Cloud (2026), 'AI Agent Trends 2026'. 基于 3,466 位企业决策者全球调研。52% 的生成式 AI 使用企业高管已有 agent 投入生产；88% 的 agentic AI 早期采用者已在至少一个用例上看到正 ROI。报告把员工角色重定义为“agent 的监督者（orchestrator）”，从按指令操作转向按意图（intent）声明结果、由 agentic 系统决定路径", "url": "https://www.teraflow.ai/?p=19511"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "什么是组织的协调机制？规则、角色、惯例各自解决什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "协调机制是组织用来把分散个体的劳动捏成一项连贯集体产出的底层安排。Okhuysen 与 Bechky 在 2009 年的经典综述里把协调机制归为五类，其中与本文最相关的是三件套：规则（计划与规则）定义谁该做什么、按什么标准、资源怎么分，解决的是“按约定办事”；角色指向与位置绑定的预期行为，解决的是“谁对哪块负责、彼此怎么补位”；惯例是被反复依赖的集体行为模式，提供顺序、交接与共同意义，解决的是“大家默认怎么配合”。这三件套共同要达成三个整合条件：可问责、可预测、共同理解。没有这三件套，一群人无法协同，组织就只是一堆各自为战的个体。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么说 AI 原生组织重写的是协调机制本身，而不只是换工具？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "因为 AI 进组织后，最先被动的不是某个软件，而是“谁按什么规则、对什么负责、怎么配合”这套底层设定。McKinsey《State of Organizations 2026》调研 10,000+ 高管发现，88% 的组织已在试 AI，但 81% 尚未获得显著底线收益，报告把差距归结为是否从结构走向流程、是否重设计了 workflow 与决策机制。也就是说，只把 AI 当工具叠加在旧协调机制上，等于给旧引擎换喷漆；AI 原生组织则是把规则、角色、惯例三件套逐一重写为可运行、可审计、可回放的协调操作系统。改写的是机制，不是界面。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "规则变成可执行的策略 agent，和以前的 SOP 文档有什么不同？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "旧规则是写在文档里的 SOP：人读、人判断、人执行，机器最多做个检索。策略 agent 把规则变成能在流程里实时运行的代码：它能在交易发生前拦截越界动作、在上下文变化时给出合规建议、把一条政策拆成可被多 agent 调用的判定逻辑。HCLSoftware《Tech Trends 2026》把这一拐点称为从“智能增强”到“智能委托”，并指出真正的拐点在于编排而非任务加速。区别不在写得更快，而在规则第一次能自己执行、自己解释自己为什么这么判，协调从“人拿着文档核对”变成“系统内置约束”。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "角色变成人机编队之后，可问责落在谁身上？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "编队（formation）指一个人不再独自对一块工作负责，而是带一队 agent 对结果负责。这时可问责不能只挂在“人”或“机器”某一边。Camunda《2026 Agentic AI Report》提出 agentic orchestration 混合模型：确定性编排管合规关键路径，动态编排让 agent 在既定边界内推理，高风险动作升级到人在环。可问责因此被拆成两层：人对“目标与边界”负责，agent 对“边界内的执行”负责，编排层负责记录每一步谁决策、谁执行、谁升级。McKinsey 在 agentic organization 框架里也把新角色明确为监督者（supervisor）、重设计工作流并处理异常的专家（specialist）与被 AI 增强的一线员工，三者的责任边界必须被显式写清，否则出事时无人认领。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "惯例变成可回放的 workflow，对组织记忆意味着什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "旧惯例藏在每个人的脑子里，靠邻近性、默契和反复演练维持，优点是灵活，缺点是走了一个人就带走一批默认配合。可回放 workflow 把惯例变成被记录、可审计、能复盘的数字化流程：每一步谁做的、agent 调了什么、为什么这么走，都留下轨迹。这带来两点变化：第一，组织记忆从默会变为可传递，新人不靠“跟着老员工混”也能接手；第二，复盘从回忆变成回放，出错能定位到具体节点。代价是流程被显式化后，组织必须持续维护这套 workflow，否则它会迅速过时。Google Cloud《AI Agent Trends 2026》把员工重定义为 agent 的监督者，本质就是把“维护与审计 workflow”变成了新惯例。"
+      }
+    }
+  ]
+}</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>人机协同的操作系统：组织怎么协调</h1>
+    <div class="article-tags"><span>协调机制</span><span>coordination</span><span>规则角色惯例</span><span>agentic workflow</span><span>人机编队</span><span>组织设计</span><span>麦肯锡2026</span><span>流程编排</span><span>AI原生组织</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 16 分钟</span>
+    </div>
+    <p class="lead">通行的说法是，AI 让组织协作更顺了。这句话只对了一半。AI 确实把大量任务交给 agent 去跑，但它真正改写的不是协作工具，而是组织用来把分散劳动捏成集体产出的那套底层机制。组织靠三件套协调彼此：规则、角色、惯例。AI 原生组织把这三件套逐一重写，装进一个可以运行、可以审计、可以回放的协调操作系统。协调机制本身被重写，才是这一轮变化最硬的部分。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-coordination-os-2026.webp"
+         alt="人机协同操作系统题图：规则、角色、惯例三件套被重写为可运行的协调层"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>旧组织把协调写进文档，AI 原生组织把协调写进系统。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">组织的协调长期依赖三件套：规则（谁该做什么、按什么标准）、角色（谁对哪块负责）、惯例（大家默认怎么配合）。这套机制在 Okhuysen 与 Bechky（2009）的经典综述里被归为五类协调机制，并指向三个整合条件：可问责、可预测、共同理解。AI 原生组织没有沿用这套静态结构，而是把它重写成一个协调操作系统：规则变成可执行的策略 agent（policy agent），从写在文档里的 SOP 变成能在流程里实时判断、实时拦截的代码；角色变成人机编队（human-AI formation），一个人不再对一块工作负责，而是带一队 agent 对结果负责；惯例变成可回放的 workflow，从藏在每个人脑子里的默会配合，变成被记录、可审计、能复盘的数字化流程。2026 年多项一手研究支撑这一转向：McKinsey《State of Organizations 2026》（10,000+ 高管、15 国、16 行业）指出 88% 的组织已在试 AI、但 81% 未获实质性收益，差距正落在是否重写了协调机制；McKinsey《Agents, Robots, and Us》测算 57% 的美国工时在现有技术下可被自动化，价值来自重设计 workflow 而非单点任务；HCLSoftware《Tech Trends 2026》（173 位 CXO）显示 81% 企业已在运行或试点自主 agent，并强调拐点在于编排（orchestration）而非任务加速；Camunda《2026 Agentic AI Report》指出 80% 企业缺乏 agent 可见性、66% 受合规掣肘，缺的正是把 agent 接入流程的编排层。结论：AI 原生组织的竞争，不在谁用了更多 agent，而在谁先把协调机制重写成操作系统。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>McKinsey《State of Organizations 2026》</strong>：基于 15 国、16 行业、<strong>10,000+ 高级管理者</strong>的全球调研。核心数据：<strong>88%</strong> 的组织已在试验 AI，但 <strong>81%</strong> 尚未获得显著的底线收益；约 <strong>2/3</strong> 受访者认为组织结构过于复杂、效率不足；<strong>72%</strong> 的高管表示地缘政治不确定性正在影响组织决策。报告把“从结构到流程（from structure to flow）”列为生产率新前沿，并指出 AI 原生组织的关键不是加工具，而是重设计 workflow、决策机制与组织结构。</li>
+        <li><strong>McKinsey《Agents, Robots, and Us: Skill Partnerships in the Age of AI》（MGI，2025 末至 2026）</strong>：现有技术理论上可自动化美国 <strong>57%</strong> 的工时（其中 agent 占 44 个百分点、机器人占 13 个）；超过 <strong>70%</strong> 的今日技能同时出现在“可自动化”与“不可自动化”两侧；AI 素养（AI fluency）需求两年增长约 <strong>7 倍</strong>；若组织重设计整条 workflow 而非只自动化孤立任务，到 2030 年可为美国经济年增约 <strong>2.9 万亿美元</strong>。报告分析 <strong>190 个</strong>业务流程，结论明确：最大价值来自把 agent 作为“虚拟同事”嵌入重设计后的流程。</li>
+        <li><strong>HCLSoftware《Tech Trends 2026》</strong>：覆盖 <strong>173 位 CXO</strong> 与资深技术决策者的主研究。<strong>81%</strong> 的企业已在运行或试点自主 AI agent；采用主因是运营效率（61%）与结果导向自动化（55%）。报告把 2026 定为“智能委托（intelligence delegation）”的 crossover 年，并明确点出拐点在于<strong>编排而非任务加速</strong>，同时警示约四分之一部署 agent 的企业缺乏充分治理框架、56% 采用混合治理。</li>
+        <li><strong>Camunda《2026 Agentic AI Report》</strong>：<strong>80%</strong> 的企业缺乏对 agent 的可见性，<strong>66%</strong> 受合规问题掣肘；报告提出“agentic orchestration”混合模型，把确定性编排（合规关键路径）、动态编排（agent 在边界内推理）与人在环升级三者结合。引用 Deloitte 预测：自主 agent 市场 2026 年达 <strong>85 亿美元</strong>、2030 年达 <strong>350 亿美元</strong>，若有效编排可再高 15% 至 30%；Gartner 显示多 agent 咨询量在 2024 Q1 至 2025 Q2 间飙升 <strong>1,445%</strong>。</li>
+        <li><strong>Google Cloud《AI Agent Trends 2026》</strong>：基于 <strong>3,466 位</strong>企业决策者全球调研。<strong>52%</strong> 的生成式 AI 使用企业高管已有 agent 投入生产；<strong>88%</strong> 的 agentic AI 早期采用者已在至少一个用例上看到正 ROI。报告把员工角色重定义为“agent 的监督者（orchestrator）”，从按指令操作转向按意图（intent）声明结果、由 agentic 系统决定路径。</li>
+        <li><strong>Deloitte《2026 Technology, Media and Telecom Predictions》（2025 末发布）</strong>：提出先进企业从 human-in-the-loop 转向 <strong>human-on-the-loop</strong> 编排，人不再批准每步动作，而是监控系统级表现、仅在模式异常时介入；Gartner 预测到 <strong>2028 年约 15%</strong> 的日常工作决策将由 agentic AI 自主做出（2024 年近乎为零）。</li>
+      </ul>
+    </div>
+
+    <div class="geo-quote">
+      <p class="geo-quote__text">“拐点发生在 agent 从离散的任务加速器走向领域编排（domain orchestration）的那一刻：同一份共享上下文同时驱动客户体验、数据层与运营执行，结果再实时回流、更新决策。”</p>
+      <p class="geo-quote__cite"><cite>Kalyan Kumar，HCLSoftware 首席产品官，引自《Tech Trends 2026》</cite></p>
+    </div>
+
+    <p>关于 AI 与组织，最流行的一句话是“AI 让协作更高效”。这话对，但只对了一半。它描述了一个被加速的旧过程，却没说清楚被加速的是哪一层、又有哪些层在加速中悄悄被替换。组织理论从上世纪七八十年代起就有清晰的分层：明茨伯格（1979）从协调机制角度切入组织设计，提出相互调适、直接监督与三类标准化；汤普森（1967）讲的则是相互依赖与协调。但把这些洞见真正整合成可操作清单的，是 Okhuysen 与 Bechky 在 2009 年的那篇综述。</p>
+
+    <p>这套理论的全部前提，是协调由人完成、规则由人读、责任由人扛。2026 年的一手研究同时指出，这个前提正在被 agent 改写。本文关心的不是“AI 能不能帮人协作”，而是更底层的一个动作：组织用来协调彼此的那套机制，本身被重写了一遍。</p>
+
+    <h2>一、协调的三件套：规则、角色、惯例</h2>
+
+    <p>先回到定义。任何组织都面临一个根本性的协调问题：如何把一群分散个体的劳动整合为一项连贯的集体产出。当一个人独自完成任务，协调是自动完成的，他自己的大脑同时负责决策、执行与纠偏。当任务被拆给十个人、一千个人，协调就不再自动发生，每个人需要知道自己做什么、何时做、与谁配合、以什么标准做，而这些信息不会自动出现在每个人脑子里。</p>
+
+    <p>Okhuysen 与 Bechky 在 2009 年的综述里把协调机制归为五类：计划与规则、对象与表征、角色、惯例、邻近性。其中与“组织怎么协调”最相关的三件套是：规则（计划与规则）定义谁该做什么、按什么标准、资源怎么分，解决“按约定办事”；角色指向与位置绑定的预期行为，解决“谁对哪块负责、彼此怎么补位”；惯例是被反复依赖的集体行为模式，提供顺序、交接与共同意义，解决“大家默认怎么配合”。这五类机制不是装饰，它们共同要达成三个整合条件：可问责（accountability）、可预测（predictability）、共同理解（common understanding）。</p>
+
+    <p>把这三件套想成组织的“操作系统内核”会更准确。规则是内核里的调度策略，角色是进程与权限，惯例是常驻的后台服务。过去这个内核跑在人的大脑和文档里，慢、有歧义、依赖关键人物。公司越大，这套内核越沉重，协调成本越高，组织也就越僵。</p>
+
+    <h2>二、AI 原生组织重写的是协调机制本身</h2>
+
+    <p>AI 进组织后，最先被动的不是某个软件，而是“谁按什么规则、对什么负责、怎么配合”这套底层设定。McKinsey《State of Organizations 2026》调研了 15 国、16 行业、10,000+ 高管，发现 88% 的组织已在试验 AI，但 81% 尚未获得显著底线收益。报告把差距归结为是否从结构走向流程、是否重设计了 workflow 与决策机制。换句话说，只把 AI 当工具叠加在旧协调机制上，等于给旧引擎换喷漆。</p>
+
+    <p>AI 原生组织做的是另一件事：把规则、角色、惯例三件套逐一重写为一个可运行、可审计、可回放的协调操作系统。这里的关键词是“操作系统”而非“应用”。应用是装上去用的，操作系统是被装进去跑的。当规则变成 agent、角色变成编队、惯例变成 workflow，协调机制从“人拿着文档核对”变成“系统内置约束”，组织协调的第一性原理就被改写了。</p>
+
+    <p>这一转向在 2026 年的产业报告里反复出现。HCLSoftware《Tech Trends 2026》明确把 2026 定为“智能委托（intelligence delegation）”的 crossover 年，并强调真正的拐点在于“编排（orchestration）而非任务加速”。Camunda《2026 Agentic AI Report》则从一个反面数据切入：80% 的企业缺乏对 agent 的可见性，66% 受合规掣肘，缺的正是把 agent 接入流程的编排层。把这几份研究叠起来看，结论很硬：差的不是 agent 的能力，是协调机制没被重写。</p>
+
+    <h2>三、规则变策略 agent：从文档到可执行</h2>
+
+    <p>旧规则是写在文档里的 SOP。人读、人判断、人执行，机器最多做个检索与提醒。一条合规要求从发布到真正生效，中间隔着层层解读与执行损耗，出问题往往要事后审计才能发现。</p>
+
+    <p>策略 agent（policy agent）把规则变成能在流程里实时运行的代码。它能在交易发生前拦截越界动作，在上下文变化时给出合规建议，把一条政策拆成可被多 agent 调用的判定逻辑。规则第一次可以自己执行、自己解释“为什么这么判”。协调从“事后核对”前移到“事中约束”，这正是 HCLSoftware 讲的智能委托：AI 不再等被触发，而是持续感知、解释、行动，形成闭环。</p>
+
+    <p>但这里有个容易被忽略的代价。当规则变成代码，它就不再是一句话，而是一套需要被持续维护的逻辑。政策变了，agent 的逻辑要同步改；边界案例多了，判定树要扩展。组织必须有人对“策略 agent 的规则库”负责，否则规则会悄悄过时，而没人知道。McKinsey 在 agentic organization 框架里把这类责任明确交给重设计工作流并处理异常的专家（specialist），就是这个道理。</p>
+
+    <h2>四、角色变人机编队：从岗位到人机组</h2>
+
+    <p>旧角色指向一个位置：这个岗位的人对这块工作负责。AI 原生组织把“一个人对一个岗位”拆成“一个人带一队 agent 对一个结果”。这个组合叫人机编队（human-AI formation）。</p>
+
+    <p>McKinsey 在 agentic organization 框架里给出了三类新角色，可作为编队的词典：指挥 agent 的监督者（supervisor），负责设目标、管取舍；重设计工作流并处理异常的专家（specialist），负责把流程与规则维护好；被 AI 增强的一线员工（AI-augmented frontline），在 agent 支撑下完成更复杂的事。人的位置从“环路之中（in the loop）”上移到“环路之上（above the loop）”，不再亲手完成每一步，而是监督整条工作流。</p>
+
+    <p>编队带来的最大变化是责任的结构。过去责任挂在岗位头上，清清楚楚。现在责任被拆成两层：人对目标与边界负责，agent 对边界内的执行负责，编排层负责记录每一步谁决策、谁执行、谁升级。Camunda 的 agentic orchestration 混合模型正好对应这一点：确定性编排管合规关键路径，动态编排让 agent 在既定边界内推理，高风险动作升级到人在环。可问责因此必须被显式写清，否则出事时人推机器、机器无从解释。</p>
+
+    <p>Google Cloud《AI Agent Trends 2026》把员工重定义为 agent 的监督者（orchestrator），从按指令操作转向按意图（intent）声明结果、由 agentic 系统决定路径。这套说法和 McKinsey 的“编排结果（orchestrating outcomes）”是同一件事的两面：人的价值从执行下沉到编排，从做得对变成定得准、管得住。</p>
+
+    <h2>五、惯例变可回放 workflow：从默会到可审计</h2>
+
+    <p>旧惯例藏在每个人的脑子里，靠邻近性、默契和反复演练维持。优点是灵活，缺点是走了一个资深员工就带走一批默认配合。组织记忆因此极其脆弱，扩张越快，惯例越难复制。</p>
+
+    <p>可回放 workflow 把惯例变成被记录、可审计、能复盘的数字化流程。每一步谁做的、agent 调了什么、为什么这么走，都留下轨迹。这带来两点变化：第一，组织记忆从默会变为可传递，新人不靠“跟着老员工混”也能接手；第二，复盘从回忆变成回放，出错能定位到具体节点，而不是笼统归咎“沟通问题”。</p>
+
+    <p>代价同样明显。流程被显式化后，组织必须持续维护这套 workflow，否则它会迅速过时，变成一套没人信的流程图。Deloitte 在 2026 年 TMT 预测里提出的 human-on-the-loop 正是应对之道：人不再批准每步动作，而是监控系统级表现、仅在模式异常时介入。监督的对象从“每一步对不对”变成“整条 workflow 健不健康”，这本身就是一种新惯例。</p>
+
+    <h2>六、协调操作系统：三层如何咬合</h2>
+
+    <p>把规则、角色、惯例三层单独看，每一层都只是工具升级。让它们咬合，才构成操作系统。规则 agent 提供判定与约束，编队提供执行与责任，可回放 workflow 提供轨迹与复盘，三者共享同一份上下文：一个 agent 的判定被记录进 workflow，人据此调整编队的边界，规则库再随新案例扩展。协调不再是三件分开的事，而是一个闭环。</p>
+
+    <p>McKinsey《Agents, Robots, and Us》用一份硬数据说明了为什么必须走这条路径：现有技术理论上可自动化美国 57% 的工时，但价值不在自动化本身，而在重设计整条 workflow。报告分析了 190 个业务流程，结论是最大价值来自把 agent 作为“虚拟同事”嵌入重设计后的流程，而非把单点任务自动化。Gartner 预测到 2028 年约 15% 的日常工作决策将由 agentic AI 自主做出，这 15% 能不能被组织接住，取决于编排层是否先把规则、角色、惯例接好。</p>
+
+    <p>反过来，缺了任何一层都会塌。只有规则 agent、没有编队责任，约束会悬空；只有编队、没有可回放 workflow，责任无法追溯；只有 workflow、没有策略 agent，流程只是被记录的旧做法。Camunda 报告里那 80% 缺乏可见性的企业，卡住的就是“三层没有咬合成系统”这一步。</p>
+
+    <h2>七、HR 与组织设计者要写的三件事</h2>
+
+    <p>结论不是“多买 agent”，而是把协调机制当成需要被设计、被维护的操作系统，而不是工具的自然副产物。具体三件事，HR 与组织设计者现在就该接手。</p>
+
+    <p>第一，把“策略 agent 的规则库”纳入治理。凡是进入关键决策的规则，要求可审计、可解释、有版本，防止协调约束沉淀进黑箱。这一步不到位，组织会发现自己有几百条 agent 在跑，却没人说得清哪条规则在什么场景下生效。</p>
+
+    <p>第二，把人机编队的责任边界写进岗位与能力模型。监督者、专家、一线增强三类角色不能只停留在报告里，要变成可评价、可晋升的维度，并明确“人对目标与边界负责、agent 对边界内执行负责”的拆分。McKinsey 调研里 72% 的今日技能同时横跨人机边界，意味着能力模型必须重写，而不是在旧岗位说明里加一行“熟练使用 AI”。</p>
+
+    <p>第三，把可回放 workflow 设为组织记忆的默认形态。关键流程必须被记录、可复盘，并配套维护机制。一个该问的体检问题很简单：过去一个季度，我们因为 agent 跑出的结果，改了哪条规则、否了哪条旧惯例。如果答不上来，说明 agent 在替组织跑流程，协调机制还停在旧内核。</p>
+
+    <p>回到开头那句话。AI 让组织协作更高效，这个结论只对一半。它让组织更快地产出、更快地交接、更快地优化已知，却在同一个动作里，把“谁按什么规则协调、谁对什么负责、怎么把配合沉淀下来”这三件事，悄悄交还给了没有人去重写的旧内核。AI 原生组织的分水岭，不在谁用了更多 agent，而在谁先把协调机制本身装进操作系统。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/mckinsey-human-ai-orchestration.html">麦肯锡2026：70%岗位技能横跨人机边界，怎么编排</a></li>
+        <li><a href="/articles/ai-native-organizational-design-2026.html">AI原生组织设计：从「工具升级」到「范式重构」</a></li>
+        <li><a href="/articles/human-ai-boundary-2026.html">人机协同的边界：何时该用AI，何时该用人</a></li>
+        <li><a href="/articles/ai-task-level-work-redesign-2026.html">AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务</a></li>
+        <li><a href="/articles/ai-native-governance-tasks-2026.html">AI 原生治理：当决策权下沉到任务，董事会监督怎么重装</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【五类协调机制（计划与规则、对象与表征、角色、惯例、邻近性）与三个整合条件（可问责、可预测、共同理解）；本文以规则、角色、惯例三件套为分析底座，标注原年份】：Okhuysen G.A. 与 Bechky B.A.（2009），《Coordination in Organizations: An Integrative Perspective》，Academy of Management Annals，Vol.3(1)，pp.463-502。</li>
+        <li>【10,000+ 高管、15 国、16 行业；88% 组织试 AI、81% 未获显著收益；约 2/3 认为结构过于复杂；72% 高管称地缘政治不确定性影响决策；“从结构到流程”列为生产率新前沿】：McKinsey & Company（2026），《The State of Organizations 2026: Three tectonic forces that are reshaping organizations》。</li>
+        <li>【57% 美国工时在现有技术下可被自动化（agent 44 个百分点、机器人 13 个）；超过 70% 技能同时横跨人机边界；AI 素养两年增约 7 倍；重设计 workflow 而非单点任务可到 2030 年带来约 2.9 万亿美元；分析 190 个业务流程】：McKinsey Global Institute（2025 末至 2026），《Agents, Robots, and Us: Skill Partnerships in the Age of AI》。</li>
+        <li>【173 位 CXO 主研究；81% 企业已在运行或试点自主 agent；采用主因运营效率 61%、结果导向自动化 55%；2026 为智能委托 crossover 年，拐点在于编排而非任务加速；约四分之一缺治理、56% 混合治理】：HCLSoftware（2026），《Tech Trends 2026》。</li>
+        <li>【80% 企业缺乏 agent 可见性、66% 受合规掣肘；agentic orchestration 混合模型（确定性编排、动态编排、人在环升级）；引用 Deloitte 预测自主 agent 市场 2026 年 85 亿美元、2030 年 350 亿美元，有效编排再高 15% 至 30%；Gartner 多 agent 咨询量 2024 Q1 至 2025 Q2 飙升 1,445%】：Camunda（2026），《2026 Agentic AI Report》。</li>
+        <li>【3,466 位企业决策者；52% 生成式 AI 使用企业高管已有 agent 投产；88% agentic AI 早期采用者至少一个用例正 ROI；员工重定义为 agent 监督者，从指令操作转向意图声明】：Google Cloud（2026），《AI Agent Trends 2026》。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

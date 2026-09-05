@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 原生组织的边界：什么必须留给人 | AIHR数智引擎</title>
+  <meta name="description" content="AI 原生组织把边界从雇佣关系重写为问责关系，而非工具选择问题。本文用可撤回性与不可逆成本两轴，划出哪些能力可委托给 AI 与生态、哪些必须留在人类手中：价值判断、关系信任、最终问责。EU AI Act 第 14 条、新加坡 IMDA Agentic AI 框架、OECD 尽责指引与图宾根大学 2026 年研究共同提供实证底座。">
+  <meta name="keywords" content="组织边界,问责边界,AI原生组织,人类监督,AI治理,EU AI Act,可撤回性,不可逆成本,智能体治理,组织问责,人机协同">
+  <meta name="answer-what" content="AI 原生组织的边界本质是从雇佣边界重写为问责边界。组织把能力区分为可委托与必须自留两类：可委托的是可撤回且不可逆成本低的环节，如检索、起草、分类、常规执行；必须留在人类手中的是价值判断（目标与取舍的设定）、关系信任（对人与对利害相关方的责任关系）、最终问责（每一个自主体都要有具名的人类负责人）。划界工具是两轴：可撤回性（动作能否回滚）与不可逆成本（出错后能否补救、代价多大）。2026 年 EU AI Act 第 14 条、新加坡 IMDA Agentic AI 框架、OECD 尽责指引与 TU Darmstadt 的自动化边界研究共同支撑这一框架。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="AI 原生组织的边界，本质是从雇佣边界重写为问责边界。过去组织用谁在编制内划边界，AI 原生组织用出了事谁负责划边界。哪些能力委托给 AI 或生态、哪些必须留在人类手中，取决于两个轴：可撤回性（动作能否被撤销、回滚）与不可逆成本（一旦出错，损失能否补救、代价多大）。落在低可撤回、高不可逆成本象限的能力必须留在人类手中，且不止是人在环，而是人类保有最终问责，具体是三件事：价值判断（目标与取舍由人设定）、关系信任（对人与对利害相关方的责任关系只能由人持有）、最终问责（每一个自主体都要有具名的人类负责人）。2026 年 EU AI Act 第 14 条把高风险系统的有效人类监督定为法定义务，新加坡 IMDA 于 2026 年 1 月发布全球首个 Agentic AI 治理框架、要求为不可逆动作设置人类审批闸门，OECD 于 2026 年 2 月发布尽责指引、把不可补救性列为影响严重度的核心维度，TU Darmstadt 与慕尼黑机器学习中心 2026 年的研究提出目标涌现理论、证明当目标本身会随交互改变时人类必须在环。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-org-boundary-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="AI 原生组织的边界：什么必须留给人">
+  <meta property="og:description" content="边界不再是谁被雇佣，而是谁被问责。用可撤回性与不可逆成本两轴，划出哪些能力可委托给 AI 与生态、哪些必须留在人类手中。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-org-boundary-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-org-boundary-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-org-boundary-2026.webp">
+  <meta name="twitter:title" content="AI 原生组织的边界：什么必须留给人">
+  <meta name="twitter:description" content="边界不再是谁被雇佣，而是谁被问责。用可撤回性与不可逆成本两轴，划出哪些能力可委托给 AI 与生态、哪些必须留在人类手中。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 原生组织的边界：什么必须留给人",
+    "description": "AI 原生组织把边界从雇佣关系重写为问责关系。本文用可撤回性与不可逆成本两轴，划出哪些能力可委托给 AI 与生态、哪些必须留在人类手中：价值判断、关系信任、最终问责。2026 年 EU AI Act 第 14 条、新加坡 IMDA Agentic AI 框架、OECD 尽责指引与图宾根大学研究提供实证底座。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-org-boundary-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-org-boundary-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-org-boundary-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["组织边界","问责边界","AI原生组织","人类监督","AI治理","EU AI Act","可撤回性","不可逆成本","智能体治理","组织问责","人机协同"],
+    "wordCount": "4200",
+    "timeRequired": "PT17M",
+    "citation": [
+      {"@type": "Article", "name": "Regulation (EU) 2024/1689 (EU AI Act), Article 14 Human Oversight 与 Article 26(2). 高风险 AI 系统必须被设计成自然人在使用期间能得到有效监督；第 14(4) 条列明监督人必须能理解系统能力局限、察觉自动化偏见、正确解读输出、决定不使用或推翻输出、通过停止按钮干预；第 14(5) 条要求对 Annex III 第 1(a) 类远程生物识别，任何基于系统识别的动作或决定须经至少两名具备能力、训练与授权的自然人分别复核；第 26(2) 条要求部署方将人类监督指派给具备必要能力、训练、权限与支持的自然人。2026 年数字简化包（Digital Omnibus）经欧洲议会 2026 年 6 月 16 日（423 票赞成、57 票反对、174 票弃权）与理事会 2026 年 6 月 29 日批准，将独立 Annex III 高风险系统的合规期限推迟至 2027 年 12 月 2 日", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401689"},
+      {"@type": "Article", "name": "Infocomm Media Development Authority (IMDA), Singapore, 'Model AI Governance Framework for Agentic AI', 2026 年 1 月 22 日于达沃斯世界经济论坛由数码发展及新闻部部长度 Josephine Teo 发布。全球首个专门面向 Agentic AI 的治理框架，强调人类最终问责（humans are ultimately accountable），提出四维治理：事前评估并限定风险（限制智能体自主权、工具与数据访问，关注动作的范围与可撤回性）；让人类承担有意义问责（定义需要人类审批的关键检查点，尤其是高风险或不可逆动作，如付款、永久删除数据）；全生命周期技术控制；终端用户责任（透明与教育）。合规为自愿，但组织对智能体行为仍负法律责任", "url": "https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2026/new-model-ai-governance-framework-for-agentic-ai"},
+      {"@type": "Article", "name": "OECD, 'Due Diligence Guidance for Responsible AI', 2026 年 2 月 19 日发布。将 OECD 跨国企业准则（MNE Guidelines）的六步尽责框架应用于 AI：把尽责嵌入政策与管理系统、识别评估实际与潜在不利影响、停止预防缓解、追踪实施与结果、沟通行动、提供或配合补救。严重度（severity）被定义为可能性与严重度的函数，其中严重度包含规模、范围与不可补救性（irremediable character，即把局面恢复到不利影响发生前同等状态的能力所受限制）。获全部 OECD 成员国、17 个伙伴政府与欧盟背书", "url": "https://www.oecd.org/en/publications/oecd-due-diligence-guidance-for-responsible-ai_41671712-en.html"},
+      {"@type": "Article", "name": "Köhl, M. A. 等（TU Darmstadt 与 Munich Center for Machine Learning），'The boundaries of automation: A theory of persistent human participation'，由 IBM Think 于 2026 年报道。提出目标涌现（target emergence）理论：并非所有目标都内含固定标的，许多目标的标的在探索与审议中才成形，人类不只是执行已被确定的目标，而是参与创造并 refinement 目标本身。原文：'Interaction does not merely reveal which target was already destined to be endorsed; it partly determines which trajectory becomes realized.' IBM 负责 AI 与 AI 治理全球负责人 Francesca Rossi 评注：'The key question is whether an objective is stable enough to delegate. If the objective can change through interactions with people, tools, other agents and so on, then humans should be in the loop.'", "url": "https://www.ibm.com/think/news/why-humans-always-in-loop-researchers-name-boundary-ai-automation"},
+      {"@type": "Article", "name": "中华人民共和国工业和信息化部等十部门，《人工智能科技伦理审查与服务办法（试行）》，工信部联科〔2026〕75号，2026 年 3 月 20 日印发。我国首部人工智能领域专门性科技伦理审查规章，审查重点含人类福祉、公平公正、可控可信、透明可解释、责任可追溯、隐私保护；其中可控可信要求'是否能够保障使用者控制、指导和干预模型、系统的基本操作'。须开展专家复核的三类活动包括：对人类主观行为心理情绪生命健康有较强影响的人机融合系统、具有舆论社会动员能力的算法模型、面向安全与人身健康风险场景的高度自主自动化决策系统", "url": "https://www.ncsti.gov.cn/kjdt/scyq/zgckxc/zgcdt/202604/t20260408_243221.html"},
+      {"@type": "Article", "name": "National Institute of Standards and Technology (NIST), 'AI Risk Management Framework (AI RMF 1.0)', 2023 年 1 月。将企业 AI 治理组织为 Govern、Map、Measure、Manage 四功能。其在 Map 阶段要求对智能体在两个轴上评级：自主权限（低为仅建议、高为执行权限）与决策可撤回性（低为易撤销、高为难以或无法逆转）。高自主权限且低可撤回性的智能体被要求强制保留人类审批在环，无例外。该两轴为本文划界框架的方法论底座", "url": "https://www.nist.gov/itl/ai-risk-management-framework"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "什么是组织层面的问责边界，它和任务级的人机协同边界有什么不同？", "acceptedAnswer": {"@type": "Answer", "text": "任务级边界回答的是某一类工作要不要交给 AI：更快更稳的就委托，容易出错的就留人。它停在工具选择层。组织层问责边界回答的是更靠前的问题：当 AI 与生态伙伴开始替组织执行、替组织决策，出了事责任落在谁身上。边界的刻度从谁在编制内，变成谁为结果负责。前者是效率问题，后者是治理问题。同一篇研究可以既谈任务级（何时用 AI）也谈组织级（谁问责），但两者不可混为一谈，否则组织会误以为把任务自动化了就等于把责任安排好了。"}},
+      {"@type": "Question", "name": "为什么可撤回性和不可逆成本能用来划组织的边界？", "acceptedAnswer": {"@type": "Answer", "text": "这两个轴分别来自 NIST AI RMF 对智能体的评级维度，以及 OECD 尽责指引对影响严重度的定义。可撤回性问的是这个动作技术上能不能撤销、回滚，比如删一条草稿容易，删一批生产数据难。不可逆成本问的是一旦出错，损失能不能补救、代价多大，OECD 称之为不可补救性（irremediable character）。两个轴交叉出四个象限：高可撤回加低不可逆成本，可以放手委托；低可撤回加高不可逆成本，必须留在人类手中且人类保有最终问责；其余两类则需要人类审批闸门或事后审计。它把模糊的留人还是委托，变成了一张可操作的矩阵，而不是一句原则。"}},
+      {"@type": "Question", "name": "EU AI Act 2026 对高风险 AI 系统的人类监督到底要求什么？", "acceptedAnswer": {"@type": "Answer", "text": "EU AI Act（Regulation (EU) 2024/1689）第 14 条把有效人类监督定为高风险系统的法定义务。第 14(1) 条要求系统在设计上让自然人能在运行期间有效监督；第 14(4) 条列明监督人必须能理解系统的能力与局限、察觉自动化偏见、正确解读输出、决定不使用或推翻输出、通过停止按钮干预或中断系统；第 14(5) 条对远程生物识别要求任何基于系统识别的动作或决定须经至少两名具备能力、训练与授权的自然人分别复核；第 26(2) 条要求部署方把人类监督指派给具备必要能力、训练、权限与支持的自然人。值得注意，2026 年数字简化包经欧洲议会与理事会批准后，把独立 Annex III 高风险系统的合规期限从原定的 2026 年 8 月 2 日推迟到 2027 年 12 月 2 日，但第 14 条确立的问责逻辑不变。"}},
+      {"@type": "Question", "name": "哪些能力可以放心委托给 AI 或生态，哪些必须留在人类手中？", "acceptedAnswer": {"@type": "Answer", "text": "可放心委托的是高可撤回、低不可逆成本的环节：信息检索、草稿与材料生成、格式与记录整理、常规分类与排程、在限定权限内的执行动作。这些错了能回头、代价小。必须留在人类手中的是低可撤回、高不可逆成本且涉及三类人类专属职能的环节：价值判断，即目标与取舍本身的设定，不能委托给一个只会优化给定目标的系统；关系信任，即对员工、客户与利害相关方的责任关系，只能由人持有；最终问责，即每一个自主体都要有具名的人类负责人，组织不能把责任推给机器。"}},
+      {"@type": "Question", "name": "新加坡 IMDA 的 Agentic AI 框架（2026）给不可逆动作设了什么闸门？", "acceptedAnswer": {"@type": "Answer", "text": "IMDA 于 2026 年 1 月 22 日发布全球首个专门面向 Agentic AI 的治理框架，明确人类最终问责。它在让人类承担有意义问责这一维度要求组织定义需要人类审批的关键检查点，尤其是高风险或不可逆动作，框架点名的例子包括付款与永久删除数据。换言之，智能体可以自主完成大量步骤，但一旦动作难以撤回且代价高，就必须卡在人类审批闸门之前。框架同时要求限制智能体的自主权与可访问的工具和数据范围，并对人类监督的有效性做定期审计，防止监督沦为形式。"}},
+      {"@type": "Question", "name": "组织怎么把什么必须留给人落成制度，而不只是原则？", "acceptedAnswer": {"@type": "Answer", "text": "四件可落地的动作。第一，建立智能体登记册（agent registry），每个上线的自主体必须有具名的人类负责人，说不出负责人就不许上线。第二，按两轴矩阵设审批闸门，对低可撤回高不可逆成本的动作强制人类在环审批。第三，定义升级触发条件，智能体遇到歧义、高风险或超出授权范围就暂停并交还人类，而非自行判断。第四，配停止开关与定期审计，并定期核验人类监督是否仍然有效，防止自动化偏见把审批变成橡皮图章。中国 2026 年十部门办法提供国家层面的参照：可控可信要求人类保有对系统的控制与干预能力，并对高度自主的自动化决策系统设专家复核。"}}
+
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>AI 原生组织的边界：什么必须留给人</h1>
+    <div class="article-tags"><span>组织边界</span><span>问责边界</span><span>人类监督</span><span>AI治理</span><span>EU AI Act</span><span>可撤回性</span><span>不可逆成本</span><span>智能体治理</span><span>组织问责</span><span>人机协同</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 17 分钟</span>
+    </div>
+    <p class="lead">这一轮 AI 落地里最容易被忽略的误判，是把边界想成了工具边界。多数组织讨论的是哪类任务交给 AI 更快、哪类留给人更稳。这个讨论没错，但它停在任务层。AI 原生组织要回答的是更靠前的那个问题：当 AI 和生态伙伴开始替组织执行、替组织决策，组织把责任划到哪，又把责任留在哪。边界不再是谁被雇佣，而是谁被问责。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-org-boundary-2026.webp"
+         alt="AI 原生组织边界题图：雇佣边界与问责边界两张网，责任落点不同"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>雇佣边界定义的是谁为你工作。问责边界定义的是谁为结果负责。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">AI 原生组织的边界，本质是从雇佣边界重写为问责边界。过去组织用谁在编制内划边界，AI 原生组织用出了事谁负责划边界。哪些能力委托给 AI 或生态，哪些必须留在人类手中，取决于两个轴：可撤回性（这个动作能否被撤销、回滚）与不可逆成本（一旦出错，损失能否补救、代价多大）。落在低可撤回、高不可逆成本象限的能力，必须留在人类手中，且不只是人在环，而是人类保有最终问责：价值判断（目标与取舍由人设定）、关系信任（对人与对利害相关方的责任关系只能由人持有）、最终问责（每一个自主体都要有具名的人类负责人）。2026 年四类一手信源支撑这一框架：EU AI Act 第 14 条把高风险系统的有效人类监督定为法定义务，并要求对远程生物识别由至少两名自然人复核；新加坡 IMDA 于 2026 年 1 月发布全球首个 Agentic AI 治理框架，明确要求为不可逆动作（付款、永久删除数据）设置人类审批闸门；OECD 于 2026 年 2 月发布尽责指引，把不可补救性列为影响严重度的核心维度；TU Darmstadt 与慕尼黑机器学习中心 2026 年的研究提出目标涌现理论，证明当目标本身会随交互改变，人类必须在环。结论：组织边界不是被技术推着改的，是组织主动按问责逻辑重画的。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>EU AI Act（Regulation (EU) 2024/1689），第 14 条与第 26(2) 条</strong>：高风险 AI 系统必须被设计成自然人在使用期间能得到有效监督；第 14(4) 条列明监督人必须能理解系统能力局限、察觉自动化偏见、正确解读输出、决定不使用或推翻输出、通过停止按钮干预；第 14(5) 条要求对 Annex III 第 1(a) 类远程生物识别，任何基于系统识别的动作或决定须经<strong>至少两名</strong>具备能力、训练与授权的自然人分别复核；第 26(2) 条要求部署方将人类监督指派给具备必要能力、训练、权限与支持的自然人。2026 年数字简化包经欧洲议会 2026 年 6 月 16 日（423 票赞成、57 票反对、174 票弃权）与理事会 2026 年 6 月 29 日批准，将独立 Annex III 高风险系统合规期限从原定 2026 年 8 月 2 日推迟至<strong>2027 年 12 月 2 日</strong>。</li>
+        <li><strong>新加坡 IMDA《Model AI Governance Framework for Agentic AI》，2026 年 1 月 22 日于达沃斯发布</strong>：全球<strong>首个</strong>专门面向 Agentic AI 的治理框架，由数码发展及新闻部部长度 Josephine Teo 发布，明确<strong>人类最终问责</strong>（humans are ultimately accountable）。框架点名要为不可逆动作设置人类审批闸门，具体例子包括<strong>付款</strong>与<strong>永久删除数据</strong>；并要求限制智能体自主权与可访问的工具和数据范围，对人类监督有效性做定期审计。合规为自愿，但组织对智能体行为仍负法律责任。</li>
+        <li><strong>OECD《Due Diligence Guidance for Responsible AI》，2026 年 2 月 19 日发布</strong>：将六步尽责框架应用于 AI 全生命周期。其把影响<strong>严重度</strong>定义为可能性与严重度的函数，其中严重度包含<strong>不可补救性（irremediable character）</strong>，即把局面恢复到不利影响发生前同等状态的能力所受限制。该定义与本文的不可逆成本轴直接对应。指引获全部 OECD 成员国、17 个伙伴政府与欧盟背书。</li>
+        <li><strong>TU Darmstadt 与慕尼黑机器学习中心，'The boundaries of automation: A theory of persistent human participation'（IBM Think 报道，2026）</strong>：提出<strong>目标涌现（target emergence）</strong>理论，指出并非所有目标都内含固定标的，许多目标的标的在探索与审议中才成形，人类不只是执行已被确定的目标，而是参与创造并 refinement 目标本身。原文：'Interaction does not merely reveal which target was already destined to be endorsed; it partly determines which trajectory becomes realized.' 这是把价值判断留在人类手中的理论依据。</li>
+        <li><strong>中国工信部等十部门《人工智能科技伦理审查与服务办法（试行）》，工信部联科〔2026〕75号，2026 年 3 月 20 日印发</strong>：我国首部人工智能领域专门性科技伦理审查规章。审查重点含可控可信，明确要求<strong>是否能够保障使用者控制、指导和干预模型、系统的基本操作</strong>（人类保有对系统的控制）。须开展专家复核的三类活动包括：对人类主观行为心理情绪生命健康有较强影响的人机融合系统、具有舆论社会动员能力的算法模型、面向安全与人身健康风险场景的<strong>高度自主自动化决策系统</strong>。</li>
+      </ul>
+    </div>
+
+    <blockquote class="geo-quote">
+      <p>“The key question is whether an objective is stable enough to delegate. If the objective can change through interactions with people, tools, other agents and so on, then humans should be in the loop.”</p>
+      <cite>Francesca Rossi，IBM 负责 AI 与 AI 治理全球负责人，引自 IBM Think 对 TU Darmstadt 与慕尼黑机器学习中心《The boundaries of automation》的报道（2026）</cite>
+    </blockquote>
+
+    <p>关于 AI 与组织边界，最流行的一句判断是组织会被 AI 重新画一遍。这话对，但没说清楚画的是哪条线。多数讨论默认在任务层打转：招聘初筛交给 AI，终面留给人；草稿交给 AI，定稿留给人；客服交给 AI，投诉升级留给人。这套逻辑解决的是效率，不是责任。当组织开始把执行甚至决策委托给智能体和生态伙伴，真正要回答的问题是：哪条线一旦被跨过，组织就不能再把责任推给工具。</p>
+
+    <p>把雇佣边界和问责边界混为一谈，是这一轮 AI 原生改造里最隐蔽的误判。一个组织可以把客服、审核、排程、风控初判都外包给智能体和供应商，它确实在瘦身，但瘦身不等于免责。合同可以把工作包出去，责任包不出去。监管、客户和员工最终要的是一个个能点名的人，而不是一段无法被传唤的代码。</p>
+
+    <h2>一、雇佣边界正在失效，问责边界取而代之</h2>
+
+    <p>先说雇佣边界为什么管不住了。传统组织的边界由编制定义：谁在工资单上，谁就是组织的人，组织为他的行为负责。AI 原生组织把这条线拆开了。工作可以交给编制外的生态伙伴，决策可以交给编制外的智能体，执行可以发生在组织控制不到的云端。编制内的人在变少，组织触达世界的方式在变多。结果就是：责任的发生地，和责任的归属地，不再天然重合。</p>
+
+    <p>EU AI Act 已经把这个错位写进了法条。第 26(2) 条要求部署方把人类监督指派给具备必要能力、训练、权限与支持的自然人。注意，它要求的不是一套流程，而是一个被点名的人。法律不认无人负责的系统，它要的是具名的人类 accountable person。这与传统外包思维完全不同：外包合同可以写清谁干活，但问责边界要求写清谁为结果负责，两者不是一回事。</p>
+
+    <p>TU Darmstadt 与慕尼黑机器学习中心 2026 年的研究从另一个方向戳破了雇佣边界。他们提出的目标涌现理论指出，很多工作的目标本身不是给定的，而是在执行中通过探索和审议逐渐成形的。一个科学家用 AI 探索现象，新证据会改变研究的方向，也会重新定义什么叫成功。此时人类的角色不是执行一个既定目标，而是参与创造并 refinement 这个目标。当目标会随交互改变，把它交给一个只会优化给定目标的系统，就等于把方向盘交给一个不知道目的地的人。这就是为什么边界必须锚在问责，而不是锚在谁写代码。</p>
+
+    <h2>二、两轴划界：可撤回性与不可逆成本</h2>
+
+    <p>问责边界不能停在口号，它需要可操作的刻度。本文用两个轴来划。第一个轴是可撤回性，问的是这个动作技术上能不能被撤销、回滚。删一条草稿容易，撤回一封已发出的对外函件难，撤销一笔已清算的付款更难。第二个轴是不可逆成本，问的是一旦出错，损失能不能补救、代价多大。OECD 在 2026 年尽责指引里把这一维度正式命名为不可补救性，即把局面恢复到不利影响发生前同等状态的能力所受限制。两个轴都来自已发布的治理框架：可撤回性对应 NIST AI RMF 对智能体决策可撤回性的评级，不可逆成本对应 OECD 对影响严重度的定义。</p>
+
+    <p>两个轴交叉出四个象限。高可撤回加低不可逆成本，是 AI 与生态的天然领地：检索、起草、分类、排程、限定权限内的常规执行。这些错了能回头，代价小。低可撤回加高不可逆成本，是必须留在人类手中的禁区：解雇、对外法律承诺、放贷、永久删除数据、涉及人身安全的动作。剩下两类需要中间控制：高可撤回但高不可逆成本，如大额支付，靠人类审批闸门；低可撤回但低不可逆成本，如自动回复，靠监控与事后审计。</p>
+
+    <p>这张矩阵的价值在于它把模糊的留人还是委托，变成了一个可填的表。组织不用再凭直觉说某些事很重要所以要人做，而是可以沿着两轴逐项正确：这个动作撤回要多久，错了代价多大，据此决定是全自动、人审批、还是人终审。新加坡 IMDA 的框架正是这么做的，它要求组织在部署前就评估智能体动作的<strong>范围与可撤回性</strong>，并据此设限。</p>
+
+    <h2>三、必须留在人类手中的三件事</h2>
+
+    <p>落在低可撤回、高不可逆成本象限的能力，不是随便哪个人都能接，它必须落在人类手里，而且不止是人在环，是人类保有最终问责。具体是三件事，它们共同构成了组织层的问责边界。</p>
+
+    <p>第一，价值判断。价值判断是目标与取舍本身的设定，不是给定目标后的优化。AI 擅长的是在给定目标下把指标做漂亮，它不负责决定这个指标该不该存在。绩效体系往哪个方向偏、谁该被优化、产品该牺牲体验换增长还是反过来，这些是组织最该由人守住的阵地。目标涌现理论说得很清楚：当标的会随交互改变，人类必须在环。把价值判断委托出去，组织就失去了定义自己要什么的能力，只剩下把别人给的目标执行得越来越顺。</p>
+
+    <p>第二，关系信任。信任这种东西，只能由人持有，不能被系统代理。一个员工被算法判定为低绩效并触发解雇流程，如果背后没有具名的人类负责人，组织失去的不只是一个决定，而是与这个人、与所有旁观员工之间的责任关系。客户发现自己的一桩投诉被一个没有人类所有者的系统处理了，他对组织的信任会塌。这里有个真实风险叫责任塌陷区（moral crumple zone）：错误发生时，责备往往落在权限有限、其实难以改变结果的人类操作员身上，而真正做了决定的系统却无人可究。把关系信任留在人类手中，本质是把可被问责的主体保持为人。</p>
+
+    <p>第三，最终问责。每一个自主体都要有具名的人类负责人，这是问责边界的底线工程。2026 年企业治理实践里反复出现一个动作：建立智能体登记册（agent registry），每个上线的智能体必须有被点名的人类 owner，说不出负责人就不许上线；每个自主动作都要留下时间戳、动作、数据、决策理由与授权人。这不是审计形式主义，它是把组织问责边界落进日志。没有具名 owner 的自主体，等同于组织把责任悬空，一旦出错，没人能被传唤。</p>
+
+    <h2>四、把边界写成可执行的治理，而不是口号</h2>
+
+    <p>结论不是少用 AI，而是把问责边界设计成制度，而不是指望原则自然落地。四件动作现在就该做。</p>
+
+    <p>第一，建智能体登记册。每个自主体上线前必须有具名人类负责人，职责、权限、审计轨迹一并登记。这条线画不清，后面的控制都是空谈。</p>
+
+    <p>第二，按两轴矩阵设审批闸门。对低可撤回、高不可逆成本的动作强制人类在环审批，闸门前置到动作执行之前，而不是事后看日志。IMDA 框架点名的付款与永久删除数据，就是这类闸门的典型。</p>
+
+    <p>第三，定义升级触发条件。智能体在授权范围内自主运行，一旦遇到歧义、高风险或超出授权范围，就暂停并交还人类，而不是自行判断。这不是故障状态，是设计特性。多智能体协作时尤其需要，因为交互结果更难预测。</p>
+
+    <p>第四，配停止开关与定期审计。每个自主体都要有能立即中止运行的能力，并定期核验人类监督是否仍然有效，防止自动化偏见把审批变成橡皮图章。中国 2026 年十部门办法提供了国家层面的参照：可控可信要求人类保有对系统的控制与干预能力，并对高度自主的自动化决策系统设专家复核。</p>
+
+    <p>回到开头那条线。AI 原生组织的边界，不是被技术推着改的，是组织主动按问责逻辑重画的。雇佣边界定义谁为你工作，问责边界定义谁为结果负责，两者在 AI 原生组织里第一次彻底分家。可委托的，是那些错了能回头、代价小的环节；必须留在人类手中的，是价值判断、关系信任与最终问责，它们共同构成了组织不能被算法替写的那部分自我。把这条线画清楚，组织才谈得上用了 AI 之后，依然是一个能被追责的主体。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-native-org-capability-boundary-2026.html">AI原生组织不是范式切换：是能力边界的重写</a></li>
+        <li><a href="/articles/human-ai-boundary-2026.html">人机协同的边界：何时该用AI，何时该用人</a></li>
+        <li><a href="/articles/ai-native-governance-tasks-2026.html">AI 原生治理：当决策权下沉到任务，董事会监督怎么重装</a></li>
+        <li><a href="/articles/human-ai-equation.html">效率、判断力与组织记忆：配平你的人机协作方程式</a></li>
+        <li><a href="/articles/ai-native-organizational-design-2026.html">AI原生组织设计：从「工具升级」到「范式重构」</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【高风险系统有效人类监督为法定义务；第 14(4) 列明监督人五项能力；第 14(5) 远程生物识别须至少两名自然人复核；第 26(2) 部署方指派具名自然人监督；2026 数字简化包将独立 Annex III 高风险合规推迟至 2027 年 12 月 2 日】：Regulation (EU) 2024/1689（EU AI Act），Article 14 与 Article 26(2)，2024 年 6 月 13 日通过，相关义务 2026 年起分阶段适用。</li>
+        <li>【全球首个 Agentic AI 治理框架；人类最终问责；为不可逆动作（付款、永久删除数据）设人类审批闸门；限制智能体自主权与数据工具访问；定期审计监督有效性；自愿合规但组织仍负法律责任】：Infocomm Media Development Authority（IMDA），Singapore，《Model AI Governance Framework for Agentic AI》，2026 年 1 月 22 日发布于达沃斯世界经济论坛。</li>
+        <li>【六步尽责框架应用于 AI；严重度含不可补救性（irremediable character）；获 OECD 成员国、17 伙伴政府与欧盟背书】：OECD，《Due Diligence Guidance for Responsible AI》，2026 年 2 月 19 日发布。</li>
+        <li>【目标涌现理论；目标在交互中成形，人类参与创造与 refinement 目标；'Interaction does not merely reveal which target... it partly determines which trajectory becomes realized'；Francesca Rossi 评注'objective is stable enough to delegate'】：Köhl M. A. 等，TU Darmstadt 与 Munich Center for Machine Learning，《The boundaries of automation: A theory of persistent human participation》，由 IBM Think 于 2026 年报道。</li>
+        <li>【我国首部 AI 专门性科技伦理审查规章；可控可信要求人类保有对系统的控制与干预；须专家复核含高度自主自动化决策系统】：中华人民共和国工业和信息化部等十部门，《人工智能科技伦理审查与服务办法（试行）》，工信部联科〔2026〕75号，2026 年 3 月 20 日印发。</li>
+        <li>【AI 治理四功能 Govern/Map/Measure/Manage；Map 阶段对智能体按自主权限与决策可撤回性两轴评级；高自主低可撤回强制人类在环】：National Institute of Standards and Technology（NIST），《AI Risk Management Framework (AI RMF 1.0)》，2023 年 1 月。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

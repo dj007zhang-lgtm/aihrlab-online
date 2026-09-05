@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人和 Agent 的契约：接口怎么设计 | AIHR数智引擎</title>
+  <meta name="description" content="人和 Agent 长期共事，改变的不是一个工具清单，而是二者之间的接口。这个接口应当被当成契约设计，写清谁发起、谁校验、谁兜底、上下文怎么传。本文基于微软 2026 工作趋势指数与 CHI 2026 研究，给出角色级契约的四种原型（作者、编辑、导演、统筹）及其失败信号，指出多数 Agent 落地失败是契约失败而非模型失败。">
+  <meta name="keywords" content="人智契约,human-agent contract,AI原生组织,智能体,工作设计,组织治理,角色接口,agent,契约设计">
+  <meta name="answer-what" content="人和 Agent 长期共事，改变的是二者之间的接口，而非工具清单。这个接口必须被当成一份契约来设计，明确写清四个条款：谁发起、谁校验、谁兜底、上下文如何传递。基于微软 2026 工作趋势指数提出的四种协作模式（作者、编辑、导演、统筹），可映射为角色级的四种契约原型，每种原型都有特定的失败信号。多数 Agent 落地失败是契约未被设计、未被签署，而不是模型能力不足。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="人-Agent 协作的本质是契约设计，不是工具采购。契约写清四件事：谁发起、谁校验、谁兜底、上下文怎么传。微软 2026 工作趋势指数把人与 Agent 的协作拆成四种模式，作者（人产出、按需调 Agent）、编辑（人给意图、Agent 出草稿、人审）、导演（人写规格、Agent 后台自主跑）、统筹（人搭系统、多 Agent 并行、异常升级给人），可一一对应为四种契约原型。失败几乎都发生在契约层面：校验角色塌掉（微软与 CMU 的 CHI 2025 实验显示约 40% 的 AI 辅助任务没有经过批判性思考）、契约在无人重签的情况下从作者悄悄滑向统筹、上下文在交接中丢失、兜底责任在多 Agent 间弥散。CHI 2026 的人智协作研究把问责、共同立场、不确定性信号、相互依赖列为必须显式设计的接口要素。契约设计归 HR 与组织设计，不归 IT 采购。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-human-agent-contract-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="人和 Agent 的契约：接口怎么设计">
+  <meta property="og:description" content="多数 Agent 落地失败是契约失败，不是模型失败。写清谁发起、谁校验、谁兜底、上下文怎么传，角色级的四种契约原型各有其失败信号。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-human-agent-contract-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-human-agent-contract-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-human-agent-contract-2026.webp">
+  <meta name="twitter:title" content="人和 Agent 的契约：接口怎么设计">
+  <meta name="twitter:description" content="多数 Agent 落地失败是契约失败，不是模型失败。写清谁发起、谁校验、谁兜底、上下文怎么传，角色级的四种契约原型各有其失败信号。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "人和 Agent 的契约：接口怎么设计",
+    "description": "人和 Agent 长期共事，改变的不是一个工具清单，而是二者之间的接口。这个接口应当被当成契约设计，写清谁发起、谁校验、谁兜底、上下文怎么传。本文基于微软 2026 工作趋势指数与 CHI 2026 研究，给出角色级契约的四种原型（作者、编辑、导演、统筹）及其失败信号，指出多数 Agent 落地失败是契约失败而非模型失败。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-human-agent-contract-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-human-agent-contract-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-human-agent-contract-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["人智契约","human-agent contract","AI原生组织","智能体","工作设计","组织治理","角色接口","agent","契约设计"],
+    "wordCount": "4200",
+    "timeRequired": "PT16M",
+    "citation": [
+      {"@type": "Article", "name": "Microsoft（2026），《2026 Work Trend Index: Agents, Human Agency, and the Opportunity for Every Organization》。基于 10 个市场、2 万名 AI 使用者调研，以及对数万亿条匿名化 Microsoft 365 生产力信号的分析。提出人与 Agent 的四种协作模式：Author（作者）、Editor（编辑）、Director（导演）、Orchestrator（统筹）；Microsoft 365 中活跃 agent 数量较去年增长 15 倍，大型企业增长 18 倍；组织因素（文化、管理者支持、人才实践）占 AI 实际影响的 67%，约为个体心态（32%）的两倍；49% 的 Copilot 对话用于分析、推理与决策等认知工作", "url": "https://www.microsoft.com/en-us/worklab/work-trend-index"},
+      {"@type": "Article", "name": "Yao B., Chen J., Chen C., Wang A., Li T. J., Wang D.（2026），《Through the Lens of Human-Human Collaboration: A Configurable Research Platform for Exploring Human-Agent Collaboration》，Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems（CHI '26），Barcelona，2026，DOI 10.1145/3772318.3790879。主张将 LLM agent 视为远程人类协作者来设计接口，明确点名有效协作所需的四项社会技术要素：共同立场（common ground）、不确定性信号（signaling uncertainty）、问责（accountability）、相互依赖（interdependence）；指出缺少这些要素会削弱信任、损害人类能动性、在高风险场景下破坏可靠依赖", "url": "https://doi.org/10.1145/3772318.3790879"},
+      {"@type": "Article", "name": "Lee M., Yin M., Jia N. 等（2025），Microsoft Research 与卡内基梅隆大学（CMU），《The Impact of Generative AI on Critical Thinking》，CHI 2025。对 319 名每周至少使用一次生成式 AI 的知识工作者调研，收集 936 个真实工作案例；结果发现约 40% 的 AI 辅助任务没有触发批判性思考，对 AI 能力的信心越强，投入批判性思考的意愿越低；并提出自动化的反讽：把常规任务机械化、把异常处理留给人，会剥夺人练习判断的日常机会", "url": "https://www.microsoft.com/en-us/research/publication/the-human-factor-in-ai-assisted-writing/"},
+      {"@type": "Article", "name": "Microsoft Research（2026），《科研上新：从工具到伙伴，人机协作迈入深度共融时代》，精选 CHI 2026 六篇论文。其中对 19 名专业编剧为期两周的人机共创追踪研究，基于班杜拉人类能动性理论，识别意向性、前瞻性、自我调节、自我反思四个维度；一项 21 天田野研究以 96 名 18 至 26 岁参与者评估跨时间情感建模伴侣智能体 Auri，验证长期连贯交互对能动性感知的影响", "url": "https://www.microsoft.com/en-us/research/articles/chi%E4%B8%8A%E6%96%B0-%E4%BB%8E%E5%B7%A5%E5%85%B7%E5%88%B0%E4%BC%99%E4%BC%B4%EF%BC%9A%E4%BA%BA%E6%9C%BA%E5%8D%8F%E4%BD%9C%E8%BF%88%E5%85%A5%E6%B7%B1%E5%BA%A6%E5%85%B1%E8%9E%8D/"},
+      {"@type": "Article", "name": "Pang R. Y. 等，Harvard、MIT、Stanford、Oxford 联合团队（2025），《Understanding the LLM-ification of CHI》，arXiv:2501.12557。对 2020 至 2024 年 CHI 会议 153 篇涉及 LLM 的论文做系统综述，发现 LLM 工作覆盖 10 个领域，作者普遍提出有效性与可复现性担忧，且绝大多数研究使用闭源模型，社区缺乏使用 LLM 的明确指南与最佳实践", "url": "https://arxiv.org/abs/2501.12557"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "人和 Agent 的契约，跟决定什么时候用 AI 是一回事吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是一回事。决定什么时候用 AI，是在任务层做取舍：这件事该交给人、交给机器，还是人机各做一段。契约设计是在角色层写接口：一旦决定长期共事，就要写清谁发起、谁校验、谁兜底、上下文怎么传。前者回答要不要一起干，后者回答怎么一起干。很多组织的 Agent 项目卡在后者，因为接口是隐性的、没人签过字，于是在运行中被默认成最省力的样子，而不是最合理的样子。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "四种契约原型（作者、编辑、导演、统筹）该怎么选，是不是越往后越先进？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是越往后越先进，是适用的工作流不一样。作者契约是人产出、按需调 Agent，风险最低，适合边界清晰的小块工作；编辑契约是人给意图、Agent 出草稿、人审，适合有标准但需提效的产出；导演契约是人写规格、Agent 后台自治跑，适合可隔离、可回滚的整段任务；统筹契约是人搭系统、多 Agent 并行、异常升级给人，适合跨职能的长流程。微软 2026 工作趋势指数明确说，领导者的目标不是把所有工作推到第四种，而是为每条工作流匹配恰当的协作模式。把高风险任务错误套用统筹契约，是最贵的失败。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么 Agent 上线后，人的校验角色最容易塌掉？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "因为校验在 Agent 给出看似合理的答案时，边际成本显得不划算。微软与 CMU 在 CHI 2025 对 319 名知识工作者的实验里发现，约 40% 的 AI 辅助任务没有经过批判性思考，对 AI 能力的信心越强，人越不质疑。这不是人变笨，是一个理性的省力选择。当编辑契约里人的校验从实质审查滑成形式通过，契约就失败了，而失败通常无声无息。组织在接口设计上必须给校验留出不可跳过的节点，而不是指望人的自觉。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "导演契约和统筹契约里，到底谁来兜底，怎么兜底？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "兜底始终在人，但兜底的方式必须被事先设计。导演契约里，Agent 后台自治执行，人兜底的是异常升级：需要任务隔离、回滚机制和审计轨迹，否则 Agent 跑偏一长段才被人发现，且无法还原路径。统筹契约里，多个 Agent 并行，人兜底的是跨 Agent 的冲突与升级项，难点是上下文在 Agent 间交接时若丢失，人收到的异常无法回溯。CHI 2026 的研究把问责、共同立场、不确定性信号列为必须显式设计的接口要素，没有这些，兜底就是一句空话。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "上下文在人和 Agent 之间怎么传，才不会丢？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "上下文丢失发生在交接处，不在单次对话里。人把任务交给 Agent，或 Agent 把半成品交给下一个 Agent、最后把异常交回人，每一处都是丢上下文的关口。做法是把上下文当成产物来管理：环境上下文（屏幕状态、文档、实时轨迹）、知识上下文（检索到的依据）、对话上下文（历史与当前卡点）要可携带、可审计。微软研究院 CHI 2026 的 AskEase 系统正是靠管理多源上下文来推断用户意图，这思路值得借到组织接口设计里：上下文不是一个人脑子里的东西，是一条能被传递和复现的链。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "契约设计这件事归谁，是 IT 采购还是组织设计？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "归 HR 与组织设计，不归 IT 采购。微软 2026 工作趋势指数给出的数字是，组织因素占 AI 实际影响的 67%，约为个体心态的两倍，这说明约束在系统不在个人。具体四件事：把契约写进岗位说明书，明确谁发起、谁校验、谁兜底是可评价的问责项；为高自治契约配置审计轨迹与升级路径；训练前沿使用者那种暂停分配人机工作、把模型输出当草稿的习惯；以及把契约是否被遵守设为可度量的治理指标，而不是只看 Agent 用了多少。"
+      }
+    }
+  ]
+}</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>人和 Agent 的契约：接口怎么设计</h1>
+    <div class="article-tags"><span>人智契约</span><span>human-agent contract</span><span>AI原生组织</span><span>智能体</span><span>工作设计</span><span>组织治理</span><span>角色接口</span><span>契约设计</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 16 分钟</span>
+    </div>
+    <p class="lead">很多组织把 Agent 上线当成一次工具采购。买进来、接进工作流、配好权限，然后期待效率曲线右移。这套动作漏掉了一个东西：当一个人开始和一个非人行动者长期共事，真正改变的不是工具清单，而是二者之间的接口。这个接口最好被当成一份契约来设计，写清谁发起、谁校验、谁兜底、上下文怎么传。契约不写，Agent 要么越界，要么停摆，而人往往在两种失败里同时丢掉判断。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-human-agent-contract-2026.webp"
+         alt="人和 Agent 的契约题图：一份写在角色边界上的接口协议"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>工具可以采购，接口必须设计。人和 Agent 之间的那份契约，多数组织至今没有签过字。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">人和 Agent 长期共事，改变的是二者之间的接口，而不是一个工具清单。这个接口必须被当成一份契约来设计，明确写清四个条款：谁发起、谁校验、谁兜底、上下文如何传递。微软 2026 工作趋势指数把人与 Agent 的协作拆成四种模式，作者（人产出、按需调 Agent）、编辑（人给意图、Agent 出草稿、人审）、导演（人写规格、Agent 后台自治跑）、统筹（人搭系统、多 Agent 并行、异常升级给人），可一一对应为角色级的四种契约原型。失败几乎都发生在契约层面：校验角色塌掉（微软与 CMU 的 CHI 2025 实验显示约 40% 的 AI 辅助任务没有经过批判性思考）、契约在无人重签的情况下从作者悄悄滑向统筹、上下文在交接中丢失、兜底责任在多 Agent 间弥散。CHI 2026 的人智协作研究把问责、共同立场、不确定性信号、相互依赖列为必须显式设计的接口要素。多数 Agent 落地失败是契约未被设计、未被签署，而不是模型能力不足。契约设计归 HR 与组织设计，不归 IT 采购。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>Microsoft《2026 工作趋势指数：Agents, Human Agency, and the Opportunity for Every Organization》（2026）</strong>：基于 10 个市场、<strong>2 万名 AI 使用者</strong>调研，以及对数万亿条匿名化 Microsoft 365 生产力信号的分析。提出人与 Agent 的<strong>四种协作模式</strong>：Author（作者）、Editor（编辑）、Director（导演）、Orchestrator（统筹）；Microsoft 365 中<strong>活跃 agent 数量同比增长 15 倍</strong>，大型企业增长 18 倍；<strong>组织因素占 AI 实际影响的 67%</strong>，约为个体心态（32%）的两倍。<em>该报告把四种模式作为领导者为工作流匹配协作形态的操作框架，是契约原型设计的事实底座。</em></li>
+        <li><strong>Yao、Chen、Chen、Wang、Li、Wang（CHI 2026，《Through the Lens of Human-Human Collaboration》）</strong>：DOI <strong>10.1145/3772318.3790879</strong>。主张将 LLM agent 视为远程人类协作者来设计接口，明确点名有效协作所需的四项社会技术要素：<strong>共同立场（common ground）、不确定性信号（signaling uncertainty）、问责（accountability）、相互依赖（interdependence）</strong>；指出缺少这些要素会削弱信任、损害人类能动性、在高风险场景下破坏可靠依赖。<em>这是 2026 年人智协作接口设计的直接一手文献。</em></li>
+        <li><strong>Lee、Yin、Jia 等（Microsoft Research 与 CMU，CHI 2025，《The Impact of Generative AI on Critical Thinking》）</strong>：对 <strong>319 名</strong>每周至少使用一次生成式 AI 的知识工作者调研，收集 <strong>936 个</strong>真实工作案例。结果发现约 <strong>40%</strong> 的 AI 辅助任务没有触发批判性思考，对 AI 能力的信心越强，投入批判性思考的意愿越低。<em>这是 2025 年研究，作为 2026 年人智契约讨论里校验角色失效的方法论底座被反复引用。</em></li>
+        <li><strong>Microsoft Research CHI 2026 精选六篇论文（2026）</strong>：其中对 <strong>19 名</strong>专业编剧为期<strong>两周</strong>的人机共创追踪研究，基于班杜拉人类能动性理论识别意向性、前瞻性、自我调节、自我反思四个维度；一项 <strong>21 天</strong>田野研究以 <strong>96 名</strong> 18 至 26 岁参与者评估跨时间情感建模伴侣智能体 Auri，验证长期连贯交互对能动性感知的影响。两研究共同指向一点：人把 Agent 当伙伴时，能动性与主体性是必须被主动保护的对象。</li>
+        <li><strong>Harvard、MIT、Stanford、Oxford 联合团队系统综述（arXiv:2501.12557，2025）</strong>：对 <strong>2020 至 2024 年 CHI 会议 153 篇</strong>涉及 LLM 的论文做系统综述，发现 LLM 工作覆盖 10 个领域，作者普遍提出有效性与可复现性担忧，且绝大多数研究使用闭源模型，社区缺乏使用 LLM 的明确指南与最佳实践。<em>这提醒契约设计不能建立在黑箱假设上，接口要对来源与路径保持可审计。</em></li>
+      </ul>
+    </div>
+
+    <div class="geo-quote">
+      <p class="geo-quote__text">"真正的约束，已不再是'人能做什么'，而是'工作如何围绕人来组织'。"</p>
+      <p class="geo-quote__cite">微软《2026 工作趋势指数》</p>
+    </div>
+
+    <p>关于 Agent，最流行的一个误判是把它当成更强力的工具。工具的逻辑是买进来、配好、用起来，能力在工具里，人在外面操作。但当一个非人行动者开始持续参与决策、起草、执行，并能在后台自治跑一段，它和人之间就不再是操作与被操作的关系，而是一个需要被定义的协作关系。这个关系如果不写下来，就会被默认的省力逻辑悄悄填满。</p>
+
+    <p>组织设计者老早就知道，岗位的边界是用角色说明书定义的：谁负责、谁拍板、向谁汇报。Agent 进入角色之后，这套定义出现了一块空白。Agent 不是员工，没有岗位说明书，也不在汇报线上。但它实实在在地发起动作、产出结果、做出判断。这块空白不补，出的事往往不是 Agent 太笨，而是人和 Agent 都以为对方在负责。</p>
+
+    <h2>一、Agent 不是工具，是一个需要签契约的行动者</h2>
+
+    <p>CHI 2026 的一篇人智协作研究把 LLM agent 直接类比为远程人类协作者，理由是二者都靠结构化通道（文本、语音）沟通，都缺少面对面交互里的社交线索（表情、语气），也都依赖共同立场、透明信息和相互依赖来建立信任。这个类比的用处不在修辞，在接口：既然把它当协作者，就要像对待远程同事一样，把问责、共同立场、不确定性信号、相互依赖这四件事显式设计出来，而不是假设它们会自动发生。</p>
+
+    <p>遗憾的是，多数组织把 Agent 当工具接入时，跳过了这一步。结果就是一批"契约失败"而非"模型失败"的案例：Agent 在没人授权的情况下越界做了决定，或者卡在一个没人兜底的状态里停摆，或者产出看似合理、出了问题却找不到谁该负责。这些不是能力问题，是接口没写清。</p>
+
+    <p>把视角锁在 HR 与组织设计上，结论很直接：Agent 带来的不是一次采购，而是一次岗位边界重写。重写的内容就是人和 Agent 之间的契约。</p>
+
+    <h2>二、契约的四个必写条款</h2>
+
+    <p>一份角色级的人智契约，至少有四个条款必须写清。少一条，接口就留有模糊地带，而模糊地带在压力下一定会被默认成最省力的那种。</p>
+
+    <p><strong>谁发起。</strong>任务由谁提出、谁定义目标与边界。是人给一句话，还是人写一份规格，还是人只搭一个系统让 Agent 自己找事做。发起权决定了 Agent 的自主半径。</p>
+
+    <p><strong>谁校验。</strong>产出由谁确认质量与正确性。这是最容易被塌掉的一栏。校验可以是逐件审，也可以是抽样审，但必须有人名字对应，不能是"系统自己觉得没问题"。</p>
+
+    <p><strong>谁兜底。</strong>出了偏差、异常、冲突，谁接手。兜底不等于背锅，而是定义升级路径：Agent 跑到哪一步必须停下来交回人，人在哪一层保留最终否决权。</p>
+
+    <p><strong>上下文怎么传。</strong>任务交接时，意图、依据、历史、约束条件如何被携带和复现。上下文丢失发生在交接处，不在单次对话里，这是后面要专门拆的一点。</p>
+
+    <p>这四个条款组合起来，就是一份角色说明书的 Agent 版本。它不必写在纸上，但必须在运行中被显式定义、被双方（人和系统设计者）认可。隐性的契约不是没有契约，是有一份没人读过的契约在替你做决定。</p>
+
+    <h2>三、四种契约原型，以及它们各自怎么烂</h2>
+
+    <p>微软 2026 工作趋势指数把人与 Agent 的协作拆成四种模式。我们把它重述为四种契约原型，每种对应一组不同的发起、校验、兜底与上下文条款。重点不在模式本身，在每种模式特有的失败信号。</p>
+
+    <h3>作者契约：人产出，按需调 Agent</h3>
+
+    <p>人自己做主要产出，只在需要时调 Agent 帮一个小忙：一行代码、一张图、一段查证。契约条款是发起=人、校验=人、兜底=人，Agent 没有发起权，半径最小。</p>
+
+    <p>失败信号：人开始把"调一下"说成"你全做了"，发起权在没人重签契约的情况下滑给 Agent，契约悄悄从作者变成编辑。最危险的是这种滑动无声无息，因为没有一道关卡会拦下"顺手多交一点"。组织要设的红线是：一旦 Agent 开始主动定义任务范围，作者契约就已失效，必须重签。</p>
+
+    <h3>编辑契约：人给意图，Agent 出草稿，人审</h3>
+
+    <p>人陈述意图，Agent 生成初稿，人编辑并确认。发起=人（意图），起草=Agent，校验=人，兜底=人。这是当前最常见的形态，也是校验角色最容易被掏空的形态。</p>
+
+    <p>失败信号：人的"编辑"退化为"通过"。微软与 CMU 在 CHI 2025 的实验里发现，约 40% 的 AI 辅助任务没有经过批判性思考，对 AI 能力的信心越强，人越不质疑。当编辑不再编辑，契约就失败了，而失败通常无声无息。给校验留出不可跳过的节点，是编辑契约能成立的前提。</p>
+
+    <h3>导演契约：人写规格，Agent 后台自治跑</h3>
+
+    <p>人写一份规格说明，把整段任务交给 Agent 在后台执行，回来给结果。发起=人（规格），执行=Agent 自治，校验=部分，兜底=人（异常升级）。</p>
+
+    <p>失败信号：Agent 跑偏一长段才被人发现，且路径无法还原。导演契约的命门是校验不能落在每件产物上（否则就和编辑契约没区别），所以必须配任务隔离、回滚和审计轨迹。没有这些，Agent 在后台做的每一步都不可见，兜底的人接到异常时已经来不及。CHI 2026 强调的不确定性信号，在这里就是 Agent 该在拿不准时主动停下来，而不是硬跑。</p>
+
+    <h3>统筹契约：人搭系统，多 Agent 并行，异常升级给人</h3>
+
+    <p>人设计一套系统，多个 Agent 在工作流里并行运转，把异常和需升级的事项交回人。发起=人（系统），执行=多 Agent，校验=Agent 间部分互校，兜底=人（跨 Agent 异常）。</p>
+
+    <p>失败信号有两种。一是上下文在 Agent 间交接时丢失，人收到的异常无法回溯，只能重来。二是问责弥散：三个 Agent 各做一段，出了错没人能说清哪一段的责任，人成了名义上的兜底却实际无法追责。统筹契约要求最强的接口纪律，因为它把单点契约扩展成了网络契约，任何一处上下文断裂都会沿网络放大。</p>
+
+    <h2>四、校验角色为什么会塌</h2>
+
+    <p>四种原型里，校验都是人的保留项，也都最容易塌。原因不是人懒惰，是经济学：当 Agent 给出"够用"的答案，实质校验的边际成本显得不划算，形式通过的成本几乎为零。人会理性地选择后者。</p>
+
+    <p>CHI 2025 那项 319 人实验还点出一个更深的机制，可以叫自动化的反讽：把常规任务机械化、把异常处理留给人，会剥夺人练习判断的日常机会，等到异常真的来了，人已经肌肉萎缩、准备不足。这意味着，校验塌掉不是一次性的疏忽，而是长期把判断外包之后能力的慢性流失。组织在接口设计上必须对抗这个趋势，办法不是训话，而是把校验节点固化进流程，让判断的日常练习不被省掉。</p>
+
+    <p>一个可操作的做法：在编辑和导演契约里，规定关键产出必须附可审计的来源与推理链。人审的不是"看起来对不对"，而是"来路能不能讲清"。这把校验从主观感觉变成可验证动作，也顺带解决了上下文传递的问题。</p>
+
+    <h2>五、兜底与追责：导演和统筹契约的硬骨头</h2>
+
+    <p>兜底始终在人，这一点没有争议。有争议的是兜底怎么落地。导演契约里，人兜底的是异常升级，前提是 Agent 跑的过程中有 checkpoint、有回滚、有轨迹。统筹契约里，人兜底的是跨 Agent 的冲突与升级项，前提是上下文在 Agent 间交接时不被截断。</p>
+
+    <p>CHI 2026 的研究把问责（accountability）和共同立场（common ground）列为协作的核心要素，放到兜底语境里就是两句话：出事的环节要能定位到Agent，升级给人时要带得齐上下文。做不到这两点，兜底就是一句空话，组织只能事后追责到"用 AI 的人"，而真正的问题在接口。</p>
+
+    <p>追责弥散是统筹契约特有的风险。多 Agent 并行时，单一结果由多段贡献合成，任何一段的偏差都难归因。这要求系统设计者在一开始就把"可归因"写进契约，而不是等出事再倒查。可归因不是技术细节，是组织治理的底线。</p>
+
+    <h2>六、上下文怎么传，才不会丢</h2>
+
+    <p>上下文丢失是静默的，也是最多的。人把任务交给 Agent，Agent 把半成品交给下一个 Agent，最后把异常交回人，每一处交接都是丢上下文的关口。单次对话里上下文很齐全，一交接就散。</p>
+
+    <p>解决思路是把上下文当成产物来管理，而不是当成某个人脑子里的东西。微软研究院 CHI 2026 的 AskEase 系统靠管理三类上下文来推断用户意图：环境上下文（屏幕状态、实时轨迹）、知识上下文（检索到的依据）、对话上下文（历史与当前卡点）。这套分法值得借到组织接口设计：人交给 Agent 的不能只是一句指令，而是带齐这三类上下文的包裹；Agent 之间交接、交回人，也都传递这个包裹。上下文一旦可携带、可审计，校验和兜底才站得住。</p>
+
+    <p>这反过来也限制了契约的复杂度。一个交接三次以上的长流程，如果每次交接都不补上下文，到人手里的异常就是黑箱。组织要为每个交接点设上下文清单，清单缺失则流程不能往下走。这是接口纪律，不是技术偏好。</p>
+
+    <h2>七、契约设计归谁：这是组织设计，不是 IT 采购</h2>
+
+    <p>回到约束在哪。微软 2026 工作趋势指数给的数字是，组织因素占 AI 实际影响的 67%，约为个体心态的两倍。换句话说，Agent 能不能用好，瓶颈在系统不在个人。契约设计因此天然落在 HR 与组织设计手里，不落在 IT 采购单上。</p>
+
+    <p>具体四件事，现在就该接手。</p>
+
+    <p>第一，把契约写进岗位说明书。明确谁发起、谁校验、谁兜底是可评价的问责项，而不是工具清单里一条"熟练使用 AI"。没有写进说明书的契约，运行中被默认成最省力形态的概率接近百分之百。</p>
+
+    <p>第二，为高自治契约配置审计轨迹与升级路径。导演和统筹契约若没有 checkpoint、回滚、可归因，就不应上线。这是治理门槛，不是效率成本。</p>
+
+    <p>第三，训练前沿使用者那种把模型输出当草稿、暂停分配人机工作的习惯。微软研究中表现最好的前沿专业使用者，特征正是会刻意分配人与 Agent 的分工、主动不带 AI 练习技能、把模型输出当素材。这种习惯能被设计出来，也能被培训出来。</p>
+
+    <p>第四，把契约是否被遵守设为可度量的治理指标，而不是只看 Agent 用了多少。一个该问的体检问题很简单：过去一个季度，我们哪条工作流重签了人智契约，哪条还在用一份没人读过的隐性契约运行。如果答不上来，说明 Agent 在跑，契约还在睡。</p>
+
+    <p>人和 Agent 之间那层接口，不会因为它看不见就不存在。它每天都在被默认填充，填充的方式取决于谁先动手设计。等出事再补，补的是事故报告，不是契约。把契约当成组织设计来写，是这一轮 Agent 落地里最被低估、也最决定成败的一件事。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/human-ai-boundary-2026.html">人机协同的边界：何时该用AI，何时该用人</a></li>
+        <li><a href="/articles/ai-task-level-work-redesign-2026.html">AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务</a></li>
+        <li><a href="/articles/pod-org-ai-agent-2026.html">Pod组织是什么：当AI agent坐进最小作战单元，科层制如何被重写</a></li>
+        <li><a href="/articles/ai-native-governance-tasks-2026.html">AI 原生治理：当决策权下沉到任务，董事会监督怎么重装</a></li>
+        <li><a href="/articles/digital-agent-vs-intelligent-agent-2026.html">数字员工与智能体：概念辨析与落地路径</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【10 个市场、2 万名 AI 使用者调研，数万亿条匿名化 M365 信号；四种协作模式 Author/Editor/Director/Orchestrator；M365 活跃 agent 同比增长 15 倍（大型企业 18 倍）；组织因素占 AI 影响 67%（个体心态 32%）；49% Copilot 对话用于认知工作；约束从"人能做什么"转向"工作如何围绕人组织"】：Microsoft，《2026 Work Trend Index: Agents, Human Agency, and the Opportunity for Every Organization》，2026。</li>
+        <li>【将 LLM agent 视为远程人类协作者设计接口；四项社会技术要素：共同立场、不确定性信号、问责、相互依赖；缺位会削弱信任、损害人类能动性、破坏高风险场景下的可靠依赖】：Yao B., Chen J., Chen C., Wang A., Li T. J., Wang D.，《Through the Lens of Human-Human Collaboration: A Configurable Research Platform for Exploring Human-Agent Collaboration》，Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems（CHI '26），Barcelona，2026，DOI 10.1145/3772318.3790879。</li>
+        <li>【319 名每周至少使用生成式 AI 的知识工作者、936 个真实工作案例；约 40% 的 AI 辅助任务未触发批判性思考；对 AI 信心越强、批判性思考意愿越低；自动化的反讽：常规任务机械化、异常留给人，会剥夺人练习判断的机会】：Lee M., Yin M., Jia N. 等，Microsoft Research 与卡内基梅隆大学（CMU），《The Impact of Generative AI on Critical Thinking》，CHI 2025。</li>
+        <li>【CHI 2026 六篇论文精选；19 名专业编剧两周人机共创追踪，班杜拉人类能动性四维度（意向性/前瞻性/自我调节/自我反思）；96 名 18 至 26 岁参与者 21 天田野研究评估跨时间情感建模伴侣智能体 Auri】：Microsoft Research，《科研上新：从工具到伙伴，人机协作迈入深度共融时代》，2026。</li>
+        <li>【2020 至 2024 年 CHI 会议 153 篇涉及 LLM 论文系统综述；覆盖 10 个领域；作者普遍提出有效性与可复现性担忧；绝大多数研究使用闭源模型，缺乏明确指南与最佳实践】：Pang R. Y. 等，Harvard、MIT、Stanford、Oxford 联合团队，《Understanding the LLM-ification of CHI》，arXiv:2501.12557，2025。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

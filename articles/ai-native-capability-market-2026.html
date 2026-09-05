@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从共享中台到能力市场：资源怎么调度 | AIHR数智引擎</title>
+  <meta name="description" content="静态中台和共享服务中心曾是企业调度资源的标准答案，把共性能力收进常设层，前台按需取用。当 AI 把协调能力内化，这套静态供给开始松动。资源调度的下一形态是内部能力市场，能力以 API 或 agent 形式被按需调用、计价、组合。本文以内部人才市场实证为底座，对比中台退潮，给出能力市场的三要件：可发现、可计价、可组合。">
+  <meta name="keywords" content="能力市场,capability market,内部人才市场,中台退潮,共享服务中心,AI原生组织,资源调度,API,agent,可发现可计价可组合">
+  <meta name="answer-what" content="从共享中台到能力市场的核心：静态中台与共享服务中心（SSC）把共性能力收拢为常设层，前台按需取用。当 AI 把协调能力内化，这套静态供给开始失效。资源调度的下一形态是内部能力市场，能力以 API 或 agent 形式被按需调用、计价、组合。能力市场有三要件：可发现、可计价、可组合。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="资源调度的范式正在从常设层转向内部能力市场。过去十年，组织把共性能力收进中台与共享服务中心（SSC），前台按需取用，规模越大越划算。当 AI 把协调能力内化，这套静态供给开始松动：Deloitte《2026 全球人力资本趋势》显示，70% 的商业领袖把未来三年的首要竞争战略定为快与灵，并把优势来源从规模转向实时编排人力、技能、数据与技术；Gartner 2026 预测，到 2028 年 90% 的 B2B 交易将由 AI agent 撮合。能力市场的下一形态是：能力以 API 或 agent 形式被按需调用、计价、组合。McKinsey《Making a market in talent》早已指出，人才市场要运转，必须有定价、协议与披露三套机制，这恰好对应能力市场的三要件：可发现、可计价、可组合。内部人才市场（如施耐德电气 Open Talent Market 借 Gloat 在数周内解锁 12.7 万小时隐性产能）是能力市场的人本预演；阿里 2026 年将中台改写为 Token Hub，则是把能力底座换成算力与模型、用 Token 计价的市场雏形。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-capability-market-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="从共享中台到能力市场：资源怎么调度">
+  <meta property="og:description" content="中台和 SSC 把资源收进常设层，前台取用。AI 内化协调能力后，静态供给松动。资源调度转向内部能力市场：能力以 API/agent 被调用、计价、组合。三要件：可发现、可计价、可组合。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-capability-market-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-capability-market-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-capability-market-2026.webp">
+  <meta name="twitter:title" content="从共享中台到能力市场：资源怎么调度">
+  <meta name="twitter:description" content="中台和 SSC 把资源收进常设层，前台取用。AI 内化协调能力后，静态供给松动。资源调度转向内部能力市场：能力以 API/agent 被调用、计价、组合。三要件：可发现、可计价、可组合。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "从共享中台到能力市场：资源怎么调度",
+    "description": "静态中台和共享服务中心曾是企业调度资源的标准答案，把共性能力收进常设层，前台按需取用。当 AI 把协调能力内化，这套静态供给开始松动。资源调度的下一形态是内部能力市场，能力以 API 或 agent 形式被按需调用、计价、组合。本文以内部人才市场实证为底座，对比中台退潮，给出能力市场的三要件：可发现、可计价、可组合。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-capability-market-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-capability-market-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-capability-market-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["能力市场","capability market","内部人才市场","中台退潮","共享服务中心","AI原生组织","资源调度","API","agent","可发现可计价可组合"],
+    "wordCount": "4200",
+    "timeRequired": "PT17M",
+    "citation": [
+      {"@type": "Article", "name": "Deloitte《2026 Global Human Capital Trends》（与 Oxford Economics 合作）", "url": "https://www.deloitte.com/ch/en/services/consulting/perspectives/global-human-capital-trends.html"},
+      {"@type": "Article", "name": "McKinsey Quarterly《Making a market in talent》，Lowell L. Bryan, Claudia I. Joyce, Leigh M. Weiss", "url": "https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/Organization/Our%20Insights/Making%20a%20market%20in%20talent/Making%20a%20market%20in%20talent.pdf"},
+      {"@type": "Article", "name": "Gartner《Top Predictions for IT Organizations and Users in 2026 and Beyond》（2025 年 10 月发布）", "url": "https://www.gartner.com/en/newsroom"},
+      {"@type": "Article", "name": "Schneider Electric Open Talent Market（Gloat 案例）与 Deloitte Insights《Opportunity marketplaces》", "url": "https://www2.deloitte.com/us/en/insights/focus/technology-and-the-future-of-work/importance-of-investing-in-employees.html"},
+      {"@type": "Article", "name": "钛媒体《阿里重回大集权时代》（2026 年阿里 Token Hub、Token Foundry 组织调整报道）", "url": "https://www.tmtpost.com/8021930.html"},
+      {"@type": "Article", "name": "ADP《Micro-missions : la fiche de poste sera-t-elle bientôt obsolète ?》（2026 年 1 月，引述 Unilever FLEX Experiences 与 Schneider Open Talent Market）", "url": "https://www.fr.adp.com/rhinfo/articles/2026/01/micro-missions-la-fiche-de-poste-sera-t-elle-bientot-obsolete.aspx"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "什么是能力市场？它和内部人才市场有什么不同？", "acceptedAnswer": {"@type": "Answer", "text": "内部人才市场是把组织内的人和资源需求做匹配的数字平台，施耐德电气的 Open Talent Market、联合利华的 FLEX Experiences 都是这一类：员工的能力被推断出来，推送到项目、兼职、导师等机会上。能力市场是更进一步的形态。它不再只匹配人，而是把能力本身拆成可调用的模块，以 API 或 agent 的形式被按需调用、计价、组合。人仍然在，但能力可以脱离某个固定岗位、某个固定部门，变成一个能被检索、能被计费、能被拼装的资源单元。人才市场解决的是人的可见与流动，能力市场解决的是能力本身的流动性。"}},
+      {"@type": "Question", "name": "为什么说静态中台和共享服务中心会被 AI 内化？", "acceptedAnswer": {"@type": "Answer", "text": "中台和 SSC 存在的理由，是把跨部门共性能力集中成一个常设层，避免每个前台重复造轮子。它们本质上是用组织结构来承担协调能力。AI 把这种协调能力内化进系统和 agent：过去需要一个常设团队去排期、去对齐、去审批的协同动作，现在可以由 agent 直接完成，能力随调用而生、随任务结束而释放。当协调不再依赖一个常设层，常设层就失去了独占理由。Deloitte《2026 全球人力资本趋势》把优势来源从规模改写为实时编排人力、技能、数据与技术，正说明调度权正在从静态结构流向动态编排。"}},
+      {"@type": "Question", "name": "能力市场的三要件，可发现、可计价、可组合，分别解决什么问题？", "acceptedAnswer": {"@type": "Answer", "text": "可发现解决 visibility：能力必须被目录化、被标注、能被检索，不能埋在某个部门或个人脑子里，否则市场无从撮合。可计价解决 allocation：每一次能力调用都要有成本信号，可以是 token、算力、人时或风险，让资源分配由价格而非职级和政治决定，这是 McKinsey 谈人才市场时强调的定价机制。可组合解决 assembly：能力必须是带接口的模块，能被即时拼装成一条价值流，任务结束即解散。三件事缺一个，市场就退化成又一层官僚供给。"}},
+      {"@type": "Question", "name": "阿里把中台改写成 Token Hub，是重回集权还是另一种能力市场？", "acceptedAnswer": {"@type": "Answer", "text": "两者都有，要看清楚它收的是什么。2015 年阿里中台收的是业务共享能力，2023 年 1+6+N 拆分时承认这套常设层变重、变慢，中台被要求做轻做薄。2026 年阿里成立 Token Hub、技术委员会、Token Foundry，收的不再是业务共享能力，而是算力、模型、人才这一代 AI 能力底座，并用 Token 作为统一计量单位。这不是旧中台复活，而是把能力底座换成更底层、更可被计价的东西，再围绕它重组。集权是表象，底层逻辑是用统一计价单位驱动能力调度。"}},
+      {"@type": "Question", "name": "能力市场里，资源由谁定价、由谁组合？", "acceptedAnswer": {"@type": "Answer", "text": "定价权不该回到一个中心部门，而该交给调用发生的地方。每一次能力调用产生成本信号，谁发起调用、为结果负责，谁就面对价格。组合权同样下沉到任务，由价值流 owner 按目标把能力模块拼起来，而不是由职能老大按编制分配。组织要做的，是提供计价规则、披露机制和仲裁接口，让市场跑起来而不是替市场做每一个决定。这也是 McKinsey 说的人才市场三机制：定价、协议、披露，缺一不可。"}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>从共享中台到能力市场：资源怎么调度</h1>
+    <div class="article-tags"><span>能力市场</span><span>capability market</span><span>内部人才市场</span><span>中台退潮</span><span>共享服务中心</span><span>AI原生组织</span><span>资源调度</span><span>API</span><span>agent</span><span>可发现可计价可组合</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 17 分钟</span>
+    </div>
+    <p class="lead">通行的说法里，中台和共享服务中心（SSC）是组织调度资源的标准答案。把共性能力收进一个常设层，前台按需取用，规模越大越划算。这套逻辑撑起了过去十年的平台型组织。当 AI 开始把协调能力内化，标准答案开始失效。资源调度的下一形态不是又一个更聪明的常设层，而是内部能力市场：能力以 API 或 agent 形式被按需调用、计价、组合。组织从养一个中台，转向跑一个市场。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-capability-market-2026.webp"
+         alt="从共享中台到能力市场题图：常设层被拆成可被调用的能力单元"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>常设层拆成可调用的能力单元，资源调度从层级供给转向市场撮合。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">静态中台与共享服务中心（SSC）把共性能力收拢为常设层，前台按需取用，这是过去十年平台型组织的标准调度方式。当 AI 把协调能力内化，这套静态供给开始失效：协调不再依赖一个常设团队，能力可以随调用而生、随任务结束而释放。资源调度的下一形态是内部能力市场，能力以 API 或 agent 形式被按需调用、计价、组合。Deloitte《2026 全球人力资本趋势》显示 70% 的商业领袖把未来三年首要战略定为快与灵，并把优势来源从规模改写为实时编排人力、技能、数据与技术；Gartner 2026 预测到 2028 年 90% 的 B2B 交易将由 AI agent 撮合。McKinsey《Making a market in talent》早已指出，人才市场要运转必须有定价、协议与披露三套机制，这恰好对应能力市场的三要件：可发现、可计价、可组合。内部人才市场（施耐德电气 Open Talent Market 数周解锁 12.7 万小时隐性产能）是能力市场的人本预演，阿里 2026 年将中台改写为 Token Hub 则是把能力底座换成算力与模型、用 Token 计价的市场雏形。结论：组织资源调度正从养一个中台，转向跑一个市场。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>Deloitte《2026 Global Human Capital Trends》（与 Oxford Economics 合作，覆盖 76 个国家、9000 名领导者）</strong>：<strong>70%</strong> 的商业领袖表示未来三年首要竞争战略是快与灵（fast and nimble），并把竞争优势来源从规模改写为通过实时编排人力、技能、数据与技术获得速度与敏捷。<em>该报告同时把传统职能称为日益过时，提出在 Buy/Borrow/Build/Bot 之外新增 Blend、Boost、Bridge、Break 四种编排选项。</em></li>
+        <li><strong>Gartner《Top Predictions for IT Organizations and Users in 2026 and Beyond》（2025 年 10 月发布）</strong>：到 <strong>2028 年，90% 的 B2B 交易将由 AI agent 撮合</strong>，对应超过 15 万亿美元支出；到同年，领先组织 80% 的客户面流程由多 agent AI 驱动；报告明确提到可组合、云原生产品架构。<em>这构成能力以 agent 形式被调用与组合的宏观底座。</em></li>
+        <li><strong>Schneider Electric Open Talent Market（Gloat 提供，Deloitte Insights 记录）</strong>：2018 年上线，用 AI 把员工与项目、兼职、岗位、导师机会匹配；上线数周内解锁近 <strong>12.7 万小时</strong> 隐性产能，累计解锁 55 万小时以上，节省超 <strong>1500 万美元</strong>，前两月 adoption 超 60%。<em>这是内部人才市场可量化成效的真实案例，非实验室估算。</em></li>
+        <li><strong>Alibaba AI 能力底座（2026 年媒体披露，钛媒体等）</strong>：2026 财年第四财季阿里云 AI 相关产品收入 <strong>89.71 亿元</strong>，连续 <strong>11 个财季</strong> 三位数增长；同期成立 Token Hub、集团技术委员会、Token Foundry，把模型、人才、产品统一到以 Token 为计量单位的能力底座。<em>该部分架构与人事目前主要见于媒体报道，宜以据媒体报道视之。</em></li>
+        <li><strong>Deloitte 同份趋势调研</strong>：<strong>60%</strong> 的高管已在常态化使用 AI 辅助决策；只有 <strong>8%</strong> 的受访者认为自己组织的变革与学习举措高度有效。两条数据合起来说明，AI 已进入实时编排，但多数组织还没把能力调度机制重设计出来。</li>
+      </ul>
+    </div>
+
+    <div class="geo-quote">
+      <blockquote>
+        <p>人才市场有它特殊的定价、协议与披露机制。这些机制必须被建立起来，市场才能有效运转。</p>
+        <cite>McKinsey Quarterly《Making a market in talent》，Lowell L. Bryan, Claudia I. Joyce, Leigh M. Weiss</cite>
+      </blockquote>
+    </div>
+
+    <p>关于资源调度，组织过去二十年默认的答案很固定：把共性能力收进中台、收进共享服务中心，前台来取。这个答案在互联网平台型组织里被用到极致，也被当成规模效应的来源。它的问题不在当下，而在它假设需求是稳定的、能力是标准化封装的、调度可以通过一个常设层低成本完成。AI 把这三个假设逐个拆掉，常设层从资产变成摩擦。</p>
+
+    <p>本文不打算再论证中台该不该退潮，那已经由阿里的 1+6+N 拆分解答过一次。要问的是：当中台和 SSC 那层协调能力被 AI 内化之后，资源到底靠什么机制调度。答案是内部能力市场，而市场要立得住，只有三件事：能力要可发现、可计价、可组合。</p>
+
+    <h2>一、中台与 SSC：把资源收进一个常设层</h2>
+
+    <p>先说清楚旧模型在解决什么。企业长大之后，每个前台都在重复造轮子：同样的支付接口、同样的风控规则、同样的对账流程，十几个业务线各做一遍，浪费且不一致。中台的逻辑是把这些共性能力抽出来，集中成一个常设层，前台只管调用。SSC 是同一逻辑在职能侧的版本，把 HR、财务、IT 的共性操作集中交付，靠规模摊薄成本。</p>
+
+    <p>这套模型成立的前提是协同需要人。把十个业务线的共性需求对齐、排期、审批、运维，必须有一个常设团队去承担，否则没人管。中台和 SSC 本质上不是技术架构，是用组织结构来承担协调能力。它们值钱，是因为在 AI 之前，协调能力只能长在人身上、长在部门里。</p>
+
+    <p>代价也写在同一个逻辑里。常设层一旦成立，就有了自己的 KPI、自己的编制、自己的政治。前台要取用能力，得先过常设层的排期和资源之争。阿里 2015 年推行大中台、小前台，几年后就在 2023 年的 1+6+N 里承认中台变重变慢，要求中后台全面做轻、做薄。一个被设计来解决重复建设的层，自己长成了新的瓶颈。这是静态供给的内生矛盾，不是某家公司执行不力。</p>
+
+    <h2>二、AI 把协调能力内化</h2>
+
+    <p>AI 改变的不是某个具体能力，而是协调能力本身。过去需要一个常设团队去对齐需求、去排期、去审批的那些动作，现在可以由 agent 直接完成。一个 HR agent 可以自行发起入职、调取政策、填写系统、通知相关方，全程不需要一个 SSC 坐席在中间转手。一个调度 agent 可以读目标、读可用能力目录、把任务拆给合适的模块，不需要一个中台部门来派活。</p>
+
+    <p>关键点在于：当协调不再依赖常设层，常设层就失去了独占理由。能力不再因为被某个人群维护才存在，而是因为能被调用才存在。Deloitte《2026 全球人力资本趋势》把竞争优势来源从规模改写为实时编排人力、技能、数据与技术，报告原话是组织要从在静态结构里分配人才，转向实时编排人、技能、数据和技术。这不是修辞，它描述的是调度权从静态结构流向动态编排。</p>
+
+    <p>还有一条容易被忽略的数据。同一份 Deloitte 调研里，60% 的高管已经在常态化使用 AI 辅助决策，但只有 8% 的受访者认为自己的变革与学习举措高度有效。意思是，AI 已经进到实时编排这一层，绝大多数组织却还没把背后的能力调度机制重新设计出来。技术先到位，组织机制还没跟上，这正是当下脱节的位置。</p>
+
+    <h2>三、内部人才市场：能力市场的预演</h2>
+
+    <p>在谈能力市场之前，先看一个已经跑起来的人本预演：内部人才市场。它把组织内的人和资源需求放到一个数字平台上来匹配，员工的能力被推断出来，推送到项目、兼职、导师、轮岗等机会上。它解决的是人的可见与流动，是能力市场的前一阶。</p>
+
+    <p>施耐德电气的 Open Talent Market 是其中最常被引用的真实案例。它由 HR 科技公司 Gloat 提供，2018 年上线，用 AI 把员工与短期项目、拉伸型任务、兼职、全职岗位和导师机会匹配。Deloitte Insights 在《Opportunity marketplaces》里记录，这套内部市场上线数周内就解锁了近 12.7 万小时原本隐形的产能，累计解锁超过 55 万小时，节省超过 1500 万美元，前两月员工 adoption 超过 60%。联合利华的 FLEX Experiences 是同一逻辑的内部市场，让员工在主业之外贡献跨项目任务。</p>
+
+    <p>这些案例的价值不在于证明人可以流动，而在于证明了三件事：第一，隐性能力一旦被目录化、被推断，就会被看见；第二，看见之后，人会主动去撮合，不需要一个中心部门分配；第三，撮合发生后会沉淀出数据，组织第一次能看清自己到底有哪些能力、被用在哪。这三点，恰好是能力市场的雏形。差别只在于，它匹配的是人，而能力市场匹配的是被拆出来的能力单元。</p>
+
+    <h2>四、从人才市场到能力市场：能力变成 API 与 agent</h2>
+
+    <p>人才市场解决人的流动，能力市场走得更远：它把能力本身拆成可调用的模块。一个风控建模能力，不再只是某个团队里的几个人，而是可以被封装成一个服务或一组 agent，前台按目标调用，按用量计费，用完即释放。人仍然在，但能力可以脱离某个固定岗位、某个固定部门，变成一个能被检索、能被计费、能被拼装的资源单元。</p>
+
+    <p>这一步的技术前提正在就位。Gartner 在 2026 年及以后的预测里写到，到 2028 年，90% 的 B2B 交易将由 AI agent 撮合，对应超过 15 万亿美元支出；领先组织 80% 的客户面流程将由多 agent AI 驱动。当 agent 开始在企业间和企业内以机器速度撮合资源，能力作为可调用的服务单元就不再是一种比喻，而是一种接口事实。Gartner 在同一预测中明确提到可组合、云原生产品架构，这恰是能力可被拼装的技术底座。</p>
+
+    <p>把视角拉回组织内部。过去中台提供的是粗粒度的共性能力：一个支付中台、一个用户中台。能力市场提供的是更细粒度、可独立计价、可独立拼装的能力模块。当一次市场活动需要风控、文案、数据看板三件事，它不再去向三个部门申请排期，而是向能力目录发起三次调用，由价值流 owner 把结果拼成一条完整的流。调用的成本即时可见，拼装的方式即时可变。</p>
+
+    <h2>五、能力市场的三要件：可发现、可计价、可组合</h2>
+
+    <p>能力市场不是把中台换个名字，它要立得住，只有三件事，缺一个都会退化成又一层官僚供给。McKinsey 在《Making a market in talent》里谈人才市场时说过，市场要有定价、协议与披露三套机制才能运转。把这套逻辑平移到能力市场，就是可发现、可计价、可组合。</p>
+
+    <p>可发现，对应 visibility，也对应 McKinsey 说的披露。能力必须被目录化、被标注、能被检索，不能埋在某个部门或个人脑子里。一个资深员工脑子里的方法论、一个团队私有的脚本、一段没文档化的流程，只要不被登记进能力目录，市场就撮合不到它。组织的隐性能力必须被显式化，这是市场成立的前提。做不到这一点，能力市场就只是把信息不对称换了个入口。</p>
+
+    <p>可计价，对应 McKinsey 说的定价。每一次能力调用都要有成本信号，可以是 token、算力、人时，也可以是风险敞口。计价的意义不是收钱，而是让资源分配由价格而非职级和政治决定。一个调用成本过高的能力，会自动倒逼流程优化或被替代；一个被反复调用的能力，会获得更多投入。价格信号把资源配置这件事从会议室争论，变成调用发生时的实时选择。没有计价，能力市场就会退化为大锅饭，谁嗓门大谁占资源。</p>
+
+    <p>可组合，对应 McKinsey 说的协议，也对应 Gartner 说的可组合架构。能力必须是带接口的模块，能被即时拼装成一条价值流，任务结束即解散。可组合要求每个能力单元有清晰的输入输出契约，不依赖某个固定团队上下文才能工作。它让组织从养一个常设层，变成按目标临时组装能力网络。三要件合起来，能力市场才区别于旧中台：中台是常设、免费、按编制供给；能力市场是按需、计价、按目标拼装。</p>
+
+    <h2>六、对比中台退潮：市场替代层级</h2>
+
+    <p>把能力市场和正在退潮的中台放在一起看，差异会非常清楚。中台退潮的本质，不是共性能力不重要了，而是用常设层级来供给共性能力的方式失效了。阿里是最完整的样本。2015 年张勇推行大中台、小前台，把分散在各业务线的技术、数据、产品能力统一到中心化体系；到 2023 年 1+6+N 拆分，集团中后台被要求全面做轻、做薄，中台能力下沉到各业务集团。一次大拆分，等于承认分权路线回归、常设中台层不再适配。</p>
+
+    <p>2026 年阿里又动了一次，但方向不是把中台加回来，而是把能力底座换掉。据钛媒体等媒体报道，2026 年 3 月阿里成立 Token Hub（ATH），整合通义实验室、MaaS 业务线、千问事业部、悟空事业部、AI 创新事业部；4 月设立集团技术委员会，由 CEO 吴泳铭任组长；6 月合并成立 Token Foundry。收的不再是业务共享能力，而是算力、模型、人才这一代 AI 能力底座，并用 Token 作为统一计量单位。</p>
+
+    <p>这不是旧中台复活，而是把能力底座换成更底层、更可被计价的东西，再围绕它重组。旧的集权是收业务权力，新的集权是收能力底座的计价权。两种集权表面像，底层逻辑不同：一个是层级管控，一个是用统一计价单位驱动能力调度。把这套读法套回去，阿里真正变化的，是战略重心从 Model First 转向 Agent First，模型是发动机，agent 才是整车。当能力以 Token 计价、以 agent 交付，资源调度自然从层级派活，转向围绕目标的调用与拼装。</p>
+
+    <h2>七、资源调度的市场机制：谁定价，谁组合</h2>
+
+    <p>能力市场最容易被做成形似神不似的，是把它又交回一个中心部门去管价格、管排期。那等于造了一个看不见的中台。市场机制的关键，是定价权和组合权都要下沉到调用发生的地方。</p>
+
+    <p>定价不该回到中心部门，而该交给调用发生的地方。每一次能力调用产生成本信号，谁发起调用、为结果负责，谁就面对价格。一个业务线反复高价调用某个能力，市场会逼它要么优化、要么内置；一个能力长期无人调用，市场会逼它要么重构、要么下线。组织要做的，是提供计价规则、披露机制和仲裁接口，让市场跑起来，而不是替市场做每一个决定。这也是 McKinsey 说的人才市场三机制：定价、协议、披露，缺一不可。</p>
+
+    <p>组合权同样下沉到任务。价值流 owner 按目标把能力模块拼起来，而不是由职能老大按编制分配人头。一个临时组建的能力网络，任务结束即解散，人带着能力标签回到目录，等下一个目标来调用。这和 Deloitte 2026 提到的 Blend（人机组队）、Bridge（跨边界解锁人才）、Break（重设工作与结构）是同一套动作。组织从分配编制，变成编排能力。</p>
+
+    <p>回到开头的判断。中台和 SSC 的答案没有错，它只是属于协调能力还长在人身上、长在部门里的那个时代。当 AI 把协调能力内化，常设层从资产变成摩擦，资源调度的下一形态是内部能力市场。市场要立得住，只有三件事：能力可发现、可计价、可组合。内部人才市场已经证明人能流动，Gartner 的预测提示 agent 会以机器速度撮合，阿里的 Token Hub 把底座换成可被计价的算力与模型。剩下要做的，是把定价、协议与披露这三套机制，从概念写进组织的接口和账本里。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ant-middle-platform-decline-2026.html">中台退潮：当 AI 把协调能力内化，独立中台层还有必要吗</a></li>
+        <li><a href="/articles/ai-native-org-capability-boundary-2026.html">AI原生组织不是范式切换：是能力边界的重写</a></li>
+        <li><a href="/articles/ai-task-level-work-redesign-2026.html">AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务</a></li>
+        <li><a href="/articles/skill-based-org-ai-pricing-2026.html">技能本位组织：AI如何重写人才定价逻辑</a></li>
+        <li><a href="/articles/pod-org-ai-agent-2026.html">Pod组织是什么：当AI agent坐进最小作战单元，科层制如何被重写</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【覆盖 76 个国家、9000 名领导者；70% 商业领袖把未来三年首要战略定为快与灵；竞争优势来源从规模改写为实时编排人力、技能、数据与技术；传统职能日益过时；Buy/Borrow/Build/Bot 之外新增 Blend/Boost/Bridge/Break；60% 高管常态用 AI 辅助决策；仅 8% 认为变革与学习举措高度有效】：Deloitte《2026 Global Human Capital Trends》（与 Oxford Economics 合作），2026。</li>
+        <li>【人才市场要有效运转，必须有定价、协议与披露三套特殊机制；这是能力市场三要件的可追溯理论源头】：McKinsey Quarterly《Making a market in talent》，Lowell L. Bryan, Claudia I. Joyce, Leigh M. Weiss。该文为 McKinsey 早年的组织研究，非 2026 年发布，此处作为底层框架引用，不与 2026 调查数据混同。</li>
+        <li>【到 2028 年 90% 的 B2B 交易由 AI agent 撮合，对应超 15 万亿美元；领先组织 80% 客户面流程由多 agent AI 驱动；可组合、云原生产品架构；22% 货币交易到 2030 年可编程】：Gartner《Top Predictions for IT Organizations and Users in 2026 and Beyond》，2025 年 10 月发布（预测覆盖 2026 及以后）。</li>
+        <li>【2018 年上线，AI 匹配员工与项目/兼职/岗位/导师；数周解锁近 12.7 万小时隐性产能，累计超 55 万小时，节省超 1500 万美元，前两月 adoption 超 60%】：Schneider Electric Open Talent Market（Gloat 提供），由 Deloitte Insights《Opportunity marketplaces》与 Gloat 案例研究记录。属已验证真实案例，非 2026 年数据，作为能力市场的人本预演引用。</li>
+        <li>【2026 财年第四财季阿里云 AI 相关产品收入 89.71 亿元，连续 11 个财季三位数增长；2026 年成立 Token Hub、集团技术委员会、Token Foundry，以 Token 为统一计量单位，战略从 Model First 转向 Agent First】：钛媒体《阿里重回大集权时代》（2026 年报道）等媒体披露。该部分架构与人事主要见于媒体报道，未见阿里官方完整公告，引用时以据媒体报道视之。</li>
+        <li>【引述联合利华 FLEX Experiences 内部市场与施耐德 Open Talent Market，作为内部人才市场实证；属 2026 年 1 月发布的行业分析】：ADP《Micro-missions : la fiche de poste sera-t-elle bientôt obsolète ?》，2026 年 1 月。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

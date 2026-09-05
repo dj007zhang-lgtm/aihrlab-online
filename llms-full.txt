@@ -661,3 +661,72 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 ### 153. AI 改写组织学习：记下来，不等于学会
 - URL: https://www.aihrlab.online/articles/ai-organizational-learning-2026.html
 - 摘要: AI 没有让组织停止学习，它改写了学习的回路。经典组织学习理论（Argyris 单环/双环、March 探索/利用）假设学习由人完成，当 AI 接管记录、起草、分析，单环被加速、双环被架空、知识存进模型权重而非组织记忆、探索被利用挤占。组织必须把“与 AI 一起学习”设计成一项能力，而非工具的自然副产物。
+### 154. AI 原生组织的决策权：谁还在拍板
+URL: https://www.aihrlab.online/articles/ai-native-decision-rights-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: AI agent 接管操作性决策后，决策权从科层职位流向拥有上下文与模型的人。本文建立机器自主、人机共决、人类保留三层决策权框架，界定每层触发条件与问责归属，并基于 MIT CISR、McKinsey、Microsoft、HBR 2026 年一手研究说明，决策权重分配是 AI 原生组织的核心命题。
+
+
+### 155. 组织记忆交给机器：记得住，不等于传得下
+URL: https://www.aihrlab.online/articles/ai-native-org-memory-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: 组织记忆外置成知识系统后，检索即记忆、遗忘即风险。本文拆解 AI 原生组织的三大记忆病灶：记忆衰减、单点失效、上下文丢失，并指出 HR 与 OD 必须把记忆运维当作器官级能力。2026 年三项研究给出实证底座。
+
+
+### 156. 从共享中台到能力市场：资源怎么调度
+URL: https://www.aihrlab.online/articles/ai-native-capability-market-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: 静态中台和共享服务中心曾是企业调度资源的标准答案，把共性能力收进常设层，前台按需取用。当 AI 把协调能力内化，这套静态供给开始松动。资源调度的下一形态是内部能力市场，能力以 API 或 agent 形式被按需调用、计价、组合。本文以内部人才市场实证为底座，对比中台退潮，给出能力市场的三要件：可发现、可计价、可组合。
+
+
+### 157. 人机协同的操作系统：组织怎么协调
+URL: https://www.aihrlab.online/articles/ai-native-coordination-os-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: 组织的协调长期靠规则、角色、惯例三件套。AI 原生组织把这三者重写为协调操作系统：规则变策略 agent，角色变人机编队，惯例变可回放 workflow。本文基于 McKinsey、HCLSoftware、Camunda 等 2026 一手研究，拆解协调机制本身被重写的路径。
+
+
+### 158. 少人高密度：AI 原生组织的人才方程
+URL: https://www.aihrlab.online/articles/ai-native-talent-density-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: AI 放大了个体产出，却让组织的第一性指标从人头数转向人才密度。Microsoft 2026 数据显示 66% 的 AI 使用者因此把更多时间投入高价值工作，58% 做出一年前做不到的成果。少人高密度组织的三个杠杆：招聘门槛上移、冗余替换为多样性、把重复劳动外包给 agent。
+
+
+### 159. 度量什么就得到什么：激励怎么重写
+URL: https://www.aihrlab.online/articles/ai-native-incentives-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: 当 AI 把单人产出放大数倍，计件、工时与活动量这些旧激励开始反向失灵。你度量什么就得到什么，这条定律在 AI 时代被放大：可数产出越易被机器生成，越会吸引组织去优化数字本身。2026 年多项研究给出实证：Qiu 等基于近 1500 份 Kaggle 脚本发现 AI 能力越强，创造性努力越被程式化努力挤出；Meta、Uber、Starbucks 的真实激励事故说明把 AI 使用率当产出会直接扭曲行为。本文给出 AI 原生激励的三条红线与重构框架：把度量对象从产出重写为判断力、看护与跨期价值。
+
+
+### 160. AI 原生组织的边界：什么必须留给人
+URL: https://www.aihrlab.online/articles/ai-native-org-boundary-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: AI 原生组织把边界从雇佣关系重写为问责关系，而非工具选择问题。本文用可撤回性与不可逆成本两轴，划出哪些能力可委托给 AI 与生态、哪些必须留在人类手中：价值判断、关系信任、最终问责。EU AI Act 第 14 条、新加坡 IMDA Agentic AI 框架、OECD 尽责指引与图宾根大学 2026 年研究共同提供实证底座。
+
+
+### 161. AI 原生组织的七种死法：反模式解剖
+URL: https://www.aihrlab.online/articles/ai-native-anti-patterns-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: AI 原生组织有七种专属死法：伪原生、agent 蔓延、上下文破产、记忆腐化、指标剧场、能力孤岛、问责蒸发。本文逐条解剖每种反模式的症状、底层机理与拆解方法，区别于泛泛的 88% 落地失败叙事，并以麦肯锡、斯坦福 HAI、云安全联盟 2026 年一手研究为底座。
+
+
+### 162. 人和 Agent 的契约：接口怎么设计
+URL: https://www.aihrlab.online/articles/ai-native-human-agent-contract-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: 人和 Agent 长期共事，改变的不是一个工具清单，而是二者之间的接口。这个接口应当被当成契约设计，写清谁发起、谁校验、谁兜底、上下文怎么传。本文基于微软 2026 工作趋势指数与 CHI 2026 研究，给出角色级契约的四种原型（作者、编辑、导演、统筹）及其失败信号，指出多数 Agent 落地失败是契约失败而非模型失败。
+
+
+### 163. AI 原生组织的能力复利：为什么越用越强
+URL: https://www.aihrlab.online/articles/ai-native-compounding-2026.html
+分类: AI原生组织
+日期: 2026-09-05
+摘要: AI 原生组织的能力复利，取决于数据、模型、能力、数据能否转成自我强化的闭环飞轮。NVIDIA、Sustainability、Management Decision 与 EY 在 2026 年的四项研究共同指出：数据主权、反馈闭环、能力沉淀是飞轮转动的三要件，它们决定组织分化，有的越用越强，有的卡在一次性提效。本文拆解复利飞轮的机理与停滞的根因。
+

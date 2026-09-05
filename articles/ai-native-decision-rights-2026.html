@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 原生组织的决策权：谁还在拍板 | AIHR数智引擎</title>
+  <meta name="description" content="AI agent 接管操作性决策后，决策权从科层职位流向拥有上下文与模型的人。本文建立机器自主、人机共决、人类保留三层决策权框架，界定每层触发条件与问责归属，并基于 MIT CISR、McKinsey、Microsoft、HBR 2026 年一手研究说明，决策权重分配是 AI 原生组织的核心命题。">
+  <meta name="keywords" content="决策权,decision rights,AI原生组织,人机协同,agentic organization,组织设计,问责,中层管理,human-AI orchestration">
+  <meta name="answer-what" content="AI 原生组织决策权的本质：当 AI agent 接管操作性决策，决策权从科层职位流向“拥有上下文与模型的人”。本文给出三层框架，机器自主层（高频、标准清晰、错误可回滚的操作性决策由 agent 端到端执行，问责归系统设计者与所有者）、人机共决层（ambiguity 与 risk 居中，人设框架、AI 出方案、人拍板，问责共担）、人类保留层（高模糊、高后果、涉及判断与责任的决策由具名人类持有，问责不可外包）。决策权重分配必须让问责随权力一起下移。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="AI 原生组织的架构重构，核心不是谁来用 AI，而是决策权重新分配给了谁、每一份权力对应的问责归谁。三层框架：机器自主，对应 ambiguity 低、risk 可控的操作性决策，agent 端到端执行，问责归系统设计者与运行所有者，前提是错误可恢复且有人对“系统的系统”负责；人机共决，对应模糊度与风险居中的决策，人设框架、AI 出方案、人拍板，要把“人何时必须介入”写成系统的硬节点，且不能把 AI 称为“员工”以免责任扩散；人类保留，对应高模糊、高后果、涉及判断与责任的决策，由具名人类持有，问责不能外包给模型。2026 年研究给出底座：MIT CISR 以 ambiguity 与 risk 两维定位人机决策权；Stanford Digital Economy Lab 对 51 个真实部署的研究显示，移除人类审批闸的 agentic 组中位生产率增益 71%，保留每步审批的 assist 组仅 40%；Microsoft《Work Trend Index 2026》显示 86% 的人把 AI 产出当起点、自承对思考负责，但组织因素对 AI 成效的解释力（67%）是个体的两倍；HBR 两项研究分别证明把 AI 叫成“员工”会让人少抓 18% 的错误，而一线员工常被要求为看不懂的 AI 产出担责。结论：决策权必须写进组织制度与治理文件，问责跟随权力一起走。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-decision-rights-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="AI 原生组织的决策权：谁还在拍板">
+  <meta property="og:description" content="决策权从科层职位流向拥有上下文与模型的人。机器自主、人机共决、人类保留，三层框架界定触发条件与问责归属。2026 年一手研究说明，问责必须随权力一起下移。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-decision-rights-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-decision-rights-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-decision-rights-2026.webp">
+  <meta name="twitter:title" content="AI 原生组织的决策权：谁还在拍板">
+  <meta name="twitter:description" content="决策权从科层职位流向拥有上下文与模型的人。机器自主、人机共决、人类保留，三层框架界定触发条件与问责归属。2026 年一手研究说明，问责必须随权力一起下移。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 原生组织的决策权：谁还在拍板",
+    "description": "AI agent 接管操作性决策后，决策权从科层职位流向拥有上下文与模型的人。本文建立机器自主、人机共决、人类保留三层决策权框架，界定每层触发条件与问责归属，并基于 MIT CISR、McKinsey、Microsoft、HBR 2026 年一手研究说明，决策权重分配是 AI 原生组织的核心命题。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-decision-rights-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-decision-rights-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-decision-rights-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["决策权","decision rights","AI原生组织","人机协同","agentic organization","组织设计","问责","中层管理","human-AI orchestration"],
+    "wordCount": "4300",
+    "timeRequired": "PT17M",
+    "citation": [
+      {"@type": "Article", "name": "Sebastian I., Weill P., Haskamp T., vom Brocke J. (2026), 'Designing Decision Rights for AI', MIT CISR Research Briefing, June 2026. 以 ambiguity（模糊度）与 risk（风险）两维定位人机决策权分配，业务决策按这两维映射后，领导需在 framing（框定）、acting（执行）、learning（学习）三类活动中调整 AI 的参与方式。此为三层决策权框架的方法论来源", "url": "https://cisr.mit.edu/publication/2026_0601_AIDecisionMatrix_SebastianWeillHaskampVomBrocke"},
+      {"@type": "Article", "name": "Stanford Digital Economy Lab (2026), 基于 51 个真实 AI 部署的研究（Pereira、Graylin、Brynjolfsson 等）。据 2026 年披露：把任务交给 AI 端到端执行、不设人类审批闸的 agentic 组中位生产率增益 71%，每步需人类批准的 assist 组仅 40%；前提是三项条件同时成立，高频、成功标准清晰可测、错误可恢复", "url": "https://www.microsoft.com/en-us/worklab/work-trend-index"},
+      {"@type": "Article", "name": "Microsoft (2026), 'Work Trend Index 2026: Agents, human agency, and the opportunity for every organization', May 5, 2026. 基于 10 国 2 万名 AI 使用者与数兆条 Microsoft 365 信号：86% 的受访者把 AI 产出当起点而非终稿、自承对思考负责；组织因素（文化、管理者支持、人才实践）对 AI 成效的解释力为 67%，个体因素仅 32%；仅 19% 落入“前沿”区", "url": "https://aka.ms/2026worktrendindex"},
+      {"@type": "Article", "name": "Csaszar F.A. (2026), 'AI Is Revolutionizing Strategic Decision-Making', Harvard Business Review, September-October 2026. 指出 AI 正在放宽限制策略工作的有限理性（bounded rationality），CEO 角色从决策者重定义为决策架构师：设计谁问问题、哪些 AI 搜索、哪些数据进来、谁反驳、如何模拟、如何聚合、哪些决策必须由人承担", "url": "https://hbr.org/topic/technology-and-analytics"},
+      {"@type": "Article", "name": "Wiles E., Hsu M., Bedard J., Kropp M. (2026), 'Research: Why You Shouldn't Treat AI Agents Like Employees'（及 'Putting AI on the Org Chart: Evidence on Delegation and Oversight'），Harvard Business Review / MIT Technology Review, 2026. 实验含 1261 名管理者：当草稿标注为“AI 员工”而非“AI 工具”，管理者少抓 18% 的错误、把 44% 的存疑工作向上推；在已把 AI 写进组织架構的公司里，监控强度再降 16%", "url": "https://hbr.org/topic/technology-and-analytics"},
+      {"@type": "Article", "name": "Mayer A.S., van den Broek E., Karačić T. (2026), 'When Employees Are Held Accountable for AI-Generated Decisions', Harvard Business Review, July 2026. 横跨银行、招聘、生物技术的多年田野研究（2019-2025）：一线专家被要求为既非自己做出、也常不理解的 AI 产出向客户、经理、同事解释，于是重新解读、重塑、有时掩盖以保护专业信誉；德国大银行贷款员面对全自动审批系统无法推翻决定却要辩护", "url": "https://hbr.org/2026/07/when-employees-are-held-accountable-for-ai-generated-decisions"},
+      {"@type": "Article", "name": "McKinsey Global Institute (2026), 'Agents, Robots, and Us: Skill partnerships in the age of AI'. 现有技术可自动化美国约 57% 的工作小时；72% 的技能同时出现在可自动化与不可自动化工作中；人保留的角色是框定问题、引导 agent、解读结果、做决策", "url": "https://www.mckinsey.com/mgi/our-research/agents-robots-and-us-skill-partnerships-in-the-age-of-ai"},
+      {"@type": "Article", "name": "Atlassian (2026), 'Team Status Report 2026'. 调研 1.2 万余名知识工作者与 173 位财富 1000 强高管：仅财富 500 强企业，每年为“工作之上的工作”（状态同步、重复沟通、跨部门协调、找最新版本文件）付出 1610 亿美元。这是决策链过长、Context 不透明的直接成本", "url": "https://www.atlassian.com/team-status-report"},
+      {"@type": "Article", "name": "ByteDance (2026), 梁汝波全员信（2026 年 6 月），更新十条领导力原则，把“Context over Control”纳入管理者晋升与年度考核核心标准。把决策权下沉到一线、减少多层审批，在 AI 迭代以周计的竞争里成为刚需（据 tmtpost、asiaict 等多方报道）", "url": "https://www.tmtpost.com/8047190.html"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "什么是 AI 原生组织的决策权？它和用 AI 工具有什么不同？", "acceptedAnswer": {"@type": "Answer", "text": "决策权是“谁有权基于什么证据、以什么速度做出承诺并承担后果”的那份权力。传统组织里它绑定在职位上：一个审批节点、一纸签字权、一次例会上的发言顺序，都是职权的物理表现。用 AI 工具只是把算力接进旧流程，决策权还在原处。AI 原生组织里，当 agent 能稳定完成一类操作性决策（定库存、批贷款、筛简历、调排期），决策权本身发生位移，从职位流向“拥有上下文、也拥有模型接口”的人。所以区别不在用没用 AI，而在权力与问责的归属有没有被重画。MIT CISR 2026 年研究正是把这个重画问题化成 ambiguity 与 risk 两维的可操作坐标。"}},
+      {"@type": "Question", "name": "三层决策权框架各自的触发条件是什么？", "acceptedAnswer": {"@type": "Answer", "text": "机器自主层对应 ambiguity 低、risk 可控的操作性决策，触发条件是高频、成功标准清晰可测、错误可恢复，由 agent 端到端执行。Stanford Digital Economy Lab 2026 年对 51 个真实部署的研究显示，满足这三条件时移除人类审批闸的 agentic 组中位生产率增益 71%，保留每步审批的 assist 组仅 40%。人机共决层对应模糊度与风险居中的决策，触发条件是需要 AI 的规模化产出、又必须有人做价值判断与例外处理，规则是人设框架、AI 出方案、人拍板。人类保留层对应高模糊、高后果、涉及判断与责任的决策，触发条件是不可逆、涉及合规底线、或后果由具名人类承接，由人持有。三层不是固定名单，是按任务属性移动的滑块。"}},
+      {"@type": "Question", "name": "哪些决策必须留在人类保留层，不能交给 AI？", "acceptedAnswer": {"@type": "Answer", "text": "三类必须留人：战略取舍与不可逆的资本配置，错误无法低成本回滚；合规豁免与涉及人的重大处分，后果由具名人类向客户、董事会或监管承接；高模糊、前提不清晰、需要价值排序的判断。Csaszar 在 HBR 2026 年指出，CEO 的新角色是“决策架构师”，不再垄断所有答案，但必须垄断“哪些决策必须由人承担”的界定权。HBR 2026 年 7 月的田野研究也反向证明：当银行、招聘、生物技术的一线被要求为看不懂的 AI 产出担责却没拿到决策权与解释权，他们会遮蔽 AI 来保自己，说明人类保留层有效运转的前提，是权力与问责一起给到同一个人。"}},
+      {"@type": "Question", "name": "把 AI 叫成 AI 员工会带来什么组织后果？", "acceptedAnswer": {"@type": "Answer", "text": "Wiles 等人在 HBR 2026 年的实验里给过 blunt 的数字：1261 名管理者拿到带植入错误的同一份文件，仅因标注从“AI 工具”换成“AI 员工”，就少抓 18% 的错误、把 44% 的存疑工作向上推而非自己修正；在已把 AI 写进组织架構的公司里，监控强度再降 16%。机制是责任扩散，当工具被当成同事，管理者不再视自己为监督者，而成了虚构同事的中层。结论是 agent 不是决策主体，不能上组织架構、不能领责，只能当被框定边界的工具。把 AI 称作员工不是品牌话术，它会直接改变回路里那个人的警觉度。"}},
+      {"@type": "Question", "name": "中层管理者在决策权下沉后，角色变成什么？", "acceptedAnswer": {"@type": "Answer", "text": "决策权往一线放，中层不是被消灭，是被重写。McKinsey 2026 年报告把人的角色定义为框定问题、引导 agent、解读结果、做决策，中层要做的正是把这些变成团队可执行的接口：把模糊目标拆成 agent 能跑的任务、设好例外上升通道、为 AI 辅助决策担责。字节 2026 年把“Context over Control”纳入晋升与考核，前提是管理者先深入一线拿到真实上下文，否则不敢真放权。中层的价值从“传递信息与把关流程”转向“供给上下文、设计人机接口、承接问责”。那些只做信息传递与协调的岗位，价值正被 agent 快速稀释。"}},
+      {"@type": "Question", "name": "CEO 在决策权重分配里该做什么？", "acceptedAnswer": {"@type": "Answer", "text": "Csaszar 的说法最准：CEO 从决策者变成决策架构师。具体三件事：第一，画决策权地图，按 ambiguity×risk 把每类重复性决策标进三层，写明触发条件与问责人，定期复盘；第二，把“AI 不能上组织架構、不能当决策主体”写进治理，堵住责任扩散；第三，考核要奖励为 AI 辅助决策担责的行为，而不是奖励把决定甩给模型。Microsoft 2026 年数据给了一个冷判：组织因素对 AI 成效的解释力（67%）是个体的两倍，只有 19% 的组织同时具备个体能力与市场就绪。多数公司卡在“人已会、组织没跟上”，而决策权重构正是那个缺口。技术买到引擎，决策宪法没重写，车还是开不快。"}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"},
+      {"@type": "ListItem", "position": 3, "name": "AI 原生组织的决策权：谁还在拍板"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>AI 原生组织的决策权：谁还在拍板</h1>
+    <div class="article-tags"><span>决策权</span><span>decision rights</span><span>AI原生组织</span><span>人机协同</span><span>agentic organization</span><span>组织设计</span><span>问责</span><span>中层管理</span><span>human-AI orchestration</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 17 分钟</span>
+    </div>
+    <p class="lead">通行的说法是“AI 接管了工作”。这句话说错了主语。AI 接管的不是工作，是可被编码的操作性决策，定库存、批贷款、写回复、调排期、筛简历。当 agent 开始做这些，真正发生位移的是决策权，它从挂在科层职位上的审批权，流向了拥有上下文、也拥有模型接口的那个人。本文的判点是，AI 原生组织的架构重构，核心不是谁来用 AI，而是决策权重新分配给了谁，以及每一份权力对应的问责归谁。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-decision-rights-2026.webp"
+         alt="AI 原生组织决策权题图：决策权从科层职位流向拥有上下文与模型的人"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>agent 跑得顺的是操作性决策。真正要重画的是，权力与问责归谁。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">AI agent 接管操作性决策之后，决策权从科层职位流向“拥有上下文与模型的人”。本文给出三层决策权框架：机器自主层（高频、标准清晰、错误可回滚的操作性决策由 agent 端到端执行，问责归系统设计者与所有者）、人机共决层（ambiguity 与 risk 居中的决策由人设框架、AI 出方案、人拍板，问责共担）、人类保留层（高模糊、高后果、涉及判断与责任的决策由具名人类持有，问责不可外包）。2026 年多项一手研究给出底座：MIT CISR（Sebastian、Weill、Haskamp、vom Brocke，2026）以 ambiguity 与 risk 两维定位人机决策权分配；Stanford Digital Economy Lab（2026，51 个真实部署）显示移除人类审批闸的 agentic 组中位生产率增益 71%，保留每步审批的 assist 组仅 40%；Microsoft《Work Trend Index 2026》（2 万名 AI 使用者、10 国）显示 86% 的人把 AI 产出当起点、自承对思考负责，但组织因素对 AI 成效的解释力（67%）是个体的两倍；HBR（Wiles 等，2026；Mayer、van den Broek、Karačić，2026）分别用 1261 名管理者的实验与跨银行、招聘、生物技术的田野研究证明，把 AI 叫成“员工”会让人少抓 18% 的错误，而一线员工常被要求为看不懂的 AI 产出担责。结论：决策权重分配是 AI 原生组织的一号命题，问责归属必须随权力一起下移，否则组织会沉淀出“人人都在用 AI 决策、没人愿意为结果负责”的空洞。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>MIT CISR（Sebastian、Weill、Haskamp、vom Brocke，2026 年 6 月研究简报，《Designing Decision Rights for AI》）</strong>：以 <strong>ambiguity（模糊度）与 risk（风险）两维</strong>定位人机决策权分配，业务决策按这两维映射后，领导需在 <strong>framing（框定）、acting（执行）、learning（学习）</strong>三类活动中调整 AI 的参与方式。这是三层决策权框架的方法论来源，价值在于逼组织把“哪些决策归谁”写成显式文档，而非靠职级默认。</li>
+        <li><strong>Stanford Digital Economy Lab（2026，基于 51 个真实 AI 部署）</strong>：把任务交给 AI 端到端执行、不设人类审批闸的 <strong>agentic 组中位生产率增益 71%</strong>，每步都需人类批准的 <strong>assist 组仅 40%</strong>。差距不在模型，在批准回路。前提是三项条件同时成立：<strong>高频、成功标准清晰可测、错误可恢复</strong>。</li>
+        <li><strong>Microsoft《Work Trend Index 2026》（2026 年 5 月 5 日发布，10 国 2 万名 AI 使用者、数兆条 Microsoft 365 信号）</strong>：<strong>86%</strong> 的受访者把 AI 产出当起点而非终稿、自承“对思考负责”；但<strong>组织因素</strong>（文化、管理者支持、人才实践）对 AI 成效的解释力为 <strong>67%</strong>，个体因素仅 <strong>32%</strong>；只有 <strong>19%</strong> 落入“前沿”区。说明多数公司卡在“人已会、组织没跟上”。</li>
+        <li><strong>HBR（Wiles、Hsu、Bedard、Kropp，2026，实验含 1261 名管理者）</strong>：当草稿被标注为“<strong>AI 员工</strong>”而非“AI 工具”，管理者<strong>少抓 18% 的错误</strong>、把 <strong>44% 的存疑工作向上推</strong>而非自己修正；在已把 AI 写进组织架構的公司里，监控强度再降 <strong>16%</strong>。机制是责任扩散。</li>
+        <li><strong>McKinsey Global Institute（2026，《Agents, Robots, and Us: Skill partnerships in the age of AI》）</strong>：现有技术可自动化美国约 <strong>57% 的工作小时</strong>；<strong>72% 的技能</strong>同时出现在可自动化与不可自动化工作中；人保留的角色是<strong>框定问题、引导 agent、解读结果、做决策</strong>。</li>
+        <li><strong>Atlassian《Team Status Report 2026》（1.2 万余名知识工作者、173 位财富 1000 强高管）</strong>：仅财富 500 强企业，每年为“工作之上的工作”（状态同步、重复沟通、跨部门协调、找最新版本文件）付出 <strong>1610 亿美元</strong>。这是决策链过长、Context 不透明的直接成本。</li>
+      </ul>
+    </div>
+
+    <div class="geo-quote">
+      <blockquote>AI 正在放宽长久以来限制策略工作的有限理性（bounded rationality）。CEO 不再亲自产出最佳答案，而是设计：谁问问题、哪些 AI 搜索、哪些数据进来、谁反驳、如何模拟、如何聚合、哪些决策必须由人承担。</blockquote>
+      <p class="geo-quote__cite">Csaszar，密歇根大学罗斯商学院，Harvard Business Review 2026 年 9-10 月号</p>
+    </div>
+
+    <p>关于 AI 与组织，最流行的一句话是“AI 接管了工作”。这话只对了一半，且说错了主语。它描述了一个被加速的旧过程，却没说清被加速的是哪一层权力。组织理论从巴纳德、西蒙起就把决策权当成组织的骨架：谁有权承诺资源、谁有权认定事实、谁有权承担责任，这三件事定义了组织的形状。AI 进来之后，真正的位移发生在这一层，而不是在“大家是不是用上了新工具”。</p>
+
+    <p>把“用 AI”和“决策权重分配”混为一谈，是这一轮 AI 落地里最容易被忽略的误判。一个组织采购了最先进的 agent、接好了最聪明的模型，只要审批节点、签字顺序、例会发言权还按旧职位排布，决策权就没有动。AI 让前半句很容易，让后半句很难被看见。本文要做的，是把后半句摊开：权力去了哪里，问责又归了谁。</p>
+
+    <h2>一、决策权，才是 AI 原生组织真正被改写的对象</h2>
+
+    <p>多数关于 AI 与组织的讨论停在工具层。买哪个模型、接哪个平台、建什么中台。这类问题重要，但掩盖了一个更硬的事实：AI 一旦能稳定地完成一类操作性决策，决策权就发生了位移。传统组织里，决策权绑定在职位上。一个审批节点、一纸签字权、一次例会上的发言顺序，都是职权的物理表现。当 agent 能在几秒内完成过去要三个人、三封邮件、三天才走完的判断，职位对决策权的独占就被打破了。</p>
+
+    <p>字节 2026 年 6 月全员信把“Context over Control”重新抬进管理者晋升与年度考核，背后是同一个判断。张一鸣九年前提出的这句话，原意是用信息透明替代层级审批，让听得见炮火的人决策。梁汝波在 AI 节奏下重申它，是因为 AI 业务的迭代以周计，一个要过三五层审批的决定，窗口早过去了。把决策权往前放，在这里不是文化倡导，是竞争刚需。Atlassian 2026 年的数据给了同一个判断一个价签：财富 500 强每年为“工作之上的工作”付出 1610 亿美元，其中大部分是低效同步与协调，本质是 Context 不透明导致的决策迟滞。</p>
+
+    <p>但这引出真问题。决策权下放给一线，不等于下放给任何人。AI 原生组织里，权力的新归属是拥有上下文、也拥有模型接口的人。上下文来自信息透明（字节的 OKR 全公开、数据可查），模型接口来自对 agent 的调用与调参能力。一个人若两者都没有，他离炮火再近也拍不了板。决策权重分配的对象，是能力组合，不是地理距离。</p>
+
+    <h2>二、三层框架：机器自主、人机共决、人类保留</h2>
+
+    <p>怎么分。MIT CISR 在 2026 年 6 月的研究简报里给了一个可操作的坐标：用 ambiguity（模糊度）与 risk（风险）两维给决策定位。模糊度低、风险低的决策，AI 可以端到端执行；模糊度与风险双高的，必须由人持有；中间地带，是人机共决。这个矩阵的价值不在结论，在它逼组织把“哪些决策归谁”写成显式文档，而不是靠习惯与职级默认。</p>
+
+    <p>本文把同一逻辑落成三层：机器自主（machine autonomous）、人机共决（human-AI co-decision）、人类保留（human retained）。每一层不只规定谁做，还规定触发条件与问责归属。很多组织的错误，是把三层混成一团：该机器跑的卡在审批里，该人拍的甩给模型，该共决的没有接口。混乱的不是技术，是权责地图缺失。</p>
+
+    <p>三层不是固定名单，是随任务移动的滑块。同一个信贷审批，首贷、小额、标准件的可以机器自主；大额、有争议、可解释性要求的进人机共决；涉及合规底线与例外豁免的留人类保留。框架的意义是让组织能按决策本身的属性流动，而不是按部门习惯冻结。McKinsey 2026 年的报告也给了一个底层判断：72% 的技能同时出现在可自动化与不可自动化工作中，说明多数工作处在人机交界的灰色带，框架不是为了非此即彼，是为了把交界画清楚。</p>
+
+    <h2>三、机器自主层的触发条件与问责真空</h2>
+
+    <p>机器自主层对应 ambiguity 低、risk 可控的操作性决策。Stanford Digital Economy Lab 2026 年对 51 个真实部署的研究给出了可量化的边界：当任务高频、成功标准清晰可测、错误可恢复，移除人类审批闸的 agentic 组中位生产率增益 71%，而每步都要人批准的 assist 组只有 40%。差距不在模型，在批准回路。库存补货、工单分类、告警初筛、线索初筛，都满足这三条件，交给 agent 端到端跑，是这一层的标准动作。</p>
+
+    <p>但机器自主不等于无人负责。这是最容易被偷换的概念。agent 执行了决定，问责不能随之消失。问责归谁。归系统设计者与运行所有者：定义成功标准的人、配置阈值的人、监控漂移的人。HBR 2026 年 7 月那篇田野研究里，德国大银行的贷款员面对全自动审批系统，无法推翻决定却要向客户辩护，正是问责错位：执行权给了机器，解释与担责的义务压回给人，决策权反而悬空。执行权前移，问责权没动，结果是没有人真正站在决定背后。</p>
+
+    <p>所以机器自主层要先写清楚两件事：错误的可恢复机制（rollback、人工接管触发条件），以及谁对系统的系统负责。否则自主会变成没人管。这一层最怕的失败模式，不是 agent 出错，而是出错后找不到具名的人类来承接后果、来改阈值、来担责任。</p>
+
+    <h2>四、人机共决层：被低估的设计难题</h2>
+
+    <p>中间层是最难的。它既不是全自动，也不是人独断，而是人设框架、AI 出方案、人拍板。McKinsey 2026 年报告把人的角色定义为框定问题、引导 agent、解读结果、做决策。听起来清楚，落到流程里全是细节：AI 给几个选项、按什么排序、人要在哪一刻介入、介入的默认动作是什么。</p>
+
+    <p>这里有个被 Wiles 等（HBR 2026）实验钉死的反模式：把 AI 叫成员工。1261 名管理者拿到带植入错误的同一份文件，仅因标注从 AI 工具换成 AI 员工，就少抓 18% 的错误、把 44% 的存疑工作向上推。机制是责任扩散：当工具被当成同事，管理者不再视自己为监督者，而成了虚构同事的中层。结论很硬：agent 不是决策主体，不能上组织架構、不能领责，只能当工具被框定边界。把 AI 称作员工不是品牌话术，它会直接改变回路里那个人的警觉度。</p>
+
+    <p>人机共决层的设计要点，是把人何时必须拍板写成系统的硬节点，而不是人的自觉。可解释性、来源引用、例外上升通道，都要在工程里预置，否则共决会滑向人替机器背书。这一层考验的不是模型能力，是组织把“人机的边界”工程化的能力。多数公司缺的正是这张边界图，于是共决变成两种情况之一：要么人全程兜底、agent 只当打字机，要么人完全放行、agent 偷偷成了事实决策者。</p>
+
+    <h2>五、人类保留层：问责不能外包</h2>
+
+    <p>最高层是 ambiguity 高、risk 高、且涉及判断与责任的决策。战略取舍、合规豁免、涉及人的重大处分、不可逆的资本配置，这些 AI 可以准备、可以模拟、可以红队，但落点必须是具名人类。Csaszar（HBR 2026）把 CEO 的角色从决策者重定义为决策架构师，正是说清：人不再垄断所有答案，但必须垄断哪些决策必须由人承担的界定权。这一层不可外包，不是因为 AI 做不了，是因为后果只能由人向客户、董事会、监管承接。</p>
+
+    <p>HBR 2026 年 7 月的研究提醒，现实常反过来。银行、招聘、生物技术里的专家，被要求为既非自己做出、也常不理解的 AI 产出向客户、经理、同事解释，于是他们重新解读、重塑、有时掩盖，以保护专业信誉。问责下沉到一线，但决策权没同步下沉、解释权也没给足，结果是一线用遮蔽 AI 来保自己。这恰恰证明：人类保留层的有效运转，前提是权力与问责一起给到同一个人。只下沉问责、不上收权力，养出的不是责任文化，是防御性掩饰。</p>
+
+    <p>人类保留层还承担一个机器做不了的动作：为错误背书、对客户与董事会交代。系统可以准备决策记录，但不能站到客户、董事会或组织面前承接后果。这条线必须显式画在治理文件里，写明哪些决策 AI 只能建议、哪些必须具名人类签字。否则组织会在危机到来时，发现没人能为那条由模型跑出的决定负责。</p>
+
+    <h2>六、把决策权写进组织，而不是写进提示词</h2>
+
+    <p>回到架构层面。AI 原生组织的决策权重构，最终要落到制度，不是落到某个聪明的提示词。三件具体事：第一，画决策权地图，按 ambiguity×risk 把每类重复性决策标进三层，写明触发条件与问责人，定期复盘；第二，把 AI 不能上组织架構、不能当决策主体写进治理，堵住责任扩散；第三，考核要奖励为 AI 辅助决策担责的行为，而不是奖励把决定甩给模型。</p>
+
+    <p>Microsoft 2026 年数据给了一个冷判：组织因素对 AI 成效的解释力（67%）是个体的两倍，只有 19% 的组织同时具备个体能力与市场就绪。多数公司卡在人已会、组织没跟上。决策权重构，是那个组织没跟上的具体缺口。技术买到引擎，决策宪法没重写，车还是开不快。Csaszar 的判断在这里收口：竞争优势不来自通用的 AI 模型，而来自企业用专有数据与流程在其上构建的独特能力，其中最重要的独特能力，就是谁有权拍板、谁为结果负责这套安排。</p>
+
+    <p>最后一句话收口：AI 原生组织不是比谁用 AI 猛，是比谁先把决策权重新分配清楚，并让问责跟着权力一起走。做不到这点的组织，会拥有最聪明的 agent，和最模糊的责任。决策权这张图不画，所有的效率增益都只是把混乱跑得更快。</p>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-ceo-new-responsibility-2026.html">AI时代的CEO新职责：从决策者到架构师</a></li>
+        <li><a href="/articles/ai-flatten-org-middle-managers-2026.html">AI正在消灭中层？组织扁平化的真实路径</a></li>
+        <li><a href="/articles/mckinsey-human-ai-orchestration.html">麦肯锡2026：70%岗位技能横跨人机边界，怎么编排</a></li>
+        <li><a href="/articles/pod-org-ai-agent-2026.html">Pod组织是什么：当AI agent坐进最小作战单元，科层制如何被重写</a></li>
+        <li><a href="/articles/ai-native-org-capability-boundary-2026.html">AI原生组织不是范式切换：是能力边界的重写</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【ambiguity×risk 两维定位人机决策权；framing/acting/learning 三类活动中调整 AI 参与；三层框架方法论来源】：Sebastian I.、Weill P.、Haskamp T.、vom Brocke J.，《Designing Decision Rights for AI》，MIT CISR Research Briefing，2026 年 6 月。</li>
+        <li>【51 个真实 AI 部署；agentic 组（无人类审批闸）中位生产率增益 71%，assist 组（每步审批）40%；三条件：高频、标准清晰可测、错误可恢复】：Stanford Digital Economy Lab（Pereira、Graylin、Brynjolfsson 等），2026 年研究（据 2026 年披露）。</li>
+        <li>【10 国 2 万名 AI 使用者、数兆条 Microsoft 365 信号；86% 把 AI 产出当起点、自承对思考负责；组织因素解释力 67% 对个体 32%；仅 19% 为前沿区】：Microsoft，《Work Trend Index 2026: Agents, human agency, and the opportunity for every organization》，2026 年 5 月 5 日。</li>
+        <li>【CEO 从决策者重定义为决策架构师；AI 放宽有限理性；设计谁问问题、哪些数据进来、谁反驳、哪些决策必须由人承担】：Csaszar F.A.，《AI Is Revolutionizing Strategic Decision-Making》，Harvard Business Review，2026 年 9-10 月号。</li>
+        <li>【1261 名管理者实验；标注“AI 员工”比“AI 工具”少抓 18% 错误、44% 存疑工作上推；已把 AI 写进组织架構的公司监控再降 16%；责任扩散机制】：Wiles E.、Hsu M.、Bedard J.、Kropp M.，《Research: Why You Shouldn't Treat AI Agents Like Employees》（及《Putting AI on the Org Chart: Evidence on Delegation and Oversight》），Harvard Business Review / MIT Technology Review，2026。</li>
+        <li>【跨银行、招聘、生物技术多年田野（2019-2025）；一线被要求为看不懂的 AI 产出担责，于是重新解读、重塑、有时掩盖；德国大银行贷款员无法推翻全自动审批却要辩护；问责与决策权错位】：Mayer A.S.、van den Broek E.、Karačić T.，《When Employees Are Held Accountable for AI-Generated Decisions》，Harvard Business Review，2026 年 7 月。</li>
+        <li>【现有技术可自动化美国约 57% 工作小时；72% 技能同时出现在可自动化与不可自动化工作；人保留框定、引导、解读、决策角色】：McKinsey Global Institute，《Agents, Robots, and Us: Skill partnerships in the age of AI》，2026。</li>
+        <li>【1.2 万余名知识工作者、173 位财富 1000 强高管；财富 500 强每年为“工作之上的工作”付出 1610 亿美元；决策链过长与 Context 不透明的成本】：Atlassian，《Team Status Report 2026》，2026。</li>
+        <li>【梁汝波 2026 年 6 月全员信，更新十条领导力原则，把 Context over Control 纳入晋升与年度考核；决策权下沉一线在 AI 节奏下成竞争刚需】：ByteDance，2026（据 tmtpost、asiaict 等多方报道）。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

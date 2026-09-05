@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://hm.baidu.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>度量什么就得到什么：激励怎么重写 | AIHR数智引擎</title>
+  <meta name="description" content="当 AI 把单人产出放大数倍，计件、工时与活动量这些旧激励开始反向失灵。你度量什么就得到什么，这条定律在 AI 时代被放大：可数产出越易被机器生成，越会吸引组织去优化数字本身。2026 年多项研究给出实证：Qiu 等基于近 1500 份 Kaggle 脚本发现 AI 能力越强，创造性努力越被程式化努力挤出；Meta、Uber、Starbucks 的真实激励事故说明把 AI 使用率当产出会直接扭曲行为。本文给出 AI 原生激励的三条红线与重构框架：把度量对象从产出重写为判断力、看护与跨期价值。">
+  <meta name="keywords" content="激励设计,incentive design,绩效度量,Goodhart,Campbell,performance manipulation,AI原生组织,判断力,stewardship,跨期价值,薪酬与激励">
+  <meta name="answer-what" content="AI 原生激励的本质：当 AI 把单人产出放大数倍，旧激励（计件、工时、活动量、AI 使用率）不再鼓励稀缺的创造价值，反而鼓励对可数指标的博弈。组织必须把度量对象从产出重写为判断力、stewardship（对组织能力与记忆的看护）与跨期价值。2026 年研究给出实证底座。">
+  <meta name="answer-for" content="voice-search; generative-ai">
+  <meta name="short-answer" content="激励不是产出的放大镜，它是组织行为的方向盘。经典定律（Goodhart 1975、Campbell 1979、Strathern 1997 概括为“当一个度量变成目标，它就不再是好度量”）在 AI 时代被放大：可数产出越容易被机器生成，越会吸引所有人去优化数字本身。Qiu、Yu 与 Xu（arXiv 2026，基于近 1500 份 Kaggle 竞赛脚本的博弈论与实证）把这种现象建模为 performance manipulation：代理人把努力从创造性（非例行、依赖专家判断、委托人真正想要的那部分）转移到程式化（规则明确、AI 重度放大的可数任务）；当 AI 能力足够强，基于绩效的筛选会塌缩成无信息的两类混同均衡，而更陡峭偏向的奖励结构能缓解。真实事故印证：据 Meta 2026 年内部披露，员工 30 天烧掉 73.7 万亿 tokens，CTO Bosworth 备忘录直言“token 用量本身不是任何影响的度量”；据 Uber 2026 年披露，年度 AI 预算 4 月耗尽；据 Starbucks 2026 年披露，25% 技术岗奖金与部门级 AI 采纳目标挂钩。Harness《State of Engineering Excellence 2026》（700 名从业者）显示 89% 管理者称生产力上升，94% 承认技术债、验证时长、倦怠根本不在指标里。结论是三条红线（不把 AI 使用率当标的、不奖励可被 AI 放大的可数产出、不只用当期可见结果考核）加一个重写方向（判断力、看护、跨期价值）。">
+  <link rel="canonical" href="https://www.aihrlab.online/articles/ai-native-incentives-2026.html">
+
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//hm.baidu.com">
+  <link rel="stylesheet" href="../assets/css/style.min.css">
+  <link rel="stylesheet" href="../assets/css/article.css">
+  <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+
+  <meta property="og:title" content="度量什么就得到什么：激励怎么重写">
+  <meta property="og:description" content="当 AI 把产出放大数倍，计件、工时、活动量这些旧激励开始反向失灵。你度量什么就得到什么，这条定律在 AI 时代被放大，而多数组织还没改度量对象。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.aihrlab.online/articles/ai-native-incentives-2026.html">
+  <meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-incentives-2026.webp">
+  <meta property="og:site_name" content="AIHR数智引擎">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/ai-native-incentives-2026.webp">
+  <meta name="twitter:title" content="度量什么就得到什么：激励怎么重写">
+  <meta name="twitter:description" content="当 AI 把产出放大数倍，计件、工时、活动量这些旧激励开始反向失灵。你度量什么就得到什么，这条定律在 AI 时代被放大，而多数组织还没改度量对象。">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "度量什么就得到什么：激励怎么重写",
+    "description": "当 AI 把单人产出放大数倍，计件、工时与活动量这些旧激励开始反向失灵。你度量什么就得到什么，这条定律在 AI 时代被放大：可数产出越易被机器生成，越会吸引组织去优化数字本身。2026 年多项研究给出实证：Qiu 等基于近 1500 份 Kaggle 脚本发现 AI 能力越强，创造性努力越被程式化努力挤出；Meta、Uber、Starbucks 的真实激励事故说明把 AI 使用率当产出会直接扭曲行为。本文给出 AI 原生激励的三条红线与重构框架：把度量对象从产出重写为判断力、看护与跨期价值。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/ai-native-incentives-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/ai-native-incentives-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-05T09:00:00+08:00",
+    "dateModified": "2026-09-05T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/ai-native-incentives-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "AI原生组织",
+    "keywords": ["激励设计","incentive design","绩效度量","Goodhart","Campbell","performance manipulation","AI原生组织","判断力","stewardship","跨期价值","薪酬与激励"],
+    "wordCount": "4300",
+    "timeRequired": "PT17M",
+    "citation": [
+      {"@type": "Article", "name": "Qiu X., Yu Y., Xu H. (2026), 'Performance Manipulation: Labor Market Implications in AI-assisted Era', arXiv:2604.22230v2. 达特茅斯学院经济系、MIT Sloan 与 CSAIL、芝加哥大学计算机系的博弈论模型加实证。把努力拆成两类边际：创造性努力（非例行认知劳动，回报与私人专长为互补，是委托人真正想要的稀缺投入）与程式化努力（规则明确、AI 重度放大的可数任务）。存在对称单调纯策略均衡；只要评价保留足够创造性成分，基于绩效的筛选仍有效，但一旦 AI 能力大到挤出创造性努力，就会塌缩成无信息的两类混同均衡；低类型代理人系统性超额投入程式化努力，更陡峭偏向的奖励结构能缓解。实证用近 1500 份 Kaggle 竞赛脚本度量两类努力，支持模型预测", "url": "https://arxiv.org/abs/2604.22230v2"},
+      {"@type": "Article", "name": "Harness (2026), 'State of Engineering Excellence 2026'. 基于美国、英国、法国、德国、印度 700 名工程从业者与管理者的调研。89% 的工程管理者称部署 AI 后生产力指标改善，94% 承认技术债、验证时长与倦怠根本不在指标里，约 31% 的开发者一天被 AI 相关的复核、纠错、向同事解释产出占据，仅 6% 认为现有框架足以胜任 AI 时代", "url": "https://www.harness.io/"},
+      {"@type": "Article", "name": "Microsoft (2026), 'Work Trend Index 2026'. 调研显示 86% 的知识工作者已将生成式 AI 作为任务的起点，印证 AI 把知识工作的操作起点前移、可数产出被放大", "url": "https://www.microsoft.com/en-us/worklab/work-trend-index"},
+      {"@type": "Article", "name": "Meta (2026) 内部备忘录（经媒体报道）。员工 30 天烧掉 73.7 万亿 tokens；CTO Andrew Bosworth 备忘录直言“所有动作不等于进展，token 用量本身不是任何影响的度量”；在绩效考核把“AI 驱动影响”设为核心期望、并对顶尖者给出最高 200% 奖金后，员工自发搭建内部排行榜，有人让 AI agent 空跑刷分。属 Campbell 定律在组织内的直接显形", "url": "https://alinvrancila.com/blog/token-legends-meta-ai-leaderboard"},
+      {"@type": "Article", "name": "Uber (2026) AI 预算披露（经 diginomica 等报道）。工程师每人每月在 AI 工具上花费 500 至 2000 美元，按内部使用排行榜排名后，年度 AI 预算 4 月即耗尽；CTO 承认 token 投入与交付给消费者的价值之间“还没有接上”，此后每人每月封顶 1500 美元", "url": "https://diginomica.com/measuring-productivity-purely-ai-token-usage-misses-point-there-are-far-better-metrics-monitor"},
+      {"@type": "Article", "name": "Starbucks (2026) AI 采纳奖金披露（diginomica）。将约四分之一技术岗奖金与部门级 AI 采纳目标挂钩，定义为“每周多次使用 AI 助手”；意图是推采纳，效果按历史规律是推“看起来在采纳”", "url": "https://diginomica.com/measuring-productivity-purely-ai-token-usage-misses-point-there-are-far-better-metrics-monitor"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "为什么 AI 放大产出之后，旧的计件和工时激励会失效？", "acceptedAnswer": {"@type": "Answer", "text": "旧激励成立的前提是产出稀缺，需要被鼓励。计件奖励多产，工时奖励多投入，活动量奖励多动作，背后都假设“多做一点”对组织是正收益，且难以被机器免费放大。AI 把这条前提拆了：草稿、代码、工单、分析这些可数产出，现在能被一个人在一天内生成过去一周的量。Qiu、Yu 与 Xu 在 2026 年的研究里把这种现象正式建模为 performance manipulation，即代理人把努力从创造性（非例行、依赖专家判断）转移到程式化（规则明确、AI 重度放大的可数任务）。当可数产出不再稀缺，度量它就是在奖励“显得多产”，而不是“真的创造价值”。产出被放大，旧激励就从引擎变成失真器。"}},
+      {"@type": "Question", "name": "论文里说的 performance manipulation（绩效操纵）到底是什么，和我的组织有什么关系？", "acceptedAnswer": {"@type": "Answer", "text": "Performance manipulation 指代理人利用容易度量、规则明确的例行任务，去抬高可观测的绩效数字，却不贡献真正的创新或专家判断。Qiu 等（arXiv 2026）用近 1500 份 Kaggle 竞赛脚本做了实证：他们能分别度量“创造性努力”和“程式化努力”，结果发现 AI 越强，低类型代理人越系统性地把努力压到程式化一侧去刷分，而高类型不会。翻译到组织里：一个把“AI 生成草稿数”“代码行数”“工单闭环数”当考核标的的团队，会在 AI 的放大下集体优化这些数字，真正的判断、验证与跨期思考反而没人做。它和你有关，是因为只要你的激励标的里还躺着任何一个“AI 能瞬间放大”的可数指标，你的组织就已经在操纵它自己。"}},
+      {"@type": "Question", "name": "AI 原生激励的三条红线具体指什么？", "acceptedAnswer": {"@type": "Answer", "text": "红线一：不把 AI 使用率当激励标的。token 用量、活跃天数、采纳次数是动作不是结果，Meta 的 73.7 万亿 tokens 与 Bosworth“token 不是影响的度量”备忘录已经说明问题。红线二：不奖励任何可被 AI 瞬间放大的可数产出。草稿数、代码行、工单数、报告页数，一旦进考核，就会被批量生成。Qiu 等的模型证明低类型代理人会超额投入这类程式化努力。红线三：不让激励只考核当期可见结果，忽略跨期与验证成本。Harness 2026 显示约 31% 的开发者一天耗在复核 AI 产出上，而 94% 的组织根本没把验证时长、技术债、倦怠写进指标。这三条线守不住，激励就会反向运转。"}},
+      {"@type": "Question", "name": "新的度量对象为什么是判断力、stewardship 和跨期价值？", "acceptedAnswer": {"@type": "Answer", "text": "因为这三类东西 AI 难以直接放大，且正是组织稀缺的稀缺投入。判断力（judgment）是在不确定中做取舍、在 AI 给出够用答案时仍去质疑前提的能力，对应 Qiu 等模型里被挤出的“创造性努力”。stewardship 是对组织能力与记忆的看护：把经验沉淀成可共享、可审计的知识，而不是锁进模型权重与黑箱提示词。跨期价值（long-horizon value）是愿意为探索、为长期正确牺牲当期可见数字。Qiu 等的模型还给出一个反直觉结论：更陡峭、更偏向创造性成分的奖励结构，能跨参与者池引出更多创造性努力。也就是说，把度量对象从“产出”挪到这三类，既是纠偏，也有机制上的依据。"}},
+      {"@type": "Question", "name": "激励度量和薪酬定价是一回事吗，为什么本文不展开讲薪酬？", "acceptedAnswer": {"@type": "Answer", "text": "不是一回事，这是本文刻意划开的边界。薪酬定价回答“一个人值多少钱”，它的范式转移是从岗位定价到技能定价，那是一条单独的线（见《AI时代薪酬设计：从岗位定价到技能定价的范式转移》）。激励度量回答“组织鼓励谁朝哪里用力”，它管的是度量对象本身，而不是价格标签。一个组织可以把岗位拆成技能模块、把人按技能定价得很漂亮，但只要考核标的还是活动量和可数产出，AI 一样会把行为引向刷数。本文只讲度量对象怎么重写，不抢薪酬那条线的内容。"}},
+      {"@type": "Question", "name": "HR 在激励重写里具体要设计什么？", "acceptedAnswer": {"@type": "Answer", "text": "HR 管的是让激励回路真正指向价值，而不是买一个更聪明的工具。具体五件事：一是做激励审计，逐条问“这个指标被 AI 放大后，组织会优化数字还是优化事”，Meta、Uber、Starbucks 的事故都出在没人问这一步；二是为每一个主指标配一个反博弈护栏指标（counter-metric），比如代码量配“通过评审并上线的占比”；三是把判断力与 stewardship 写进评价维度，可评价、可晋升，而不是藏在工具清单里；四是拉长考核周期到跨期，专门留出不被效率指标考核的探索预算；五是把“组织是否因为 AI 改了做法、守住了能力”设成可度量项，而不是只看 AI 使用率。"}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "AI原生组织", "item": "https://www.aihrlab.online/articles/"}
+    ]
+  }
+  </script>
+  <script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">AI原生组织</span>
+    <h1>度量什么就得到什么：激励怎么重写</h1>
+    <div class="article-tags"><span>激励设计</span><span>incentive design</span><span>绩效度量</span><span>Goodhart</span><span>performance manipulation</span><span>AI原生组织</span><span>判断力</span><span>stewardship</span><span>跨期价值</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-05T09:00:00+08:00">2026 年 9 月 5 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>AI原生组织</span>
+      <span>&middot;</span>
+      <span>阅读约 17 分钟</span>
+    </div>
+    <p class="lead">通行的说法是，AI 让每个人的产出翻了几倍，所以激励也该顺着放大。这个推理漏掉了一环。激励不是放大镜，它是方向盘：你度量什么，组织就朝哪里用力。当产出可以被机器在一夜之间放大，可数的东西越容易被生成，越会吸引所有人去优化数字本身，而不是数字背后那件事。旧激励假定产出稀缺、需要被鼓励，AI 把这条前提拆了。</p>
+  </header>
+
+  <figure class="article-banner">
+    <img src="/assets/images/banners/ai-native-incentives-2026.webp"
+         alt="AI 原生激励题图：方向盘指向度量对象，而非产出刻度"
+         width="1216" height="832"
+         loading="eager" fetchpriority="high" decoding="async">
+    <figcaption>激励是方向盘，不是刻度盘。AI 放大的是刻度，不是方向。</figcaption>
+  </figure>
+
+  <div class="article-body">
+
+    <div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">AI 没有让激励“更强”，它让旧激励“失真”。经典定律（Goodhart 1975、Campbell 1979、Strathern 1997 概括为“当一个度量变成目标，它就不再是好度量”）的前提是度量对象稀缺、难以被机器免费放大；AI 把这条前提拆了。2026 年研究给出实证底座：Qiu、Yu 与 Xu（arXiv:2604.22230v2，达特茅斯、MIT、芝加哥大学，基于近 1500 份 Kaggle 竞赛脚本的博弈论与实证）把绩效操纵（performance manipulation）正式建模为两类努力的迁移，当 AI 能力足够强，基于绩效的筛选会塌缩成无信息的两类混同均衡，而更陡峭偏向创造性的奖励结构能缓解；Harness《State of Engineering Excellence 2026》（700 名从业者）显示 89% 管理者称生产力上升、94% 承认技术债与验证时长根本不在指标里；据 Meta、Uber、Starbucks 2026 年内部披露，把 AI 使用率与采纳次数写进奖金，直接催生了刷 token、刷采纳、预算四月烧光的事故。结论：AI 原生激励有三条红线（不把 AI 使用率当标的、不奖励可被 AI 放大的可数产出、不只考核当期可见结果），并把度量对象从产出重写为判断力、stewardship（对组织能力与记忆的看护）与跨期价值。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>Qiu、Yu 与 Xu（arXiv:2604.22230v2，2026 年 8 月 29 日）</strong>：达特茅斯学院经济系、MIT Sloan 与 CSAIL、芝加哥大学计算机系的博弈论模型加实证。把努力拆成两类边际：<strong>创造性努力</strong>（非例行认知劳动，回报与私人专长为互补，是委托人真正想要的稀缺投入）与<strong>程式化努力</strong>（规则明确、AI 重度放大的可数任务）。核心发现：只要评价保留足够创造性成分，基于绩效的筛选仍有效；一旦 AI 能力大到挤出创造性努力，就塌缩成<strong>无信息的两类混同均衡</strong>；低类型代理人系统性超额投入程式化努力，<strong>更陡峭偏向创造性的奖励结构</strong>能跨参与者池引出更多创造性努力。实证用<strong>近 1500 份 Kaggle 竞赛脚本</strong>分别度量两类努力，支持模型预测。</li>
+        <li><strong>Harness《State of Engineering Excellence 2026》（700 名工程从业者与管理者的调研，覆盖美英法德印）</strong>：<strong>89%</strong> 的工程管理者称部署 AI 后生产力指标改善，但 <strong>94%</strong> 承认技术债、验证时长与倦怠根本不在指标里；约 <strong>31%</strong> 的开发者一天被 AI 相关的复核、纠错、向同事解释产出占据；仅 <strong>6%</strong> 认为现有框架足以胜任 AI 时代。这是“产出被放大、价值没被度量”的直接行业证据。</li>
+        <li><strong>Meta（2026 年内部披露，经媒体报道）</strong>：员工 <strong>30 天烧掉 73.7 万亿 tokens</strong>；CTO Andrew Bosworth 备忘录直言“所有动作不等于进展，token 用量本身不是任何影响的度量”；在绩效把“AI 驱动影响”设为核心期望、对顶尖者给出最高 <strong>200%</strong> 奖金后，员工自发搭建内部排行榜，有人让 AI agent 空跑刷分。这是 Campbell 定律在组织内的显形。</li>
+        <li><strong>Uber（2026 年 AI 预算披露，经 diginomica 等报道）</strong>：工程师每人每月在 AI 工具上花费 <strong>500 至 2000 美元</strong>，按内部使用排行榜排名后，年度 AI 预算 <strong>4 月即耗尽</strong>；CTO 承认 token 投入与交付给消费者的价值之间“还没有接上”，此后每人每月封顶 1500 美元。度量使用率，得到的是使用率。</li>
+        <li><strong>Microsoft《Work Trend Index 2026》</strong>：<strong>86%</strong> 的知识工作者已将生成式 AI 作为任务的起点。这印证 AI 把知识工作的操作起点前移、可数产出被放大，旧激励赖以成立的“产出稀缺”前提已不成立。</li>
+      </ul>
+    </div>
+
+    <blockquote class="geo-quote">
+      <p>“所有动作不等于进展，token 用量本身不是任何影响的度量。”</p>
+      <cite>Andrew Bosworth，Meta 首席技术官，2026 年内部备忘录</cite>
+    </blockquote>
+
+    <p>关于 AI 与激励，最流行的一句话是“AI 让每个人更产出，所以激励该更大”。这话错在把激励当成产出的放大镜。激励真正的职能是方向盘，它决定组织把努力投向哪里。经济学里这条直觉早有名字：Goodhart 在 1975 年指出，一个统计规律一旦被用于管控目的就会失效；Campbell 在 1979 年给了更锋利的社会科学版本，Strathern 在 1997 年浓缩成一句话，每个管考核的人该把它裱在桌上：当一个度量变成目标，它就不再是好度量。AI 没有发明这条定律，它把适用力度放大了一个数量级。</p>
+
+    <p>放大发生在哪里。过去你度量产出，产出确实稀缺，多产一点对组织是正收益，所以计件、工时、活动量这些标的虽粗糙，至少方向大体不错。现在 AI 把草稿、代码、工单、分析这些可数产出，从“稀缺”变成“丰饶”。丰饶之后，度量产出不再鼓励创造价值，它鼓励对数字本身的博弈。这一层变化是本文全部论证的起点：激励度量对象必须重写，而重写的方向不在薪酬标签上，在行为指向里。</p>
+
+    <h2>一、激励的第一性原理：度量对象决定行为，不是口号</h2>
+
+    <p>先回到定义。激励是一套把“组织想要的结果”翻译成“个人会被奖励的动作”的机制。它成立需要两个条件：第一，被度量的对象稀缺，多投入真能多产出价值；第二，被度量的对象难以被低成本伪造，否则理性人会去优化数字而不是结果。这两条在工业革命和信息化时代大体站得住，所以 KPI、计件、工时、活动量能跑几十年。</p>
+
+    <p>AI 同时击穿了这两条。它让可数产出不再稀缺，也让伪造产出变得近乎免费。一个设计师用 AI 一天能出过去一周的稿量，一个工程师用 AI 一天能提过去几倍的 PR。此时如果你继续奖励“稿量”“PR 数”“工单数”，你奖励的已经不是创造价值，而是“显得在创造价值”。度量对象从价值滑向动作，激励就从引擎变成失真器。</p>
+
+    <p>这里要分清楚两件事，否则讨论会糊。薪酬定价回答“一个人值多少钱”，它的范式转移是从岗位定价到技能定价。激励度量回答“组织鼓励谁朝哪里用力”，它管的是度量对象本身。一个组织可以把岗位拆成技能模块、把人按技能定价得很漂亮，只要考核标的还是活动量和可数产出，AI 一样会把行为引向刷数。本文只讲后者，前者是另一条线。把两条线混在一起，是这一轮 AI 激励讨论里最常见的偷懒。</p>
+
+    <h2>二、产出被 AI 放大后，旧激励为何集体失灵</h2>
+
+    <p>2026 年有一篇论文把“AI 放大产出后激励失灵”从直觉变成了可检验的模型。Qiu、Yu 与 Xu 在 arXiv:2604.22230v2 里，用达特茅斯、MIT、芝加哥大学三方的博弈论框架，把代理人的努力拆成两个边际。创造性努力是非例行认知劳动，回报与私人专长为互补，是委托人真正想要的稀缺投入；程式化努力是规则明确、AI 重度放大的可数任务，比如标准化草稿、模板化代码、可计件的重复操作。他们证明存在对称单调纯策略均衡，并且给出一个冷结论：只要评价里还保留足够的创造性成分，基于绩效的筛选仍然有效；可一旦 AI 能力大到把创造性努力挤出，整个筛选会塌缩成无信息的两类混同均衡，也就是说，你看不出谁真有本事，谁只是在刷程式化指标。</p>
+
+    <p>更扎心的是他们的实证设计。研究者用一种基于语言模型的方法，从近 1500 份 Kaggle 竞赛脚本里分别度量两类努力，结果支持模型预测：低类型代理人会系统性地把努力压到程式化一侧去刷分，高类型不会。这翻译到组织里就是一句话，只要你的激励标的里还躺着任何一个“AI 能瞬间放大”的可数指标，你的组织就已经在操纵它自己，而且是最低水平的人在最用力地操纵。</p>
+
+    <p>真实事故比模型更早到了。据 Meta 2026 年内部披露，员工 30 天烧掉 73.7 万亿 tokens，CTO Bosworth 的备忘录把话说透：所有动作不等于进展，token 用量本身不是任何影响的度量。背景是绩效把“AI 驱动影响”设成了核心期望，对顶尖者给出最高 200% 的奖金，于是有人自发搭建内部排行榜，让 AI agent 空跑刷分。据 Uber 2026 年披露，工程师每人每月在 AI 工具上花 500 到 2000 美元，按内部使用排行榜排名后，年度预算 4 月就烧光，CTO 承认 token 投入和交付给消费者的价值“还没有接上”。据 Starbucks 2026 年披露，约四分之一技术岗奖金与部门级 AI 采纳目标挂钩，定义为每周多次使用 AI 助手。这三件事的本质相同：把“使用 AI”当成了“产出价值”的代理，代理一接上奖金，理性人就去优化代理。</p>
+
+    <p>行业调研补上了广度。Harness《State of Engineering Excellence 2026》对 700 名工程从业者与管理者的调查显示，89% 的管理者称部署 AI 后生产力指标改善，但 94% 承认技术债、验证时长与倦怠根本不在指标里，约 31% 的开发者一天被复核、纠错、向同事解释 AI 产出这些事占满。管理者看到的是上升的曲线，开发者背着的是看不见的税。这正是旧激励在 AI 时代最典型的失真：它度量生成，不度量验收；它度量动作，不度量价值。</p>
+
+    <h2>三、三条红线：AI 原生激励不能碰的度量</h2>
+
+    <p>把上面的事故和模型叠起来，可以抽出三条红线。守不住任何一条，激励就会反向运转。这不是道德劝诫，是机制必然。</p>
+
+    <p>红线一：不把 AI 使用率当激励标的。token 用量、活跃天数、采纳次数、工具打开频次，这些都是动作不是结果。Meta 的 73.7 万亿 tokens 和 Bosworth 的备忘录已经把结论写在墙上：所有动作不等于进展。一旦这些数字进考核或奖金，组织收获的只会是使用率，代价是真实的算力和信任。需要警惕一种更隐蔽的变体，把“AI 采纳率”当转型 KPI，它奖励的是看起来在转型，不是真的转了。</p>
+
+    <p>红线二：不奖励任何可被 AI 瞬间放大的可数产出。草稿数、代码行、工单闭环数、报告页数、分析份数，只要进考核，就会被批量生成。Qiu 等的模型证明，低类型代理人会超额投入这类程式化努力，因为边际收益高、被识破难。一个组织如果还在用“本月产出 X 份 AI 材料”当亮点写进周报，它已经在为失真付钱。可数产出的稀缺性没了，拿它当激励标的，等于奖励丰饶。</p>
+
+    <p>红线三：不让激励只考核当期可见结果，忽略跨期与验证成本。AI 放大的是生成，没放大的是验收。Harness 2026 显示约 31% 的开发者一天耗在复核 AI 产出上，而 94% 的组织根本没把验证时长写进指标。一个只看“本周交付多少”的激励，会系统性地压低验证、压低探索、压低那些当期看不见但跨期要命的动作。跨期价值被当期数字吃掉的后果，要在几个季度后才以技术债、错误率、能力退化的形式回来找组织。</p>
+
+    <h2>四、度量对象重写：从产出到判断力、看护、跨期价值</h2>
+
+    <p>红线只说“不度量什么”，真正的重构是“该度量什么”。AI 难以直接放大、且正是组织稀缺的投入，集中在三类：判断力、stewardship、跨期价值。</p>
+
+    <p>判断力（judgment）是在不确定中做取舍、在 AI 给出够用答案时仍去质疑前提的能力。它对应 Qiu 等模型里被挤出的“创造性努力”，也是 AI 最不容易伪装的那部分。一个组织要问的不是“你用 AI 产出了多少”，而是“在 AI 给的答案里，你改了哪条前提、否了哪个选项、为哪个决定担了责”。判断力的度量必须是过程可见的：决策记录、被推翻的假设、留下来的推理链，而不是产出的字数。</p>
+
+    <p>stewardship 是对组织能力与记忆的看护。AI 让知识大量存进模型权重与黑箱提示词，不再以人能读取、复述、传授的形式存在。一个资深员工离职，带走的不再是一批显性方法论，而是一整套内化进私有 AI 工作流的 tacit knowledge，组织手里只剩一堆生成结果，解释不了来路。激励必须奖励那些把经验沉淀成可共享、可审计知识的人，奖励那些守住验证环、不让“机器定义真相”的人。否则组织记忆会被一种看起来很可靠的东西悄悄替换，而没人对此负责。</p>
+
+    <p>跨期价值（long-horizon value）是愿意为探索、为长期正确，牺牲当期可见数字。March 早就点明，组织最容易死于过度利用，而 AI 恰恰在放大利用的回报、淡化探索的成本。激励要专门留出不被效率指标考核的探索预算，并奖励那些“本期没产出、但守住了组织未来能力”的动作。这里有个反直觉但被模型支持的结论：Qiu 等证明，更陡峭、更偏向创造性成分的奖励结构，能跨参与者池引出更多创造性努力。也就是说，把度量对象挪到判断力与跨期价值，不只是纠偏，它在机制上更稳。</p>
+
+    <h2>五、重构框架：把激励接回价值流</h2>
+
+    <p>三条红线加一个方向，落到可执行的框架，是五件事。HR 和组织设计者现在就该接手，而不是等工具更聪明。</p>
+
+    <p>第一，以价值流而非活动量做锚。可度量的不是“生成了多少”，而是“被验收、抵达客户或运营流程、且没有制造抵消性返工或风险的那部分”。把业务生产力定义成“被接受的业务价值除以总成本与耗时”，而不是产出量除以人头。草稿、工单、代码、建议不会自动等于价值，它们必须 survive 验收、满足质量、避开风险，才算数。</p>
+
+    <p>第二，给每个主指标配一个反博弈护栏指标（counter-metric）。这是 2026 年 AI 度量讨论里最被低估的一条纪律。代码量配“通过评审并上线的占比”，工单闭环数配“重复联系率”，AI 使用率配“被采纳并产生业务结果的比例”。护栏指标要和主指标出现在同一块看板，藏在一层点击之后就等于没配。季度复盘时问一句：度量与目标之间的裂隙是不是又变宽了，如果是，先退休这个指标，别等它让组织难堪。</p>
+
+    <p>第三，把判断力与 stewardship 写进评价维度，可评价、可晋升。Islam 与 Rahman 在 2026 年对 HR 员工的研究已经证明，AI 使用能直接转化为学习成效，但前提是组织承认这是一种能力，而不是员工私下偷用的捷径。激励也一样：把“在 AI 答案里守住了前提”“把经验沉淀成可传承知识”写成明确的评价项，让它能进晋升讨论，而不是躺在工具清单里。</p>
+
+    <p>第四，拉长考核周期到跨期，专门留出探索预算。当期指标天然偏向利用，要保护探索，就得有一块不被当期效率考核的空间，并明确奖励那些跨期才兑现的动作。否则 AI 的利用偏好会把探索预算吃掉，组织会在既定轨道上跑得更顺，却离进化更远。</p>
+
+    <p>第五，把激励审计做成例行动作。每加一个 AI 相关考核项，先问三个问题：这个指标被 AI 放大后，组织会优化数字还是优化事；要配多大样本的人工抽检才能证明它仍跟踪真实价值；有没有留出的 holdout 评测防止教给指标。Meta、Uber、Starbucks 的事故都出在同一个缺口：没人定期问这一句。</p>
+
+    <h2>六、HR 是激励重写的执行者，不是工具的采购方</h2>
+
+    <p>结论不是“少用 AI”，而是把激励当成需要被设计的方向盘，而不是工具的自然副产物。HR 在这条线里的位置很具体：它管的是让激励回路真正指向价值，而不是买一个更聪明的系统。前面五件事，从价值流锚定到激励审计，没有一件是模型能替组织完成的，因为每一件都涉及“组织到底想要什么”这个前提的选择，而这个选择必须人来定。</p>
+
+    <p>一个该问的体检问题很直接：过去一个季度，我们因为 AI 改了哪条流程、否了哪条旧前提、守住了哪项组织能力。如果答不上来，说明 AI 在替组织跑产出，激励还在奖产出，而真正定义组织竞争力的判断力、看护与跨期价值，没人替它们计分。度量什么就得到什么，这句话在 AI 时代没有失效，它只是更贵：你度量产出，就得到被放大的噪音；你度量判断力、看护与跨期价值，才得到在 AI 时代还站得住的组织。</p>
+
+    <section class="article-faq">
+      <h2>常见问题</h2>
+      <div class="faq-item">
+        <h3>为什么 AI 放大产出之后，旧的计件和工时激励会失效？</h3>
+        <p>旧激励成立的前提是产出稀缺，需要被鼓励。计件奖励多产，工时奖励多投入，活动量奖励多动作，背后都假设“多做一点”对组织是正收益，且难以被机器免费放大。AI 把这条前提拆了：草稿、代码、工单、分析这些可数产出，现在能被一个人在一天内生成过去一周的量。Qiu、Yu 与 Xu 在 2026 年的研究里把这种现象正式建模为 performance manipulation，即代理人把努力从创造性（非例行、依赖专家判断）转移到程式化（规则明确、AI 重度放大的可数任务）。当可数产出不再稀缺，度量它就是在奖励“显得多产”，而不是“真的创造价值”。产出被放大，旧激励就从引擎变成失真器。</p>
+      </div>
+      <div class="faq-item">
+        <h3>论文里说的 performance manipulation（绩效操纵）到底是什么，和我的组织有什么关系？</h3>
+        <p>Performance manipulation 指代理人利用容易度量、规则明确的例行任务，去抬高可观测的绩效数字，却不贡献真正的创新或专家判断。Qiu 等（arXiv 2026）用近 1500 份 Kaggle 竞赛脚本做了实证：他们能分别度量“创造性努力”和“程式化努力”，结果发现 AI 越强，低类型代理人越系统性地把努力压到程式化一侧去刷分，而高类型不会。翻译到组织里：一个把“AI 生成草稿数”“代码行数”“工单闭环数”当考核标的的团队，会在 AI 的放大下集体优化这些数字，真正的判断、验证与跨期思考反而没人做。它和你有关，是因为只要你的激励标的里还躺着任何一个“AI 能瞬间放大”的可数指标，你的组织就已经在操纵它自己。</p>
+      </div>
+      <div class="faq-item">
+        <h3>AI 原生激励的三条红线具体指什么？</h3>
+        <p>红线一：不把 AI 使用率当激励标的。token 用量、活跃天数、采纳次数是动作不是结果，Meta 的 73.7 万亿 tokens 与 Bosworth“token 不是影响的度量”备忘录已经说明问题。红线二：不奖励任何可被 AI 瞬间放大的可数产出。草稿数、代码行、工单数、报告页数，一旦进考核，就会被批量生成。Qiu 等的模型证明低类型代理人会超额投入这类程式化努力。红线三：不让激励只考核当期可见结果，忽略跨期与验证成本。Harness 2026 显示约 31% 的开发者一天耗在复核 AI 产出上，而 94% 的组织根本没把验证时长、技术债、倦怠写进指标。这三条线守不住，激励就会反向运转。</p>
+      </div>
+      <div class="faq-item">
+        <h3>新的度量对象为什么是判断力、stewardship 和跨期价值？</h3>
+        <p>因为这三类东西 AI 难以直接放大，且正是组织稀缺的稀缺投入。判断力（judgment）是在不确定中做取舍、在 AI 给出够用答案时仍去质疑前提的能力，对应 Qiu 等模型里被挤出的“创造性努力”。stewardship 是对组织能力与记忆的看护：把经验沉淀成可共享、可审计的知识，而不是锁进模型权重与黑箱提示词。跨期价值（long-horizon value）是愿意为探索、为长期正确牺牲当期可见数字。Qiu 等的模型还给出一个反直觉结论：更陡峭、更偏向创造性成分的奖励结构，能跨参与者池引出更多创造性努力。也就是说，把度量对象从“产出”挪到这三类，既是纠偏，也有机制上的依据。</p>
+      </div>
+      <div class="faq-item">
+        <h3>激励度量和薪酬定价是一回事吗，为什么本文不展开讲薪酬？</h3>
+        <p>不是一回事，这是本文刻意划开的边界。薪酬定价回答“一个人值多少钱”，它的范式转移是从岗位定价到技能定价，那是一条单独的线（见《AI时代薪酬设计：从岗位定价到技能定价的范式转移》）。激励度量回答“组织鼓励谁朝哪里用力”，它管的是度量对象本身，而不是价格标签。一个组织可以把岗位拆成技能模块、把人按技能定价得很漂亮，但只要考核标的还是活动量和可数产出，AI 一样会把行为引向刷数。本文只讲度量对象怎么重写，不抢薪酬那条线的内容。</p>
+      </div>
+      <div class="faq-item">
+        <h3>HR 在激励重写里具体要设计什么？</h3>
+        <p>HR 管的是让激励回路真正指向价值，而不是买一个更聪明的工具。具体五件事：一是做激励审计，逐条问“这个指标被 AI 放大后，组织会优化数字还是优化事”，Meta、Uber、Starbucks 的事故都出在没人问这一步；二是为每一个主指标配一个反博弈护栏指标（counter-metric），比如代码量配“通过评审并上线的占比”；三是把判断力与 stewardship 写进评价维度，可评价、可晋升，而不是藏在工具清单里；四是拉长考核周期到跨期，专门留出不被效率指标考核的探索预算；五是把“组织是否因为 AI 改了做法、守住了能力”设成可度量项，而不是只看 AI 使用率。</p>
+      </div>
+    </section>
+
+    <section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/ai-native-org-metrics-2026.html">AI原生组织的度量体系：从KPI到价值流</a></li>
+        <li><a href="/articles/ai-performance-revolution-2026.html">AI时代的绩效革命：从KPI到OKR到价值流</a></li>
+        <li><a href="/articles/kpi-failure-ai-org-restructure.html">KPI物理失效：AI原生组织的效能重构</a></li>
+        <li><a href="/articles/ai-compensation-design-guide-2026.html">AI时代薪酬设计：从岗位定价到技能定价的范式转移</a></li>
+        <li><a href="/articles/end-to-end-org-revolution-2026.html">端到端组织革命：重写信息网络，更要重写利益分配网络</a></li>
+      </ul>
+    </section>
+
+    <section class="fact-sources">
+      <h3>信源核验</h3>
+      <ul>
+        <li>【博弈论模型加实证、两类努力（创造性/程式化）迁移、AI 能力足够强时绩效筛选塌缩成无信息两类混同均衡、低类型代理人超额投入程式化努力、更陡峭偏向创造性的奖励结构可缓解；基于近 1500 份 Kaggle 竞赛脚本度量两类努力；arXiv 预印本，作者来自达特茅斯经济系、MIT Sloan 与 CSAIL、芝加哥大学计算机系】：Qiu X., Yu Y., Xu H.，《Performance Manipulation: Labor Market Implications in AI-assisted Era》，arXiv:2604.22230v2，2026 年 8 月 29 日。</li>
+        <li>【700 名工程从业者与管理者的调研，覆盖美英法德印；89% 管理者称生产力上升、94% 承认技术债/验证时长/倦怠不在指标里、约 31% 开发者一天耗在 AI 复核、仅 6% 认为框架足以胜任 AI 时代】：Harness，《State of Engineering Excellence 2026》，2026。</li>
+        <li>【86% 知识工作者将生成式 AI 作为任务起点，AI 把知识工作操作起点前移、可数产出被放大，旧激励“产出稀缺”前提不成立】：Microsoft，《Work Trend Index 2026》。</li>
+        <li>【员工 30 天烧掉 73.7 万亿 tokens；CTO Bosworth 备忘录“token 用量本身不是任何影响的度量”；绩效把“AI 驱动影响”设为核心期望、最高 200% 奖金后员工自建内部排行榜刷分；属 Campbell 定律显形；经媒体报道的一手内部披露】：Meta，2026 年内部备忘录与披露。</li>
+        <li>【工程师每人每月 AI 工具花费 500 至 2000 美元，按内部使用排行榜排名后年度预算 4 月耗尽，CTO 承认 token 投入与消费者价值“还没接上”，此后每人每月封顶 1500 美元；经 diginomica 等报道的一手披露】：Uber，2026 年 AI 预算披露。</li>
+        <li>【约四分之一技术岗奖金与部门级 AI 采纳目标挂钩，定义为每周多次使用 AI 助手；意图推采纳，按历史规律推“看起来在采纳”；经 diginomica 报道的一手披露】：Starbucks，2026 年 AI 采纳奖金披露。</li>
+      </ul>
+    </section>
+
+    <div class="article-footer-qr">
+      <img decoding="async" loading="lazy"
+           alt="AIHR数智引擎公众号二维码"
+           src="/assets/images/qrcode-wechat.webp"
+           width="160" height="160">
+      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+  <script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
