@@ -2225,5 +2225,22 @@
     ],
     "sitemap_urls_before": 320,
     "sitemap_urls_after": 320
+  },
+  {
+    "date": "2026-09-06 21:46",
+    "commit": "fc1c1800b60114703f6e24ac991d34d0f91cff83",
+    "message": "feat: 企业AI使用政策治理框架新文 + 补齐海外HR缺漏banner",
+    "files_count": 7,
+    "files": [
+      "articles/ai-use-policy-governance-2026.html",
+      "assets/images/banners/ai-use-policy-governance-2026.webp",
+      "assets/images/banners/overseas-hr-build-from-zero-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "llms-full.txt",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 339,
+    "sitemap_urls_after": 339
   }
 ]
