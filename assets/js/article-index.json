@@ -36,7 +36,7 @@
   {
     "title": "AI面试85%一致性背后：它测的到底是不是能力",
     "url": "agent-interviewer-boundary-2026",
-    "category": "组织变革",
+    "category": "AI招聘",
     "date": "2026-09-01",
     "tags": [
       "组织变革",
@@ -91,7 +91,7 @@
   {
     "title": "AI做候选人触达实操：个性化不是插入姓名",
     "url": "ai-candidate-outreach-playbook-2026",
-    "category": "核心方法论",
+    "category": "AI招聘",
     "date": "2026-09-02",
     "tags": []
   },
@@ -148,6 +148,16 @@
     ]
   },
   {
+    "title": "AI 协作开发模式下的工程组织架构：当编码被接管，单元怎么重排",
+    "url": "ai-collab-engineering-org-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "AI原生组织",
+      "智能体"
+    ]
+  },
+  {
     "title": "AI协作工具矩阵：2026年企业选择指南",
     "url": "ai-collaboration-tools-matrix-2026",
     "category": "组织变革 / AI转型",
@@ -166,6 +176,17 @@
     "tags": [
       "技能优先",
       "AI转型"
+    ]
+  },
+  {
+    "title": "AI 与员工沟通：效率之下的去人性化",
+    "url": "ai-employee-communication-2026",
+    "category": "组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "组织变革",
+      "绩效变革",
+      "员工体验"
     ]
   },
   {
@@ -415,7 +436,7 @@
   {
     "title": "面试官和候选人都上了AI：这场军备竞赛没有赢家",
     "url": "ai-interview-arms-race-2026",
-    "category": "组织变革",
+    "category": "AI招聘",
     "date": "2026-09-01",
     "tags": [
       "人才战略"
@@ -436,7 +457,7 @@
   {
     "title": "AI写JD实操手册：把岗位需求翻译成可判定的匹配标准",
     "url": "ai-jd-writing-playbook-2026",
-    "category": "大厂实践",
+    "category": "AI招聘",
     "date": "2026-09-02",
     "tags": []
   },
@@ -538,13 +559,103 @@
   {
     "title": "AI 素养是什么：从工具技能到组织能力的跃迁",
     "url": "ai-literacy-org-capability-2026",
-    "category": "AI组织变革",
+    "category": "组织变革",
     "date": "2026-08-30",
     "tags": [
       "组织变革",
       "大厂实践",
       "技能优先",
       "AI转型"
+    ]
+  },
+  {
+    "title": "AI 原生组织的七种死法：反模式解剖",
+    "url": "ai-native-anti-patterns-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "AI转型",
+      "AI原生组织",
+      "智能体"
+    ]
+  },
+  {
+    "title": "从共享中台到能力市场：资源怎么调度",
+    "url": "ai-native-capability-market-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "智能体"
+    ]
+  },
+  {
+    "title": "AI 原生组织的能力复利：为什么越用越强",
+    "url": "ai-native-compounding-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "大厂实践",
+      "AI原生组织"
+    ]
+  },
+  {
+    "title": "人机协同的操作系统：组织怎么协调",
+    "url": "ai-native-coordination-os-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "AI原生组织",
+      "智能体"
+    ]
+  },
+  {
+    "title": "AI 原生组织的决策权：谁还在拍板",
+    "url": "ai-native-decision-rights-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-05",
+    "tags": [
+      "AI原生组织",
+      "大厂实践",
+      "智能体"
+    ]
+  },
+  {
+    "title": "AI 原生治理：当决策权下沉到任务，董事会监督怎么重装",
+    "url": "ai-native-governance-tasks-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "AI原生组织",
+      "组织扁平化",
+      "治理与伦理"
+    ]
+  },
+  {
+    "title": "人和 Agent 的契约：接口怎么设计",
+    "url": "ai-native-human-agent-contract-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "大厂实践",
+      "智能体"
+    ]
+  },
+  {
+    "title": "度量什么就得到什么：激励怎么重写",
+    "url": "ai-native-incentives-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "AI裁员"
+    ]
+  },
+  {
+    "title": "AI 原生组织的边界：什么必须留给人",
+    "url": "ai-native-org-boundary-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "AI原生组织"
     ]
   },
   {
@@ -580,6 +691,15 @@
       "大厂实践",
       "人才战略",
       "AI转型"
+    ]
+  },
+  {
+    "title": "组织记忆交给机器：记得住，不等于传得下",
+    "url": "ai-native-org-memory-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "AI原生组织"
     ]
   },
   {
@@ -642,6 +762,17 @@
     ]
   },
   {
+    "title": "少人高密度：AI 原生组织的人才方程",
+    "url": "ai-native-talent-density-2026",
+    "category": "AI原生组织",
+    "date": "2026-09-05",
+    "tags": [
+      "大厂实践",
+      "人才战略",
+      "AI原生组织"
+    ]
+  },
+  {
     "title": "AI×OKR融合：从目标管理到智能执行的范式跃迁",
     "url": "ai-okr-integration-guide-2026",
     "category": "绩效管理 / AI工具",
@@ -688,6 +819,15 @@
       "AI原生组织",
       "组织变革",
       "AI转型"
+    ]
+  },
+  {
+    "title": "AI 改写组织学习：记下来，不等于学会",
+    "url": "ai-organizational-learning-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-05",
+    "tags": [
+      "AI原生组织"
     ]
   },
   {
@@ -746,7 +886,7 @@
   {
     "title": "AI做招聘数据复盘实操：只统计转化率是不够的",
     "url": "ai-recruiting-analytics-playbook-2026",
-    "category": "研究报告",
+    "category": "AI招聘",
     "date": "2026-09-02",
     "tags": [
       "人才战略"
@@ -755,7 +895,7 @@
   {
     "title": "算法不制造偏见，它把偏见固定下来：亚马逊招聘引擎拆解",
     "url": "ai-recruitment-bias-compliance-2026",
-    "category": "大厂实践",
+    "category": "AI招聘",
     "date": "2026-09-01",
     "tags": [
       "组织变革",
@@ -777,7 +917,7 @@
   {
     "title": "AI简历初筛实操：怎么搭一套不误杀人的筛子",
     "url": "ai-resume-screening-playbook-2026",
-    "category": "核心方法论",
+    "category": "AI招聘",
     "date": "2026-09-02",
     "tags": []
   },
@@ -826,7 +966,7 @@
   {
     "title": "AI设计结构化面试实操：从能力模型到可打分的题库",
     "url": "ai-structured-interview-playbook-2026",
-    "category": "组织变革",
+    "category": "AI招聘",
     "date": "2026-09-02",
     "tags": [
       "人才战略"
@@ -841,6 +981,16 @@
       "组织变革",
       "技能优先",
       "领导力"
+    ]
+  },
+  {
+    "title": "AI 生成内容正在污染组织信息网络",
+    "url": "ai-synthetic-content-pollution-2026",
+    "category": "组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "组织变革",
+      "治理与伦理"
     ]
   },
   {
@@ -891,6 +1041,17 @@
     ]
   },
   {
+    "title": "AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务",
+    "url": "ai-task-level-work-redesign-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "AI原生组织",
+      "大厂实践",
+      "人才战略"
+    ]
+  },
+  {
     "title": "AI转型的十大失败模式：从技术债到文化债",
     "url": "ai-transformation-failures-2026",
     "category": "AI转型",
@@ -898,6 +1059,16 @@
     "tags": [
       "AI转型",
       "组织变革"
+    ]
+  },
+  {
+    "title": "企业 AI 使用政策：让员工用 AI 而不失控的治理框架",
+    "url": "ai-use-policy-governance-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-06",
+    "tags": [
+      "AI原生组织",
+      "治理与伦理"
     ]
   },
   {
@@ -966,6 +1137,15 @@
     "tags": [
       "大厂实践",
       "领导力"
+    ]
+  },
+  {
+    "title": "中台退潮：当 AI 把协调能力内化，独立中台层还有必要吗",
+    "url": "ant-middle-platform-decline-2026",
+    "category": "大厂组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "智能体"
     ]
   },
   {
@@ -1059,6 +1239,15 @@
       "大厂实践",
       "组织变革",
       "AI转型"
+    ]
+  },
+  {
+    "title": "大厂 AI 产品陷阱：过度包装与真实价值的错位",
+    "url": "bigtech-ai-product-traps-2026",
+    "category": "组织变革 / AI治理",
+    "date": "2026-09-03",
+    "tags": [
+      "大厂实践"
     ]
   },
   {
@@ -1171,6 +1360,13 @@
       "测评工具",
       "领导力"
     ]
+  },
+  {
+    "title": "赛马机制：用组织冗余竞速，替代中央指派",
+    "url": "bytedance-tencent-horse-race-2026",
+    "category": "大厂组织变革",
+    "date": "2026-09-03",
+    "tags": []
   },
   {
     "title": "变革管理方法论：为什么80%的转型项目失败了",
@@ -1379,6 +1575,16 @@
     ]
   },
   {
+    "title": "端到端组织革命：重写信息网络，更要重写利益分配网络",
+    "url": "end-to-end-org-revolution-2026",
+    "category": "组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "组织变革",
+      "AI转型"
+    ]
+  },
+  {
     "title": "企业AI治理框架：从合规到战略",
     "url": "enterprise-ai-governance-framework-2026",
     "category": "组织变革 / AI转型",
@@ -1412,7 +1618,7 @@
   {
     "title": "招聘AI被欧盟定为高风险：合规可以延期，举证责任不能",
     "url": "eu-ai-act-recruitment-compliance-2026",
-    "category": "组织变革",
+    "category": "AI招聘",
     "date": "2026-09-01",
     "tags": [
       "人才战略",
@@ -1887,6 +2093,16 @@
     ]
   },
   {
+    "title": "麦肯锡 18 种原子能力：为什么清单列完，组织还是不会用",
+    "url": "mckinsey-atomic-capabilities-2026",
+    "category": "研究报告",
+    "date": "2026-09-03",
+    "tags": [
+      "组织变革",
+      "技能优先"
+    ]
+  },
+  {
     "title": "麦肯锡死局：无制度授权，AI转型是行为艺术",
     "url": "mckinsey-hidden-deadlock",
     "category": "研究报告",
@@ -2184,6 +2400,16 @@
     ]
   },
   {
+    "title": "出海 HR 从 0 到 1：先搭组织能力，再招人",
+    "url": "overseas-hr-build-from-zero-2026",
+    "category": "组织变革",
+    "date": "2026-09-05",
+    "tags": [
+      "组织变革",
+      "人才战略"
+    ]
+  },
+  {
     "title": "绩效管理的死与生：为什么70%的评估体系正在毒化组织",
     "url": "performance-management-system-2026",
     "category": "组织变革",
@@ -2250,6 +2476,15 @@
       "组织变革",
       "人才战略",
       "远程与混合办公"
+    ]
+  },
+  {
+    "title": "影子 AI：为什么制定规则的人在绕过规则",
+    "url": "shadow-ai-governance-2026",
+    "category": "AI组织变革",
+    "date": "2026-09-03",
+    "tags": [
+      "AI原生组织"
     ]
   },
   {
@@ -2487,326 +2722,6 @@
       "AI原生组织",
       "组织变革",
       "领导力"
-    ]
-  },
-  {
-    "title": "AI 与员工沟通：效率之下的去人性化",
-    "url": "ai-employee-communication-2026",
-    "category": "组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "AI与员工沟通",
-      "去人性化",
-      "算法管理",
-      "组织沟通",
-      "人机协作",
-      "欧盟AI法案",
-      "员工体验"
-    ]
-  },
-  {
-    "title": "大厂 AI 产品陷阱：过度包装与真实价值的错位",
-    "url": "bigtech-ai-product-traps-2026",
-    "category": "组织变革 / AI治理",
-    "date": "2026-09-03",
-    "tags": [
-      "AI包装",
-      "AI-washing",
-      "大厂AI产品",
-      "采购校验",
-      "AI治理",
-      "信任缺口",
-      "价值错位"
-    ]
-  },
-  {
-    "title": "AI 生成内容正在污染组织信息网络",
-    "url": "ai-synthetic-content-pollution-2026",
-    "category": "组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "AI生成内容",
-      "组织信息网络",
-      "知识衰减",
-      "workslop",
-      "模型坍缩",
-      "零信任数据治理",
-      "信息质量",
-      "AI治理",
-      "决策质量"
-    ]
-  },
-  {
-    "title": "影子 AI：为什么制定规则的人在绕过规则",
-    "url": "shadow-ai-governance-2026",
-    "category": "AI组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "影子AI",
-      "shadow AI",
-      "BYOAI",
-      "未授权AI工具",
-      "AI使用政策",
-      "AI治理",
-      "组织信任",
-      "AI合规",
-      "治理缺口"
-    ]
-  },
-  {
-    "title": "AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务",
-    "url": "ai-task-level-work-redesign-2026",
-    "category": "AI组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "工作再设计",
-      "任务级重构",
-      "岗位设计",
-      "AI暴露度",
-      "AI适用性评分",
-      "任务束",
-      "job design",
-      "人机分工",
-      "编制规划"
-    ]
-  },
-  {
-    "title": "麦肯锡 18 种原子能力：为什么清单列完，组织还是不会用",
-    "url": "mckinsey-atomic-capabilities-2026",
-    "category": "组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "原子能力",
-      "atomic capabilities",
-      "麦肯锡",
-      "能力单元",
-      "技能图谱",
-      "工作再设计",
-      "超级岗位",
-      "组织能力",
-      "AI编排"
-    ]
-  },
-  {
-    "title": "赛马机制：用组织冗余竞速，替代中央指派",
-    "url": "bytedance-tencent-horse-race-2026",
-    "category": "大厂组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "赛马机制",
-      "字节",
-      "腾讯",
-      "组织冗余",
-      "Context not control",
-      "内部竞争",
-      "组织记忆",
-      "问责链",
-      "大厂组织"
-    ]
-  },
-  {
-    "title": "AI 协作开发模式下的工程组织架构：当编码被接管，单元怎么重排",
-    "url": "ai-collab-engineering-org-2026",
-    "category": "AI组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "AI协作开发",
-      "工程组织",
-      "Teams of Teams",
-      "AI结对编程",
-      "研发效能",
-      "组织单元",
-      "agent编队",
-      "DevOps",
-      "AI原生工程"
-    ]
-  },
-  {
-    "title": "中台退潮：当 AI 把协调能力内化，独立中台层还有必要吗",
-    "url": "ant-middle-platform-decline-2026",
-    "category": "大厂组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "中台",
-      "蚂蚁",
-      "ant design",
-      "阿里中台",
-      "组织能力",
-      "平台型组织",
-      "协调能力",
-      "中台战略",
-      "AI原生"
-    ]
-  },
-  {
-    "title": "端到端组织革命：重写信息网络，更要重写利益分配网络",
-    "url": "end-to-end-org-revolution-2026",
-    "category": "组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "端到端",
-      "组织变革",
-      "信息网络",
-      "利益分配网络",
-      "OD第一性原理",
-      "流程再造",
-      "平台型组织",
-      "人单合一",
-      "组织能力"
-    ]
-  },
-  {
-    "title": "AI 原生治理：当决策权下沉到任务，董事会监督怎么重装",
-    "url": "ai-native-governance-tasks-2026",
-    "category": "AI组织变革",
-    "date": "2026-09-03",
-    "tags": [
-      "AI原生组织",
-      "治理架构",
-      "决策权",
-      "任务级决策",
-      "mission command",
-      "授权",
-      "董事会AI化",
-      "组织治理",
-      "AI问责"
-    ]
-  },
-  {
-    "title": "AI 改写组织学习：记下来，不等于学会",
-    "url": "ai-organizational-learning-2026",
-    "category": "AI组织变革",
-    "date": "2026-09-05",
-    "tags": [
-      "组织学习",
-      "organizational learning",
-      "双环学习",
-      "探索与利用",
-      "AI增强组织学习",
-      "组织记忆",
-      "知识管理",
-      "生成式AI",
-      "动态能力"
-    ]
-  },
-  {
-    "title": "AI 原生组织的决策权：谁还在拍板",
-    "url": "ai-native-decision-rights-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "组织记忆交给机器：记得住，不等于传得下",
-    "url": "ai-native-org-memory-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "从共享中台到能力市场：资源怎么调度",
-    "url": "ai-native-capability-market-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "人机协同的操作系统：组织怎么协调",
-    "url": "ai-native-coordination-os-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "少人高密度：AI 原生组织的人才方程",
-    "url": "ai-native-talent-density-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "度量什么就得到什么：激励怎么重写",
-    "url": "ai-native-incentives-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "AI 原生组织的边界：什么必须留给人",
-    "url": "ai-native-org-boundary-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "AI 原生组织的七种死法：反模式解剖",
-    "url": "ai-native-anti-patterns-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "人和 Agent 的契约：接口怎么设计",
-    "url": "ai-native-human-agent-contract-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
-    ]
-  },
-  {
-    "title": "AI 原生组织的能力复利：为什么越用越强",
-    "url": "ai-native-compounding-2026",
-    "category": "AI原生组织",
-    "date": "2026-09-05",
-    "tags": [
-      "AI原生组织",
-      "AI转型",
-      "组织设计",
-      "人机协同"
     ]
   }
 ]

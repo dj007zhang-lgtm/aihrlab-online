@@ -730,3 +730,9 @@ URL: https://www.aihrlab.online/articles/ai-native-compounding-2026.html
 日期: 2026-09-05
 摘要: AI 原生组织的能力复利，取决于数据、模型、能力、数据能否转成自我强化的闭环飞轮。NVIDIA、Sustainability、Management Decision 与 EY 在 2026 年的四项研究共同指出：数据主权、反馈闭环、能力沉淀是飞轮转动的三要件，它们决定组织分化，有的越用越强，有的卡在一次性提效。本文拆解复利飞轮的机理与停滞的根因。
 
+
+### 164. 企业 AI 使用政策：让员工用 AI 而不失控的治理框架
+URL: https://www.aihrlab.online/articles/ai-use-policy-governance-2026.html
+分类: AI组织变革
+日期: 2026-09-06
+摘要: 2026 年多项调研显示，过半员工在使用未经批准的 AI 工具，近三成组织完全没有 AI 政策。本文给出企业 AI 使用政策的治理框架：写清数据边界、工具边界、人工在环与员工知情权四类边界，对照欧盟 AI 法案的透明度与部署方义务，指出 HR 应把政策做成组织设计而非一封 IT 通知。
