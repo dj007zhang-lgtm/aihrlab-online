@@ -736,3 +736,9 @@ URL: https://www.aihrlab.online/articles/ai-use-policy-governance-2026.html
 分类: AI组织变革
 日期: 2026-09-06
 摘要: 2026 年多项调研显示，过半员工在使用未经批准的 AI 工具，近三成组织完全没有 AI 政策。本文给出企业 AI 使用政策的治理框架：写清数据边界、工具边界、人工在环与员工知情权四类边界，对照欧盟 AI 法案的透明度与部署方义务，指出 HR 应把政策做成组织设计而非一封 IT 通知。
+
+### 165. AI 原生组织的领导力：决策下沉后，人管什么
+URL: https://www.aihrlab.online/articles/ai-native-leadership-2026.html
+分类: AI原生组织
+日期: 2026-09-07
+摘要: AI agent 接管操作性决策后，领导者的核心价值从做决策转向设架构，定义目标、度量函数与人类兜底边界。本文基于 Microsoft WTI 2026、McKinsey State of Organizations 2026、HBR 2026、BCG AI Radar 2026 一手研究，拆解 AI 原生组织里领导角色的重构：从在环路中到在环路之上，以及 HR/CHRO 在其中设计人机接口的职责。
