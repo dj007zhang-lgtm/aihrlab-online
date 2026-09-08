@@ -742,3 +742,9 @@ URL: https://www.aihrlab.online/articles/ai-native-leadership-2026.html
 分类: AI原生组织
 日期: 2026-09-07
 摘要: AI agent 接管操作性决策后，领导者的核心价值从做决策转向设架构，定义目标、度量函数与人类兜底边界。本文基于 Microsoft WTI 2026、McKinsey State of Organizations 2026、HBR 2026、BCG AI Radar 2026 一手研究，拆解 AI 原生组织里领导角色的重构：从在环路中到在环路之上，以及 HR/CHRO 在其中设计人机接口的职责。
+
+### 166. AI 原生组织落地：设计易，变革难
+URL: https://www.aihrlab.online/articles/ai-native-org-landing-2026.html
+分类: AI原生组织
+日期: 2026-09-08
+摘要: AI 原生组织落地最大的瓶颈不是架构设计而是变革管理。组织惯性、change distance（C-suite 到一线的信心与理解衰减）、中层断层与度量错配，让多数蓝图停在 PPT。本文基于 BCG AI Radar 2026、BCG AI at Work 2026、McKinsey State of Organizations 2026 一手数据，拆解从试点到规模化的断层：BCG 仅约 5% 企业实现 AI 规模化，McKinsey 88% 部署但不到 20% 见效、战略聚焦力从高管 56% 衰减到中层 27%，BCG 一线 74% 已用 AI 但 66% 无指导、仅 28% 感到言行一致。落地杠杆是把变革当工程：战略解码到中层、给每个 agent 配 human-on-the-loop、把节省的时间接回价值流、主动治 change distance。
