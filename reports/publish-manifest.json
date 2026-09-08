@@ -2242,5 +2242,18 @@
     ],
     "sitemap_urls_before": 339,
     "sitemap_urls_after": 339
+  },
+  {
+    "date": "2026-09-08 18:06",
+    "commit": "69fb3a832ab2a2c92740b1d2de25d22271d25fa1",
+    "message": "feat(articles): 出海 HR 从 0 到 1 上线（补全 sitemap/index 既有引用导致的 404 断链）",
+    "files_count": 3,
+    "files": [
+      "articles/overseas-hr-build-from-zero-2026.html",
+      "assets/images/banners/overseas-hr-build-from-zero-2026.webp",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 341,
+    "sitemap_urls_after": 341
   }
 ]
