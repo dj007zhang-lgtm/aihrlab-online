@@ -2,34 +2,428 @@
   "updated": "2026-08-03",
   "note": "机器可读的 allow/deny 信源登记表，供 scripts/fact_risk_census.py 的 report_source_census() 自动比对。allow=已 WebSearch 核验为真的报告；deny=虚构信源/信源层级伪装/归因错误（永久禁用）；deny_publisher=曾张冠李戴的发布方。",
   "allow": [
-    {"title": "The State of Organizations 2026", "publisher": "McKinsey & Company", "note": "麦肯锡2026全球组织状况报告"},
-    {"title": "HR Monitor 2026", "publisher": "McKinsey & Company"},
-    {"title": "The State of AI in Small Business HR 2026", "publisher": "HR Partner"},
-    {"title": "智能原生研究报告", "publisher": "中国信通院 + 小米"},
-    {"title": "新质驱动·组织向新——2026年人力资源管理趋势报告", "publisher": "北京大学国家发展研究院 + 智联招聘"},
-    {"title": "AI时代人力资源发展报告（2026）", "publisher": "深圳市人力资源管理协会"},
-    {"title": "2026年中国企业AI人才与组织发展报告", "publisher": "InfoQ（极客邦科技）"},
-    {"title": "2026 工作趋势指数", "publisher": "Microsoft"},
-    {"title": "AI Radar 2026", "publisher": "BCG"},
-    {"title": "组织状况报告", "publisher": "McKinsey & Company", "note": "The State of Organizations 2026 中文渲染"},
-    {"title": "组织现状报告", "publisher": "McKinsey & Company", "note": "The State of Organizations 2026 中文渲染"},
-    {"title": "工作趋势指数", "publisher": "Microsoft", "note": "WTI 中文渲染（含 2025/2026）"},
-    {"title": "人力资源管理趋势报告", "publisher": "北京大学国家发展研究院 + 智联招聘", "note": "新质驱动·组织向新 中文短称"},
-    {"title": "AI时代HR发展报告", "publisher": "深圳市人力资源管理协会", "note": "AI时代人力资源发展报告（2026）中文缩写"},
-    {"title": "全球招聘报告", "publisher": "SHRM", "note": "SHRM 2026 招聘/人才趋势报告中文渲染（Finding Talent / 2026 Talent Trends，1268-2094 HR 样本）"},
-    {"title": "全球人力资本趋势报告", "publisher": "Deloitte", "note": "2026 Global Human Capital Trends（89国9000+领导者，与Oxford Economics合作）"},
-    {"title": "未来就业报告", "publisher": "World Economic Forum", "note": "Future of Jobs Report 2025（1000+企业）"},
-    {"title": "AI指数2026", "publisher": "Stanford HAI", "note": "The 2026 AI Index Report（423页）"},
-    {"title": "AI时代小微经营者观察", "publisher": "赛迪智库中小企业研究所 + 网商银行", "note": "2026-06-25发布，97.4%知晓/53.2%尝试/33%持续使用"}
+    {
+      "title": "The State of Organizations 2026",
+      "publisher": "McKinsey & Company",
+      "note": "麦肯锡2026全球组织状况报告"
+    },
+    {
+      "title": "HR Monitor 2026",
+      "publisher": "McKinsey & Company"
+    },
+    {
+      "title": "The State of AI in Small Business HR 2026",
+      "publisher": "HR Partner"
+    },
+    {
+      "title": "智能原生研究报告",
+      "publisher": "中国信通院 + 小米"
+    },
+    {
+      "title": "新质驱动·组织向新——2026年人力资源管理趋势报告",
+      "publisher": "北京大学国家发展研究院 + 智联招聘"
+    },
+    {
+      "title": "AI时代人力资源发展报告（2026）",
+      "publisher": "深圳市人力资源管理协会"
+    },
+    {
+      "title": "2026年中国企业AI人才与组织发展报告",
+      "publisher": "InfoQ（极客邦科技）"
+    },
+    {
+      "title": "2026 工作趋势指数",
+      "publisher": "Microsoft"
+    },
+    {
+      "title": "AI Radar 2026",
+      "publisher": "BCG"
+    },
+    {
+      "title": "组织状况报告",
+      "publisher": "McKinsey & Company",
+      "note": "The State of Organizations 2026 中文渲染"
+    },
+    {
+      "title": "组织现状报告",
+      "publisher": "McKinsey & Company",
+      "note": "The State of Organizations 2026 中文渲染"
+    },
+    {
+      "title": "工作趋势指数",
+      "publisher": "Microsoft",
+      "note": "WTI 中文渲染（含 2025/2026）"
+    },
+    {
+      "title": "人力资源管理趋势报告",
+      "publisher": "北京大学国家发展研究院 + 智联招聘",
+      "note": "新质驱动·组织向新 中文短称"
+    },
+    {
+      "title": "AI时代HR发展报告",
+      "publisher": "深圳市人力资源管理协会",
+      "note": "AI时代人力资源发展报告（2026）中文缩写"
+    },
+    {
+      "title": "全球招聘报告",
+      "publisher": "SHRM",
+      "note": "SHRM 2026 招聘/人才趋势报告中文渲染（Finding Talent / 2026 Talent Trends，1268-2094 HR 样本）"
+    },
+    {
+      "title": "全球人力资本趋势报告",
+      "publisher": "Deloitte",
+      "note": "2026 Global Human Capital Trends（89国9000+领导者，与Oxford Economics合作）"
+    },
+    {
+      "title": "未来就业报告",
+      "publisher": "World Economic Forum",
+      "note": "Future of Jobs Report 2025（1000+企业）"
+    },
+    {
+      "title": "AI指数2026",
+      "publisher": "Stanford HAI",
+      "note": "The 2026 AI Index Report（423页）"
+    },
+    {
+      "title": "AI时代小微经营者观察",
+      "publisher": "赛迪智库中小企业研究所 + 网商银行",
+      "note": "2026-06-25发布，97.4%知晓/53.2%尝试/33%持续使用"
+    },
+    {
+      "title": "2026 Global Human Capital Trends",
+      "publisher": "Deloitte（与 Oxford Economics 合作）",
+      "note": "2026"
+    },
+    {
+      "title": "智能原生研究报告（2026年）",
+      "publisher": "中国信通院人工智能研究所 + 北京小米移动软件",
+      "note": "2026"
+    },
+    {
+      "title": "The 2026 AI Index Report",
+      "publisher": "Stanford HAI",
+      "note": "2026"
+    },
+    {
+      "title": "Future of Jobs Report 2025",
+      "publisher": "World Economic Forum",
+      "note": "2025"
+    },
+    {
+      "title": "2026 Talent Trends Report",
+      "publisher": "SHRM",
+      "note": "2026"
+    },
+    {
+      "title": "Deloitte Global Human Capital Trends 2026",
+      "publisher": "Deloitte",
+      "note": "2026 · 93% AI 投资压在技术、仅 7% 在人；能力型组织趋势；人机协作设计组织财务超预期近 2.5 倍"
+    },
+    {
+      "title": "Spencer Stuart: Leadership for a Complex World, Planning for the CEO of the Future (2026)",
+      "publisher": "Spencer Stuart",
+      "note": "2026 · 未来 CEO 须精通 AI；高潜力首次 CEO 跑赢资深 CEO；潜力与经验广度重于年资"
+    },
+    {
+      "title": "Heidrick &amp; Struggles 2026 Board Monitor US",
+      "publisher": "Heidrick &amp; Struggles",
+      "note": "2026 · 新任标普500董事仅 19% 有科技经历、6% 在科技委；成熟 AI 素养董事池尚未形成"
+    },
+    {
+      "title": "Gartner 2026: AI Talent Risks / HR Trends",
+      "publisher": "Gartner",
+      "note": "2026 · 九大 AI 人才风险含「继任管道断裂」；仅 57% 组织有高潜正式流程；变革成本能时健康采纳概率高 3 倍"
+    },
+    {
+      "title": "DDI Global Leadership Forecast Update 2026",
+      "publisher": "DDI",
+      "note": "2026-02 · 仅 28% 组织认为人才板凳厚度足以应对未来业务需求"
+    },
+    {
+      "title": "O*NET 26.2 Content Model",
+      "publisher": "O*NET Center（美国劳工统计体系能力模型标准）",
+      "note": "2026"
+    },
+    {
+      "title": "The State of AI in HR 2026",
+      "publisher": "SHRM（样本 1,908 名 HR 从业者）",
+      "note": "2026"
+    },
+    {
+      "title": "9 Box Grid: A Complete Guide to Talent Reviews",
+      "publisher": "teampredict.ai",
+      "note": "2026"
+    },
+    {
+      "title": "9-Box Grid &amp; Alternatives",
+      "publisher": "AIHR",
+      "note": "2026"
+    },
+    {
+      "title": "Bias laundering: when AI makes manager bias look objective",
+      "publisher": "UNSW BusinessThink / The Accounting Review（Lin, Cheng, Humphreys）",
+      "note": "2026"
+    },
+    {
+      "title": "阿里组织架构变革：从1+6+N到电商事业群",
+      "publisher": "腾讯新闻",
+      "note": "2024"
+    },
+    {
+      "title": "拆分又合并！阿里两年架构轮回背后，藏着大企业生存智慧",
+      "publisher": "搜狐新闻",
+      "note": "2026"
+    },
+    {
+      "title": "Microsoft 365 Copilot 2026 年 8 月发布说明（Agent Store 治理 + Claude 模型支持）",
+      "publisher": "Pondero（转引 Microsoft Learn）",
+      "note": "2026-08-14"
+    },
+    {
+      "title": "美联社：DeepSeek 创始人梁文锋背景（AP News）",
+      "publisher": "Associated Press",
+      "note": "2025-01-28 · 梁文锋 2023 年创立 DeepSeek；幻方量化 2015 年成立、2019 年管理规模已超 100 亿元；2022 年已囤约 1 万张 A100；梁文锋称中国 AI 不能永远处于跟随位置"
+    },
+    {
+      "title": "雅虎财经：对冲基金经理梁文锋与 DeepSeek（Yahoo Finance）",
+      "publisher": "Yahoo Finance / AP 转引",
+      "note": "2025-01 · 幻方量化 2019 年管理规模至少 100 亿美元；DeepSeek 2023 年 5 月从幻方分拆、由母公司全资供养；V3 论文披露训练成本低于 600 万美元"
+    },
+    {
+      "title": "美国众议院科学委员会证词：DeepSeek 深度解读（Gregory C. Allen）",
+      "publisher": "U.S. House Committee",
+      "note": "2025 · 发布时间线：V2（2024-05-06，引入 MLA）、V3（2024-12-26，671B/37B 激活，训练成本 557.6 万美元）、R1（2025-01-20，首个对标 o1 的开源权重推理模型）；R1 低成本致英伟达 2025-01-27 单日市值蒸发约 6000 亿美元"
+    },
+    {
+      "title": "DeepSeek-R1 官方仓库与权重（GitHub / deepseek-ai）",
+      "publisher": "DeepSeek",
+      "note": "开源仓库 · R1 与 R1-Zero 采用 MIT 许可发布权重，并蒸馏 6 个小型模型开源；精确说法是 open-weight（开源权重）而非完全开源"
+    },
+    {
+      "title": "腾讯新闻：V4 发布前的 DeepSeek，特质、组织和梁文锋的独特目标",
+      "publisher": "腾讯新闻",
+      "note": "2026-04-02 · 研究团队约 100 多人、梁文锋与研究员只隔一个层级；不社招、以应届生与实习生留任为主；不打卡、无明确绩效考核；此前以大厂约 1/10 人数、约 1/2 人均工作时间跻身第一梯队"
+    },
+    {
+      "title": "Digital Transformation Success Rates 2026",
+      "publisher": "Gartner",
+      "note": "2026"
+    },
+    {
+      "title": "Digital Transformation Leadership",
+      "publisher": "McKinsey & Company",
+      "note": "2025"
+    },
+    {
+      "title": "2025 Technology, Media & Telecom Trends",
+      "publisher": "Deloitte",
+      "note": "2025"
+    },
+    {
+      "title": "State of the Global Workplace 2026",
+      "publisher": "Gallup",
+      "note": "2026"
+    },
+    {
+      "title": "Leading Digital Transformation",
+      "publisher": "Harvard Business Review",
+      "note": "2025"
+    },
+    {
+      "title": "Escaping the pilot trap: Building HR for the agentic era",
+      "publisher": "McKinsey &amp; Company",
+      "note": "Asmus Komm, Bryan Hancock, Sandra Durth · 2026年8月4日"
+    },
+    {
+      "title": "HR Monitor 2026: A turning point for the people function",
+      "publisher": "McKinsey &amp; Company",
+      "note": "2026年7月3日 · 10国1300名HR+5500名员工调查"
+    },
+    {
+      "title": "Productivity reimagined",
+      "publisher": "McKinsey &amp; Company",
+      "note": "750名员工与管理者调查"
+    },
+    {
+      "title": "摩根士丹利：AI时代HR不能再只管理人数",
+      "publisher": "摩根士丹利",
+      "note": "2026 · 净岗位减少5%早期信号"
+    },
+    {
+      "title": "麦肯锡：The State of AI in 2025（QuantumBlack）",
+      "publisher": "McKinsey & Company",
+      "note": "2025-11-05 · 1993 份问卷、105 个国家、2025-06-25 至 07-29；88% 在至少一个职能常态化使用 AI、79% 使用生成式 AI、约 7% 全组织规模化、约 5.5% 为高绩效企业（≥5% EBIT）；高绩效企业近 3 倍更可能根本性重构工作流"
+    },
+    {
+      "title": "麦肯锡中国：2025 麦肯锡 AI 应用现状调研",
+      "publisher": "McKinsey & Company 中国",
+      "note": "2025 · 中国大陆企业 83% 在至少一个职能使用生成式 AI、45% 已实现规模化或全面部署（高于全球 38%）；39% 认为 AI 对 EBIT 有影响且多数不足 5%；51% 报告至少一次 AI 负面事件"
+    },
+    {
+      "title": "Gartner：40% 企业应用将在 2026 年底前嵌入任务型智能体",
+      "publisher": "Gartner",
+      "note": "2025-08-26 · 预测到 2026 年底 40% 企业应用嵌入任务型智能体（2025 年不足 5%）；并预测到 2027 年超过 40% 的智能体项目因成本、价值不清、风控薄弱被取消"
+    },
+    {
+      "title": "斯坦福 HAI：Artificial Intelligence Index Report 2026",
+      "publisher": "Stanford HAI",
+      "note": "2026-04-13 · 2025 年全球企业 AI 投资 5817 亿美元（同比 +130%）；组织采用率 88%、70% 在至少一个职能使用生成式 AI；智能体在几乎所有职能部署仍是个位数；年轻开发者（22-25）就业自 2024 年降近 20%"
+    },
+    {
+      "title": "AI2Work：走出 AI 试点困境（引用 MIT NANDA / IDC / BCG）",
+      "publisher": "AI2Work",
+      "note": "2026 · 汇总 MIT NANDA（95% 生成式 AI 试点无可观量利润影响）、IDC（88% AI 概念验证从未进入生产）、BCG（10-20-70 法则：价值 70% 来自人与流程）等一线调研结论"
+    },
+    {
+      "title": "NVIDIA 官网（nvidia.com/about-nvidia）",
+      "publisher": "NVIDIA",
+      "note": "公司官方 · 1993 年 4 月 5 日由黄仁勋、Chris Malachowsky、Curtis Priem 共同创办，黄仁勋自创办起任 CEO；1999 年推出 GeForce 256 并定义 GPU 品类；2006 年发布 CUDA 架构"
+    },
+    {
+      "title": "NVIDIA DGX Cloud（nvidia.com/data-center/dgx-cloud）",
+      "publisher": "NVIDIA",
+      "note": "2023 年发布 · 企业 AI 基础设施即服务，按需开通，按小时付费；从「卖硬件」到「卖算力服务」的收入模式转变"
+    },
+    {
+      "title": "NVIDIA CUDA 开发者平台（nvidia.com/deep-learning-ai/cuda）",
+      "publisher": "NVIDIA",
+      "note": "2006 年发布 · CUDA 为并行计算平台与编程模型；黄仁勋在 GTC 2025 主题演讲称，自 2006 年起 200 多个国家的 600 万开发者用过 CUDA"
+    },
+    {
+      "title": "NVIDIA AI 全栈（nvidia.com/industries）",
+      "publisher": "NVIDIA",
+      "note": "全栈战略 · 覆盖芯片架构、DGX 系统、CUDA 软件栈、NGC 容器与 AI Enterprise 服务；制造环节为 fabless 模式，由 TSMC 等代工厂承担"
+    },
+    {
+      "title": "NVIDIA GTC 2023 大会主题演讲（黄仁勋）",
+      "publisher": "NVIDIA GTC",
+      "note": "2023-03 · 黄仁勋：「未来 5 年，所有企业都会用 GPU 做 AI。我们的任务是把 GPU 变成像电力一样的基础设施。」——DGX Cloud 发布，组织战略从「硬件公司」转向「平台公司」"
+    },
+    {
+      "title": "OpenAI 官方治理结构页（openai.com/our-structure）",
+      "publisher": "OpenAI",
+      "note": "公司官方 · 2025 年 10 月 28 日重组：非营利实体改名 OpenAI Foundation，营利实体成为公益公司 OpenAI Group PBC；基金会持 26% 股权（约 1,300 亿美元）并独家任免公司董事；微软约 27%，员工与投资人 47%；SSC 保留为基金会委员会"
+    },
+    {
+      "title": "OpenAI：非营利实体保留控制权（2025-05-05 公告）",
+      "publisher": "OpenAI",
+      "note": "2025-05-05 · 放弃 2024 年 12 月「非营利让出控制权」方案；营利实体仍改制为公益公司，但非营利保留控制；利润上限结构换为「所有人持有普通股」的常规资本结构"
+    },
+    {
+      "title": "加州总检察长办公室谅解备忘录（2025-10-27）",
+      "publisher": "California AG",
+      "note": "2025-10-27 · 设定不反对重组的条件：两实体总部留在加州；基金会独家任免与罢免 OpenAI Group 董事；SSC 为基金会委员会，有权要求缓解措施直至暂停模型或 AI 系统发布；Kolter 任 SSC 主席且只坐基金会董事会、拥有公司董事会全程观察权；一年内增设第二位仅任基金会董事；公司董事会独立董事占多数并至少年度公开披露"
+    },
+    {
+      "title": "路透社：OpenAI 人员规模扩张计划报道",
+      "publisher": "Reuters",
+      "note": "2026 年报道 · OpenAI 计划将员工规模由约 4,500 人扩至 2026 年底约 8,000 人，覆盖产品开发、工程、研究与销售，反映从研究实验室转向大型商业软件业务"
+    },
+    {
+      "title": "OpenAI 管理层公开信息（openai.com）",
+      "publisher": "OpenAI",
+      "note": "公司官方 · Sam Altman 任 CEO，Brad Lightcap 任 COO，Sarah Friar 任 CFO，Greg Brockman 任 President，Jakub Pachocki 任 Chief Scientist，Mark Chen 任 Chief Research Officer，Fidji Simo 任 Applications 业务 CEO"
+    },
+    {
+      "title": "State of the Global Workplace 2025",
+      "publisher": "Gallup",
+      "note": "2025"
+    },
+    {
+      "title": "2025 Global Human Capital Trends",
+      "publisher": "Deloitte",
+      "note": "2025"
+    },
+    {
+      "title": "Organizational Design and Performance",
+      "publisher": "McKinsey & Company",
+      "note": "2025"
+    },
+    {
+      "title": "What Research Says About Organizational Diagnosis",
+      "publisher": "Harvard Business Review",
+      "note": "2025"
+    },
+    {
+      "title": "2026 State of Remote Work Report",
+      "publisher": "Buffer",
+      "note": "2026"
+    },
+    {
+      "title": "2026 Global Hybrid Work Trends",
+      "publisher": "i4cp",
+      "note": "2026"
+    },
+    {
+      "title": "World Economic Forum: The Future of Jobs Report 2025",
+      "publisher": "WEF",
+      "note": "2025 · 39% 技能至 2030 过时、63% 雇主视技能缺口为转型障碍"
+    },
+    {
+      "title": "TalentLMS: The State of Workplace Learning 2026",
+      "publisher": "TalentLMS",
+      "note": "2026 L&D Report · 79% HR 管理者称公司采用技能本位方法"
+    },
+    {
+      "title": "Microsoft: Work Trend Index 2026 (Frontier Firm / skills-first)",
+      "publisher": "Microsoft",
+      "note": "2026 · Frontier Firm 以 skills-first 为核心定义"
+    },
+    {
+      "title": "Workday: The Global State of Skills 2026",
+      "publisher": "Workday",
+      "note": "2026 · 55% 企业转向技能导向、23% 计划启动、仅 54% 看清现有技能"
+    },
+    {
+      "title": "Talent Development Trends 2026",
+      "publisher": "Gartner",
+      "note": "2026"
+    },
+    {
+      "title": "The Future of Work in China: Skills and Talent",
+      "publisher": "McKinsey & Company",
+      "note": "2025"
+    }
   ],
   "deny": [
-    {"title": "2026 AI 组织变革全景图", "publisher": "麦肯锡（虚构）", "reason": "虚构信源"},
-    {"title": "人机协作蓝皮书", "publisher": "麦肯锡（虚构）", "reason": "虚构信源"},
-    {"title": "2026 AI+HR趋势观察报告", "publisher": "深蓝君管理咨询", "reason": "虚构信源/张冠李戴"},
-    {"title": "2026企业人力资源AI应用白皮书", "publisher": "（虚构）", "reason": "虚构信源"},
-    {"title": "全球AI Native组织全景报告", "publisher": "siryzhang.github.io", "reason": "信源层级伪装"},
-    {"title": "全球 AI Native 组织全维度调研与全景报告", "publisher": "siryzhang.github.io", "reason": "信源层级伪装"},
-    {"title": "AI原生组织研究报告", "publisher": "腾讯云开发者社区", "reason": "信源层级伪装(UGC)"}
+    {
+      "title": "2026 AI 组织变革全景图",
+      "publisher": "麦肯锡（虚构）",
+      "reason": "虚构信源"
+    },
+    {
+      "title": "人机协作蓝皮书",
+      "publisher": "麦肯锡（虚构）",
+      "reason": "虚构信源"
+    },
+    {
+      "title": "2026 AI+HR趋势观察报告",
+      "publisher": "深蓝君管理咨询",
+      "reason": "虚构信源/张冠李戴"
+    },
+    {
+      "title": "2026企业人力资源AI应用白皮书",
+      "publisher": "（虚构）",
+      "reason": "虚构信源"
+    },
+    {
+      "title": "全球AI Native组织全景报告",
+      "publisher": "siryzhang.github.io",
+      "reason": "信源层级伪装"
+    },
+    {
+      "title": "全球 AI Native 组织全维度调研与全景报告",
+      "publisher": "siryzhang.github.io",
+      "reason": "信源层级伪装"
+    },
+    {
+      "title": "AI原生组织研究报告",
+      "publisher": "腾讯云开发者社区",
+      "reason": "信源层级伪装(UGC)"
+    }
   ],
-  "deny_publisher": ["jimo.studio", "深蓝君管理咨询"]
+  "deny_publisher": [
+    "jimo.studio",
+    "深蓝君管理咨询"
+  ]
 }

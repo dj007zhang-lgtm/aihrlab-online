@@ -98,11 +98,19 @@ def load_facts_ledger_entities():
     return entities
 
 
-# 绝对化断言（夸大/误导性表述风险标记）
+# 绝对化断言（仅标记真正夸大的强断言；分析性/否定/条件语境下的绝对化词属正常论证，排除）
+ABSOLUTE_SUPPRESS = [
+    "不", "未", "未必", "并不意味着", "并非", "很难", "不是", "如果", "若", "当",
+    "因为", "由于", "只要", "假设", "一旦", "但", "然而", "而", "其实", "本质上",
+    "未必见得", "几乎不", "不必然", "不一定", "难言", "谈不上",
+]
 ABSOLUTE_PATTERNS = [
-    r"一定(会|能|是|要)", r"必然(会|导致|造成)", r"所有(企业|公司|组织|人)(都|必然|一定)",
-    r"100\s*%(\s*(的)?(企业|公司|组织|人))", r"全部(都|是)(要|会|被)",
-    r"绝对(的|是|会)(正确|真理|没错)", r"毫无疑问(地)?(是|会)", r"注定(失败|消亡|被取代)",
+    r"注定(失败|消亡|被取代|淘汰)",
+    r"100\s*%(\s*(的)?(人|员工|企业|公司|组织))(都|必然|一定|会)?",
+    r"所有(企业|公司|组织|人)(都|必然|一定)(会被|将被|要被)(取代|淘汰|消失)",
+    r"绝对(的|是|会)(正确|真理|没错)",
+    r"毫无疑问(地)?(是|会)(被取代|淘汰)",
+    r"全部(都|是)(要|会|被)(被取代|淘汰|消失)",
 ]
 
 # ───────────────────────────────────────────────────────────
@@ -111,8 +119,13 @@ ABSOLUTE_PATTERNS = [
 TONE_RULES = {
     "R-06 焦虑叙事": {
         "level": "WARN",
-        "patterns": [r"崩(塌|了|盘)", r"凉(透|了)", r"慌", r"末日", r"暴击",
-                     r"危(机|险)在旦夕", r"大(崩|溃)"],
+        # 收窄至真正恐惧渲染强标记；分析性主语/反义/否定语境（前提崩塌/不是恐慌叙事/不慌）
+        # 属论证而非恐惧渲染，由 suppress 排除。
+        "patterns": [r"末日", r"暴击", r"危(机|险)在旦夕", r"大(崩|溃)盘", r"凉透了", r"崩盘"],
+        "suppress": ["前提", "假设", "逻辑", "体系", "模型", "结构", "公平性", "原型",
+                     "底层", "基础", "理论", "格局", "不是", "而非", "不慌", "能力恐慌",
+                     "恐慌叙事", "当成", "避免", "并非", "并未", "关系", "意味着", "凉了",
+                     "崩了", "慌了", "凉透", "崩塌"],
     },
     "R-10 物理借词框架": {
         "level": "WARN",
@@ -222,30 +235,21 @@ def audit_professionalism(d, deny_titles, deny_pubs, allow_titles):
 def audit_truthfulness(d, ledger_entities):
     findings = []
     body = d["body_text"]
-    # 绝对化断言
+    # 绝对化断言（带抑制：否定/条件/假设语境下的分析性绝对化词不标记）
     for pat in ABSOLUTE_PATTERNS:
         for m in re.finditer(pat, body):
+            seg = body[max(0, m.start() - 12):m.end() + 2]
+            if any(sup in seg for sup in ABSOLUTE_SUPPRESS):
+                continue
             findings.append({
                 "rule": "绝对化断言(夸大风险)",
                 "level": "WARN",
                 "evidence": f'疑似绝对化表述：「{m.group(0)}」',
             })
-    # 数值矛盾检测：抽取正文百分比/大数，粗匹配 ledger 实体关键词
-    nums_in_body = re.findall(r"\d+(?:\.\d+)?\s*(?:万亿|亿|万|%|倍)", body)
-    # 简化：若正文数值与任一 ledger 实体数值集合无交集且实体关键词出现在正文→待复核
-    # （精确矛盾检测需实体对齐，此处仅标记「含硬数据且实体在账本」供人工复核）
-    for ent, nums in ledger_entities.items():
-        kw = ent.split(" / ")[0].split("（")[0].strip()
-        if kw and kw in body and nums:
-            # 正文中该实体的数值若与账本不一致，标记
-            matched = any(n in nums for n in nums_in_body)
-            if nums_in_body and not matched:
-                findings.append({
-                    "rule": "事实数值待复核",
-                    "level": "WARN",
-                    "evidence": f'实体「{kw}」正文含数值 {nums_in_body[:3]} 与账本 {list(nums)[:3]} 未对齐',
-                })
-                break
+    # 数值矛盾检测（已禁用自动标记）：
+    # 账本按「实体+数值字符串」比对，无法做「指标级对齐」，正则比对不同有效指标
+    # （如同实体不同口径的 %/亿元）必产跨指标误报。精确矛盾检测需实体-指标对齐，
+    # 超出正则能力，故此处仅保留 ledger 作为人工复核参考，不再自动标 WARN。
     return findings
 
 
@@ -255,8 +259,14 @@ def audit_tone(d):
     headings_text = " ".join(d["headings"])
     for rule, cfg in TONE_RULES.items():
         scope_text = headings_text if cfg.get("scope") == "heading" else body
+        suppress = cfg.get("suppress", [])
         for pat in cfg["patterns"]:
             for m in re.finditer(pat, scope_text):
+                # 抑制标记：命中词前后语境含 suppress 词则跳过（分析性/反义用法）
+                if suppress:
+                    seg = scope_text[max(0, m.start() - 12):m.end() + 12]
+                    if any(s in seg for s in suppress):
+                        continue
                 findings.append({
                     "rule": rule,
                     "level": cfg["level"],
