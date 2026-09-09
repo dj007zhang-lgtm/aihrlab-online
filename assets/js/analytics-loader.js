@@ -1,7 +1,10 @@
 /*
  * analytics-loader.js — 仅生产域名才上报统计。
  * 目的：排除本地预览 (127.0.0.1 / localhost) 与沙箱/其他环境对流量数据的污染。
- * 命中白名单域名才注入 GA4 + 百度统计；否则仅留无副作用桩，避免埋点调用报错。
+ * 命中白名单域名才注入百度统计；否则仅留无副作用桩，避免埋点调用报错。
+ *
+ * 注：GA4（googletagmanager.com）在中国大陆被墙且长期无数据回收，已于 2026-09-08 弃用，
+ * 改为仅保留百度统计（hm.baidu.com，CN 可达）。
  */
 (function () {
   "use strict";
@@ -12,21 +15,11 @@
 
   // 非生产环境：提供无副作用的桩，确保 engagement-tracking 等埋点调用不报错
   if (!isProd) {
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () {};
     window._hmt = window._hmt || [];
     return;
   }
 
-  // ===== 生产环境：真实上报 =====
-
-  // Google Analytics 4
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () {
-    dataLayer.push(arguments);
-  };
-  gtag("js", new Date());
-  gtag("config", "G-BWLGRVRRGN");
+  // ===== 生产环境：真实上报（仅百度统计，CN 可达）=====
 
   // 百度统计
   window._hmt = window._hmt || [];

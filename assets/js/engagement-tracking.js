@@ -1,6 +1,6 @@
 /*
  * engagement-tracking.js — D 支柱：补齐真实互动度量，替代盲猜跳出率。
- * 依赖全局 gtag（GA4 基础片段已注入）。无 gtag 时静默退出，不报错。
+ * 依赖全局 gtag。GA4 已于 2026-09-08 弃用，无 gtag 时静默退出，不报错。
  * 事件：
  *   1) scroll_depth  — 25/50/75/100% 各触发一次（被动监听，节流到阈值）
  *   2) internal_link_click — 站内链接点击（含 next-path / ilink / related），捕捉真实二跳意向
