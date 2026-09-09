@@ -755,3 +755,15 @@ URL: https://www.aihrlab.online/articles/strategic-workforce-planning-ai-2026.ht
 分类: 核心方法论
 日期: 2026-09-09
 摘要: 战略人力规划的失效不是预测精度问题，是规划对象错了：传统 SWP 以人头为单位，AI 时代被重排的却是任务与能力的配比。本文基于 Mercer《2026 全球人才趋势》、Gartner 战略人力规划研究与 2026 CHRO 优先级、ETHRWorld《2026 全球学习与技能报告》一手数据，拆解只有 15% 的组织真做 SWP 的结构性原因，并给出从人头预算到能力推演的四个可验收动作。
+
+### 168. 海外用工合规：红线不在清单，在治理模式
+URL: https://www.aihrlab.online/articles/overseas-employment-compliance-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 海外用工合规的红线不在逐国清单，而在总部统一标准与本地法理的治理设计。AI 招聘被欧盟定高风险，举证责任在雇主，德国工会可挡住系统上线，EOR 与误分类的代价更远超清单本身。
+
+### 169. 出海管控模式：总部、区域、本地怎么分权
+URL: https://www.aihrlab.online/articles/overseas-control-model-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 出海管控模式不是汇报关系，而是信息传递网络与利益分配网络的选择。闻泰与安世半导体、vivo India、印尼镍矿、德国工会四个案例说明，选错模式本地团队要么失控要么僵死。
