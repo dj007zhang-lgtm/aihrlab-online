@@ -767,3 +767,9 @@ URL: https://www.aihrlab.online/articles/overseas-control-model-2026.html
 分类: 组织变革
 日期: 2026-09-09
 摘要: 出海管控模式不是汇报关系，而是信息传递网络与利益分配网络的选择。闻泰与安世半导体、vivo India、印尼镍矿、德国工会四个案例说明，选错模式本地团队要么失控要么僵死。
+
+### 170. 跨文化团队：权力距离不靠翻译解决
+URL: https://www.aihrlab.online/articles/cross-cultural-team-management-2026.html
+分类: 组织变革
+日期: 2026-09-10
+摘要: 跨文化团队最大的失效不在翻译，在互动协议。组织等于信息传递网络加利益分配网络，语言只是信息流载体，文化才是决策权硬约束。AI 翻译把语言成本打到趋零却抹不平权力距离；Hofstede 权力距离指数、Wiley 与 Acta Commercii 2026 全球虚拟团队研究、Microsoft WTI 2026 说明，低权力距离总部管高权力距离本地会失灵，正确做法是把互动协议写成接口。
