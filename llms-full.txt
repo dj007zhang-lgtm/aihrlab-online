@@ -773,3 +773,39 @@ URL: https://www.aihrlab.online/articles/cross-cultural-team-management-2026.htm
 分类: 组织变革
 日期: 2026-09-10
 摘要: 跨文化团队最大的失效不在翻译，在互动协议。组织等于信息传递网络加利益分配网络，语言只是信息流载体，文化才是决策权硬约束。AI 翻译把语言成本打到趋零却抹不平权力距离；Hofstede 权力距离指数、Wiley 与 Acta Commercii 2026 全球虚拟团队研究、Microsoft WTI 2026 说明，低权力距离总部管高权力距离本地会失灵，正确做法是把互动协议写成接口。
+
+### 171. 全球薪酬：公平感与本地市场价的政治
+URL: https://www.aihrlab.online/articles/global-compensation-design-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 全球薪酬的难点不是定数字，而是在公平感、本地市场价与总部统一之间做政治平衡。欧盟薪酬透明指令把公平感变成可度量合规项，技能定价正在取代岗位定价。
+
+### 172. 名义雇主（EOR）：合规的过渡，不是终局
+URL: https://www.aihrlab.online/articles/eor-employer-of-record-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: EOR 解决合法雇佣，不解决组织治理。它是无实体或单国试探期的过渡方案，长期用 EOR 会把组织记忆锁在服务商侧。正确路径是买时间，再转自建实体。
+
+### 173. 外派还是本地化：人才策略的钟摆
+URL: https://www.aihrlab.online/articles/expatriate-vs-localization-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 外派失败率超 40%，说明外派不是低成本扩张手段。本地化率是组织记忆沉淀指标，不是简单的国籍比例。人才策略要在控制权、成本与知识转移之间摆动。
+
+### 174. 海外劳动风险：解雇难度决定组织韧性
+URL: https://www.aihrlab.online/articles/overseas-labor-risk-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 海外劳动风险的核心不是成本，而是纠偏速度。OECD 就业保护严格度指数显示不同市场解雇成本与程序差异巨大，解法是把冗余预算、证据链与组织韧性写进前端设计。
+
+### 175. AI 出海 HR：先过监管，再过效率
+URL: https://www.aihrlab.online/articles/ai-in-overseas-hr-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 很多出海企业把 AI 在 HR 的落地顺序搞反了。欧盟把招聘定为高风险系统，GDPR 第 22 条约束自动化决定，德国企业委员会可挡住上线。合规是前置条件，效率是结果。
+
+### 176. 出海 HR 度量：先量对，再谈好
+URL: https://www.aihrlab.online/articles/overseas-hr-metrics-2026.html
+分类: 组织变革
+日期: 2026-09-09
+摘要: 用国内 KPI 套海外等于用体温计测血压。出海 HR 要量本地化率、实体与 EOR 覆盖率、合规事件率、知识回流率。错配的 KPI 比没有 KPI 更危险。
