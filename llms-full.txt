@@ -809,3 +809,9 @@ URL: https://www.aihrlab.online/articles/overseas-hr-metrics-2026.html
 分类: 组织变革
 日期: 2026-09-09
 摘要: 用国内 KPI 套海外等于用体温计测血压。出海 HR 要量本地化率、实体与 EOR 覆盖率、合规事件率、知识回流率。错配的 KPI 比没有 KPI 更危险。
+
+### 177. AI 重排 HR 三支柱：事务瘦身，专家升维
+URL: https://www.aihrlab.online/articles/ai-hr-three-pillar-model-2026.html
+分类: 核心方法论
+日期: 2026-09-11
+摘要: HR 三支柱模型（Ulrich：SSC、COE、HRBP）在 AI 时代不是被推翻，而是被重排。三支柱是一套信息路由架构，SSC 靠集中事务换规模、COE 靠集中稀缺知识换深度、HRBP 靠嵌入现场换上下文。AI 改写了三条边的成本：事务边际成本趋零瓦解 SSC 的集中理由，知识检索成本趋零削弱 COE 的稀缺性，而上下文无法被集中，HRBP 的嵌入价值反而上升。2026 年一手数据：Gartner 对 426 名 CHRO 调研显示演进 HR 运营模式对 AI 生产力增益影响最高达 29%、50% 的 HR 任务到 2030 年由 agent 接管；Bersin 判断 30% 至 40% 的 HR 岗位因 agent 消失、战略工作占比从约 30% 升到 75%；Deloitte 显示 66% 的 C-suite 认为传统职能必须改变但仅 7% 取得进展。新稳态是薄 SSC、升维 COE、唯一有人脸的 HRBP。
