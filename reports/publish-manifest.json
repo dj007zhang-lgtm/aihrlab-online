@@ -2289,5 +2289,21 @@
     ],
     "sitemap_urls_before": 354,
     "sitemap_urls_after": 354
+  },
+  {
+    "date": "2026-09-13 18:47",
+    "commit": "6e72d35bb448fbc65f7ea46d7d416bc0f362c891",
+    "message": "fix: B6 正见补强（recruitment内联livingHR/SHRM来源·china-ai-org补MiniMax招股书锚·ai-layoff以Layoffs.fyi真实口径纠偏8万失准）+ 刷新fact_risk_census + B5/B6监测报告",
+    "files_count": 6,
+    "files": [
+      "articles/recruitment-ai-fullstack.html",
+      "articles/china-ai-org-three-routes.html",
+      "articles/ai-layoff-2026-mid-year-review.html",
+      "reports/fact_risk_census.json",
+      "reports/zhengjian-b5b6-monitor-20260913.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 354,
+    "sitemap_urls_after": 354
   }
 ]
