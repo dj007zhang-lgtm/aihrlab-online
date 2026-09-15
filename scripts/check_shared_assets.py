@@ -65,6 +65,8 @@ def _all_html(site_root):
 #  - tools/ 下独立工具页：自带样式与脚本；
 #  - 重定向桩页（迁移占位）：迟早下线，不应被强制注入主站 JS。
 _STUB_MARK = ("window.location.replace", "本页面已迁移")
+_REFRESH_RE = re.compile(r'http-equiv\s*=\s*["\']refresh["\']', re.I)
+_NOINDEX_RE = re.compile(r'name\s*=\s*["\']robots["\'][^>]*noindex', re.I)
 _VERIFY_RE = re.compile(r"(google|baidu).*(verif|验证|verify)", re.IGNORECASE)
 
 
@@ -84,6 +86,9 @@ def _is_exempt(path, site_root):
     try:
         t = open(path, encoding="utf-8", errors="ignore").read()
         if any(m in t for m in _STUB_MARK):
+            return True
+        # noindex + meta refresh 的迁移桩页，无论文案怎么写都豁免
+        if _REFRESH_RE.search(t) and _NOINDEX_RE.search(t):
             return True
         # 内容含搜索引擎验证 meta 的文件（极简验证页）
         if "google-site-verification" in t or "baidu-site-verification" in t:
