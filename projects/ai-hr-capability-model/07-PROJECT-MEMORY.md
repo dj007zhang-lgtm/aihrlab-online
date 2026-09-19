@@ -7,13 +7,13 @@
 
 ## 项目定位
 
-建立「AI 转型期 HR 能力模型」标准层，把 AIHR 数智引擎三支柱（文章 294 篇 / 测评 5 个 / 策展 bridge 1 页）从三座孤岛闭合成回路。立论：数据指向的不是技能缺口，是**权属缺口**（SHRM 2026：52% 的组织 HR 在 AI 战略中无角色；仅 16% 的 HR 认为自己应领导 AI 变革管理）。
+建立「AI 转型期 HR 能力模型」标准层，把 AIHR 数智引擎三支柱（文章 294 篇 / 测评 5 个 / 策展 bridge 1 页）从三座孤岛闭合成回路。立论：数据指向的不是技能缺口，是**权属缺口**（SHRM《State of AI in HR 2026》2025.12 调研 n=1,908：52% 的组织在 AI 战略与愿景中不纳入 HR；技能再造仅 28% 由 HR 主导，低于跨职能团队的 29%）。
 
 ## 真源与校验（一切判断的裁决地）
 
 - 真源目录：`site-migrated/projects/ai-hr-capability-model/`
-  （00-CHARTER 立项书 / 01 能力模型 v1 / 02-DECISIONS 决策台账 23 条+否决 3 条 / 03-VALIDATION 校验清单 / 04-PLAN 规划 / 05-ROSTER 分工 / 06-PROGRESS 进展 / MIRROR-LEXIANG 乐享镜像）
-- 校验命令：`cd site-migrated && python3 projects/ai-hr-capability-model/validate.py`（10 项断言，退出码 0=全过）
+  （00-CHARTER 立项书 / 01 能力模型 v1 / 02-DECISIONS 决策台账 23 条 + 信源核验 4 条 + 否决 3 条 / 03-VALIDATION 校验清单 / 04-PLAN 规划 / 05-ROSTER 分工 / 06-PROGRESS 进展 / MIRROR-LEXIANG 乐享镜像）
+- 校验命令：`cd site-migrated && python3 projects/ai-hr-capability-model/validate.py`（11 项断言，退出码 0=全过）
 - 进展命令：`python3 projects/ai-hr-capability-model/progress.py --write`（机器段自动产出，**禁止手写进展数字**）
 - 全站质量门：`python3 ci/qa_guardian.py`（七门，BLOCK 即中止发布）
 
@@ -37,9 +37,9 @@
 
 ## 当前阶段：P1 地基收口
 
-- P1-1 disc-test 补 3–5 条站内出链（验收：V-02 转 PASS）→ AI
+- P1-1 disc-test 补 3–5 条站内出链（验收：V-02 转 PASS）→ AI ✅ 2026-09-20 完成（disc-test=9，V-02b 同步新增）
 - P1-2 projects/ 落首个 commit → 主理人确认后 AI 执行
-- P1-3 SHRM 数据核一手（现为二手转引）→ AI
+- P1-3 SHRM 数据核一手 → AI 🔶 2026-09-20：52% 与 28%/29% 已核到一手；16% 口径修正（D-024）；37% 待核（D-025）
 - P1-4 五项未决拍板（D-018~D-022）→ **主理人独占**
 - P1-5 镜像迁入乐享 AIHR 团队（该团队下须先建知识库，MCP 无创建接口）→ **主理人建库** + AI 迁入
 
