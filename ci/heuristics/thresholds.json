@@ -1,0 +1,79 @@
+{
+  "_comment": "qa_guardian 阈值与严重度配置。所有阈值可在此调，无需改代码。severity: BLOCK=阻断发布, WARN=告警不阻断(但回归超阈会升级为 BLOCK), ERROR=检测本身异常(不阻断但必须人工关注)。",
+  "severity_levels": {
+    "BLOCK": "阻断发布（硬结构债：克隆/桩页/死链/占位符/sitemap错位）",
+    "WARN": "告警不阻断（软指标；若相对 baseline 回归超阈则升级为 BLOCK）",
+    "ERROR": "检测脚本异常（容错隔离：不阻断发布，但必须人工排查，否则真问题会被静默）",
+    "INFO": "仅记录，进 baseline"
+  },
+  "gates": {
+    "clone_detection": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {
+        "scan_dirs": ["articles"],
+        "min_para_cjk": 20,
+        "min_shared_paragraphs": 8,
+        "min_cluster_size": 3
+      }
+    },
+    "stub_detector": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {
+        "scan_dirs": ["articles", "resources", "tools", "products"],
+        "max_words": 500,
+        "warn_words": 800
+      }
+    },
+    "link_doctor": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {
+        "scan_dirs": ["articles", "hub", "resources", "tools", "products"],
+        "treat_redirect_source_as_ok": true
+      }
+    },
+    "meta_lint": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {
+        "scan_dirs": ["articles"],
+        "desc_min_cjk": 30,
+        "block_placeholder": true,
+        "nav_junk_prefixes": [
+          "AI搜索",
+          "AIHR数智引擎——专注",
+          "AIHR数智引擎——"
+        ],
+        "warn_title_len_cjk": 60
+      }
+    },
+    "design_asset_lint": {
+      "enabled": true,
+      "block_on_trigger": false,
+      "params": {
+        "scan_sample": 40,
+        "brand_tokens": ["#5C8A2C", "#3F6212", "#F4F1EA", "#F1EFE9", "#A86A2E", "#1A1A17"],
+        "check_css_brace_balance": true
+      }
+    },
+    "sitemap_consistency": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {}
+    },
+    "tracking_metrics": {
+      "enabled": true,
+      "block_on_trigger": false,
+      "params": {
+        "regression_lock": {
+          "median_words_pct": 30,
+          "geo_cov_pp": 10,
+          "og_cov_pp": 10,
+          "jsonld_cov_pp": 10
+        }
+      }
+    }
+  }
+}

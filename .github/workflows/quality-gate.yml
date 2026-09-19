@@ -24,3 +24,5 @@ jobs:
         run: python3 scripts/quality_gate.py --all
       - name: Stability Guard (11项 BLOCKER 拦截)
         run: python3 scripts/stability_guard.py --all
+      - name: QA Guardian (全站错不二犯回归闸门)
+        run: python3 ci/qa_guardian.py

@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-09-20T00:40:00",
+  "version": 1,
+  "gates": {
+    "clone_detection": {
+      "scanned_indexable": 244,
+      "clone_clusters": 0,
+      "clone_pages": 0,
+      "min_shared_paragraphs": 8,
+      "min_cluster_size": 3
+    },
+    "stub_detector": {
+      "scanned": 274,
+      "thin_block": 15,
+      "thin_warn": 1,
+      "max_words": 500,
+      "warn_words": 800,
+      "median_words": 2382
+    },
+    "link_doctor": {
+      "broken_links": 0,
+      "redirect_conflicts": 0,
+      "orphan_redirects": 0
+    },
+    "meta_lint": {
+      "scanned": 244,
+      "corrupt_desc": 0,
+      "placeholder": 0,
+      "bad_quotes": 8,
+      "long_title": 0
+    },
+    "design_asset_lint": {
+      "og_missing": 3,
+      "og_broken": 1,
+      "css_broken": 0,
+      "asset_missing": 0,
+      "css_unbalanced": 0
+    },
+    "sitemap_consistency": {
+      "sitemap_urls": 329,
+      "missing_on_disk": 0,
+      "invalid_index_slugs": 0
+    },
+    "tracking_metrics": {
+      "indexable_articles": 244,
+      "median_words": 2651,
+      "geo_cov": 93.0,
+      "og_cov": 100.0,
+      "jsonld_cov": 100.0,
+      "qr_cov": 99.6,
+      "inline_cov": 78.3,
+      "_deltas_vs_baseline": {
+        "indexable_articles": 0,
+        "median_words": 0,
+        "geo_cov": 0.0,
+        "og_cov": 0.0,
+        "jsonld_cov": 0.0,
+        "qr_cov": 0.0,
+        "inline_cov": 0.0
+      }
+    }
+  }
+}
