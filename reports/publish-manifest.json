@@ -3454,5 +3454,17 @@
     ],
     "sitemap_urls_before": 325,
     "sitemap_urls_after": 326
+  },
+  {
+    "date": "2026-09-20 00:34",
+    "commit": "8adafd4a437316d04c667554dbc3a4577397732b",
+    "message": "修复 DISC 测评零站内出链（V-02 债）：补 7 条延伸阅读 + 风格非能力边界说明",
+    "files_count": 2,
+    "files": [
+      "tools/disc-test/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 329,
+    "sitemap_urls_after": 329
   }
 ]
