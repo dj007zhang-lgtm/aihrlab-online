@@ -3501,5 +3501,28 @@
     ],
     "sitemap_urls_before": 329,
     "sitemap_urls_after": 329
+  },
+  {
+    "date": "2026-09-20 00:50",
+    "commit": "b94222e2b64448ff22c5b9b82cdd916b2c418d6e",
+    "message": "DISC 延伸阅读收敛为 9 条（Gate10 逐字合规、单区块）；台账 D-024 撞号改 D-028，补 D-029 并行写入风险",
+    "files_count": 13,
+    "files": [
+      "tools/disc-test/index.html",
+      "projects/ai-hr-capability-model/00-CHARTER.md",
+      "projects/ai-hr-capability-model/01-capability-model-v1.md",
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "projects/ai-hr-capability-model/03-VALIDATION.md",
+      "projects/ai-hr-capability-model/04-PLAN.md",
+      "projects/ai-hr-capability-model/05-ROSTER.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "projects/ai-hr-capability-model/07-PROJECT-MEMORY.md",
+      "projects/ai-hr-capability-model/MIRROR-LEXIANG.md",
+      "projects/ai-hr-capability-model/progress.py",
+      "projects/ai-hr-capability-model/validate.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 329,
+    "sitemap_urls_after": 329
   }
 ]
