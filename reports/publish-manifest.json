@@ -3466,5 +3466,40 @@
     ],
     "sitemap_urls_before": 329,
     "sitemap_urls_after": 329
+  },
+  {
+    "date": "2026-09-20 00:41",
+    "commit": "93175b51b230c22e388fd9dfac1293faf664f2af",
+    "message": "纳入错不二犯机制 + CM-2026 立项：ci/ 七门闸门与编排器、CI 工作流接入、能力模型项目真源",
+    "files_count": 25,
+    "files": [
+      "ci/baseline/health_baseline.json",
+      "ci/gates/__init__.py",
+      "ci/gates/gate_clone_detection.py",
+      "ci/gates/gate_design_asset_lint.py",
+      "ci/gates/gate_link_doctor.py",
+      "ci/gates/gate_meta_lint.py",
+      "ci/gates/gate_sitemap_consistency.py",
+      "ci/gates/gate_stub_detector.py",
+      "ci/gates/gate_tracking_metrics.py",
+      "ci/heuristics/thresholds.json",
+      "ci/qa_guardian.py",
+      ".github/workflows/quality-gate.yml",
+      "projects/ai-hr-capability-model/00-CHARTER.md",
+      "projects/ai-hr-capability-model/01-capability-model-v1.md",
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "projects/ai-hr-capability-model/03-VALIDATION.md",
+      "projects/ai-hr-capability-model/04-PLAN.md",
+      "projects/ai-hr-capability-model/05-ROSTER.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "projects/ai-hr-capability-model/07-PROJECT-MEMORY.md",
+      "projects/ai-hr-capability-model/MIRROR-LEXIANG.md",
+      "projects/ai-hr-capability-model/progress.py",
+      "projects/ai-hr-capability-model/validate.py",
+      "reports/qa-guardian-healthcheck-20260914.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 329,
+    "sitemap_urls_after": 329
   }
 ]
