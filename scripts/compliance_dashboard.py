@@ -85,6 +85,8 @@ def main():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>内容合规审核仪表盘 · AIHR数智引擎</title>
+<meta name="description" content="AIHR 内容合规审核仪表盘（内部监控视图）：汇总全站已发布文章的正文调性红线、信源黑名单、夸大断言与绝对化表述的自动核查结果，供主理人持续监测内容正见与质量基线。">
+<link href="/assets/css/style.min.css" rel="stylesheet"/>
 <style>
   :root {{
     --bg: #0B0C0E; --surface: #16191D; --text: #ECEAE4; --muted: #9a958c;

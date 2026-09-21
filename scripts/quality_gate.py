@@ -857,6 +857,8 @@ def _get_all_html_files():
                     continue
                 if rel.startswith('templates/'):  # 模板片段源（_chrome.html / section-index.html）非部署页，跳过全站内容校验
                     continue
+                if rel.startswith('projects/'):  # 项目工作文档（立项书草稿/预览态 html）非部署页，部署页只进 articles/ 等正式目录
+                    continue
                 results.append(fp)
     return results
 

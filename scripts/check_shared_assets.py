@@ -55,6 +55,8 @@ def _all_html(site_root):
                 full = os.path.join(root, f)
                 if os.path.relpath(full, site_root).replace(os.sep, '/').startswith("templates/"):
                     continue  # 模板片段源（_chrome.html / section-index.html）非部署页，跳过共享资源校验
+                if os.path.relpath(full, site_root).replace(os.sep, '/').startswith("projects/"):
+                    continue  # 项目工作文档（立项书草稿/预览态 html）非部署页，部署页只进 articles/ 等正式目录
                 out.append(full)
     return out
 
