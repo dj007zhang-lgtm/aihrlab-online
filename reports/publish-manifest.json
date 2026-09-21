@@ -3543,5 +3543,18 @@
     ],
     "sitemap_urls_before": 330,
     "sitemap_urls_after": 330
+  },
+  {
+    "date": "2026-09-21 11:06",
+    "commit": "072f3e9a4778340c6d8fe103022d5d859463cafa",
+    "message": "CM-2026: D-025 口径一致性收尾——立项书立论表 37% 降为定性+D-025 注记，进展表陈旧下一步修正",
+    "files_count": 3,
+    "files": [
+      "projects/ai-hr-capability-model/00-CHARTER.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 330,
+    "sitemap_urls_after": 331
   }
 ]
