@@ -3590,5 +3590,18 @@
     ],
     "sitemap_urls_before": 331,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-21 13:00",
+    "commit": "bc0b268d4d97bff27b703f829543fa117e1032a4",
+    "message": "CM-2026: 商业化价值定调(D-033)+数据获取立场(D-032)——09-PRODUCT-FORM补第七节权威转化漏斗；决策台账G组增D-032/D-033",
+    "files_count": 3,
+    "files": [
+      "projects/ai-hr-capability-model/09-PRODUCT-FORM.md",
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 331,
+    "sitemap_urls_after": 331
   }
 ]
