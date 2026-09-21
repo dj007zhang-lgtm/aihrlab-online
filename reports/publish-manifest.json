@@ -3556,5 +3556,23 @@
     ],
     "sitemap_urls_before": 330,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-21 11:19",
+    "commit": "c080f9c91c7a40c7fe7a9bf3e32a98918ca3d959",
+    "message": "CM-2026: P1-5 完成——镜像迁入乐享AIHR项目知识库(space df7ca476)并转LIVE；D-023完成态+D-018~D-022先行注记同步至台账/校验/规划/分工；09-21进展段",
+    "files_count": 8,
+    "files": [
+      "projects/ai-hr-capability-model/00-CHARTER.md",
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "projects/ai-hr-capability-model/03-VALIDATION.md",
+      "projects/ai-hr-capability-model/04-PLAN.md",
+      "projects/ai-hr-capability-model/05-ROSTER.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "projects/ai-hr-capability-model/MIRROR-LEXIANG.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 331,
+    "sitemap_urls_after": 331
   }
 ]
