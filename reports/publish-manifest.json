@@ -3574,5 +3574,21 @@
     ],
     "sitemap_urls_before": 331,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-21 12:31",
+    "commit": "8206b635ebb818f9814dcb36624a898b11199e2a",
+    "message": "CM-2026: 产品形态升级定调(D-030/D-031)——策展从index升级为标准驱动推荐罗盘；新建09-PRODUCT-FORM.md；P3重定调；立论长文增'桥梁不是索引'节",
+    "files_count": 6,
+    "files": [
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "projects/ai-hr-capability-model/04-PLAN.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "projects/ai-hr-capability-model/08-FLAGSHIP-DRAFT.html",
+      "projects/ai-hr-capability-model/09-PRODUCT-FORM.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 331,
+    "sitemap_urls_after": 331
   }
 ]
