@@ -3603,5 +3603,19 @@
     ],
     "sitemap_urls_before": 331,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-21 14:54",
+    "commit": "06e22a94f46c733768e8a7834cbf1d6ea73cab77",
+    "message": "fix: 修复 09-16 M1 commit 带上 main 的 3 篇模板占位符残留(PLACEHOLDER canonical/og/short-answer)——本地修复版从未推送导致 qa_guardian 在 CI 连续 15 run 红灯",
+    "files_count": 4,
+    "files": [
+      "articles/change-management-methodology-2026.html",
+      "articles/organizational-network-analysis-ona-2026.html",
+      "articles/remote-team-management-challenges-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 331,
+    "sitemap_urls_after": 331
   }
 ]
