@@ -1,25 +1,26 @@
 # CM-2026 项目镜像（乐享）
 
 > **这是镜像，不是真源。** 真源在 `site-migrated/projects/ai-hr-capability-model/`，一切修改先改仓库再同步此处。
-> **source_commit**: `07c7e6da`（2026-09-20 已推送至 main；含 ci/ 七门机制与 projects/ 全量）
-> **镜像时间**: 2026-09-19 建立 · 2026-09-20 更新
+> **source_commit**: 本次绑定提交（见 main 最新 CM-2026 commit；内容快照基于 072f3e9a + D-023 收尾）
+> **镜像时间**: 2026-09-19 建立 · 2026-09-20 更新 · 2026-09-21 迁入 AIHR项目知识库并转 LIVE
 > **校验脚本**: `projects/ai-hr-capability-model/validate.py`（实跑结果见下）
 
 <!-- machine-readable mirror binding; validate.py 的 V-09 直接解析这三个字段 -->
 ```
-mirror_target:  乐享团队「AIHR」
+mirror_target:  乐享团队「AIHR」→ 知识库「AIHR项目知识库」
 mirror_team_id: a808edd6b44211f18075aa6188fe0d3c
-mirror_space_id: PENDING
-mirror_status:  BLOCKED
+mirror_space_id: df7ca476834843338b3d6616d415c2dc
+mirror_folder_entry_id: 1d749e9975cb4e31bb03a737772eed2d
+mirror_status:  LIVE
 ```
 
-## 落点迁移状态（2026-09-19 23:58）
+## 落点迁移状态（2026-09-21 完成）
 
-主理人新建乐享团队 **AIHR**（`k100002` / id `a808edd6…`），镜像落点由「示例团队 · 示例知识库」迁往该团队。
+主理人 2026-09-21 在乐享团队「AIHR」下建成知识库 **「AIHR项目知识库」**（space `df7ca476834843338b3d6616d415c2dc`，root_entry `9b183d43…`）。AI 同日完成迁移：
 
-**当前阻塞在乐享的层级结构**：乐享是 **团队 → 知识库 → 条目** 三层，团队本身不能承载条目。实测 `space_list_spaces(team_id=AIHR)` 返回空，即 **AIHR 团队下尚无任何知识库**；而 MCP 侧 `knowledge.space` 仅提供 4 个读取接口（describe_personal / describe / list_recently / list_spaces），**不存在创建知识库的工具**。
-
-因此「在 AIHR 团队下建知识库」是**账号所有者在网页端的独占动作**，AI 无接口可执行（非不为，是不能）。知识库一经创建，镜像立即迁入，并把下面的 `mirror_space_id` 从 `PENDING` 改为真实 id、`mirror_status` 改为 `LIVE`；`validate.py` 的 V-09 负责盯住这个字段，防止台账写了而实际没迁（正是本项目要防的"台账说的和实际做的不一致"）。
+- 目录条目 `CM-2026 · AI转型期HR能力模型`（folder `1d749e99…`）下 8 个页面：00 立项书 / 01 能力模型 v1 / 02 决策台账 / 03 校验清单 / 04 规划 / 05 分工 / 06 执行进展 / 07 项目记忆，每页头部带 source_commit。
+- 迁移后经 `entry_list_children` 实测核验 8/8 就位（不盲信创建返回值）。
+- `mirror_status` → **LIVE**；`validate.py` V-09 转 PASS。
 
 ---
 

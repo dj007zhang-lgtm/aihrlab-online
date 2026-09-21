@@ -3,7 +3,7 @@
 - **代号**：CM-2026
 - **立项日期**：2026-09-19
 - **真源**：`site-migrated/projects/ai-hr-capability-model/`（git 管理，可跑校验）
-- **镜像**：乐享知识库「AIHR 作战室」（人类可读台账，以仓库 commit 为准）
+- **镜像**：乐享团队「AIHR」→ 知识库「AIHR项目知识库」（space `df7ca476…`，人类可读台账，以仓库 commit 为准）
 - **状态**：P0 进行中
 
 ---
