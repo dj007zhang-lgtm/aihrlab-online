@@ -28,6 +28,7 @@ stability_guard 只做 .html/.css 的文本结构检查。**HTML 内联 <script>
 契约：run(site_root) -> (passed: bool, details: list[str])
 自测：python3 scripts/check_inline_scripts.py --selftest
 """
+import glob
 import os
 import re
 import shutil
@@ -38,13 +39,23 @@ import tempfile
 SCRIPT_RE = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.S | re.I)
 TYPE_RE = re.compile(r'type\s*=\s*["\']([^"\']+)["\']', re.I)
 
-_NODE_CANDIDATES = [
-    "/Users/andyzhang/.workbuddy/binaries/node/versions/22.22.2/bin/node",
-]
+
+def _managed_nodes():
+    """扫描 WorkBuddy 托管 node 的全部已装版本（版本号倒序，新版本优先）。
+
+    以前写死单一版本路径（如 versions/22.22.2），运行时目录一旦升到
+    22.22.2-3 之类，路径失配 → 本地终端无 node 时门直接 FAIL（2026-09-21
+    主理人本地直推踩坑）。改为 glob 全扫，node 升级不再断门。
+    """
+    base = os.path.expanduser("~/.workbuddy/binaries/node/versions")
+    return sorted(glob.glob(os.path.join(base, "*", "bin", "node")), reverse=True)
 
 
 def _node_bin():
-    for c in _NODE_CANDIDATES:
+    env = os.environ.get("AIHR_NODE")
+    if env and os.path.exists(env):
+        return env
+    for c in _managed_nodes():
         if os.path.exists(c):
             return c
     return shutil.which("node")

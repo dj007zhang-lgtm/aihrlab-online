@@ -27,20 +27,26 @@ import re
 import json
 import shutil
 import subprocess
+import glob
 
 THRESH = re.compile(r"(log|_log)\.json$", re.IGNORECASE)
 
 
 def _find_node():
+    """node 查找顺序：AIHR_NODE 环境变量 → PATH → WorkBuddy 托管全版本 glob。
+
+    以前写死单一版本路径（versions/22.22.2），运行时目录升级后失配 →
+    本地终端无 node 时误报（2026-09-21 主理人本地直推踩坑）。改为 glob 全扫，
+    node 升级不再断门。
+    """
     if os.environ.get("AIHR_NODE") and os.path.exists(os.environ["AIHR_NODE"]):
         return os.environ["AIHR_NODE"]
     p = shutil.which("node")
     if p:
         return p
-    managed = "/Users/andyzhang/.workbuddy/binaries/node/versions/22.22.2/bin/node"
-    if os.path.exists(managed):
-        return managed
-    return None
+    base = os.path.expanduser("~/.workbuddy/binaries/node/versions")
+    cands = sorted(glob.glob(os.path.join(base, "*", "bin", "node")), reverse=True)
+    return cands[0] if cands else None
 
 
 def _all_html(site_root):

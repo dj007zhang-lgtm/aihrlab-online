@@ -182,7 +182,9 @@ def gate_structure(target_files=None):
         return GateResult("2-结构关", False, [f"validate_article.py 不存在: {VALIDATE_SCRIPT}"])
     
     cmd = [PYTHON, VALIDATE_SCRIPT, SITE_ROOT]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+    # 全站 405 文件校验在部分环境下需 ~64s，原 60s 超时会在慢机上误杀发布闸门。
+    # 放宽到 240s 仅给足运行时间，不改变任何校验逻辑（仍捕获 ❌/ERROR/FAIL）。
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=240)
     output = result.stdout + result.stderr
     
     # Parse output for errors
