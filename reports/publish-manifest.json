@@ -3524,5 +3524,24 @@
     ],
     "sitemap_urls_before": 329,
     "sitemap_urls_after": 329
+  },
+  {
+    "date": "2026-09-21 11:02",
+    "commit": "600657ae90d88af007312ac170297184db7449a0",
+    "message": "CM-2026: 37%降级(转引不用)、D-025/D-028已采纳、08立论长文草稿；门脚本加projects/草稿豁免；合规仪表盘生成器补合规头(meta description+共享CSS)",
+    "files_count": 9,
+    "files": [
+      "projects/ai-hr-capability-model/01-capability-model-v1.md",
+      "projects/ai-hr-capability-model/02-DECISIONS.md",
+      "projects/ai-hr-capability-model/06-PROGRESS.md",
+      "projects/ai-hr-capability-model/08-FLAGSHIP-DRAFT.html",
+      "scripts/quality_gate.py",
+      "scripts/check_shared_assets.py",
+      "scripts/compliance_dashboard.py",
+      "tools/compliance-dashboard.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 330,
+    "sitemap_urls_after": 330
   }
 ]
