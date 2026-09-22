@@ -113,3 +113,27 @@
 .step-card__n { font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.05em; }
 .step-card__t { font-weight:700;margin:.2rem 0 .4rem;color:var(--text); }
 .step-card__d { font-size:.94rem;line-height:1.7;color:var(--text-secondary);margin:0; }
+
+/* ===== next-path 转化路径模块（P0-2，2026-09-21）=====
+   读完正文即给第二条路：枢纽 → 同簇长文 → 自测 → 站内问答。
+   版式纪律：只用站点已有色板（深林绿 #3F6212 / 陶土棕 #A86A2E / 暖沙 #F1EFE9），
+   不加阴影、不加渐变、不做按钮卖相 —— 这是目录，不是广告位。 */
+.next-path{margin:2.2rem 0 1.6rem;padding:1.25rem 1.4rem;background:#F1EFE9;border-left:3px solid #3F6212;border-radius:6px;}
+.next-path__title{margin:0 0 .9rem;font-size:1.05rem;font-weight:700;color:#1A1A17;letter-spacing:.01em;}
+.next-path__list{margin:0;padding:0;list-style:none;counter-reset:np;}
+.next-path__item{counter-increment:np;position:relative;padding:.5rem 0 .5rem 1.9rem;border-top:1px solid rgba(26,26,23,.08);}
+.next-path__item:first-child{border-top:0;}
+.next-path__item::before{content:counter(np);position:absolute;left:0;top:.62rem;width:1.25rem;height:1.25rem;line-height:1.25rem;text-align:center;font-size:.72rem;font-weight:700;color:#3F6212;background:rgba(63,98,18,.10);border-radius:50%;}
+.next-path__link{color:#1A1A17;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(63,98,18,.35);}
+.next-path__link:hover{color:#3F6212;border-bottom-color:#3F6212;}
+.next-path__note{display:block;margin-top:.22rem;font-size:.82rem;color:#6B6A63;line-height:1.5;}
+@media (max-width:640px){.next-path{padding:1rem 1.1rem;}.next-path__item{padding-left:1.7rem;}}
+@media (prefers-color-scheme:dark){
+  .next-path{background:rgba(236,234,228,.05);border-left-color:#6F9A3C;}
+  .next-path__title{color:#ECEAE4;}
+  .next-path__item{border-top-color:rgba(236,234,228,.10);}
+  .next-path__item::before{color:#6F9A3C;background:rgba(111,154,60,.14);}
+  .next-path__link{color:#ECEAE4;border-bottom-color:rgba(111,154,60,.4);}
+  .next-path__link:hover{color:#6F9A3C;}
+  .next-path__note{color:#9A988F;}
+}
