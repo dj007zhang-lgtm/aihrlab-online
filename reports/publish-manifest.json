@@ -3935,5 +3935,17 @@
     ],
     "sitemap_urls_before": 331,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-24 09:15",
+    "commit": "379a1908619eea7f869f51529cac55d5f9ae1f4a",
+    "message": "feat: 添加 Bing WMT 站点验证文件 BingSiteAuth.xml 完成所有权验证",
+    "files_count": 2,
+    "files": [
+      "BingSiteAuth.xml",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 331,
+    "sitemap_urls_after": 331
   }
 ]
