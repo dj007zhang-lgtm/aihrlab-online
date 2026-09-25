@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+
+<link rel="preconnect" href="https://hm.baidu.com">
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 进了团队：人机混编团队的治理与问责 | AIHR数智引擎</title>
+<meta name="description" content="AI 不再只是工具，而是进了团队、参与工作流。第一性原理上，组织是信息网络加利益分配网络，AI 接入了信息网，却让问责网出现了一个无法被激励、无法被认可、无法被追责的空洞节点。2026 研究显示，AI 加入团队后，人对结果的追责不降反升：四项实验、1801 名被试，人机会话里人比人人对人时多担约 10 个百分点的责任；同时责任又在多步智能体流程里被逐段稀释，掉进道德褶皱区。治理的答案不是把 AI 叫成队友，而是把谁担责写进流程：明确的决策权、升级协议、复杂度跨度核算、人在环阈值，以及每个智能体背后一个具名的人类负责人。">
+<meta name="keywords" content="人机混编团队,AI治理,问责架构,责任归属,数字同事,AgentOps,组织设计,AI原生组织">
+<meta name="answer-what" content="AI 进了团队之后，人机混编团队怎么治理和问责，核心判点是：组织是信息网络加利益分配网络，AI 作为团队成员接入了信息网，却让问责网出现一个无法被激励、认可、追责的空洞节点；结果责任既不能简单地分摊给团队，也不能指望 AI 自己承担。2026 研究给出两个相反又同时成立的发现：一是责任集中，四项实验 1801 名被试显示，人配 AI 时比配人时多担约 10 个百分点的责任，因为 AI 被看作受限执行者、人成为默认的责任落点；二是责任稀释，多步智能体流程里责任在发起、检查点、委派、结果四段之间被逐段扩散，形成道德褶皱区。破局不是把 AI 叫成数字队友，而是把问责架构写进流程：具名负责人、明确决策权、升级协议、复杂度跨度核算、人在环阈值，以及把任务按咨询、辅助、假定、自主分级。">
+<meta name="answer-for" content="voice-search; generative-ai">
+<meta name="short-answer" content="核心判点：组织是信息网络加利益分配网络，AI 进团队后接入了信息网，却让问责网缺了一个无法被激励、认可、追责的节点。2026 研究：责任反而集中到人身上，四项实验 1801 人，人配 AI 比配人时多担约 10 个百分点责任；同时责任在多步智能体流程里被逐段稀释，掉进道德褶皱区。治理答案不是把 AI 叫成队友，而是把谁担责写进流程：具名负责人、决策权、升级协议、复杂度跨度、人在环阈值、任务分级（咨询／辅助／假定／自主）。">
+<link rel="canonical" href="https://www.aihrlab.online/articles/human-ai-mixed-team-governance-2026.html">
+
+<link rel="dns-prefetch" href="//hm.baidu.com">
+<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="stylesheet" href="../assets/css/article.css">
+<script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+
+<meta property="og:title" content="AI 进了团队：人机混编团队的治理与问责">
+<meta property="og:description" content="组织是信息网络加利益分配网络。AI 进了团队，接入了信息网，却让问责网出现一个无法被激励、认可、追责的空洞节点。责任反而集中到人身上，又在流程里被逐段稀释。治理答案不是把 AI 叫成队友，而是把谁担责写进流程。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.aihrlab.online/articles/human-ai-mixed-team-governance-2026.html">
+<meta property="og:image" content="https://www.aihrlab.online/assets/images/banners/human-ai-mixed-team-governance-2026.webp">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.aihrlab.online/assets/images/banners/human-ai-mixed-team-governance-2026.webp">
+<meta name="twitter:title" content="AI 进了团队：人机混编团队的治理与问责">
+<meta name="twitter:description" content="组织是信息网络加利益分配网络。AI 进了团队，接入了信息网，却让问责网出现一个无法被激励、认可、追责的空洞节点。治理答案不是把 AI 叫成队友，而是把谁担责写进流程。">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 进了团队：人机混编团队的治理与问责",
+    "description": "AI 不再只是工具，而是进了团队、参与工作流。第一性原理上，组织是信息网络加利益分配网络，AI 接入了信息网，却让问责网出现了一个无法被激励、无法被认可、无法被追责的空洞节点。2026 研究显示，AI 加入团队后，人对结果的追责不降反升：四项实验、1801 名被试，人机会话里人比人人对人时多担约 10 个百分点的责任；同时责任又在多步智能体流程里被逐段稀释，掉进道德褶皱区。治理的答案不是把 AI 叫成队友，而是把谁担责写进流程：明确的决策权、升级协议、复杂度跨度核算、人在环阈值，以及每个智能体背后一个具名的人类负责人。",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.aihrlab.online/assets/images/banners/human-ai-mixed-team-governance-2026.webp",
+      "width": 1216,
+      "height": 832
+    },
+    "author": {"@type": "Organization", "name": "AIHR数智引擎",
+      "url": "https://www.aihrlab.online/about.html",
+      "jobTitle": "AI时代组织变革研究者",
+      "worksFor": { "@type": "Organization", "name": "AIHR数智引擎" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIHR数智引擎",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.aihrlab.online/assets/images/banners/human-ai-mixed-team-governance-2026.webp",
+        "width": 1216,
+        "height": 832
+      }
+    },
+    "datePublished": "2026-09-25T09:00:00+08:00",
+    "dateModified": "2026-09-25T09:00:00+08:00",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.aihrlab.online/articles/human-ai-mixed-team-governance-2026.html"
+    },
+    "inLanguage": "zh-CN",
+    "articleSection": "核心方法论",
+    "keywords": ["人机混编团队", "AI治理", "问责架构", "责任归属", "数字同事", "AgentOps", "组织设计", "AI原生组织"],
+    "wordCount": "3500",
+    "timeRequired": "PT16M",
+    "citation": [
+      {"@type": "Article", "name": "Microsoft Work Trend Index 2026（2026 年 5 月发布，10 个市场、20,000 名 AI 使用者、数万亿笔 Microsoft 365 生产力信号）。提出前沿企业（Frontier Firm）范式：把人判断与 AI 智能体配对；智能体使用量同比增长 15 倍、大型企业 18 倍；BNY 运行近 150 个数字员工，每个有名字、员工编号和一名人类主管，将未决调查削减近 80%；把智能体当劳动力招聘，并给出助理／队友／操作员三种角色中人类分别拥有整项任务与结果、方向与最终判断、复核与例外的问责矩阵。", "url": "https://www.microsoft.com/en-us/worklab/work-trend-index"},
+      {"@type": "Article", "name": "Deloitte 2026 Global Human Capital Trends（与 Oxford Economics 合作，89 个国家、9,000 多名商业与 HR 领导者、50 余位高管访谈）。核心判点：64% 受访者认为 AI 与决策议题对当前成功非常重要，但仅 5% 认为自己走在引领前列；仅 16% 员工信任高层能为员工做正确决策（一年内两位数下滑）；提出停止管理 AI、开始领导 AI，警告把 AI 拟人化为数字队友是治理风险，应治理输出而非关系；当团队包含无法被激励、认可或追责的智能体时，仍需由人维持对结果的责任。", "url": "https://www.deloitte.com/uk/en/services/consulting/perspectives/human-capital-trends-2026.html"},
+      {"@type": "Article", "name": "Gartner 2026（智能体治理与管理者监督）；面向 CHRO 的指引显示 75% 的 CHRO 报告管理者比以往更不堪重负，智能体 AI 往往增加而非降低认知负荷，提出以复杂度跨度替代人数幅度的管理核算、把任务按咨询、辅助、假定、自主分级、建立人在环阈值、四分之一的管理者表示如果有机会会退出管理角色、AgentOps 成为新 discipline；2026-04-28 新闻稿《识别管理 AI 智能体蔓延的六步》预测到 2028 年平均一家全球财富 500 强企业将拥有超过 150,000 个智能体（2025 年不足 15 个），仅 13% 的组织具备正确的智能体治理，并给出治理政策、集中化清单、身份与权限生命周期、信息治理、行为监控与补救、责任使用文化六步。", "url": "https://www.gartner.com/en/articles/agentic-ai-for-chros"},
+      {"@type": "Article", "name": "Nyilasy、Bastian、Overbeck、Hito（arXiv 2604.08866，2026-04-10）《AI 诱发的人类责任（AIHR）》。四项实验、1,801 名被试、AI 辅助信贷决策情境，发现当人类与 AI 配对时，旁观者比人与另一人配对时平均多将约 10 个百分点（0 至 100 量尺）的责任归于人类决策者；机制是 AI 被视为受限执行者，人成为自由裁量责任的默认落点；责任在混合团队里不是被稀释，而是被集中到人身上。", "url": "https://arxiv.org/abs/2604.08866"},
+      {"@type": "Article", "name": "Kalluri（Digital Society，2026-09-15 发表，卷 5 第 47 篇）《责任级联：智能体 AI 系统中的道德归因与治理挑战》。提出顺序责任归因框架（SRAF），把智能体工作流中的责任分为发起责任、检查点责任、委派责任、结果责任四种模式，指出责任在多步流程里被扩散、稀释与再分配，形成道德褶皱区；直接指向监管、组织与系统设计如何保留有意义的人类控制。", "url": "https://link.springer.com/article/10.1007/s44206-026-00288-w"}
+    ]
+  }
+  </script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "为什么 AI 进了团队之后，人反而更可能被追责？", "acceptedAnswer": {"@type": "Answer", "text": "因为责任没有被稀释，而是被集中到了人身上。Nyilasy 等人的 2026 研究（arXiv 2604.08866，四项实验、1,801 名被试，AI 辅助信贷决策情境）发现：当人类与 AI 配对时，旁观者比人与另一人配对时，平均多把约 10 个百分点（0 至 100 量尺）的责任归于人类决策者。机制很清楚，AI 被看作一个受限的执行者，没有独立的自由裁量，于是人成了责任默认的落点。这反驳了一种流行幻想：以为有了 AI，出了事可以甩锅给机器。现实恰恰相反，加入 AI 之后，人对结果的追责不降反升。组织设计的意义，是把这种被集中的责任，用明确的决策权和升级协议承接住，而不是假装它已经分摊掉了。"}},
+      {"@type": "Question", "name": "把 AI 叫成数字队友、数字同事，有什么治理风险？", "acceptedAnswer": {"@type": "Answer", "text": "风险在于你会在错误的模型上套用问责。Deloitte 2026 把这种拟人化明确点名为治理风险：当你把 AI 当同事，你就会去管理关系，而不是去治理输出；你会把人际层面的信任投射过去，而不是用结构去赢得信任。BNY 的做法反而是反面教材的正确版：它运行近 150 个数字员工，但每一个都有名字、员工编号和一名人类主管。它没有把 AI 当成人，而是把每一个智能体硬连到一个具名的人类负责人。治理的动词是治理输出、设计边界，不是给机器发工牌。把话术从队友改回系统，问责架构才立得起来。"}},
+      {"@type": "Question", "name": "管理者的管理幅度，在人机混编团队里该怎么重新算？", "acceptedAnswer": {"@type": "Answer", "text": "不能再只数人头，要数复杂度。Gartner 在面向 CHRO 的指引里提出以复杂度跨度替代人数幅度：复杂度不只来自编制数量，还来自团队里跑着多少个智能体、它们的自主程度有多高、它们的输出与业务风险的耦合有多紧。一个管 8 个人、但每人都依赖多个自主智能体的管理者，实际复杂度远高于编制数字显示的那样。忽略这一点，等智能体跑得比监督模型快，运营失败的风险就会累积。核算动作很具体：清点每个团队的智能体密度与自主级别，把高风险耦合单独拉出来，再决定要不要补中层、补监督。"}},
+      {"@type": "Question", "name": "一个 AI 智能体上线之前，应该先写清楚什么？", "acceptedAnswer": {"@type": "Answer", "text": "先写一份类似岗位说明书的一页简报，再打开开关。Microsoft 2026 给出的清单包括五项：名字（你叫它什么）、负责人（谁监督它）、输入（它从哪些文件、数据、系统取料）、好是什么样（你对它产出的质量标尺）、升级（什么情况下它该停下来交还给人）。再叠加 Gartner 的三类前置对齐：身份（智能体是作为自己登录，而不是冒用某人）、访问（它只能触达这一个岗位需要的数据和工具）、归属（是否有一个具名的人为它的所作所为负责）。这五加三，是把问责写进流程的最小动作，缺一项，责任就悬空。"}},
+      {"@type": "Question", "name": "HR 在人机混编团队里该管什么、不该管什么？", "acceptedAnswer": {"@type": "Answer", "text": "HR 该管问责架构，不该管 AI 本身。具体六件事：第一，明确划出哪些判断、共情、裁量在法律、文化或伦理上不可委托给智能体；第二，和 IT 一起建立人在环协议与阈值；第三，把管理者的角色正式改写进 AI 监督与例外处理；第四，按 AgentOps 思路给管理者做例外处理与升级训练；第五，用复杂度跨度而非人数衡量管理负荷；第六，确保每个智能体的产出背后都有一个具名的人类负责人。HR 不该去选模型、调提示词、评算法指标，那是 IT 和数据科学的活。HR 拥有的是责任的分配结构，不是那台机器。"}},
+      {"@type": "Question", "name": "责任级联和道德褶皱区是什么意思？", "acceptedAnswer": {"@type": "Answer", "text": "这是 Kalluri 2026 提出的一组概念，用来描述多步智能体流程里责任为什么会失联。责任级联指：当一个人类发起一条智能体工作流，系统自己拆任务、做中间决策、调工具、按反馈改策略，责任会顺着这些步骤被扩散、稀释、再分配，传统归因框架接不住。道德褶皱区指：系统出错时，人类操作员往往吸收了本属于复杂系统的责备，成为唯一的替罪羊。它和前面的 AIHR 发现看似相反，其实同时成立：对旁观者，人担更多责任（集中）；对流程内部，责任又被逐段稀释（扩散）。两者叠加，正是人机混编团队最危险的问责真空，必须用发起、检查点、委派、结果四段式归因把它钉死。"}}
+    ]
+  }
+  </script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.aihrlab.online/"},
+      {"@type": "ListItem", "position": 2, "name": "核心方法论", "item": "https://www.aihrlab.online/articles/"},
+      {"@type": "ListItem", "position": 3, "name": "AI 进了团队：人机混编团队的治理与问责"}
+    ]
+  }
+  </script>
+<script src="/assets/js/analytics-loader.js" defer></script>
+</head>
+
+<body>
+<header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html" class="active" aria-current="page">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/bridge/index.html">策展</a><a href="/about.html">关于</a><button class="nav-search-btn" data-open-search aria-label="AI搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><span>AI搜索</span><span class="shortcut-hint"><kbd>&#8984;</kbd><kbd>K</kbd></span></button></nav></div></header>
+
+<main>
+<article>
+
+  <header class="article-header">
+    <span class="cat">核心方法论</span>
+    <h1>AI 进了团队：人机混编团队的治理与问责</h1>
+    <div class="article-tags"><span>人机混编团队</span><span>AI治理</span><span>问责架构</span><span>责任归属</span><span>数字同事</span><span>AgentOps</span><span>组织设计</span><span>AI原生组织</span></div>
+    <div class="article-meta">
+      <time datetime="2026-09-25">2026 年 09 月 25 日</time>
+      <span>&middot;</span>
+      <span>AIHR数智引擎</span>
+      <span>&middot;</span>
+      <span>核心方法论</span>
+      <span>&middot;</span>
+      <span>阅读约 16 分钟</span>
+    </div>
+    <p class="lead">AI 不再只是工具，而是进了团队、参与工作流、在晨会里被当成一个角色来分配任务。第一性原理上，组织是信息网络加利益分配网络。AI 作为团队成员，顺顺当当地接入了信息网，却让问责网出现了一个空洞节点：这个节点无法被激励、无法被认可、也无法被追责。于是真正的难题不是 AI 能不能把活干完，而是当它和人共同产出一个失败结果时，谁为此负责。2026 年的研究和一线实践给出的答案都不轻松：责任既没有被人机共享稀释，也没有被机器接走，而是以两种相反的方式同时悬空，而能接住它的，只有被重新设计过的问责架构。</p>
+  </header>
+
+<div class="geo-answer-capsule">
+      <p class="geo-answer-capsule__label">核心结论</p>
+      <p class="geo-answer-capsule__text">AI 进了团队之后，人机混编团队怎么治理和问责，核心判点是：组织是信息网络加利益分配网络，AI 作为团队成员接入了信息网，却让问责网出现一个无法被激励、认可、追责的空洞节点；结果责任既不能简单地分摊给团队，也不能指望 AI 自己承担。2026 研究给出两个相反又同时成立的发现：一是责任集中，四项实验 1801 名被试显示，人配 AI 时比配人时多担约 10 个百分点的责任，因为 AI 被看作受限执行者、人成为默认的责任落点；二是责任稀释，多步智能体流程里责任在发起、检查点、委派、结果四段之间被逐段扩散，形成道德褶皱区。破局不是把 AI 叫成数字队友，而是把问责架构写进流程：具名负责人、明确决策权、升级协议、复杂度跨度核算、人在环阈值，以及把任务按咨询、辅助、假定、自主分级。</p>
+    </div>
+    <div class="geo-stats">
+      <h3>关键数据</h3>
+      <ul>
+        <li><strong>责任反而集中到人身上</strong>：Nyilasy 等人的 2026 研究（<strong>4</strong> 项实验、<strong>1,801</strong> 名被试、AI 辅助信贷决策情境）发现，当人类与 AI 配对时，旁观者比人与另一人配对时，平均多将约 <strong>10</strong> 个百分点（<strong>0</strong> 至 <strong>100</strong> 量尺）的责任归于人类决策者；机制是 AI 被视为受限执行者，人成为自由裁量责任的默认落点。</li>
+        <li><strong>智能体已是劳动力规模</strong>：Microsoft WTI 2026 显示智能体使用量同比增长 <strong>15</strong> 倍、大型企业 <strong>18</strong> 倍；BNY 运行近 <strong>150</strong> 个有名字、员工编号和人类主管的数字员工，将未决调查削减近 <strong>80%</strong>，靠的是把每个智能体硬连到一个具名负责人而非拟人化。</li>
+        <li><strong>想引领的人极少</strong>：Deloitte 2026（<strong>89</strong> 国、<strong>9,000</strong> 多名领导者）显示，<strong>64%</strong> 认为 AI 与决策议题对当前成功非常重要，但仅 <strong>5%</strong> 认为自己走在引领前列；仅 <strong>16%</strong> 员工信任高层能为员工做正确决策（一年内两位数下滑）。</li>
+        <li><strong>管理者被智能体压垮</strong>：Gartner 面向 CHRO 的指引显示，<strong>75%</strong> 的 CHRO 报告管理者比以往更不堪重负；智能体 AI 往往增加而非降低认知负荷，<strong>25%</strong> 的管理者表示若有退路会退出管理角色。</li>
+        <li><strong>治理严重滞后</strong>：Gartner 2026-04-28 预测，到 <strong>2028</strong> 年平均一家财富 500 强将拥有超过 <strong>150,000</strong> 个智能体（<strong>2025</strong> 年不足 <strong>15</strong> 个），但目前仅 <strong>13%</strong> 的组织认为自己具备正确的智能体治理。</li>
+      </ul>
+    </div>
+
+    <div class="geo-quote">
+      <blockquote>当人类与 AI 配对时，旁观者比人与另一人配对时，平均多把约 10 个百分点的责任归于人类决策者。AI 没有接走责任，它把责任压到了人身上。</blockquote>
+      <p class="geo-quote__cite">出自 Nyilasy、Bastian、Overbeck、Hito 2026 年 arXiv 研究《AI 诱发的人类责任》，四项实验、1,801 名被试，经 AIHR 数智引擎综合</p>
+    </div>
+
+<h2>一、第一性原理：组织是两张网，AI 只接入了一张</h2>
+
+    <p>先看清楚 AI 进团队到底改了什么。回到组织研究的第一性原理：组织是信息网络加利益分配网络。信息网络负责把坏消息、分歧、判断往下和往上流动；利益分配网络负责谁因为结果被奖励、被追责、被认可。两张网一起，才构成一个能自我纠偏、能分配责任的实体。</p>
+    <p>AI 作为团队成员加入时，它几乎只改了第一张网。它贡献分析、起草初稿、跑数据、给出选项，让信息流更密。但它对第二张网是一个洞：它不是人，不能被激励，不能被认可，也不能被追责。你无法因为一次漂亮的判断给一个智能体发奖金，也无法因为一次错误让它承担后果。于是当团队共同产出一个结果，责任不能像人和人之间那样自然分摊，因为有一个节点在结构上不承接责任。</p>
+    <p>这就是为什么人机混编团队的治理问题，本质不是技术接入问题，而是问责网的重构问题。谁接住那个洞，谁才真正拥有这个团队的结果。组织设计在这里比模型选型重要得多。</p>
+
+<h2>二、矛盾一：责任没被稀释，反而压到了人身上</h2>
+
+    <p>最反直觉的发现是，人机会话里人承担的责不降反升。Nyilasy 等人的 2026 研究（arXiv 2604.08866）用四项实验、1,801 名被试，放在 AI 辅助信贷决策情境里问同一个问题：出了事，责任怎么分。结论是，当人类与 AI 配对时，旁观者比人与另一人配对时，平均多把约 10 个百分点（0 至 100 量尺）的责任归于人类决策者。高伤害情境（歧视性拒贷）和低伤害情境（归档错误）都成立，甚至让被试评自己的责任时也成立。</p>
+    <p>机制是感知：AI 被看作一个受限的执行者，没有独立的自由裁量，于是人成了责任默认的落点。替代解释（心智感知、自我威胁）都被排除了。这对组织设计意味着一件事，坊间流行的甩锅幻想是错的，有了 AI，出了事并不能推给机器。恰恰相反，AI 的在场抬高了人的责任刻度。一个组织如果把责任当成可以外包给系统的东西，它就在忽视这条被实证的集中效应。</p>
+    <p>更麻烦的是，这种集中往往是无意识的。管理者以为用了智能体等于分散了风险，实际是把自己的责任刻度往上推了一档。等事故复盘时，承担者的角色已经悄悄变了。</p>
+
+<h2>三、矛盾二：责任在流程里被稀释</h2>
+
+    <p>第二层发现是，责任同时在多步流程里被逐段稀释。Kalluri 2026（Digital Society，9 月 15 日发表）提出责任级联与顺序责任归因框架（SRAF），把一条智能体工作流里的责任拆成四段：发起责任、检查点责任、委派责任、结果责任。当一个人类发起一条目标，系统自己拆任务、做中间决策、调工具、按反馈改策略，责任就顺着这些步骤被扩散、稀释、再分配，传统归因框架接不住。</p>
+    <p>典型场景：项目经理让智能体优化资源分配，系统分析负载、重排任务、调时间线、直接对接管理系统，人类只在里程碑检查点点头。项目最终因资源错配失败，谁负责？人类定了目标却没控制中间决策，AI 做了关键选择却没有道德主体性，检查点审批者看不全系统的推理，组织批准了部署却没人完整掌控结果。这就是道德褶皱区，系统出错时，人类操作员吸收了本属于复杂系统的责备，成了唯一的替罪羊。</p>
+    <p>于是出现一个悖论：对旁观者，人担更多责任（集中）；对流程内部，责任又被逐段稀释（扩散）。两种效应叠加，正是人机混编团队最危险的问责真空。一个组织若不同时处理这两头，它既会让具体的人被过度追责，也会让系统的失败找不到归口。</p>
+
+<h2>四、为什么把 AI 叫成数字队友是治理陷阱</h2>
+
+    <p>很多组织用错了动词。Deloitte 2026 把这种拟人化明确点名为治理风险：当你把 AI 叫成数字队友、数字同事，你开始用对待人的那套问责模型去套一个非人系统，你会去管理关系，而不是去治理输出；你会把人际层面的信任投射过去，而不是用结构去赢得信任。话术看似温和，代价是问责架构被软化。</p>
+    <p>BNY 的做法值得对照：它运行近 150 个数字员工，但每一个都有名字、员工编号，和一名人类主管。它没有把 AI 当成人，而是把每一个智能体硬连到一个具名的人类负责人，结果是未决调查削减近 80%。区别就在动词，BNY 治理的是输出、设计的是边界，而不是给机器发工牌。</p>
+    <p>Microsoft 2026 给出的问责矩阵也落实在同一逻辑：助理角色里，AI 支持单步，人类拥有整项任务与结果；队友角色里，AI 共拥工作，人类保有方向与最终判断；操作员角色里，AI 在限定内跑流程，人类负责复核、例外与问责。三种角色的共同点，是人类的拥有权从未让渡。把话术从队友改回系统，问责架构才立得起来。</p>
+
+<h2>五、三个被数据验证的管理误判</h2>
+
+    <p>误判一，以为部署更好的模型就能补上治理缺口。Deloitte 2026 的数据打脸：64% 受访者认为 AI 与决策议题对当前成功非常重要，但仅 5% 认为自己走在引领前列；同时仅 16% 员工信任高层能为员工做正确决策，且一年内两位数下滑。模型越强，领导力的缺口越显眼，因为问题从来不在算法，在谁为结果负责。</p>
+    <p>误判二，以为 AI 会减轻管理负荷。Gartner 面向 CHRO 的指引显示，75% 的 CHRO 报告管理者比以往更不堪重负。智能体 AI 往往增加而非降低认知负荷，因为管理者要校验输入、评估输出、处理例外；四分之一的管理者表示若有退路会退出管理角色。把智能体当减压阀，结果往往是给管理者又加了一层监督的活。</p>
+    <p>误判三，以为治理可以等。Gartner 2026-04-28 的预测是，到 2028 年平均一家财富 500 强将拥有超过 150,000 个智能体，而 2025 年不足 15 个，但当前仅 13% 的组织认为自己具备正确的智能体治理。治理不是上线后的补丁，等规模上来再补，成本和事故都已经发生。</p>
+
+<h2>六、问责架构：把谁担责写进流程</h2>
+
+    <p>破局的动作是具体的，不是口号。第一，每个智能体上架前先写一份一页简报式的岗位说明书：名字、负责人、输入、好是什么样、升级条件。这是 Microsoft 2026 给的清单，缺一项，责任就悬空。第二，叠加 Gartner 的三类前置对齐：身份（智能体作为自己登录而非冒用某人）、访问（只触达这一个岗位需要的数据和工具）、归属（具名的人为它的所作所为负责）。</p>
+    <p>第三，建立人在环阈值，按任务风险分级。Gartner 把任务分为咨询、辅助、假定、自主四类，并建议当智能体置信度跌破阈值时交还给人；HR 要正式界定哪些判断、共情、裁量在法律、文化或伦理上不可委托。第四，用复杂度跨度替代人数幅度来核算管理负荷，清点每个团队的智能体密度、自主级别与风险耦合，再决定要不要补中层、补监督。</p>
+    <p>第五，把四段式归因（发起、检查点、委派、结果）钉进流程，让每一步的责任归属被记录而非靠复盘时现编。第六，把 AgentOps 当成一门 discipline 来训练管理者：评升级输出、修边界情形、留痕推理。治理的动词重新回到人，靠的是这些被写死的结构，而不是信任机器会自律。</p>
+
+<h2>七、HR 的站位：从发政策到设计问责</h2>
+
+    <p>HR 在这个议题里该管的是问责架构，不是 AI 本身。六项具体动作：明确划出哪些判断不可委托给智能体；和 IT 一起建立人在环协议与阈值；把管理者角色正式改写进 AI 监督与例外处理；按 AgentOps 给管理者做升级与纠错训练；用复杂度跨度而非人数衡量管理负荷；确保每个智能体的产出背后都有一个具名的人类负责人。</p>
+    <p>反过来，HR 不该去选模型、调提示词、评算法指标，那是 IT 与数据科学的活。HR 拥有的，是责任的分配结构。当组织把问责架构设计清楚，它保住的是两样东西：一是对外的可信度，监管、客户和员工知道出事找得到人；二是对内的学习回路，失败能被归因、被修正，而不是被甩给一个不背锅的机器。AI 不移除人类拥有结果的需要，它把这种拥有变成了不可回避的前提。</p>
+
+<h2>八、留白：问责从来是组织最难的那道题</h2>
+
+    <p>谁为结果负责，从来就是组织理论里最难回答的问题，AI 没有让它变容易，只是让它变急性。一个组织若在人机混编里把责任写进流程，它守住的是信任；若让责任在集中与扩散之间同时悬空，它迟早撞上道德褶皱区，由某个具体的人替整个系统背锅。技术会持续往前跑，150,000 个智能体的预测不是危言，但责任不能跟着规模一起稀释。能接住它的，始终是一个被设计过、被具名过、被写进流程的问责架构，而不是一句数字队友的漂亮话。</p>
+
+<section class="related-reading">
+      <h3>相关阅读</h3>
+      <ul>
+        <li><a href="/articles/human-ai-equation.html">效率、判断力与组织记忆：配平你的人机协作方程式</a></li>
+        <li><a href="/articles/ai-native-human-agent-contract-2026.html">人和 Agent 的契约：接口怎么设计</a></li>
+        <li><a href="/articles/frontier-firm-ai-agent-2026.html">前沿企业：AI Agent 成数字同事，HR 重写什么</a></li>
+        <li><a href="/articles/ai-native-governance-tasks-2026.html">AI 原生治理：当决策权下沉到任务，董事会监督怎么重装</a></li>
+        <li><a href="/articles/algorithmic-management-workplace-2026.html">算法管理：员工监控怎么管才不反噬</a></li>
+      </ul>
+    </section>
+
+<section class="fact-sources">
+      <h3>参考信源</h3>
+      <ul><li>【Microsoft Work Trend Index 2026（2026-05 发布，10 个市场、20,000 名 AI 使用者、数万亿笔 M365 生产力信号）；智能体使用量同比增长 15 倍、大型企业 18 倍；BNY 近 150 个数字员工各配名字、员工编号与人类主管，未决调查削减近 80%；助理／队友／操作员问责矩阵，人类分别拥有整项任务与结果、方向与最终判断、复核与例外】：Microsoft Work Trend Index，microsoft.com/worklab，2026。</li><li>【Deloitte 2026 Global Human Capital Trends（与 Oxford Economics 合作，89 国、9,000+ 商业与 HR 领导者、50+ 高管访谈）；64% 认为 AI 与决策非常重要但仅 5% 自认引领；仅 16% 员工信任高层（年内两位数下滑）；停止管理 AI、开始领导 AI，警告拟人化数字队友是治理风险，当团队含无法被激励／认可／追责的智能体时仍由人维持结果责任】：Deloitte Human Capital Trends，deloitte.com，2026。</li><li>【Gartner 2026（智能体治理与管理者监督）；面向 CHRO 的指引显示 75% CHRO 报告管理者更不堪重负，智能体增加认知负荷，提出以复杂度跨度替代人数幅度、任务按咨询／辅助／假定／自主分级、人在环阈值、四分之一管理者欲退出角色、AgentOps；2026-04-28 新闻稿《识别管理 AI 智能体蔓延的六步》预测 2028 年平均财富 500 强超 150,000 个智能体（2025 不足 15），仅 13% 有正确治理，六步含治理政策、集中清单、身份权限生命周期、信息治理、行为监控补救、责任使用文化】：Gartner，gartner.com，2026。</li><li>【Nyilasy、Bastian、Overbeck、Hito（arXiv 2604.08866，2026-04-10）《AI 诱发的人类责任（AIHR）》；4 实验、1,801 被试、AI 辅助信贷决策，人配 AI 比配人时多担约 10 个百分点责任，机制为 AI 被视为受限执行者、人成默认责任落点】：arXiv，arxiv.org，2026。</li><li>【Kalluri（Digital Society，2026-09-15 发表，卷 5 第 47 篇）《责任级联：智能体 AI 系统中的道德归因与治理挑战》；提出顺序责任归因框架 SRAF，分发起／检查点／委派／结果四段责任，指出责任在多步流程被扩散稀释、形成道德褶皱区】：Springer Nature，link.springer.com，2026-09-15。</li></ul>
+    </section>
+
+<!--NEXT_PATH_START-->
+<section class="next-path" aria-label="读完这篇之后的路径">
+  <h2 class="next-path__title">读完这篇，下一步</h2>
+  <ol class="next-path__list">
+    <li class="next-path__item"><a class="next-path__link" href="/hub/ai-native-org.html" data-track="next_path_click" data-target-type="hub">AI 原生组织范式与组织设计：从重构到删除</a><span class="next-path__note">专题枢纽 · 同主题深度长文聚合</span></li>
+    <li class="next-path__item"><a class="next-path__link" href="/articles/human-ai-equation.html" data-track="next_path_click" data-target-type="article">效率、判断力与组织记忆：配平你的人机协作方程式</a><span class="next-path__note">同主题长文 · 共同标签：人机混编团队、AI原生组织</span></li>
+    <li class="next-path__item"><a class="next-path__link" href="/articles/ai-native-human-agent-contract-2026.html" data-track="next_path_click" data-target-type="article">人和 Agent 的契约：接口怎么设计</a><span class="next-path__note">同主题长文 · 共同标签：问责架构、AI治理</span></li>
+    <li class="next-path__item"><a class="next-path__link" href="/tools/ai-risk-test/index.html" data-track="next_path_click" data-target-type="assessment">你的工作，离被替代还有多远？</a><span class="next-path__note">在线自测 · 免注册，结果本地计算</span></li>
+    <li class="next-path__item"><a class="next-path__link" href="/ask/" data-track="next_path_click" data-target-type="copilot">基于 AIHR 全部文章的 AI 问答</a><span class="next-path__note">站内 AI 问答 · 基于本站文章作答并附来源</span></li>
+  </ol>
+</section>
+<!--NEXT_PATH_END-->
+</article>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-links"><div class="footer-col"><h4>内容</h4><a href="/articles/index.html">全部文章</a><a href="/hub/index.html">专题枢纽</a><a href="/resources/index.html">资源库</a><a href="/glossary/index.html">术语词典</a></div><div class="footer-col"><h4>测评与策展</h4><a href="/tools/index.html">在线测评</a><a href="/assessments/index.html">测评方法论</a><a href="/bridge/index.html">策展</a></div><div class="footer-col"><h4>关于</h4><a href="/about.html">关于我们</a></div></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+
+<script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>
