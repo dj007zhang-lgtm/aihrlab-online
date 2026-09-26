@@ -3947,5 +3947,21 @@
     ],
     "sitemap_urls_before": 331,
     "sitemap_urls_after": 331
+  },
+  {
+    "date": "2026-09-26 09:21",
+    "commit": "36cfa71fe0335f9a6c044df6f2e197e992bdae88",
+    "message": "feat(content): AI+HR 新文 AI时代DEI为什么更难做也更重要 + 四源同步",
+    "files_count": 6,
+    "files": [
+      "articles/ai-era-dei-2026.html",
+      "assets/images/banners/ai-era-dei-2026.webp",
+      "assets/js/article-index.json",
+      "articles/index.html",
+      "sitemap.xml",
+      "llms-full.txt"
+    ],
+    "sitemap_urls_before": 333,
+    "sitemap_urls_after": 333
   }
 ]
