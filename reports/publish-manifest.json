@@ -3963,5 +3963,17 @@
     ],
     "sitemap_urls_before": 333,
     "sitemap_urls_after": 333
+  },
+  {
+    "date": "2026-09-27 21:13",
+    "commit": "27fe1a214fa41d20fec8e1567eeadf028bde1858",
+    "message": "fix(ci): qa_guardian.save_baseline 触发条件——阻断级 FAIL(RED)时不再覆盖 baseline，仅全绿才演进回归基准，修复坏状态被锁为基准的代码债（违反模块 docstring『永锁坏状态』契约）",
+    "files_count": 2,
+    "files": [
+      "ci/qa_guardian.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 334,
+    "sitemap_urls_after": 334
   }
 ]
