@@ -3989,5 +3989,28 @@
     ],
     "sitemap_urls_before": 334,
     "sitemap_urls_after": 334
+  },
+  {
+    "date": "2026-09-27 22:01",
+    "commit": "cbb60b2bc8b40cce75686a45a347e82bbd9902d5",
+    "message": "feat(ci): 把『错不二犯』从散文笔记+事后体检升级为护栏——新增 ci/regression_rules.json 历史教训登记册(4条:计数带/旧QR-CTA/被墙资源/编辑器工件)、gate_lesson_assertions 全站断言门、scripts/lint_diff.py 发布前diff预检(动笔即拦)；publish.py 加 STEP 0.5 强制预检；并清除 2026-09-09 清工件遗漏的 5 文件共 990 处 data-page-node-id 残留",
+    "files_count": 13,
+    "files": [
+      "ci/regression_rules.json",
+      "ci/gates/regression_rules.py",
+      "ci/gates/gate_lesson_assertions.py",
+      "scripts/lint_diff.py",
+      "ci/heuristics/thresholds.json",
+      "ci/qa_guardian.py",
+      "scripts/publish.py",
+      "articles/ai-layoff-2026-mid-year-review.html",
+      "articles/overseas-hr-metrics-2026.html",
+      "articles/ai-era-organizational-trust-2026.html",
+      "articles/ai-in-overseas-hr-2026.html",
+      "templates/article-v2.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 334,
+    "sitemap_urls_after": 334
   }
 ]
