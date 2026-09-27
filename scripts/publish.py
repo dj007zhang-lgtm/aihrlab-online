@@ -77,6 +77,41 @@ def run_stability_guard():
     return proc.returncode == 0
 
 
+def run_qa_guardian():
+    """STEP 2.5  全站质量保障编排器（错不二犯机制）。
+
+    在双闸之后、原子推送之前，跑 ci/qa_guardian.py 全站回归：
+      跨篇克隆 / 桩页 / 死链 / 重定向契约 / meta 污染 / 设计资产 / sitemap /
+      基线回归。任一 BLOCK 级发现 → 非零退出 → publish.py 中止（不破坏既有双闸）。
+    该门是「事后全站体检才发现」盲点的 permanent 补丁：每次发布都全站扫。
+    """
+    print("\n" + "=" * 60)
+    print("STEP 2.5/3  全站质量保障 ci/qa_guardian.py（错不二犯回归闸门）")
+    print("=" * 60)
+    proc = subprocess.run(
+        [sys.executable, "ci/qa_guardian.py"],
+        cwd=SITE_ROOT,
+    )
+    return proc.returncode == 0
+
+
+def run_lint_diff(files):
+    """STEP 0.5  发布前 diff 红线预检（防概念性重复犯错·预防式）
+
+    对本次将要发布的文件跑历史教训断言（ci/regression_rules.json），把被主理人
+    否决的设计模式（计数带 / 旧 QR-CTA / 被墙资源 / 编辑器工件）拦在推送之前。
+    这是把『不二犯』从反应式（全站事后体检）变预防式（动笔即拦）的关键一环。
+    """
+    print("\n" + "=" * 60)
+    print("STEP 0.5/3  发布前 diff 红线预检 scripts/lint_diff.py（防概念性重复犯错）")
+    print("=" * 60)
+    proc = subprocess.run(
+        [sys.executable, "scripts/lint_diff.py"] + files,
+        cwd=SITE_ROOT,
+    )
+    return proc.returncode == 0
+
+
 def count_sitemap_urls():
     """sitemap.xml 当前 URL 数（发布印记用，监测覆盖率是否骤减）。"""
     p = os.path.join(SITE_ROOT, "sitemap.xml")
@@ -155,6 +190,13 @@ def main():
         delta = sitemap_after - sitemap_before
         print(f"  sitemap 覆盖率变化：{sitemap_before} → {sitemap_after}（{delta:+d}）")
 
+    # STEP 0.5: 发布前 diff 红线预检（防概念性重复犯错·预防式）
+    if not run_lint_diff(files):
+        print("\n❌ 发布前红线预检未通过（命中已被主理人否决的设计模式）—— 推送已中止。")
+        print("   请清除上述被否决模式后重试。本次未做任何远程写入。")
+        sys.exit(1)
+    print("\n✅ 发布前红线预检通过（无可否决设计模式混入本次发布）。")
+
     # STEP 1: 质量门（强制）
     if not run_quality_gate():
         print("\n❌ 质量门未全部通过 —— 推送已中止，禁止带病上线。")
@@ -169,6 +211,14 @@ def main():
         print("   请修复上述 BLOCKER 后重试。本次未做任何远程写入。")
         sys.exit(1)
     print("\n✅ 稳定性自检通过（无空白页 / 加载失败 / 内容错乱 / 链接失效 / 品牌回退 / 导航错乱）。")
+
+    # STEP 2.5: 全站质量保障回归闸门（错不二犯机制）—— 阻断级结构性债出现即中止
+    if not run_qa_guardian():
+        print("\n❌ 全站质量保障未通过（存在阻断级结构性债务：克隆/桩页/死链/占位符/"
+              "sitemap 错位/基线回归）—— 推送已中止。")
+        print("   详见 reports/qa_guardian-report.md，修复上述 BLOCK 项后重试。本次未做任何远程写入。")
+        sys.exit(1)
+    print("\n✅ 全站质量保障通过（无规模化克隆/死链/占位符/sitemap 错位，未较 baseline 回归）。")
 
     # STEP 3: 原子推送
     print("\n" + "=" * 60)

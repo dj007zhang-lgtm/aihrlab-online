@@ -1,0 +1,67 @@
+{
+  "_comment": "regression_rules.json —— 历史教训登记册（把『我们学到的教训』变成『构建会失败的规则』）。\n这是把『错不二犯』从散文笔记 + 全站事后体检，升级为『动笔即拦』护栏的核心数据。\n每条规则 = 一次已被主理人否决 / 已修过的设计模式 → 一条机器断言。\n字段：\n  id        规则 ID（同时也是 gate 的 code）\n  name      人类可读名称\n  severity  BLOCK=阻断发布；WARN=告警\n  scope     site=全站体检；diff=仅发布 diff（当前两种消费者都查全部规则，scope 仅作文档）\n  match     any=整文件匹配任一 pattern；within_class=仅在指定 class 块内匹配（避免误伤其他合法上下文）\n  patterns  禁用模式（子串）\n  block_class  when match=within_class 时生效\n  rationale  为何被否决 / 来源事件\n  established 建立日期",
+  "version": 1,
+  "rules": [
+    {
+      "id": "R-VANITY-COUNT-BAND",
+      "name": "自我计数带（虚荣库存盘点）",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "any",
+      "patterns": [
+        "篇原创深度分析",
+        "套交互测评矩阵",
+        "hp-stat",
+        "hp-stat-num",
+        "hero-stats",
+        "stat-num",
+        "stat-item",
+        "stat-number",
+        "stat-label",
+        "stat-plus"
+      ],
+      "rationale": "数库存对读者零价值且数字必失真（带子写 230+ 实为 249 篇），违反零虚构纪律与知识载体定位；2026-09-27 主理人三次否决后连根清除，并清除两份 CSS 中上一代同款死规则。改版不得从旧版式复活。",
+      "established": "2026-09-27"
+    },
+    {
+      "id": "R-QR-V0-CTA",
+      "name": "文章尾页 QR 块含旧 v0 导流号召「关注公众号」",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "within_class",
+      "block_class": "article-footer-qr",
+      "patterns": [
+        "关注公众号"
+      ],
+      "rationale": "v2 QR 块设计已删除旧 v0「关注公众号」导流号召（仅作入口，不重导流）；2026-09-27 主理人定调。注意：测评解锁流（工具页）的「关注公众号」不在此限——仅限文章尾页 .article-footer-qr 块内。",
+      "established": "2026-09-27"
+    },
+    {
+      "id": "R-BLOCKED-3P",
+      "name": "被墙第三方资源（Google Fonts / GTM）",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "any",
+      "patterns": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com",
+        "www.googletagmanager.com",
+        "ajax.googleapis.com"
+      ],
+      "rationale": "CN 不可达，每请求 15-30s 超时，导致百度速度降权 + 外部链接跳出率 96%；2026-09-09 全站清除（commit 721d1390）。GitHub Pages + 无备案结构下不得再引入。",
+      "established": "2026-09-09"
+    },
+    {
+      "id": "R-DATA-PAGE-NODE-ID",
+      "name": "编辑器注入工件 data-page-node-id",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "any",
+      "patterns": [
+        "data-page-node-id"
+      ],
+      "rationale": "编辑器注入的垃圾属性，属 2026-09-09 清工件运动遗漏残留（全站 1368 处已清，此 5 处漏网）；RC-E 典型：被否决设计的残留载体须连根清，否则改版复发。",
+      "established": "2026-09-27"
+    }
+  ]
+}

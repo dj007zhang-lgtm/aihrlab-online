@@ -50,6 +50,7 @@ GATE_ORDER = [
     "gate_link_doctor",
     "gate_meta_lint",
     "gate_design_asset_lint",
+    "gate_lesson_assertions",
     "gate_sitemap_consistency",
     "gate_tracking_metrics",
 ]

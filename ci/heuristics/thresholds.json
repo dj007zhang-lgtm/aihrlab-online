@@ -74,6 +74,11 @@
           "jsonld_cov_pp": 10
         }
       }
+    },
+    "lesson_assertions": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {}
     }
   }
 }
