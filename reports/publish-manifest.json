@@ -3975,5 +3975,19 @@
     ],
     "sitemap_urls_before": 334,
     "sitemap_urls_after": 334
+  },
+  {
+    "date": "2026-09-27 21:21",
+    "commit": "83c8100fdbe376a69985bf2e82e1dcf031cc29b1",
+    "message": "fix: 删首页数字大字报统计带(230+/12+/4)——数库存对读者零价值且数字已失真(实为249篇可索引文)，主理人多次否决该呈现；连根清除两份CSS中上一代同款死规则(hero-stats/stat-*)，杜绝同模式复发",
+    "files_count": 4,
+    "files": [
+      "index.html",
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 334,
+    "sitemap_urls_after": 334
   }
 ]
