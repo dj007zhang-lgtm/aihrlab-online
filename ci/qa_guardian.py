@@ -274,8 +274,10 @@ def main():
     }
     open(REPORT_JSON, "w", encoding="utf-8").write(json.dumps(status, ensure_ascii=False, indent=2))
 
-    # baseline 更新（只要无 gate 崩溃即锁当前快照；硬阻断仍由 exit 码拦发布）
-    if not report_only and not gate_errors:
+    # baseline 更新（仅当无阻断级 FAIL 且无 gate 崩溃时才锁当前快照；
+    # 阻断级 RED 或 gate 异常时保留旧 baseline，避免把缺陷/不可信快照锁为回归基准）。
+    # 与模块 docstring「baseline 仅在全绿时更新（永锁坏状态）」契约一致。
+    if not report_only and not gate_errors and not blocking:
         snap = {r.name: r.metrics for r in reports if r.status != "ERROR"}
         save_baseline(snap)
         if baseline:
@@ -284,6 +286,9 @@ def main():
             print("\n✅ baseline 首次生成（锁定当前好状态为回归基准）。")
     elif gate_errors:
         print("\n⚠️  存在 gate 异常，baseline 不更新（避免基于不可信快照锁定坏状态）。")
+    elif blocking:
+        print("\n⚠️  存在阻断级 FAIL（RED），baseline 不更新（永锁坏状态：保留上一轮好基准，"
+              "避免把缺陷快照锁为回归基准；请先修复上述 BLOCK 项后再让 baseline 演进）。")
 
     # 控制台摘要
     print("\n" + "-" * 64)
