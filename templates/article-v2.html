@@ -13,14 +13,7 @@
               .article-banner  (WebP首屏图)
               .article-body     (正文 + h2/h3/blockquote/ul/table)
                 └─ .inline-related  (内联延伸阅读，降跳出率)
-              .related-reading     (相关阅读，5条上限)
-              .article-footer-qr   (公众号二维码)
-  ═══════════════════════════════════════════════════════
--->
-<!DOCTYPE html>
-<html lang="zh-CN" data-page-node-id="o8AyfJyZceG81myes3Ge5g">
-<head data-page-node-id="tSrBSU5rRiiOCbRcAgh8Dn">
-<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+              .related-reading     (相关阅读，5条上限)document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 
   <!-- ===== 预连接 ===== -->
   
@@ -79,25 +72,7 @@
     来源：prototype-reading-experience.html Prototype ② 单篇
     作用域说明：
       - .article-header / .article-body 包含所有文章内容区样式
-      - .related-reading / .article-footer-qr 尾页样式
-      - 所有尾页区块必须在 .article-body 的 </div> 之内！
-    ════════════════════════════════════════
-  -->
-  
-
-  <!-- ===== Schema.org Article JSON-LD ===== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "<!-- PLACEHOLDER_SCHEMA_HEADLINE -->",
-    "description": "<!-- PLACEHOLDER_SCHEMA_DESC -->",
-    "image": {
-      "@type": "ImageObject",
-      "url": "https://www.aihrlab.online/assets/images/banners/<!-- PLACEHOLDER_BANNER_FILE -->",
-      "width": 1200,
-      "height": 821
-    },
+      - .related-reading /,
     "author": {"@type": "Organization", "name": "AIHR数智引擎",
       "url": "https://www.aihrlab.online/about.html",
       "jobTitle": "AI时代组织变革研究者",
@@ -210,25 +185,20 @@
       </ul>
     </section>
 
-    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
-    <div class="article-footer-qr" data-page-node-id="2OE7LMpMxN6TPK4I83oGDH">
-      <img decoding="async" loading="lazy"
-           alt="AIHR数智引擎公众号二维码"
-           src="/assets/images/qrcode-wechat.webp"
-           width="160" height="160" data-page-node-id="uGwvreJAiGxzYoRZMY9aEY">
-      <p data-page-node-id="Dovk8JCiKqWFfB0QYXh6IB">关注公众号，获取 AI 时代 HR 变革一手分析</p>
-    </div>
+    
 
   </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
+
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
 </article>
 </main>
-
-<!--
-  ===== 站点 Footer =====
-  纪律：站点 Footer 禁止放置公众号二维码。
-  每篇文章只能有一处二维码 CTA，即上方的 .article-footer-qr。
-  违反此纪律会导致同一页出现两个二维码，影响阅读体验与设计美感。
--->
 <footer class="site-footer" data-page-node-id="Cn1QvgvKNozoSO466adtg3"><div class="container" data-page-node-id="bGSWiFS9graUs2O46IZ5SH"><div class="footer-grid" data-page-node-id="hzkU2UVYc7AHibnHqvD6H4"><div class="footer-col" data-page-node-id="8FZNksSI1ImAtSRkblBGcS"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页" data-page-node-id="oCt5sDG4bafgd6rMObPNS3"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28" data-page-node-id="pA5XvRA9cmZIGt4h1PEAmD"> AIHR<span class="logo-dot" data-page-node-id="Y6CC99vTvAhycFBL2xqYck">数智引擎</span></a><p class="footer-desc" data-page-node-id="IqBvi3lN5JXI8jouS5VExP">AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div><div class="footer-col" data-page-node-id="VVx4aWyA6PAG5LqVHMIB6u"><h4 data-page-node-id="DbBAEZKcCjEaSKo67Zmid3">内容</h4><ul data-page-node-id="CzwXNar8SD2BxZmuGGRpOw"><li data-page-node-id="ckVoRnBTMoFa8InjbzW1Wd"><a href="/articles/index.html" data-page-node-id="Mj6js7Z0tXbCRrpzfxUEyq">全部文章</a></li><li data-page-node-id="5rvhm8c2V7kGDuHKYfjWh2"><a href="/hub/ai-org-transformation.html" data-page-node-id="UxVTfx1EosYUxUunDb6ppP">AI 组织变革枢纽</a></li><li data-page-node-id="Bpc6dr1ILkaCDjdaQel3uo"><a href="/glossary/index.html" data-page-node-id="XcLSu8G7HcOr3BElCYNlVS">AI+HR 术语词典</a></li><li data-page-node-id="m3vNq0MExGGFlqdxdLjoSW"><a href="/bridge/index.html" data-page-node-id="L7uLwdniAxLl649CEqr9u0">策展与测评</a></li></ul></div><div class="footer-col" data-page-node-id="69mev6kziMCZloSGzemc2a"><h4 data-page-node-id="XucGHF5bL5VH6CrSfQO1X0">关于</h4><ul data-page-node-id="kd1sphWkVIFpVpfF1dgrZ5"><li data-page-node-id="SuDLFEl7EcF9uhQH8fFx8a"><a href="/about.html" data-page-node-id="UQrnVrHBGD7OOB6aA6o1nF">关于我们</a></li><li data-page-node-id="oTC0eEzyydmOY46Dovk2es"><a href="/resources/index.html" data-page-node-id="72M33tkzbleZbhdvvDGYDa">资源库</a></li></ul></div></div><div class="footer-bottom" data-page-node-id="sLWR29BfcRHNGSkhXwTKRN"><p data-page-node-id="o5OjP8CBZAlENrFQIDPxgW">© 2026 AIHR数智引擎 · AI 时代组织变革实验室</p></div></div></footer>
 
   <script src="/assets/js/content-protect.js" defer></script>

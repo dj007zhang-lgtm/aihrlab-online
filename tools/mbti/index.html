@@ -286,7 +286,7 @@ a.link{color:var(--E);font-weight:700;text-decoration:none}
       <button class="btn" data-onclick="startTest('free')">免费体验版 · 24 题 / 约 8 分钟</button>
       <button class="btn btn-ghost" data-onclick="startTest('full')">完整版 · 48 题 / 约 15 分钟</button>
     </div>
-    <div class="mini">免费版看类型轮廓 · 扫码解锁完整版深度人格诊断书 🔬</div>
+    <div class="mini">免费版看类型轮廓 · 深度人格诊断书可随时解锁</div>
   </div>
 
   <div class="sec wrap" id="dims">
@@ -1859,7 +1859,7 @@ function renderFree(res){
       <div class="kl"><div class="ki">📊</div><div><b>常模定位</b><span>偏好强度与同龄职场人分布对照，看清你的相对位置。</span></div></div>
       <div class="kl"><div class="ki">🗺️</div><div><b>发展蓝图</b><span>30 天杠杆点 + 90 天跃迁路线，把认知变成行动。</span></div></div>
     </div>
-    <button class="btn" data-onclick="unlockFull()">扫码关注，解锁完整版 →</button>
+    <button class="btn" data-onclick="unlockFull()">解锁完整版 →</button>
   </div>`;
   $('freeArea').innerHTML=h;
 }
@@ -1970,9 +1970,8 @@ function renderFull(res){
 
 /* ===================== unlock flow ===================== */
 function unlockFull(){
-  if(localStorage.getItem(KEY_UNLOCK)==='1'){ startTest('full'); return; }
-  $('qrImg').src = OFFICIAL_QR || '';
-  $('qrMask').classList.add('show');
+  try{ localStorage.setItem(KEY_UNLOCK,'1'); }catch(e){}
+  startTest('full');
 }
 function confirmUnlock(){
   try{ localStorage.setItem(KEY_UNLOCK,'1'); }catch(e){}
@@ -2082,12 +2081,16 @@ document.addEventListener('click', function(e) {
 </ul>
   </section>
 
-<section class="article-footer-qr">
-  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
-  <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多测评与 AI+HR 深度解读，在公众号持续更新</p>
-</section>
-
 <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/content-protect.js" defer></script>
+
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
 </body>
 </html>

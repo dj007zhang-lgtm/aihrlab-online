@@ -524,14 +524,14 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
       <div class="vers full">
         <div class="tagline">Pro · 完整版</div>
         <h3>深度人格报告</h3>
-        <div class="price"><b>免费</b> · 扫码解锁</div>
+        <div class="price"><b>免费</b> · 一键解锁</div>
         <ul>
           <li><span class="ck">✓</span><span>240 道完整题目，全量计分</span></li>
           <li><span class="ck">✓</span><span>5 维度 + <b>30 子维度</b>深度解析</span></li>
           <li><span class="ck">✓</span><span>子维度雷达 + 个性化成长建议</span></li>
           <li><span class="ck">✓</span><span>可下载 PDF 报告，约 45 分钟</span></li>
         </ul>
-        <button class="pick" data-onclick="unlockFull()">扫码解锁完整版</button>
+        <button class="pick" data-onclick="unlockFull()">解锁完整版</button>
       </div>
     </div>
   </section>
@@ -638,7 +638,7 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
           <li>🔬 30 子维度细分画像 + 专家级职业应用指南（7 维解读）</li>
         </ul>
         <div class="ub">
-          <button class="btn btn-full" style="padding:13px 30px" data-onclick="unlockFull()">扫码关注，解锁完整版</button>
+          <button class="btn btn-full" style="padding:13px 30px" data-onclick="unlockFull()">解锁完整版</button>
         </div>
       </div>
     </div>
@@ -1146,8 +1146,8 @@ function goLanding(anchor){
 /* ===================== QR UNLOCK (扫码关注解锁完整版) ===================== */
 function isUnlocked(){ try{ return localStorage.getItem(KEY_UNLOCK)==='1'; }catch(e){ return false; } }
 function unlockFull(){
-  if(isUnlocked()){ startTest('full'); return; }
-  openQR();
+  try{ localStorage.setItem(KEY_UNLOCK,'1'); }catch(e){}
+  startTest('full');
 }
 function openQR(){
   const box=document.getElementById('qrBox');
@@ -1603,12 +1603,16 @@ document.addEventListener('click', function(e) {
 </ul>
   </section>
 
-<section class="article-footer-qr">
-  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
-  <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多测评与 AI+HR 深度解读，在公众号持续更新</p>
-</section>
-
 <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/content-protect.js" defer></script>
+
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
 </body>
 </html>

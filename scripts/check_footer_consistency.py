@@ -6,7 +6,8 @@
 检查每篇内容文章（含 </article> 且非重定向桩页）的尾页是否符合 canonical 规范：
   1. 相关阅读：.related-reading 出现 0 或 1 次（不多套）；无 .article-related / .related-grid 冗余块。
   2. 无孤儿「相关推荐」区块（</article> 之后不应有相关推荐 section）。
-  3. QR 块：.article-footer-qr 若存在，不得含 inline style=；CTA 文案为规范文案。
+  3. QR 块：.article-footer-qr 若存在，不得含 inline style=；v2 规范为 afq-* 结构，
+     afq-line 文案须为「AI 时代组织变革与 HR 转型的深度分析」，且不得残留旧「关注公众号」导流号召。
   4. 参考信源：若存在参考块，class 必须为 .references，标题必须为「参考信源」（不得用 source-note/source/article-sources/数据来源/参考来源）。
   5. 排列顺序：相关阅读 → QR → 参考来源（三者皆有时）。
 
@@ -16,7 +17,10 @@ import re, glob, os, sys
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ART_DIR = os.path.join(SITE_ROOT, 'articles')
-CANON_QR_COPY = '关注公众号，获取 AI 时代 HR 变革一手分析'
+# v2 规范文案（2026-09-27 起）：块用 afq-* 结构，已删除旧 v0「关注公众号」导流号召。
+# 旧 v0 用 <p>关注公众号，获取 AI 时代 HR 变革一手分析</p> 作为 CTA 文案基准，
+# 与已批准的 v2 设计冲突，故改为校验 afq-line 规范文案。
+CANON_QR_LINE = 'AI 时代组织变革与 HR 转型的深度分析'
 
 def check_file(fpath):
     rel = os.path.relpath(fpath, SITE_ROOT)
@@ -48,11 +52,18 @@ def check_file(fpath):
     if qr_m:
         if 'style=' in qr_m.group(1):
             issues.append(f"{rel}: .article-footer-qr 含 inline style（应统一用类样式）")
-        qp = re.search(r'<div class="article-footer-qr"[^>]*>.*?<p>(.*?)</p>', region, re.S)
-        if qp:
-            copy = re.sub(r'<[^>]+>', '', qp.group(1)).strip()
-            if copy != CANON_QR_COPY:
-                issues.append(f"{rel}: QR CTA 文案非规范（「{copy}」）")
+        # v2 规范（2026-09-27）：块用 afq-* 结构，无旧「关注公众号」导流号召；
+        # 文案以 afq-line 为准（旧 v0 的 <p>关注公众号…</p> 已废弃，不再作基准）。
+        qr_block = region[qr_m.start():qr_m.start() + 1500]
+        if '关注公众号' in qr_block:
+            issues.append(f"{rel}: .article-footer-qr 仍含旧「关注公众号」导流号召（v2 已删除）")
+        lm = re.search(r'class="afq-line"[^>]*>(.*?)</div>', region, re.S)
+        if not lm:
+            issues.append(f"{rel}: .article-footer-qr 缺少 afq-line（v2 规范结构）")
+        else:
+            line_text = re.sub(r'<[^>]+>', '', lm.group(1)).strip()
+            if line_text != CANON_QR_LINE:
+                issues.append(f"{rel}: QR afq-line 文案非规范（应为「{CANON_QR_LINE}」）")
 
     # 5) references 块
     if re.search(r'class="[^"]*(?:source-note|article-sources)[^"]*"', region):

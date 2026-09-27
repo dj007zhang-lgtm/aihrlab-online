@@ -13,14 +13,7 @@
               .article-banner  (WebP首屏图)
               .article-body     (正文 + h2/h3/blockquote/ul/table)
                 └─ .inline-related  (内联延伸阅读，降跳出率)
-              .related-reading     (相关阅读，5条上限)
-              .article-footer-qr   (公众号二维码)
-  ═══════════════════════════════════════════════════════
--->
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+              .related-reading     (相关阅读，5条上限)document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 
   <!-- ===== 预连接 ===== -->
   
@@ -77,24 +70,7 @@
     来源：prototype-reading-experience.html Prototype ② 单篇
     作用域说明：
       - .article-header / .article-body 包含所有文章内容区样式
-      - .related-reading / .article-footer-qr 尾页样式
-      - 所有尾页区块必须在 .article-body 的 </div> 之内！
-    ════════════════════════════════════════
-  -->
-  
-
-  <!-- ===== Schema.org Article JSON-LD ===== -->
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "DISC行为风格测试：AI时代还测对了什么",
-  "description": "DISC 测的是人在纯人际网络里的风格。当 AI agent 成为团队节点，行为风格预测力正在失效。本文拆解它还能信哪里、该补什么。",
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://www.aihrlab.online/assets/images/banners/ai-talent-profile-reconstruction-2026.webp",
-    "width": 1216,
-    "height": 832
-  },
+      - .related-reading /,
   "author": {
     "@type": "Person",
     "name": "Andy Zhang",
@@ -309,7 +285,7 @@
       </ul>
     </section>
 
-    <!-- ★ 公众号二维码（CTA 固定文案）★ -->
+    
     <!--NEXT_PATH_START-->
 <section class="next-path" aria-label="读完这篇之后的路径">
   <h2 class="next-path__title">读完这篇，下一步</h2>
@@ -321,17 +297,19 @@
     <li class="next-path__item"><a class="next-path__link" href="/ask/" data-track="next_path_click" data-target-type="copilot">基于 AIHR 全部文章的 AI 问答</a><span class="next-path__note">站内 AI 问答 · 基于本站文章作答并附来源</span></li>
   </ol>
 </section>
-<!--NEXT_PATH_END-->
-<div class="article-footer-qr">
-      <img decoding="async" loading="lazy"
-           alt="AIHR数智引擎公众号二维码"
-           src="/assets/images/qrcode-wechat.webp"
-           width="160" height="160">
-      <p>关注公众号，获取 AI 时代 HR 变革一手分析</p>
-    </div><section class="verified-sources" aria-label="参考信源"><h2 class="verified-sources__title">参考信源</h2><ul class="verified-sources__list"><li class="verified-sources__item"><a class="verified-sources__link" href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">The 2026 AI Index Report</a><span class="verified-sources__meta">Stanford HAI · 2026</span></li></ul></section>
+<!--NEXT_PATH_END--><section class="verified-sources" aria-label="参考信源"><h2 class="verified-sources__title">参考信源</h2><ul class="verified-sources__list"><li class="verified-sources__item"><a class="verified-sources__link" href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">The 2026 AI Index Report</a><span class="verified-sources__meta">Stanford HAI · 2026</span></li></ul></section>
 
   </div><!-- /.article-body （尾页区块必须在此标签之前闭合！）-->
-<aside class="toc-rail"><nav class="toc"><h4>目录</h4><ol><li><a href="#s1">一、马斯顿画了四个维度，但没画组织</a></li><li><a href="#s2">二、DISC为什么在纯人团队里好用</a></li><li><a href="#s3">三、当 AI agent 坐进团队，风格预测力开始漏</a></li><li><a href="#s4">四、三个被AI改写的底层假设</a></li><li><a href="#s5">五、从测风格到测编排力</a></li><li><a href="#s6">节标题（自动带分隔线）</a></li></ol></nav></aside></article>
+<aside class="toc-rail"><nav class="toc"><h4>目录</h4><ol><li><a href="#s1">一、马斯顿画了四个维度，但没画组织</a></li><li><a href="#s2">二、DISC为什么在纯人团队里好用</a></li><li><a href="#s3">三、当 AI agent 坐进团队，风格预测力开始漏</a></li><li><a href="#s4">四、三个被AI改写的底层假设</a></li><li><a href="#s5">五、从测风格到测编排力</a></li><li><a href="#s6">节标题（自动带分隔线）</a></li></ol></nav></aside>
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
+</article>
 </main>
 
 <!-- ===== 站点 Footer ===== -->

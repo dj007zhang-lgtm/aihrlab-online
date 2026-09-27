@@ -65,9 +65,9 @@
       <p>基于 Holland 经典的 RIASEC 兴趣理论，从 <b>实际 / 研究 / 艺术 / 社会 / 企业 / 常规</b> 六个维度出发，并包含 <b>技术型 T</b> 维度，帮助你看清自己的职业兴趣倾向与适合的发展方向。</p>
       <div class="cta">
         <button class="btn" onclick="startTest('free')">免费体验版 · 21 题</button>
-        <button class="btn btn-ghost" onclick="openFull()">完整版 · 63 题 🔬</button>
+        <button class="btn btn-ghost" onclick="openFull()">完整版 · 63 题</button>
       </div>
-      <div class="mini">免费版看七维兴趣轮廓 · 关注公众号免费解锁完整版 63 题深度诊断书</div>
+      <div class="mini">免费版看七维兴趣轮廓 · 完整版 63 题深度诊断书可随时解锁</div>
     </div>
   </section>
 
@@ -274,7 +274,7 @@ function renderFree(res){
      '<div class="kl"><span class="ki">🔬</span><div><b>主导型深读</b><span>岗位方向 + 可迁移能力 + 与 AI 协作话术</span></div></div>'+
      '<div class="kl"><span class="ki">🗂️</span><div><b>七型职业索引</b><span>动态岗位方向，不贴过时标签</span></div></div>'+
      '<div class="kl"><span class="ki">🧭</span><div><b>行动清单</b><span>从「找职业」到「练能力 + 与 AI 协作」</span></div></div>'+
-     '</div><button class="btn" onclick="unlockFull()">关注公众号 · 免费解锁完整版 →</button></div>';
+     '</div><button class="btn" onclick="unlockFull()">解锁完整版 →</button></div>';
   $('freeArea').innerHTML=h; $('fullArea').innerHTML='';
 }
 
@@ -300,13 +300,10 @@ function renderFull(res){
   $('fullArea').innerHTML=h; $('freeArea').innerHTML='';
 }
 
-function openFull(){
-  if(lsGet(KEY_UNLOCK)==='1'){ startTest('full'); }
-  else { openUnlockModal(); }
-}
+function openFull(){ startTest('full'); }
 function unlockFull(){
-  if(lsGet(KEY_UNLOCK)==='1'){ startTest('full'); return; }
-  openUnlockModal();
+  lsSet(KEY_UNLOCK,'1'); UNLOCKED=true;
+  startTest('full');
 }
 function openUnlockModal(){
   $('qrImg').src=OFFICIAL_QR;
@@ -378,13 +375,17 @@ renderDims();
     </ul>
   </div>
 </div></section>
-
-<section class="article-footer-qr">
-  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
-  <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多测评与 AI+HR 深度解读，在公众号持续更新</p>
-</section>
 <script src="/assets/js/main.js" defer></script>
 
   <script src="/assets/js/content-protect.js" defer></script>
+
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
 </body>
 </html>

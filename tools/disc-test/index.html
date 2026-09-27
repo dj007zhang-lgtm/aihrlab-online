@@ -633,7 +633,7 @@ function renderFree(res){
       <div class="kl"><span class="ki">💞</span><div><b>关系密码</b><span>亲密关系与友谊深度指南</span></div></div>
       <div class="kl"><span class="ki">🧭</span><div><b>发展蓝图</b><span>基于你风格的刻意练习清单</span></div></div>
     </div>
-    <button class="btn" onclick="unlockFull()">扫码解锁 / 购买完整版 →</button>
+    <button class="btn" onclick="unlockFull()">解锁完整版 →</button>
   </div>`;
   $('freeArea').innerHTML=h; $('fullArea').innerHTML='';
 }
@@ -694,12 +694,8 @@ function renderFull(res){
 }
 
 function unlockFull(){
-  if(lsGet(KEY_UNLOCK)){ renderFull(score()); $('freeArea').innerHTML=''; showToast('已解锁完整版 🎉'); return; }
-  $('qrImg').src=OFFICIAL_QR;
-  $('modalTitle').textContent='扫码解锁完整版';
-  $('modalDesc').innerHTML='关注公众号「AI HR数智引擎」，免费解锁完整版深度行为诊断书：<br>行为风格仪表盘 · 职场协同密码 · 关系密码 · 发展蓝图（完整版共 40 题）。';
-  $('payBtn').style.display = PAY_URL? 'block':'none';
-  $('modalMask').classList.add('show');
+  lsSet(KEY_UNLOCK,'1'); UNLOCKED=true;
+  renderFull(score()); $('freeArea').innerHTML=''; showToast('已解锁完整版 🎉');
 }
 function confirmUnlock(){
   lsSet(KEY_UNLOCK,'1'); UNLOCKED=true;
@@ -780,13 +776,16 @@ $('modalMask').addEventListener('click',e=>{ if(e.target===$('modalMask')) $('mo
     </ul>
   </section>
 
-
-<section class="article-footer-qr">
-  <img decoding="async" loading="lazy" alt="AIHR数智引擎公众号二维码" height="150" src="/assets/images/qrcode-wechat.webp" style="border-radius:8px;" width="150"/>
-  <p style="margin-top:1rem;font-size:0.95rem;color:#6b7280;">测完别忘了关注 <strong>AIHR数智引擎</strong><br/>更多行为风格解读与 AI+HR 工具，在公众号持续更新</p>
-</section>
-
 <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/content-protect.js" defer></script>
+
+<div class="article-footer-qr">
+  <img src="/assets/images/qrcode-wechat.webp" alt="AIHR数智引擎公众号二维码" width="128" height="128" loading="lazy">
+  <div class="afq-body">
+    <div class="afq-eyebrow">AIHR 数智引擎 · 公众号</div>
+    <div class="afq-line">AI 时代组织变革与 HR 转型的深度分析</div>
+    <div class="afq-note">每周更新 · 与站点文章同源</div>
+  </div>
+</div>
 </body>
 </html>
