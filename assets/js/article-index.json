@@ -1,39 +1,5 @@
 [
   {
-    "title": "AI 重排 HR 三支柱：事务瘦身，专家升维",
-    "url": "ai-hr-three-pillar-model-2026",
-    "category": "核心方法论",
-    "date": "2026-09-11",
-    "tags": [
-      "HR三支柱",
-      "Ulrich模型",
-      "共享服务中心",
-      "COE",
-      "HRBP",
-      "AI重塑HR",
-      "HR运营模式",
-      "三支柱模型",
-      "组织设计"
-    ]
-  },
-  {
-    "title": "跨文化团队：权力距离不靠翻译解决",
-    "url": "cross-cultural-team-management-2026",
-    "category": "组织变革",
-    "date": "2026-09-10",
-    "tags": [
-      "跨文化团队",
-      "权力距离",
-      "全球虚拟团队",
-      "文化智力",
-      "决策权",
-      "互动协议",
-      "心理安全",
-      "出海组织",
-      "AI翻译"
-    ]
-  },
-  {
     "title": "2026HR转型：成为组织的首席架构师",
     "url": "2026-hr-transformation-chief-architect",
     "category": "组织变革",
@@ -53,18 +19,6 @@
     "tags": [
       "组织变革",
       "AI转型"
-    ]
-  },
-  {
-    "title": "Agent时代的组织架构：从层级到网络",
-    "url": "agent-era-org-structure-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "组织扁平化",
-      "AI转型",
-      "智能体"
     ]
   },
   {
@@ -130,17 +84,6 @@
     "tags": []
   },
   {
-    "title": "AI时代的CEO新职责：从决策者到架构师",
-    "url": "ai-ceo-new-responsibility-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "智能体",
-      "领导力"
-    ]
-  },
-  {
     "title": "AI变革推不动？HR你要明白：算法再精，不如人心安",
     "url": "ai-change-hr-heart",
     "category": "组织变革",
@@ -192,17 +135,6 @@
     ]
   },
   {
-    "title": "AI协作工具矩阵：2026年企业选择指南",
-    "url": "ai-collaboration-tools-matrix-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型",
-      "远程与混合办公"
-    ]
-  },
-  {
     "title": "AI时代薪酬设计：从岗位定价到技能定价的范式转移",
     "url": "ai-compensation-design-guide-2026",
     "category": "薪酬与激励 / AI工具",
@@ -221,6 +153,15 @@
       "组织变革",
       "绩效变革",
       "员工体验"
+    ]
+  },
+  {
+    "title": "AI 用工的数据隐私红线：员工的数据归谁",
+    "url": "ai-employee-data-privacy-2026",
+    "category": "核心方法论",
+    "date": "2026-09-20",
+    "tags": [
+      "治理与伦理"
     ]
   },
   {
@@ -248,6 +189,76 @@
     "date": "2026-08-22",
     "tags": [
       "人才战略"
+    ]
+  },
+  {
+    "title": "AI 时代，DEI 为什么更难做也更重要",
+    "url": "ai-era-dei-2026",
+    "category": "核心方法论",
+    "date": "2026-09-26",
+    "tags": [
+      "人才战略"
+    ]
+  },
+  {
+    "title": "AI 时代，员工能动性去哪了",
+    "url": "ai-era-employee-agency-2026",
+    "category": "核心方法论",
+    "date": "2026-09-27",
+    "tags": [
+      "绩效变革"
+    ]
+  },
+  {
+    "title": "AI 时代，你的倦怠是被设计出来的",
+    "url": "ai-era-employee-burnout-designed-2026",
+    "category": "核心方法论",
+    "date": "2026-10-01",
+    "tags": [
+      "绩效变革"
+    ]
+  },
+  {
+    "title": "AI 时代，员工的数据权利为何形同虚设",
+    "url": "ai-era-employee-data-rights-2026",
+    "category": "核心方法论",
+    "date": "2026-10-02",
+    "tags": []
+  },
+  {
+    "title": "AI 替代焦虑下，员工的心理契约为何断裂",
+    "url": "ai-era-employee-psychological-contract-2026",
+    "category": "核心方法论",
+    "date": "2026-10-04",
+    "tags": [
+      "提示词工程"
+    ]
+  },
+  {
+    "title": "AI 时代，心理安全为何成了组织稀缺品",
+    "url": "ai-era-employee-psychological-safety-2026",
+    "category": "核心方法论",
+    "date": "2026-09-21",
+    "tags": []
+  },
+  {
+    "title": "AI 改写岗位后，人凭什么留下",
+    "url": "ai-era-employee-retention-2026",
+    "category": "组织变革",
+    "date": "2026-09-13",
+    "tags": [
+      "组织变革",
+      "AI裁员"
+    ]
+  },
+  {
+    "title": "AI 时代，员工为什么选择沉默",
+    "url": "ai-era-employee-voice-silence-2026",
+    "category": "组织变革",
+    "date": "2026-09-17",
+    "tags": [
+      "组织变革",
+      "测评工具"
     ]
   },
   {
@@ -280,6 +291,25 @@
     ]
   },
   {
+    "title": "AI 时代，组织公民行为正在消失吗",
+    "url": "ai-era-organizational-citizenship-2026",
+    "category": "组织变革",
+    "date": "2026-09-18",
+    "tags": [
+      "组织变革"
+    ]
+  },
+  {
+    "title": "AI 时代，组织信任正在被重写",
+    "url": "ai-era-organizational-trust-2026",
+    "category": "组织变革",
+    "date": "2026-09-14",
+    "tags": [
+      "组织变革",
+      "AI裁员"
+    ]
+  },
+  {
     "title": "AI时代的能力重构：从技能到判断力",
     "url": "ai-era-skill-rebuild-judgment-2026",
     "category": "AI转型",
@@ -291,14 +321,14 @@
     ]
   },
   {
-    "title": "AI伦理治理：企业如何建立负责任的AI系统",
-    "url": "ai-ethics-governance-enterprise-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
+    "title": "技能鸿沟是组织设计债，不是个人能力缺口",
+    "url": "ai-era-skills-divide-2026",
+    "category": "核心方法论",
+    "date": "2026-10-03",
     "tags": [
+      "大厂实践",
       "组织变革",
-      "AI转型",
-      "治理与伦理"
+      "技能优先"
     ]
   },
   {
@@ -349,7 +379,7 @@
     ]
   },
   {
-    "title": "AI治理框架：企业必须跨过的三道关——从合规到信任",
+    "title": "AI治理框架：企业必须跨过的三道关，从合规到信任",
     "url": "ai-governance-framework-2026",
     "category": "组织变革 / AI治理",
     "date": "2026-08-23",
@@ -437,9 +467,9 @@
     ]
   },
   {
-    "title": "AI落地HR实战：314家企业验证的3个高ROI切入点",
+    "title": "AI落地HR实战：德勤2026调研验证的3个高ROI切入点",
     "url": "ai-hr-landing-3-high-roi-plays",
-    "category": "AI转型",
+    "category": "研究报告",
     "date": "2026-07-01",
     "tags": [
       "AI转型",
@@ -465,6 +495,35 @@
     "tags": [
       "治理与伦理",
       "HR转型"
+    ]
+  },
+  {
+    "title": "AI 重写 HR 共享服务：集中化的终点",
+    "url": "ai-hr-shared-services-2026",
+    "category": "组织变革",
+    "date": "2026-09-15",
+    "tags": [
+      "组织变革"
+    ]
+  },
+  {
+    "title": "AI 重排 HR 三支柱：事务瘦身，专家升维",
+    "url": "ai-hr-three-pillar-model-2026",
+    "category": "核心方法论",
+    "date": "2026-09-11",
+    "tags": [
+      "HR转型"
+    ]
+  },
+  {
+    "title": "AI 出海 HR：先过监管，再过效率",
+    "url": "ai-in-overseas-hr-2026",
+    "category": "组织变革",
+    "date": "2026-09-09",
+    "tags": [
+      "人才战略",
+      "AI转型",
+      "治理与伦理"
     ]
   },
   {
@@ -569,28 +628,6 @@
     ]
   },
   {
-    "title": "AI时代的领导力发展：从管理到赋能",
-    "url": "ai-leadership-development-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型",
-      "领导力"
-    ]
-  },
-  {
-    "title": "组织变革的AI杠杆：用技术推动结构性转型",
-    "url": "ai-leverage-org-transformation-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
     "title": "AI 素养是什么：从工具技能到组织能力的跃迁",
     "url": "ai-literacy-org-capability-2026",
     "category": "组织变革",
@@ -645,11 +682,11 @@
   {
     "title": "AI 原生组织的决策权：谁还在拍板",
     "url": "ai-native-decision-rights-2026",
-    "category": "AI组织变革",
+    "category": "AI原生组织",
     "date": "2026-09-05",
     "tags": [
-      "AI原生组织",
       "大厂实践",
+      "AI原生组织",
       "智能体"
     ]
   },
@@ -717,17 +754,6 @@
     ]
   },
   {
-    "title": "AI原生组织的十种形态：从创业公司到巨头",
-    "url": "ai-native-org-forms-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
     "title": "AI原生企业不是转型：HR必须理解的第三种范式",
     "url": "ai-native-org-hr-2026",
     "category": "AI组织变革",
@@ -785,17 +811,6 @@
     ]
   },
   {
-    "title": "AI原生组织的十项修炼：从理念到实践",
-    "url": "ai-native-org-practice-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
     "title": "AI原生组织设计：从「工具升级」到「范式重构」",
     "url": "ai-native-organizational-design-2026",
     "category": "组织变革",
@@ -805,18 +820,6 @@
       "AI转型",
       "AI原生组织",
       "测评工具"
-    ]
-  },
-  {
-    "title": "AI原生招聘：从筛选到匹配的范式转移",
-    "url": "ai-native-recruitment-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "人才战略",
-      "AI转型"
     ]
   },
   {
@@ -900,28 +903,6 @@
     ]
   },
   {
-    "title": "AI时代的绩效革命：从KPI到OKR到价值流",
-    "url": "ai-performance-revolution-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "绩效变革",
-      "AI转型"
-    ]
-  },
-  {
-    "title": "AI产品发布节奏：组织能力的体温计",
-    "url": "ai-product-release-rhythm-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
     "title": "2026中国科技大厂AI产品动态全景：发布节奏暴露组织范式",
     "url": "ai-product-release-rhythm-org-health-2026",
     "category": "大厂实践 / AI转型",
@@ -1000,17 +981,6 @@
     ]
   },
   {
-    "title": "AI时代的技能重塑：从岗位到能力的范式转移",
-    "url": "ai-skill-rebuild-paradigm-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "技能优先",
-      "智能体"
-    ]
-  },
-  {
     "title": "技能本位组织：当 AI 把岗位拆成能力模块",
     "url": "ai-skills-based-org-2026",
     "category": "组织变革",
@@ -1052,18 +1022,6 @@
     ]
   },
   {
-    "title": "AI时代的人才评估革命：从简历到技能图谱",
-    "url": "ai-talent-assessment-revolution-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "人才战略",
-      "技能优先",
-      "智能体"
-    ]
-  },
-  {
     "title": "AI时代人才画像重构：岗位能力模型怎么变",
     "url": "ai-talent-profile-reconstruction-2026",
     "category": "组织变革",
@@ -1087,18 +1045,6 @@
     ]
   },
   {
-    "title": "AI人才争夺战：2026年大厂薪酬战背后",
-    "url": "ai-talent-war-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "人才战略",
-      "AI转型"
-    ]
-  },
-  {
     "title": "AI 时代的工作再设计：为什么管理单元该从岗位下沉到任务",
     "url": "ai-task-level-work-redesign-2026",
     "category": "AI组织变革",
@@ -1107,16 +1053,6 @@
       "AI原生组织",
       "大厂实践",
       "人才战略"
-    ]
-  },
-  {
-    "title": "AI转型的十大失败模式：从技术债到文化债",
-    "url": "ai-transformation-failures-2026",
-    "category": "AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI转型",
-      "组织变革"
     ]
   },
   {
@@ -1130,15 +1066,12 @@
     ]
   },
   {
-    "title": "算法公平性审计：HR如何检测招聘AI的偏见",
-    "url": "algorithm-fairness-audit-hr-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
+    "title": "算法管理下，一线劳动者的权利边界",
+    "url": "algorithmic-management-worker-rights-2026",
+    "category": "组织变革",
+    "date": "2026-09-16",
     "tags": [
-      "组织变革",
-      "人才战略",
-      "AI转型",
-      "治理与伦理"
+      "组织变革"
     ]
   },
   {
@@ -1278,28 +1211,6 @@
     ]
   },
   {
-    "title": "大厂AI组织变革复盘：成功与失败的边界",
-    "url": "bigtech-ai-org-lessons-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
-    "title": "2026大厂AI产品竞速：微软谷歌Meta字节谁最快",
-    "url": "bigtech-ai-product-race-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
     "title": "大厂 AI 产品陷阱：过度包装与真实价值的错位",
     "url": "bigtech-ai-product-traps-2026",
     "category": "组织变革 / AI治理",
@@ -1408,7 +1319,7 @@
     ]
   },
   {
-    "title": "字节绩效评估变了:从现金奖金到股权绑定",
+    "title": "字节绩效评估变了：从现金奖金到股权绑定",
     "url": "bytedance-performance-review-2026",
     "category": "大厂组织变革",
     "date": "2026-07-20",
@@ -1469,15 +1380,12 @@
     ]
   },
   {
-    "title": "CHRO在AI转型中的核心角色：从人事到战略",
-    "url": "chro-ai-transformation-role-2026",
-    "category": "AI转型",
-    "date": "2026-08-18",
+    "title": "跨文化团队：权力距离不靠翻译解决",
+    "url": "cross-cultural-team-management-2026",
+    "category": "组织变革",
+    "date": "2026-09-10",
     "tags": [
-      "AI转型",
-      "组织变革",
-      "智能体",
-      "领导力"
+      "组织变革"
     ]
   },
   {
@@ -1545,17 +1453,6 @@
     ]
   },
   {
-    "title": "数字员工管理指南：从雇佣到协作",
-    "url": "digital-employee-management-guide-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型",
-      "智能体"
-    ]
-  },
-  {
     "title": "数字化人员组织架构图：从静态PPT到实时组织数据流",
     "url": "digital-org-chart-2026",
     "category": "组织变革",
@@ -1610,7 +1507,7 @@
     ]
   },
   {
-    "title": "AI时代，德鲁克依然是答案——只是问题变了",
+    "title": "AI时代，德鲁克依然是答案，只是问题变了",
     "url": "drucker-ai-era-answer",
     "category": "核心方法论",
     "date": "2026-04-08",
@@ -1618,6 +1515,15 @@
       "组织变革",
       "AI转型",
       "HR转型"
+    ]
+  },
+  {
+    "title": "AI 时代，员工为什么既轻信又戒备",
+    "url": "employee-ai-trust-calibration-2026",
+    "category": "组织变革",
+    "date": "2026-09-19",
+    "tags": [
+      "组织变革"
     ]
   },
   {
@@ -1643,17 +1549,6 @@
     ]
   },
   {
-    "title": "企业AI治理框架：从合规到战略",
-    "url": "enterprise-ai-governance-framework-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型",
-      "治理与伦理"
-    ]
-  },
-  {
     "title": "AI 抬高了初级岗位的门槛，中层三年后从哪来",
     "url": "entry-level-jobs-ai-talent-pipeline-2026",
     "category": "组织变革",
@@ -1661,6 +1556,16 @@
     "tags": [
       "组织变革",
       "组织扁平化"
+    ]
+  },
+  {
+    "title": "名义雇主（EOR）：合规的过渡，不是终局",
+    "url": "eor-employer-of-record-2026",
+    "category": "组织变革",
+    "date": "2026-09-10",
+    "tags": [
+      "组织变革",
+      "治理与伦理"
     ]
   },
   {
@@ -1683,6 +1588,17 @@
       "AI转型",
       "治理与伦理",
       "测评工具"
+    ]
+  },
+  {
+    "title": "外派还是本地化：人才策略的钟摆",
+    "url": "expatriate-vs-localization-2026",
+    "category": "组织变革",
+    "date": "2026-09-10",
+    "tags": [
+      "组织变革",
+      "人才战略",
+      "远程与混合办公"
     ]
   },
   {
@@ -1740,6 +1656,18 @@
     ]
   },
   {
+    "title": "全球薪酬：公平感与本地市场价的政治",
+    "url": "global-compensation-design-2026",
+    "category": "组织变革",
+    "date": "2026-09-10",
+    "tags": [
+      "组织变革",
+      "人才战略",
+      "技能优先",
+      "AI转型"
+    ]
+  },
+  {
     "title": "出海2.0：全球人才供应链与本地化合规用工",
     "url": "global-talent-supply-chain-2026",
     "category": "组织变革 · 全球化人才",
@@ -1760,29 +1688,6 @@
       "AI裁员",
       "组织变革",
       "HR转型"
-    ]
-  },
-  {
-    "title": "谷歌的AI组织实验：Waymo和DeepMind的两种范式",
-    "url": "google-ai-org-experiment-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "智能体"
-    ]
-  },
-  {
-    "title": "谷歌AI人才战略：从校园招聘到内部重构",
-    "url": "google-ai-talent-strategy-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "人才战略",
-      "智能体"
     ]
   },
   {
@@ -1827,28 +1732,6 @@
     ]
   },
   {
-    "title": "HR Agent实战指南：从概念验证到组织落地",
-    "url": "hr-agent-practical-guide-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型",
-      "智能体"
-    ]
-  },
-  {
-    "title": "HR Agent ROI测算：80%企业说的 vs 88%企业做的",
-    "url": "hr-agent-roi-reality-2026",
-    "category": "AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI转型",
-      "组织变革",
-      "智能体"
-    ]
-  },
-  {
     "title": "HR如何说服老板投资AI：从成本账到价值账",
     "url": "hr-ai-investment-case-2026",
     "category": "AI转型",
@@ -1870,16 +1753,6 @@
     ]
   },
   {
-    "title": "AI转型的HR路线图：从规划到落地的90天",
-    "url": "hr-ai-transition-roadmap-2026",
-    "category": "AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI转型",
-      "组织变革"
-    ]
-  },
-  {
     "title": "HR 怎么用大五人格做招聘初筛",
     "url": "hr-bigfive-recruitment-screening",
     "category": "组织变革",
@@ -1889,6 +1762,18 @@
       "绩效变革",
       "人才战略",
       "测评工具"
+    ]
+  },
+  {
+    "title": "HR 数据治理：AI 时代谁为数据负责",
+    "url": "hr-data-governance-2026",
+    "category": "核心方法论",
+    "date": "2026-09-12",
+    "tags": [
+      "组织变革",
+      "绩效变革",
+      "人才战略",
+      "治理与伦理"
     ]
   },
   {
@@ -1966,25 +1851,6 @@
     ]
   },
   {
-    "title": "人机协同的边界：何时该用AI，何时该用人",
-    "url": "human-ai-boundary-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "AI转型"
-    ]
-  },
-  {
-    "title": "人机协同的十种模式：从辅助到共生",
-    "url": "human-ai-collaboration-models-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革"
-    ]
-  },
-  {
     "title": "效率、判断力与组织记忆：配平你的人机协作方程式",
     "url": "human-ai-equation",
     "category": "组织变革",
@@ -1997,6 +1863,15 @@
     ]
   },
   {
+    "title": "AI 进了团队：人机混编团队的治理与问责",
+    "url": "human-ai-mixed-team-governance-2026",
+    "category": "核心方法论",
+    "date": "2026-09-25",
+    "tags": [
+      "治理与伦理"
+    ]
+  },
+  {
     "title": "活水不是福利：腾讯3个月开闸，字节仅35%流得动",
     "url": "huoshui-plan-2026",
     "category": "大厂组织变革",
@@ -2005,15 +1880,6 @@
       "大厂实践",
       "绩效变革",
       "人才战略"
-    ]
-  },
-  {
-    "title": "混合办公的AI赋能：从灵活到高效",
-    "url": "hybrid-work-ai-enablement-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "远程与混合办公"
     ]
   },
   {
@@ -2153,7 +2019,7 @@
   {
     "title": "麦肯锡 18 种原子能力：为什么清单列完，组织还是不会用",
     "url": "mckinsey-atomic-capabilities-2026",
-    "category": "研究报告",
+    "category": "组织变革",
     "date": "2026-09-03",
     "tags": [
       "组织变革",
@@ -2382,38 +2248,6 @@
     ]
   },
   {
-    "title": "组织韧性测试：AI时代企业的危机应对能力",
-    "url": "org-resilience-ai-era-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "智能体"
-    ]
-  },
-  {
-    "title": "从Netflix到微软：企业韧性文化的两种路径",
-    "url": "org-resilience-culture-compare-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "大厂实践",
-      "组织变革",
-      "智能体"
-    ]
-  },
-  {
-    "title": "组织变革的成本核算：AI投资的真实回报",
-    "url": "org-transformation-cost-roi-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "AI原生组织",
-      "组织变革",
-      "智能体"
-    ]
-  },
-  {
     "title": "AI时代组织文化债务：为什么88%的企业部署了AI，75%却未能建立高绩效文化",
     "url": "organizational-culture-debt-2026",
     "category": "组织变革 / 文化转型",
@@ -2458,13 +2292,54 @@
     ]
   },
   {
+    "title": "出海管控模式：总部、区域、本地怎么分权",
+    "url": "overseas-control-model-2026",
+    "category": "组织变革",
+    "date": "2026-09-09",
+    "tags": [
+      "组织变革"
+    ]
+  },
+  {
+    "title": "海外用工合规：红线不在清单，在治理模式",
+    "url": "overseas-employment-compliance-2026",
+    "category": "组织变革",
+    "date": "2026-09-09",
+    "tags": [
+      "组织变革",
+      "人才战略",
+      "治理与伦理"
+    ]
+  },
+  {
     "title": "出海 HR 从 0 到 1：先搭组织能力，再招人",
     "url": "overseas-hr-build-from-zero-2026",
     "category": "组织变革",
-    "date": "2026-09-05",
+    "date": "2026-09-08",
     "tags": [
       "组织变革",
       "人才战略"
+    ]
+  },
+  {
+    "title": "出海 HR 度量：先量对，再谈好",
+    "url": "overseas-hr-metrics-2026",
+    "category": "组织变革",
+    "date": "2026-09-09",
+    "tags": [
+      "AI裁员",
+      "绩效变革",
+      "治理与伦理",
+      "员工体验"
+    ]
+  },
+  {
+    "title": "海外劳动风险：解雇难度决定组织韧性",
+    "url": "overseas-labor-risk-2026",
+    "category": "组织变革",
+    "date": "2026-09-10",
+    "tags": [
+      "组织变革"
     ]
   },
   {
@@ -2546,18 +2421,6 @@
     ]
   },
   {
-    "title": "技能本位组织：AI如何重写人才定价逻辑",
-    "url": "skill-based-org-ai-pricing-2026",
-    "category": "组织变革 / AI转型",
-    "date": "2026-08-18",
-    "tags": [
-      "组织变革",
-      "人才战略",
-      "技能优先",
-      "智能体"
-    ]
-  },
-  {
     "title": "技能本位组织：岗位制失灵后怎么重搭",
     "url": "skills-based-organization-2026",
     "category": "组织变革",
@@ -2594,6 +2457,16 @@
     "date": "2026-08-20",
     "tags": [
       "AI转型"
+    ]
+  },
+  {
+    "title": "战略人力规划失效：不是算不准，是算错对象",
+    "url": "strategic-workforce-planning-ai-2026",
+    "category": "核心方法论",
+    "date": "2026-09-09",
+    "tags": [
+      "人才战略",
+      "领导力"
     ]
   },
   {
@@ -2780,420 +2653,6 @@
       "AI原生组织",
       "组织变革",
       "领导力"
-    ]
-  },
-  {
-    "title": "战略人力规划失效：不是算不准，是算错对象",
-    "url": "strategic-workforce-planning-ai-2026",
-    "category": "核心方法论",
-    "date": "2026-09-09",
-    "tags": [
-      "战略人力规划",
-      "能力推演",
-      "技能可见性",
-      "工作重设计"
-    ]
-  },
-  {
-    "title": "海外用工合规：红线不在清单，在治理模式",
-    "url": "overseas-employment-compliance-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "海外用工合规",
-      "出海合规",
-      "欧盟AI法案",
-      "GDPR",
-      "误分类",
-      "EOR",
-      "高风险系统",
-      "协同决定权"
-    ]
-  },
-  {
-    "title": "出海管控模式：总部、区域、本地怎么分权",
-    "url": "overseas-control-model-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "出海管控模式",
-      "全球化组织",
-      "分权",
-      "跨国模型",
-      "矩阵结构",
-      "联邦模式",
-      "闻泰",
-      "协同决定权"
-    ]
-  },
-  {
-    "title": "全球薪酬：公平感与本地市场价的政治",
-    "url": "global-compensation-design-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "全球薪酬",
-      "出海薪酬",
-      "技能定价",
-      "美世",
-      "薪酬透明度",
-      "外派薪酬",
-      "公平感",
-      "本地市场价",
-      "薪酬治理"
-    ]
-  },
-  {
-    "title": "名义雇主（EOR）：合规的过渡，不是终局",
-    "url": "eor-employer-of-record-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "名义雇主",
-      "EOR",
-      "出海雇佣",
-      "合规过渡",
-      "Deel",
-      "本地实体",
-      "组织记忆",
-      "用工身份",
-      "跨境雇佣"
-    ]
-  },
-  {
-    "title": "外派还是本地化：人才策略的钟摆",
-    "url": "expatriate-vs-localization-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "外派",
-      "本地化",
-      "人才策略",
-      "出海",
-      "外派失败率",
-      "回任",
-      "组织记忆",
-      "远程总部",
-      "本地节点"
-    ]
-  },
-  {
-    "title": "海外劳动风险：解雇难度决定组织韧性",
-    "url": "overseas-labor-risk-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "海外劳动风险",
-      "解雇难度",
-      "OECD EPL",
-      "就业保护",
-      "组织韧性",
-      "出海用工",
-      "劳动法",
-      "纠偏速度"
-    ]
-  },
-  {
-    "title": "AI 出海 HR：先过监管，再过效率",
-    "url": "ai-in-overseas-hr-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "AI出海HR",
-      "欧盟AI法案",
-      "GDPR",
-      "高风险系统",
-      "数据跨境",
-      "企业委员会",
-      "合规前置",
-      "招聘自动化"
-    ]
-  },
-  {
-    "title": "出海 HR 度量：先量对，再谈好",
-    "url": "overseas-hr-metrics-2026",
-    "category": "组织变革",
-    "date": "2026-09-09",
-    "tags": [
-      "出海HR度量",
-      "本地化率",
-      "合规事件率",
-      "EOR覆盖率",
-      "外派失败率",
-      "知识回流",
-      "跨文化绩效",
-      "HR指标"
-    ]
-  },
-  {
-    "title": "HR 数据治理：AI 时代谁为数据负责",
-    "url": "hr-data-governance-2026",
-    "category": "核心方法论",
-    "date": "2026-09-12",
-    "tags": [
-      "HR数据治理",
-      "数据治理",
-      "AI治理",
-      "组织数据",
-      "数据可信度",
-      "决策权",
-      "人力分析",
-      "新职能",
-      "AI原生组织"
-    ]
-  },
-  {
-    "title": "AI 改写岗位后，人凭什么留下",
-    "url": "ai-era-employee-retention-2026",
-    "category": "组织变革",
-    "date": "2026-09-13",
-    "tags": [
-      "AI人才留存",
-      "员工留存",
-      "AI重塑岗位",
-      "组织变革",
-      "利益分配网络",
-      "静默流失",
-      "人才再配置",
-      "人机协作",
-      "留人逻辑"
-    ]
-  },
-  {
-    "title": "AI 时代，组织信任正在被重写",
-    "url": "ai-era-organizational-trust-2026",
-    "category": "组织变革",
-    "date": "2026-09-14",
-    "tags": [
-      "AI组织信任",
-      "组织信任",
-      "算法管理",
-      "算法监控",
-      "员工信任",
-      "程序公平",
-      "透明治理",
-      "AI原生组织",
-      "信任重建"
-    ]
-  },
-  {
-    "title": "AI 重写 HR 共享服务：集中化的终点",
-    "url": "ai-hr-shared-services-2026",
-    "category": "组织变革",
-    "date": "2026-09-15",
-    "tags": [
-      "HR共享服务",
-      "共享服务中心",
-      "SSC",
-      "HR运营模型",
-      "AI agent",
-      "Tier 0 Tier 1",
-      "GBS",
-      "能力中台",
-      "AI原生组织"
-    ]
-  },
-  {
-    "title": "算法管理下，一线劳动者的权利边界",
-    "url": "algorithmic-management-worker-rights-2026",
-    "category": "组织变革",
-    "date": "2026-09-16",
-    "tags": [
-      "算法管理",
-      "劳动者权利",
-      "一线员工",
-      "算法治理",
-      "平台工指令",
-      "GDPR",
-      "欧盟AI法案",
-      "人工复核",
-      "断开连接权"
-    ]
-  },
-  {
-    "title": "AI 时代，员工为什么选择沉默",
-    "url": "ai-era-employee-voice-silence-2026",
-    "category": "组织变革",
-    "date": "2026-09-17",
-    "tags": [
-      "员工沉默",
-      "建言",
-      "算法管理",
-      "心理安全",
-      "组织聆听",
-      "AI监控",
-      "员工发声",
-      "组织信任",
-      "信息网络"
-    ]
-  },
-  {
-    "title": "AI 时代，组织公民行为正在消失吗",
-    "url": "ai-era-organizational-citizenship-2026",
-    "category": "组织变革",
-    "date": "2026-09-18",
-    "tags": [
-      "组织公民行为",
-      "AI协作",
-      "员工帮助",
-      "知识共享",
-      "心理安全",
-      "算法管理",
-      "印象管理",
-      "组织信任",
-      "利益网络"
-    ]
-  },
-  {
-    "title": "AI 时代，员工为什么既轻信又戒备",
-    "url": "employee-ai-trust-calibration-2026",
-    "category": "组织变革",
-    "date": "2026-09-19",
-    "tags": [
-      "员工信任",
-      "AI依赖",
-      "自动化偏见",
-      "算法厌恶",
-      "适当依赖",
-      "信任校准",
-      "人机协作",
-      "组织信任",
-      "算法管理"
-    ]
-  },
-  {
-    "title": "AI 用工的数据隐私红线：员工的数据归谁",
-    "url": "ai-employee-data-privacy-2026",
-    "category": "核心方法论",
-    "date": "2026-09-20",
-    "tags": [
-      "员工数据隐私",
-      "AI用工",
-      "数据权属",
-      "员工监控",
-      "GDPR",
-      "EU AI Act",
-      "数据最小化",
-      "算法问责",
-      "个人信息保护"
-    ]
-  },
-  {
-    "title": "AI 时代，心理安全为何成了组织稀缺品",
-    "url": "ai-era-employee-psychological-safety-2026",
-    "category": "核心方法论",
-    "date": "2026-09-21",
-    "tags": [
-      "心理安全",
-      "AI组织信任",
-      "算法管理",
-      "员工沉默",
-      "知识隐藏",
-      "管理者示范",
-      "心理风险",
-      "组织公民",
-      "AI原生组织"
-    ]
-  },
-  {
-    "title": "AI 进了团队：人机混编团队的治理与问责",
-    "url": "human-ai-mixed-team-governance-2026",
-    "category": "核心方法论",
-    "date": "2026-09-25",
-    "tags": [
-      "人机混编团队",
-      "AI治理",
-      "问责架构",
-      "责任归属",
-      "数字同事",
-      "AgentOps",
-      "组织设计",
-      "AI原生组织"
-    ]
-  },
-  {
-    "title": "AI 时代，DEI 为什么更难做也更重要",
-    "url": "ai-era-dei-2026",
-    "category": "核心方法论",
-    "date": "2026-09-26",
-    "tags": [
-      "DEI",
-      "多元化",
-      "公平",
-      "包容",
-      "AI招聘偏见",
-      "算法公平",
-      "组织多样性",
-      "包容性文化",
-      "AI治理",
-      "人才公平"
-    ]
-  },
-  {
-    "title": "AI 时代，员工能动性去哪了",
-    "url": "ai-era-employee-agency-2026",
-    "category": "核心方法论",
-    "date": "2026-09-27",
-    "tags": [
-      "员工能动性",
-      "工作自主权",
-      "算法管理",
-      "AI与组织",
-      "人机协作",
-      "数字赋能",
-      "组织设计",
-      "员工体验"
-    ]
-  },
-  {
-    "title": "AI 时代，你的倦怠是被设计出来的",
-    "url": "ai-era-employee-burnout-designed-2026",
-    "category": "核心方法论",
-    "date": "2026-10-01",
-    "tags": [
-      "员工倦怠",
-      "职业倦怠",
-      "工作设计",
-      "AI与组织",
-      "算法管理",
-      "信息过载",
-      "员工福祉",
-      "组织韧性",
-      "数字疲劳"
-    ]
-  },
-  {
-    "title": "AI 时代，员工的数据权利为何形同虚设",
-    "url": "ai-era-employee-data-rights-2026",
-    "category": "核心方法论",
-    "date": "2026-10-02",
-    "tags": [
-      "员工数据权利",
-      "算法管理",
-      "数据隐私",
-      "职场监控",
-      "GDPR",
-      "欧盟AI法案",
-      "员工能动性",
-      "组织治理",
-      "AI与组织"
-    ]
-  },
-  {
-    "title": "技能鸿沟是组织设计债，不是个人能力缺口",
-    "url": "ai-era-skills-divide-2026",
-    "category": "核心方法论",
-    "date": "2026-10-03",
-    "tags": [
-      "技能鸿沟",
-      "AI技能溢价",
-      "组织设计",
-      "人机协作",
-      "再培训",
-      "AI治理",
-      "职业路径",
-      "组织能力",
-      "AI与组织"
     ]
   }
 ]
