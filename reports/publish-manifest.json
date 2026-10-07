@@ -4012,5 +4012,17 @@
     ],
     "sitemap_urls_before": 334,
     "sitemap_urls_after": 334
+  },
+  {
+    "date": "2026-10-07",
+    "commit": "7069af9e7441697bb79ba03f07a5925a03963b8d",
+    "message": "fix(seo): 修复全站 meta description 孤儿标签(139篇)、清除被否决设计模式、薄内容页 noindex、重建文章索引",
+    "files_count": 198,
+    "sitemap_urls_before": 340,
+    "sitemap_urls_after": 340,
+    "indexnow": {
+      "yandex": "202 accepted 340 URLs",
+      "bing": "403 (account verification required)"
+    }
   }
 ]
