@@ -4024,5 +4024,18 @@
       "yandex": "202 accepted 340 URLs",
       "bing": "403 (account verification required)"
     }
+  },
+  {
+    "date": "2026-10-08 15:41",
+    "commit": "350d20d8eeab55ff5f56f969036850b314d1d8c6",
+    "message": "fix(seo): 从 sitemap 剔除 10 个 noindex 薄页；修正 Gate11 不再将 noindex 页误判为遗漏",
+    "files_count": 3,
+    "files": [
+      "sitemap.xml",
+      "scripts/build_sitemap.py",
+      "scripts/url_consistency_audit.py"
+    ],
+    "sitemap_urls_before": 330,
+    "sitemap_urls_after": 330
   }
 ]
