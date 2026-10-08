@@ -58,6 +58,17 @@ def is_redirect_page(relpath: str) -> bool:
     return bool(re.search(r'<meta[^>]*http-equiv\s*=\s*["\']?refresh["\']?', head, re.I))
 
 
+def has_noindex(relpath: str) -> bool:
+    """页面含 noindex 指令则排除（noindex 与 sitemap 同存会让 Bing 判质量冲突）。"""
+    p = os.path.join(ROOT, relpath)
+    try:
+        with open(p, "r", encoding="utf-8", errors="ignore") as f:
+            txt = f.read()
+    except Exception:
+        return False
+    return bool(re.search(r'<meta[^>]*name\s*=\s*["\']?robots["\']?[^>]*content\s*=\s*["\']?[^"\']*noindex', txt, re.I))
+
+
 def lastmod_for(relpath: str) -> str:
     """优先用 git 最近提交日期，失败回退到文件 mtime，再回退今天。"""
     try:
@@ -84,9 +95,9 @@ def collect() -> list:
     for fn in sorted(os.listdir(ROOT)):
         if not fn.endswith(".html"):
             continue
-        if is_excluded(fn) or is_redirect_page(fn):
-            continue
         rel = fn
+        if is_excluded(fn) or is_redirect_page(fn) or has_noindex(rel):
+            continue
         entries.append((f"{HOST}/{fn}", lastmod_for(rel)))
 
     # 2) 文章
@@ -96,7 +107,7 @@ def collect() -> list:
             if not fn.endswith(".html"):
                 continue
             rel = f"articles/{fn}"
-            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel):
+            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel) or has_noindex(rel):
                 continue
             entries.append((f"{HOST}/articles/{fn}", lastmod_for(rel)))
 
@@ -107,6 +118,8 @@ def collect() -> list:
             if not fn.endswith(".html"):
                 continue
             rel = f"tags/{fn}"
+            if is_redirect_page(rel) or has_noindex(rel):
+                continue
             entries.append((f"{HOST}/tags/{fn}", lastmod_for(rel)))
 
     # 4) 内容子目录（资源库/深度手册/测评/枢纽/词典/分类等）
@@ -131,7 +144,7 @@ def collect() -> list:
             if not fn.endswith(".html"):
                 continue
             rel = f"{d}/{fn}"
-            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel):
+            if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel) or has_noindex(rel):
                 continue
             entries.append((f"{HOST}/{d}/{fn}", lastmod_for(rel)))
 

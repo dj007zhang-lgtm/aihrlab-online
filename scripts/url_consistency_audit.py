@@ -76,6 +76,16 @@ def is_redirect_page(fpath):
         return False
 
 
+def has_noindex(fpath):
+    """页面含 noindex 指令则应被 sitemap 排除，不算遗漏。"""
+    try:
+        with open(fpath, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+        return bool(re.search(r'<meta[^>]*name\s*=\s*["\']?robots["\']?[^>]*content\s*=\s*["\']?[^"\']*noindex', content, re.I))
+    except:
+        return False
+
+
 def load_redirects():
     """加载 redirects.json"""
     rp = os.path.join(SITE_ROOT, "redirects.json")
@@ -156,6 +166,9 @@ def check_2_disk_vs_sitemap():
             continue
         # 排除重定向桩页
         if is_redirect_page(fpath):
+            continue
+        # 排除 noindex 页（本就不应进 sitemap）
+        if has_noindex(fpath):
             continue
 
         basename = os.path.basename(fpath)
