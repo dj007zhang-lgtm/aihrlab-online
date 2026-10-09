@@ -4037,5 +4037,19 @@
     ],
     "sitemap_urls_before": 330,
     "sitemap_urls_after": 330
+  },
+  {
+    "date": "2026-10-09 23:33",
+    "commit": "3a4fd6a3c23c0c1bc7e6a320ab74d4157b5ea384",
+    "message": "feat(content): 批次1扩写3篇空壳文章为深度长文(3.2k-3.9k字)并撤noindex，清除虚构数据",
+    "files_count": 4,
+    "files": [
+      "articles/ai-native-organizational-design-2026.html",
+      "articles/leadership-development-ai-era-2026.html",
+      "articles/talent-acquisition-strategy-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 333,
+    "sitemap_urls_after": 333
   }
 ]
