@@ -4084,5 +4084,35 @@
     ],
     "sitemap_urls_before": 312,
     "sitemap_urls_after": 312
+  },
+  {
+    "date": "2026-10-11 00:56",
+    "commit": "4678e3c91c6e068d93652e6d5e417050f4b2c235",
+    "message": "fix(layout): 17篇正文缺失 .article-body 容器致行宽拉满1440px；新增版式安全网（内容型容器限宽 + ch 行宽守卫 + resources/tool 内联宽度治理）",
+    "files_count": 20,
+    "files": [
+      "articles/ai-employee-data-privacy-2026.html",
+      "articles/ai-employee-engagement-commitment.html",
+      "articles/ai-employee-experience-meaning.html",
+      "articles/ai-era-dei-2026.html",
+      "articles/ai-era-employee-agency-2026.html",
+      "articles/ai-era-employee-burnout-designed-2026.html",
+      "articles/ai-era-employee-data-rights-2026.html",
+      "articles/ai-era-employee-onboarding-2026.html",
+      "articles/ai-era-employee-psychological-contract-2026.html",
+      "articles/ai-era-employee-psychological-safety-2026.html",
+      "articles/ai-era-employee-wellbeing-2026.html",
+      "articles/ai-era-productivity-metrics-2026.html",
+      "articles/ai-era-skills-divide-2026.html",
+      "articles/ai-skills-based-org-2026.html",
+      "articles/employee-ai-trust-calibration-2026.html",
+      "articles/global-talent-supply-chain-2026.html",
+      "articles/human-ai-mixed-team-governance-2026.html",
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 312,
+    "sitemap_urls_after": 312
   }
 ]
