@@ -4189,5 +4189,18 @@
     ],
     "sitemap_urls_before": 312,
     "sitemap_urls_after": 312
+  },
+  {
+    "date": "2026-10-11 01:57",
+    "commit": "2c6ca6b2c37fa1e9b50096effd20c5aab976e00a",
+    "message": "fix(layout): 收尾——约束 disc-test/holland 两页剩余超宽文本块",
+    "files_count": 3,
+    "files": [
+      "tools/disc-test/index.html",
+      "tools/holland/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 312,
+    "sitemap_urls_after": 312
   }
 ]
