@@ -4202,5 +4202,17 @@
     ],
     "sitemap_urls_before": 312,
     "sitemap_urls_after": 312
+  },
+  {
+    "date": "2026-10-11 02:12",
+    "commit": "72fd52fb0d5e019b49b8063cd45814e3adb858c7",
+    "message": "fix(layout): disc-test 全量行宽守卫，文本块统一 ≤72ch",
+    "files_count": 2,
+    "files": [
+      "tools/disc-test/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 312,
+    "sitemap_urls_after": 312
   }
 ]
