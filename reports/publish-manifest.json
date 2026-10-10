@@ -4114,5 +4114,24 @@
     ],
     "sitemap_urls_before": 312,
     "sitemap_urls_after": 312
+  },
+  {
+    "date": "2026-10-11 01:14",
+    "commit": "5c42bfc953794ecc064de2c70baca93ab7031401",
+    "message": "fix(layout): 约束剩余 8 页超宽文本块（测评工具 .sub/.pill/.mini/.lede/.foot-c + resources 说明块），行宽统一 ≤ 约34汉字/行",
+    "files_count": 9,
+    "files": [
+      "tools/bigfive/index.html",
+      "tools/disc-test/index.html",
+      "tools/mbti/index.html",
+      "tools/ai-risk-test/index.html",
+      "tools/compliance-dashboard.html",
+      "resources/ai-governance-regulations.html",
+      "tools/tarot-test/index.html",
+      "tools/holland/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 312,
+    "sitemap_urls_after": 312
   }
 ]
