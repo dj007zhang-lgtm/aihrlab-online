@@ -11,7 +11,9 @@
       "enabled": true,
       "block_on_trigger": true,
       "params": {
-        "scan_dirs": ["articles"],
+        "scan_dirs": [
+          "articles"
+        ],
         "min_para_cjk": 20,
         "min_shared_paragraphs": 8,
         "min_cluster_size": 3
@@ -21,16 +23,41 @@
       "enabled": true,
       "block_on_trigger": true,
       "params": {
-        "scan_dirs": ["articles", "resources", "tools", "products"],
+        "scan_dirs": [
+          "articles",
+          "resources",
+          "tools",
+          "products"
+        ],
         "max_words": 500,
         "warn_words": 800
+      }
+    },
+    "struct_integrity": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {}
+    },
+    "content_container": {
+      "enabled": true,
+      "block_on_trigger": true,
+      "params": {
+        "scan_dirs": [
+          "articles"
+        ]
       }
     },
     "link_doctor": {
       "enabled": true,
       "block_on_trigger": true,
       "params": {
-        "scan_dirs": ["articles", "hub", "resources", "tools", "products"],
+        "scan_dirs": [
+          "articles",
+          "hub",
+          "resources",
+          "tools",
+          "products"
+        ],
         "treat_redirect_source_as_ok": true
       }
     },
@@ -38,7 +65,9 @@
       "enabled": true,
       "block_on_trigger": true,
       "params": {
-        "scan_dirs": ["articles"],
+        "scan_dirs": [
+          "articles"
+        ],
         "desc_min_cjk": 30,
         "block_placeholder": true,
         "nav_junk_prefixes": [
@@ -54,7 +83,14 @@
       "block_on_trigger": false,
       "params": {
         "scan_sample": 40,
-        "brand_tokens": ["#5C8A2C", "#3F6212", "#F4F1EA", "#F1EFE9", "#A86A2E", "#1A1A17"],
+        "brand_tokens": [
+          "#5C8A2C",
+          "#3F6212",
+          "#F4F1EA",
+          "#F1EFE9",
+          "#A86A2E",
+          "#1A1A17"
+        ],
         "check_css_brace_balance": true
       }
     },

@@ -47,6 +47,8 @@ REPORT_JSON = os.path.join(SITE_ROOT, "reports", "qa_guardian-status.json")
 GATE_ORDER = [
     "gate_clone_detection",
     "gate_stub_detector",
+    "gate_struct_integrity",
+    "gate_content_container",
     "gate_link_doctor",
     "gate_meta_lint",
     "gate_design_asset_lint",
