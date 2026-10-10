@@ -240,6 +240,9 @@ a.link{color:var(--E);font-weight:700;text-decoration:none}
 .tribe-hero .pill2{background:var(--glass2);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:700;color:var(--ink2)}
 #tribeArea .block-sec{position:relative;overflow:hidden}
 #tribeArea .tag{background:rgba(255,255,255,.6)}
+
+    /* ── 行宽守卫（2026-10-11）：约束超宽文本块，目标 ≤ 约 34 汉字/行 ── */
+    .sub{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 
 <meta name="baidu-site-verification" content="b53ffd054b55836f535892622f1e4cc5" />

@@ -39,6 +39,9 @@
   .pill.fail { background: var(--fail); color: #fff; }
   .pill.warn { background: var(--warn); color: #000; }
   .empty { color: var(--muted); font-size: 13px; padding: 12px 0; }
+
+    /* ── 行宽守卫（2026-10-11）：约束超宽文本块，目标 ≤ 约 34 汉字/行 ── */
+    .sub{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 </head>
 <body>

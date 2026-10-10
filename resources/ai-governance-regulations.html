@@ -56,6 +56,9 @@
   .rae-foot{ text-align:center; font-size:0.75rem; color:var(--text-muted); margin:2rem 0 0; }
   :root[data-theme="dark"] .agr-row--head{ box-shadow:none; }
   @media (max-width:900px){ .agr-row{ grid-template-columns:1fr; gap:0.4rem; } .agr-row--head{ display:none; } }
+
+    /* ── 行宽守卫（2026-10-11）：约束超宽文本块，目标 ≤ 约 34 汉字/行 ── */
+    .rae-note{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
 </head>

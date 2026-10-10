@@ -446,6 +446,9 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .sb.copy{background:linear-gradient(135deg,#7EC8A0,#A0E0C0);color:#fff}
 
+
+    /* ── 行宽守卫（2026-10-11）：约束超宽文本块，目标 ≤ 约 34 汉字/行 ── */
+    .foot-c{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 <meta name="baidu-site-verification" content="b53ffd054b55836f535892622f1e4cc5" />
 <meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" />

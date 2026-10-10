@@ -234,6 +234,9 @@
 .tarot-app .foot {padding:34px 0 60px;text-align:center;color:var(--ink2);font-size:13px}
 .tarot-app .foot .row {display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
 .tarot-app .foot a {color:var(--ink2);text-decoration:none}
+
+    /* ── 行宽守卫（2026-10-11）：约束超宽文本块，目标 ≤ 约 34 汉字/行 ── */
+    .mini{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 <script src="/assets/js/analytics-loader.js" defer></script>
 <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
