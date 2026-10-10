@@ -16,6 +16,15 @@ from . import (walk_html, read, is_indexable, clean_text, count_cjk,
                rel, GateReport, Finding)
 
 
+# 占位模板标记：出现即说明正文从未真实写过（2026-10-10 主理人发现 22 篇占位壳被收录后固化）。
+# 这些壳靠页脚链接把字数堆到 500+ 绕过字数阈值，故必须按标记直接判定，与字数无关。
+PLACEHOLDER_MARKERS = [
+    "节标题（自动带分隔线）",
+    "正文段落。此处替换为您的实际内容",
+    "第二段落内容",
+]
+
+
 def run(site_root, cfg, baseline=None):
     t0 = time.time()
     p = cfg.get("params", {})
@@ -34,6 +43,13 @@ def run(site_root, cfg, baseline=None):
         wc = count_cjk(clean_text(extract_body_guard(html)))
         counts.append(wc)
         rep.metrics["scanned"] += 1
+        hit_marker = [m for m in PLACEHOLDER_MARKERS if m in html]
+        if hit_marker:
+            rep.add(Finding("BLOCK", "PLACEHOLDER-SHELL", file=rel(site_root, f),
+                            detail=f"可索引页含占位模板标记 {hit_marker}，属未写成的空壳（与字数无关，直接阻断）。"))
+            rep.metrics.setdefault("placeholder_shell", 0)
+            rep.metrics["placeholder_shell"] += 1
+            continue
         if wc < max_words:
             rep.add(Finding("BLOCK", "THIN-CONTENT", file=rel(site_root, f),
                             detail=f"可索引页正文仅 {wc} 字（< {max_words}），属实质桩页。"))
@@ -53,10 +69,10 @@ def run(site_root, cfg, baseline=None):
         if base_thin is None:
             # 首次运行（无 baseline）：记录已知债为 WARN，由编排器种 baseline，不阻断。
             for fnd in rep.findings:
-                if fnd["severity"] == "BLOCK":
+                if fnd["severity"] == "BLOCK" and fnd["code"] == "THIN-CONTENT":
                     fnd["severity"] = "WARN"
-            rep.blocking = False
-            rep.status = "WARN" if rep.findings else "PASS"
+            rep.blocking = any(f["severity"] == "BLOCK" for f in rep.findings)
+            rep.status = ("FAIL" if rep.blocking else ("WARN" if rep.findings else "PASS"))
             rep.summary = (f"首次运行记录 {rep.metrics['thin_block']} 个已知薄内容页"
                            f"（<{max_words}字）为 baseline；将按回归锁仅告警，新增即阻断。")
         elif rep.metrics["thin_block"] > base_thin:
@@ -68,10 +84,10 @@ def run(site_root, cfg, baseline=None):
         else:
             # 已知债未增加 → 仅告警。
             for fnd in rep.findings:
-                if fnd["severity"] == "BLOCK":
+                if fnd["severity"] == "BLOCK" and fnd["code"] == "THIN-CONTENT":
                     fnd["severity"] = "WARN"
-            rep.blocking = False
-            rep.status = "WARN" if rep.findings else "PASS"
+            rep.blocking = any(f["severity"] == "BLOCK" for f in rep.findings)
+            rep.status = ("FAIL" if rep.blocking else ("WARN" if rep.findings else "PASS"))
             rep.summary = (f"薄内容 {rep.metrics['thin_block']} 篇（=baseline {base_thin}，未新增），"
                            f"临界区 {rep.metrics['thin_warn']} 篇（{max_words}–{warn_words}字）。")
     elif rep.metrics["thin_warn"] > 0:
@@ -80,6 +96,12 @@ def run(site_root, cfg, baseline=None):
     else:
         rep.status = "PASS"
         rep.summary = f"扫描 {rep.metrics['scanned']} 篇可索引页，正文深度达标（中位数 {rep.metrics['median_words']} 字）。"
+    # 最终裁决：任何 BLOCK 级发现（如 PLACEHOLDER-SHELL）无条件阻断，不受 baseline 宽限影响。
+    hard_blocks = [f for f in rep.findings if f["severity"] == "BLOCK"]
+    if hard_blocks:
+        rep.blocking = True
+        rep.status = "FAIL"
+        rep.summary = f"存在 {len(hard_blocks)} 个阻断级发现（占位空壳/新增薄内容），须处理后才能发布。"
     rep.elapsed_s = round(time.time() - t0, 2)
     return rep
 
