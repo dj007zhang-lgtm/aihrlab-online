@@ -4051,5 +4051,38 @@
     ],
     "sitemap_urls_before": 333,
     "sitemap_urls_after": 333
+  },
+  {
+    "date": "2026-10-11 00:00",
+    "commit": "560ffffdf1100edd516a4cfa3ba22bb69b74da9c",
+    "message": "fix(seo): 紧急止血：22 篇占位空壳文章全部 noindex 并移出 sitemap（消除低质页被收录稀释整站质量信号）",
+    "files_count": 23,
+    "files": [
+      "articles/agent-interviewer-boundary-2026.html",
+      "articles/ai-candidate-outreach-playbook-2026.html",
+      "articles/ai-interview-arms-race-2026.html",
+      "articles/ai-jd-writing-playbook-2026.html",
+      "articles/ai-org-two-models-compare-2026.html",
+      "articles/ai-recruiting-analytics-playbook-2026.html",
+      "articles/ai-recruitment-bias-compliance-2026.html",
+      "articles/ai-resume-screening-playbook-2026.html",
+      "articles/ai-structured-interview-playbook-2026.html",
+      "articles/change-management-methodology-2026.html",
+      "articles/change-resistance-diagnosis-2026.html",
+      "articles/daily-tech-ai-2026-08.html",
+      "articles/digital-transformation-org-capability-2026.html",
+      "articles/disc-style-test-2026.html",
+      "articles/eu-ai-act-recruitment-compliance-2026.html",
+      "articles/org-diagnosis-framework-2026.html",
+      "articles/organizational-design-agility-2026.html",
+      "articles/organizational-network-analysis-ona-2026.html",
+      "articles/performance-management-system-2026.html",
+      "articles/recruitment-ai-fullstack.html",
+      "articles/talent-development-framework-2026.html",
+      "articles/team-effectiveness-framework-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 312,
+    "sitemap_urls_after": 312
   }
 ]
