@@ -663,3 +663,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .article-footer-qr .afq-line{margin-top:8px;font-size:15.5px;line-height:1.65;color:var(--text)}
 .article-footer-qr .afq-note{margin-top:6px;font-size:12.5px;color:var(--text-secondary)}
 @media (max-width:560px){.article-footer-qr{flex-direction:column;text-align:center;padding:24px 20px}.article-footer-qr .afq-line{font-size:14.5px}}
+
+/* ── 版式安全网（2026-10-11）：无容器内容块的阅读行宽约束 ─────────────────
+   起因：部分文章与 resources 页缺 .article-body 容器，正文拉满视口宽（实测最大 1406px），
+   行长失控致可读性崩坏。此处按「内容型容器」统一限宽；已达标的容器（.article-body 720px 等）
+   本就小于阈值，不受影响。 ───────────────────────────────────────────── */
+.next-path,.related-reading,.verified-sources,.fact-sources{max-width:780px;margin-left:auto;margin-right:auto}
+.rae-wrap,.ar-wrap,.crc-wrap,.jrc-wrap,.dq-wrap{max-width:880px;margin-left:auto;margin-right:auto}
+.rae-wrap table,.ar-wrap table,.crc-wrap table,.jrc-wrap table,.dq-wrap table{width:100%;table-layout:fixed}
+.next-path ol,.verified-sources ul,.related-reading ul{max-width:100%}
+
+/* ── 排版行宽守卫（2026-10-11）：按字符宽度约束可读行宽 ──────────────────
+   单位 ch 随字号自适应，目标：中文约 30–36 字/行（72ch≈34em）。
+   仅对「超过阈值」的元素生效，已达标的卡片/窄栏不受影响；
+   不改对齐方式（继承原有左对齐/居中），避免破坏既有版面。 ─────────────── */
+p:not([class*="hero"]):not([class*="subtitle"]),li,blockquote,figcaption,dd{max-width:min(100%,72ch)}
+
+/* 列表页卡片容器限宽（2026-10-11）：tags/categories 等聚合页缺 .container，卡片行被拉满视口 */
+.article-grid,.card-grid{max-width:1200px;margin-left:auto;margin-right:auto}
