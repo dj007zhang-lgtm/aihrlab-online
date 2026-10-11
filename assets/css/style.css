@@ -668,7 +668,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    起因：部分文章与 resources 页缺 .article-body 容器，正文拉满视口宽（实测最大 1406px），
    行长失控致可读性崩坏。此处按「内容型容器」统一限宽；已达标的容器（.article-body 720px 等）
    本就小于阈值，不受影响。 ───────────────────────────────────────────── */
-.next-path,.related-reading,.verified-sources,.fact-sources{max-width:780px;margin-left:auto;margin-right:auto}
+.next-path,.related-reading,.verified-sources,.fact-sources{max-width:720px;margin-left:auto;margin-right:auto}
 .rae-wrap,.ar-wrap,.crc-wrap,.jrc-wrap,.dq-wrap{max-width:880px;margin-left:auto;margin-right:auto}
 .rae-wrap table,.ar-wrap table,.crc-wrap table,.jrc-wrap table,.dq-wrap table{width:100%;table-layout:fixed}
 .next-path ol,.verified-sources ul,.related-reading ul{max-width:100%}
