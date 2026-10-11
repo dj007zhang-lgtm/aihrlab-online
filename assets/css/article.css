@@ -102,7 +102,7 @@
 .geo-answer-capsule { max-width:720px;margin:1.5rem auto 0;padding:1.1rem 1.4rem;background:var(--accent-pale);border:1px solid rgba(63,98,18,.25);border-radius:0 12px 12px 0; }
 .geo-answer-capsule__label { font-size:.78rem;font-weight:700;letter-spacing:.05em;color:var(--accent);margin:0 0 .4rem; }
 .geo-answer-capsule__text { margin:0;font-size:1.02rem;line-height:1.75;color:var(--text); }
-.article-banner img { max-width:100%;height:auto;display:block }
+.article-banner img { max-width:100%;height:clamp(200px,30vw,320px);object-fit:cover;object-position:center;display:block }
 .topic-cluster { margin:1.5rem 0;text-align:center;font-size:.88rem;color:var(--text-muted) }
 .cluster-label { font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-right:.5em }
 .references { margin:2rem 0 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border:1px solid rgba(0,0,0,0.06);border-radius:10px; }
