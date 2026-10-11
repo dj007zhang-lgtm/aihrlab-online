@@ -4240,5 +4240,20 @@
     ],
     "sitemap_urls_before": 313,
     "sitemap_urls_after": 313
+  },
+  {
+    "date": "2026-10-11 23:50",
+    "commit": "dde3c77c55e233701b73ec39ecfa3f58cf43da4f",
+    "message": "fix: 渲染审计二批——geo-stats卡对齐正文列 org-culture表格滚动容器补全 ai-risk-test resultBack空引用守卫",
+    "files_count": 5,
+    "files": [
+      "articles/organizational-culture-debt-2026.html",
+      "articles/eu-ai-act-omnibus-hr-2026.html",
+      "tools/ai-risk-test/assets/app.js",
+      "assets/css/article.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 313,
+    "sitemap_urls_after": 313
   }
 ]
