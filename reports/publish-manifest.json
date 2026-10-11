@@ -4214,5 +4214,31 @@
     ],
     "sitemap_urls_before": 312,
     "sitemap_urls_after": 312
+  },
+  {
+    "date": "2026-10-11 23:41",
+    "commit": "377495f3f1451fbbde4ea5d3a06610d267eef986",
+    "message": "fix: 全站渲染审计修复——article.css层叠修复(related-reading/next-path/article-footer-qr/cluster-header居中) 4页main.js去重 4页死链pushapi移除 remote-team正文重构 org-culture表格滚动容器 ai-risk/ask容器修复 安全网780→720",
+    "files_count": 16,
+    "files": [
+      "articles/remote-team-management-challenges-2026.html",
+      "articles/global-tech-hr-ai-disruption-2026.html",
+      "articles/ai-layoff-2026-mid-year-review.html",
+      "articles/ai-layoff-regret.html",
+      "articles/bytedance-7000-interns.html",
+      "articles/ai-flatten-org-middle-managers-2026.html",
+      "articles/ai-hiring-fairness-compliance-2026.html",
+      "articles/bigtech-hr-rotation-2026.html",
+      "articles/organizational-culture-debt-2026.html",
+      "tools/ai-risk-test/index.html",
+      "ask/index.html",
+      "articles/ai-hr-org-cluster.html",
+      "assets/css/article.css",
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 313,
+    "sitemap_urls_after": 313
   }
 ]
