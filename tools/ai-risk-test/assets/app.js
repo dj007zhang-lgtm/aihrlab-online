@@ -323,7 +323,7 @@
       noteEl.style.display = 'block';
       noteEl.textContent = report.fullReport || '(报告生成中…)';
     } else {
-      payNote.textContent = '关注公众号 · 免费解锁完整报告';
+      payNote.textContent = '完整 21 天计划 + 3 条跃迁路径 + Prompt 资产库';
     }
   }
 
@@ -510,12 +510,11 @@
     typeChunk();
   }
 
-  followBtn.addEventListener('click', () => {
-    if (state.unlocked) return;
-    unlockSuccess();
-  });
+  /* 独立知识载体定位：完整报告直接呈现，不设关注闸（2026-09-26） */
+  if (!state.unlocked) unlockSuccess();
 
-  $('resultBack').addEventListener('click', () => {
+  const backBtn = $('resultBack');
+  if (backBtn) backBtn.addEventListener('click', () => {
     showView('hero');
   });
 

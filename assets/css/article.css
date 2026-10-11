@@ -138,3 +138,6 @@
   .next-path__link:hover{color:#6F9A3C;}
   .next-path__note{color:#9A988F;}
 }
+
+/* 版式安全网 v2（2026-10-11）：stats 卡对齐正文列 */
+.geo-stats{max-width:720px;margin-left:auto;margin-right:auto;}
