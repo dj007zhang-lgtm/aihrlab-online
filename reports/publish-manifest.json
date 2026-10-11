@@ -4268,5 +4268,18 @@
     ],
     "sitemap_urls_before": 313,
     "sitemap_urls_after": 313
+  },
+  {
+    "date": "2026-10-12 00:05",
+    "commit": "a7e6b53f57ebc080bbe6aefba61cac32511991c8",
+    "message": "fix: 阅读沉浸修复——main.js订阅CTA注入模块真正下线(本地清理版2026-09-26首次发布到线上,移除底部滑入订阅条与内联CTA) 题图限高320px恢复首屏正文可见",
+    "files_count": 3,
+    "files": [
+      "assets/js/main.js",
+      "assets/css/article.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 313,
+    "sitemap_urls_after": 313
   }
 ]
