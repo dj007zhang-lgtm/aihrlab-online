@@ -498,7 +498,7 @@
     setTimeout(() => { noteEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
 
     noteEl.textContent = '';
-    const fullText = report.fullReport || '(报告生成中…)';
+    const fullText = (report && report.fullReport) || '(报告生成中…)';
     let pos = 0;
     const chunk = Math.ceil(fullText.length / 30);
     function typeChunk() {
