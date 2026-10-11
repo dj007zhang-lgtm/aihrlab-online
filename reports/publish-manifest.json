@@ -4255,5 +4255,18 @@
     ],
     "sitemap_urls_before": 313,
     "sitemap_urls_after": 313
+  },
+  {
+    "date": "2026-10-11 23:59",
+    "commit": "9c55dd0601cc4fa79cc82565eddb703c0a603a56",
+    "message": "fix: 审计三批——org-culture残留闭div清除(修复article-body早闭) ai-risk-test解锁态fullReport空引用守卫",
+    "files_count": 3,
+    "files": [
+      "articles/organizational-culture-debt-2026.html",
+      "tools/ai-risk-test/assets/app.js",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 313,
+    "sitemap_urls_after": 313
   }
 ]
