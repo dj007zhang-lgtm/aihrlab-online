@@ -4281,5 +4281,34 @@
     ],
     "sitemap_urls_before": 313,
     "sitemap_urls_after": 313
+  },
+  {
+    "date": "2026-10-12 23:25",
+    "commit": "b73b5631436fb6a8fead8f825c291f41d43701d5",
+    "message": "content+fix: 17篇成文文章核验后解锁回索引(清除无实证数据) + stub_detector判定口径修正(占位符须剥离HTML注释后判定,误伤17篇成文页) + 删除2篇目录侧栏可见占位条目(含悬空锚点#s6)",
+    "files_count": 19,
+    "files": [
+      "articles/talent-development-framework-2026.html",
+      "articles/disc-style-test-2026.html",
+      "articles/digital-transformation-org-capability-2026.html",
+      "articles/ai-recruitment-bias-compliance-2026.html",
+      "articles/ai-recruiting-analytics-playbook-2026.html",
+      "articles/org-diagnosis-framework-2026.html",
+      "articles/ai-candidate-outreach-playbook-2026.html",
+      "articles/agent-interviewer-boundary-2026.html",
+      "articles/eu-ai-act-recruitment-compliance-2026.html",
+      "articles/recruitment-ai-fullstack.html",
+      "articles/ai-interview-arms-race-2026.html",
+      "articles/ai-org-two-models-compare-2026.html",
+      "articles/ai-resume-screening-playbook-2026.html",
+      "articles/change-management-methodology-2026.html",
+      "articles/organizational-network-analysis-ona-2026.html",
+      "articles/ai-jd-writing-playbook-2026.html",
+      "articles/ai-structured-interview-playbook-2026.html",
+      "ci/gates/gate_stub_detector.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 330,
+    "sitemap_urls_after": 330
   }
 ]
