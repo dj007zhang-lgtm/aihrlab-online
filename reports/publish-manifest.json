@@ -4310,5 +4310,20 @@
     ],
     "sitemap_urls_before": 330,
     "sitemap_urls_after": 330
+  },
+  {
+    "date": "2026-10-12 23:33",
+    "commit": "c888eef90092f84dfe8475e51b14341efd19bbe9",
+    "message": "content: 4篇占位壳真实扩写并解锁——未来工作HR战略3170字(岗位解构/Hackman工作特征模型/Gartner2027 75%) 组织文化诊断2969字(Schein三层次/利益分配网络/五诊断入口) 团队效能2852字(Hackman五条件/规模变量) 变革阻力诊断2842字(四成因四处置/中层激励冲突) 同步清除无源meta(麦肯锡68%/HBR34%/McKinsey2025)与德鲁克误传引语",
+    "files_count": 5,
+    "files": [
+      "articles/future-of-work-hr-2026.html",
+      "articles/organizational-culture-diagnosis-2026.html",
+      "articles/team-effectiveness-framework-2026.html",
+      "articles/change-resistance-diagnosis-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 334,
+    "sitemap_urls_after": 334
   }
 ]
