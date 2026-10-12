@@ -4325,5 +4325,20 @@
     ],
     "sitemap_urls_before": 334,
     "sitemap_urls_after": 334
+  },
+  {
+    "date": "2026-10-12 23:42",
+    "commit": "3be18b936e9a74f6eda8887725f0d5c38ffac153",
+    "message": "content: 4篇占位壳真实扩写并解锁——绩效评估2852字(三件事冲突/强制分布算术问题/Adobe2012与Deloitte2015真实动作/目标与评价分离) 员工体验2864字(真实工作预览/关键时刻/离职面谈不可靠) 敏捷HR 2862字(决策权本质/Spotify自我澄清/HR敏捷悖论) 组织设计2860字(Galbraith五维/矩阵失败原因) 标题去伪数字70% 清除无源meta(Gartner 0.68/盖洛普21%63%/Netflix2015)",
+    "files_count": 5,
+    "files": [
+      "articles/performance-management-system-2026.html",
+      "articles/employee-experience-design-2026.html",
+      "articles/agile-hr-practices-2026.html",
+      "articles/organizational-design-agility-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 338,
+    "sitemap_urls_after": 338
   }
 ]
