@@ -11,9 +11,22 @@ gate_stub_detector —— 薄内容/桩页检测
   - 可索引且 < max_words 字 → BLOCK（薄内容）。
   - 可索引且 [max_words, warn_words) → WARN（临界，进 baseline 跟踪）。
 """
+import re
 import time
 from . import (walk_html, read, is_indexable, clean_text, count_cjk,
                rel, GateReport, Finding)
+
+
+# HTML 注释剥离器（2026-10-12 判定口径修正）。
+# 起因：模板注释里保留了「节标题（自动带分隔线）」等字样，但注释永不渲染。
+# 旧逻辑直接在原始 html 上匹配，把 17 篇已成文（2500+ 字、带一手信源）的文章
+# 误判为「未写成的空壳」并阻断发布。判定必须基于**渲染后可见**的内容。
+_COMMENT_RE = re.compile(r'<!--[\s\S]*?-->', re.MULTILINE)
+
+
+def strip_comments(html: str) -> str:
+    """剥离 HTML 注释，返回渲染后实际可见的标记。"""
+    return _COMMENT_RE.sub('', html)
 
 
 # 占位模板标记：出现即说明正文从未真实写过（2026-10-10 主理人发现 22 篇占位壳被收录后固化）。
@@ -43,7 +56,8 @@ def run(site_root, cfg, baseline=None):
         wc = count_cjk(clean_text(extract_body_guard(html)))
         counts.append(wc)
         rep.metrics["scanned"] += 1
-        hit_marker = [m for m in PLACEHOLDER_MARKERS if m in html]
+        # 只在剥离注释后的可见标记里找占位符（注释里的模板字样不算）。
+        hit_marker = [m for m in PLACEHOLDER_MARKERS if m in strip_comments(html)]
         if hit_marker:
             rep.add(Finding("BLOCK", "PLACEHOLDER-SHELL", file=rel(site_root, f),
                             detail=f"可索引页含占位模板标记 {hit_marker}，属未写成的空壳（与字数无关，直接阻断）。"))
