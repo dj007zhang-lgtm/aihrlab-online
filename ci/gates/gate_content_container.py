@@ -24,7 +24,9 @@ import time
 
 from . import (walk_html, read, is_indexable, rel, GateReport, Finding)
 
-CONTAINERS = ("article-body", "article-content-wrapper", "article-content")
+CONTAINERS = ("article-body", "article-content-wrapper", "article-content",
+              # 主题簇页（pillar cluster）：2026-10-13 补齐，其行宽由 CSS .cluster-grid/.cluster-header 约束在 720px
+              "cluster-page")
 
 
 def run(site_root, cfg, baseline=None):

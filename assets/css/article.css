@@ -141,3 +141,24 @@
 
 /* 版式安全网 v2（2026-10-11）：stats 卡对齐正文列 */
 .geo-stats{max-width:720px;margin-left:auto;margin-right:auto;}
+
+/* ===== 主题簇页 cluster pillar（2026-10-13 补齐：此前该页容器无任何样式，行宽拉满视口） ===== */
+.cluster-header{max-width:720px;margin:0 auto 1.5rem;}
+.cluster-header h1{font-size:clamp(1.5rem,3.8vw,2.1rem);line-height:1.35;margin:0 0 1rem;}
+.cluster-grid,.cluster-footer{max-width:720px;margin-left:auto;margin-right:auto;}
+.cluster-cards{display:grid;gap:1rem;margin:1rem 0 2rem;}
+.cluster-card{display:grid;grid-template-columns:2.25rem 1fr;gap:1rem;align-items:start;border:1px solid rgba(26,26,23,.10);border-radius:12px;padding:1.1rem 1.25rem;background:#F7F5F0;}
+.cluster-num{font-size:1.35rem;font-weight:700;color:#3F6212;line-height:1.1;}
+.cluster-body{min-width:0;}
+.cluster-body h3{margin:0 0 .45rem;font-size:1.05rem;line-height:1.45;font-weight:700;}
+.cluster-body p{margin:0 0 .6rem;font-size:.95rem;line-height:1.8;}
+.cluster-body .read{font-size:.9rem;font-weight:600;color:#3F6212;text-decoration:none;}
+.cluster-summary{font-size:.95rem;line-height:1.8;}
+@media (max-width:640px){.cluster-card{grid-template-columns:1fr;gap:.35rem;}}
+@media (prefers-color-scheme:dark){
+  .cluster-card{border-color:rgba(236,234,228,.12);background:rgba(236,234,228,.04);}
+  .cluster-num{color:#6F9A3C;}
+  .cluster-body .read{color:#6F9A3C;}
+}
+
+.cluster-page{max-width:720px;margin-left:auto;margin-right:auto;}
