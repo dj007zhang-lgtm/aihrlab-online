@@ -4587,5 +4587,17 @@
     ],
     "sitemap_urls_before": 341,
     "sitemap_urls_after": 341
+  },
+  {
+    "date": "2026-10-14 00:47",
+    "commit": "4d5a128d7cb7c75b26203470d5c1427ca7860807",
+    "message": "P1收尾: ai-product-release-rhythm 删除不可溯源30%定量断言并补可见参考信源块(与JSON-LD citation对齐)",
+    "files_count": 2,
+    "files": [
+      "articles/ai-product-release-rhythm-org-health-2026.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 341,
+    "sitemap_urls_after": 341
   }
 ]
