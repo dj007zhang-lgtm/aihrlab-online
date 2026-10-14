@@ -38,17 +38,18 @@
     },
     {
       "id": "R-BLOCKED-3P",
-      "name": "被墙第三方资源（Google Fonts / GTM）",
+      "name": "被墙第三方资源（Google Fonts / GTM 容器）",
       "severity": "BLOCK",
       "scope": "site",
       "match": "any",
       "patterns": [
         "fonts.googleapis.com",
         "fonts.gstatic.com",
-        "www.googletagmanager.com",
-        "ajax.googleapis.com"
+        "ajax.googleapis.com",
+        "gtm.js",
+        "GTM-"
       ],
-      "rationale": "CN 不可达，每请求 15-30s 超时，导致百度速度降权 + 外部链接跳出率 96%；2026-09-09 全站清除（commit 721d1390）。GitHub Pages + 无备案结构下不得再引入。",
+      "rationale": "Google Fonts / ajax.googleapis 在 CN 不可达（15-30s 超时），2026-09-09 全站清除（commit 721d1390）；GTM 容器(gtm.js / GTM- 容器ID)为重型且非所需，亦禁。GA4 gtag/js 于 2026-09-29 经主理人override 允许：async 非阻塞不重现当年 96% 跳出，CN 被墙使其仅覆盖非CN可达流量，百度统计仍为 CN 真相源——故从本规则移除 googletagmanager.com 笼统封禁，改精准封 GTM 容器。inline GA4 仍由 scripts/normalize_analytics_domain_guard.py 规范化回 analytics-loader.js。",
       "established": "2026-09-09"
     },
     {
@@ -62,6 +63,18 @@
       ],
       "rationale": "编辑器注入的垃圾属性，属 2026-09-09 清工件运动遗漏残留（全站 1368 处已清，此 5 处漏网）；RC-E 典型：被否决设计的残留载体须连根清，否则改版复发。",
       "established": "2026-09-27"
+    },
+    {
+      "id": "R-META-GT-CONTENT",
+      "name": "head meta 的 content 值被多余的 \"> 污染",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "any",
+      "patterns": [
+        "content=\">"
+      ],
+      "rationale": "templates/taxonomy.html 写成 content=\"\"><!--TPL_DESC-->\">，替换产物为 content=\">AIHR数智引擎标签…\">，导致全站 30 个 categories/tags 页的 description 与 og:description 以 > 开头、og:url 变成 >https://…、og:title 携带品牌后缀（另违 R-16）。2026-10-14 修根因（模板）+ 就地修已生成页（scripts/fix_taxonomy_head.py），发布 commit b55ef9cd。此规则把该形态钉成构建阻断，防止下次改模板再犯。",
+      "established": "2026-10-14"
     }
   ]
 }
