@@ -4652,5 +4652,20 @@
     ],
     "sitemap_urls_before": 341,
     "sitemap_urls_after": 341
+  },
+  {
+    "date": "2026-10-15 01:12",
+    "commit": "cf312f304897427a11d650a2273fba035af7c10d",
+    "message": "chore(ci): 新增 R-META-GT-CONTENT 红线断言（head meta content=\"> 污染）；deep_audit 四处分型缺陷修复；新增两个幂等清理脚本",
+    "files_count": 5,
+    "files": [
+      "ci/regression_rules.json",
+      "scripts/deep_audit.py",
+      "scripts/fix_taxonomy_head.py",
+      "scripts/fix_unsourced_numbers.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 341,
+    "sitemap_urls_after": 341
   }
 ]
