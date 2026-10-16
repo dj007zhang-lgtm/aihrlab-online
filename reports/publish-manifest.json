@@ -4667,5 +4667,17 @@
     ],
     "sitemap_urls_before": 341,
     "sitemap_urls_after": 341
+  },
+  {
+    "date": "2026-10-16 23:54",
+    "commit": "1e620a6f31124856e0f6472f4d5188128cdf18a7",
+    "message": "fix(css): article.css 暗色规则键控从 prefers-color-scheme 改为 html[data-theme] —— 修复 OS 深色+站内浅色时延伸阅读文字不可读",
+    "files_count": 2,
+    "files": [
+      "assets/css/article.css",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 341,
+    "sitemap_urls_after": 341
   }
 ]
