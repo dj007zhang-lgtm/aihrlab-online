@@ -90,7 +90,7 @@ v1（08-31）提出了终点态与「C 混合：新内容走集合/MDX」的迁�
 | `projects/` | 能力标准项目（CM-2026） | `bridge/` 转为该项目对外页（P1） |
 | `ask/` | AI 问答（SCF） | ⌘K + 首页 |
 
-### 3.3 IA 缺陷清单（P1 必须清零，可脚本验收）
+### 3.3 IA 缺陷清单（P1 已清零，实测结果见 §7 P1 行）
 
 | 缺陷 | 现测 | 处置 |
 |---|---|---|
@@ -198,8 +198,8 @@ line = {
 
 | 阶段 | 主题 | 交付物 | 验收标准（可脚本/可访问验证） | 回滚边界 |
 |---|---|---|---|---|
-| **P0** | 基线冻结（本轮） | 本文档 + `scripts/freeze_baseline.py` + `reports/baseline-2026-10-17.json` | 脚本可复跑；`--diff` 结果为空 | 只读，无回滚需求 |
-| **P1** | IA 归位 | ① 主导航「策展」→ `/brief/`（~346 页批量）② 20 处导航偏离清零 ③ `/brief/` 进 sitemap 与索引 ④ `bridge/` 改写为 CM-2026 项目对外页 ⑤ `assessments/` 定位文案收敛 | `freeze_baseline.py --diff` 显示：nav_deviation_count → ≤5（仅验证文件与 404）、`brief_in_sitemap` ≥2、orphan_count 不增；全部门禁绿；线上 curl 复核 3 个入口 | 单批提交，可整体 revert |
+| **P0** | 基线冻结 ✅ 已完成 | 本文档 + `scripts/freeze_baseline.py` + `reports/baseline-2026-10-17.json` | 脚本可复跑；`--diff` 结果为空 | 只读，无回滚需求 |
+| **P1** | IA 归位 ✅ 已完成 | ① 主导航「策展」→ `/brief/`：355 个页面、692 处（页头 + 页脚）② 10 个缺入口页面补齐（brief×2 注入标准页头；hub/overseas-hr-hub 注入标准页头；tools×7 注入自包含入口条）③ `bridge/` 改写为 CM-2026 能力标准项目对外页 ④ `assessments/` 声明「本页不提供测试，入口在 /tools/」⑤ `build_sitemap.py` 补录 `brief`（根因：EXTRA_DIRS 漏列） | **实测**：`nav_deviation_count` 20 → **0**；`orphan_count` → **0**；`sitemap_url_count` 341 → **343**；`brief_in_sitemap` 0 → **2**；全部门禁绿；线上 curl 复核 | 单批提交（361 文件），可整体 revert |
 | **P2** | 策展信号线台账 | ① 3 条样板线（`/brief/lines/`）② 线索引页重写 ③ 001 期改造为增量 diff 页 ④ `build_brief.py` + `line-index.json` ⑤ JSON-LD | 每线含五块契约（判断/状态/证据时间线/挂接/JSON-LD）；证据 ≥3 条且一手源可点；期页增量占比 ≤30%；`line-index.json` 与线页一致 | 新增目录，不影响既有页 |
 | **P3** | 文章层产品化 | ① 3 个 pillar 主题簇（挂 3–8 篇）② 长文段位补强 ③ 内链图谱校验入门禁 | 簇页每页挂 ≥3 篇真实长文；`articles/index.html` 与簇页互链；GEO 集中度观测值下降；门禁新增「簇页必挂文章」断言 | 新增页面 + 索引同步 |
 | **P4** | 测评旅程 | ① `/tools/index.html` 改四段式旅程入口 ② 五象限归位 ③ 旅程事件埋点（百度统计） | 每段有引导词、出口、挂接文章；孤立工具全部归位；无人格分进能力测评（红线断言） | 单页改造 + 索引同步 |
@@ -245,4 +245,12 @@ line = {
 ## 10. 当前状态
 
 - **P0 已完成**：基线冻结（脚本 + 快照）+ 本文档。
-- **待确认后启动 P1**：IA 归位（导航 6 项、20 处偏离清零、策展入口归位、bridge 改写）。
+- **P1 已完成**：IA 归位，验收标准全部达成（见 §7 P1 行）。
+
+### 10.1 P1 附带发现（不属于 P1 范围，已记录待处置）
+
+| 发现 | 实测 | 处置 |
+|---|---|---|
+| Copilot 知识包落后于站点 | 重建前 `articles_indexed`=246 / 索引 257；12 篇新文（`ai-era-*` 系列等）不在 KB 内 | 已本地重建 `build_qa_kb.py`：246 → **257**，chunks 2682 → **2959**（+10%）。**SCF 需单独部署**（SCF 与 GP 是两条管线，kb.json 不进 GP 清单），待下一批 |
+| 基线脚本两处测量缺陷 | ① 导航只扫前 20KB → `articles/index.html`（导航在 42KB 后）误报 NO_NAV ② 跳转壳计入孤儿 | 已修：全文扫描；跳转壳与非读者页（404/验证桩/seo-monitor/templates/assets/未发布草稿）豁免；自包含入口条计为合规入口 |
+| `assets/` 下 3 个资产页无入口 | design-system / hr-prompt-cards / iceberg-model | 判定为静态资源目录内容（不进 sitemap），不补导航；若未来要发布为资源库资产，需单独立项 |
