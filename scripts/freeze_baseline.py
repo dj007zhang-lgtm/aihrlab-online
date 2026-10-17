@@ -25,9 +25,15 @@ CANONICAL_NAV = [
     ("/articles/index.html", "文章"),
     ("/resources/index.html", "资源库"),
     ("/tools/index.html", "测评"),
-    ("/bridge/index.html", "策展"),
+    ("/brief/index.html", "策展"),
     ("/about.html", "关于"),
 ]
+# 非读者页面：不参与导航一致性判定（性质：验证桩页/内部运营页/构建模板/静态资源/未发布草稿）
+NAV_EXEMPT = (
+    "404.html", "seo-monitor.html",
+    "baidu_verify_codeva-e9RlNB7KYx.html", "googlecbc66c5d343f6aed.html",
+    "templates/", "assets/", "projects/",
+)
 NAV_RE = re.compile(r'<nav class="site-nav"[^>]*>([\s\S]*?)</nav>')
 HREF_RE = re.compile(r'<a\s+[^>]*href="([^"]+)"')
 DIRS = ["articles", "hub", "tools", "assessments", "products", "resources",
@@ -61,11 +67,16 @@ def main():
     nav_present = 0
     for rel in files:
         # 跳转壳（noindex + refresh）瞬间跳走，不需要导航，也不参与一致性判定
-        if is_redirect_shell(rel):
+        if is_redirect_shell(rel) or rel.startswith(NAV_EXEMPT):
             continue
-        t = open(os.path.join(ROOT, rel), encoding="utf-8", errors="ignore").read()[:20000]
+        # 必须全文扫描：articles/index.html 的导航在 42KB 之后，截断扫描会误报
+        t = open(os.path.join(ROOT, rel), encoding="utf-8", errors="ignore").read()
         m = NAV_RE.search(t)
         if not m:
+            # 独立单文件工具页允许用自包含入口条（site-nav-mini）替代全局页头
+            if "site-nav-mini" in t:
+                nav_present += 1
+                continue
             nav_dev.append((rel, "NO_NAV"))
             continue
         nav_present += 1
@@ -89,7 +100,7 @@ def main():
     # 不是孤儿，单独计数。把二者混在一起会得出「批量下线」的错误结论（口径铁律：指标须与性质有因果）。
     raw_orphans = [f for f in files
                    if f not in targets and not f.endswith("index.html")
-                   and f not in ("404.html",)]
+                   and f not in ("404.html",) and not f.startswith(NAV_EXEMPT)]
     shell_orphans = [f for f in raw_orphans if is_redirect_shell(f)]
     orphans = [f for f in raw_orphans if f not in shell_orphans]
 

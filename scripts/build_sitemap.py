@@ -130,7 +130,8 @@ def collect() -> list:
         "products",    # 深度手册（资源库子类）
         "tools",       # 测：测评聚合
         "assessments", # 测：测评详情
-        "bridge",      # 策展
+        "bridge",      # 能力标准项目对外页（原招聘桥）
+        "brief",       # 策展：信号线台账（P1 归位，此前漏收录导致策展产品零曝光）
         "hub",         # 串：主题枢纽
         "glossary",    # 查：术语词典
         "categories",  # 文章分类聚合
