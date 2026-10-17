@@ -4679,5 +4679,20 @@
     ],
     "sitemap_urls_before": 341,
     "sitemap_urls_after": 341
+  },
+  {
+    "date": "2026-10-17 23:14",
+    "commit": "9d9ed71311c9bc77c9f0b062b6c1b2b564958a13",
+    "message": "docs(arch): 产品架构 v2 锁定版 + 基线冻结器（P0）：冻结静态HTML+生成器+双闸路线，撤销 Astro/MDX；IA 六项导航与四真源契约；P1-P5 路线图与变更四问纪律",
+    "files_count": 5,
+    "files": [
+      "scripts/freeze_baseline.py",
+      "reports/PRODUCT-ARCHITECTURE-v2-2026-10-17.md",
+      "reports/baseline-2026-10-17.json",
+      "reports/curation-product-v2-2026-10-16.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 341,
+    "sitemap_urls_after": 341
   }
 ]
