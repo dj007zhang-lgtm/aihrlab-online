@@ -4694,5 +4694,17 @@
     ],
     "sitemap_urls_before": 341,
     "sitemap_urls_after": 341
+  },
+  {
+    "date": "2026-10-17 23:50",
+    "commit": "4d2ab3f2bfec5e3649c73c9619e31102d02cb7ad",
+    "message": "docs(arch): 回填 P1 实测结果（导航偏离 20→0、孤儿 0、sitemap 341→343、brief 收录 2）；记录 KB 落后与 SCF 待部署、基线判据两处修正",
+    "files_count": 2,
+    "files": [
+      "reports/PRODUCT-ARCHITECTURE-v2-2026-10-17.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 343,
+    "sitemap_urls_after": 343
   }
 ]
