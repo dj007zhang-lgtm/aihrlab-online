@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-17",
+  "files_total": 419,
+  "files_indexable": 361,
+  "files_noindex": 58,
+  "redirect_shells": 55,
+  "dirs": {
+    "articles": 310,
+    "hub": 11,
+    "tools": 10,
+    "assessments": 5,
+    "products": 4,
+    "resources": 25,
+    "brief": 2,
+    "bridge": 1,
+    "ask": 1,
+    "glossary": 1,
+    "compare": 1,
+    "categories": 10,
+    "tags": 20,
+    "projects": 1
+  },
+  "root_files": [
+    "404.html",
+    "about.html",
+    "articles.html",
+    "baidu_verify_codeva-e9RlNB7KYx.html",
+    "googlecbc66c5d343f6aed.html",
+    "index.html",
+    "resources.html",
+    "seo-monitor.html"
+  ],
+  "nav_pages": 344,
+  "nav_deviations": [
+    [
+      "404.html",
+      "NO_NAV"
+    ],
+    [
+      "articles/index.html",
+      "NO_NAV"
+    ],
+    [
+      "assets/ai-transformation-maturity.html",
+      "NO_NAV"
+    ],
+    [
+      "assets/design-system.html",
+      "NO_NAV"
+    ],
+    [
+      "assets/hr-prompt-cards.html",
+      "NO_NAV"
+    ],
+    [
+      "assets/iceberg-model.html",
+      "NO_NAV"
+    ],
+    [
+      "baidu_verify_codeva-e9RlNB7KYx.html",
+      "NO_NAV"
+    ],
+    [
+      "brief/index.html",
+      "NO_NAV"
+    ],
+    [
+      "brief/signal-brief-001.html",
+      "NO_NAV"
+    ],
+    [
+      "googlecbc66c5d343f6aed.html",
+      "NO_NAV"
+    ],
+    [
+      "hub/overseas-hr-hub.html",
+      "NO_NAV"
+    ],
+    [
+      "projects/ai-hr-capability-model/08-FLAGSHIP-DRAFT.html",
+      "NO_NAV"
+    ],
+    [
+      "seo-monitor.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/ai-risk-test/index.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/bigfive/index.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/compliance-dashboard.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/disc-test/index.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/holland/index.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/mbti/index.html",
+      "NO_NAV"
+    ],
+    [
+      "tools/tarot-test/index.html",
+      "NO_NAV"
+    ]
+  ],
+  "nav_deviation_count": 20,
+  "orphan_count": 9,
+  "orphans_sample": [
+    "assets/design-system.html",
+    "assets/hr-prompt-cards.html",
+    "assets/iceberg-model.html",
+    "baidu_verify_codeva-e9RlNB7KYx.html",
+    "googlecbc66c5d343f6aed.html",
+    "projects/ai-hr-capability-model/08-FLAGSHIP-DRAFT.html",
+    "templates/_chrome.html",
+    "templates/article-v2.html",
+    "templates/taxonomy.html"
+  ],
+  "shell_orphan_count": 54,
+  "article_index_count": 257,
+  "sitemap_url_count": 341,
+  "brief_in_sitemap": 0,
+  "kb_articles_indexed": 246
+}
