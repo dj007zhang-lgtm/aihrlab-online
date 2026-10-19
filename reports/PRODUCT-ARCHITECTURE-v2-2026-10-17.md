@@ -200,7 +200,7 @@ line = {
 |---|---|---|---|---|
 | **P0** | 基线冻结 ✅ 已完成 | 本文档 + `scripts/freeze_baseline.py` + `reports/baseline-2026-10-17.json` | 脚本可复跑；`--diff` 结果为空 | 只读，无回滚需求 |
 | **P1** | IA 归位 ✅ 已完成 | ① 主导航「策展」→ `/brief/`：355 个页面、692 处（页头 + 页脚）② 10 个缺入口页面补齐（brief×2 注入标准页头；hub/overseas-hr-hub 注入标准页头；tools×7 注入自包含入口条）③ `bridge/` 改写为 CM-2026 能力标准项目对外页 ④ `assessments/` 声明「本页不提供测试，入口在 /tools/」⑤ `build_sitemap.py` 补录 `brief`（根因：EXTRA_DIRS 漏列） | **实测**：`nav_deviation_count` 20 → **0**；`orphan_count` → **0**；`sitemap_url_count` 341 → **343**；`brief_in_sitemap` 0 → **2**；全部门禁绿；线上 curl 复核 | 单批提交（361 文件），可整体 revert |
-| **P2** | 策展信号线台账 | ① 3 条样板线（`/brief/lines/`）② 线索引页重写 ③ 001 期改造为增量 diff 页 ④ `build_brief.py` + `line-index.json` ⑤ JSON-LD | 每线含五块契约（判断/状态/证据时间线/挂接/JSON-LD）；证据 ≥3 条且一手源可点；期页增量占比 ≤30%；`line-index.json` 与线页一致 | 新增目录，不影响既有页 |
+| **P2** | 策展信号线台账 ✅ 已完成 | ① 3 条首发线 `/brief/lines/{ai-payoff-gap, hr-seat-not-skill-gap, intake-capacity-gap}.html`（3/3/4 条一手证据）② `brief/_lines/*.json` 为真源线数据 ③ `scripts/build_brief.py` 幂等渲染线页 + `assets/js/line-index.json` + `brief/index.html`④ `signal-brief-001.html` 改为「本期增量」diff 页（原 5 条信号全部保留）⑤ `build_sitemap.py` EXTRA_DIRS 改递归，`brief/lines/` 与 7 个 `tools/*/index.html` 入图 | 实测：线上 5 个 brief 页 HTTP 200；sitemap 353 URL 含全部 brief 页与新文章；`nav_deviation_count` 0、`orphan_count` 0、`article_index_count` 258、`kb_articles_indexed` 258；quality_gate 22/22 + stability_guard 11/11 + qa_guardian 10 门 GREEN | 新增页面 + 索引/分类标签/sitemap 同步（第二批） |
 | **P3** | 文章层产品化 | ① 3 个 pillar 主题簇（挂 3–8 篇）② 长文段位补强 ③ 内链图谱校验入门禁 | 簇页每页挂 ≥3 篇真实长文；`articles/index.html` 与簇页互链；GEO 集中度观测值下降；门禁新增「簇页必挂文章」断言 | 新增页面 + 索引同步 |
 | **P4** | 测评旅程 | ① `/tools/index.html` 改四段式旅程入口 ② 五象限归位 ③ 旅程事件埋点（百度统计） | 每段有引导词、出口、挂接文章；孤立工具全部归位；无人格分进能力测评（红线断言） | 单页改造 + 索引同步 |
 | **P5** | 能力标准罗盘 | 角色×阶段 → 静态推荐路径 | **前置闸：CM-2026 标准层通过校验 + SHRM 一手核验完成**。未过闸不得启动 | 新增页面 |
@@ -246,6 +246,7 @@ line = {
 
 - **P0 已完成**：基线冻结（脚本 + 快照）+ 本文档。
 - **P1 已完成**：IA 归位，验收标准全部达成（见 §7 P1 行）。
+- **P2 已完成**：策展信号线台账（3 条线 + 索引 + 增量期页 + 生成器 + 四源同步），已上线并 curl 复核通过（见 §7 P2 行）。
 
 ### 10.1 P1 附带发现（不属于 P1 范围，已记录待处置）
 
@@ -254,3 +255,14 @@ line = {
 | Copilot 知识包落后于站点 | 重建前 `articles_indexed`=246 / 索引 257；12 篇新文（`ai-era-*` 系列等）不在 KB 内 | 已本地重建 `build_qa_kb.py`：246 → **257**，chunks 2682 → **2959**（+10%）。**SCF 需单独部署**（SCF 与 GP 是两条管线，kb.json 不进 GP 清单），待下一批 |
 | 基线脚本两处测量缺陷 | ① 导航只扫前 20KB → `articles/index.html`（导航在 42KB 后）误报 NO_NAV ② 跳转壳计入孤儿 | 已修：全文扫描；跳转壳与非读者页（404/验证桩/seo-monitor/templates/assets/未发布草稿）豁免；自包含入口条计为合规入口 |
 | `assets/` 下 3 个资产页无入口 | design-system / hr-prompt-cards / iceberg-model | 判定为静态资源目录内容（不进 sitemap），不补导航；若未来要发布为资源库资产，需单独立项 |
+
+
+### 10.2 P2 附带发现与处置（不属于 P2 范围的，均需主理人确认后再动）
+
+| 发现 | 实测 | 处置 | 状态 |
+|---|---|---|---|
+| 新建文章从未进管线 | `articles/ai-era-collective-bargaining-2026.html`（10,640 字正文，UNI Europa / Littler / CWA 一手信源）落盘但不在 article-index.json、sitemap、KB 内 → 孤儿页 + 质量门第 11 关 FAIL | 补齐管线：sync → index 257→258、sitemap 入图、KB 257→258（chunks 2972） | 已随 P2 上线 |
+| 仪表盘被判为薄内容 | `tools/compliance-dashboard.html` 可见中文仅 156 字（其余是内联 CSS），stub_detector BLOCK；**线上版本来带 `noindex,follow`**，是生成器重跑把外部补丁冲掉了 | 把 robots meta 写进生成器 `compliance_dashboard.py`（与 SITE_ENTRY 同族修法），重生成后恢复 noindex 并自动退出 sitemap | 已修 |
+| 分类/标签页导航被 sync 改回旧 URL | 跑 sync 重建 30 个 `tags/` `categories/` 页后，`nav_deviation_count` 0 → 30 | 根因是 `templates/taxonomy.html` 与 `templates/_chrome.html` 真相源仍写死 `/bridge/index.html`；改真源后重生成 → 0。并新增断言 `R-STALE-CURATION-NAV` 全站封死 | 已修 + 已断言化 |
+| Pages 部署状态会误报 | Pages REST `status=errored`，但 Actions 工作流 `pages build and deployment` 最后一次为 success；实际原因是新 commit 长期 queued | **部署真相源＝Actions 工作流 `pages build and deployment`，不是 Pages REST `builds`**。新路径上线需等 Actions 跑完（本次约 6 分钟），不是 CDN 60–90s | 已记入口径 |
+| Copilot KB 需单独部署 | 已重建；`assets/qa/scf/kb.json` 同步完成 | SCF 与 GP 是两条管线，kb.json 不进 GP 清单，需单独打包 + `release_preflight.py --scf` | **待办** |
