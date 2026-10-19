@@ -141,13 +141,18 @@ def collect() -> list:
         sub = os.path.join(ROOT, d)
         if not os.path.isdir(sub):
             continue
-        for fn in sorted(os.listdir(sub)):
-            if not fn.endswith(".html"):
-                continue
-            rel = f"{d}/{fn}"
+        # 递归：brief/lines/ 这类二级内容目录必须收录（P2 信号线台账）
+        rels = []
+        for base, dirs, fs in os.walk(sub):
+            dirs[:] = [x for x in dirs if not x.startswith("_")]
+            for fn in fs:
+                if fn.endswith(".html"):
+                    rels.append(os.path.relpath(os.path.join(base, fn), ROOT))
+        for rel in sorted(rels):
+            fn = os.path.basename(rel)
             if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel) or has_noindex(rel):
                 continue
-            entries.append((f"{HOST}/{d}/{fn}", lastmod_for(rel)))
+            entries.append((f"{HOST}/{rel}", lastmod_for(rel)))
 
     # 去重并排序（URL 稳定顺序，便于 diff）
     seen = {}

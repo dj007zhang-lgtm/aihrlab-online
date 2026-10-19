@@ -1,0 +1,50 @@
+{
+  "slug": "hr-seat-not-skill-gap",
+  "claim": "AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。",
+  "status": "稳固",
+  "domain": "HR 职能",
+  "first_seen": "2026-10-19",
+  "updated": "2026-10-19",
+  "note": "措辞经过一手核验修正：早期流传的「HR 不想接（仅 16% 认同）」不成立，16% 是任务排序数据而非认同率。更硬的证据是主导率对比。",
+  "evidence": [
+    {
+      "date": "2026",
+      "source": "SHRM 2026 调研（经本站 CM-2026 项目核对至一手后采用）",
+      "source_url": "",
+      "fact": "技能再造仅 28% 由 HR 主导，低于跨职能团队的 29%。缺的是席位与授权，不是意愿。",
+      "polarity": "支持",
+      "via": "/bridge/index.html",
+      "via_title": "AI 转型期 HR 能力模型（CM-2026）"
+    },
+    {
+      "date": "2026",
+      "source": "Mercer《Global Talent Trends 2026》（近 12,000 名 C-suite、HR 负责人、投资人与员工）",
+      "source_url": "https://www.mercer.com/global-talent-trends",
+      "fact": "仅 27% 的高管认为 HR 能有效建议人力风险——人力风险的判断权没有落在 HR 手里。",
+      "polarity": "支持",
+      "via": "/articles/overseas-hr-build-from-zero-2026.html",
+      "via_title": "出海 HR 从 0 到 1：先搭组织能力，再招人"
+    },
+    {
+      "date": "2026",
+      "source": "Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）",
+      "source_url": "https://www.mercer.com/global-talent-trends",
+      "fact": "63% 的 C-suite 与 67% 的投资人把工作重设计列为最高 ROI，HR 仅 46% 认同，且它不在 HR 的前三优先级之列。同一件事，两侧的重要性排序不同。",
+      "polarity": "支持",
+      "via": "/articles/strategic-workforce-planning-ai-2026.html",
+      "via_title": "战略人力规划失效：不是算不准，是算错对象"
+    }
+  ],
+  "linked": [
+    {
+      "url": "/articles/2026-hr-transformation-chief-architect.html",
+      "title": "2026HR转型：成为组织的首席架构师",
+      "rel": "HR 角色定位的主线文章"
+    },
+    {
+      "url": "/articles/ai-era-hr-5-misalignments.html",
+      "title": "AI时代人力资源管理的5大错位",
+      "rel": "错位清单，含授权维度"
+    }
+  ]
+}

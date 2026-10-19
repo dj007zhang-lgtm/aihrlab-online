@@ -18,6 +18,20 @@ LATEST = os.path.join(COMPLIANCE_DIR, "latest-summary.json")
 OUT = os.path.join(SITE_ROOT, "tools", "compliance-dashboard.html")
 
 
+# 站内入口条：本页由脚本生成，chrome 必须写进生成器，
+# 否则每次重新生成都会冲掉外部补丁注入的入口（2026-10-19 事故）。
+SITE_ENTRY = (
+    '<div class="site-nav-mini"><div class="site-nav-mini__inner">'
+    '<a class="site-nav-mini__brand" href="/index.html">AIHR数智引擎</a>'
+    '<a href="/articles/index.html">文章</a>'
+    '<a href="/resources/index.html">资源库</a>'
+    '<a href="/tools/index.html">测评</a>'
+    '<a href="/brief/index.html">策展</a>'
+    '<a href="/about.html">关于</a>'
+    '</div></div>'
+)
+
+
 def load_history():
     rows = []
     if os.path.exists(LOG_PATH):
@@ -86,6 +100,9 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>内容合规审核仪表盘 · AIHR数智引擎</title>
 <meta name="description" content="AIHR 内容合规审核仪表盘（内部监控视图）：汇总全站已发布文章的正文调性红线、信源黑名单、夸大断言与绝对化表述的自动核查结果，供主理人持续监测内容正见与质量基线。">
+<!-- 内部监控视图，不进入搜索索引。必须写在生成器里：
+     本页由脚本每次重建，任何生成后再手工加的标签都会在重跑时被冲掉（同 SITE_ENTRY 事故）。 -->
+<meta name="robots" content="noindex,follow">
 <link href="/assets/css/style.min.css" rel="stylesheet"/>
 <style>
   :root {{
@@ -119,9 +136,18 @@ def main():
   .pill.fail {{ background: var(--fail); color: #fff; }}
   .pill.warn {{ background: var(--warn); color: #000; }}
   .empty {{ color: var(--muted); font-size: 13px; padding: 12px 0; }}
+  .site-nav-mini {{ background: #F1EFE9; border-bottom: 1px solid rgba(26,26,23,.10); font-size: 13px; }}
+  .site-nav-mini__inner {{ max-width: 1080px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }}
+  .site-nav-mini a {{ color: #1A1A17; text-decoration: none; }}
+  .site-nav-mini a:hover {{ color: #3F6212; }}
+  .site-nav-mini__brand {{ color: #3F6212; font-weight: 600; margin-right: auto; }}
+  html[data-theme="dark"] .site-nav-mini {{ background: #0B0C0E; border-bottom-color: rgba(236,234,228,.12); }}
+  html[data-theme="dark"] .site-nav-mini a {{ color: #ECEAE4; }}
+  html[data-theme="dark"] .site-nav-mini__brand {{ color: #6F9A3C; }}
 </style>
 </head>
 <body>
+{SITE_ENTRY}
 <div class="wrap">
   <h1>内容合规审核仪表盘</h1>
   <p class="sub">自动化内容主理人 · 三维审核（专业性 / 真实性 / 调性合规）· 更新于 {latest.get('run_date','-')}</p>

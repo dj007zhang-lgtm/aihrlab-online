@@ -1,0 +1,55 @@
+{
+  "slug": "ai-payoff-gap",
+  "claim": "AI 的账先花了，度量后建：多数组织已在部署 AI 并计划重构架构，却过半尚未正式度量 AI 成效。",
+  "status": "稳固",
+  "domain": "AI 转型",
+  "first_seen": "2026-10-19",
+  "updated": "2026-10-19",
+  "note": "这条线追踪的是「投入—度量—代价」三者的先后顺序。若后续出现大规模 ROI 度量体系落地的数据，本判断应转为被挑战。",
+  "evidence": [
+    {
+      "date": "2026",
+      "source": "Mercer《Global Talent Trends 2026》（约 12,000 名受访者，16 个市场）",
+      "source_url": "https://www.mercer.com/global-talent-trends",
+      "fact": "98% 计划未来两年进行组织设计变革；同一份报告里，员工蓬勃度从 66% 跌到 44%，担心技能相关性的比例从 17% 升到 47%。架构先动，人的代价同步发生。",
+      "polarity": "支持",
+      "via": "/articles/strategic-workforce-planning-ai-2026.html",
+      "via_title": "战略人力规划失效：不是算不准，是算错对象"
+    },
+    {
+      "date": "2026",
+      "source": "SHRM《State of AI in HR 2026》（n=1,908 名 HR 从业者）",
+      "source_url": "https://www.shrm.org/executive-network/insights/state-of-ai-hr-2026-5-critical-insights-chros",
+      "fact": "56% 的 HR 职能不正式度量 AI 投资成效，仅 16% 使用 ROI 指标；与此同时 43% 组织已在 HR 与招聘环节部署 AI。部署跑在度量前面。",
+      "polarity": "支持",
+      "via": "/articles/ai-era-productivity-metrics-2026.html",
+      "via_title": "AI 时代的人效分析：产出进了分子，成本没进分母"
+    },
+    {
+      "date": "2026",
+      "source": "SHRM《State of AI in HR 2026》（经 AI HR Daily 2026 复盘核验）",
+      "source_url": "https://www.shrm.org/executive-network/insights/state-of-ai-hr-2026-5-critical-insights-chros",
+      "fact": "仅 7% 的组织报告 AI 实际替代了岗位，39% 看到职责转移，24% 创造了新岗位；HR 的 AI 采用率一年跳升逾 17 个百分点。采用率上升快于可归因的成效。",
+      "polarity": "支持",
+      "via": "/articles/ai-era-skills-divide-2026.html",
+      "via_title": "技能鸿沟是组织设计债，不是个人能力缺口"
+    }
+  ],
+  "linked": [
+    {
+      "url": "/articles/ai-agent-roi-reality-2026.html",
+      "title": "Agent ROI现实检验：80%说赚，88%未投产",
+      "rel": "同名缺口在 Agent 侧的实证"
+    },
+    {
+      "url": "/articles/genai-productivity-evidence-2026.html",
+      "title": "生成式AI提效的真相：2025-2026一线实证拆解",
+      "rel": "提效证据的一线拆解"
+    },
+    {
+      "url": "/articles/ai-hr-landing-3-high-roi-plays.html",
+      "title": "AI落地HR实战：德勤2026调研验证的3个高ROI切入点",
+      "rel": "HR 场景的 ROI 切入点"
+    }
+  ]
+}

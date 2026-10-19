@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "ai-payoff-gap",
+    "claim": "AI 的账先花了，度量后建：多数组织已在部署 AI 并计划重构架构，却过半尚未正式度量 AI 成效。",
+    "status": "稳固",
+    "domain": "AI 转型",
+    "updated": "2026-10-19",
+    "first_seen": "2026-10-19",
+    "evidence_count": 3,
+    "url": "/brief/lines/ai-payoff-gap.html"
+  },
+  {
+    "slug": "hr-seat-not-skill-gap",
+    "claim": "AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。",
+    "status": "稳固",
+    "domain": "HR 职能",
+    "updated": "2026-10-19",
+    "first_seen": "2026-10-19",
+    "evidence_count": 3,
+    "url": "/brief/lines/hr-seat-not-skill-gap.html"
+  },
+  {
+    "slug": "intake-capacity-gap",
+    "claim": "AI 抹平了员工的表达门槛，组织的受理能力没有同步上涨：指控量创调研历史新高，受理侧的编制、流程与信任几乎没动。",
+    "status": "稳固",
+    "domain": "员工关系",
+    "updated": "2026-10-19",
+    "first_seen": "2026-10-19",
+    "evidence_count": 4,
+    "url": "/brief/lines/intake-capacity-gap.html"
+  }
+]
