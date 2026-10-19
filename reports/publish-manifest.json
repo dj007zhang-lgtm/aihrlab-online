@@ -4812,5 +4812,17 @@
     ],
     "sitemap_urls_before": 353,
     "sitemap_urls_after": 353
+  },
+  {
+    "date": "2026-10-20 00:52",
+    "commit": "d96096b63a04ea38aed7db9a5238be2ff15319a7",
+    "message": "docs(P2): 架构文档写入 P2 实测结果与附带发现/处置",
+    "files_count": 2,
+    "files": [
+      "reports/PRODUCT-ARCHITECTURE-v2-2026-10-17.md",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 353,
+    "sitemap_urls_after": 353
   }
 ]
