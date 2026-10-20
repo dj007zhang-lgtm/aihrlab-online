@@ -53,6 +53,18 @@
 .ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
   padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
 .ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 跨线判断（索引页）*/
+.bf-spine{background:var(--bg-card);border:1px solid var(--line-strong);border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:1.35rem 1.4rem;margin:0 0 1.2rem;}
+.bf-spine__label{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--accent);margin-bottom:.6rem;}
+.bf-spine__claim{font-size:1.08rem;font-weight:700;line-height:1.85;color:var(--text);margin:0 0 .9rem;}
+/* 推论块：与证据严格分层，推论不是证据 */
+.bf-imply{background:var(--bg-subtle);border:1px dashed var(--line-strong);border-radius:10px;
+  padding:1rem 1.15rem;margin:0 0 2.2rem;}
+.bf-imply__label{font-size:.8rem;font-weight:700;color:#a86a2e;margin-bottom:.45rem;}
+.bf-imply__text{font-size:.98rem;line-height:1.85;color:var(--text);margin:0;}
+.bf-imply__falsify{font-size:.85rem;line-height:1.75;color:var(--text-muted);margin:.5rem 0 0;}
+.bf-imply--in{margin:0;}
 /* 证据时间线：竖轨 + 节点 */
 .ev{list-style:none;padding:0;margin:0 0 2.4rem;}
 .ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
@@ -95,6 +107,7 @@
 <li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">56% 的 HR 职能不正式度量 AI 投资成效，仅 16% 使用 ROI 指标；与此同时 43% 组织已在 HR 与招聘环节部署 AI。部署跑在度量前面。</p><div class="ev-src">来源：<a href="https://www.shrm.org/executive-network/insights/state-of-ai-hr-2026-5-critical-insights-chros" rel="nofollow noopener" target="_blank">SHRM《State of AI in HR 2026》（n=1,908 名 HR 从业者）</a></div><div class="ev-via">本站全文：<a href="/articles/ai-era-productivity-metrics-2026.html">AI 时代的人效分析：产出进了分子，成本没进分母</a></div></li>
 <li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">仅 7% 的组织报告 AI 实际替代了岗位，39% 看到职责转移，24% 创造了新岗位；HR 的 AI 采用率一年跳升逾 17 个百分点。采用率上升快于可归因的成效。</p><div class="ev-src">来源：<a href="https://www.shrm.org/executive-network/insights/state-of-ai-hr-2026-5-critical-insights-chros" rel="nofollow noopener" target="_blank">SHRM《State of AI in HR 2026》（经 AI HR Daily 2026 复盘核验）</a></div><div class="ev-via">本站全文：<a href="/articles/ai-era-skills-divide-2026.html">技能鸿沟是组织设计债，不是个人能力缺口</a></div></li>
 </ol>
+<div class="bf-imply"><div class="bf-imply__label">推论 · 这条线成立时，组织该动的地方</div><p class="bf-imply__text">AI 的预算顺序该倒过来：先定收益口径，再买工具。收益口径定不出来的项目，采用率再高也只是把成本提前。</p><p class="bf-imply__falsify">推论失效条件：若出现先建度量体系、后大规模部署，收益归因并不优于同期同行的组织，本推论需修正。</p></div>
 <h2 class="ln-h">延伸阅读</h2>
 <ul class="ln-links">
 <li><a href="/articles/ai-agent-roi-reality-2026.html">Agent ROI现实检验：80%说赚，88%未投产</a><span class="ln-rel">同名缺口在 Agent 侧的实证</span></li>

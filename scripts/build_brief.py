@@ -84,6 +84,18 @@ CSS = """
 .ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
   padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
 .ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 跨线判断（索引页）*/
+.bf-spine{background:var(--bg-card);border:1px solid var(--line-strong);border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:1.35rem 1.4rem;margin:0 0 1.2rem;}
+.bf-spine__label{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--accent);margin-bottom:.6rem;}
+.bf-spine__claim{font-size:1.08rem;font-weight:700;line-height:1.85;color:var(--text);margin:0 0 .9rem;}
+/* 推论块：与证据严格分层，推论不是证据 */
+.bf-imply{background:var(--bg-subtle);border:1px dashed var(--line-strong);border-radius:10px;
+  padding:1rem 1.15rem;margin:0 0 2.2rem;}
+.bf-imply__label{font-size:.8rem;font-weight:700;color:#a86a2e;margin-bottom:.45rem;}
+.bf-imply__text{font-size:.98rem;line-height:1.85;color:var(--text);margin:0;}
+.bf-imply__falsify{font-size:.85rem;line-height:1.75;color:var(--text-muted);margin:.5rem 0 0;}
+.bf-imply--in{margin:0;}
 /* 证据时间线：竖轨 + 节点 */
 .ev{list-style:none;padding:0;margin:0 0 2.4rem;}
 .ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
@@ -208,6 +220,15 @@ def render_line(line):
     note_html = ('<div class="ln-note"><b>这条判断怎么会被推翻</b>%s</div>' % escape(note)
                  ) if note else ""
 
+    # 组织含义：由数据真源搬运，标为推论（非证据），并写明失效条件
+    imp = line.get("implication") or {}
+    imp_html = ""
+    if imp.get("text"):
+        fals = ('<p class="bf-imply__falsify">推论失效条件：%s</p>' % escape(imp["falsify"])
+                ) if imp.get("falsify") else ""
+        imp_html = ('<div class="bf-imply"><div class="bf-imply__label">推论 · 这条线成立时，组织该动的地方</div>'
+                    '<p class="bf-imply__text">%s</p>%s</div>' % (escape(imp["text"]), fals))
+
     body = """<section class="ln-hero">
 <div class="bf-card-top"><span class="bf-chip">{domain}</span>{status}</div>
 <h1 class="ln-claim">{claim}</h1>
@@ -218,12 +239,13 @@ def render_line(line):
 <ol class="ev">
 {ev}
 </ol>
+{imp}
 {ext_block}
 <div class="ln-foot">每条判断只追加、不改写：如果哪天证据推翻了它，会在这里写明失效条件和日期，原句保留。</div>""".format(
         domain=escape(line.get("domain", "")), status=status_html(line["status"]),
         claim=escape(line["claim"]),
         first=escape(line.get("first_seen", "")), updated=escape(line.get("updated", "")),
-        note=note_html, n=len(evs), ev=ev_html, ext_block=ext_block)
+        note=note_html, n=len(evs), ev=ev_html, imp=imp_html, ext_block=ext_block)
 
     jsonld = {
         "@context": "https://schema.org",
@@ -252,7 +274,29 @@ def render_line(line):
     return url, page(title, desc, body, url=url, jsonld=jsonld, og_title=line["claim"])
 
 
-def render_index(lines):
+def render_imply(imp, extra_class=""):
+    """推论块：与证据严格分层。推论是推论，不是证据，必须带失效条件。"""
+    if not imp or not imp.get("text"):
+        return ""
+    fals = ('<p class="bf-imply__falsify">推论失效条件：%s</p>' % escape(imp["falsify"])
+            ) if imp.get("falsify") else ""
+    return ('<div class="bf-imply %s"><div class="bf-imply__label">推论 · 待检验</div>'
+            '<p class="bf-imply__text">%s</p>%s</div>' % (
+                extra_class, escape(imp["text"]), fals))
+
+
+def render_index(lines, spine=None):
+    spine_html = ""
+    if spine and spine.get("claim"):
+        imp = render_imply(
+            {"text": spine.get("implication", ""), "falsify": spine.get("falsify", "")},
+            extra_class="bf-imply--in")
+        spine_html = ('<h2 class="ln-h">这些线连起来在说什么</h2>\n'
+                      '<div class="bf-spine">'
+                      '<div class="bf-spine__label">跨线判断 · %s</div>'
+                      '<p class="bf-spine__claim">%s</p>%s</div>' % (
+                          escape(spine.get("updated", "")),
+                          escape(spine["claim"]), imp))
     cards = []
     for l in lines:
         src = escape(l["evidence"][-1]["source"]) if l["evidence"] else ""
@@ -279,8 +323,9 @@ def render_index(lines):
     body = """<section class="bf-hero">
 <div class="bf-eyebrow">AIHR 策展</div>
 <h1 class="bf-title">信号线</h1>
-<p class="bf-lede">这里放的是我们公开押上的判断，不是新闻汇编。每条线盯一个可证伪的判断，一手证据随时间往上挂；如果哪天证据把它推翻了，我们在原句旁写明，不改口。目前 {n} 条线：{dist}。</p>
+<p class="bf-lede">这里放的是我们公开押上的判断。每条线盯一个可证伪的判断，一手证据随时间往上挂，判断后面还挂着它成立时组织该动的地方。被证据推翻时，我们在原句旁写明，不改口。</p>
 </section>
+{spine}
 <ul class="bf-legend">
 {legend}
 </ul>
@@ -293,14 +338,24 @@ def render_index(lines):
 <li><a class="bf-card bf-issue" href="/brief/signal-brief-001.html">
 <div class="bf-card-top"><span class="bf-chip">第 001 期</span><span class="bf-meta">2026 年 9 月 26 日</span></div>
 <p class="bf-claim">创刊号：组织设计、人才趋势、双轨劳动力、agent 成本、科技裁员</p>
+<div class="bf-meta">旧形态存档，已被信号线取代</div>
 </a></li>
-</ul>""".format(n=len(lines), dist=escape(dist_html), legend=legend, cards=cards_html)
+</ul>""".format(n=len(lines), dist=escape(dist_html), legend=legend,
+               cards=cards_html, spine=spine_html)
 
     return page("信号线 | AIHR数智引擎",
                 "AIHR 信号线：每条线是一条公开押上的判断，挂一手证据与修订记录；被推翻会写明失效条件，不改原文。",
                 body, url="/brief/index.html", jsonld=None,
                 og_title="信号线", og_type="website",
                 back="/index.html", back_text="← 返回首页")
+
+
+def load_spine():
+    """跨线判断真源（人工撰写）。缺失时索引页不渲染该块，不报错。"""
+    p = os.path.join(ROOT, "brief", "_spine.json")
+    if not os.path.exists(p):
+        return None
+    return json.load(open(p, encoding="utf-8"))
 
 
 def main():
@@ -323,12 +378,14 @@ def main():
         "domain": l.get("domain", ""), "updated": l.get("updated", ""),
         "first_seen": l.get("first_seen", ""),
         "evidence_count": len(l["evidence"]),
+        "implication": l.get("implication", {}).get("text", ""),
         "url": "/brief/lines/%s.html" % l["slug"],
     } for l in lines]
     json.dump(idx, open(INDEX_JSON, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print("  ✅ line-index.json（%d 条）" % len(idx))
 
-    open(INDEX_PAGE, "w", encoding="utf-8").write(render_index(lines))
+    spine = load_spine()
+    open(INDEX_PAGE, "w", encoding="utf-8").write(render_index(lines, spine))
     print("  ✅ brief/index.html（%d 条线）" % len(lines))
 
 

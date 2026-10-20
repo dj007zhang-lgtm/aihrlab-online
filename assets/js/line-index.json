@@ -7,6 +7,7 @@
     "updated": "2026-10-19",
     "first_seen": "2026-10-19",
     "evidence_count": 3,
+    "implication": "AI 的预算顺序该倒过来：先定收益口径，再买工具。收益口径定不出来的项目，采用率再高也只是把成本提前。",
     "url": "/brief/lines/ai-payoff-gap.html"
   },
   {
@@ -17,6 +18,7 @@
     "updated": "2026-10-19",
     "first_seen": "2026-10-19",
     "evidence_count": 3,
+    "implication": "HR 要拿到工作重设计的席位，得先交出可验证的产出，例如重设计的成本与产能口径，而不是先伸手要授权。",
     "url": "/brief/lines/hr-seat-not-skill-gap.html"
   },
   {
@@ -27,6 +29,7 @@
     "updated": "2026-10-19",
     "first_seen": "2026-10-19",
     "evidence_count": 4,
+    "implication": "员工关系 2026 年的预算，应优先扩受理编制与强制调查流程，其次才是自助工具与工单系统。",
     "url": "/brief/lines/intake-capacity-gap.html"
   }
 ]

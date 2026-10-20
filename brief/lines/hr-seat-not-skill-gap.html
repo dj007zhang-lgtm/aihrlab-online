@@ -53,6 +53,18 @@
 .ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
   padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
 .ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 跨线判断（索引页）*/
+.bf-spine{background:var(--bg-card);border:1px solid var(--line-strong);border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:1.35rem 1.4rem;margin:0 0 1.2rem;}
+.bf-spine__label{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--accent);margin-bottom:.6rem;}
+.bf-spine__claim{font-size:1.08rem;font-weight:700;line-height:1.85;color:var(--text);margin:0 0 .9rem;}
+/* 推论块：与证据严格分层，推论不是证据 */
+.bf-imply{background:var(--bg-subtle);border:1px dashed var(--line-strong);border-radius:10px;
+  padding:1rem 1.15rem;margin:0 0 2.2rem;}
+.bf-imply__label{font-size:.8rem;font-weight:700;color:#a86a2e;margin-bottom:.45rem;}
+.bf-imply__text{font-size:.98rem;line-height:1.85;color:var(--text);margin:0;}
+.bf-imply__falsify{font-size:.85rem;line-height:1.75;color:var(--text-muted);margin:.5rem 0 0;}
+.bf-imply--in{margin:0;}
 /* 证据时间线：竖轨 + 节点 */
 .ev{list-style:none;padding:0;margin:0 0 2.4rem;}
 .ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
@@ -95,6 +107,7 @@
 <li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">仅 27% 的高管认为 HR 能有效建议人力风险——人力风险的判断权没有落在 HR 手里。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（近 12,000 名 C-suite、HR 负责人、投资人与员工）</a></div><div class="ev-via">本站全文：<a href="/articles/overseas-hr-build-from-zero-2026.html">出海 HR 从 0 到 1：先搭组织能力，再招人</a></div></li>
 <li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">63% 的 C-suite 与 67% 的投资人把工作重设计列为最高 ROI，HR 仅 46% 认同，且它不在 HR 的前三优先级之列。同一件事，两侧的重要性排序不同。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）</a></div><div class="ev-via">本站全文：<a href="/articles/strategic-workforce-planning-ai-2026.html">战略人力规划失效：不是算不准，是算错对象</a></div></li>
 </ol>
+<div class="bf-imply"><div class="bf-imply__label">推论 · 这条线成立时，组织该动的地方</div><p class="bf-imply__text">HR 要拿到工作重设计的席位，得先交出可验证的产出，例如重设计的成本与产能口径，而不是先伸手要授权。</p><p class="bf-imply__falsify">推论失效条件：若出现未交出可验证产出、仍拿到主导权的组织，本推论失效。</p></div>
 <h2 class="ln-h">延伸阅读</h2>
 <ul class="ln-links">
 <li><a href="/articles/2026-hr-transformation-chief-architect.html">2026HR转型：成为组织的首席架构师</a><span class="ln-rel">HR 角色定位的主线文章</span></li>
