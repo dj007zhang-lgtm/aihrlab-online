@@ -4824,5 +4824,22 @@
     ],
     "sitemap_urls_before": 353,
     "sitemap_urls_after": 353
+  },
+  {
+    "date": "2026-10-20 10:00",
+    "commit": "1432e75174847cd070bf6d005bc0080d5f5782ad",
+    "message": "style(P2): 信号线页面读者化重排——判断句为主角、状态图例、证据时间线竖轨版式",
+    "files_count": 7,
+    "files": [
+      "brief/index.html",
+      "brief/lines/ai-payoff-gap.html",
+      "brief/lines/hr-seat-not-skill-gap.html",
+      "brief/lines/intake-capacity-gap.html",
+      "brief/signal-brief-001.html",
+      "scripts/build_brief.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 353,
+    "sitemap_urls_after": 353
   }
 ]
