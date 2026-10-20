@@ -18,72 +18,89 @@
 <link rel="stylesheet" href="/assets/css/style.min.css">
 <link rel="stylesheet" href="/assets/css/article.css">
 <style>
-.hub-wrap{max-width:680px;margin:0 auto;padding:3rem 1.25rem 4.5rem;}
-.hub-series{font-size:.85rem;color:var(--text-muted);margin-bottom:.4rem;}
-.hub-title{font-size:1.7rem;font-weight:700;color:var(--text);margin:0 0 .8rem;}
-.hub-lede{font-size:1.02rem;line-height:1.9;color:var(--text-secondary);margin:0 0 2rem;}
-.hub-list{list-style:none;padding:0;margin:0;}
-.hub-item{display:block;text-decoration:none;color:var(--text);border-top:1px solid var(--line);padding:1.5rem 0;}
-.hub-item:first-child{border-top:none;padding-top:0;}
-.hub-item .num{font-size:.82rem;color:var(--text-muted);}
-.hub-item .it{font-size:1.1rem;font-weight:700;color:var(--text);margin:.3rem 0 .5rem;}
-.hub-item .de{font-size:.95rem;line-height:1.8;color:var(--text-secondary);}
-.brief-back{display:inline-block;margin-bottom:1.6rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
-.ln-domain{display:inline-block;font-size:.72rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:6px;padding:.14rem .5rem;margin-bottom:.6rem;}
-.ln-claim{font-size:1.22rem;line-height:1.75;font-weight:700;color:var(--text);margin:0 0 .8rem;padding-left:.9rem;border-left:3px solid var(--accent);}
-.ln-meta{font-size:.82rem;color:var(--text-muted);margin:0 0 .4rem;}
-.ln-status{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--line-strong);border-radius:999px;padding:.16rem .6rem;margin-right:.5rem;}
-.ln-status[data-s="稳固"]{color:var(--accent);border-color:var(--accent);}
-.ln-status[data-s="被挑战"]{color:#a86a2e;border-color:#a86a2e;}
-.ln-status[data-s="已翻转"]{color:#a32d2d;border-color:#a32d2d;}
-.ln-status[data-s="归档"]{color:var(--text-muted);}
-.ln-note{font-size:.92rem;line-height:1.8;color:var(--text-secondary);background:var(--bg-subtle);border-radius:8px;padding:.8rem 1rem;margin:1rem 0 1.8rem;}
-.ln-h{font-size:1rem;font-weight:700;color:var(--text);margin:1.6rem 0 .6rem;}
-.ev{list-style:none;padding:0;margin:0;}
-.ev li{padding:.9rem 0;border-top:1px solid var(--line);}
-.ev li:first-child{border-top:0;}
-.ev-date{font-size:.78rem;color:var(--text-muted);}
-.ev-fact{font-size:.98rem;line-height:1.85;color:var(--text);margin:.25rem 0 .4rem;}
-.ev-src{font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.hub-wrap{max-width:680px;margin:0 auto;padding:2.5rem 1.25rem 4.5rem;}
+.brief-back{display:inline-block;margin-bottom:1.4rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
+.bf-hero{background:var(--accent-pale);border-radius:16px;padding:2.3rem 2.1rem 2.1rem;margin:1.6rem 0 1.8rem;}
+.bf-eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:.55rem;}
+.bf-title{font-size:2.05rem;font-weight:800;color:var(--text);margin:0 0 .75rem;line-height:1.3;}
+.bf-lede{font-size:1.03rem;line-height:1.95;color:var(--text-secondary);margin:0;max-width:58ch;}
+.bf-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin:0 0 2.2rem;padding:0;list-style:none;}
+.bf-legend li{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--text-secondary);}
+.bf-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:700;color:var(--text);}
+.bf-dot{width:9px;height:9px;border-radius:50%;background:var(--text-muted);flex:none;}
+.bf-status[data-status="稳固"] .bf-dot{background:var(--accent);}
+.bf-status[data-status="被挑战"] .bf-dot{background:#a86a2e;}
+.bf-status[data-status="已翻转"] .bf-dot{background:#a32d2d;}
+.bf-status[data-status="归档"] .bf-dot{background:var(--text-muted);}
+.ln-h{display:flex;align-items:baseline;gap:.55rem;font-size:1.12rem;font-weight:800;color:var(--text);margin:0 0 1rem;}
+.ln-count{font-size:.82rem;font-weight:600;color:var(--text-muted);}
+.bf-cards{display:grid;gap:1rem;margin:0 0 2.6rem;padding:0;list-style:none;}
+.bf-card{display:block;background:var(--bg-card);border:1px solid var(--line-strong);border-radius:14px;
+  padding:1.35rem 1.5rem;text-decoration:none;color:var(--text);
+  transition:transform .18s ease, box-shadow .18s ease;}
+.bf-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.09);}
+.bf-card-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;flex-wrap:wrap;}
+.bf-chip{font-size:.78rem;font-weight:700;color:var(--accent);background:var(--accent-pale);
+  border-radius:999px;padding:.2rem .75rem;white-space:nowrap;}
+.bf-claim{font-size:1.12rem;font-weight:700;line-height:1.8;margin:0 0 .65rem;}
+.bf-meta{font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem;}
+.bf-src{font-size:.88rem;line-height:1.7;color:var(--text-secondary);}
+.bf-issue{background:transparent;border-style:dashed;}
+/* 线页 */
+.ln-hero{background:var(--accent-pale);border-radius:16px;padding:2.1rem;margin:1.6rem 0 1.6rem;}
+.ln-claim{font-size:1.42rem;line-height:1.72;font-weight:800;color:var(--text);margin:.2rem 0 1rem;}
+.ln-meta{font-size:.87rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
+  padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
+.ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 证据时间线：竖轨 + 节点 */
+.ev{list-style:none;padding:0;margin:0 0 2.4rem;}
+.ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
+  border-left:2px solid var(--line-strong);}
+.ev li:last-child{border-left-color:transparent;}
+.ev li::before{content:"";position:absolute;left:-6px;top:.3rem;width:10px;height:10px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg);}
+.ev li[data-pol="削弱"]::before{background:#a86a2e;}
+.ev-date{font-size:.87rem;font-weight:700;color:var(--text);}
+.ev-pol{font-size:.78rem;font-weight:600;color:var(--accent);margin-left:.55rem;}
+.ev li[data-pol="削弱"] .ev-pol{color:#a86a2e;}
+.ev-fact{font-size:1rem;line-height:1.9;color:var(--text);margin:.35rem 0 .5rem;}
+.ev-src{font-size:.87rem;color:var(--text-secondary);line-height:1.7;}
 .ev-src a{color:var(--text-link);}
-.ev-pol{display:inline-block;font-size:.72rem;border:1px solid var(--line-strong);border-radius:4px;padding:.05rem .4rem;margin-right:.4rem;color:var(--text-secondary);}
-.ev-via{font-size:.82rem;color:var(--text-muted);margin-top:.25rem;}
+.ev-via{font-size:.85rem;color:var(--text-muted);margin-top:.35rem;}
 .ev-via a{color:var(--text-link);}
-.ln-links{margin:0;padding:0;list-style:none;}
-.ln-links li{padding:.35rem 0;border-top:1px solid var(--line);font-size:.95rem;}
-.ln-links li:first-child{border-top:0;}
+.ln-links{margin:0 0 2.4rem;padding:0;list-style:none;}
+.ln-links li{padding:.6rem 0;border-top:1px solid var(--line);font-size:.97rem;}
+.ln-links li:first-child{border-top:0;padding-top:0;}
 .ln-links a{color:var(--text-link);}
-.ln-rel{display:block;font-size:.82rem;color:var(--text-muted);margin-top:.15rem;}
-.ln-foot{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted);line-height:1.7;}
+.ln-rel{display:block;font-size:.84rem;color:var(--text-muted);margin-top:.2rem;}
+.ln-foot{margin-top:2.2rem;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--text-muted);line-height:1.8;}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。","datePublished":"2026-10-19","dateModified":"2026-10-19","url":"https://www.aihrlab.online/brief/lines/hr-seat-not-skill-gap.html","about":{"@type":"Thing","name":"HR 职能"},"hasPart":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Claim","text":"技能再造仅 28% 由 HR 主导，低于跨职能团队的 29%。缺的是席位与授权，不是意愿。","dateCreated":"2026","author":{"@type":"Organization","name":"SHRM 2026 调研（经本站 CM-2026 项目核对至一手后采用）"},"url":""}},{"@type":"ListItem","position":2,"item":{"@type":"Claim","text":"仅 27% 的高管认为 HR 能有效建议人力风险——人力风险的判断权没有落在 HR 手里。","dateCreated":"2026","author":{"@type":"Organization","name":"Mercer《Global Talent Trends 2026》（近 12,000 名 C-suite、HR 负责人、投资人与员工）"},"url":"https://www.mercer.com/global-talent-trends"}},{"@type":"ListItem","position":3,"item":{"@type":"Claim","text":"63% 的 C-suite 与 67% 的投资人把工作重设计列为最高 ROI，HR 仅 46% 认同，且它不在 HR 的前三优先级之列。同一件事，两侧的重要性排序不同。","dateCreated":"2026","author":{"@type":"Organization","name":"Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）"},"url":"https://www.mercer.com/global-talent-trends"}}]}}</script>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/brief/index.html" class="active" aria-current="page">策展</a><a href="/about.html">关于</a></nav></div></header>
 <main class="hub-wrap">
-<a class="brief-back" href="/brief/index.html">← 返回信号线台账</a>
-<div class="ln-domain">HR 职能</div>
+<a class="brief-back" href="/brief/index.html">← 返回信号线</a>
+<section class="ln-hero">
+<div class="bf-card-top"><span class="bf-chip">HR 职能</span><span class="bf-status" data-status="稳固"><span class="bf-dot"></span>稳固</span></div>
 <h1 class="ln-claim">AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。</h1>
-<div class="ln-meta"><span class="ln-status" data-s="稳固">稳固</span>首次记录 <time datetime="2026-10-19">2026-10-19</time> · 最近修订 2026-10-19</div>
-<div class="ln-note">措辞经过一手核验修正：早期流传的「HR 不想接（仅 16% 认同）」不成立，16% 是任务排序数据而非认同率。更硬的证据是主导率对比。</div>
-<h2 class="ln-h">证据时间线（3 条，倒序）</h2>
+<div class="ln-meta">首次记录 <time datetime="2026-10-19">2026-10-19</time> · 最近修订 2026-10-19 · 3 份证据</div>
+</section>
+<div class="ln-note"><b>这条判断怎么会被推翻</b>措辞经过一手核验修正：早期流传的「HR 不想接（仅 16% 认同）」不成立，16% 是任务排序数据而非认同率。更硬的证据是主导率对比。</div>
+<h2 class="ln-h">证据时间线<span class="ln-count">由新到旧</span></h2>
 <ol class="ev">
-<li><div class="ev-date">2026 · <span class="ev-pol">支持</span></div><p class="ev-fact">技能再造仅 28% 由 HR 主导，低于跨职能团队的 29%。缺的是席位与授权，不是意愿。</p><div class="ev-src">来源：SHRM 2026 调研（经本站 CM-2026 项目核对至一手后采用）</div><div class="ev-via">本站留痕：<a href="/bridge/index.html">AI 转型期 HR 能力模型（CM-2026）</a></div></li>
-<li><div class="ev-date">2026 · <span class="ev-pol">支持</span></div><p class="ev-fact">仅 27% 的高管认为 HR 能有效建议人力风险——人力风险的判断权没有落在 HR 手里。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（近 12,000 名 C-suite、HR 负责人、投资人与员工）</a></div><div class="ev-via">本站留痕：<a href="/articles/overseas-hr-build-from-zero-2026.html">出海 HR 从 0 到 1：先搭组织能力，再招人</a></div></li>
-<li><div class="ev-date">2026 · <span class="ev-pol">支持</span></div><p class="ev-fact">63% 的 C-suite 与 67% 的投资人把工作重设计列为最高 ROI，HR 仅 46% 认同，且它不在 HR 的前三优先级之列。同一件事，两侧的重要性排序不同。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）</a></div><div class="ev-via">本站留痕：<a href="/articles/strategic-workforce-planning-ai-2026.html">战略人力规划失效：不是算不准，是算错对象</a></div></li>
+<li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">技能再造仅 28% 由 HR 主导，低于跨职能团队的 29%。缺的是席位与授权，不是意愿。</p><div class="ev-src">来源：SHRM 2026 调研（经本站 CM-2026 项目核对至一手后采用）</div><div class="ev-via">本站全文：<a href="/bridge/index.html">AI 转型期 HR 能力模型（CM-2026）</a></div></li>
+<li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">仅 27% 的高管认为 HR 能有效建议人力风险——人力风险的判断权没有落在 HR 手里。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（近 12,000 名 C-suite、HR 负责人、投资人与员工）</a></div><div class="ev-via">本站全文：<a href="/articles/overseas-hr-build-from-zero-2026.html">出海 HR 从 0 到 1：先搭组织能力，再招人</a></div></li>
+<li data-pol="支持"><div class="ev-date"><time datetime="2026">2026</time><span class="ev-pol">支持</span></div><p class="ev-fact">63% 的 C-suite 与 67% 的投资人把工作重设计列为最高 ROI，HR 仅 46% 认同，且它不在 HR 的前三优先级之列。同一件事，两侧的重要性排序不同。</p><div class="ev-src">来源：<a href="https://www.mercer.com/global-talent-trends" rel="nofollow noopener" target="_blank">Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）</a></div><div class="ev-via">本站全文：<a href="/articles/strategic-workforce-planning-ai-2026.html">战略人力规划失效：不是算不准，是算错对象</a></div></li>
 </ol>
-<h2 class="ln-h">证据出处（本站）</h2>
-<ul class="ln-links">
-<li><a href="/bridge/index.html">AI 转型期 HR 能力模型（CM-2026）</a></li>
-<li><a href="/articles/overseas-hr-build-from-zero-2026.html">出海 HR 从 0 到 1：先搭组织能力，再招人</a></li>
-<li><a href="/articles/strategic-workforce-planning-ai-2026.html">战略人力规划失效：不是算不准，是算错对象</a></li>
-</ul>
-<h2 class="ln-h">站内挂钩</h2>
+<h2 class="ln-h">延伸阅读</h2>
 <ul class="ln-links">
 <li><a href="/articles/2026-hr-transformation-chief-architect.html">2026HR转型：成为组织的首席架构师</a><span class="ln-rel">HR 角色定位的主线文章</span></li>
 <li><a href="/articles/ai-era-hr-5-misalignments.html">AI时代人力资源管理的5大错位</a><span class="ln-rel">错位清单，含授权维度</span></li>
 </ul>
-<div class="ln-foot">判断句不会被静默改写。若后续证据推翻这条判断，会追加失效条件与修订日期，原表述保留在页面上。</div>
+<div class="ln-foot">每条判断只追加、不改写：如果哪天证据推翻了它，会在这里写明失效条件和日期，原句保留。</div>
 </main>
 <script src="/assets/js/main.js" defer></script>
 </body>

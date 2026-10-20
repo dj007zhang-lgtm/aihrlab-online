@@ -4,75 +4,106 @@
 <script>(function(){try{var t=localStorage.getItem('aihr_theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>信号线台账：持续追踪的判断与一手证据 | AIHR数智引擎</title>
-<meta name="description" content="AIHR 信号线台账：每条线是一条可证伪的判断，挂一手证据与修订记录。判断可追溯，推翻会写明失效条件。">
-<meta property="og:title" content="信号线台账">
-<meta property="og:description" content="AIHR 信号线台账：每条线是一条可证伪的判断，挂一手证据与修订记录。判断可追溯，推翻会写明失效条件。">
+<title>信号线 | AIHR数智引擎</title>
+<meta name="description" content="AIHR 信号线：每条线是一条公开押上的判断，挂一手证据与修订记录；被推翻会写明失效条件，不改原文。">
+<meta property="og:title" content="信号线">
+<meta property="og:description" content="AIHR 信号线：每条线是一条公开押上的判断，挂一手证据与修订记录；被推翻会写明失效条件，不改原文。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.aihrlab.online/brief/index.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://www.aihrlab.online/assets/images/og-covers/index-cover.webp">
-<meta name="twitter:title" content="信号线台账">
-<meta name="twitter:description" content="AIHR 信号线台账：每条线是一条可证伪的判断，挂一手证据与修订记录。判断可追溯，推翻会写明失效条件。">
+<meta name="twitter:title" content="信号线">
+<meta name="twitter:description" content="AIHR 信号线：每条线是一条公开押上的判断，挂一手证据与修订记录；被推翻会写明失效条件，不改原文。">
 <link rel="canonical" href="https://www.aihrlab.online/brief/index.html">
 <link rel="stylesheet" href="/assets/css/style.min.css">
 <link rel="stylesheet" href="/assets/css/article.css">
 <style>
-.hub-wrap{max-width:680px;margin:0 auto;padding:3rem 1.25rem 4.5rem;}
-.hub-series{font-size:.85rem;color:var(--text-muted);margin-bottom:.4rem;}
-.hub-title{font-size:1.7rem;font-weight:700;color:var(--text);margin:0 0 .8rem;}
-.hub-lede{font-size:1.02rem;line-height:1.9;color:var(--text-secondary);margin:0 0 2rem;}
-.hub-list{list-style:none;padding:0;margin:0;}
-.hub-item{display:block;text-decoration:none;color:var(--text);border-top:1px solid var(--line);padding:1.5rem 0;}
-.hub-item:first-child{border-top:none;padding-top:0;}
-.hub-item .num{font-size:.82rem;color:var(--text-muted);}
-.hub-item .it{font-size:1.1rem;font-weight:700;color:var(--text);margin:.3rem 0 .5rem;}
-.hub-item .de{font-size:.95rem;line-height:1.8;color:var(--text-secondary);}
-.brief-back{display:inline-block;margin-bottom:1.6rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
-.ln-domain{display:inline-block;font-size:.72rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:6px;padding:.14rem .5rem;margin-bottom:.6rem;}
-.ln-claim{font-size:1.22rem;line-height:1.75;font-weight:700;color:var(--text);margin:0 0 .8rem;padding-left:.9rem;border-left:3px solid var(--accent);}
-.ln-meta{font-size:.82rem;color:var(--text-muted);margin:0 0 .4rem;}
-.ln-status{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--line-strong);border-radius:999px;padding:.16rem .6rem;margin-right:.5rem;}
-.ln-status[data-s="稳固"]{color:var(--accent);border-color:var(--accent);}
-.ln-status[data-s="被挑战"]{color:#a86a2e;border-color:#a86a2e;}
-.ln-status[data-s="已翻转"]{color:#a32d2d;border-color:#a32d2d;}
-.ln-status[data-s="归档"]{color:var(--text-muted);}
-.ln-note{font-size:.92rem;line-height:1.8;color:var(--text-secondary);background:var(--bg-subtle);border-radius:8px;padding:.8rem 1rem;margin:1rem 0 1.8rem;}
-.ln-h{font-size:1rem;font-weight:700;color:var(--text);margin:1.6rem 0 .6rem;}
-.ev{list-style:none;padding:0;margin:0;}
-.ev li{padding:.9rem 0;border-top:1px solid var(--line);}
-.ev li:first-child{border-top:0;}
-.ev-date{font-size:.78rem;color:var(--text-muted);}
-.ev-fact{font-size:.98rem;line-height:1.85;color:var(--text);margin:.25rem 0 .4rem;}
-.ev-src{font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.hub-wrap{max-width:680px;margin:0 auto;padding:2.5rem 1.25rem 4.5rem;}
+.brief-back{display:inline-block;margin-bottom:1.4rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
+.bf-hero{background:var(--accent-pale);border-radius:16px;padding:2.3rem 2.1rem 2.1rem;margin:1.6rem 0 1.8rem;}
+.bf-eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:.55rem;}
+.bf-title{font-size:2.05rem;font-weight:800;color:var(--text);margin:0 0 .75rem;line-height:1.3;}
+.bf-lede{font-size:1.03rem;line-height:1.95;color:var(--text-secondary);margin:0;max-width:58ch;}
+.bf-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin:0 0 2.2rem;padding:0;list-style:none;}
+.bf-legend li{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--text-secondary);}
+.bf-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:700;color:var(--text);}
+.bf-dot{width:9px;height:9px;border-radius:50%;background:var(--text-muted);flex:none;}
+.bf-status[data-status="稳固"] .bf-dot{background:var(--accent);}
+.bf-status[data-status="被挑战"] .bf-dot{background:#a86a2e;}
+.bf-status[data-status="已翻转"] .bf-dot{background:#a32d2d;}
+.bf-status[data-status="归档"] .bf-dot{background:var(--text-muted);}
+.ln-h{display:flex;align-items:baseline;gap:.55rem;font-size:1.12rem;font-weight:800;color:var(--text);margin:0 0 1rem;}
+.ln-count{font-size:.82rem;font-weight:600;color:var(--text-muted);}
+.bf-cards{display:grid;gap:1rem;margin:0 0 2.6rem;padding:0;list-style:none;}
+.bf-card{display:block;background:var(--bg-card);border:1px solid var(--line-strong);border-radius:14px;
+  padding:1.35rem 1.5rem;text-decoration:none;color:var(--text);
+  transition:transform .18s ease, box-shadow .18s ease;}
+.bf-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.09);}
+.bf-card-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;flex-wrap:wrap;}
+.bf-chip{font-size:.78rem;font-weight:700;color:var(--accent);background:var(--accent-pale);
+  border-radius:999px;padding:.2rem .75rem;white-space:nowrap;}
+.bf-claim{font-size:1.12rem;font-weight:700;line-height:1.8;margin:0 0 .65rem;}
+.bf-meta{font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem;}
+.bf-src{font-size:.88rem;line-height:1.7;color:var(--text-secondary);}
+.bf-issue{background:transparent;border-style:dashed;}
+/* 线页 */
+.ln-hero{background:var(--accent-pale);border-radius:16px;padding:2.1rem;margin:1.6rem 0 1.6rem;}
+.ln-claim{font-size:1.42rem;line-height:1.72;font-weight:800;color:var(--text);margin:.2rem 0 1rem;}
+.ln-meta{font-size:.87rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
+  padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
+.ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 证据时间线：竖轨 + 节点 */
+.ev{list-style:none;padding:0;margin:0 0 2.4rem;}
+.ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
+  border-left:2px solid var(--line-strong);}
+.ev li:last-child{border-left-color:transparent;}
+.ev li::before{content:"";position:absolute;left:-6px;top:.3rem;width:10px;height:10px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg);}
+.ev li[data-pol="削弱"]::before{background:#a86a2e;}
+.ev-date{font-size:.87rem;font-weight:700;color:var(--text);}
+.ev-pol{font-size:.78rem;font-weight:600;color:var(--accent);margin-left:.55rem;}
+.ev li[data-pol="削弱"] .ev-pol{color:#a86a2e;}
+.ev-fact{font-size:1rem;line-height:1.9;color:var(--text);margin:.35rem 0 .5rem;}
+.ev-src{font-size:.87rem;color:var(--text-secondary);line-height:1.7;}
 .ev-src a{color:var(--text-link);}
-.ev-pol{display:inline-block;font-size:.72rem;border:1px solid var(--line-strong);border-radius:4px;padding:.05rem .4rem;margin-right:.4rem;color:var(--text-secondary);}
-.ev-via{font-size:.82rem;color:var(--text-muted);margin-top:.25rem;}
+.ev-via{font-size:.85rem;color:var(--text-muted);margin-top:.35rem;}
 .ev-via a{color:var(--text-link);}
-.ln-links{margin:0;padding:0;list-style:none;}
-.ln-links li{padding:.35rem 0;border-top:1px solid var(--line);font-size:.95rem;}
-.ln-links li:first-child{border-top:0;}
+.ln-links{margin:0 0 2.4rem;padding:0;list-style:none;}
+.ln-links li{padding:.6rem 0;border-top:1px solid var(--line);font-size:.97rem;}
+.ln-links li:first-child{border-top:0;padding-top:0;}
 .ln-links a{color:var(--text-link);}
-.ln-rel{display:block;font-size:.82rem;color:var(--text-muted);margin-top:.15rem;}
-.ln-foot{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted);line-height:1.7;}
+.ln-rel{display:block;font-size:.84rem;color:var(--text-muted);margin-top:.2rem;}
+.ln-foot{margin-top:2.2rem;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--text-muted);line-height:1.8;}
 </style>
 </head>
 <body>
 <header class="site-header"><div class="container"><a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页"><img src="/assets/images/logo.png" class="logo-icon" alt="AIHR数智引擎" width="28" height="28"> AIHR<span class="logo-dot">数智引擎</span></a><button class="nav-toggle" aria-label="打开导航菜单">&#9776;</button><nav class="site-nav" aria-label="主导航"><a href="/index.html">首页</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/brief/index.html" class="active" aria-current="page">策展</a><a href="/about.html">关于</a></nav></div></header>
 <main class="hub-wrap">
 <a class="brief-back" href="/index.html">← 返回首页</a>
-<div class="hub-series">AIHR 策展</div>
-<h1 class="hub-title">信号线台账</h1>
-<p class="hub-lede">这里追踪的是判断，不是新闻。每条线是一条可证伪的判断，下面挂着支持或削弱它的一手证据；证据随时间追加，判断被推翻时会写明失效条件，不改原文。</p>
-<div class="ln-meta">共 3 条线 · 稳固 3 条</div>
-<h2 class="ln-h">AI 转型</h2><ul class="hub-list"><li><a class="hub-item" href="/brief/lines/ai-payoff-gap.html"><div class="num">稳固 · 3 条证据 · 最近修订 2026-10-19</div><div class="it">AI 的账先花了，度量后建：多数组织已在部署 AI 并计划重构架构，却过半尚未正式度量 AI 成效。</div><div class="de">SHRM《State of AI in HR 2026》（经 AI HR Daily 2026 复盘核验）</div></a></li></ul>
-<h2 class="ln-h">HR 职能</h2><ul class="hub-list"><li><a class="hub-item" href="/brief/lines/hr-seat-not-skill-gap.html"><div class="num">稳固 · 3 条证据 · 最近修订 2026-10-19</div><div class="it">AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。</div><div class="de">Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）</div></a></li></ul>
-<h2 class="ln-h">员工关系</h2><ul class="hub-list"><li><a class="hub-item" href="/brief/lines/intake-capacity-gap.html"><div class="num">稳固 · 4 条证据 · 最近修订 2026-10-19</div><div class="it">AI 抹平了员工的表达门槛，组织的受理能力没有同步上涨：指控量创调研历史新高，受理侧的编制、流程与信任几乎没动。</div><div class="de">SHRM《2026 State of the Workplace》（2,400 名员工）</div></a></li></ul>
-<h2 class="ln-h">卷期归档</h2>
-<ul class="hub-list">
-<li><a class="hub-item" href="/brief/signal-brief-001.html">
-<div class="num">第 001 期 · 2026 年 9 月 26 日</div>
-<div class="it">创刊号：组织设计、人才趋势、双轨劳动力、agent 成本、科技裁员</div>
+<section class="bf-hero">
+<div class="bf-eyebrow">AIHR 策展</div>
+<h1 class="bf-title">信号线</h1>
+<p class="bf-lede">这里放的是我们公开押上的判断，不是新闻汇编。每条线盯一个可证伪的判断，一手证据随时间往上挂；如果哪天证据把它推翻了，我们在原句旁写明，不改口。目前 3 条线：稳固 3。</p>
+</section>
+<ul class="bf-legend">
+<li><span class="bf-status" data-status="稳固"><span class="bf-dot"></span>稳固</span><span>证据还在持续支持</span></li>
+<li><span class="bf-status" data-status="被挑战"><span class="bf-dot"></span>被挑战</span><span>出现了反向证据，正在复核</span></li>
+<li><span class="bf-status" data-status="已翻转"><span class="bf-dot"></span>已翻转</span><span>判断被推翻，原句保留可查</span></li>
+<li><span class="bf-status" data-status="归档"><span class="bf-dot"></span>归档</span><span>不再追踪，记录归档</span></li>
+</ul>
+<h2 class="ln-h">正在追踪的判断<span class="ln-count">3</span></h2>
+<ul class="bf-cards">
+<li><a class="bf-card" href="/brief/lines/ai-payoff-gap.html"><div class="bf-card-top"><span class="bf-chip">AI 转型</span><span class="bf-status" data-status="稳固"><span class="bf-dot"></span>稳固</span></div><p class="bf-claim">AI 的账先花了，度量后建：多数组织已在部署 AI 并计划重构架构，却过半尚未正式度量 AI 成效。</p><div class="bf-meta">3 份证据 · 最近修订 2026-10-19</div><div class="bf-src">最新证据来源：SHRM《State of AI in HR 2026》（经 AI HR Daily 2026 复盘核验）</div></a></li>
+<li><a class="bf-card" href="/brief/lines/hr-seat-not-skill-gap.html"><div class="bf-card-top"><span class="bf-chip">HR 职能</span><span class="bf-status" data-status="稳固"><span class="bf-dot"></span>稳固</span></div><p class="bf-claim">AI 时代 HR 的瓶颈是授权而非能力：在最该由 HR 主导的工作重设计上，HR 的主导率低于跨职能团队。</p><div class="bf-meta">3 份证据 · 最近修订 2026-10-19</div><div class="bf-src">最新证据来源：Mercer《Global Talent Trends 2026》（第 11 年，约 12,000 人）</div></a></li>
+<li><a class="bf-card" href="/brief/lines/intake-capacity-gap.html"><div class="bf-card-top"><span class="bf-chip">员工关系</span><span class="bf-status" data-status="稳固"><span class="bf-dot"></span>稳固</span></div><p class="bf-claim">AI 抹平了员工的表达门槛，组织的受理能力没有同步上涨：指控量创调研历史新高，受理侧的编制、流程与信任几乎没动。</p><div class="bf-meta">4 份证据 · 最近修订 2026-10-19</div><div class="bf-src">最新证据来源：SHRM《2026 State of the Workplace》（2,400 名员工）</div></a></li>
+</ul>
+<h2 class="ln-h">往期</h2>
+<ul class="bf-cards">
+<li><a class="bf-card bf-issue" href="/brief/signal-brief-001.html">
+<div class="bf-card-top"><span class="bf-chip">第 001 期</span><span class="bf-meta">2026 年 9 月 26 日</span></div>
+<p class="bf-claim">创刊号：组织设计、人才趋势、双轨劳动力、agent 成本、科技裁员</p>
 </a></li>
 </ul>
 </main>

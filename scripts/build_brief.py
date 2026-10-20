@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""P2 策展：信号线台账生成器
+"""P2 策展：信号线生成器
 
 真源：brief/_lines/*.json（人工撰写，唯一真相源）
 产物：
-  1. brief/lines/<slug>.html     线页（五块契约：判断 / 状态 / 证据时间线 / 站内挂接 / JSON-LD）
+  1. brief/lines/<slug>.html     线页（五块契约：判断 / 状态 / 证据时间线 / 延伸阅读 / JSON-LD）
   2. assets/js/line-index.json   线索引（供站内检索与后续聚合页渲染）
-  3. brief/index.html            台账首页（按主题域分组 + 状态分布 + 卷期入口）
+  3. brief/index.html            信号线首页（判断卡片 + 状态图例 + 往期入口）
 
 纪律：
-  - 页面内列表一律由本脚本从真源渲染，禁止硬编码。
+  - 页面内数据列表一律由本脚本从真源渲染，禁止硬编码。
   - 零虚构：证据条目只做搬运与渲染，脚本不生成任何事实文本。
   - 幂等：重复运行结果一致。
   - 新增一条线 = 新增一个 _lines/*.json + 跑本脚本。
+  - 版式面向读者：判断句是页面主角，状态用图例讲人话，禁用台账/挂钩类记账词汇。
 
 用法：
   python3 scripts/build_brief.py
@@ -29,6 +30,12 @@ INDEX_PAGE = os.path.join(ROOT, "brief", "index.html")
 HOST = "https://www.aihrlab.online"
 
 STATUS_ORDER = {"稳固": 0, "被挑战": 1, "已翻转": 2, "归档": 3}
+STATUS_MEANING = {
+    "稳固": "证据还在持续支持",
+    "被挑战": "出现了反向证据，正在复核",
+    "已翻转": "判断被推翻，原句保留可查",
+    "归档": "不再追踪，记录归档",
+}
 
 HEADER = ('<header class="site-header"><div class="container">'
           '<a href="/index.html" class="site-logo" aria-label="AIHR数智引擎首页">'
@@ -42,51 +49,71 @@ HEADER = ('<header class="site-header"><div class="container">'
           '<a href="/about.html">关于</a></nav></div></header>')
 
 CSS = """
-.hub-wrap{max-width:680px;margin:0 auto;padding:3rem 1.25rem 4.5rem;}
-.hub-series{font-size:.85rem;color:var(--text-muted);margin-bottom:.4rem;}
-.hub-title{font-size:1.7rem;font-weight:700;color:var(--text);margin:0 0 .8rem;}
-.hub-lede{font-size:1.02rem;line-height:1.9;color:var(--text-secondary);margin:0 0 2rem;}
-.hub-list{list-style:none;padding:0;margin:0;}
-.hub-item{display:block;text-decoration:none;color:var(--text);border-top:1px solid var(--line);padding:1.5rem 0;}
-.hub-item:first-child{border-top:none;padding-top:0;}
-.hub-item .num{font-size:.82rem;color:var(--text-muted);}
-.hub-item .it{font-size:1.1rem;font-weight:700;color:var(--text);margin:.3rem 0 .5rem;}
-.hub-item .de{font-size:.95rem;line-height:1.8;color:var(--text-secondary);}
-.brief-back{display:inline-block;margin-bottom:1.6rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
-.ln-domain{display:inline-block;font-size:.72rem;font-weight:600;color:var(--accent);background:var(--accent-pale);border-radius:6px;padding:.14rem .5rem;margin-bottom:.6rem;}
-.ln-claim{font-size:1.22rem;line-height:1.75;font-weight:700;color:var(--text);margin:0 0 .8rem;padding-left:.9rem;border-left:3px solid var(--accent);}
-.ln-meta{font-size:.82rem;color:var(--text-muted);margin:0 0 .4rem;}
-.ln-status{display:inline-block;font-size:.78rem;font-weight:600;border:1px solid var(--line-strong);border-radius:999px;padding:.16rem .6rem;margin-right:.5rem;}
-.ln-status[data-s="稳固"]{color:var(--accent);border-color:var(--accent);}
-.ln-status[data-s="被挑战"]{color:#a86a2e;border-color:#a86a2e;}
-.ln-status[data-s="已翻转"]{color:#a32d2d;border-color:#a32d2d;}
-.ln-status[data-s="归档"]{color:var(--text-muted);}
-.ln-note{font-size:.92rem;line-height:1.8;color:var(--text-secondary);background:var(--bg-subtle);border-radius:8px;padding:.8rem 1rem;margin:1rem 0 1.8rem;}
-.ln-h{font-size:1rem;font-weight:700;color:var(--text);margin:1.6rem 0 .6rem;}
-.ev{list-style:none;padding:0;margin:0;}
-.ev li{padding:.9rem 0;border-top:1px solid var(--line);}
-.ev li:first-child{border-top:0;}
-.ev-date{font-size:.78rem;color:var(--text-muted);}
-.ev-fact{font-size:.98rem;line-height:1.85;color:var(--text);margin:.25rem 0 .4rem;}
-.ev-src{font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.hub-wrap{max-width:680px;margin:0 auto;padding:2.5rem 1.25rem 4.5rem;}
+.brief-back{display:inline-block;margin-bottom:1.4rem;color:var(--text-link);text-decoration:none;font-size:.9rem;}
+.bf-hero{background:var(--accent-pale);border-radius:16px;padding:2.3rem 2.1rem 2.1rem;margin:1.6rem 0 1.8rem;}
+.bf-eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:.55rem;}
+.bf-title{font-size:2.05rem;font-weight:800;color:var(--text);margin:0 0 .75rem;line-height:1.3;}
+.bf-lede{font-size:1.03rem;line-height:1.95;color:var(--text-secondary);margin:0;max-width:58ch;}
+.bf-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin:0 0 2.2rem;padding:0;list-style:none;}
+.bf-legend li{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--text-secondary);}
+.bf-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:700;color:var(--text);}
+.bf-dot{width:9px;height:9px;border-radius:50%;background:var(--text-muted);flex:none;}
+.bf-status[data-status="稳固"] .bf-dot{background:var(--accent);}
+.bf-status[data-status="被挑战"] .bf-dot{background:#a86a2e;}
+.bf-status[data-status="已翻转"] .bf-dot{background:#a32d2d;}
+.bf-status[data-status="归档"] .bf-dot{background:var(--text-muted);}
+.ln-h{display:flex;align-items:baseline;gap:.55rem;font-size:1.12rem;font-weight:800;color:var(--text);margin:0 0 1rem;}
+.ln-count{font-size:.82rem;font-weight:600;color:var(--text-muted);}
+.bf-cards{display:grid;gap:1rem;margin:0 0 2.6rem;padding:0;list-style:none;}
+.bf-card{display:block;background:var(--bg-card);border:1px solid var(--line-strong);border-radius:14px;
+  padding:1.35rem 1.5rem;text-decoration:none;color:var(--text);
+  transition:transform .18s ease, box-shadow .18s ease;}
+.bf-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.09);}
+.bf-card-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;flex-wrap:wrap;}
+.bf-chip{font-size:.78rem;font-weight:700;color:var(--accent);background:var(--accent-pale);
+  border-radius:999px;padding:.2rem .75rem;white-space:nowrap;}
+.bf-claim{font-size:1.12rem;font-weight:700;line-height:1.8;margin:0 0 .65rem;}
+.bf-meta{font-size:.85rem;color:var(--text-muted);margin-bottom:.5rem;}
+.bf-src{font-size:.88rem;line-height:1.7;color:var(--text-secondary);}
+.bf-issue{background:transparent;border-style:dashed;}
+/* 线页 */
+.ln-hero{background:var(--accent-pale);border-radius:16px;padding:2.1rem;margin:1.6rem 0 1.6rem;}
+.ln-claim{font-size:1.42rem;line-height:1.72;font-weight:800;color:var(--text);margin:.2rem 0 1rem;}
+.ln-meta{font-size:.87rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.ln-note{background:var(--bg-card);border-left:3px solid #a86a2e;border-radius:0 10px 10px 0;
+  padding:.95rem 1.15rem;margin:0 0 2.2rem;font-size:.95rem;line-height:1.85;color:var(--text-secondary);}
+.ln-note b{color:var(--text);display:block;margin-bottom:.25rem;font-size:.88rem;}
+/* 证据时间线：竖轨 + 节点 */
+.ev{list-style:none;padding:0;margin:0 0 2.4rem;}
+.ev li{position:relative;padding:0 0 1.9rem 1.7rem;margin-left:.45rem;
+  border-left:2px solid var(--line-strong);}
+.ev li:last-child{border-left-color:transparent;}
+.ev li::before{content:"";position:absolute;left:-6px;top:.3rem;width:10px;height:10px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--bg);}
+.ev li[data-pol="削弱"]::before{background:#a86a2e;}
+.ev-date{font-size:.87rem;font-weight:700;color:var(--text);}
+.ev-pol{font-size:.78rem;font-weight:600;color:var(--accent);margin-left:.55rem;}
+.ev li[data-pol="削弱"] .ev-pol{color:#a86a2e;}
+.ev-fact{font-size:1rem;line-height:1.9;color:var(--text);margin:.35rem 0 .5rem;}
+.ev-src{font-size:.87rem;color:var(--text-secondary);line-height:1.7;}
 .ev-src a{color:var(--text-link);}
-.ev-pol{display:inline-block;font-size:.72rem;border:1px solid var(--line-strong);border-radius:4px;padding:.05rem .4rem;margin-right:.4rem;color:var(--text-secondary);}
-.ev-via{font-size:.82rem;color:var(--text-muted);margin-top:.25rem;}
+.ev-via{font-size:.85rem;color:var(--text-muted);margin-top:.35rem;}
 .ev-via a{color:var(--text-link);}
-.ln-links{margin:0;padding:0;list-style:none;}
-.ln-links li{padding:.35rem 0;border-top:1px solid var(--line);font-size:.95rem;}
-.ln-links li:first-child{border-top:0;}
+.ln-links{margin:0 0 2.4rem;padding:0;list-style:none;}
+.ln-links li{padding:.6rem 0;border-top:1px solid var(--line);font-size:.97rem;}
+.ln-links li:first-child{border-top:0;padding-top:0;}
 .ln-links a{color:var(--text-link);}
-.ln-rel{display:block;font-size:.82rem;color:var(--text-muted);margin-top:.15rem;}
-.ln-foot{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--text-muted);line-height:1.7;}
+.ln-rel{display:block;font-size:.84rem;color:var(--text-muted);margin-top:.2rem;}
+.ln-foot{margin-top:2.2rem;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:.88rem;color:var(--text-muted);line-height:1.8;}
 """
-
 
 OG_IMAGE = "https://www.aihrlab.online/assets/images/og-covers/index-cover.webp"
 
 
 def page(title, desc, body_html, url="", jsonld=None, og_title="", og_type="article",
-         back="/brief/index.html", back_text="← 返回信号线台账"):
+         back="/brief/index.html", back_text="← 返回信号线"):
     # R-16/R-17：<title> 可带品牌后缀，og:title / twitter:title 必须与 h1 一致且不带后缀
     og = og_title or title
     ld = ""
@@ -132,6 +159,11 @@ __BODY__
     return tpl
 
 
+def status_html(status):
+    return ('<span class="bf-status" data-status="%s"><span class="bf-dot"></span>%s</span>'
+            % (escape(status), escape(status)))
+
+
 def render_line(line):
     slug = line["slug"]
     url = "/brief/lines/%s.html" % slug
@@ -145,26 +177,22 @@ def render_line(line):
                 escape(e["source_url"]), src)
         else:
             src_html = src
+        pol = e.get("polarity", "支持")
         via = ""
         if e.get("via"):
-            via = '<div class="ev-via">本站留痕：<a href="%s">%s</a></div>' % (
+            via = '<div class="ev-via">本站全文：<a href="%s">%s</a></div>' % (
                 escape(e["via"]), escape(e.get("via_title") or e["via"]))
         ev_html.append(
-            '<li><div class="ev-date">%s · <span class="ev-pol">%s</span></div>'
+            '<li data-pol="%s"><div class="ev-date"><time datetime="%s">%s</time>'
+            '<span class="ev-pol">%s</span></div>'
             '<p class="ev-fact">%s</p>'
             '<div class="ev-src">来源：%s</div>%s</li>' % (
-                escape(e.get("date", "")), escape(e.get("polarity", "支持")),
-                escape(e["fact"]), src_html, via))
+                escape(pol), escape(e.get("date", "")), escape(e.get("date", "")),
+                escape(pol), escape(e["fact"]), src_html, via))
     ev_html = "\n".join(ev_html)
 
-    # 站内挂接：证据出处（via）与延伸挂钩（linked）分开渲染，均由数据生成，页面列表不硬编码
-    seen, src_items = set(), []
-    for e in evs:
-        v = e.get("via")
-        if v and v not in seen:
-            seen.add(v)
-            src_items.append('<li><a href="%s">%s</a></li>' % (
-                escape(v), escape(e.get("via_title") or v)))
+    # 延伸阅读：与证据内已出现的 via 去重后渲染，由数据生成，页面列表不硬编码
+    seen = {e.get("via") for e in evs if e.get("via")}
     ext_items = []
     for l in line.get("linked", []):
         if l.get("url") and l["url"] not in seen:
@@ -173,27 +201,29 @@ def render_line(line):
             rel_html = '<span class="ln-rel">%s</span>' % escape(rel) if rel else ""
             ext_items.append('<li><a href="%s">%s</a>%s</li>' % (
                 escape(l["url"]), escape(l.get("title") or l["url"]), rel_html))
-    src_block = ('<h2 class="ln-h">证据出处（本站）</h2>\n<ul class="ln-links">\n%s\n</ul>'
-                 % "\n".join(src_items)) if src_items else ""
-    ext_block = ('<h2 class="ln-h">站内挂钩</h2>\n<ul class="ln-links">\n%s\n</ul>'
+    ext_block = ('<h2 class="ln-h">延伸阅读</h2>\n<ul class="ln-links">\n%s\n</ul>'
                  % "\n".join(ext_items)) if ext_items else ""
 
-    body = """<div class="ln-domain">{domain}</div>
+    note = line.get("note", "")
+    note_html = ('<div class="ln-note"><b>这条判断怎么会被推翻</b>%s</div>' % escape(note)
+                 ) if note else ""
+
+    body = """<section class="ln-hero">
+<div class="bf-card-top"><span class="bf-chip">{domain}</span>{status}</div>
 <h1 class="ln-claim">{claim}</h1>
-<div class="ln-meta"><span class="ln-status" data-s="{status}">{status}</span>首次记录 <time datetime="{first}">{first}</time> · 最近修订 {updated}</div>
+<div class="ln-meta">首次记录 <time datetime="{first}">{first}</time> · 最近修订 {updated} · {n} 份证据</div>
+</section>
 {note}
-<h2 class="ln-h">证据时间线（{n} 条，倒序）</h2>
+<h2 class="ln-h">证据时间线<span class="ln-count">由新到旧</span></h2>
 <ol class="ev">
 {ev}
 </ol>
-{src_block}
 {ext_block}
-<div class="ln-foot">判断句不会被静默改写。若后续证据推翻这条判断，会追加失效条件与修订日期，原表述保留在页面上。</div>""".format(
-        domain=escape(line.get("domain", "")), claim=escape(line["claim"]),
-        status=escape(line["status"]), first=escape(line.get("first_seen", "")),
-        updated=escape(line.get("updated", "")),
-        note=('<div class="ln-note">%s</div>' % escape(line["note"])) if line.get("note") else "",
-        n=len(evs), ev=ev_html, src_block=src_block, ext_block=ext_block)
+<div class="ln-foot">每条判断只追加、不改写：如果哪天证据推翻了它，会在这里写明失效条件和日期，原句保留。</div>""".format(
+        domain=escape(line.get("domain", "")), status=status_html(line["status"]),
+        claim=escape(line["claim"]),
+        first=escape(line.get("first_seen", "")), updated=escape(line.get("updated", "")),
+        note=note_html, n=len(evs), ev=ev_html, ext_block=ext_block)
 
     jsonld = {
         "@context": "https://schema.org",
@@ -223,48 +253,53 @@ def render_line(line):
 
 
 def render_index(lines):
-    by_domain = {}
+    cards = []
     for l in lines:
-        by_domain.setdefault(l.get("domain", "其他"), []).append(l)
-    blocks = []
-    for d in sorted(by_domain):
-        items = []
-        for l in sorted(by_domain[d], key=lambda x: (STATUS_ORDER.get(x["status"], 9),
-                                                     x.get("updated", "")), reverse=False):
-            items.append(
-                '<li><a class="hub-item" href="/brief/lines/%s.html">'
-                '<div class="num">%s · %d 条证据 · 最近修订 %s</div>'
-                '<div class="it">%s</div>'
-                '<div class="de">%s</div></a></li>' % (
-                    l["slug"], escape(l["status"]), len(l["evidence"]),
-                    escape(l.get("updated", "")), escape(l["claim"]),
-                    escape(l["evidence"][-1]["source"]) if l["evidence"] else ""))
-        blocks.append('<h2 class="ln-h">%s</h2><ul class="hub-list">%s</ul>' % (
-            escape(d), "\n".join(items)))
+        src = escape(l["evidence"][-1]["source"]) if l["evidence"] else ""
+        cards.append(
+            '<li><a class="bf-card" href="/brief/lines/%s.html">'
+            '<div class="bf-card-top"><span class="bf-chip">%s</span>%s</div>'
+            '<p class="bf-claim">%s</p>'
+            '<div class="bf-meta">%d 份证据 · 最近修订 %s</div>'
+            '<div class="bf-src">最新证据来源：%s</div></a></li>' % (
+                l["slug"], escape(l.get("domain", "")), status_html(l["status"]),
+                escape(l["claim"]), len(l["evidence"]), escape(l.get("updated", "")), src))
+    cards_html = "\n".join(cards)
+
+    legend = "\n".join(
+        '<li>%s<span>%s</span></li>' % (status_html(s), STATUS_MEANING[s])
+        for s in STATUS_ORDER)
 
     dist = {}
     for l in lines:
         dist[l["status"]] = dist.get(l["status"], 0) + 1
-    dist_html = " · ".join("%s %d 条" % (k, v) for k, v in sorted(
+    dist_html = " · ".join("%s %d" % (k, v) for k, v in sorted(
         dist.items(), key=lambda kv: STATUS_ORDER.get(kv[0], 9)))
 
-    body = """<div class="hub-series">AIHR 策展</div>
-<h1 class="hub-title">信号线台账</h1>
-<p class="hub-lede">这里追踪的是判断，不是新闻。每条线是一条可证伪的判断，下面挂着支持或削弱它的一手证据；证据随时间追加，判断被推翻时会写明失效条件，不改原文。</p>
-<div class="ln-meta">共 {n} 条线 · {dist}</div>
-{blocks}
-<h2 class="ln-h">卷期归档</h2>
-<ul class="hub-list">
-<li><a class="hub-item" href="/brief/signal-brief-001.html">
-<div class="num">第 001 期 · 2026 年 9 月 26 日</div>
-<div class="it">创刊号：组织设计、人才趋势、双轨劳动力、agent 成本、科技裁员</div>
+    body = """<section class="bf-hero">
+<div class="bf-eyebrow">AIHR 策展</div>
+<h1 class="bf-title">信号线</h1>
+<p class="bf-lede">这里放的是我们公开押上的判断，不是新闻汇编。每条线盯一个可证伪的判断，一手证据随时间往上挂；如果哪天证据把它推翻了，我们在原句旁写明，不改口。目前 {n} 条线：{dist}。</p>
+</section>
+<ul class="bf-legend">
+{legend}
+</ul>
+<h2 class="ln-h">正在追踪的判断<span class="ln-count">{n}</span></h2>
+<ul class="bf-cards">
+{cards}
+</ul>
+<h2 class="ln-h">往期</h2>
+<ul class="bf-cards">
+<li><a class="bf-card bf-issue" href="/brief/signal-brief-001.html">
+<div class="bf-card-top"><span class="bf-chip">第 001 期</span><span class="bf-meta">2026 年 9 月 26 日</span></div>
+<p class="bf-claim">创刊号：组织设计、人才趋势、双轨劳动力、agent 成本、科技裁员</p>
 </a></li>
-</ul>""".format(n=len(lines), dist=escape(dist_html), blocks="\n".join(blocks))
+</ul>""".format(n=len(lines), dist=escape(dist_html), legend=legend, cards=cards_html)
 
-    return page("信号线台账：持续追踪的判断与一手证据 | AIHR数智引擎",
-                "AIHR 信号线台账：每条线是一条可证伪的判断，挂一手证据与修订记录。判断可追溯，推翻会写明失效条件。",
+    return page("信号线 | AIHR数智引擎",
+                "AIHR 信号线：每条线是一条公开押上的判断，挂一手证据与修订记录；被推翻会写明失效条件，不改原文。",
                 body, url="/brief/index.html", jsonld=None,
-                og_title="信号线台账", og_type="website",
+                og_title="信号线", og_type="website",
                 back="/index.html", back_text="← 返回首页")
 
 
@@ -281,7 +316,7 @@ def main():
     for l in lines:
         url, html = render_line(l)
         open(os.path.join(ROOT, url.lstrip("/")), "w", encoding="utf-8").write(html)
-        print("  ✅ 线页 %s（%d 条证据）" % (url, len(l["evidence"])))
+        print("  ✅ 线页 %s（%d 份证据）" % (url, len(l["evidence"])))
 
     idx = [{
         "slug": l["slug"], "claim": l["claim"], "status": l["status"],
@@ -294,8 +329,7 @@ def main():
     print("  ✅ line-index.json（%d 条）" % len(idx))
 
     open(INDEX_PAGE, "w", encoding="utf-8").write(render_index(lines))
-    print("  ✅ brief/index.html（%d 条线，%d 个主题域）" % (
-        len(lines), len({l.get("domain", "") for l in lines})))
+    print("  ✅ brief/index.html（%d 条线）" % len(lines))
 
 
 if __name__ == "__main__":
