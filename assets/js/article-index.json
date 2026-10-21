@@ -196,12 +196,7 @@
     "url": "ai-era-collective-bargaining-2026",
     "category": "核心方法论",
     "date": "2026-10-19",
-    "tags": [
-      "劳资关系",
-      "算法管理",
-      "AI治理",
-      "治理与伦理"
-    ]
+    "tags": []
   },
   {
     "title": "AI 时代，DEI 为什么更难做也更重要",
@@ -2143,6 +2138,18 @@
       "AI裁员",
       "组织扁平化",
       "组织变革"
+    ]
+  },
+  {
+    "title": "Meta 暂停 AI 重组：瓶颈从产出移到了验证",
+    "url": "meta-pause-ai-restructuring-2026",
+    "category": "大厂实践",
+    "date": "2026-10-21",
+    "tags": [
+      "大厂实践",
+      "AI转型",
+      "组织变革",
+      "AI生产率"
     ]
   },
   {

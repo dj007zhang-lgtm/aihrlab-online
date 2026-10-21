@@ -674,14 +674,29 @@ def gate_data_source_attribution(target_files=None):
     import re as _re
     CURRENT_SIGNAL = _re.compile(r'2026|最新|当前|近日|刚刚|新近|近期')
     NUM = _re.compile(r'[\d.]+[\s]*?(?:万亿|亿|万|%|倍|×|倍于)')
+    # 署名短语清单：除通用措辞外，必须包含本站实际引用的机构名。
+    # 2026-10-21 事故：分类/标签聚合页的卡片摘要原文带机构署名（如「2025 年麦肯锡调研显示 88%…」），
+    # 因清单里没有「麦肯锡」「Mercer」「SHRM」，被本关误判成「凭记忆写作」。这是检测器缺陷，
+    # 数字本身有出处，所以修清单而不是删数字。
     SRC_PHRASE = _re.compile(
         r'据|来源|披露|援引|引自|公开数据|IDC|微软|火山引擎|券商|研报|报告|'
         r'证券时报|腾讯|字节|百度|阿里|谷歌|公开披露|官方|晚点|第一财经|'
-        r'QuestMobile|野村|GSC|Bing')
+        r'QuestMobile|野村|GSC|Bing|麦肯锡|Mercer|美世|SHRM|德勤|Gartner|'
+        r'普华永道|PwC|安永|毕马威|HR Acuity|世界经济论坛|WEF|'
+        r'LinkedIn|领英|Gallup|盖洛普|Forrester|BCG|波士顿咨询')
     EXCLUDE_HOSTS = ('aihrlab.online', 'googletagmanager', 'hm.baidu')
 
     def _is_verify(p):
         return any(x in os.path.basename(p) for x in ['baidu_', 'google', 'BingSiteAuth', 'verify'])
+
+    # 聚合/索引页豁免（2026-10-21）：分类页与标签页本身不做原创断言，正文里的
+    # 硬数字来自被引用文章的标题与摘要，那些数字在各篇正文的信源块里已署名。
+    # 本关拦的是「原创断言页写了数字却不挂出处」，对纯列表页是误报。
+    AGGREGATE_DIRS = ('categories/', 'tags/')
+    AGGREGATE_FILES = ('articles/index.html',)
+
+    def _is_aggregate(rel):
+        return rel.startswith(AGGREGATE_DIRS) or rel in AGGREGATE_FILES
 
     def _body_text(html):
         body = _re.sub(r'<script[\s\S]*?</script>', ' ', html, flags=_re.I)
@@ -704,6 +719,8 @@ def gate_data_source_attribution(target_files=None):
         except Exception:
             continue
         if 'http-equiv="refresh"' in html:
+            continue
+        if _is_aggregate(rel):
             continue
         head = html[:html.find('</head>')] if '</head>' in html else html[:8000]
         if not CURRENT_SIGNAL.search(head) and '2026' not in os.path.basename(path):

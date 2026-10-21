@@ -515,17 +515,26 @@ def resolve_tags(articles, override):
     return result
 
 
-def tax_desc(kind, name, n):
-    """生成 ≥50 字、非模板残留的 taxonomy 页 meta description / 导引文案。"""
-    if kind == 'category':
-        return ('AIHR数智引擎「' + name + '」分类聚合页，收录 ' + str(n) + ' 篇深度文章，'
-                '系统梳理 ' + name + ' 相关的战略、组织、人才与治理实践，帮助读者建立体系化认知。')
-    elif kind == 'tag':
-        return ('AIHR数智引擎标签「' + name + '」聚合 ' + str(n) + ' 篇精选文章，'
-                '围绕 ' + name + ' 一线议题，覆盖前沿趋势、企业实践、方法论与落地工具，'
-                '体系化研读全部硬核深度内容，便于按主题快速检索与对比。')
-    return ('AIHR数智引擎内容标签云与分类导航，按主题（AI转型、组织变革、大厂动态、治理、人才等）'
-            '快速检索全部深度文章，构建你的 AI+HR 知识体系。')
+def tax_desc(kind, name, items):
+    """生成 taxonomy 页 meta description / 导引文案。
+
+    内容纪律：必须回答「这个页面给我什么」——篇数、时间跨度、最新一篇的具体标题。
+    全部字段由 articles 数据推导，脚本不生成任何事实文本，也不写模板套话。
+    """
+    n = len(items)
+    dates = sorted([a.get("date", "") for a in items if a.get("date")])
+    span = "，时间跨度 " + dates[0] + " 至 " + dates[-1] if dates else ""
+    if kind == "category":
+        return ("本站「" + name + "」主题下收录 " + str(n) + " 篇深度文章" + span +
+                "，按发布时间倒序排列。每篇均锚定可核验的一手信源，"
+                "可直接用于组织变革的判断与汇报。")
+    if kind == "tag":
+        return ("本站有 " + str(n) + " 篇文章带「" + name + "」标签" + span +
+                "。同一标签下的文章互相引用，可按这条路径连续研读，"
+                "也可横向对比不同议题的证据与判断。")
+    return ("本站全部深度文章的主题入口。按标签与分类两个维度横向检索，"
+            "覆盖 AI 转型、组织变革、大厂实践、人才与治理等方向，"
+            "每个标签页内按时间倒序排列，可直接作为一条研读路径使用。")
 
 
 def render_taxonomy_page(out_path, title, desc, canonical, h1, intro, cards_html, breadcrumb_html):
@@ -552,7 +561,7 @@ def gen_categories(articles):
     for cat, items in by_cat.items():
         slug = CATEGORY_SLUG.get(cat, slugify_text(cat))
         cards = '\n'.join(build_card_html(x) for x in sort_articles(items))
-        desc = tax_desc('category', cat, len(items))
+        desc = tax_desc('category', cat, items)
         canonical = 'https://www.aihrlab.online/categories/' + slug + '.html'
         breadcrumb = '<a href="/articles/index.html">文章</a> / 分类：' + cat
         out = os.path.join(BASE_DIR, 'categories', slug + '.html')
@@ -570,7 +579,7 @@ def gen_tags(articles, tags_map):
     for tag, items in sorted(by_tag.items(), key=lambda kv: -len(kv[1])):
         slug = TAG_SLUG.get(tag, slugify_text(tag))
         cards = '\n'.join(build_card_html(x) for x in sort_articles(items))
-        desc = tax_desc('tag', tag, len(items))
+        desc = tax_desc('tag', tag, items)
         canonical = 'https://www.aihrlab.online/tags/' + slug + '.html'
         breadcrumb = '<a href="/tags/index.html">标签</a> / ' + tag
         out = os.path.join(BASE_DIR, 'tags', slug + '.html')
@@ -598,7 +607,7 @@ def gen_tag_index(articles, tags_map):
     cloud = ('<div class="tax-cloud"><h2 class="tax-h">按标签浏览</h2><div class="tax-tags">' + tag_links +
              '</div><h2 class="tax-h">按分类浏览</h2><div class="tax-tags">' + cat_links + '</div></div>')
     title = '标签与分类 | AIHR数智引擎'
-    desc = tax_desc('index', '', 0)
+    desc = tax_desc('index', '', [])
     canonical = 'https://www.aihrlab.online/tags/index.html'
     breadcrumb = '<a href="/articles/index.html">文章</a> / 标签与分类'
     out = os.path.join(BASE_DIR, 'tags', 'index.html')

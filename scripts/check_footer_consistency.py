@@ -35,7 +35,10 @@ def check_file(fpath):
     tail = h[ae:]
 
     # 1) related-reading 数量
-    rr = len(re.findall(r'class="[^"]*related-reading[^"]*"', region))
+    # 2026-10-21 修正：原正则 class="[^"]*related-reading[^"]*" 会把 BEM 子元素
+    # （related-reading__title / __list / __item / __link）一并计入，导致「一套模块」被误报成 18 套。
+    # 本关要拦的是「多套/嵌套相关阅读模块」，因此只统计 section 级容器类名。
+    rr = len(re.findall(r'class="related-reading"', region))
     if rr > 1:
         issues.append(f"{rel}: .related-reading 出现 {rr} 次（应 ≤1）")
     # 2) 冗余相关块
