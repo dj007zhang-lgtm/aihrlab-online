@@ -116,8 +116,26 @@ def pick_assess(meta: dict) -> str:
     return DEFAULT_ASSESS
 
 
-def same_cluster(meta: dict, index: list, self_url: str, n: int = 2) -> list:
-    """同分类优先，再按标签重合度排序；结果确定（可重跑复现）。"""
+def declared_hub(body: str) -> str:
+    """取文章正文自身声明的「本文收录于」枢纽 —— 站点自己对外声明的簇归属。"""
+    m = re.search(r"本文收录于.{0,400}?href=\"(/hub/[^\"]+)\"", body, re.S)
+    return m.group(1) if m else ""
+
+
+def same_cluster(meta: dict, index: list, self_url: str, n: int = 2,
+                 my_hub: str = "", hub_of: dict = None) -> list:
+    """同簇判定：站点声明的同枢纽优先，其次标签重合，分类仅作弱信号。
+
+    2026-10-23 改造原因（P3-1 诊断实测）：
+      原判据是「同分类 +3、标签重合 ×2」，而站内分类高度集中在「组织变革」，
+      导致 +3 的粗粒度分类项压过标签，推荐结果跨簇漂移 ——
+      人才发展页被推荐到「敏捷HR实践」「人才获取策略」，同簇页一篇没有。
+      实测人才能力簇簇内链密度仅 12/90，首攻页簇内链为 0。
+    改法：以文章自己声明的枢纽（本文收录于 /hub/xxx）作为簇主键，权重 8，
+      分类降到 1。这样「簇」的定义来自站点既有结构，不引入新的手写分类体系。
+    结果确定（同分按 url 排序，可重跑复现）。
+    """
+    hub_of = hub_of or {}
     tags = set(meta.get("tags", []) or [])
     cat = meta.get("category", "")
     scored = []
@@ -128,7 +146,9 @@ def same_cluster(meta: dict, index: list, self_url: str, n: int = 2) -> list:
         a_tags = set(a.get("tags", []) or [])
         score = len(tags & a_tags) * 2
         if a.get("category", "") == cat:
-            score += 3
+            score += 1
+        if my_hub and hub_of.get(u) == my_hub:
+            score += 8
         if not score:
             continue
         scored.append((-score, u, sorted(tags & a_tags), a))
@@ -136,9 +156,11 @@ def same_cluster(meta: dict, index: list, self_url: str, n: int = 2) -> list:
     return scored[:n]
 
 
-def build_block(slug: str, meta: dict, body: str, index: list) -> str:
+def build_block(slug: str, meta: dict, body: str, index: list,
+                hub_of: dict = None) -> str:
     hub = pick_hub(slug, meta, body)
     tool = pick_assess(meta)
+    my_hub = declared_hub(body)
     hub_h1 = h1_of(hub) or "专题枢纽"
     tool_h1 = h1_of(tool) or "在线自测"
     ask_h1 = h1_of("ask/index.html") or "站内问答"
@@ -149,7 +171,8 @@ def build_block(slug: str, meta: dict, body: str, index: list) -> str:
         'data-target-type="hub">%s</a><span class="next-path__note">专题枢纽 · 同主题深度长文聚合</span></li>'
         % (hub, html.escape(hub_h1))
     )
-    for neg, u, shared, a in same_cluster(meta, index, slug):
+    for neg, u, shared, a in same_cluster(meta, index, slug,
+                                          my_hub=my_hub, hub_of=hub_of):
         f = "articles/%s.html" % u
         if not os.path.exists(os.path.join(BASE_DIR, f)):
             continue
@@ -205,6 +228,27 @@ def main():
     index = json.load(open(INDEX, encoding="utf-8"))
     by_url = {a.get("url"): a for a in index}
     pages = deployed_articles()
+    # 先扫一遍簇归属，作为簇主键（站点既有结构，非新造分类）。
+    # 两个方向都取：① 文章自己声明「本文收录于 /hub/x」；② 枢纽页反向链接到该文章。
+    # 单向声明覆盖率不全（实测 172/260），双向取并集才接近真实簇边界。
+    hub_of = {}
+    for p in pages:
+        try:
+            b = open(os.path.join(BASE_DIR, p), encoding="utf-8").read()
+        except Exception:
+            continue
+        h = declared_hub(b)
+        if h:
+            hub_of[os.path.basename(p)[:-5]] = h
+    import glob as _glob
+    for hp in sorted(_glob.glob(os.path.join(BASE_DIR, "hub", "*.html"))):
+        hb = open(hp, encoding="utf-8").read()
+        if re.search(r'name=["\']robots["\'][^>]+noindex', hb, re.I):
+            continue
+        hurl = "/hub/" + os.path.basename(hp)
+        for art in set(re.findall(r'href="/articles/([a-z0-9\-]+)\.html"', hb)):
+            hub_of.setdefault(art, hurl)
+    print(f"声明了枢纽归属的文章：{len(hub_of)} / {len(pages)}")
     changed, skipped = [], []
     for p in pages:
         slug = os.path.basename(p)[:-5]
@@ -213,7 +257,7 @@ def main():
             skipped.append(p)
             continue
         body = open(os.path.join(BASE_DIR, p), encoding="utf-8").read()
-        block = build_block(slug, meta, body, index)
+        block = build_block(slug, meta, body, index, hub_of=hub_of)
         if inject(p, block, dry):
             changed.append(p)
     print(f"部署文章页：{len(pages)} | 注入/更新：{len(changed)} | 无索引元数据跳过：{len(skipped)} | dry-run={dry}")

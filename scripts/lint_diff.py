@@ -25,7 +25,21 @@ import subprocess
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(SITE_ROOT, "ci", "gates"))
-from regression_rules import load_rules, scan_file
+from regression_rules import (
+    load_rules, scan_file, build_meta_corpus, load_allowlists,
+)
+
+
+def _all_html_files():
+    """全站 HTML 相对路径清单（供计算型判据构建语料）。"""
+    out = []
+    for dirpath, dirnames, filenames in os.walk(SITE_ROOT):
+        dirnames[:] = [d for d in dirnames
+                       if d not in (".git", "node_modules", ".workbuddy")]
+        for fn in filenames:
+            if fn.endswith(".html"):
+                out.append(os.path.relpath(os.path.join(dirpath, fn), SITE_ROOT))
+    return sorted(out)
 
 
 def collect_files(args):
@@ -57,13 +71,17 @@ def main():
     args = sys.argv[1:]
     targets = collect_files(args)
     rules = load_rules()
+    # 计算型判据需要全站语料 + 存量登记册；未传则静默跳过（2026-10-23 治理审计修复）
+    corpus = build_meta_corpus(SITE_ROOT, _all_html_files())
+    allowlists = load_allowlists(os.path.join(SITE_ROOT, "ci"))
     violations = []
     for relf, p in targets:
         try:
             html = open(p, encoding="utf-8").read()
         except Exception:
             continue
-        for fd in scan_file(relf, html, rules):
+        for fd in scan_file(relf, html, rules,
+                            corpus=corpus, allowlists=allowlists):
             violations.append(fd)
 
     if violations:

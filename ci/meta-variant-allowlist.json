@@ -1,0 +1,8 @@
+{
+  "_comment": "R-OG-TITLE-EQUALS-H1 存量例外登记册。原则：不容忍静默偏差——存量必须显式登记才降级 WARN；条目只减不增，新增登记项必须说明理由。",
+  "_system": "AIHRlab(网站)",
+  "established": "2026-10-23",
+  "resolved": "2026-10-23",
+  "resolved_by": "主理人裁决 #1（统一）：og:title / twitter:title 一律对齐 h1。执行 51 处替换 / 38 页，幂等重跑 0 残留，全站 BLOCK=0 WARN=0，后缀违规 0，h1≠og/tw 归零。登记册清空，此后任何新偏差一律 BLOCK，不得再登记。",
+  "entries": []
+}

@@ -88,6 +88,45 @@
       ],
       "rationale": "P1(2026-10-17)已将主导航「策展」改指 /brief/index.html（策展=信号线台账），/bridge/ 改写为 CM-2026 项目页。2026-10-19 跑 sync 重建 30 个分类/标签页时，因 templates/taxonomy.html 与 templates/_chrome.html 真相源仍写死旧 URL，把已修好的导航全部改回，nav_deviation 0→30。教训（第三次同族事故：外部脚本改已生成的页面，必被下一次生成整体冲掉）：页面 chrome 的真相源必须在模板/生成器里，既不在生成出来的页面上，也不在一次性修复脚本里；先改 templates/*.html 或生成器，再重生成。",
       "established": "2026-10-19"
+    },
+    {
+      "id": "R-META-CROSS-PAGE-CONTAMINATION",
+      "name": "meta 字段混入他页标题（标题拼接损坏 / 描述注入污染）",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "meta_cross_page",
+      "fields": [
+        "og:title",
+        "twitter:title",
+        "description"
+      ],
+      "against": [
+        "h1",
+        "title"
+      ],
+      "min_len": 14,
+      "exclude": [
+        "articles/index.html",
+        "hub/index.html",
+        "assessments/index.html",
+        "resources/index.html"
+      ],
+      "rationale": "2026-10-23 治理审计实证逃逸。articles/ai-layoff-7-to-40.html 的 og:title 是两条标题拼接损坏（「AI裁员2026年中盘点：被裁的都有这三个特征」+「7%飙到40%：你的公司在做减法还是乘法」），description 被注入了另一篇文章的标题与重复片段——会直接显示在搜索结果里。该缺陷在 305 页 × 10 次内容合规巡检中从未被抓到：content_compliance_auditor.py 走 extract_article() 只取正文，对 <meta> 命中数为 0，页面元数据完整性处于零覆盖区。更严重的是：把损坏值原样喂回门禁 9（gate_title_consistency）实测 0 FAIL / 0 WARN 完全放行——门禁 9 的硬 FAIL 判据只有「截断 / 引号污染」，h1≠og:title 被降级为不阻断的 WARN。根因：规则引擎只支持字面量子串匹配，做不了跨文件计算，故本规则随引擎扩展（match=meta_cross_page）一并落地。",
+      "established": "2026-10-23"
+    },
+    {
+      "id": "R-OG-TITLE-EQUALS-H1",
+      "name": "og:title 必须与 h1 一致（社交分享标题与页面主标题同源）",
+      "severity": "BLOCK",
+      "scope": "site",
+      "match": "meta_field_equals",
+      "fields": [
+        "h1",
+        "og:title"
+      ],
+      "allowlist": "meta-variant-allowlist.json",
+      "rationale": "2026-10-23 治理审计发现全站 38 个可索引页 h1 ≠ og:title（如 assessments/disc.html h1「DISC 是什么：四种行为风格与 AI 时代用法」vs og「DISC 是什么：四种行为风格与 AI 时代（方法论）」），而门禁 9 只把该偏差记为不阻断的 WARN，等于默认容忍。治理原则：不容忍静默偏差——存量必须显式登记到 meta-variant-allowlist.json 才降级为 WARN，任何未登记的新偏差一律 BLOCK，登记册条目只减不增（每次发布若新增登记项应视为异常并说明）。待主理人对存量 38 页做一次性裁决（建议：og:title 一律对齐 h1）。",
+      "established": "2026-10-23"
     }
   ]
 }
