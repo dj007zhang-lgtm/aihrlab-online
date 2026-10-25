@@ -226,6 +226,48 @@
       "rule": "scripts/verify_kpi_caliber.py",
       "owner": "自动化",
       "status": "closed"
+    },
+    {
+      "id": "E-017",
+      "date": "2026-10-25",
+      "system": "AIHRlab-网站",
+      "symptom": "P3-1 批次自述已发布为 b17de4f8，但远程 main 上根本没有这个提交：该轮先被 qa_guardian STEP 2.5 拦下，二跑全绿后遇限流中断，从未真正写入远程。隔了数天才被 blob 比对发现「假成功」。",
+      "found_by": "本轮用 scripts/classify_local_vs_remote.py 逐文件 blob 比对远程 main 时发现 merge-base 报 not-a-valid-object",
+      "escape_reason": "发布流程没有「发布后必须回读远程校验 commit 存在」这一步，自动化的成功判据是脚本退出码而非远程实况",
+      "fm": "F5",
+      "fix": "MEMORY.md §5 写入「假成功风险」铁律：发布后必须用 API 核验 commit 真的在 origin/main 并抽查文件 blob；本轮发布已完成远程实证（6f9e82bb + f34cb5f3）",
+      "asserted": true,
+      "rule": "docs + 发布后核验步骤",
+      "owner": "主理人每次发布后",
+      "status": "closed"
+    },
+    {
+      "id": "E-018",
+      "date": "2026-10-25",
+      "system": "AIHRlab-网站",
+      "symptom": "26 篇文章回填 article:published_time 后没进发布批次——发布清单读的是回填之前生成的 local-vs-remote CSV 快照，这 26 篇当时状态是 SAME",
+      "found_by": "发布后重跑 classify 发现 articles/ 仍残留 26 条 DIFFER",
+      "escape_reason": "mutate（回填）与 measure（生成清单）顺序错乱：清单来自快照而不是现状；没有任何断言强制「先开启 mutate 就必须重新测量」",
+      "fm": "F5",
+      "fix": "scripts/build_publish_list.py 开头强制重跑 classify_local_vs_remote.py（不再允许复用旧 CSV）；EXTRA 硬编码名单改为只在 NEW/DIFFER 时补，避免已发布工具反复进批次造成虚假差异",
+      "asserted": true,
+      "rule": "scripts/build_publish_list.py",
+      "owner": "自动化",
+      "status": "closed"
+    },
+    {
+      "id": "E-019",
+      "date": "2026-10-25",
+      "system": "AIHRlab-网站",
+      "symptom": "本地 HEAD 游离在 cm-2026/p1-foundation（6ce83e46），落后远程 main 144 个 commit；git status 显示 418 项改动，其中绝大多数是假差异。",
+      "found_by": "发布前要求与远程对齐，才发现 working copy 从来没有同步过 main",
+      "escape_reason": "发布长期走 Git Data API 原子推送，从不回写本地 ref 与  HEAD；「本地 git status 不可信」这条只写在 MEMORY.md 里，没有工具化。",
+      "fm": "F1",
+      "fix": "新建 scripts/classify_local_vs_remote.py（blob 级比对 + diff 分型），差集判定不再依赖 index/HEAD 状态；已固化进 §5 发布流程",
+      "asserted": true,
+      "rule": "scripts/classify_local_vs_remote.py",
+      "owner": "自动化",
+      "status": "closed"
     }
   ],
   "failure_modes": {

@@ -14,9 +14,21 @@
 
 用法: python3 scripts/build_publish_list.py > /tmp/publish_list.txt
 """
-import csv, os, re, sys
+import csv, os, re, sys, subprocess
 
+ROOT = subprocess.run(["git", "rev-parse", "--show-toplevel"],
+                      capture_output=True, text=True).stdout.strip()
 CSV_PATH = os.path.join("outputs", "local-vs-remote-main.csv")
+
+# E-017 护栏：曾因「先跑 mutate 脚本（回填 published_time），再读上一轮生成的 CSV」
+# 导致 26 篇被回填过的文章压根没进发布清单——清单来自快照，不是现状。
+# 铁律：**清单必须从当次现状重算**，不允许复用上一次的分类结果。
+print("[0/2] 重新比对本地 vs %s（强制重算，不复用旧 CSV）..." % (
+    os.environ.get("REMOTE_REF", "origin/main")), file=sys.stderr)
+subprocess.run([sys.executable, "scripts/classify_local_vs_remote.py"],
+               cwd=ROOT, check=True,
+               stdout=subprocess.DEVNULL)
+print("[1/2] 按发布规则过滤 ...", file=sys.stderr)
 DATE_STAMP = re.compile(r"(20\d{6}|\d{8})")
 ONE_OFF_PREFIX = re.compile(r"^(drive_publish|gen_.*banner)")
 TEMP_MANIFEST = re.compile(r"^\.(gp_|p0|p1|next_path|analytics|bing|scf)")
@@ -67,7 +79,13 @@ def decide(p):
     return True, ""
 
 
-for p in cand + EXTRA:
+# EXTRA 是「本轮新建、CSV 可能还没覆盖」的安全网；但绝不能无条件追加——
+# 否则已发布且内容未变的工具会被反复带进批次（虚假差异）。只在 NEW/DIFFER 时补。
+status_map = {r["path"]: r["status"] for r in rows}
+cand = cand + [p for p in EXTRA
+               if os.path.exists(p) and status_map.get(p, "NEW") in ("NEW", "DIFFER")]
+
+for p in cand:
     if p in seen:
         continue
     seen.add(p)
@@ -81,7 +99,7 @@ for p in cand + EXTRA:
         skipped.append((p, why))
 
 publish.sort()
-sys.stderr.write("发布 %d / 排除 %d\n" % (len(publish), len(skipped)))
+sys.stderr.write("[2/2] 发布 %d / 排除 %d\n" % (len(publish), len(skipped)))
 for p, why in sorted(skipped):
     sys.stderr.write("  SKIP  %-56s %s\n" % (p, why))
 print("\n".join(publish))
