@@ -1,0 +1,238 @@
+{
+  "timestamp": "2026-10-26T00:00:54",
+  "mode": "standard",
+  "result": "GREEN",
+  "gate_errors": [],
+  "gates": [
+    {
+      "name": "clone_detection",
+      "title": "跨篇克隆集群检测（scaled content abuse）",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "scanned_indexable": 259,
+        "clone_clusters": 0,
+        "clone_pages": 0,
+        "min_shared_paragraphs": 8,
+        "min_cluster_size": 3
+      },
+      "findings": [],
+      "summary": "扫描 259 篇可索引正文，无规模化克隆集群。",
+      "elapsed_s": 2.04
+    },
+    {
+      "name": "stub_detector",
+      "title": "薄内容/桩页检测（可索引页正文深度）",
+      "status": "WARN",
+      "blocking": false,
+      "metrics": {
+        "scanned": 288,
+        "thin_block": 0,
+        "thin_warn": 1,
+        "max_words": 500,
+        "warn_words": 800,
+        "median_words": 2841
+      },
+      "findings": [
+        {
+          "severity": "WARN",
+          "code": "THIN-BORDER",
+          "file": "products/dri-toolkit.html",
+          "detail": "可索引页正文 742 字（临界区 500–800）。"
+        }
+      ],
+      "summary": "无阻断级薄内容；1 篇处于临界区（500–800字）。",
+      "elapsed_s": 1.29
+    },
+    {
+      "name": "struct_integrity",
+      "title": "起始标签闭合完整性（样式/资源被吞检测）",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "scanned": 381,
+        "unterminated": 0
+      },
+      "findings": [],
+      "summary": "扫描 381 个页面，起始标签闭合完整（无被吞风险）。",
+      "elapsed_s": 1.34
+    },
+    {
+      "name": "content_container",
+      "title": "正文容器缺失检测（行宽崩坏预防）",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "scanned": 259,
+        "missing_container": 0
+      },
+      "findings": [],
+      "summary": "扫描 259 篇可索引文章，正文容器齐备（行宽受约束）。",
+      "elapsed_s": 1.07
+    },
+    {
+      "name": "link_doctor",
+      "title": "站内死链 + 重定向契约一致性",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "broken_links": 0,
+        "redirect_conflicts": 0,
+        "orphan_redirects": 0
+      },
+      "findings": [],
+      "summary": "无死链、无重定向矛盾。",
+      "elapsed_s": 1.43
+    },
+    {
+      "name": "meta_lint",
+      "title": "meta description 污染 / 占位符 / 引号规范",
+      "status": "WARN",
+      "blocking": false,
+      "metrics": {
+        "scanned": 259,
+        "corrupt_desc": 0,
+        "placeholder": 0,
+        "bad_quotes": 8,
+        "long_title": 0
+      },
+      "findings": [
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/ai-layoff-manager-redefine.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/bigtech-ai-reorg-2026.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/hr-digital-employee-2026.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/idc-2026-hr-ai-agent-guide.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/kpi-failure-ai-org-restructure.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/mercer-2026.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/meta-ai-optimizes-middle-managers.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "EN-QUOTE",
+          "file": "articles/meta-layoffs-middle-managers.html",
+          "detail": "title/h1 含英文引号（须用「」角引号）。"
+        }
+      ],
+      "summary": "扫描 259 篇；引号 8 / 长标题 0（仅告警）。",
+      "elapsed_s": 1.19
+    },
+    {
+      "name": "design_asset_lint",
+      "title": "设计资产自检（OG 图 / CSS / 共享资源 / 品牌 token）",
+      "status": "WARN",
+      "blocking": false,
+      "metrics": {
+        "og_missing": 2,
+        "og_broken": 0,
+        "css_broken": 0,
+        "asset_missing": 0,
+        "css_unbalanced": 0
+      },
+      "findings": [
+        {
+          "severity": "WARN",
+          "code": "OG-IMG-MISSING",
+          "file": "articles/ai-agent-roi-reality-2026.html",
+          "detail": "缺 og:image（社交分享卡片缺图）。"
+        },
+        {
+          "severity": "WARN",
+          "code": "OG-IMG-MISSING",
+          "file": "articles/ai-citation-geo-playbook-2026.html",
+          "detail": "缺 og:image（社交分享卡片缺图）。"
+        }
+      ],
+      "summary": "抽样 40 页发现 2 处设计资产告警（og缺 2 / og坏 0 / 资源缺失 0 / css 0）。",
+      "elapsed_s": 1.48
+    },
+    {
+      "name": "lesson_assertions",
+      "title": "历史教训断言（防概念性重复犯错：计数带 / 旧QR-CTA / 被墙资源 / 编辑器工件 / meta 跨页污染 / og:title-h1 同源）",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "rules": 8,
+        "scanned": 324,
+        "violations": 0
+      },
+      "findings": [],
+      "summary": "全站扫描 324 页 / 8 条历史教训断言，零违例。",
+      "elapsed_s": 2.88
+    },
+    {
+      "name": "sitemap_consistency",
+      "title": "sitemap↔磁盘 + article-index 有效性",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "sitemap_urls": 354,
+        "missing_on_disk": 0,
+        "invalid_index_slugs": 0
+      },
+      "findings": [],
+      "summary": "sitemap 354 URL 全部对应磁盘；article-index 有效。",
+      "elapsed_s": 0.01
+    },
+    {
+      "name": "tracking_metrics",
+      "title": "软指标基线回归锁定",
+      "status": "PASS",
+      "blocking": false,
+      "metrics": {
+        "indexable_articles": 259,
+        "median_words": 2904,
+        "geo_cov": 93.4,
+        "og_cov": 100.0,
+        "jsonld_cov": 100.0,
+        "qr_cov": 93.4,
+        "inline_cov": 70.3,
+        "_deltas_vs_baseline": {
+          "indexable_articles": 0,
+          "median_words": 0,
+          "geo_cov": 0.0,
+          "og_cov": 0.0,
+          "jsonld_cov": 0.0,
+          "qr_cov": 0.0,
+          "inline_cov": 0.0
+        }
+      },
+      "findings": [],
+      "summary": "相对 baseline 无回归（中位数 2904字，GEO 93.4%，OG 100.0%）。",
+      "elapsed_s": 2.0
+    }
+  ],
+  "elapsed_s": 14.75
+}

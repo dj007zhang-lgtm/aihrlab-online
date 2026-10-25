@@ -20,7 +20,7 @@
 | # | 任务 | 验收信号（可跑/可查） | 阻塞方 |
 |---|---|---|---|
 | P1-1 | `tools/disc-test/index.html` 补 3–5 条站内出链 | `validate.py` 的 **V-02 转 PASS** | AI ✅ 2026-09-20 完成（disc-test=9） |
-| P1-2 | `projects/` 落首个 commit（真源可追溯） | `git log` 可见 `projects/ai-hr-capability-model/` | 主理人确认后 AI 执行 |
+| P1-2 | `projects/` 落首个 commit（真源可追溯） | `git log` 可见 `projects/ai-hr-capability-model/` | ✅ 2026-10-08 已落 `77885eab`；并修复 `.gitignore` 全局 `*.md` 吞掉真源的洞（D-034 / V-10） |
 | P1-3 | D-011 的 SHRM 数据核一手（现为二手转引） | 报告原文链接 + 数字逐个对上 | AI 🔶 2026-09-20：52%、28%/29% 已对上一手；16% 口径已修正；**37% 一手未确认（D-025）** |
 | P1-4 | 5 项未决拍板（D-018 ~ D-022） | 决策台账状态由「未决」转「已采纳/已否决」 | **主理人独占** |
 | P1-5 | 镜像落点迁入 AIHR 团队 | `mirror_status` 转 `LIVE`（V-09 校验） | ✅ 2026-09-21 主理人建库 + AI 迁入完成 |

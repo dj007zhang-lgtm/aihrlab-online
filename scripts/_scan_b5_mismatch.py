@@ -41,7 +41,7 @@ ORG_KEYWORDS = {
 
 def extract_sources(html):
     """返回 [(title, meta), ...]"""
-    sec = re.search(r'<section class="verified-sources".*?</section>', html, re.S)
+    sec = re.search(r'<section[^>]*class="[^"]*verified-sources[^"]*"[^>]*>.*?</section>', html, re.S)
     if not sec:
         return []
     items = re.findall(r'<li class="verified-sources__item">(.*?)</li>', sec.group(0), re.S)
@@ -57,7 +57,7 @@ def extract_sources(html):
 def body_text(html):
     t = re.sub(r'<script.*?</script>', '', html, flags=re.S)
     t = re.sub(r'<style.*?</style>', '', t, flags=re.S)
-    t = re.sub(r'<section class="verified-sources".*?</section>', '', t, flags=re.S)
+    t = re.sub(r'<section[^>]*class="[^"]*verified-sources[^"]*"[^>]*>.*?</section>', '', t, flags=re.S)
     t = re.sub(r'<aside class="toc-rail">.*?</aside>', '', t, flags=re.S)
     t = re.sub(r'延伸阅读.*?(?=<footer)', '', t, flags=re.S)
     t = re.sub(r'<footer.*?</footer>', '', t, flags=re.S)

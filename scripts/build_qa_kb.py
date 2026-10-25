@@ -196,6 +196,15 @@ def clean_text(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def live_h1(path):
+    """取文章页真实 H1（Gate10 纪律：标题真相源是页面自身，索引可能陈旧）。"""
+    head = open(path, "r", encoding="utf-8", errors="ignore").read(262144)
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", head, re.S)
+    if not m:
+        return ""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip()
+
+
 def build(articles_dir, index_path, out_dir):
     index = json.load(open(index_path, "r", encoding="utf-8"))
     os.makedirs(out_dir, exist_ok=True)
@@ -203,6 +212,7 @@ def build(articles_dir, index_path, out_dir):
              "stubs_skipped": 0, "articles_with_zero_chunks": 0,
              "chunks_total": 0, "chars_total": 0, "per_article": {}}
     all_chunks = []
+    h1_fixed = 0
 
     for entry in index:
         slug = entry["url"]
@@ -213,6 +223,11 @@ def build(articles_dir, index_path, out_dir):
         if is_stub(path):
             stats["stubs_skipped"] += 1
             continue
+        # 标题以页面真实 H1 为准；索引 title 仅在 H1 缺失时兜底
+        h1 = live_h1(path)
+        if h1 and h1 != entry.get("title", "").strip():
+            h1_fixed += 1
+            entry = dict(entry, title=h1)
         with open(path, "r", encoding="utf-8", errors="ignore") as f:
             src = f.read()
         parser = ArticleExtractor(slug, entry)
@@ -250,7 +265,8 @@ def build(articles_dir, index_path, out_dir):
         json.dump(stats, f, ensure_ascii=False, indent=2)
 
     print(f"[build_qa_kb] articles_indexed={stats['articles_parsed']} "
-          f"stubs_skipped={stats['stubs_skipped']} zero_chunks={stats['articles_with_zero_chunks']}")
+          f"stubs_skipped={stats['stubs_skipped']} zero_chunks={stats['articles_with_zero_chunks']} "
+          f"h1_fixed={h1_fixed}")
     print(f"[build_qa_kb] chunks={stats['chunks_total']} chars={stats['chars_total']} "
           f"kb.json={os.path.getsize(kb_path)/1024:.1f}KB -> {kb_path}")
     return kb_path, meta_path, stats

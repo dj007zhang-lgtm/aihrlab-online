@@ -3,3 +3,8 @@
 {"run_date": "20260820", "timestamp": "2026-08-20T20:20:53.243832", "total": 200, "compliance_rate": 100.0, "avg_score": 93.5, "critical_total": 0, "fail_total": 4, "warn_total": 421}
 {"run_date": "20260820", "timestamp": "2026-08-20T20:21:07.883068", "total": 200, "compliance_rate": 100.0, "avg_score": 93.6, "critical_total": 0, "fail_total": 1, "warn_total": 421}
 {"run_date": "20260820", "timestamp": "2026-08-20T20:28:13.976462", "total": 200, "compliance_rate": 100.0, "avg_score": 93.7, "critical_total": 0, "fail_total": 0, "warn_total": 421}
+{"run_date": "20260911", "timestamp": "2026-09-11T20:54:24.380332", "total": 286, "compliance_rate": 100.0, "avg_score": 99.8, "critical_total": 0, "fail_total": 0, "warn_total": 17}
+{"run_date": "20260914", "timestamp": "2026-09-14T09:35:49.213615", "total": 289, "compliance_rate": 100.0, "avg_score": 99.8, "critical_total": 0, "fail_total": 0, "warn_total": 17}
+{"run_date": "20260921", "timestamp": "2026-09-21T10:35:11.151250", "total": 295, "compliance_rate": 100.0, "avg_score": 99.8, "critical_total": 0, "fail_total": 0, "warn_total": 20}
+{"run_date": "20261005", "timestamp": "2026-10-05T16:44:55.387276", "total": 304, "compliance_rate": 100.0, "avg_score": 99.8, "critical_total": 0, "fail_total": 0, "warn_total": 21}
+{"run_date": "20261019", "timestamp": "2026-10-19T09:38:20.697749", "total": 308, "compliance_rate": 100.0, "avg_score": 99.4, "critical_total": 0, "fail_total": 0, "warn_total": 57}

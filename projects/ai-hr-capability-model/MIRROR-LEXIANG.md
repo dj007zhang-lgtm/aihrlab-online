@@ -1,7 +1,7 @@
 # CM-2026 项目镜像（乐享）
 
 > **这是镜像，不是真源。** 真源在 `site-migrated/projects/ai-hr-capability-model/`，一切修改先改仓库再同步此处。
-> **source_commit**: 本次绑定提交（见 main 最新 CM-2026 commit；内容快照基于 072f3e9a + D-023 收尾）
+> **source_commit**: `77885eab3dafc67362d39db0b5e1af238b3b6ecc`（2026-10-08「真源立项落地」提交，真源首个可追溯锚点；此前快照基于 072f3e9a + D-023 收尾）
 > **镜像时间**: 2026-09-19 建立 · 2026-09-20 更新 · 2026-09-21 迁入 AIHR项目知识库并转 LIVE
 > **校验脚本**: `projects/ai-hr-capability-model/validate.py`（实跑结果见下）
 

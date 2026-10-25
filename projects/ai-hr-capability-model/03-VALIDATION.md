@@ -27,6 +27,7 @@ python3 projects/ai-hr-capability-model/validate.py
 | V-07 | qa_guardian 基线已锁定 | D-016 | PASS | thin_block=15 / clone=0 |
 | V-08 | 镜像带 source_commit | D-017 | PASS | 1 个镜像，含 source_commit |
 | V-09 | 镜像落点绑定 AIHR 团队 | D-023 | PASS | team_id=`a808edd6…` + space_id=`df7ca476…`；mirror_status=LIVE（2026-09-21） |
+| V-10 | 真源 .md 纳入版本控制 | D-034 | PASS | 真源 .md 被 `.gitignore` 忽略 0 个（2026-10-08 加 `!projects/**/*.md` 例外） |
 
 ## V-09 的边界（必须写清，否则是假校验）
 

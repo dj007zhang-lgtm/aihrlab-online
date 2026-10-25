@@ -2,8 +2,9 @@
  * analytics-loader.js — 统计装载 + 全站统一事件层（aihrTrack）
  * ---------------------------------------------------------------------------
  * 一、装载职责（原有）
- *   仅生产域名（aihrlab.online）注入百度统计；本地预览/沙箱只留无副作用桩，避免污染数据。
- *   GA4（googletagmanager.com）在中国大陆被墙且长期无数据回收，已于 2026-09-08 弃用。
+ *   仅生产域名（aihrlab.online）注入统计；本地预览/沙箱只留无副作用桩，避免污染数据。
+ *   GA4（gtag/js）2026-09-08 因 CN 被墙弃用 → 2026-09-29 主理人override 重新接入：async 非阻塞，
+ *     不重现当年 96% 跳出；CN 被墙使其仅覆盖非CN可达流量，百度统计仍为 CN 真相源。
  *
  * 二、事件层职责（2026-09-21 新增，P0-1 关闭门控埋点盲区）
  *   GA4 下线后，main.js / engagement-tracking.js / 7 篇历史文章里的 gtag('event', ...)
@@ -115,12 +116,27 @@
     return;
   }
 
-  /* ===== 生产环境：真实上报（仅百度统计，CN 可达） ===== */
+  /* ===== 生产环境：真实上报 ===== */
+  /* 百度统计（CN 可达，中国大陆访客真相源） */
   window._hmt = window._hmt || [];
   (function () {
     var hm = document.createElement("script");
     hm.src = "https://hm.baidu.com/hm.js?b53ffd054b55836f535892622f1e4cc5";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
+  })();
+
+  /* GA4（2026-09-29 主理人override 重新接入；async 非阻塞：CN 被墙仅覆盖非CN可达流量，
+     百度统计仍为 CN 真相源。事件层 aihrTrack 已自动双发至此，私域漏斗盲区得到观测。） */
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", "G-BWLGRVRRGN");
+  (function () {
+    var ga = document.createElement("script");
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-BWLGRVRRGN";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
   })();
 })();

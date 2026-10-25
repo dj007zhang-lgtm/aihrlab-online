@@ -11,6 +11,9 @@ __pycache__/
 *.pyc
 # 但 tools/ 下的交付物（GEO清单/发布门禁/选题日历等）需纳入版本控制
 !tools/*.md
+# CM-2026 真源（立项书/决策台账/能力模型/校验清单等）必须纳入版本控制，
+# 否则「projects/ 已落 commit」是假成功：目录可见而真源 .md 全不在库里（D-034）
+!projects/**/*.md
 
 # Google API credentials (DO NOT COMMIT)
 gsc_service_account.json

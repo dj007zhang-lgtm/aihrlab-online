@@ -1,7 +1,63 @@
 [
  {
+  "file": "ai-employee-engagement-commitment.html",
+  "line": 200,
+  "title": "2026组织状态报告",
+  "publisher": "麦肯锡",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-employee-engagement-commitment.html",
+  "line": 212,
+  "title": "2025全球敬业度报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-employee-experience-meaning.html",
+  "line": 200,
+  "title": "2026全球人力资本趋势报告",
+  "publisher": "Deloitte",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-employee-experience-meaning.html",
+  "line": 214,
+  "title": "2026组织状态报告",
+  "publisher": "麦肯锡",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-employee-experience-meaning.html",
+  "line": 216,
+  "title": "未来就业报告 2025",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-era-employee-retention-2026.html",
+  "line": 249,
+  "title": "AI 执行鸿沟调研",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-evaluation-split-2026.html",
+  "line": 225,
+  "title": "2025 未来就业报告",
+  "publisher": "WEF",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
   "file": "ai-hr-2026-h1-review-mainlines-misjudgments.html",
-  "line": 94,
+  "line": 122,
   "title": "工作趋势指数 2026",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -9,7 +65,7 @@
  },
  {
   "file": "ai-hr-2026-h1-review-mainlines-misjudgments.html",
-  "line": 130,
+  "line": 155,
   "title": "工作趋势指数 2026",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -17,7 +73,7 @@
  },
  {
   "file": "ai-hr-2026-h1-review-mainlines-misjudgments.html",
-  "line": 137,
+  "line": 162,
   "title": "工作趋势指数 2026",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -25,15 +81,23 @@
  },
  {
   "file": "ai-hr-2026-h1-review-mainlines-misjudgments.html",
-  "line": 144,
+  "line": 169,
   "title": "工作趋势指数 2026",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-hr-2026-h2-outlook.html",
+  "line": 159,
+  "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
   "file": "ai-hr-2026-midyear-three-signals.html",
-  "line": 217,
+  "line": 226,
   "title": "2026年中国企业AI人才与组织发展报告",
   "publisher": "InfoQ",
   "status": "已核验(白)",
@@ -41,7 +105,7 @@
  },
  {
   "file": "ai-hr-2026-midyear-three-signals.html",
-  "line": 221,
+  "line": 230,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -49,7 +113,7 @@
  },
  {
   "file": "ai-hr-2026-midyear-three-signals.html",
-  "line": 302,
+  "line": 311,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -57,7 +121,7 @@
  },
  {
   "file": "ai-hr-2026-midyear-three-signals.html",
-  "line": 302,
+  "line": 311,
   "title": "2026年中国企业AI人才与组织发展报告",
   "publisher": "InfoQ",
   "status": "已核验(白)",
@@ -65,39 +129,7 @@
  },
  {
   "file": "ai-hr-report-2026-context-management.html",
-  "line": 12,
-  "title": "AI时代人力资源发展报告（2026）",
-  "publisher": "深圳市人力资源管理协会",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "ai-hr-report-2026-context-management.html",
-  "line": 16,
-  "title": "AI时代HR发展报告（2026）",
-  "publisher": "",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "ai-hr-report-2026-context-management.html",
-  "line": 16,
-  "title": "AI时代人力资源发展报告（2026）",
-  "publisher": "",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "ai-hr-report-2026-context-management.html",
-  "line": 26,
-  "title": "AI时代人力资源发展报告（2026）",
-  "publisher": "深圳市人力资源管理协会",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "ai-hr-report-2026-context-management.html",
-  "line": 144,
+  "line": 14,
   "title": "AI 时代人力资源发展报告（2026）",
   "publisher": "",
   "status": "已核验(白)",
@@ -105,15 +137,71 @@
  },
  {
   "file": "ai-hr-report-2026-context-management.html",
-  "line": 158,
+  "line": 20,
+  "title": "AI时代HR发展报告（2026）",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-hr-report-2026-context-management.html",
+  "line": 20,
+  "title": "AI时代人力资源发展报告（2026）",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-hr-report-2026-context-management.html",
+  "line": 29,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "ai-hr-report-2026-context-management.html",
+  "line": 142,
+  "title": "AI 时代人力资源发展报告（2026）",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-hr-report-2026-context-management.html",
+  "line": 155,
+  "title": "AI时代人力资源发展报告（2026）",
+  "publisher": "深圳市人力资源管理协会",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-in-overseas-hr-2026.html",
+  "line": 87,
+  "title": "2025 未来就业报告",
+  "publisher": "世界经济论坛",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-in-overseas-hr-2026.html",
+  "line": 210,
+  "title": "2025 未来就业报告",
+  "publisher": "世界经济论坛",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-in-overseas-hr-2026.html",
+  "line": 233,
+  "title": "2025 未来就业报告",
+  "publisher": "世界经济论坛",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
   "file": "ai-landing-fails-org-not-changed.html",
-  "line": 164,
+  "line": 155,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -121,7 +209,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 210,
+  "line": 275,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -129,7 +217,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 276,
+  "line": 340,
   "title": "2026人力资源管理趋势报告",
   "publisher": "北京大学",
   "status": "已核验(白)",
@@ -137,7 +225,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 305,
+  "line": 369,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -145,7 +233,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 321,
+  "line": 385,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -153,7 +241,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 337,
+  "line": 401,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -161,7 +249,7 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 390,
+  "line": 454,
   "title": "AI时代人力资源发展报告（2026）",
   "publisher": "深圳市人力资源管理协会",
   "status": "已核验(白)",
@@ -169,15 +257,71 @@
  },
  {
   "file": "ai-layoff-to-rebuild-hr-stand-firm.html",
-  "line": 390,
+  "line": 454,
   "title": "新质驱动·组织向新——2026年人力资源管理趋势报告",
   "publisher": "北京大学",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "ai-literacy-org-capability-2026.html",
+  "line": 169,
+  "title": "工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-literacy-org-capability-2026.html",
+  "line": 191,
+  "title": "2026 工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-literacy-org-capability-2026.html",
+  "line": 201,
+  "title": "2026 工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-literacy-org-capability-2026.html",
+  "line": 213,
+  "title": "2026 工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-literacy-org-capability-2026.html",
+  "line": 214,
+  "title": "2026 工作趋势指数：代理、人的能动性与每个人的机会",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-native-human-agent-contract-2026.html",
+  "line": 214,
+  "title": "2026 工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-native-org-capability-boundary-2026.html",
+  "line": 104,
+  "title": "组织白皮书 2026",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
   "file": "ai-native-org-hr-2026.html",
-  "line": 123,
+  "line": 168,
   "title": "智能原生研究报告（2026年）",
   "publisher": "",
   "status": "已核验(白)",
@@ -185,7 +329,7 @@
  },
  {
   "file": "ai-native-org-hr-2026.html",
-  "line": 123,
+  "line": 168,
   "title": "2026年中国企业AI人才与组织发展报告",
   "publisher": "InfoQ",
   "status": "已核验(白)",
@@ -193,7 +337,7 @@
  },
  {
   "file": "ai-native-org-hr-2026.html",
-  "line": 136,
+  "line": 181,
   "title": "智能原生研究报告（2026年）",
   "publisher": "",
   "status": "已核验(白)",
@@ -201,15 +345,39 @@
  },
  {
   "file": "ai-native-org-hr-2026.html",
-  "line": 136,
+  "line": 181,
   "title": "2026年中国企业AI人才与组织发展报告",
   "publisher": "InfoQ",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-org-resilience-2026.html",
+  "line": 99,
+  "title": "组织韧性指数",
+  "publisher": "McKinsey",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-rebuild-training-coach-2026.html",
+  "line": 174,
+  "title": "未来就业报告 2025",
+  "publisher": "WEF",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-rebuild-training-coach-2026.html",
+  "line": 193,
+  "title": "2026 工作趋势指数",
+  "publisher": "Microsoft",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
   "file": "ai-silent-org-signals.html",
-  "line": 178,
+  "line": 182,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -217,7 +385,7 @@
  },
  {
   "file": "ai-skills-based-org-2026.html",
-  "line": 139,
+  "line": 185,
   "title": "2026 全球招聘报告",
   "publisher": "SHRM",
   "status": "已核验(白)",
@@ -225,15 +393,7 @@
  },
  {
   "file": "ai-skills-based-org-2026.html",
-  "line": 154,
-  "title": "2026 全球招聘报告",
-  "publisher": "SHRM",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "ai-skills-based-org-2026.html",
-  "line": 164,
+  "line": 195,
   "title": "2026 全球人力资本趋势报告",
   "publisher": "Deloitte",
   "status": "已核验(白)",
@@ -241,7 +401,7 @@
  },
  {
   "file": "ai-skills-based-org-2026.html",
-  "line": 189,
+  "line": 220,
   "title": "未来就业报告",
   "publisher": "",
   "status": "已核验(白)",
@@ -249,7 +409,7 @@
  },
  {
   "file": "ai-talent-profile-reconstruction-2026.html",
-  "line": 83,
+  "line": 130,
   "title": "2025未来就业报告",
   "publisher": "WEF",
   "status": "已核验(白)",
@@ -257,7 +417,7 @@
  },
  {
   "file": "ai-talent-profile-reconstruction-2026.html",
-  "line": 83,
+  "line": 130,
   "title": "2025工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -265,7 +425,7 @@
  },
  {
   "file": "ai-talent-profile-reconstruction-2026.html",
-  "line": 115,
+  "line": 169,
   "title": "2025 未来就业报告",
   "publisher": "WEF",
   "status": "已核验(白)",
@@ -273,15 +433,87 @@
  },
  {
   "file": "ai-talent-profile-reconstruction-2026.html",
-  "line": 117,
+  "line": 171,
   "title": "2025 工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "ai-talent-review-ninebox-2026.html",
+  "line": 136,
+  "title": "2026 人力资源领域人工智能现状报告",
+  "publisher": "SHRM",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-talent-review-ninebox-2026.html",
+  "line": 184,
+  "title": "2026 人力资源领域人工智能现状报告",
+  "publisher": "SHRM",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-task-level-work-redesign-2026.html",
+  "line": 90,
+  "title": "新质驱动·组织向新——2026 年人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-task-level-work-redesign-2026.html",
+  "line": 247,
+  "title": "新质驱动·组织向新——2026 年人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "ai-use-policy-governance-2026.html",
+  "line": 91,
+  "title": "2026 年数据泄露成本报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-use-policy-governance-2026.html",
+  "line": 219,
+  "title": "2026 年数据泄露成本报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "ai-use-policy-governance-2026.html",
+  "line": 253,
+  "title": "2026 年数据泄露成本报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "anthropic-engineer-three-stages.html",
+  "line": 185,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "anthropic-engineer-three-stages.html",
+  "line": 187,
+  "title": "2026年组织状况报告",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
   "file": "big-tech-ai-product-dynamics-2026.html",
-  "line": 63,
+  "line": 91,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -289,7 +521,7 @@
  },
  {
   "file": "big-tech-ai-product-dynamics-2026.html",
-  "line": 113,
+  "line": 138,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -297,7 +529,15 @@
  },
  {
   "file": "big-tech-ai-product-dynamics-2026.html",
-  "line": 123,
+  "line": 149,
+  "title": "工作趋势指数",
+  "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "big-tech-ai-product-dynamics-2026.html",
+  "line": 186,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -305,7 +545,7 @@
  },
  {
   "file": "bigtech-hr-rotation-2026.html",
-  "line": 60,
+  "line": 120,
   "title": "未来就业报告",
   "publisher": "世界经济论坛",
   "status": "已核验(白)",
@@ -313,15 +553,31 @@
  },
  {
   "file": "bytedance-context-management-ai-agent.html",
-  "line": 115,
+  "line": 114,
   "title": "AI时代HR发展报告：从管控走向情境",
   "publisher": "",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "deepmind-no-kpi-talent-management.html",
+  "line": 167,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "deloitte-2026.html",
+  "line": 152,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
   "file": "frontier-firm-ai-agent-2026.html",
-  "line": 8,
+  "line": 16,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -329,7 +585,7 @@
  },
  {
   "file": "frontier-firm-ai-agent-2026.html",
-  "line": 10,
+  "line": 20,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -337,15 +593,7 @@
  },
  {
   "file": "frontier-firm-ai-agent-2026.html",
-  "line": 15,
-  "title": "工作趋势指数",
-  "publisher": "微软",
-  "status": "已核验(白)",
-  "note": "registry.allow"
- },
- {
-  "file": "frontier-firm-ai-agent-2026.html",
-  "line": 62,
+  "line": 90,
   "title": "工作趋势指数（WTI）",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -353,7 +601,7 @@
  },
  {
   "file": "frontier-firm-ai-agent-2026.html",
-  "line": 107,
+  "line": 132,
   "title": "工作趋势指数",
   "publisher": "微软",
   "status": "已核验(白)",
@@ -361,39 +609,135 @@
  },
  {
   "file": "frontier-firm-ai-agent-2026.html",
-  "line": 123,
+  "line": 148,
   "title": "工作趋势指数（WTI）",
   "publisher": "微软",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "future-of-work-hr-2026.html",
+  "line": 65,
+  "title": "未来就业报告2025",
+  "publisher": "WEF",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "future-of-work-hr-2026.html",
+  "line": 74,
+  "title": "未来就业报告2025",
+  "publisher": "WEF",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "future-of-work-hr-2026.html",
+  "line": 94,
+  "title": "未来就业报告2025",
+  "publisher": "WEF",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
   "file": "genai-productivity-evidence-2026.html",
-  "line": 171,
+  "line": 164,
   "title": "AI指数2026",
   "publisher": "斯坦福",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
-  "file": "index.html",
-  "line": 19,
-  "title": "2026年组织状况报告",
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 117,
+  "title": "2026人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 119,
+  "title": "2026人力资源管理趋势报告",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 153,
+  "title": "2026人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 158,
+  "title": "2026人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 171,
+  "title": "新质驱动·组织向新——2026人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "global-talent-supply-chain-2026.html",
+  "line": 218,
+  "title": "新质驱动·组织向新——2026人力资源管理趋势报告",
+  "publisher": "智联",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "human-ai-equation.html",
+  "line": 143,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "idc-2026-hr-ai-agent-guide.html",
+  "line": 154,
+  "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
   "file": "index.html",
-  "line": 19,
-  "title": "2026年组织状况报告",
+  "line": 1832,
+  "title": "AI 时代人力资源发展报告（2026）",
+  "publisher": "",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "index.html",
+  "line": 2417,
+  "title": "2026 组织状况报告",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "index.html",
+  "line": 2453,
+  "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
   "file": "keling-ai-innovation-path.html",
-  "line": 158,
+  "line": 126,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -401,7 +745,15 @@
  },
  {
   "file": "kpi-failure-ai-org-restructure.html",
-  "line": 172,
+  "line": 143,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "kpi-failure-ai-org-restructure.html",
+  "line": 164,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -409,7 +761,15 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 17,
+  "line": 19,
+  "title": "2026 组织状况报告",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "mckinsey-2026-org-report-deep-dive.html",
+  "line": 24,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -417,7 +777,7 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 18,
+  "line": 27,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -425,7 +785,7 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 21,
+  "line": 30,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -433,7 +793,7 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 25,
+  "line": 31,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -441,7 +801,7 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 26,
+  "line": 107,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -449,7 +809,15 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 118,
+  "line": 117,
+  "title": "2026 组织状况报告",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "mckinsey-2026-org-report-deep-dive.html",
+  "line": 119,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -457,7 +825,7 @@
  },
  {
   "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 129,
+  "line": 120,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -472,8 +840,8 @@
   "note": "registry.allow"
  },
  {
-  "file": "mckinsey-2026-org-report-deep-dive.html",
-  "line": 140,
+  "file": "mckinsey-2026-organization-report.html",
+  "line": 25,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -481,7 +849,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 18,
+  "line": 25,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -489,7 +857,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 18,
+  "line": 33,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -497,7 +865,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 27,
+  "line": 117,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -505,7 +873,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 69,
+  "line": 117,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -513,7 +881,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 69,
+  "line": 117,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -521,7 +889,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 69,
+  "line": 117,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -529,7 +897,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 69,
+  "line": 117,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -537,7 +905,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 69,
+  "line": 139,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -545,7 +913,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 135,
+  "line": 151,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -553,7 +921,7 @@
  },
  {
   "file": "mckinsey-2026-organization-report.html",
-  "line": 147,
+  "line": 161,
   "title": "2026年组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -561,7 +929,7 @@
  },
  {
   "file": "mckinsey-2026-training-vs-screening.html",
-  "line": 17,
+  "line": 21,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -569,8 +937,16 @@
  },
  {
   "file": "mckinsey-2026-training-vs-screening.html",
-  "line": 19,
+  "line": 23,
   "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "mckinsey-2026-training-vs-screening.html",
+  "line": 118,
+  "title": "组织现状报告2026版",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
@@ -585,23 +961,23 @@
  },
  {
   "file": "mckinsey-2026-training-vs-screening.html",
-  "line": 130,
-  "title": "组织现状报告2026版",
+  "line": 146,
+  "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
-  "file": "mckinsey-6-percent-trust-architecture.html",
-  "line": 177,
-  "title": "2026年组织状况报告",
+  "file": "mckinsey-hidden-deadlock.html",
+  "line": 139,
+  "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
-  "file": "mckinsey-human-ai-orchestration.html",
-  "line": 12,
+  "file": "mckinsey-hidden-deadlock.html",
+  "line": 148,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -609,7 +985,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 16,
+  "line": 14,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -617,7 +993,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 18,
+  "line": 20,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -625,7 +1001,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 19,
+  "line": 22,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -633,7 +1009,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 24,
+  "line": 23,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -641,7 +1017,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 157,
+  "line": 27,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -649,7 +1025,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 162,
+  "line": 139,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -657,7 +1033,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 172,
+  "line": 144,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -665,7 +1041,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 172,
+  "line": 153,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -673,7 +1049,7 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 172,
+  "line": 153,
   "title": "组织现状报告2026",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -681,15 +1057,111 @@
  },
  {
   "file": "mckinsey-human-ai-orchestration.html",
-  "line": 186,
+  "line": 153,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "mckinsey-human-ai-orchestration.html",
+  "line": 167,
   "title": "2026麦肯锡组织现状报告：改变组织未来的三股力量与9大主题",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "mercer-2026.html",
+  "line": 146,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "organizational-culture-debt-2026.html",
+  "line": 177,
+  "title": "组织现状报告2026",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "organizational-culture-debt-2026.html",
+  "line": 203,
+  "title": "组织现状报告",
+  "publisher": "麦肯锡",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 19,
+  "title": "2025-2026 中企出海调研",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 21,
+  "title": "2025-2026 中企出海调研",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 49,
+  "title": "2025-2026 中企出海调研",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 83,
+  "title": "中企出海调研报告",
+  "publisher": "德勤",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 156,
+  "title": "2025-2026 中企出海调研",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 161,
+  "title": "2025-2026 中企出海调研报告",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 176,
+  "title": "2025-2026 中企出海调研",
+  "publisher": "Deloitte",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "overseas-hr-build-from-zero-2026.html",
+  "line": 262,
+  "title": "2025-2026 中企出海调研报告",
+  "publisher": "德勤",
+  "status": "待核验",
+  "note": ""
+ },
+ {
   "file": "pod-org-ai-agent-2026.html",
-  "line": 307,
+  "line": 267,
   "title": "2026组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
@@ -697,15 +1169,39 @@
  },
  {
   "file": "pod-org-ai-agent-2026.html",
-  "line": 365,
+  "line": 325,
   "title": "2026组织状况报告",
   "publisher": "麦肯锡",
   "status": "已核验(白)",
   "note": "registry.allow"
  },
  {
+  "file": "remote-team-management-challenges-2026.html",
+  "line": 237,
+  "title": "2026年远程工作状态报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "remote-team-management-challenges-2026.html",
+  "line": 237,
+  "title": "2026年全球混合工作趋势报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "remote-team-management-challenges-2026.html",
+  "line": 241,
+  "title": "2026年全球人力资本趋势报告",
+  "publisher": "Deloitte",
+  "status": "已核验(白)",
+  "note": "registry.allow"
+ },
+ {
   "file": "sme-ai-hr-2026.html",
-  "line": 175,
+  "line": 157,
   "title": "AI时代小微经营者观察",
   "publisher": "",
   "status": "已核验(白)",
@@ -713,10 +1209,106 @@
  },
  {
   "file": "sme-ai-hr-2026.html",
-  "line": 271,
+  "line": 250,
   "title": "AI时代小微经营者观察",
   "publisher": "",
   "status": "已核验(白)",
   "note": "registry.allow"
+ },
+ {
+  "file": "sme-owner-ai-architect-2026.html",
+  "line": 102,
+  "title": "2026年中国中小企业数字化转型报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "sme-owner-ai-architect-2026.html",
+  "line": 122,
+  "title": "HR工作流诊断报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "sme-owner-ai-architect-2026.html",
+  "line": 123,
+  "title": "试点评估报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "sme-owner-ai-architect-2026.html",
+  "line": 124,
+  "title": "HR系统整合报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 19,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 21,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 23,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 49,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 100,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 157,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 165,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
+ },
+ {
+  "file": "strategic-workforce-planning-ai-2026.html",
+  "line": 199,
+  "title": "2026 全球学习与技能报告",
+  "publisher": "",
+  "status": "待核验",
+  "note": ""
  }
 ]

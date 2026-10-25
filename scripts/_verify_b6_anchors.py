@@ -22,7 +22,7 @@ ANCHORS = ['麦肯锡', 'mckinsey', '德勤', 'deloitte', 'stanford', '斯坦福
 def body_text(html):
     t = re.sub(r'<script.*?</script>', '', html, flags=re.S)
     t = re.sub(r'<style.*?</style>', '', t, flags=re.S)
-    t = re.sub(r'<section class="verified-sources".*?</section>', '', t, flags=re.S)
+    t = re.sub(r'<section[^>]*class="[^"]*verified-sources[^"]*"[^>]*>.*?</section>', '', t, flags=re.S)
     t = re.sub(r'<aside class="toc-rail">.*?</aside>', '', t, flags=re.S)
     t = re.sub(r'<footer.*?</footer>', '', t, flags=re.S)
     t = re.sub(r'<[^>]+>', '', t)

@@ -219,8 +219,34 @@ def v02b():
         ("叠块：" + ", ".join(dup)) if dup else "")
 
 
+# V-10 真源 .md 必须纳入版本控制（D-034）
+# 教训：.gitignore 的全局 `*.md` 会把真源台账整批排除。结果是「projects/ 已落
+# commit」看起来成功、git log 也看得到目录，但真源 .md 根本不在库里——
+# 这是比不提交更危险的假成功，所以写成断言。
+def v10():
+    import subprocess
+    mds = sorted(f for f in os.listdir(ROOT) if f.endswith(".md"))
+    if not mds:
+        chk("V-10", "真源 .md 纳入版本控制 (D-034)", False,
+            "无 .md 真源", "全部未被忽略")
+        return
+    ignored = []
+    for f in mds:
+        rel = os.path.relpath(os.path.join(ROOT, f), SITE)
+        try:
+            rc = subprocess.run(["git", "check-ignore", "-q", rel],
+                                cwd=SITE, capture_output=True).returncode
+            if rc == 0:
+                ignored.append(f)
+        except Exception:
+            pass
+    chk("V-10", "真源 .md 纳入版本控制 (D-034)", len(ignored) == 0,
+        f"{len(mds)} 个 .md / 被忽略 {len(ignored)} 个", "0 个被忽略",
+        ("被忽略：" + ", ".join(ignored[:4])) if ignored else "")
+
+
 def main():
-    for fn in (v00, v01, v02, v02b, v03, v04, v05, v06, v07, v08, v09):
+    for fn in (v00, v01, v02, v02b, v03, v04, v05, v06, v07, v08, v09, v10):
         try:
             fn()
         except Exception as e:

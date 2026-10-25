@@ -12,8 +12,8 @@
 ## 真源与校验（一切判断的裁决地）
 
 - 真源目录：`site-migrated/projects/ai-hr-capability-model/`
-  （00-CHARTER 立项书 / 01 能力模型 v1 / 02-DECISIONS 决策台账 23 条 + 信源核验 4 条 + 否决 3 条 / 03-VALIDATION 校验清单 / 04-PLAN 规划 / 05-ROSTER 分工 / 06-PROGRESS 进展 / MIRROR-LEXIANG 乐享镜像）
-- 校验命令：`cd site-migrated && python3 projects/ai-hr-capability-model/validate.py`（11 项断言，退出码 0=全过）
+  （00-CHARTER 立项书 / 01 能力模型 v1 / 02-DECISIONS 决策台账 / 03-VALIDATION 校验清单 / 04-PLAN 规划 / 05-ROSTER 分工 / 06-PROGRESS 进展 / 07-PROJECT-MEMORY 本文件 / 08-FLAGSHIP-DRAFT 旗舰长文草稿 / 09-PRODUCT-FORM 产品形态规格 / MIRROR-LEXIANG 乐享镜像）
+- 校验命令：`cd site-migrated && python3 projects/ai-hr-capability-model/validate.py`（12 项断言，退出码 0=全过）
 - 进展命令：`python3 projects/ai-hr-capability-model/progress.py --write`（机器段自动产出，**禁止手写进展数字**）
 - 全站质量门：`python3 ci/qa_guardian.py`（七门，BLOCK 即中止发布）
 
@@ -38,10 +38,11 @@
 ## 当前阶段：P1 地基收口
 
 - P1-1 disc-test 补 3–5 条站内出链（验收：V-02 转 PASS）→ AI ✅ 2026-09-20 完成（disc-test=9，V-02b 同步新增）
+- P1-2 projects/ 落首个 commit → ✅ 2026-10-08 已落 `77885eab`（真源可追溯，镜像 source_commit 已锚定）
 - P1-2 projects/ 落首个 commit → 主理人确认后 AI 执行
-- P1-3 SHRM 数据核一手 → AI 🔶 2026-09-20：52% 与 28%/29% 已核到一手；16% 口径修正（D-024）；37% 待核（D-025）
-- P1-4 五项未决拍板（D-018~D-022）→ **主理人独占**
-- P1-5 镜像迁入乐享 AIHR 团队（该团队下须先建知识库，MCP 无创建接口）→ **主理人建库** + AI 迁入
+- P1-3 SHRM 数据核一手 → AI ✅ 2026-09-20 收口：52% 与 28%/29% 已核到一手；16% 口径修正（D-024）；37% 决议不对外引用（D-025 已采纳）
+- P1-4 五项未决拍板（D-018~D-022）→ **主理人独占**（仍挂起；AI 侧已按保守默认先行，见台账 E 组）
+- P1-5 镜像迁入乐享 AIHR 团队 → ✅ 2026-09-21 完成：知识库「AIHR项目知识库」（space `df7ca476…`），8 条目已迁入并经 `entry_list_children` 核验（V-09 PASS / LIVE）
 
 ## 协作纪律
 

@@ -117,7 +117,7 @@ def inject_citation(html, refs):
 def _is_fresh_block(html):
     """判断当前 verified-sources 块是否已是新版（标题「参考信源」且无 intro）。"""
     return (
-        'class="verified-sources"' in html
+        re.search(r'class="[^"]*verified-sources[^"]*"', html) is not None
         and 'verified-sources__intro' not in html
         and '>参考信源<' in html
     )
@@ -131,7 +131,7 @@ def _remove_stale_block(html):
         return html
     # 移除整个 <section class="verified-sources" ...>...</section>
     cleaned = re.sub(
-        r'<section class="verified-sources"[^>]*>.*?</section>',
+        r'<section[^>]*class="[^"]*verified-sources[^"]*"[^>]*>.*?</section>',
         '',
         html,
         count=1,

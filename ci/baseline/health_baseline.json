@@ -1,21 +1,29 @@
 {
-  "generated_at": "2026-09-20T00:40:00",
+  "generated_at": "2026-10-26T00:00:54",
   "version": 1,
   "gates": {
     "clone_detection": {
-      "scanned_indexable": 244,
+      "scanned_indexable": 259,
       "clone_clusters": 0,
       "clone_pages": 0,
       "min_shared_paragraphs": 8,
       "min_cluster_size": 3
     },
     "stub_detector": {
-      "scanned": 274,
-      "thin_block": 15,
+      "scanned": 288,
+      "thin_block": 0,
       "thin_warn": 1,
       "max_words": 500,
       "warn_words": 800,
-      "median_words": 2382
+      "median_words": 2841
+    },
+    "struct_integrity": {
+      "scanned": 381,
+      "unterminated": 0
+    },
+    "content_container": {
+      "scanned": 259,
+      "missing_container": 0
     },
     "link_doctor": {
       "broken_links": 0,
@@ -23,32 +31,37 @@
       "orphan_redirects": 0
     },
     "meta_lint": {
-      "scanned": 244,
+      "scanned": 259,
       "corrupt_desc": 0,
       "placeholder": 0,
       "bad_quotes": 8,
       "long_title": 0
     },
     "design_asset_lint": {
-      "og_missing": 3,
-      "og_broken": 1,
+      "og_missing": 2,
+      "og_broken": 0,
       "css_broken": 0,
       "asset_missing": 0,
       "css_unbalanced": 0
     },
+    "lesson_assertions": {
+      "rules": 8,
+      "scanned": 324,
+      "violations": 0
+    },
     "sitemap_consistency": {
-      "sitemap_urls": 329,
+      "sitemap_urls": 354,
       "missing_on_disk": 0,
       "invalid_index_slugs": 0
     },
     "tracking_metrics": {
-      "indexable_articles": 244,
-      "median_words": 2651,
-      "geo_cov": 93.0,
+      "indexable_articles": 259,
+      "median_words": 2904,
+      "geo_cov": 93.4,
       "og_cov": 100.0,
       "jsonld_cov": 100.0,
-      "qr_cov": 99.6,
-      "inline_cov": 78.3,
+      "qr_cov": 93.4,
+      "inline_cov": 70.3,
       "_deltas_vs_baseline": {
         "indexable_articles": 0,
         "median_words": 0,

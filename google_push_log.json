@@ -1504,6 +1504,621 @@
       "status": "success",
       "notified_at": "unknown",
       "pushed_at": "2026-08-22T00:27:30.743594"
+    },
+    "https://www.aihrlab.online/articles/agile-hr-practices-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:00:57.386116"
+    },
+    "https://www.aihrlab.online/articles/ai-candidate-outreach-playbook-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:00.587380"
+    },
+    "https://www.aihrlab.online/articles/ai-cognitive-offloading-deskilling-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:02.373854"
+    },
+    "https://www.aihrlab.online/articles/ai-collab-engineering-org-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:03.826587"
+    },
+    "https://www.aihrlab.online/articles/ai-compensation-design-guide-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:05.210482"
+    },
+    "https://www.aihrlab.online/articles/ai-employee-communication-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:06.848152"
+    },
+    "https://www.aihrlab.online/articles/ai-employee-retention-strategy-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:08.193205"
+    },
+    "https://www.aihrlab.online/articles/ai-governance-framework-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:09.576440"
+    },
+    "https://www.aihrlab.online/articles/ai-interview-arms-race-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:10.946593"
+    },
+    "https://www.aihrlab.online/articles/ai-jd-writing-playbook-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:12.575791"
+    },
+    "https://www.aihrlab.online/articles/ai-literacy-org-capability-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:14.423670"
+    },
+    "https://www.aihrlab.online/articles/ai-native-anti-patterns-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:15.777677"
+    },
+    "https://www.aihrlab.online/articles/ai-native-capability-market-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:17.250662"
+    },
+    "https://www.aihrlab.online/articles/ai-native-compounding-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:18.659649"
+    },
+    "https://www.aihrlab.online/articles/ai-native-coordination-os-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:20.026999"
+    },
+    "https://www.aihrlab.online/articles/ai-native-decision-rights-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:21.405282"
+    },
+    "https://www.aihrlab.online/articles/ai-native-governance-tasks-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:22.825975"
+    },
+    "https://www.aihrlab.online/articles/ai-native-human-agent-contract-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:24.177391"
+    },
+    "https://www.aihrlab.online/articles/ai-native-incentives-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:25.559449"
+    },
+    "https://www.aihrlab.online/articles/ai-native-leadership-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:26.911105"
+    },
+    "https://www.aihrlab.online/articles/ai-native-org-boundary-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:28.277065"
+    },
+    "https://www.aihrlab.online/articles/ai-native-org-landing-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:29.637903"
+    },
+    "https://www.aihrlab.online/articles/ai-native-org-memory-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:30.980451"
+    },
+    "https://www.aihrlab.online/articles/ai-native-organizational-design-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:32.349138"
+    },
+    "https://www.aihrlab.online/articles/ai-native-talent-density-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:33.742600"
+    },
+    "https://www.aihrlab.online/articles/ai-okr-integration-guide-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:35.099438"
+    },
+    "https://www.aihrlab.online/articles/ai-organizational-learning-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:36.463904"
+    },
+    "https://www.aihrlab.online/articles/ai-recruiting-analytics-playbook-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:37.831462"
+    },
+    "https://www.aihrlab.online/articles/ai-resume-screening-playbook-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:39.179800"
+    },
+    "https://www.aihrlab.online/articles/ai-structured-interview-playbook-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:40.513691"
+    },
+    "https://www.aihrlab.online/articles/ai-succession-planning-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:42.111065"
+    },
+    "https://www.aihrlab.online/articles/ai-synthetic-content-pollution-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:43.450619"
+    },
+    "https://www.aihrlab.online/articles/ai-task-level-work-redesign-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:44.801393"
+    },
+    "https://www.aihrlab.online/articles/ai-use-policy-governance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:46.138611"
+    },
+    "https://www.aihrlab.online/articles/algorithmic-management-workplace-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:47.487849"
+    },
+    "https://www.aihrlab.online/articles/alibaba-ai-midplatform-org-case-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:48.867127"
+    },
+    "https://www.aihrlab.online/articles/ant-middle-platform-decline-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:50.206461"
+    },
+    "https://www.aihrlab.online/articles/bigtech-ai-product-traps-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:51.546461"
+    },
+    "https://www.aihrlab.online/articles/bytedance-ai-native-org-case-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:52.881129"
+    },
+    "https://www.aihrlab.online/articles/bytedance-tencent-horse-race-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:54.231571"
+    },
+    "https://www.aihrlab.online/articles/change-management-methodology-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:55.580008"
+    },
+    "https://www.aihrlab.online/articles/change-resistance-diagnosis-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:56.922151"
+    },
+    "https://www.aihrlab.online/articles/daily-tech-ai-2026-08.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:58.261371"
+    },
+    "https://www.aihrlab.online/articles/data-driven-hr-analytics-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:01:59.864341"
+    },
+    "https://www.aihrlab.online/articles/deepseek-rise-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:01.199938"
+    },
+    "https://www.aihrlab.online/articles/digital-transformation-org-capability-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:02.589293"
+    },
+    "https://www.aihrlab.online/articles/employee-experience-design-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:03.941305"
+    },
+    "https://www.aihrlab.online/articles/end-to-end-org-revolution-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:05.306685"
+    },
+    "https://www.aihrlab.online/articles/entry-level-jobs-ai-talent-pipeline-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:06.656828"
+    },
+    "https://www.aihrlab.online/articles/eu-ai-act-recruitment-compliance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:08.022110"
+    },
+    "https://www.aihrlab.online/articles/future-of-work-hr-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:09.392968"
+    },
+    "https://www.aihrlab.online/articles/hr-transformation-roadmap-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:10.770931"
+    },
+    "https://www.aihrlab.online/articles/industry-ai-adoption-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:12.131188"
+    },
+    "https://www.aihrlab.online/articles/leadership-development-ai-era-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:13.512490"
+    },
+    "https://www.aihrlab.online/articles/mckinsey-atomic-capabilities-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:14.854558"
+    },
+    "https://www.aihrlab.online/articles/nvidia-ai-org-transformation-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:16.199992"
+    },
+    "https://www.aihrlab.online/articles/openai-org-transformation-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:17.554270"
+    },
+    "https://www.aihrlab.online/articles/org-diagnosis-framework-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:19.033728"
+    },
+    "https://www.aihrlab.online/articles/organizational-culture-debt-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:20.378420"
+    },
+    "https://www.aihrlab.online/articles/organizational-culture-diagnosis-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:21.729573"
+    },
+    "https://www.aihrlab.online/articles/organizational-design-agility-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:23.078740"
+    },
+    "https://www.aihrlab.online/articles/organizational-network-analysis-ona-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:24.431293"
+    },
+    "https://www.aihrlab.online/articles/overseas-hr-build-from-zero-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:25.779929"
+    },
+    "https://www.aihrlab.online/articles/performance-management-system-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:27.378152"
+    },
+    "https://www.aihrlab.online/articles/remote-team-management-challenges-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:28.758053"
+    },
+    "https://www.aihrlab.online/articles/shadow-ai-governance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:30.110217"
+    },
+    "https://www.aihrlab.online/articles/skills-based-organization-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:31.474291"
+    },
+    "https://www.aihrlab.online/articles/skills-graph-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:32.838393"
+    },
+    "https://www.aihrlab.online/articles/talent-acquisition-strategy-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:34.194482"
+    },
+    "https://www.aihrlab.online/articles/talent-development-framework-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:35.551382"
+    },
+    "https://www.aihrlab.online/articles/team-effectiveness-framework-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:36.895221"
+    },
+    "https://www.aihrlab.online/articles/tencent-ai-org-huoshui-case-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:38.228759"
+    },
+    "https://www.aihrlab.online/hub/big-tech-cases-hub.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:39.566752"
+    },
+    "https://www.aihrlab.online/hub/org-diagnosis-hub.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:40.913683"
+    },
+    "https://www.aihrlab.online/hub/performance-management-hub.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:42.269291"
+    },
+    "https://www.aihrlab.online/articles/strategic-workforce-planning-ai-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:43.619544"
+    },
+    "https://www.aihrlab.online/articles/overseas-employment-compliance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:44.969832"
+    },
+    "https://www.aihrlab.online/articles/overseas-control-model-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-10T00:02:46.318477"
+    },
+    "https://www.aihrlab.online/articles/cross-cultural-team-management-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:00:53.641518"
+    },
+    "https://www.aihrlab.online/articles/global-compensation-design-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:00:57.588760"
+    },
+    "https://www.aihrlab.online/articles/eor-employer-of-record-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:00:59.125175"
+    },
+    "https://www.aihrlab.online/articles/expatriate-vs-localization-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:01:00.925937"
+    },
+    "https://www.aihrlab.online/articles/overseas-labor-risk-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:01:02.978082"
+    },
+    "https://www.aihrlab.online/articles/ai-in-overseas-hr-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:01:04.987766"
+    },
+    "https://www.aihrlab.online/articles/overseas-hr-metrics-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-11T00:01:06.938816"
+    },
+    "https://www.aihrlab.online/articles/ai-hr-three-pillar-model-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-12T00:01:19.569596"
+    },
+    "https://www.aihrlab.online/articles/hr-data-governance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-13T00:01:02.600907"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-retention-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-14T00:00:41.411918"
+    },
+    "https://www.aihrlab.online/articles/ai-era-organizational-trust-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-15T00:01:01.189249"
+    },
+    "https://www.aihrlab.online/articles/ai-hr-shared-services-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-16T00:00:57.659080"
+    },
+    "https://www.aihrlab.online/articles/algorithmic-management-worker-rights-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-17T00:01:04.848560"
+    },
+    "https://www.aihrlab.online/hub/overseas-hr-hub.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-17T00:01:12.804796"
+    },
+    "https://www.aihrlab.online/hub/talent-development-hub.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-17T00:01:14.188780"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-voice-silence-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-18T00:00:52.268656"
+    },
+    "https://www.aihrlab.online/articles/ai-era-organizational-citizenship-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-19T00:00:42.463889"
+    },
+    "https://www.aihrlab.online/articles/employee-ai-trust-calibration-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-20T00:00:28.796789"
+    },
+    "https://www.aihrlab.online/articles/ai-employee-data-privacy-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-21T00:01:08.625584"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-psychological-safety-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-22T00:00:55.070407"
+    },
+    "https://www.aihrlab.online/articles/human-ai-mixed-team-governance-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-26T00:01:10.198094"
+    },
+    "https://www.aihrlab.online/articles/ai-era-dei-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-27T00:01:11.619494"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-agency-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-09-28T00:01:26.264195"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-burnout-designed-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-02T00:01:00.566994"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-data-rights-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-03T00:00:50.571198"
+    },
+    "https://www.aihrlab.online/articles/ai-era-skills-divide-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-04T15:40:44.752673"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-psychological-contract-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-05T00:00:46.067353"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-onboarding-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-06T20:24:22.775674"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-wellbeing-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-08T00:01:04.465242"
+    },
+    "https://www.aihrlab.online/articles/ai-era-productivity-metrics-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-11T00:01:23.308937"
+    },
+    "https://www.aihrlab.online/articles/ai-era-promotion-rules-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-12T00:00:36.630374"
+    },
+    "https://www.aihrlab.online/articles/ai-era-employee-relations-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-14T00:00:45.016668"
+    },
+    "https://www.aihrlab.online/brief/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-18T00:01:05.452027"
+    },
+    "https://www.aihrlab.online/brief/signal-brief-001.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-18T00:01:08.712019"
+    },
+    "https://www.aihrlab.online/articles/ai-era-collective-bargaining-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:13.439768"
+    },
+    "https://www.aihrlab.online/brief/lines/ai-payoff-gap.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:18.079959"
+    },
+    "https://www.aihrlab.online/brief/lines/hr-seat-not-skill-gap.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:19.476158"
+    },
+    "https://www.aihrlab.online/brief/lines/intake-capacity-gap.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:20.862707"
+    },
+    "https://www.aihrlab.online/tools/ai-risk-test/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:22.231860"
+    },
+    "https://www.aihrlab.online/tools/bigfive/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:23.986181"
+    },
+    "https://www.aihrlab.online/tools/disc-test/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:25.405679"
+    },
+    "https://www.aihrlab.online/tools/holland/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:27.312623"
+    },
+    "https://www.aihrlab.online/tools/mbti/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:28.783747"
+    },
+    "https://www.aihrlab.online/tools/tarot-test/index.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-21T00:01:30.153692"
+    },
+    "https://www.aihrlab.online/articles/meta-pause-ai-restructuring-2026.html": {
+      "status": "success",
+      "notified_at": "unknown",
+      "pushed_at": "2026-10-23T00:01:04.188689"
     }
   },
   "daily_count": {
@@ -1529,7 +2144,35 @@
     "2026-08-11": 35,
     "2026-08-12": 35,
     "2026-08-18": 45,
-    "2026-08-22": 14
+    "2026-08-22": 14,
+    "2026-09-10": 78,
+    "2026-09-11": 7,
+    "2026-09-12": 1,
+    "2026-09-13": 1,
+    "2026-09-14": 1,
+    "2026-09-15": 1,
+    "2026-09-16": 1,
+    "2026-09-17": 3,
+    "2026-09-18": 1,
+    "2026-09-19": 1,
+    "2026-09-20": 1,
+    "2026-09-21": 1,
+    "2026-09-22": 1,
+    "2026-09-26": 1,
+    "2026-09-27": 1,
+    "2026-09-28": 1,
+    "2026-10-02": 1,
+    "2026-10-03": 1,
+    "2026-10-04": 1,
+    "2026-10-05": 1,
+    "2026-10-06": 1,
+    "2026-10-08": 1,
+    "2026-10-11": 1,
+    "2026-10-12": 1,
+    "2026-10-14": 1,
+    "2026-10-18": 2,
+    "2026-10-21": 10,
+    "2026-10-23": 1
   },
-  "last_updated": "2026-08-22T00:27:31.107079"
+  "last_updated": "2026-10-23T00:01:06.504386"
 }

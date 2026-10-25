@@ -112,6 +112,32 @@ def run_lint_diff(files):
     return proc.returncode == 0
 
 
+def run_kb_precheck(files):
+    """STEP 2.6  知识库信源校验与反向回流（非阻断 · 观察期）
+
+    只校验本次发布的文章：硬数字能否在 UncleJ-wiki 台账找到 DATA-xxx 依据，
+    是否误用 tier3（待核）源作主论据；并把台账未收录但机构+样本齐备的信源
+    汇总成补登候选（reports/kb_precheck-candidates.md），让已发布内容反哺知识库。
+
+    为什么非阻断：站点存量 300+ 篇历史信源不可能一夜挂上 DATA-xxx，阻断会导致
+    无法发布。观察期只报告，待存量迁移完成后再评估是否升为阻断门。
+    """
+    arts = [f for f in files if f.startswith("articles/") and f.endswith(".html")]
+    if not arts:
+        return True
+    print("\n" + "=" * 60)
+    print("STEP 2.6/3  知识库信源校验 scripts/kb_precheck.py（非阻断·反向回流）")
+    print("=" * 60)
+    try:
+        subprocess.run(
+            [sys.executable, "scripts/kb_precheck.py"] + arts,
+            cwd=SITE_ROOT, timeout=120,
+        )
+    except Exception as e:
+        print(f"  ⚠️  知识库校验未执行（不影响发布）: {e}")
+    return True
+
+
 def count_sitemap_urls():
     """sitemap.xml 当前 URL 数（发布印记用，监测覆盖率是否骤减）。"""
     p = os.path.join(SITE_ROOT, "sitemap.xml")
@@ -219,6 +245,9 @@ def main():
         print("   详见 reports/qa_guardian-report.md，修复上述 BLOCK 项后重试。本次未做任何远程写入。")
         sys.exit(1)
     print("\n✅ 全站质量保障通过（无规模化克隆/死链/占位符/sitemap 错位，未较 baseline 回归）。")
+
+    # STEP 2.6: 知识库信源校验与反向回流（非阻断，观察期只报告不中止）
+    run_kb_precheck(files)
 
     # STEP 3: 原子推送
     print("\n" + "=" * 60)

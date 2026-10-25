@@ -36,7 +36,7 @@ def extract(html):
     body = m.group(1) if m else html
     body = re.sub(r"<(script|style|aside|footer|section)\b.*?</\1>", " ", body, flags=re.S | re.I)
     # 剔除信源区 / 延伸阅读 / 相关阅读
-    body = re.sub(r'<section class="verified-sources".*?</section>', " ", body, flags=re.S | re.I)
+    body = re.sub(r'<section[^>]*class="[^"]*verified-sources[^"]*"[^>]*>.*?</section>', " ", body, flags=re.S | re.I)
     body = re.sub(r'延伸阅读.*?(?=<footer)', " ", body, flags=re.S)
     body = re.sub(r'<h3>相关阅读</h3>.*?(?=<footer)', " ", body, flags=re.S)
     txt = re.sub(r"<[^>]+>", " ", body)

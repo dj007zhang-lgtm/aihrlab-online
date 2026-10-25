@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-19",
+  "files_total": 423,
+  "files_indexable": 366,
+  "files_noindex": 57,
+  "redirect_shells": 55,
+  "dirs": {
+    "articles": 311,
+    "hub": 11,
+    "tools": 10,
+    "assessments": 5,
+    "products": 4,
+    "resources": 25,
+    "brief": 5,
+    "bridge": 1,
+    "ask": 1,
+    "glossary": 1,
+    "compare": 1,
+    "categories": 10,
+    "tags": 20,
+    "projects": 1
+  },
+  "root_files": [
+    "404.html",
+    "about.html",
+    "articles.html",
+    "baidu_verify_codeva-e9RlNB7KYx.html",
+    "googlecbc66c5d343f6aed.html",
+    "index.html",
+    "resources.html",
+    "seo-monitor.html"
+  ],
+  "nav_pages": 355,
+  "nav_deviations": [],
+  "nav_deviation_count": 0,
+  "orphan_count": 1,
+  "orphans_sample": [
+    "articles/ai-era-collective-bargaining-2026.html"
+  ],
+  "shell_orphan_count": 53,
+  "article_index_count": 257,
+  "sitemap_url_count": 353,
+  "brief_in_sitemap": 5,
+  "kb_articles_indexed": 257
+}

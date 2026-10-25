@@ -30,6 +30,18 @@ def add(sev, code, page, detail):
 def rel(p):
     return os.path.relpath(p, ROOT)
 
+def _find_node():
+    """node 查找顺序：AIHR_NODE 环境变量 → WorkBuddy 托管全版本 glob。
+
+    以前写死单一版本路径（versions/22.22.2），运行时目录升级后失配。
+    改为 glob 全扫，node 升级不再断门（与 check_shared_assets/check_inline_scripts 一致）。
+    """
+    if os.environ.get("AIHR_NODE") and os.path.exists(os.environ["AIHR_NODE"]):
+        return os.environ["AIHR_NODE"]
+    base = os.path.expanduser("~/.workbuddy/binaries/node/versions")
+    cands = sorted(glob.glob(os.path.join(base, "*", "bin", "node")), reverse=True)
+    return cands[0] if cands else None
+
 def collect_pages():
     pages = []
     for pat in ('*.html', 'articles/*.html', 'categories/**/*.html',
@@ -253,7 +265,10 @@ def audit_css():
 
 # ---------------------------------------------------------------- JS
 def audit_js():
-    node = '/Users/andyzhang/.workbuddy/binaries/node/versions/22.22.2/bin/node'
+    node = _find_node()
+    if not node:
+        add('BLOCKER', 'D3_NO_NODE', 'assets/js/*', '未找到 node 二进制，JS 语法门跳过')
+        return
     for f in sorted(glob.glob(os.path.join(ROOT, 'assets/js/*.js'))):
         r = rel(f)
         try:
