@@ -5623,5 +5623,28 @@
     ],
     "sitemap_urls_before": 358,
     "sitemap_urls_after": 358
+  },
+  {
+    "date": "2026-10-28 00:33",
+    "commit": "7b8b82db2f138e9a558212590a8bf4317bb01628",
+    "message": "feat(content): 字节 Seed 第五部门——把 AI 验证写进编制",
+    "files_count": 13,
+    "files": [
+      "articles/bytedance-seed-alignment-department-2026.html",
+      "assets/images/banners/bytedance-seed-alignment-department-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "articles/index.html",
+      "sitemap.xml",
+      "llms-full.txt",
+      "categories/bigtech.html",
+      "tags/bigtech.html",
+      "hub/employee-experience-hub.html",
+      "tags/ai.html",
+      "tags/x.html",
+      "tags/index.html"
+    ],
+    "sitemap_urls_before": 358,
+    "sitemap_urls_after": 358
   }
 ]
