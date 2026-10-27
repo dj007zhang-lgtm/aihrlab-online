@@ -44,6 +44,8 @@ def _all_html_files():
 
 def collect_files(args):
     files = [a for a in args if not a.startswith("--")]
+    if "--all" in args:
+        return [(f, os.path.join(SITE_ROOT, f)) for f in _all_html_files()]
     if "--git" in args:
         out = subprocess.run(
             ["git", "diff", "--name-only", "HEAD"],
@@ -70,6 +72,23 @@ def collect_files(args):
 def main():
     args = sys.argv[1:]
     targets = collect_files(args)
+
+    # E-021 护栏（2026-10-26 实测）：不带任何文件参数/--git/--stdin 时，
+    # targets 恒为空 → 打印「0 个 HTML 文件通过」并退出 0。
+    # 一个不带输入也能变绿的门禁没有信息量，会让「跑过 lint_diff」变成假成功。
+    # 规则：无输入 = 使用不当，退出码 2 报错；需要扫全站必须显式 --all。
+    if not targets and "--all" not in args:
+        print("🔴 lint_diff 没有拿到任何待检文件，拒绝给出「通过」结论。")
+        print("   正确用法（三选一）：")
+        print("     python3 scripts/lint_diff.py file1.html file2.html ...")
+        print("     python3 scripts/lint_diff.py --stdin < 发布清单.txt")
+        print("     python3 scripts/lint_diff.py --all        # 显式扫全站 HTML")
+        print("   注意：--git 依赖本地 HEAD，而本地 HEAD 可能游离在旧分支，")
+        print("         其改动清单不可信；发布场景请用发布清单走 --stdin。")
+        sys.exit(2)
+    if "--all" in args:
+        targets = [(f, os.path.join(SITE_ROOT, f)) for f in _all_html_files()]
+
     rules = load_rules()
     # 计算型判据需要全站语料 + 存量登记册；未传则静默跳过（2026-10-23 治理审计修复）
     corpus = build_meta_corpus(SITE_ROOT, _all_html_files())

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-26T00:00:54",
+  "timestamp": "2026-10-27T23:47:15",
   "mode": "standard",
   "result": "GREEN",
   "gate_errors": [],
@@ -10,15 +10,15 @@
       "status": "PASS",
       "blocking": false,
       "metrics": {
-        "scanned_indexable": 259,
+        "scanned_indexable": 260,
         "clone_clusters": 0,
         "clone_pages": 0,
         "min_shared_paragraphs": 8,
         "min_cluster_size": 3
       },
       "findings": [],
-      "summary": "扫描 259 篇可索引正文，无规模化克隆集群。",
-      "elapsed_s": 2.04
+      "summary": "扫描 260 篇可索引正文，无规模化克隆集群。",
+      "elapsed_s": 2.41
     },
     {
       "name": "stub_detector",
@@ -26,12 +26,12 @@
       "status": "WARN",
       "blocking": false,
       "metrics": {
-        "scanned": 288,
+        "scanned": 289,
         "thin_block": 0,
         "thin_warn": 1,
         "max_words": 500,
         "warn_words": 800,
-        "median_words": 2841
+        "median_words": 2851
       },
       "findings": [
         {
@@ -42,7 +42,7 @@
         }
       ],
       "summary": "无阻断级薄内容；1 篇处于临界区（500–800字）。",
-      "elapsed_s": 1.29
+      "elapsed_s": 1.35
     },
     {
       "name": "struct_integrity",
@@ -50,12 +50,12 @@
       "status": "PASS",
       "blocking": false,
       "metrics": {
-        "scanned": 381,
+        "scanned": 383,
         "unterminated": 0
       },
       "findings": [],
-      "summary": "扫描 381 个页面，起始标签闭合完整（无被吞风险）。",
-      "elapsed_s": 1.34
+      "summary": "扫描 383 个页面，起始标签闭合完整（无被吞风险）。",
+      "elapsed_s": 1.47
     },
     {
       "name": "content_container",
@@ -63,12 +63,12 @@
       "status": "PASS",
       "blocking": false,
       "metrics": {
-        "scanned": 259,
+        "scanned": 260,
         "missing_container": 0
       },
       "findings": [],
-      "summary": "扫描 259 篇可索引文章，正文容器齐备（行宽受约束）。",
-      "elapsed_s": 1.07
+      "summary": "扫描 260 篇可索引文章，正文容器齐备（行宽受约束）。",
+      "elapsed_s": 1.2
     },
     {
       "name": "link_doctor",
@@ -82,7 +82,7 @@
       },
       "findings": [],
       "summary": "无死链、无重定向矛盾。",
-      "elapsed_s": 1.43
+      "elapsed_s": 1.48
     },
     {
       "name": "meta_lint",
@@ -90,7 +90,7 @@
       "status": "WARN",
       "blocking": false,
       "metrics": {
-        "scanned": 259,
+        "scanned": 260,
         "corrupt_desc": 0,
         "placeholder": 0,
         "bad_quotes": 8,
@@ -146,8 +146,8 @@
           "detail": "title/h1 含英文引号（须用「」角引号）。"
         }
       ],
-      "summary": "扫描 259 篇；引号 8 / 长标题 0（仅告警）。",
-      "elapsed_s": 1.19
+      "summary": "扫描 260 篇；引号 8 / 长标题 0（仅告警）。",
+      "elapsed_s": 1.29
     },
     {
       "name": "design_asset_lint",
@@ -176,7 +176,7 @@
         }
       ],
       "summary": "抽样 40 页发现 2 处设计资产告警（og缺 2 / og坏 0 / 资源缺失 0 / css 0）。",
-      "elapsed_s": 1.48
+      "elapsed_s": 1.52
     },
     {
       "name": "lesson_assertions",
@@ -185,12 +185,12 @@
       "blocking": false,
       "metrics": {
         "rules": 8,
-        "scanned": 324,
+        "scanned": 326,
         "violations": 0
       },
       "findings": [],
-      "summary": "全站扫描 324 页 / 8 条历史教训断言，零违例。",
-      "elapsed_s": 2.88
+      "summary": "全站扫描 326 页 / 8 条历史教训断言，零违例。",
+      "elapsed_s": 3.36
     },
     {
       "name": "sitemap_consistency",
@@ -198,13 +198,13 @@
       "status": "PASS",
       "blocking": false,
       "metrics": {
-        "sitemap_urls": 354,
+        "sitemap_urls": 358,
         "missing_on_disk": 0,
         "invalid_index_slugs": 0
       },
       "findings": [],
-      "summary": "sitemap 354 URL 全部对应磁盘；article-index 有效。",
-      "elapsed_s": 0.01
+      "summary": "sitemap 358 URL 全部对应磁盘；article-index 有效。",
+      "elapsed_s": 0.02
     },
     {
       "name": "tracking_metrics",
@@ -212,13 +212,13 @@
       "status": "PASS",
       "blocking": false,
       "metrics": {
-        "indexable_articles": 259,
-        "median_words": 2904,
-        "geo_cov": 93.4,
+        "indexable_articles": 260,
+        "median_words": 2915,
+        "geo_cov": 93.5,
         "og_cov": 100.0,
         "jsonld_cov": 100.0,
-        "qr_cov": 93.4,
-        "inline_cov": 70.3,
+        "qr_cov": 93.1,
+        "inline_cov": 70.0,
         "_deltas_vs_baseline": {
           "indexable_articles": 0,
           "median_words": 0,
@@ -230,9 +230,9 @@
         }
       },
       "findings": [],
-      "summary": "相对 baseline 无回归（中位数 2904字，GEO 93.4%，OG 100.0%）。",
-      "elapsed_s": 2.0
+      "summary": "相对 baseline 无回归（中位数 2915字，GEO 93.5%，OG 100.0%）。",
+      "elapsed_s": 2.39
     }
   ],
-  "elapsed_s": 14.75
+  "elapsed_s": 16.51
 }

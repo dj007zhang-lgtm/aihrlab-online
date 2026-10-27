@@ -29,8 +29,42 @@ import re, os, sys, glob, json, html
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.aihrlab.online"
 SUFFIX = "| AIHR数智引擎"
-SCAN_DIRS = ("articles/*.html", "hub/*.html", "assessments/*.html",
-             "resources/*.html", "products/*.html", "brief/*.html")
+# E-022 护栏（2026-10-26 实测）：硬编码 SCAN_DIRS 只覆盖 6 个顶层目录，
+# 实测漏扫 66 / 425 页（tags 20、categories 10、tools 10、根目录 8、
+# glossary/ask/bridge/compare/projects 各 1、brief 与 articles 子目录 4）。
+# 「扫描 358 页」的结论因此是假的——漏掉的页里就有真实的 C2 违例
+# （glossary/index.html 的 og:title ≠ h1）。
+# 铁律：扫描范围必须由文件系统自发现，不得靠手工枚举目录；
+#       枚举会随站点增长持续腐烂，且每次腐烂都不报警。
+SCAN_EXCLUDE_DIRS = {".git", "node_modules", ".workbuddy", "__pycache__",
+                     "templates", "assets", "outputs", "reports", "ci"}
+SCAN_DIRS = None  # 保留常量名以兼容旧引用；实际扫描走 collect_pages()
+
+
+# 非读者向页面：搜索引擎所有权验证文件、错误页、内部项目草稿。
+# 这些页没有 h1/og/canonical 是设计如此，不是缺陷——但豁免必须**显式登记**，
+# 不做隐式跳过：否则「扫不到」与「扫到但豁免」会混为一谈，又一次制造假绿。
+NON_EDITORIAL = re.compile(
+    r"(^|/)(404|baidu_verify_[\w-]+|google[0-9a-f]{16})\.html$")
+NON_EDITORIAL_DIRS = ("projects/",)
+
+
+def collect_pages():
+    """全站自发现 .html 产物页（排除源目录与非发布目录）。"""
+    out = []
+    for dp, dn, fn in os.walk(SITE_ROOT):
+        dn[:] = [d for d in dn if d not in SCAN_EXCLUDE_DIRS]
+        for f in fn:
+            if f.endswith(".html"):
+                out.append(os.path.relpath(os.path.join(dp, f), SITE_ROOT))
+    return sorted(out)
+
+
+def is_non_editorial(rel):
+    """是否非读者向页面。豁免一律显式，调用方须单独计数上报。"""
+    if NON_EDITORIAL.search(rel):
+        return True
+    return any(rel.startswith(d) for d in NON_EDITORIAL_DIRS)
 
 META_RE = re.compile(r'<meta\s+([^>]*?)/?>', re.I | re.S)
 LD_RE = re.compile(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', re.I | re.S)
@@ -161,8 +195,10 @@ def audit_file(rel, s, corpus):
 
 def main():
     os.chdir(SITE_ROOT)
-    files = sorted(sum([glob.glob(p) for p in SCAN_DIRS], []))
-    files = [f for f in files if os.path.isfile(f)]
+    files = collect_pages()  # E-022：自发现，不再依赖手工枚举目录
+    exempted = [f for f in files if is_non_editorial(f)]
+    files = [f for f in files
+             if os.path.isfile(f) and not is_non_editorial(f)]
 
     # 语料：各页 h1 + <title>（去后缀），用于跨页污染比对
     corpus = {}
@@ -196,7 +232,8 @@ def main():
     warns = [x for x in allf if x["level"] == "WARN"]
 
     print("=" * 78)
-    print(f"AIHRlab 网站容器完整性巡检 · 扫描 {len(files)} 页")
+    print(f"AIHRlab 网站容器完整性巡检 · 扫描 {len(files)} 页"
+          f"（显式豁免 {len(exempted)} 个非读者向页）")
     print("=" * 78)
     print(f"BLOCK = {len(blocks)}   WARN = {len(warns)}")
     if blocks:

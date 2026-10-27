@@ -32,6 +32,9 @@ print("[1/2] 按发布规则过滤 ...", file=sys.stderr)
 DATE_STAMP = re.compile(r"(20\d{6}|\d{8})")
 ONE_OFF_PREFIX = re.compile(r"^(drive_publish|gen_.*banner)")
 TEMP_MANIFEST = re.compile(r"^\.(gp_|p0|p1|next_path|analytics|bing|scf)")
+# 运行时产物：每次跑都会变，进批次只会制造「有差异」的假象。
+# 上一轮残留的 5 个 UNSAFE DIFFER 全是这类文件，真实缺陷被它们淹没了。
+RUNTIME_STATE = re.compile(r"(push_log|_log|_status|health_baseline)\.json$")
 
 rows = list(csv.DictReader(open(CSV_PATH)))
 cand = [r["path"] for r in rows if r["status"] in ("DIFFER", "NEW")]
@@ -76,6 +79,13 @@ def decide(p):
             return False, "一次性日期戳脚本"
     if p.startswith("_baidu_daily_run"):
         return False, "一次性跑批脚本"
+    # 草稿目录：容器巡检把 projects/ 登记为非读者向豁免目录，
+    # 里面是「AI 转型期 HR 能力模型」的内部决策文档，不是站点内容。
+    # 它们会持续产生差异，把真正的站点改动淹没在清单里。
+    if p.startswith("projects/"):
+        return False, "内部项目草稿（非读者向）"
+    if RUNTIME_STATE.search(base):
+        return False, "运行时状态/日志（每次跑都变，制造虚假差异）"
     return True, ""
 
 

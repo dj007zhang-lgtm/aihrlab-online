@@ -1382,6 +1382,19 @@
     ]
   },
   {
+    "title": "字节 Seed 第五部门：把 AI 验证写进编制",
+    "url": "bytedance-seed-alignment-department-2026",
+    "category": "大厂实践",
+    "date": "2026-10-26",
+    "tags": [
+      "大厂实践",
+      "AI转型",
+      "组织变革",
+      "字节跳动",
+      "AI安全"
+    ]
+  },
+  {
     "title": "赛马机制：用组织冗余竞速，替代中央指派",
     "url": "bytedance-tencent-horse-race-2026",
     "category": "大厂组织变革",
@@ -2147,9 +2160,7 @@
     "date": "2026-10-21",
     "tags": [
       "大厂实践",
-      "AI转型",
-      "组织变革",
-      "AI生产率"
+      "组织变革"
     ]
   },
   {

@@ -1,0 +1,1147 @@
+{
+ "_doc": "簇归属单一真相源。由 scripts/build_cluster_map.py 从 ci/cluster-assignments.json + 站内现状生成，勿手改。",
+ "_generated_by": "scripts/build_cluster_map.py",
+ "hubs": [
+  "ai-landing-playbook",
+  "ai-layoff-restructuring",
+  "ai-native-org",
+  "ai-org-transformation",
+  "ai-talent-recruiting",
+  "big-tech-cases-hub",
+  "employee-experience-hub",
+  "org-diagnosis-hub",
+  "overseas-hr-hub",
+  "performance-management-hub",
+  "talent-development-hub"
+ ],
+ "members": {
+  "2026-hr-transformation-chief-architect": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "adkar-ai-transformation": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "agent-interviewer-boundary-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "agile-hr-practices-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "HR 职能自身的运作方式转型，属变革方法论域"
+  },
+  "ai-agent-roi-reality-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-as-transformative-agent-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-bounded-rationality": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "ai-candidate-outreach-playbook-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "curated",
+   "why": "候选人触达是获取环节的操作手册"
+  },
+  "ai-change-hr-heart": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "ai-citation-geo-playbook-2026": {
+   "hub": null,
+   "source": "curated",
+   "why": "讲怎么写文章才能被 AI 引用，读者是内容运营者不是 HR，不属任何 HR 议题域，刻意不归枢纽"
+  },
+  "ai-coding-efficiency-org-evolution": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "从工具提效传导到组织演化，落地方向"
+  },
+  "ai-cognitive-offloading-deskilling-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-collab-engineering-org-2026": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "编码被接管后单元如何重排，是组织范式问题"
+  },
+  "ai-compensation-design-guide-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-employee-communication-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工在 AI 沟通中的处境"
+  },
+  "ai-employee-data-privacy-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工数据归属，员工权利侧而非企业合规侧"
+  },
+  "ai-employee-engagement-commitment": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "敬业度与承诺，员工侧核心议题"
+  },
+  "ai-employee-experience-meaning": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工体验的意义感"
+  },
+  "ai-employee-retention-strategy-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-era-collective-bargaining-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "集体谈判是劳动关系，员工侧"
+  },
+  "ai-era-dei-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "DEI 是员工在组织中的处境议题"
+  },
+  "ai-era-employee-agency-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工能动性"
+  },
+  "ai-era-employee-burnout-designed-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "倦怠是被设计出来的，员工侧"
+  },
+  "ai-era-employee-data-rights-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工数据权利"
+  },
+  "ai-era-employee-onboarding-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "入职体验与组织记忆断裂"
+  },
+  "ai-era-employee-psychological-contract-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "心理契约"
+  },
+  "ai-era-employee-psychological-safety-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "心理安全"
+  },
+  "ai-era-employee-relations-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工关系受理能力"
+  },
+  "ai-era-employee-retention-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-era-employee-voice-silence-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工沉默"
+  },
+  "ai-era-employee-wellbeing-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工福祉"
+  },
+  "ai-era-high-roi-4-things": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "职场里具体可用的高回报动作，落地手册"
+  },
+  "ai-era-hr-5-misalignments": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "HR 职能整体的错位清单，转型域"
+  },
+  "ai-era-org-rigidity": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "破除组织僵化的方法，属诊断与干预"
+  },
+  "ai-era-organizational-citizenship-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "组织公民行为是员工自发行为"
+  },
+  "ai-era-organizational-trust-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "ai-era-productivity-metrics-2026": {
+   "hub": "performance-management-hub",
+   "source": "curated",
+   "why": "人效度量口径，属度量体系"
+  },
+  "ai-era-promotion-rules-2026": {
+   "hub": "performance-management-hub",
+   "source": "curated",
+   "why": "晋升规则属评价与职级体系"
+  },
+  "ai-era-skill-rebuild-judgment-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-era-skills-divide-2026": {
+   "hub": "talent-development-hub",
+   "source": "curated",
+   "why": "技能鸿沟被判定为组织设计债，落人才发展侧"
+  },
+  "ai-ethics-performance-evaluation-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-evaluation-split-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-flatten-org-middle-managers-2026": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-flattening-management-guide": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-governance-framework-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "AI 治理是落地规模化阶段的制度，与落地手册同源"
+  },
+  "ai-governance-gap-hr-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "用与立规矩的落差，落地制度域"
+  },
+  "ai-hiring-fairness-compliance-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-hr-2026-h1-review-mainlines-misjudgments": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "半年度复盘，转型全景域"
+  },
+  "ai-hr-2026-h2-outlook": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "下半年观察点，转型全景域"
+  },
+  "ai-hr-2026-midyear-three-signals": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "暗线信号，转型全景域"
+  },
+  "ai-hr-jobs": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-hr-key-reports-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "关键报告索引，转型全景的资料入口"
+  },
+  "ai-hr-landing-3-high-roi-plays": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-hr-org-cluster": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-hr-report-2026-context-management": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "从管控走向情境，HR 职能转型"
+  },
+  "ai-hr-shared-services-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "共享服务重写，HR 职能转型"
+  },
+  "ai-hr-three-pillar-model-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "三支柱重排，HR 职能转型"
+  },
+  "ai-in-overseas-hr-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "ai-interview-arms-race-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-interview-compliance-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-jd-writing-playbook-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "curated",
+   "why": "JD 是岗位定义，获取环节"
+  },
+  "ai-landing-fails-org-not-changed": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-layoff-2026-mid-year-review": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-layoff-7-to-40": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-layoff-compliance-guide": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-layoff-manager-redefine": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-layoff-regret": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-layoff-to-rebuild-hr-stand-firm": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "ai-literacy-org-capability-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-native-anti-patterns-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-capability-market-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-native-compounding-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-native-coordination-os-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-decision-rights-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-governance-tasks-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-human-agent-contract-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-native-incentives-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-native-leadership-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-native-org-boundary-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-org-capability-boundary-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-native-org-hr-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-org-landing-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-native-org-memory-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-org-metrics-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-native-org-paradigm-map-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-native-organizational-design-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "ai-native-talent-density-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-okr-integration-guide-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-org-redesign-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "组织红利卡点，转型域"
+  },
+  "ai-org-resilience-2026": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "ai-org-two-models-compare-2026": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "两种组织范式对比"
+  },
+  "ai-organizational-intelligence-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "ai-organizational-learning-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-performance-management": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "ai-product-release-rhythm-org-health-2026": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "ai-rebuild-training-coach-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-recruiting-analytics-playbook-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-recruitment-bias-compliance-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-recruitment-selection-guide-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-resume-screening-playbook-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-scale-deployment-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "ai-silent-org-signals": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "组织信号系统崩溃是诊断对象"
+  },
+  "ai-skills-based-org-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-structured-interview-playbook-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "ai-succession-planning-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-synthetic-content-pollution-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "组织信息网络被污染，属 ONA 与信息网络诊断"
+  },
+  "ai-talent-profile-reconstruction-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-talent-review-ninebox-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "ai-task-level-work-redesign-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "管理单元从岗位下沉到任务，组织设计"
+  },
+  "ai-use-policy-governance-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "AI 使用政策是落地后的制度"
+  },
+  "algorithmic-management-worker-rights-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "一线劳动者权利，员工侧"
+  },
+  "algorithmic-management-workplace-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工被算法监控，员工侧"
+  },
+  "alibaba-1-6-n-ai-restructure-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "alibaba-ai-midplatform-org-case-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "alibaba-ai-org-restructuring-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "ant-group-ai-org-restructuring-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "ant-middle-platform-decline-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "anthropic-best-ai-company": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "anthropic-danger-signals": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "anthropic-engineer-three-stages": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "baidu-tp-reform": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "big-tech-ai-org-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "big-tech-ai-product-dynamics-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "大厂产品节奏即组织，公司案例"
+  },
+  "bigtech-ai-dept-split-merge-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "bigtech-ai-product-traps-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "大厂产品陷阱，公司案例"
+  },
+  "bigtech-ai-reorg-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "大厂重组，公司案例"
+  },
+  "bigtech-hr-rotation-2026": {
+   "hub": "talent-development-hub",
+   "source": "curated",
+   "why": "轮岗炼复合型人才，产出是人才不是组织"
+  },
+  "bytedance-160b-ai-org": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-7000-interns": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-ai-native-org-case-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-campus-7000": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-context-management-ai-agent": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-doubao-org-engine-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-performance-reform-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-performance-review-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "bytedance-seed-alignment-department-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "字节把 AI 验证写进编制，公司案例"
+  },
+  "bytedance-tencent-horse-race-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "change-management-methodology-2026": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "change-resistance-diagnosis-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "china-ai-org-three-routes": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "china-labor-market-ai-task-restructuring-2026": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "cross-cultural-team-management-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "data-driven-hr-analytics-2026": {
+   "hub": "performance-management-hub",
+   "source": "curated",
+   "why": "HR 分析从经验到算法，属度量体系"
+  },
+  "deepmind-no-kpi-talent-management": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "deepseek-rise-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "deloitte-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "与站内麦肯锡/美世系列同归外部机构报告的案例位"
+  },
+  "digital-agent-vs-intelligent-agent-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "digital-org-chart-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "组织架构图从静态到实时，属组织设计"
+  },
+  "digital-transformation-org-capability-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "dingtalk-ceo-change-control-vs-empowerment": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "disc-style-test-2026": {
+   "hub": "talent-development-hub",
+   "source": "curated",
+   "why": "行为风格测评用于发展与协作，非招聘筛选"
+  },
+  "dri-kaifu-lisa-su": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "DRI 是组织机制设计，转型域"
+  },
+  "drucker-ai-era-answer": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "经典管理理论在新范式下的位置"
+  },
+  "employee-ai-trust-calibration-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工对 AI 的信任校准"
+  },
+  "employee-experience-design-2026": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "员工体验设计"
+  },
+  "end-to-end-org-revolution-2026": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "重写信息网络与利益分配网络，范式级"
+  },
+  "entry-level-jobs-ai-talent-pipeline-2026": {
+   "hub": "ai-layoff-restructuring",
+   "source": "inherited"
+  },
+  "eor-employer-of-record-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "eu-ai-act-omnibus-hr-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "合规是落地的前置制度"
+  },
+  "eu-ai-act-recruitment-compliance-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "expatriate-vs-localization-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "fat-donglai-you-cant-learn": {
+   "hub": "employee-experience-hub",
+   "source": "curated",
+   "why": "视人为人是看待员工的方式，员工侧"
+  },
+  "from-company-to-intelligent-organization": {
+   "hub": "ai-native-org",
+   "source": "inherited"
+  },
+  "frontier-firm-ai-agent-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "future-of-work-hr-2026": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "工作形态变化下的 HR 战略，转型域"
+  },
+  "genai-productivity-evidence-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "提效实证，落地效果检验"
+  },
+  "global-compensation-design-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "global-talent-supply-chain-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "global-tech-hr-ai-disruption-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "五巨头重写 HR，公司案例"
+  },
+  "gtc2026-ai-infrastructure-org-evolution": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "英伟达算力基建的组织演进，公司案例"
+  },
+  "gtc2026-org-evolution": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "GTC2026 组织演进，公司案例"
+  },
+  "hr-90-days-after-ai-org-change-2026": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "hr-agent-landing-guide-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "hr-ai-investment-case-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "说服老板投资 AI 的成本账，落地论证"
+  },
+  "hr-ai-prompt-toolbox-21": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "hr-bigfive-recruitment-screening": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "hr-data-governance-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "HR 数据治理是落地后的制度"
+  },
+  "hr-digital-employee-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "hr-handle-boss-ai-fever": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "在范式转换期 HR 如何自处"
+  },
+  "hr-skill-graph-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "hr-tech-talent-standard-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "hr-three-pillar-ai": {
+   "hub": "ai-org-transformation",
+   "source": "curated",
+   "why": "三支柱智能化，HR 职能转型"
+  },
+  "hr-transformation-roadmap-2026": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "huawei-hr-leaders-history": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "human-ai-equation": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "人机协作方程式，范式级"
+  },
+  "human-ai-mixed-team-governance-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "混编团队的治理与问责，落地制度"
+  },
+  "huoshui-plan-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "腾讯活水与字节流动的对比，公司案例"
+  },
+  "idc-2026-hr-ai-agent-guide": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "industry-ai-adoption-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "落地卡在试点，落地实效"
+  },
+  "jd-pinduoduo-ai-org-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "jimeng-organization-logic": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "即梦的组织重构逻辑，公司案例"
+  },
+  "karpathy-ai-replacement-test": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "AI 能力边界决定组织边界，范式级"
+  },
+  "keling-ai-innovation-path": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "可灵创新路径的组织启示，公司案例"
+  },
+  "kpi-failure-ai-org-restructure": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "leadership-development-ai-era-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "mckinsey-2026-ai-automation-sector-impact": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "与站内麦肯锡系列同归"
+  },
+  "mckinsey-2026-org-report-deep-dive": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "mckinsey-2026-organization-report": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "mckinsey-2026-training-vs-screening": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "mckinsey-6pct-trust": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "mckinsey-atomic-capabilities-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "mckinsey-hidden-deadlock": {
+   "hub": "ai-org-transformation",
+   "source": "inherited"
+  },
+  "mckinsey-human-ai-orchestration": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "mercer-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "curated",
+   "why": "人才价值公式，与站内既有归位保持一致"
+  },
+  "meta-300b-ai-layoff": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "meta-ai-code-75-percent": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "meta-ai-optimizes-middle-managers": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "meta-layoffs-middle-managers": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "meta-pause-ai-restructuring-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "Meta 暂停重组，公司案例"
+  },
+  "meta-pod-structure": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-ai-decoupling": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-anthropic-ai-org-restructure": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-cisco-ai-restructuring-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-decoupling-openai-strategy": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-hr-system-overhaul": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "microsoft-hr-transformation-ai-thinking": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "musk-2026-ai-interview": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "musk-2026-ai-recursive-evolution": {
+   "hub": "ai-native-org",
+   "source": "curated",
+   "why": "HR 边界消失，范式级"
+  },
+  "nvidia-ai-org-transformation-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "openai-org-transformation-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "openclaw-ai-agent-management": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "org-diagnosis-framework-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "organizational-culture-debt-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "organizational-culture-diagnosis-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "organizational-design-agility-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "organizational-network-analysis-ona-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "inherited"
+  },
+  "overseas-control-model-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "overseas-employment-compliance-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "overseas-hr-build-from-zero-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "overseas-hr-metrics-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "overseas-labor-risk-2026": {
+   "hub": "overseas-hr-hub",
+   "source": "inherited"
+  },
+  "performance-management-system-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "pod-org-ai-agent-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "pod-redesign-fails-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "阵型可抄机制不可抄，属组织设计失败分析"
+  },
+  "recruitment-ai-fullstack": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "remote-team-management-challenges-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "remote-work-ai-era-2026": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "shadow-ai-governance-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "影子 AI 是落地后的治理问题"
+  },
+  "skills-based-organization-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "skills-graph-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "sme-ai-hr-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "curated",
+   "why": "中小企业从试用到真用，落地域"
+  },
+  "sme-owner-ai-architect-2026": {
+   "hub": "ai-landing-playbook",
+   "source": "inherited"
+  },
+  "strategic-workforce-planning-ai-2026": {
+   "hub": "talent-development-hub",
+   "source": "curated",
+   "why": "人力规划算错对象，属人才供给规划"
+  },
+  "talent-acquisition-strategy-2026": {
+   "hub": "ai-talent-recruiting",
+   "source": "inherited"
+  },
+  "talent-development-framework-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "talent-pricing-logic-2026": {
+   "hub": "talent-development-hub",
+   "source": "inherited"
+  },
+  "team-effectiveness-framework-2026": {
+   "hub": "org-diagnosis-hub",
+   "source": "curated",
+   "why": "团队是设计出来的，属组织设计"
+  },
+  "tencent-319b-ali-3800b": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "tencent-ai-lab-disbanded": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "tencent-ai-org-huoshui-case-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "腾讯活水，公司案例"
+  },
+  "tencent-huawei-hr-rotation-mechanism-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "tencent-huoshui-internal-mobility": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "tencent-teg-cadre-activation": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "tencent-vs-bytedance-flat-2026": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "token-kpi-new-corporate-metrics": {
+   "hub": "performance-management-hub",
+   "source": "inherited"
+  },
+  "unitree-flat-org-trap": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "unitree-ipo-org-analysis": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "wangxing-meituan-management-talk": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  },
+  "wwdc-2026-hr-insights": {
+   "hub": "big-tech-cases-hub",
+   "source": "curated",
+   "why": "Apple 智能，公司案例"
+  },
+  "xiaomi-2026-org-evolution": {
+   "hub": "big-tech-cases-hub",
+   "source": "inherited"
+  }
+ }
+}
