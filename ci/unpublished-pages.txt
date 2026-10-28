@@ -1,0 +1,5 @@
+# 已写好但尚未推送上线的页面（相对路径，一行一个）
+# 登记在此的页面不会进入 sitemap.xml —— 收录线上不存在的页面等于向搜索引擎提交软 404。
+# 页面正式发布（经 scripts/publish.py 推送）后，必须从此清单移除，否则会漏收录。
+
+articles/amazon-layoffs-hiring-ledger-2026.html

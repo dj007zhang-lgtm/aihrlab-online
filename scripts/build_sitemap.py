@@ -47,6 +47,28 @@ def is_excluded(name: str) -> bool:
     return False
 
 
+UNPUBLISHED_LIST = os.path.join(ROOT, "ci", "unpublished-pages.txt")
+
+
+def load_unpublished() -> set:
+    """读取「已写好但尚未推送上线」的页面清单（相对路径）。
+
+    登记页一律不进 sitemap —— 收录线上不存在的页面等于提交软 404。
+    """
+    if not os.path.exists(UNPUBLISHED_LIST):
+        return set()
+    out = set()
+    try:
+        with open(UNPUBLISHED_LIST, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    out.add(line)
+    except Exception:
+        return set()
+    return out
+
+
 def is_redirect_page(relpath: str) -> bool:
     """检测页面是否为 meta-refresh 重定向桩页（不应进 sitemap）。"""
     p = os.path.join(ROOT, relpath)
@@ -153,6 +175,20 @@ def collect() -> list:
             if fn.startswith("_") or "stub" in fn.lower() or is_redirect_page(rel) or has_noindex(rel):
                 continue
             entries.append((f"{HOST}/{rel}", lastmod_for(rel)))
+
+    # 剔除已登记为「未发布」的页面。
+    # 理由：sitemap 收录线上不存在的页面 = 向搜索引擎提交软 404，
+    # 比漏收录伤害更大。任何写好但尚未推送的稿件，登记进
+    # ci/unpublished-pages.txt（相对路径，一行一个，# 开头为注释）。
+    unpub = load_unpublished()
+    if unpub:
+        before = len(entries)
+        entries = [
+            (u, lm) for u, lm in entries
+            if u.replace(HOST + "/", "") not in unpub
+        ]
+        if before != len(entries):
+            print(f"  未发布页剔除 {before - len(entries)} 条（ci/unpublished-pages.txt）")
 
     # 去重并排序（URL 稳定顺序，便于 diff）
     seen = {}

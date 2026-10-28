@@ -23,6 +23,29 @@ ARTICLES_DIR = os.path.join(SITE_ROOT, "articles")
 # 工具函数
 # ============================================================
 
+UNPUBLISHED_LIST = os.path.join(SITE_ROOT, "ci", "unpublished-pages.txt")
+
+
+def load_unpublished():
+    """读取「已写好但尚未推送上线」的页面清单（相对路径）。
+
+    与 scripts/build_sitemap.py 共用同一份真相源 ci/unpublished-pages.txt，
+    避免「sitemap 剔除未发布页」与「一致性要求全部收录」互相打架。
+    """
+    if not os.path.exists(UNPUBLISHED_LIST):
+        return set()
+    out = set()
+    try:
+        with open(UNPUBLISHED_LIST, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    out.add(line)
+    except Exception:
+        return set()
+    return out
+
+
 def get_disk_html_files():
     """获取磁盘上所有 .html 文件（排除 .git 等）"""
     results = set()
@@ -169,6 +192,11 @@ def check_2_disk_vs_sitemap():
             continue
         # 排除 noindex 页（本就不应进 sitemap）
         if has_noindex(fpath):
+            continue
+        # 排除已登记为「未发布」的稿件：它本就不该进 sitemap，
+        # 否则两个工具会互相打架（sitemap 剔除 vs 一致性要求收录）。
+        # 同一份真相源：ci/unpublished-pages.txt
+        if rel in load_unpublished():
             continue
 
         basename = os.path.basename(fpath)
