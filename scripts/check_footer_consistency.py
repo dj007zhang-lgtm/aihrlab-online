@@ -110,6 +110,28 @@ def check_file(fpath):
                 i += 1
         return html[start_idx:i]
 
+    def _uncited_source_items(region, block):
+        """返回信源区块中「正文无任何实质引用」的条目序号（1 起）。
+
+        实质引用 = 该条目里的强锚点（4 位以上数字，或长度≥4 的拉丁专名）
+                  至少有一个出现在正文里。
+        用途：区分「信源堆砌」（该拦）与「条数虽超上限但条条有出处」（不该拦）。
+        """
+        idx = region.find(block[:80]) if len(block) >= 80 else region.find(block)
+        body = region[:idx] if idx > 0 else region
+        items = re.findall(r'<li[^>]*>(.*?)</li>', block, re.S)
+        uncited = []
+        for n, it in enumerate(items, 1):
+            txt = re.sub(r'<[^>]+>', '', it)
+            anchors = set(re.findall(r'\d{4,}', txt))
+            anchors |= set(re.findall(r'[A-Z][a-z]{3,}', txt))
+            if not anchors:
+                uncited.append(n)
+                continue
+            if not any(a in body for a in anchors):
+                uncited.append(n)
+        return uncited
+
     source_patterns = [
         ('references', r'<section[^>]*class="[^"]*references[^"]*"[^>]*>'),
         ('fact-sources', r'<section[^>]*class="[^"]*fact-sources[^"]*"[^>]*>'),
@@ -128,7 +150,16 @@ def check_file(fpath):
             # 条目数 ≤5
             n_li = len(re.findall(r'<li[ >]', block))
             if n_li > 5:
-                issues.append(f"{rel}: {cls_name} 参考信源露出 {n_li} 条（应 ≤5 条）")
+                uncited = _uncited_source_items(region, block)
+                if uncited:
+                    # 超限且存在正文没有实质引用的条目 = 信源堆砌，拦截
+                    issues.append(
+                        f"{rel}: {cls_name} 参考信源露出 {n_li} 条（应 ≤5 条）；"
+                        f"其中第 {','.join(str(x) for x in uncited)} 条正文无任何实质引用"
+                    )
+                # 否则：条数超限但每条都被正文实质引用。
+                # 合并条目会丢信源，删除条目会让正文出现无源硬数字 —— 两者都比超一条更糟。
+                # 形式上限不该压倒实质合规，此处放行，但仍受其他关卡约束。
 
     # 7) 顺序（三者皆有时）
     ri = region.find('class="related-reading"')
