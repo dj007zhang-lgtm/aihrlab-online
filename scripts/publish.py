@@ -105,8 +105,15 @@ def run_lint_diff(files):
     print("\n" + "=" * 60)
     print("STEP 0.5/3  发布前 diff 红线预检 scripts/lint_diff.py（防概念性重复犯错）")
     print("=" * 60)
+    # 红线预检只作用于 HTML 内容（计数带 / 旧 QR-CTA / 被墙资源 / 编辑器工件）。
+    # 纯 CSS / 脚本 / 配置批次无 HTML 可检时，明确跳过并说明，
+    # 不把「无输入」包装成「通过」——那才是假成功。
+    htmls = [f for f in files if f.endswith(".html")]
+    if not htmls:
+        print("  本次批次不含 HTML 文件（仅 CSS / 脚本 / 配置），红线预检无对象，跳过。")
+        return True
     proc = subprocess.run(
-        [sys.executable, "scripts/lint_diff.py"] + files,
+        [sys.executable, "scripts/lint_diff.py"] + htmls,
         cwd=SITE_ROOT,
     )
     return proc.returncode == 0
@@ -136,6 +143,36 @@ def run_kb_precheck(files):
     except Exception as e:
         print(f"  ⚠️  知识库校验未执行（不影响发布）: {e}")
     return True
+
+
+def run_visual_quality():
+    """STEP 2.7  视觉品质门禁（F4）scripts/audit_visual_quality.py
+
+    把「调性 / 美学 / 品质」从主观评价变成可断言的规则，补齐 F1–F6 里
+    唯一没有自动化的 F4（体验版式）缺口。
+
+    外部标准（参照系外置，不取自本站现状）：
+      Butterick《Practical Typography》key-rules 02/03/04/17/18
+      W3C《Requirements for Chinese Text Layout》(CLReq) 2.1
+      WCAG 2.2 对比度 AA 4.5 / AAA 7
+
+    规则：
+      B1-B3 正文排版尺度（字号 / 行高 / 行长）
+      B4    对比度        B5 中文禁无断词两端对齐   B6 中文标题禁负字距
+      B7    段落节奏      B8 禁装饰三件套堆砌       B9 同选择器禁止多处定义
+      B10   颜色必须走 token（基线只降不升）        B11 源版与压缩版必须经构建同步
+
+    B9/B10 走 ci/visual-baseline.json 基线账本：存量债只准降不准升，
+    新增冲突即 BLOCK（改 CSS 不该让债务变多）。
+    """
+    print("\n" + "=" * 60)
+    print("STEP 2.7/3  视觉品质门禁 scripts/audit_visual_quality.py（F4 · 外部排版规范）")
+    print("=" * 60)
+    proc = subprocess.run(
+        [sys.executable, "scripts/audit_visual_quality.py"],
+        cwd=SITE_ROOT,
+    )
+    return proc.returncode == 0
 
 
 def count_sitemap_urls():
@@ -248,6 +285,15 @@ def main():
 
     # STEP 2.6: 知识库信源校验与反向回流（非阻断，观察期只报告不中止）
     run_kb_precheck(files)
+
+    # STEP 2.7: 视觉品质门禁（F4）—— 补上失效模式里唯一没有自动化的「体验版式」
+    if not run_visual_quality():
+        print("\n❌ 视觉品质门禁未通过（排版尺度 / 对比度 / 冲突定义 / 构建同步 存在 BLOCK）"
+              " —— 推送已中止。")
+        print("   外部标准：Butterick 排版规范 + W3C 中文排版需求 + WCAG 2.2。"
+              " 修复上述 BLOCK 项后重试。本次未做任何远程写入。")
+        sys.exit(1)
+    print("\n✅ 视觉品质门禁通过（排版尺度合规、对比度达标、无新增冲突定义、源版与压缩版已同步）。")
 
     # STEP 3: 原子推送
     print("\n" + "=" * 60)
