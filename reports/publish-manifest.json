@@ -5680,5 +5680,19 @@
     ],
     "sitemap_urls_before": 359,
     "sitemap_urls_after": 359
+  },
+  {
+    "date": "2026-10-28 23:45",
+    "commit": "7615f4e8d2a0b48eeaa1e500821529fc603d6a22",
+    "message": "fix(seo): sitemap 与一致性关共用未发布清单，消除指向空页的软 404 收录",
+    "files_count": 4,
+    "files": [
+      "scripts/build_sitemap.py",
+      "scripts/url_consistency_audit.py",
+      "ci/unpublished-pages.txt",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 358,
+    "sitemap_urls_after": 358
   }
 ]
