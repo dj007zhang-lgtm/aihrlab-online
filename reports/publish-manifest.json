@@ -5646,5 +5646,24 @@
     ],
     "sitemap_urls_before": 358,
     "sitemap_urls_after": 358
+  },
+  {
+    "date": "2026-10-28 23:09",
+    "commit": "01658720e3f27fb83c384143cb454cc369d4e84c",
+    "message": "feat(visual): F4 视觉品质门禁 + 正文排版真相源唯一化",
+    "files_count": 9,
+    "files": [
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "assets/css/article.css",
+      "scripts/audit_visual_quality.py",
+      "scripts/dedupe_css.py",
+      "scripts/build_css.py",
+      "scripts/publish.py",
+      "ci/visual-baseline.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 358,
+    "sitemap_urls_after": 358
   }
 ]
