@@ -5665,5 +5665,20 @@
     ],
     "sitemap_urls_before": 358,
     "sitemap_urls_after": 358
+  },
+  {
+    "date": "2026-10-28 23:29",
+    "commit": "b05c169109ee05187ed7e0567e9b1561d93599c4",
+    "message": "fix(visual): 表格与分隔线归入排版权威段 + 尾页信源门禁改为实质引用判定（堆砌仍拦）",
+    "files_count": 5,
+    "files": [
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "assets/css/article.css",
+      "scripts/check_footer_consistency.py",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 359,
+    "sitemap_urls_after": 359
   }
 ]
