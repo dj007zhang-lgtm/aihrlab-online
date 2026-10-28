@@ -5694,5 +5694,30 @@
     ],
     "sitemap_urls_before": 358,
     "sitemap_urls_after": 358
+  },
+  {
+    "date": "2026-10-29 00:17",
+    "commit": "b973ec6476e00f976be8e6a3f388105bae85fdda",
+    "message": "feat(content): 亚马逊裁 3 万又招 3 万——AI 削的是中间层",
+    "files_count": 15,
+    "files": [
+      "articles/amazon-layoffs-hiring-ledger-2026.html",
+      "assets/images/banners/amazon-layoffs-hiring-ledger-2026.webp",
+      "articles/index.html",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/ai-transformation.html",
+      "tags/flattening.html",
+      "tags/layoff.html",
+      "tags/org-change.html",
+      "ci/unpublished-pages.txt"
+    ],
+    "sitemap_urls_before": 359,
+    "sitemap_urls_after": 359
   }
 ]
