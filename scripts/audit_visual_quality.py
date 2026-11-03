@@ -68,6 +68,131 @@ T_CONTRAST_AA, T_CONTRAST_AAA = 4.5, 7.0     # B4
 HEX_RE = re.compile(r"#[0-9a-fA-F]{3,8}\b")
 RGB_RE = re.compile(r"\brgba?\([^)]*\)", re.I)
 
+_NUM_RE = re.compile(r"(?<![0-9a-zA-Z#])([+-]?)(\d*\.?\d+)([a-z%]*)", re.I)
+_VAR_HEAD = re.compile(r"var\(\s*(--[A-Za-z0-9_-]+)\s*", re.I)
+
+
+def expand_vars(v, tokens=None, depth=0):
+    """
+    把 var(--x) 展开成 :root 里的实际值，用于跨文件等价判定。
+
+    为什么需要这一层：
+      style.css 写 var(--line)，article.css 写 rgba(0,0,0,0.06)，
+      两者渲染结果完全一致。不展开就会把「一处走 token、一处写字面量」
+      判成冲突——那是写法差异，不是视觉差异。
+      不展开的代价是：token 化做得越好的文件，被报的假冲突越多，
+      等于在惩罚正确的做法。
+    """
+    if not tokens or depth > 6 or "var(" not in v:
+        return v
+    out, i, n, changed = [], 0, len(v), False
+    while i < n:
+        j = v.find("var(", i)
+        if j < 0:
+            out.append(v[i:])
+            break
+        out.append(v[i:j])
+        k, bal = j + 4, 1
+        while k < n and bal:
+            if v[k] == "(":
+                bal += 1
+            elif v[k] == ")":
+                bal -= 1
+            k += 1
+        if not _VAR_HEAD.match(v, j):      # 不是合法 var() 头，原样保留
+            out.append(v[j:k])
+            i = k
+            continue
+        inner = v[j + 4:k - 1]
+        d = inner.find(",")
+        name = (inner[:d] if d >= 0 else inner).strip()
+        fb = inner[d + 1:].strip() if d >= 0 else ""
+        if name in tokens:
+            out.append(expand_vars(tokens[name], tokens, depth + 1))
+            changed = True
+        elif fb:
+            out.append(expand_vars(fb, tokens, depth + 1))
+            changed = True
+        else:
+            out.append(v[j:k])
+        i = k
+    return "".join(out) if changed else v
+
+
+def norm_value(v, tokens=None):
+    """
+    归一化 CSS 值，用于「同一视觉结果的不同写法」判等。
+
+    为什么必须有这一层：
+      #FFFFFF 与 #fff 与 #ffffff 渲染完全一致，0.25rem 与 .25rem 亦然。
+      不做归一化，门禁会把「人换了个写法」报成「同选择器冲突」，
+      111 条里有 45 条是这种假冲突（实测：45 条里 43 条同色异写 + 2 条前导零，
+      真实值冲突 0）。假冲突比真冲突更坏：它会淹没真债，并让人学会忽略门禁。
+    """
+    s = (v or "").strip()
+    if not s:
+        return ""
+    s = expand_vars(s, tokens)
+    # !important 单独剥离，避免空格差异影响判等
+    important = False
+    if re.search(r"!\s*important\s*$", s, re.I):
+        important = True
+        s = re.sub(r"!\s*important\s*$", "", s, flags=re.I).strip()
+    s = re.sub(r"\s+", " ", s)
+    s = re.sub(r"\s*([(),])\s*", r"\1", s)
+    s = s.replace("'", '"')
+
+    def _hex(m):
+        h = m.group(1).lower()
+        if len(h) in (3, 4):
+            h = "".join(c * 2 for c in h)
+        return "#" + h
+
+    s = re.sub(r"#([0-9a-fA-F]{3,8})\b", _hex, s)
+
+    # rgb()/rgba() 不透明色统一折算成 hex，与 #rrggbb 同权
+    def _rgbfn(m):
+        parts = [p.strip() for p in m.group(1).split(",")]
+        try:
+            if len(parts) == 3:
+                r, g, b = [int(float(p)) for p in parts]
+                return "#%02x%02x%02x" % (max(0, min(255, r)),
+                                          max(0, min(255, g)),
+                                          max(0, min(255, b)))
+            if len(parts) == 4:
+                r, g, b = [int(float(p)) for p in parts[:3]]
+                a = float(parts[3])
+                if a >= 1:
+                    return "#%02x%02x%02x" % (max(0, min(255, r)),
+                                              max(0, min(255, g)),
+                                              max(0, min(255, b)))
+        except Exception:
+            return m.group(0)
+        return m.group(0)
+
+    s = re.sub(r"rgba?\(([^)]*)\)", _rgbfn, s, flags=re.I)
+
+    def _num(m):
+        sign, num, unit = m.group(1), m.group(2), (m.group(3) or "").lower()
+        if sign == "+":
+            sign = ""
+        if "." in num:
+            num = num.rstrip("0").rstrip(".")
+            if num.startswith("0") and num != "0":
+                num = num[1:]
+        elif num.startswith("0") and len(num) > 1:
+            num = num.lstrip("0") or "0"
+        if num in ("0", "-0"):
+            return "0"
+        return sign + num + unit
+
+    s = _NUM_RE.sub(_num, s)
+    s = s.lower()
+    s = re.sub(r"\s+", " ", s).strip()
+    if important:
+        s += " !important"
+    return s
+
 
 # ---------------------------------------------------------------- CSS 解析
 
@@ -446,7 +571,7 @@ def check_decor(rules):
     return out
 
 
-def check_conflicts(rules):
+def check_conflicts(rules, tokens=None):
     """B9：同选择器 + 同属性 多处定义，最终效果由源码顺序决定"""
     out = {"items": [], "block": 0, "warn": 0}
     seen = defaultdict(list)
@@ -457,18 +582,28 @@ def check_conflicts(rules):
         for prop, val in r["decls"]:
             seen[(r.get("scope", ()), r["sel_raw"], prop)].append((val, r["file"], r["line"]))
     bad = 0
+    same_value_diff_written = 0   # 归一化后相等 = 仅写法不同，非冲突
     for (scope, s, prop), lst in sorted(seen.items(), key=lambda x: (str(x[0][0]), x[0][1], x[0][2])):
         if len(lst) > 1:
-            vals = set(v for v, _, _ in lst)
-            if len(vals) > 1:
+            raw_vals = set(v for v, _, _ in lst)
+            norm_vals = set(norm_value(v, tokens) for v, _, _ in lst)
+            if len(raw_vals) > 1 and len(norm_vals) == 1:
+                same_value_diff_written += 1
+                continue
+            if len(norm_vals) > 1:
                 bad += 1
-                locs = ",".join("%s:%d" % (f, l) for _, f, l in lst)
+                locs = ",".join("%s:%d=%s" % (f, l, v[:20]) for v, f, l in lst)
                 tag = ("[%s] " % "/".join(scope)) if scope else ""
                 out["items"].append((
                     "BLOCK", "B9",
                     "%s%s { %s } 被定义 %d 次且值不同 → 生效值取决于源码顺序（%s）"
                     % (tag, s, prop, len(lst), locs)))
                 out["block"] += 1
+    if same_value_diff_written:
+        out["items"].append((
+            "INFO", "B9",
+            "另有 %d 组「同值异写」已按等价处理（如 #FFF/#ffffff、0.25rem/.25rem），不计冲突"
+            % same_value_diff_written))
     if not bad:
         out["items"].append(("PASS", "B9", "无冲突定义"))
     return out
@@ -532,6 +667,124 @@ def check_build_sync():
     return out
 
 
+def check_type_scale(css_files):
+    """
+    B12：font-size 不得再出现 rem 数值字面量，必须走 type scale token。
+
+    与 type_scale.py 的替换共用同一解析器（parse_css_spans），避免
+    「替换用 A 口径、门禁用 B 口径」互相打架。px / em / clamp / inherit /
+    0 / !important 按值形态永久豁免，理由写在 type_scale.py。
+    """
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        from type_scale import violations, SCALE
+    except ImportError as e:
+        return {"items": [("BLOCK", "B12", "缺少 type_scale.py 单一真相源：%s" % e)],
+                "block": 1, "warn": 0}
+    out = {"items": [], "block": 0, "warn": 0}
+    bad = violations(css_files)
+    if bad:
+        sample = "; ".join("%s:%d %s=%s" % b for b in bad[:5])
+        out["items"].append((
+            "BLOCK", "B12",
+            "发现 %d 处散落 rem 字号，须改用 var(--fs-N)：%s" % (len(bad), sample)))
+        out["block"] += 1
+    else:
+        out["items"].append((
+            "PASS", "B12",
+            "全部字号来自 %d 档 type scale token（比率 1.1，锚点 1rem=17px）" % len(SCALE)))
+    return out
+
+
+def check_figure_typography(rules):
+    """
+    B13 图文同权：图注排版必须进正文那套体系，不能退回浏览器默认或硬编码。
+
+    判据刻意只取结构性、可自动判定、不会误报的三条：
+      figcaption / .figure-source 规则必须存在；
+      font-size 必须是 var(--fs-N)（B12 只管 rem 字面量，不管规则是否存在）；
+      color 必须是 var(--token)。
+    图注「写什么」是策展判断，自动化不判 —— 见 type_scale.py 与交付说明。
+    """
+    out = {"items": [], "block": 0, "warn": 0}
+    specs = {}
+    for r in rules:
+        if "figcaption" in r["sel_raw"]:
+            k = "figcaption"
+        elif ".figure-source" in r["sel_raw"]:
+            k = ".figure-source"
+        else:
+            continue
+        for p, v in r["decls"]:
+            specs.setdefault(k, {}).setdefault(p, []).append((v, r["line"]))
+    problems = []
+    fs_tok = re.compile(r"^var\(\s*--fs-\d+\s*\)$", re.I)
+    color_tok = re.compile(r"^var\(\s*--[A-Za-z0-9-]+\s*\)$", re.I)
+    for k in ("figcaption", ".figure-source"):
+        if k not in specs:
+            problems.append("%s 缺少排版规则（图注会退回浏览器默认）" % k)
+            continue
+        d = specs[k]
+        fs = d.get("font-size", [])
+        if not fs:
+            problems.append("%s 未声明 font-size" % k)
+        elif not all(fs_tok.match(v.strip()) for v, _ in fs):
+            bad = [v for v, _ in fs if not fs_tok.match(v.strip())]
+            problems.append("%s 的 font-size 未走 type scale：%s" % (k, bad[0]))
+        col = d.get("color", [])
+        if not col:
+            problems.append("%s 未声明 color" % k)
+        elif not all(color_tok.match(v.strip()) for v, _ in col):
+            bad = [v for v, _ in col if not color_tok.match(v.strip())]
+            problems.append("%s 的 color 未走颜色 token：%s" % (k, bad[0]))
+    if problems:
+        for m in problems:
+            out["items"].append(("BLOCK", "B13", m))
+        out["block"] = len(problems)
+    else:
+        out["items"].append((
+            "PASS", "B13",
+            "figcaption / .figure-source 均走 type scale + 颜色 token（图文同权）"))
+    return out
+
+
+def check_font_contract(css_files, html_files=None):
+    """
+    B14 字体体积契约：中文站点不得引入 @font-face / 字体文件 / 外链字体域名。
+
+    勘察结论（P2）：全站已是系统字体栈，0 个 @font-face、0 个 woff2、
+    0 个外链字体域名，符合中文体积硬约束。此处把该决策固化成会失败的断言，
+    防止后续有人为「好看」引入 Google Fonts 而拖垮首屏。
+    只匹配资源引用形态，不匹配正文中作为技术名词出现的字样。
+    """
+    out = {"items": [], "block": 0, "warn": 0}
+    bad = []
+    face = re.compile(r"@font-face", re.I)
+    fontfile = re.compile(r"url\(\s*['\"]?[^)'\"]*\.(?:woff2?|ttf|otf|eot)\b", re.I)
+    extfont = re.compile(r"fonts\.(?:googleapis|gstatic|bunny)\.com", re.I)
+    for f in css_files:
+        t = open(f, encoding="utf-8", errors="replace").read()
+        if face.search(t):
+            bad.append("%s 出现 @font-face" % os.path.basename(f))
+        if fontfile.search(t):
+            bad.append("%s 引用字体文件" % os.path.basename(f))
+    for f in (html_files or []):
+        t = open(f, encoding="utf-8", errors="replace").read()
+        for m in re.finditer(r"<(?:link|script)\b[^>]*?(?:href|src)\s*=\s*[\"']([^\"']+)", t, re.I):
+            if extfont.search(m.group(1)):
+                bad.append("%s 引用外链字体" % os.path.relpath(f, ROOT))
+                break
+    if bad:
+        for m in bad[:8]:
+            out["items"].append(("BLOCK", "B14", m))
+        out["block"] = len(bad)
+    else:
+        out["items"].append((
+            "PASS", "B14",
+            "系统字体栈，无 @font-face / 字体文件 / 外链域名（中文体积硬约束）"))
+    return out
+
+
 # ---------------------------------------------------------------- 自检
 
 def self_test():
@@ -547,6 +800,10 @@ def self_test():
         ("B8 装饰堆砌", ".card{background:linear-gradient(1deg,#fff,#000);box-shadow:0 1px 2px #000;border-radius:8px;}", "B8", True),
         ("B9 冲突定义", ".article-body{color:#111;} .article-body{color:#eee;}", "B9", True),
         ("B4 对比度不足", ".article-body{color:#cccccc;}", "B4", False),  # 走 token 路径，用 B4 直测
+        ("B12 散落字号", ".card-desc{font-size:0.937rem;}", "B12", True),
+        ("B13 图注硬编码", ".article-body figcaption{font-size:13px;color:#999} "
+         ".article-body .figure-source{font-size:12px;color:#888}", "B13", True),
+        ("B14 外链字体", "@font-face{font-family:X;src:url(x.woff2)}", "B14", True),
     ]
     ok_all = True
     for name, css, code, _ in cases:
@@ -561,7 +818,13 @@ def self_test():
         got += [i for i in res["items"] if i[1] == code]
         res = check_decor(rules)
         got += [i for i in res["items"] if i[1] == code]
-        res = check_conflicts(rules)
+        res = check_conflicts(rules, tokens)
+        got += [i for i in res["items"] if i[1] == code]
+        res = check_type_scale([p])
+        got += [i for i in res["items"] if i[1] == code]
+        res = check_figure_typography(rules)
+        got += [i for i in res["items"] if i[1] == code]
+        res = check_font_contract([p])
         got += [i for i in res["items"] if i[1] == code]
         if code == "B4":
             # B4 走 token 路径，直接验证对比度函数本身
@@ -610,6 +873,14 @@ def main():
                         if v:
                             root_px = v
 
+    css_files = [os.path.join(ROOT, r) for r in CSS_SOURCES
+                 if os.path.exists(os.path.join(ROOT, r))]
+    html_files = []
+    for dp, dn, fn in os.walk(ROOT):
+        if any(x in dp for x in (".git", "node_modules", "_wip", "outputs",
+                                 "_aihr_repo_archive", "_wip_unpublished")):
+            continue
+        html_files += [os.path.join(dp, f) for f in fn if f.endswith(".html")]
     checks = [
         ("B1-B3 排版尺度", check_typography(rules, tokens, root_px)),
         ("B4 对比度", check_contrast(rules, tokens, root_px)),
@@ -617,9 +888,12 @@ def main():
         ("B6 字距", check_orphan_space(rules)),
         ("B7 段落节奏", check_paragraph_spacing(rules)),
         ("B8 装饰", check_decor(rules)),
-        ("B9 冲突定义", check_conflicts(rules)),
+        ("B9 冲突定义", check_conflicts(rules, tokens)),
         ("B10 颜色 token", check_hardcoded_colors(rules)),
         ("B11 构建同步", check_build_sync()),
+        ("B12 字号模数化", check_type_scale(css_files)),
+        ("B13 图文同权", check_figure_typography(rules)),
+        ("B14 字体契约", check_font_contract(css_files, html_files)),
     ]
 
     blocks = warns = 0

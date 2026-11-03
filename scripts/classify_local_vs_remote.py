@@ -12,8 +12,11 @@ DIFFER 再做 diff 分型，判断改动是否只落在「预期区域」:
       next-path : next-path 区块内部
   其余落到 UNSAFE，需人工确认后才能进发布批次。
 
-只读，不改动仓库任何文件。
-用法: python3 scripts/classify_local_vs_remote.py
+默认只读，不改动仓库任何文件。
+用法:
+  python3 scripts/classify_local_vs_remote.py                  # 只报告
+  python3 scripts/classify_local_vs_remote.py --write-unpublished
+        # 由 NEW 集自动刷新 ci/unpublished-pages.txt（唯一真相源为远程 tree）
 """
 import subprocess, sys, os, hashlib, csv, re, difflib
 from collections import Counter
@@ -159,5 +162,63 @@ if remote_only:
     print("\n=== REMOTE_ONLY 明细 ===")
     for p in remote_only:
         print("  %s" % p)
+
+
+# ---------------------------------------------------------------- 派生未发布清单
+
+def derive_unpublished(rows):
+    """
+    从 NEW 集派生 ci/unpublished-pages.txt。
+
+    为什么必须自动派生而不是手工维护：
+      手工清单的唯一失效模式是「页面已推送上线，但忘了从清单里划掉」，
+      结果是一个线上可访问的页面被永久排除出 sitemap。这类漏收录不会报错、
+      不会有任何告警，只能靠人偶然发现 —— 属于典型的静默失败。
+      用远程 tree 做唯一真相源，「已发布」这件事由远程 blob 是否存在来证明，
+      不依赖任何人的记忆。
+
+    过滤口径复用 build_publish_list.decide，不另写一份规则：
+      NEW 里混着 qa 部署包、outputs 产物、projects 内部草稿，它们本就不该
+      进 GP 批次，同样也不该被登记成「待发布页面」——否则清单会被噪声占满。
+    """
+    try:
+        sys.path.insert(0, os.path.join(REPO, "scripts"))
+        from build_publish_list import decide
+    except Exception:
+        return sorted(r["path"] for r in rows
+                      if r["status"] == "NEW" and r["path"].endswith(".html"))
+    return sorted(r["path"] for r in rows
+                  if r["status"] == "NEW"
+                  and r["path"].endswith(".html")
+                  and decide(r["path"])[0])
+
+
+def write_unpublished(paths):
+    p = os.path.join(REPO, "ci", "unpublished-pages.txt")
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    head = [
+        "# 已写好但尚未推送上线的页面（相对路径，一行一个）",
+        "# 本文件由 scripts/classify_local_vs_remote.py 自动派生，请勿手工编辑：",
+        "#   凡在远程 origin/main 上找不到的本地 .html，即为未发布。",
+        "# 页面经 scripts/publish.py 推送后，重跑本脚本即会自动移出清单。",
+        "#",
+        "# 用途：登记页不进 sitemap —— 收录线上不存在的页面等于提交软 404。",
+        "",
+    ]
+    body = "\n".join(head + paths) + "\n"
+    open(p, "w", encoding="utf-8").write(body)
+    return p, len(paths)
+
+
+if "--write-unpublished" in sys.argv:
+    paths = derive_unpublished(rows)
+    p, n = write_unpublished(paths)
+    print("\n=== 未发布清单已刷新 ===")
+    print("  文件: %s" % p)
+    print("  条目: %d 条（由远程 tree 派生）" % n)
+    for x in paths[:20]:
+        print("    - %s" % x)
+    if n > 20:
+        print("    ... 共 %d 条" % n)
 
 print("\n明细: %s" % out)

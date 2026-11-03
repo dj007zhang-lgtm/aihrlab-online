@@ -28,6 +28,7 @@ templates/_chrome.html 是唯一真相源。本脚本负责：
   python3 scripts/sync_chrome.py --apply     # 写盘修复
   python3 scripts/sync_chrome.py --apply --sign   # 顺带签署 data-section-unified
   python3 scripts/sync_chrome.py --check --verbose
+  python3 scripts/sync_chrome.py --apply --only-css   # 只补样式表，不动头尾脚本
 """
 
 import os
@@ -57,6 +58,14 @@ EXCLUDE_FILES = {
 }
 
 HEADER_RE = re.compile(r'<header class="site-header".*?</header>', re.S)
+
+# 文章页组件：用到这些 class 的页面必须加载 article.css
+ARTICLE_COMPONENTS = (
+    "inline-related", "references", "next-path", "geo-answer-capsule",
+    "article-footer-qr", "related-reading", "cluster-header",
+    "article-header", "topic-cluster", "cluster-label",
+    "article-sources", "step-card", "report-card", "geo-stats", "cluster-page",
+)
 FOOTER_RE = re.compile(r'<footer class="site-footer".*?</footer>', re.S)
 BODY_OPEN_RE = re.compile(r'<body[^>]*>')
 BREADCRUMB_RE = re.compile(r'<nav class="breadcrumb-nav".*?</nav>', re.S)
@@ -118,10 +127,54 @@ def build_footer(canonical, extra_html):
     return canonical.replace("<!-- CHROME:FOOTER_EXTRA -->", extra_html or "")
 
 
+# ---------------------------------------------------------------- 样式表同步
+
+def sync_css(html, rel):
+    """
+    补齐共享样式表引用。返回 (new_html, changes)。
+
+    为什么归 chrome 管：
+      样式表引用是页面的「地基」，和 header / footer 同属 chrome。
+      散在 357 个产物页里靠人手维护，必然漂移 —— 实测 262 页用到文章页组件，
+      其中 159 页漏引 article.css，同一组件在站内存在两套外观。
+
+    判定口径：
+      · 用到任一文章页组件 class → 必须加载 article.css
+      · 有 site-header / site-footer / container → 必须加载 style.min.css
+      · 已有则不重复添加（幂等）
+      · 路径前缀沿用该页现有引用风格（../ 或 /），无引用时按目录深度推断
+    """
+    changes = []
+    need_article = any(re.search(r'class="[^"]*\b' + c + r'\b', html)
+                       for c in ARTICLE_COMPONENTS)
+    need_style = ('site-header' in html or 'site-footer' in html
+                  or 'class="container"' in html)
+    if "</head>" not in html:
+        return html, changes
+    m = re.search(r'href="([^"]*?)assets/css/', html)
+    prefix = m.group(1) if m else ("../" if "/" in rel else "")
+    add = []
+    if need_style and "style.min.css" not in html:
+        add.append('<link rel="stylesheet" href="%sassets/css/style.min.css">' % prefix)
+    if need_article and "article.css" not in html:
+        add.append('<link rel="stylesheet" href="%sassets/css/article.css">' % prefix)
+    if not add:
+        return html, changes
+    new = html.replace("</head>", "\n" + "\n".join(add) + "\n</head>", 1)
+    if new == html:
+        return html, changes
+    changes.append("css:补 %s" % ",".join(x.split("/")[-1].strip('">') for x in add))
+    return new, changes
+
+
 # ---------------------------------------------------------------- 单页处理
 
-def process(path, canonical_header, canonical_footer, sign=False):
-    """返回 (new_html, changes[list[str]])。不写盘。"""
+def process(path, canonical_header, canonical_footer, sign=False, only_css=False):
+    """返回 (new_html, changes[list[str]])。不写盘。
+
+    only_css=True 时只同步样式表引用，不动 header / footer / 脚本。
+    用于「只想消灭跨页样式不一致」的场景，避免一次性大范围改写页面。
+    """
     rel = os.path.relpath(path, SITE_ROOT)
     with open(path, encoding="utf-8", errors="ignore") as f:
         html = f.read()
@@ -129,6 +182,10 @@ def process(path, canonical_header, canonical_footer, sign=False):
     changes = []
 
     # --- 1) 页脚：先取出页面级附加块，再整体替换为 canonical
+    if only_css:
+        new, ch = sync_css(html, rel)
+        return new, ch
+
     old_footer = FOOTER_RE.search(html)
     extra = ""
     if old_footer:
@@ -169,7 +226,11 @@ def process(path, canonical_header, canonical_footer, sign=False):
             html = html[:hdr.end()] + "\n" + block + html[hdr.end():]
             changes.append("breadcrumb:移至头部之后")
 
-    # --- 4) 共享脚本补齐
+    # --- 4) 共享样式表补齐（见 sync_css 说明）
+    html, css_changes = sync_css(html, rel)
+    changes.extend(css_changes)
+
+    # --- 5) 共享脚本补齐
     missing = [tag for key, tag in SHARED_SCRIPTS if key not in html]
     if missing and "</head>" in html:
         html = html.replace("</head>", "".join(missing) + "\n</head>", 1)
@@ -178,7 +239,7 @@ def process(path, canonical_header, canonical_footer, sign=False):
         html = html.replace("</body>", "  " + PROTECT_SCRIPT[1] + "\n</body>", 1)
         changes.append("scripts:补 content-protect")
 
-    # --- 5) 契约签署
+    # --- 6) 契约签署
     if sign and 'data-section-unified="true"' not in html:
         m = BODY_OPEN_RE.search(html)
         if m:
@@ -220,6 +281,7 @@ def main():
     args = set(sys.argv[1:])
     apply_mode = "--apply" in args
     sign = "--sign" in args
+    only_css = "--only-css" in args
     verbose = "--verbose" in args
     if not apply_mode and "--check" not in args:
         print(__doc__)
@@ -231,7 +293,8 @@ def main():
     drifted = []
     for rel in targets:
         path = os.path.join(SITE_ROOT, rel)
-        new_html, changes = process(path, canonical_header, canonical_footer, sign=sign)
+        new_html, changes = process(path, canonical_header, canonical_footer,
+                                    sign=sign, only_css=only_css)
         if not changes:
             continue
         drifted.append((rel, changes))

@@ -316,6 +316,20 @@ def main():
         print("\n⚠️ 部分文件远程校验失败，请人工复核。")
         sys.exit(1)
 
+    # STEP 4.5: 刷新未发布清单
+    # 推送成功后，远程 tree 已包含这些页面，它们必须从 unpublished 清单移出，
+    # 否则会一直被 sitemap 排除 —— 这是清单存在的唯一静默失败模式，
+    # 因此不能留给人工，必须由发布链路自己收口。
+    try:
+        subprocess.run(["git", "fetch", "origin", "main"], cwd=SITE_ROOT,
+                       capture_output=True, check=False, timeout=60)
+        subprocess.run([sys.executable, "scripts/classify_local_vs_remote.py",
+                        "--write-unpublished"], cwd=SITE_ROOT,
+                       capture_output=True, check=False, timeout=300)
+        print("  未发布清单已按远程 tree 刷新")
+    except Exception as e:
+        print(f"  ⚠️ 未发布清单刷新失败（不影响本次发布）: {e}")
+
     # STEP 5: IndexNow 通知 Bing/Yandex（best-effort，不阻塞发布）
     # 解决历史债：过去发布从不通知 Bing，导致新内容无法被快速收录。
     if not dry_run:

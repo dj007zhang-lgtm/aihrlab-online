@@ -12,6 +12,11 @@
   不发 · 本站无关产物     : outputs/**、本地分析 CSV
   不发 · 知识库大包       : assets/qa/kb.json（3.4MB，属 SCF 管线，不在 GP 批次）
 
+为什么 decide() 必须可被 import：
+  同一套「该不该发布」的判断，既用于生成 GP 批次，也用于派生
+  ci/unpublished-pages.txt（未发布清单）。两边各写一份必然漂移，
+  所以这里保留 __main__ guard，让 classify_local_vs_remote.py 直接复用。
+
 用法: python3 scripts/build_publish_list.py > /tmp/publish_list.txt
 """
 import csv, os, re, sys, subprocess
@@ -20,26 +25,13 @@ ROOT = subprocess.run(["git", "rev-parse", "--show-toplevel"],
                       capture_output=True, text=True).stdout.strip()
 CSV_PATH = os.path.join("outputs", "local-vs-remote-main.csv")
 
-# E-017 护栏：曾因「先跑 mutate 脚本（回填 published_time），再读上一轮生成的 CSV」
-# 导致 26 篇被回填过的文章压根没进发布清单——清单来自快照，不是现状。
-# 铁律：**清单必须从当次现状重算**，不允许复用上一次的分类结果。
-print("[0/2] 重新比对本地 vs %s（强制重算，不复用旧 CSV）..." % (
-    os.environ.get("REMOTE_REF", "origin/main")), file=sys.stderr)
-subprocess.run([sys.executable, "scripts/classify_local_vs_remote.py"],
-               cwd=ROOT, check=True,
-               stdout=subprocess.DEVNULL)
-print("[1/2] 按发布规则过滤 ...", file=sys.stderr)
 DATE_STAMP = re.compile(r"(20\d{6}|\d{8})")
 ONE_OFF_PREFIX = re.compile(r"^(drive_publish|gen_.*banner)")
 TEMP_MANIFEST = re.compile(r"^\.(gp_|p0|p1|next_path|analytics|bing|scf)")
 # 运行时产物：每次跑都会变，进批次只会制造「有差异」的假象。
-# 上一轮残留的 5 个 UNSAFE DIFFER 全是这类文件，真实缺陷被它们淹没了。
 RUNTIME_STATE = re.compile(r"(push_log|_log|_status|health_baseline)\.json$")
 
-rows = list(csv.DictReader(open(CSV_PATH)))
-cand = [r["path"] for r in rows if r["status"] in ("DIFFER", "NEW")]
-
-# 本轮新增脚本也要带上（不在旧 CSV 里）
+# EXTRA 是「本轮新建、CSV 可能还没覆盖」的安全网
 EXTRA = [
     "scripts/backfill_published_time.py",
     "scripts/site_container_audit.py",
@@ -53,12 +45,10 @@ EXTRA = [
     "scripts/kb_precheck.py",
     "scripts/classify_local_vs_remote.py",
     "scripts/build_publish_list.py",
+    "scripts/converge_css.py",
     "ci/escape-ledger.json",
     "ci/meta-variant-allowlist.json",
 ]
-
-publish, skipped = [], []
-seen = set()
 
 
 def decide(p):
@@ -77,39 +67,57 @@ def decide(p):
         # 无日期戳的 `_scan_*` / `_verify_*` 是可复用审计工具，必须入库。
         if DATE_STAMP.search(base) or ONE_OFF_PREFIX.match(base):
             return False, "一次性日期戳脚本"
-    if p.startswith("_baidu_daily_run"):
-        return False, "一次性跑批脚本"
-    # 草稿目录：容器巡检把 projects/ 登记为非读者向豁免目录，
-    # 里面是「AI 转型期 HR 能力模型」的内部决策文档，不是站点内容。
-    # 它们会持续产生差异，把真正的站点改动淹没在清单里。
     if p.startswith("projects/"):
+        # 草稿目录：容器巡检把 projects/ 登记为非读者向豁免目录，
+        # 里面是「AI 转型期 HR 能力模型」的内部决策文档，不是站点内容。
         return False, "内部项目草稿（非读者向）"
     if RUNTIME_STATE.search(base):
         return False, "运行时状态/日志（每次跑都变，制造虚假差异）"
     return True, ""
 
 
-# EXTRA 是「本轮新建、CSV 可能还没覆盖」的安全网；但绝不能无条件追加——
-# 否则已发布且内容未变的工具会被反复带进批次（虚假差异）。只在 NEW/DIFFER 时补。
-status_map = {r["path"]: r["status"] for r in rows}
-cand = cand + [p for p in EXTRA
-               if os.path.exists(p) and status_map.get(p, "NEW") in ("NEW", "DIFFER")]
+def main():
+    # E-017 护栏：曾因「先跑 mutate 脚本（回填 published_time），再读上一轮生成的 CSV」
+    # 导致 26 篇被回填过的文章压根没进发布清单——清单来自快照，不是现状。
+    # 铁律：**清单必须从当次现状重算**，不允许复用上一次的分类结果。
+    print("[0/2] 重新比对本地 vs %s（强制重算，不复用旧 CSV）..." % (
+        os.environ.get("REMOTE_REF", "origin/main")), file=sys.stderr)
+    subprocess.run([sys.executable, "scripts/classify_local_vs_remote.py"],
+                   cwd=ROOT, check=True,
+                   stdout=subprocess.DEVNULL)
+    print("[1/2] 按发布规则过滤 ...", file=sys.stderr)
 
-for p in cand:
-    if p in seen:
-        continue
-    seen.add(p)
-    if not os.path.exists(p):
-        skipped.append((p, "本地已不存在"))
-        continue
-    ok, why = decide(p)
-    if ok:
-        publish.append(p)
-    else:
-        skipped.append((p, why))
+    rows = list(csv.DictReader(open(CSV_PATH)))
+    cand = [r["path"] for r in rows if r["status"] in ("DIFFER", "NEW")]
 
-publish.sort()
-sys.stderr.write("[2/2] 发布 %d / 排除 %d\n" % (len(publish), len(skipped)))
-for p, why in sorted(skipped):
-    sys.stderr.write("  SKIP  %-56s %s\n" % (p, why))
-print("\n".join(publish))
+    # 只在 NEW/DIFFER 时补，绝不无条件追加——否则已发布且内容未变的
+    # 工具会被反复带进批次（虚假差异）。
+    status_map = {r["path"]: r["status"] for r in rows}
+    cand = cand + [p for p in EXTRA
+                   if os.path.exists(p) and status_map.get(p, "NEW") in ("NEW", "DIFFER")]
+
+    publish, skipped = [], []
+    seen = set()
+    for p in cand:
+        if p in seen:
+            continue
+        seen.add(p)
+        if not os.path.exists(p):
+            skipped.append((p, "本地已不存在"))
+            continue
+        ok, why = decide(p)
+        if ok:
+            publish.append(p)
+        else:
+            skipped.append((p, why))
+
+    publish.sort()
+    sys.stderr.write("[2/2] 发布 %d / 排除 %d\n" % (len(publish), len(skipped)))
+    for p, why in skipped:
+        sys.stderr.write("  SKIP  %-56s %s\n" % (p, why))
+    print("\n".join(publish))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

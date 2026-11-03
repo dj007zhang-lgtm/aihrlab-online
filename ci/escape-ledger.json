@@ -366,6 +366,20 @@
       "rule": "待接 publish.py",
       "owner": "主理人裁决",
       "status": "open"
+    },
+    {
+      "id": "E-027",
+      "date": "2026-11-02",
+      "system": "AIHRlab-网站",
+      "symptom": "容器巡检硬化前仅 17 BLOCK；补「缺少 twitter:title」断言后 BLOCK 跳到 54（41 文件）：新增 37 处 twitter:title 完全缺失（3 article + 1 product + 24 resources + seo-monitor + 8 tools 相关），全部违反 R-17（og==tw==h1）。即审计长期对「缺 twitter:title」失明，37 处缺陷从未被标记。",
+      "found_by": "本轮 F5 判别力核查 + 硬化审计（E-026 登记的 17 条仍原样存活未修，本周又叠加 37 条同源缺陷）",
+      "escape_reason": "双重空白：① 检测侧——site_container_audit.py 的 C2 分支只判「og/tw 存在但≠h1」与「缺 og:title」，从不判「缺 twitter:title」，故 37 处缺 twitter:title 全部漏报；② 修复侧——align_og_title.py 只对齐已存在的 og/twitter 标签、从不插入缺失字段，且其 SCAN_DIRS 不覆盖 ask/bridge/glossary/compare/seo-monitor 等落地页，即便人工跑修复也修不了这批页。符合 F5 装饰性门禁特征。",
+      "fm": "F2",
+      "fix": "已在 site_container_audit.py C2 补「if not tw: BLOCK C2 缺少 twitter:title」（未提交，待主理人复核提交）；重跑确认捕获 37 处真实缺失、零误报。站点修复需扩展 align_og_title.py：① 覆盖全部目录含 tools/ask/bridge/glossary/compare/seo-monitor；② 对缺失 og:title/twitter:title 的页插入 =h1 的标签（目前只对齐不插入）。E-026 的 17 条与本次 37 条同源，应一并经扩展后的管线批量归零。",
+      "asserted": true,
+      "rule": "site_container_audit.py:C2",
+      "owner": "主理人（审计脚本改动复核提交 + align_og_title.py 扩展）",
+      "status": "open（断言已加未提交；54 处站点修复待管线扩展后批量处理）"
     }
   ],
   "failure_modes": {

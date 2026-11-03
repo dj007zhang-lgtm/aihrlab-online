@@ -123,6 +123,8 @@ def audit_file(rel, s, corpus):
             f.append(("BLOCK", "C2", f"twitter:title ≠ h1（tw={tw[:40]} / h1={h1[:40]}）"))
         if not og:
             f.append(("BLOCK", "C2", "缺少 og:title"))
+        if not tw:
+            f.append(("BLOCK", "C2", "缺少 twitter:title"))
         # C3 后缀纪律
         for fld, val in (("h1", h1), ("og:title", og), ("twitter:title", tw)):
             if val and SUFFIX in val:
