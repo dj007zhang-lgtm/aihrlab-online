@@ -40,8 +40,14 @@ def get_h1(s):
 def esc(x):
     return html.escape(x, quote=True)
 
+# E-027（2026-11-03）：原 glob 漏了 glossary/ 与 tools/，导致 glossary/index.html
+# 的 og:title 漂移长期静默（专项工具报 0 处 = 假零，靠发布链 lint_diff 才拦住）。
+# 扫描范围必须与全站 HTML 真实分布对齐，而不是按「当年有哪些栏目」写死。
 files = sorted(sum([glob.glob(p) for p in (
-    "articles/*.html","hub/*.html","assessments/*.html","resources/*.html","products/*.html")], []))
+    "*.html","articles/*.html","hub/*.html","assessments/*.html","resources/*.html",
+    "products/*.html","glossary/*.html","tools/*.html","tools/**/*.html",
+    "cards/*.html","ask/*.html")], []))
+files = sorted(set(files))
 
 jobs = []      # (file, field, old_tag, new_tag)
 skipped = []

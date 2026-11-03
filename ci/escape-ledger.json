@@ -380,6 +380,16 @@
       "rule": "site_container_audit.py:C2",
       "owner": "主理人（审计脚本改动复核提交 + align_og_title.py 扩展）",
       "status": "open（断言已加未提交；54 处站点修复待管线扩展后批量处理）"
+    },
+    {
+      "id": "E-028",
+      "date": "2026-11-03",
+      "system": "AIHRlab-网站",
+      "symptom": "glossary/index.html 的 og:title（带长描述）与 h1（短标题）漂移、twitter:title 带禁用后缀、<title> 后缀重复两次，三项同时存在。专项工具 align_og_title.py dry-run 报「待替换 0 处」——假零：不是没问题，是根本没扫到该文件。",
+      "found_by": "发布链 lint_diff（R-OG-TITLE-EQUALS-H1）在 P1/P2 发布预演中拦截",
+      "escape_reason": "E-027（2026-11-02）已登记「align_og_title.py SCAN_DIRS 不覆盖 glossary 等目录」，但登记后工具的 glob 仍未修——登记≠修复。发布链 lint_diff 扫发布文件能拦住，但日常专项修复工具持续输出假零，会诱导「og 已对齐」的错误结论。",
+      "fix": "① align_og_title.py glob 扩展为全站真实分布（根目录/articles/hub/assessments/resources/products/glossary/tools/cards/ask，含 tools/**）；② F5 注入验证：改 glossary og:title 后 dry-run 报「待替换 1 处」、恢复后报 0——真零可证；③ glossary/index.html 三处标题已修并随 P1/P2 批次上线。",
+      "lesson": "工具输出「0 处」时必须能区分「检查过且干净」与「根本没扫到」。扫描范围按当年栏目写死是结构性缺陷：新增目录的那一刻起工具开始静默失明。逃逸账本登记了的问题若无人认领修复时限，登记本身会变成安慰剂。"
     }
   ],
   "failure_modes": {
