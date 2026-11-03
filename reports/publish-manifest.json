@@ -5905,5 +5905,18 @@
     ],
     "sitemap_urls_before": 359,
     "sitemap_urls_after": 359
+  },
+  {
+    "date": "2026-11-04 00:06",
+    "commit": "5d043fdcdb5450d66161827eba476a78947f9803",
+    "message": "E-028 修复：align_og_title.py 扫描范围扩至全站真实分布（原 glob 漏 glossary/tools 等致假零），F5 注入验证有效；逃逸账本登记 E-028",
+    "files_count": 3,
+    "files": [
+      "scripts/align_og_title.py",
+      "ci/escape-ledger.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 359,
+    "sitemap_urls_after": 359
   }
 ]
