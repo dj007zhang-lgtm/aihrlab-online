@@ -54,7 +54,7 @@
     /* ---- 公众号二维码 ---- */
     .article-footer-qr {background:var(--surface);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;text-align:center;margin:2rem auto 0;max-width:720px}
     .article-footer-qr img {border-radius:12px;margin-bottom:.75rem}
-    .article-footer-qr p {margin:0;font-size:var(--fs-3);color:#555}
+    .article-footer-qr p {margin:0;font-size:var(--fs-3);color:var(--text-secondary)}
 
 /* ===== 25 篇内联块并集（模板未含的文章特有选择器，保证零样式丢失） ===== */
 .article-sources {margin-top:2rem;padding-top:1rem;border-top:1px solid #E3E0D4;color:#868e96;font-size:var(--fs-2);line-height:1.6}
@@ -92,7 +92,7 @@
 .references {margin:2rem 0 0;padding:1.25rem 1.5rem;background:var(--bg-subtle);border:1px solid rgba(0,0,0,0.06);border-radius:10px}
 .references h3 {font-size:var(--fs-4);font-weight:700;margin-bottom:.7rem;color:var(--text)}
 .references ul {list-style:none;padding:0;margin:0}
-.references li {font-size:var(--fs-2);line-height:1.65;color:#666;margin-bottom:.35rem;padding-left:1em;position:relative}
+.references li {font-size:var(--fs-2);line-height:1.65;color:var(--text-secondary);margin-bottom:.35rem;padding-left:1em;position:relative}
 .references li::before {content:"—";position:absolute;left:0;color:#bbb}
 .step-card {margin:1.4em 0;padding:1.1rem 1.4rem;background:var(--bg-subtle);border-radius:12px;border-left:3px solid var(--accent)}
 .step-card__n {font-size:var(--fs-2);font-weight:700;color:var(--accent);letter-spacing:.05em}
@@ -103,14 +103,14 @@
    读完正文即给第二条路：枢纽 → 同簇长文 → 自测 → 站内问答。
    版式纪律：只用站点已有色板（深林绿 #3F6212 / 陶土棕 #A86A2E / 暖沙 #F1EFE9），
    不加阴影、不加渐变、不做按钮卖相 —— 这是目录，不是广告位。 */
-.next-path{margin:2.2rem auto 1.6rem;max-width:720px;padding:1.25rem 1.4rem;background:#F1EFE9;border-left:3px solid #3F6212;border-radius:6px}
+.next-path{margin:2.2rem auto 1.6rem;max-width:720px;padding:1.25rem 1.4rem;background:#F1EFE9;border-left:3px solid var(--accent);border-radius:6px}
 .next-path__title{margin:0 0 .9rem;font-size:var(--fs-4);font-weight:700;color:#1A1A17;letter-spacing:.01em}
 .next-path__list{margin:0;padding:0;list-style:none;counter-reset:np}
 .next-path__item{counter-increment:np;position:relative;padding:.5rem 0 .5rem 1.9rem;border-top:1px solid rgba(26,26,23,.08)}
 .next-path__item:first-child{border-top:0}
-.next-path__item::before{content:counter(np);position:absolute;left:0;top:.62rem;width:1.25rem;height:1.25rem;line-height:1.25rem;text-align:center;font-size:var(--fs-1);font-weight:700;color:#3F6212;background:rgba(63,98,18,.10);border-radius:50%}
+.next-path__item::before{content:counter(np);position:absolute;left:0;top:.62rem;width:1.25rem;height:1.25rem;line-height:1.25rem;text-align:center;font-size:var(--fs-1);font-weight:700;color:var(--accent);background:rgba(63,98,18,.10);border-radius:50%}
 .next-path__link{color:#1A1A17;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(63,98,18,.35)}
-.next-path__link:hover{color:#3F6212;border-bottom-color:#3F6212}
+.next-path__link:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .next-path__note{display:block;margin-top:.22rem;font-size:var(--fs-2);color:#6B6A63;line-height:1.5}
 @media (max-width:640px){.next-path{padding:1rem 1.1rem}.next-path__item{padding-left:1.7rem}}
 /* 暗色规则必须键控在 html[data-theme] 上（与全站主题切换同一机制），
@@ -133,11 +133,11 @@ html[data-theme="dark"] .next-path__note{color:#9A988F}
 .cluster-grid,.cluster-footer{max-width:720px;margin-left:auto;margin-right:auto}
 .cluster-cards{display:grid;gap:1rem;margin:1rem 0 2rem}
 .cluster-card{display:grid;grid-template-columns:2.25rem 1fr;gap:1rem;align-items:start;border:1px solid rgba(26,26,23,.10);border-radius:12px;padding:1.1rem 1.25rem;background:#F7F5F0}
-.cluster-num{font-size:var(--fs-7);font-weight:700;color:#3F6212;line-height:1.1}
+.cluster-num{font-size:var(--fs-7);font-weight:700;color:var(--accent);line-height:1.1}
 .cluster-body{min-width:0}
 .cluster-body h3{margin:0 0 .45rem;font-size:var(--fs-4);line-height:1.45;font-weight:700}
 .cluster-body p{margin:0 0 .6rem;font-size:var(--fs-3);line-height:1.8}
-.cluster-body .read{font-size:var(--fs-3);font-weight:600;color:#3F6212;text-decoration:none}
+.cluster-body .read{font-size:var(--fs-3);font-weight:600;color:var(--accent);text-decoration:none}
 .cluster-summary{font-size:var(--fs-3);line-height:1.8}
 @media (max-width:640px){.cluster-card{grid-template-columns:1fr;gap:.35rem}}
 html[data-theme="dark"] .cluster-card{border-color:rgba(236,234,228,.12);background:rgba(236,234,228,.04)}

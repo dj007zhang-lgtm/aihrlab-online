@@ -36,7 +36,27 @@ from collections import defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CSS_SOURCES = ["assets/css/style.css", "assets/css/article.css"]
+def discover_css_sources():
+    """
+    动态发现全部 CSS 源文件，不写死列表。
+
+    为什么不能写死：曾经只列 assets/css/style.css 与 article.css，
+    而站点实际还有 assets/qa/widget.css、tools/*/assets/*.css，
+    新增的 CSS 文件会静默逃出所有检查（B10 长期报 0 = 没扫到，不是干净）。
+    排除 .min.css——那是 build 产物，不是真相源。
+    """
+    out = []
+    for dp, dn, fn in os.walk(ROOT):
+        dn[:] = [d for d in dn
+                 if not d.startswith(('.', '_'))
+                 and d not in ('outputs', 'node_modules', '.git')]
+        for f in fn:
+            if f.endswith('.css') and not f.endswith('.min.css'):
+                out.append(os.path.relpath(os.path.join(dp, f), ROOT))
+    return sorted(out)
+
+
+CSS_SOURCES = discover_css_sources()
 CSS_COMPRESSED = "assets/css/style.min.css"
 BODY_SELECTORS = [".article-body", ".article-content-wrapper", ".article-content"]
 
@@ -609,8 +629,127 @@ def check_conflicts(rules, tokens=None):
     return out
 
 
-def check_hardcoded_colors(rules):
-    """B10：非 :root 规则里硬编码颜色，绕过 token"""
+def _inline_style_colors(html_files):
+    """
+    统计 HTML 行内 style="..." 属性里的硬编码色。
+
+    为什么必须单独扫：行内属性完全不受 CSS token 体系约束，
+    [data-theme=dark] 覆盖不到它们。本轮实测 264/430 页有，
+    而 B10 此前只扫 CSS 文件 → 报 0，是「没扫到」不是「干净」。
+    """
+    total = hits = 0
+    samples = []
+    for f in (html_files or []):
+        try:
+            s = open(f, encoding="utf-8").read()
+        except Exception:
+            continue
+        for m in re.finditer(r'\sstyle\s*=\s*"([^"]*)"', s, re.I):
+            for dm in re.finditer(r"([a-z-]+)\s*:\s*([^;\"]+)", m.group(1), re.I):
+                prop = dm.group(1).strip().lower()
+                val = dm.group(2).strip()
+                if not re.search(r"color|background|border|shadow|fill|stroke", prop):
+                    continue
+                total += 1
+                if "var(" in val:
+                    continue
+                if HEX_RE.search(val) or RGB_RE.search(val):
+                    hits += 1
+                    if len(samples) < 6:
+                        samples.append('行内 style="%s" @%s'
+                                       % (m.group(1)[:44], os.path.basename(f)))
+    return total, hits, samples
+
+
+def _css_basename_key(href_or_path):
+    """把 link href / 源路径都归一到「同一份 CSS」的键：style.min.css 与 style.css 同源"""
+    b = os.path.basename(href_or_path.split("?")[0])
+    if b.endswith(".min.css"):
+        b = b[:-len(".min.css")] + ".css"
+    return b
+
+
+def check_conflicts_per_page(css_files, html_files, tokens):
+    """
+    B9：按「页面实际加载组合」分组判冲突，不把所有 CSS 倒进一个池子。
+
+    为什么必须分组：站点存在独立子系统 CSS（tools/holland/assets/holland.css、
+    tools/ai-risk-test/assets/styles.css），它们从不与主站 style.css 同页加载，
+    各自定义 :root/--bg、body 完全合理。混在一个池子里比会凭空造出几十条
+    「冲突」（实测 31 条全是这种误报），既阻塞发布又淹没真实冲突。
+
+    做法：扫描每个 HTML 的 <link stylesheet>，得到该页加载的 CSS 集合，
+    只在集合内部判冲突；各页结果合并去重。
+    """
+    from collections import defaultdict
+    by_key = {}
+    for p in css_files:
+        by_key.setdefault(_css_basename_key(p), []).append(p)
+
+    combos = set()
+    for h in (html_files or []):
+        try:
+            s = open(h, encoding="utf-8").read()
+        except Exception:
+            continue
+        keys = []
+        for m in re.finditer(r'<link[^>]*href="([^"]+\.css)"', s, re.I):
+            k = _css_basename_key(m.group(1))
+            if k in by_key and k not in keys:
+                keys.append(k)
+        if len(keys) >= 1:
+            combos.add(tuple(sorted(keys)))
+
+    merged = {"items": [], "block": 0, "warn": 0}
+    seen = set()
+    for combo in sorted(combos):
+        rules = []
+        for k in combo:
+            for p in by_key[k]:
+                rules += parse_css(p)
+        res = check_conflicts(rules, tokens)
+        for sev, code, msg in res["items"]:
+            if code != "B9" or msg in seen:
+                continue
+            seen.add(msg)
+            merged["items"].append((sev, code, msg))
+        merged["block"] += res["block"]
+        merged["warn"] += res["warn"]
+    # 去重后重算：同一条冲突可能被多个页面组合重复计 block
+    merged["block"] = sum(1 for s, c, _ in merged["items"] if s == "BLOCK")
+    merged["warn"] = sum(1 for s, c, _ in merged["items"] if s == "WARN")
+    if not merged["items"]:
+        merged["items"].append(("PASS", "B9", "无冲突定义（按页面加载组合分组判定）"))
+    return merged
+
+
+def mainstay_css_files(css_files, html_files):
+    """
+    与 style.css 同页加载的 CSS = 主站组。
+
+    为什么要有这个概念：holland.css、tools/ai-risk-test/assets/styles.css
+    是独立子系统，从不与主站 style.css 同页出现，各有自己的设计体系。
+    拿主站的 type scale / token 约束去要求它们，既不合理（会改变这些工具的
+    既有视觉），也会凭空制造门禁 BLOCK。
+    """
+    keys = {p: _css_basename_key(p) for p in css_files}
+    main_key = "style.css"
+    co = set()
+    for h in (html_files or []):
+        try:
+            s = open(h, encoding="utf-8").read()
+        except Exception:
+            continue
+        ks = [_css_basename_key(m.group(1))
+              for m in re.finditer(r'<link[^>]*href="([^"]+\.css)"', s, re.I)]
+        if main_key in ks:
+            co.update(ks)
+    co.add(main_key)
+    return [p for p in css_files if keys[p] in co]
+
+
+def check_hardcoded_colors(rules, html_files=None):
+    """B10：硬编码颜色绕过 token（CSS 规则 + HTML 行内属性两处都扫）"""
     out = {"items": [], "block": 0, "warn": 0}
     total = hits = 0
     samples = []
@@ -628,12 +767,18 @@ def check_hardcoded_colors(rules):
                     samples.append("%s{%s:%s} @%s:%d"
                                    % (r["sel_raw"][:40], prop, val[:24], r["file"], r["line"]))
             total += 1
+    it, ih, isamp = _inline_style_colors(html_files)
+    css_total, css_hits = total, hits
+    total += it
+    hits += ih
+    samples += isamp
     rate = (hits / total) if total else 0
     # 硬编码本身不 BLOCK，超过 30% 说明 token 体系形同虚设
     sev = "BLOCK" if rate > 0.30 else ("WARN" if hits else "PASS")
     out["items"].append((
         sev, "B10",
-        "颜色声明 %d 处，其中 %d 处硬编码（%.0f%%），token 未被执行" % (total, hits, rate * 100)))
+        "颜色声明 %d 处（CSS %d + 行内 %d），其中硬编码 %d 处（%.0f%%），token 未被执行"
+        % (total, css_total, it, hits, rate * 100)))
     for s in samples:
         out["items"].append(("INFO", "B10", "  " + s))
     if sev == "BLOCK":
@@ -888,10 +1033,10 @@ def main():
         ("B6 字距", check_orphan_space(rules)),
         ("B7 段落节奏", check_paragraph_spacing(rules)),
         ("B8 装饰", check_decor(rules)),
-        ("B9 冲突定义", check_conflicts(rules, tokens)),
-        ("B10 颜色 token", check_hardcoded_colors(rules)),
+        ("B9 冲突定义", check_conflicts_per_page(css_files, html_files, tokens)),
+        ("B10 颜色 token", check_hardcoded_colors(rules, html_files)),
         ("B11 构建同步", check_build_sync()),
-        ("B12 字号模数化", check_type_scale(css_files)),
+        ("B12 字号模数化", check_type_scale(mainstay_css_files(css_files, html_files))),
         ("B13 图文同权", check_figure_typography(rules)),
         ("B14 字体契约", check_font_contract(css_files, html_files)),
     ]
