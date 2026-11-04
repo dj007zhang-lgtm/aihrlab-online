@@ -29,7 +29,7 @@ DATE_STAMP = re.compile(r"(20\d{6}|\d{8})")
 ONE_OFF_PREFIX = re.compile(r"^(drive_publish|gen_.*banner)")
 TEMP_MANIFEST = re.compile(r"^\.(gp_|p0|p1|next_path|analytics|bing|scf)")
 # 运行时产物：每次跑都会变，进批次只会制造「有差异」的假象。
-RUNTIME_STATE = re.compile(r"(push_log|_log|_status|health_baseline)\.json$")
+RUNTIME_STATE = re.compile(r"(push_log|_log|[-_]status|health_baseline)\.json$")
 
 # EXTRA 是「本轮新建、CSV 可能还没覆盖」的安全网
 EXTRA = [
