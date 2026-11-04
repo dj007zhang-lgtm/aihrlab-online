@@ -6289,5 +6289,30 @@
     ],
     "sitemap_urls_before": 360,
     "sitemap_urls_after": 360
+  },
+  {
+    "date": "2026-11-05 06:17",
+    "commit": "9c5a16672e8f786895c9b2171c447d0fea4e2b32",
+    "message": "内容发布：京东双11把AI推到经营决策层（从推荐位走到产销中枢）；同步索引/标签/sitemap/llms；修复 E-029 发布清单运行时产物正则",
+    "files_count": 15,
+    "files": [
+      "articles/index.html",
+      "articles/jd-double11-ai-decision-2026.html",
+      "assets/images/banners/jd-double11-ai-decision-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "scripts/build_publish_list.py",
+      "sitemap.xml",
+      "tags/agent.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/digital.html",
+      "tags/index.html",
+      "tags/org-change.html"
+    ],
+    "sitemap_urls_before": 361,
+    "sitemap_urls_after": 361
   }
 ]
