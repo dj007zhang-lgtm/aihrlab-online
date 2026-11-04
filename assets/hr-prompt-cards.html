@@ -17,7 +17,51 @@
 
 
 
-<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" /><style> * { margin:0; padding:0; box-sizing: border-box; } body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #F1F5F9; color: #1E293B; padding: 1.5rem 1rem 3rem; line-height: 1.6; } .container { max-width: 960px; margin: 0 auto; } /* ===== Header ===== */ .header { text-align: center; margin-bottom: 2rem; } .header .badge { display: inline-block; background: linear-gradient(135deg, #DBEAFE, #E0E7FF); color: #1D4ED8; padding: 0.25rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.65rem; } .header h1 { font-size: 1.45rem; color: #0F172A; margin-bottom: 0.4rem; } .header p { font-size: 0.82rem; color: #64748B; } .header .meta { font-size: 0.72rem; color: #94A3B8; margin-top: 0.5rem; } /* ===== Tips Bar ===== */ .tips-bar { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.78rem; color: #475569; } .tips-bar .tip { display: flex; align-items: flex-start; gap: 0.35rem; } .tips-bar .tip-icon { flex-shrink: 0; width: 18px; height: 18px; background: #EFF6FF; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; } /* ===== Card ===== */ .card-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; } @media(min-width: 640px) { .card-grid { grid-template-columns: 1fr 1fr; } } .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden; position: relative; transition: box-shadow 0.2s; } .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); } .card-header { padding: 0.85rem 1rem 0.5rem; display: flex; align-items: center; justify-content: space-between; } .card-num { width: 26px; height: 26px; border-radius: 6px; background: #EFF6FF; color: var(--text-link); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; } .card-tags { display: flex; gap: 0.3rem; } .card-tag { font-size: 0.62rem; padding: 0.1rem 0.45rem; border-radius: 4px; font-weight: 600; } .tag-ds { background: #F0FDF4; color: #15803D; } .tag-cg { background: #FEF9C3; color: #A16207; } .tag-both { background: #EDE9FE; color: #6D28D9; } .card-title { font-size: 0.92rem; font-weight: 700; color: #0F172A; padding: 0 1rem 0.5rem; } .card-body { padding: 0 1rem 0.75rem; } .prompt-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 0.75rem; font-size: 0.76rem; color: #334155; line-height: 1.7; position: relative; white-space: pre-wrap; word-break: break-all; max-height: 180px; overflow: hidden; transition: max-height 0.3s; } .prompt-box.expanded { max-height: 2000px; } .expand-btn { display: block; margin: 0.35rem auto 0; background: none; border: none; color: var(--text-link); font-size: 0.7rem; cursor: pointer; font-weight: 600; } .copy-btn { display: block; width: calc(100% - 2rem); margin: 0.65rem auto 0; background: #2563EB; color: #fff; border: none; border-radius: 6px; padding: 0.45rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: background 0.15s; } .copy-btn:hover { background: #1D4ED8; } .copy-btn.copied { background: #16A34A; } .card-tip { padding: 0.5rem 1rem 0.75rem; font-size: 0.7rem; color: #64748B; border-top: 1px solid #F1F5F9; line-height: 1.6; } /* ===== Footer ===== */ .footer { text-align: center; margin-top: 2rem; font-size: 0.72rem; color: #94A3B8; } @media print { body { background: #fff; } .copy-btn, .expand-btn { display: none; } .prompt-box { max-height: none; } } </style>
+<meta name="msvalidate.01" content="EFE6B970983C4C6F951613B6E14571A0" /><style> * { margin:0; padding:0; box-sizing: border-box; } body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #F1F5F9; color: #1E293B; padding: 1.5rem 1rem 3rem; line-height: 1.6; } .container { max-width: 960px; margin: 0 auto; } /* ===== Header ===== */ .header { text-align: center; margin-bottom: 2rem; } .header .badge { display: inline-block; background: linear-gradient(135deg, #DBEAFE, #E0E7FF); color: #1D4ED8; padding: 0.25rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.65rem; } .header h1 { font-size: 1.45rem; color: #0F172A; margin-bottom: 0.4rem; } .header p { font-size: 0.82rem; color: #64748B; } .header .meta { font-size: 0.72rem; color: #94A3B8; margin-top: 0.5rem; } /* ===== Tips Bar ===== */ .tips-bar { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.78rem; color: #475569; } .tips-bar .tip { display: flex; align-items: flex-start; gap: 0.35rem; } .tips-bar .tip-icon { flex-shrink: 0; width: 18px; height: 18px; background: #EFF6FF; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; } /* ===== Card ===== */ .card-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; } @media(min-width: 640px) { .card-grid { grid-template-columns: 1fr 1fr; } } .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; overflow: hidden; position: relative; transition: box-shadow 0.2s; } .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); } .card-header { padding: 0.85rem 1rem 0.5rem; display: flex; align-items: center; justify-content: space-between; } .card-num { width: 26px; height: 26px; border-radius: 6px; background: #EFF6FF; color: var(--text-link); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; } .card-tags { display: flex; gap: 0.3rem; } .card-tag { font-size: 0.62rem; padding: 0.1rem 0.45rem; border-radius: 4px; font-weight: 600; } .tag-ds { background: #F0FDF4; color: #15803D; } .tag-cg { background: #FEF9C3; color: #A16207; } .tag-both { background: #EDE9FE; color: #6D28D9; } .card-title { font-size: 0.92rem; font-weight: 700; color: #0F172A; padding: 0 1rem 0.5rem; } .card-body { padding: 0 1rem 0.75rem; } .prompt-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 0.75rem; font-size: 0.76rem; color: #334155; line-height: 1.7; position: relative; white-space: pre-wrap; word-break: break-all; max-height: 180px; overflow: hidden; transition: max-height 0.3s; } .prompt-box.expanded { max-height: 2000px; } .expand-btn { display: block; margin: 0.35rem auto 0; background: none; border: none; color: var(--text-link); font-size: 0.7rem; cursor: pointer; font-weight: 600; } .copy-btn { display: block; width: calc(100% - 2rem); margin: 0.65rem auto 0; background: #2563EB; color: #fff; border: none; border-radius: 6px; padding: 0.45rem; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: background 0.15s; } .copy-btn:hover { background: #1D4ED8; } .copy-btn.copied { background: #16A34A; } .card-tip { padding: 0.5rem 1rem 0.75rem; font-size: 0.7rem; color: #64748B; border-top: 1px solid #F1F5F9; line-height: 1.6; } /* ===== Footer ===== */ .footer { text-align: center; margin-top: 2rem; font-size: 0.72rem; color: #94A3B8; } @media print { body { background: #fff; } .copy-btn, .expand-btn { display: none; } .prompt-box { max-height: none; } } 
+
+
+
+
+
+
+
+
+
+/* dark-override-gen: 自动生成（dark_override_gen.py）。只映射浅底/深字/浅描边一族；饱和品牌色与 color:#fff 不动，改完须用 audit_dark_theme.py --urls 定向验证。 */
+html[data-theme="dark"] body{background:var(--bg-subtle);color:var(--text)}
+html[data-theme="dark"] .header .badge{background:linear-gradient(135deg, var(--bg-card), #E0E7FF);color:#93C5FD}
+html[data-theme="dark"] .header h1{color:var(--text)}
+html[data-theme="dark"] .header p{color:var(--text-secondary)}
+html[data-theme="dark"] .header .meta{color:var(--text-muted)}
+html[data-theme="dark"] /* ===== Tips Bar ===== */ .tips-bar{background:var(--surface);border:1px solid rgba(236,234,228,0.14);color:var(--text-secondary)}
+html[data-theme="dark"] .tips-bar .tip-icon{background:var(--key-insight-bg)}
+html[data-theme="dark"] .card{background:var(--surface);border:1px solid rgba(236,234,228,0.14)}
+html[data-theme="dark"] .card-num{background:var(--key-insight-bg)}
+html[data-theme="dark"] .tag-cg{background:var(--bg-card)}
+html[data-theme="dark"] .tag-both{background:var(--key-insight-bg);color:#C4B5FD}
+html[data-theme="dark"] .card-title{color:var(--text)}
+html[data-theme="dark"] .prompt-box{background:var(--bg-card);border:1px solid rgba(236,234,228,0.14);color:var(--text)}
+html[data-theme="dark"] .card-tip{color:var(--text-secondary);border-top:1px solid rgba(236,234,228,0.10)}
+html[data-theme="dark"] /* ===== Footer ===== */ .footer{color:var(--text-muted)}
+html[data-theme="dark"] body{background:var(--surface)}
+html[data-theme="dark"] [style*="color: #334155" i],html[data-theme="dark"] [style*="color:#334155" i]{color:var(--text) !important}
+html[data-theme="dark"] [style*="background:#f1f5f9" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="color:#1e293b" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="background:#dbeafe" i]{background:#1E2228 !important}
+html[data-theme="dark"] [style*="color:#1d4ed8" i]{color:#93C5FD !important}
+html[data-theme="dark"] [style*="color:#0f172a" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="color:#64748b" i]{color:#A6ADB8 !important}
+html[data-theme="dark"] [style*="color:#94a3b8" i]{color:#828C9A !important}
+html[data-theme="dark"] [style*="background:#fff" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="color:#475569" i]{color:#A6ADB8 !important}
+html[data-theme="dark"] [style*="background:#eff6ff" i]{background:#1c1a2b !important}
+html[data-theme="dark"] [style*="background:#fef9c3" i]{background:#1E2228 !important}
+html[data-theme="dark"] [style*="background:#ede9fe" i]{background:#1c1a2b !important}
+html[data-theme="dark"] [style*="color:#6d28d9" i]{color:#C4B5FD !important}
+html[data-theme="dark"] [style*="background:#f8fafc" i]{background:#1E2228 !important}
+html[data-theme="dark"] [style*="color:#334155" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="color:#2563eb" i]{color:#93C5FD !important}
+</style>
 
 <link href="/assets/css/style.min.css" rel="stylesheet"/>
 <link rel="canonical" href="https://www.aihrlab.online/assets/hr-prompt-cards.html">

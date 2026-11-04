@@ -37,21 +37,29 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8765
 BASE = "http://127.0.0.1:%d" % PORT
 
-# 覆盖各类模板，不只是文章页（按目录真实分布抽样，不写死栏目 = 避免 E-028 假零）
-TEMPLATE_GLOBS = [
-    "index.html",
-    "about.html",
-    "articles/index.html",
-    "resources/index.html",
-    "tools/index.html",
-    "glossary/index.html",
-    "hub/*.html",
-    "articles/*.html",
-    "assessments/*.html",
-    "products/*.html",
-    "cards/*.html",
-    "ask/index.html",
-]
+# 扫描范围必须**动态发现**，不能手写栏目清单。
+# 教训（E-028 第四次重演）：原先手写的 TEMPLATE_GLOBS 只写了 resources/index.html、
+# tools/index.html、glossary/index.html —— 只含索引页不含子页，另漏了 assets/*.html
+# 与根级其他页。结果是「120 页抽样」实际只在部分目录里抽，资源页改了也扫不到，
+# 「0 缺陷」是没扫到不是干净。改为：遍历站点根取全部 .html，按顶层目录分组保底。
+EXCLUDE_DIRS = (".git", "node_modules", "_wip", "_wip_unpublished", "outputs",
+                "_aihr_repo_archive")
+
+
+def discover_pages():
+    """按顶层目录分组返回 {目录: [相对路径]}，新增目录自动纳入。"""
+    groups = {}
+    for dp, dn, fn in os.walk(ROOT):
+        rel_dir = os.path.relpath(dp, ROOT)
+        if rel_dir == ".":
+            rel_dir = "(根)"
+        if any(x in rel_dir.split(os.sep) for x in EXCLUDE_DIRS):
+            continue
+        pages = [os.path.join(rel_dir, f) if rel_dir != "(根)" else f
+                 for f in fn if f.endswith(".html")]
+        if pages:
+            groups.setdefault(rel_dir, []).extend(sorted(pages))
+    return groups
 
 JS_PROBE = r"""
 () => {
@@ -79,7 +87,7 @@ JS_PROBE = r"""
     }
     return {r:11,g:12,b:14,a:1}; // 兜底：深色主题 body 底色
   };
-  const out = {light_bg:[], contrast:[], invisible_border:[]};
+  const out = {light_bg:[], contrast:[], invisible_border:[], subtle_border:[]};
   const nodes = document.querySelectorAll('body *');
   for (const el of nodes) {
     const cs = getComputedStyle(el);
@@ -122,18 +130,22 @@ JS_PROBE = r"""
         }
       }
     }
-    // D3 边框消失
+    // D3 边框消失。**仅在深色主题下判为缺陷**：本断言的语义是「深色下边框消失了」。
+    // 浅色主题里 #e5e7eb 这类浅灰描边压白底得 1.08，是刻意设计的弱分隔线，不是缺陷
+    // （实测浅色 119 处里绝大多数属此类）。但也不隐藏——浅色下改记 subtle_border，
+    // 照常打印为 INFO，只是不计入缺陷数。
     const bw = parseFloat(cs.borderTopWidth)||0;
     if (bw > 0) {
       const bc = parse(cs.borderTopColor);
       if (bc && bc.a > 0.5) {
         const c = contrast(bc, bgEff);
         if (c < 1.2) {
-          out.invisible_border.push({
+          const rec = {
             sel: el.tagName.toLowerCase()+(el.className && typeof el.className==='string'
                  ? '.'+el.className.trim().split(/\s+/).slice(0,2).join('.') : ''),
             ratio: Math.round(c*100)/100, bc: cs.borderTopColor, w: bw
-          });
+          };
+          if (isDark) out.invisible_border.push(rec); else out.subtle_border.push(rec);
         }
       }
     }
@@ -179,34 +191,32 @@ def is_redirect_shell(path):
 
 
 def pick_pages(n):
-    import glob
     import random
-    seen, pages = set(), []
-    for g in TEMPLATE_GLOBS:
-        for f in sorted(glob.glob(os.path.join(ROOT, g))):
-            rel = os.path.relpath(f, ROOT)
-            if rel in seen or "/_" in rel or rel.startswith("_"):
-                continue
-            seen.add(rel)
-            pages.append(rel)
+    groups = discover_pages()
     # 过滤跳转壳：它们不是内容页，缺陷归目标页，计入会重复且误导定位
-    pages = [p for p in pages if not is_redirect_shell(os.path.join(ROOT, p))]
+    groups = {d: [p for p in ps if not is_redirect_shell(os.path.join(ROOT, p))
+                  and "/_" not in p and not p.startswith("_")]
+              for d, ps in groups.items()}
+    groups = {d: ps for d, ps in groups.items() if ps}
     random.seed(42)
-    # 每个 glob 至少取 1 个（保证模板覆盖），其余随机补齐
+    # 每个顶层目录至少取 1 个（保证模板覆盖），其余随机补齐
     must = []
-    for g in TEMPLATE_GLOBS:
-        cands = [p for p in pages if glob.fnmatch.fnmatch(p, g)]
-        if cands:
-            must.append(cands[len(must) % len(cands)])
-    rest = [p for p in pages if p not in must]
+    for d in sorted(groups):
+        must.append(groups[d][0])
+    rest = [p for ps in groups.values() for p in ps if p not in must]
     random.shuffle(rest)
     out = must + rest[:max(0, n - len(must))]
     return sorted(set(out))
 
 
+def page_count():
+    """可被审计的页面总数（跳转壳已排除）"""
+    return len(pick_pages(10 ** 6))
+
+
 def audit(pages, theme):
     from playwright.sync_api import sync_playwright
-    agg = {"light_bg": [], "contrast": [], "invisible_border": []}
+    agg = {"light_bg": [], "contrast": [], "invisible_border": [], "subtle_border": []}
     per_page = {}
     with sync_playwright() as p:
         b = p.chromium.launch()
@@ -240,8 +250,10 @@ def audit(pages, theme):
 
 
 def report(agg, per_page, theme, n):
+    scope = "全站 %d 页" % n if n >= page_count() else "抽样 %d 页（覆盖率 %.0f%%）" % (
+        n, 100.0 * n / max(1, page_count()))
     print("=" * 78)
-    print("深色主题渲染审计（F4）  theme=%s  抽样 %d 页" % (theme, n))
+    print("深色主题渲染审计（F4）  theme=%s  %s" % (theme, scope))
     print("=" * 78)
     tot = 0
     for code, name, lim in (("light_bg", "D1 浅底残留（背景亮度>0.5，与深色割裂）", 0),
@@ -265,6 +277,15 @@ def report(agg, per_page, theme, n):
             else:
                 extra = " ratio=%.2f bc=%s w=%s" % (ex["ratio"], ex["bc"], ex["w"])
             print("      x%-3d %-34s %s%s" % (c, sel[:34], page[:40], extra))
+    # 浅色主题下的弱描边：照常打印但不计入缺陷（刻意设计的分隔线，不是缺陷）
+    sb = agg.get("subtle_border", [])
+    if sb:
+        cnt = Counter((i["page"], i["sel"]) for i in sb)
+        print("INFO  subtle_border 弱描边（浅色下刻意的分隔线，不计缺陷）  %d 处" % len(sb))
+        for (page, sel), c in cnt.most_common(5):
+            ex = next(i for i in sb if i["page"] == page and i["sel"] == sel)
+            print("      x%-3d %-34s %s ratio=%.2f bc=%s" % (
+                c, sel[:34], page[:40], ex["ratio"], ex["bc"]))
     print("-" * 78)
     print("缺陷合计: %d" % tot)
     return tot
@@ -336,12 +357,33 @@ def main():
     ap.add_argument("--theme", default="dark", choices=["dark", "light"])
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--urls", default="",
+                    help="逗号分隔的相对路径，定向审计指定页。"
+                         "抽样会漏掉只有个位页面用到的组件（实测 30 页抽样的「0 缺陷」"
+                         "在 120 页下暴露 17 处），改了具体组件必须用此项定向验证。")
     a = ap.parse_args()
 
     if a.self_test:
         return self_test()
 
-    pages = pick_pages(a.pages)
+    if a.urls:
+        pages = []
+        for u in a.urls.split(","):
+            u = u.strip().lstrip("/")
+            if not u:
+                continue
+            if not os.path.exists(os.path.join(ROOT, u)):
+                print("页面不存在: %s" % u)
+                return 2
+            if is_redirect_shell(os.path.join(ROOT, u)):
+                print("跳过跳转壳（缺陷归属落地页）: %s" % u)
+                continue
+            pages.append(u)
+        if not pages:
+            print("无可审计页面")
+            return 2
+    else:
+        pages = pick_pages(a.pages)
     proc = start_server()
     try:
         agg, per_page = audit(pages, a.theme)

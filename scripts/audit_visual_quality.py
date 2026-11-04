@@ -749,7 +749,12 @@ def mainstay_css_files(css_files, html_files):
 
 
 def check_hardcoded_colors(rules, html_files=None):
-    """B10：硬编码颜色绕过 token（CSS 规则 + HTML 行内属性两处都扫）"""
+    """B10：硬编码颜色绕过 token（CSS 规则 + HTML 行内属性两处都扫）
+
+    metric = 硬编码处数（绝对值）。基线账本按此值判「只准降不准升」——
+    不能按 BLOCK 行数记账：B10 只有 1 行汇总行，行数恒为 0 或 1，
+    1171 处违规会被记成「持平于基线 1」，43%→60% 的劣化也检测不到（装饰性门禁）。
+    """
     out = {"items": [], "block": 0, "warn": 0}
     total = hits = 0
     samples = []
@@ -773,14 +778,17 @@ def check_hardcoded_colors(rules, html_files=None):
     hits += ih
     samples += isamp
     rate = (hits / total) if total else 0
-    # 硬编码本身不 BLOCK，超过 30% 说明 token 体系形同虚设
-    sev = "BLOCK" if rate > 0.30 else ("WARN" if hits else "PASS")
+    # 硬编码本身不自行 BLOCK：是否算回归由基线账本按 metric（绝对处数）判定。
+    # （此前按 rate>30% 自行 BLOCK，再被基线降级为 PASS —— 双重机制互相抵消，
+    #   结果是 1171 处违规仍报「持平于基线 1」，且 43%→60% 的劣化检测不到。）
+    sev = "WARN" if hits else "PASS"
     out["items"].append((
         sev, "B10",
-        "颜色声明 %d 处（CSS %d + 行内 %d），其中硬编码 %d 处（%.0f%%），token 未被执行"
+        "颜色声明 %d 处（CSS %d + 行内 %d），其中硬编码 %d 处（%.0f%%）"
         % (total, css_total, it, hits, rate * 100)))
     for s in samples:
         out["items"].append(("INFO", "B10", "  " + s))
+    out["metric"] = hits
     if sev == "BLOCK":
         out["block"] += 1
     elif sev == "WARN":
@@ -1043,23 +1051,31 @@ def main():
 
     blocks = warns = 0
     rows = []
+    metrics = {}
     for name, res in checks:
         for sev, code, msg in res["items"]:
             if code in skip:
                 continue
             rows.append((sev, code, msg))
+        if isinstance(res.get("metric"), int):
+            # 按检查项归属 code（B10 等带 metric 的检查项）
+            for _, code, _m in res["items"]:
+                metrics.setdefault(code, res["metric"])
 
     # 存量债基线判定：只准降不准升
     baseline = load_baseline()
     changed = False
     for code in BASELINE_CODES:
-        cur = sum(1 for s, c, m in rows if c == code and s == "BLOCK")
+        if code in metrics:
+            cur = metrics[code]
+        else:
+            cur = sum(1 for s, c, m in rows if c == code and s == "BLOCK")
         new_rows = []
         if code not in baseline or args.update_baseline:
             baseline[code] = cur
             changed = True
             for s, c, m in rows:
-                if c == code:
+                if c == code and s != "INFO":
                     new_rows.append(("WARN" if s == "BLOCK" else s, c,
                                      "[建立基线 %d] %s" % (cur, m)))
                 else:
@@ -1077,14 +1093,12 @@ def main():
             else:
                 verdict = "PASS"
                 tag = "[持平于基线 %d] " % base
+            # verdict 作用于该项所有非 INFO 行：
+            #   B9（逐条 BLOCK 项）→ 逐条改判；
+            #   B10（单行汇总 + metric）→ 汇总行改判。
             for s, c, m in rows:
-                if c == code:
-                    if s == "BLOCK":
-                        new_rows.append((verdict, c, tag + m))
-                    elif s == "PASS":
-                        new_rows.append((s, c, m))
-                    else:
-                        new_rows.append((s, c, m))
+                if c == code and s != "INFO":
+                    new_rows.append((verdict, c, tag + m))
                 else:
                     new_rows.append((s, c, m))
         rows = new_rows

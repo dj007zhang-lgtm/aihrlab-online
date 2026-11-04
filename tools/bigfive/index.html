@@ -468,7 +468,52 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 <script src="/assets/js/analytics-loader.js" defer></script>
 </head>
 <body>
-<style>.site-nav-mini{background:#F1EFE9;border-bottom:1px solid rgba(26,26,23,.10);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:13px}.site-nav-mini__inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}.site-nav-mini a{color:#1A1A17;text-decoration:none}.site-nav-mini a:hover{color: var(--accent)}.site-nav-mini__brand{color:#3F6212!important;font-weight:600;margin-right:auto}html[data-theme="dark"] .site-nav-mini{background:#0B0C0E;border-bottom-color:rgba(236,234,228,.12)}html[data-theme="dark"] .site-nav-mini a{color:#ECEAE4}html[data-theme="dark"] .site-nav-mini__brand{color:#6F9A3C!important}</style>
+<style>.site-nav-mini{background:#F1EFE9;border-bottom:1px solid rgba(26,26,23,.10);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:13px}.site-nav-mini__inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}.site-nav-mini a{color:#1A1A17;text-decoration:none}.site-nav-mini a:hover{color: var(--accent)}.site-nav-mini__brand{color:#3F6212!important;font-weight:600;margin-right:auto}html[data-theme="dark"] .site-nav-mini{background:#0B0C0E;border-bottom-color:rgba(236,234,228,.12)}html[data-theme="dark"] .site-nav-mini a{color:#ECEAE4}html[data-theme="dark"] .site-nav-mini__brand{color:#6F9A3C!important}
+
+
+
+
+
+
+
+
+/* dark-override-gen: 自动生成（dark_override_gen.py）。只映射浅底/深字/浅描边一族；饱和品牌色与 color:#fff 不动，改完须用 audit_dark_theme.py --urls 定向验证。 */
+html[data-theme="dark"]{--glass:rgba(30,34,40,.55);--glass-strong:rgba(30,34,40,.78);--ink:#ECEAE4;--ink-2:#A6ADB8;--ink-3:#828C9A}
+html[data-theme="dark"] .nav.scrolled{background:rgba(30,34,40,.82)}
+html[data-theme="dark"] .dcard .subs span{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .feat{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .tl::before{background:var(--surface)}
+html[data-theme="dark"] /* ===================== Footer ===================== */ .foot{background:rgba(30,34,40,.45)}
+html[data-theme="dark"] .q-bar{background:rgba(30,34,40,.55)}
+html[data-theme="dark"] .opt{background:rgba(30,34,40,.55)}
+html[data-theme="dark"] .opt:hover{background:var(--surface)}
+html[data-theme="dark"] .opt.sel .radio::after{background:var(--surface)}
+html[data-theme="dark"] .btn-prev{background:rgba(30,34,40,.55)}
+html[data-theme="dark"] .btn-prev:hover{background:var(--surface)}
+html[data-theme="dark"] .sb.retake{background:rgba(30,34,40,.55)}
+html[data-theme="dark"] .qr-card .x{background:rgba(30,34,40,.65)}
+html[data-theme="dark"] .qr-box{background:var(--surface)}
+html[data-theme="dark"] .narr-h .lv{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .narr.full .mini .m{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .upgrade.premium-up{background:linear-gradient(160deg,rgba(30,34,40,.92),rgba(255,240,210,.82))}
+html[data-theme="dark"] /* ---- 杀手锏：深度职业诊断书 ---- */ .killer-sec.premium{background:linear-gradient(165deg,rgba(30,34,40,.96),rgba(30,34,40,.9))}
+html[data-theme="dark"] .cc-h .lv{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .cc-fit,.cc-avoid{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .qcard .opt:hover{background:var(--surface)}
+html[data-theme="dark"] .site-nav-mini{background:var(--bg-subtle)}
+html[data-theme="dark"] [style*="color: #222" i],html[data-theme="dark"] [style*="color:#222" i]{color:var(--text) !important}
+html[data-theme="dark"] [style*="background:#eef3fa" i]{background:#0B0C0E !important}
+html[data-theme="dark"] [style*="color:#2b2f3a" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="color:#5b6478" i]{color:#A6ADB8 !important}
+html[data-theme="dark"] [style*="color:#9aa3b5" i]{color:#828C9A !important}
+html[data-theme="dark"] [style*="background:#fff" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="background:#f1efe9" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="color:#f0a0b8" i]{color:#F9A8C8 !important}
+html[data-theme="dark"] [style*="color:#fdd0dc" i]{color:#FBCFE8 !important}
+html[data-theme="dark"] [style*="background:#fff0f4" i]{background:#1E2228 !important}
+html[data-theme="dark"] [style*="color:#6b7280" i]{color:#A6ADB8 !important}
+html[data-theme="dark"] [style*="color:#222" i]{color:#ECEAE4 !important}
+</style>
 <div class="site-nav-mini"><div class="site-nav-mini__inner"><a class="site-nav-mini__brand" href="/index.html">AIHR数智引擎</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/brief/index.html">策展</a><a href="/about.html">关于</a></div></div>
 
 <!-- ===== NAV ===== -->

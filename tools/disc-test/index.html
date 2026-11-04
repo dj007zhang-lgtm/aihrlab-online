@@ -294,7 +294,48 @@ a.link{color:var(--E);font-weight:700;text-decoration:none}
 <script src="/assets/js/analytics-loader.js" defer></script>
 </head>
 <body>
-<style>.site-nav-mini{background:#F1EFE9;border-bottom:1px solid rgba(26,26,23,.10);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:13px}.site-nav-mini__inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}.site-nav-mini a{color:#1A1A17;text-decoration:none}.site-nav-mini a:hover{color: var(--accent)}.site-nav-mini__brand{color:#3F6212!important;font-weight:600;margin-right:auto}html[data-theme="dark"] .site-nav-mini{background:#0B0C0E;border-bottom-color:rgba(236,234,228,.12)}html[data-theme="dark"] .site-nav-mini a{color:#ECEAE4}html[data-theme="dark"] .site-nav-mini__brand{color:#6F9A3C!important}</style>
+<style>.site-nav-mini{background:#F1EFE9;border-bottom:1px solid rgba(26,26,23,.10);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:13px}.site-nav-mini__inner{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}.site-nav-mini a{color:#1A1A17;text-decoration:none}.site-nav-mini a:hover{color: var(--accent)}.site-nav-mini__brand{color:#3F6212!important;font-weight:600;margin-right:auto}html[data-theme="dark"] .site-nav-mini{background:#0B0C0E;border-bottom-color:rgba(236,234,228,.12)}html[data-theme="dark"] .site-nav-mini a{color:#ECEAE4}html[data-theme="dark"] .site-nav-mini__brand{color:#6F9A3C!important}
+
+
+
+
+
+
+
+
+/* dark-override-gen: 自动生成（dark_override_gen.py）。只映射浅底/深字/浅描边一族；饱和品牌色与 color:#fff 不动，改完须用 audit_dark_theme.py --urls 定向验证。 */
+html[data-theme="dark"]{--e:#F9A8C8;--glass:rgba(30,34,40,.62);--glass2:rgba(30,34,40,.42);--ink:#ECEAE4;--ink2:#A6ADB8}
+html[data-theme="dark"] body{background:var(--bg-card)}
+html[data-theme="dark"] /* nav */ .nav{background:rgba(30,34,40,.72)}
+html[data-theme="dark"] .dot{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .fitem{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .chip{background:var(--surface)}
+html[data-theme="dark"] .bp .bpc{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .norm{background:rgba(30,34,40,.5)}
+html[data-theme="dark"] .kl{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .qr-img{background:var(--surface)}
+html[data-theme="dark"] .tcard .types span{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] #tribeArea .tag{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .opt4{background:rgba(30,34,40,.5);color:var(--text)}
+html[data-theme="dark"] .opt4:hover{background:rgba(30,34,40,.85)}
+html[data-theme="dark"] .qh.pick{color:var(--text-secondary)}
+html[data-theme="dark"] .deep{background:rgba(30,34,40,.62)}
+html[data-theme="dark"] .portrait{background:linear-gradient(120deg,rgba(30,34,40,.95),rgba(30,34,40,.6))}
+html[data-theme="dark"] .emp{background:rgba(30,34,40,.6)}
+html[data-theme="dark"] .emp .et{color:var(--c,#FDA4AF)}
+html[data-theme="dark"] .site-nav-mini{background:var(--bg-subtle)}
+html[data-theme="dark"] [style*="color: #222" i],html[data-theme="dark"] [style*="color:#222" i]{color:var(--text) !important}
+html[data-theme="dark"] [style*="color: #6b7280" i],html[data-theme="dark"] [style*="color:#6b7280" i]{color:var(--text-secondary) !important}
+html[data-theme="dark"] [style*="color:#f0a0b8" i]{color:#F9A8C8 !important}
+html[data-theme="dark"] [style*="color:#3a3550" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="color:#6b6585" i]{color:#A6ADB8 !important}
+html[data-theme="dark"] [style*="background:#eef1fb" i]{background:#1E2228 !important}
+html[data-theme="dark"] [style*="background:#fff" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="color:#e0566e" i]{color:#FDA4AF !important}
+html[data-theme="dark"] [style*="background:#f1efe9" i]{background:#16191D !important}
+html[data-theme="dark"] [style*="color:#222" i]{color:#ECEAE4 !important}
+html[data-theme="dark"] [style*="color:#6b7280" i]{color:#A6ADB8 !important}
+</style>
 <div class="site-nav-mini"><div class="site-nav-mini__inner"><a class="site-nav-mini__brand" href="/index.html">AIHR数智引擎</a><a href="/articles/index.html">文章</a><a href="/resources/index.html">资源库</a><a href="/tools/index.html">测评</a><a href="/brief/index.html">策展</a><a href="/about.html">关于</a></div></div>
 <nav class="nav"><div class="wrap">
   <div class="logo"><span class="dot">D</span>DISC 行为风格测试</div>

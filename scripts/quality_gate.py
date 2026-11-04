@@ -295,11 +295,15 @@ def gate_taste(target_files=None):
         
         # Check 1: Inline style blocks that look like emergency patches
         inline_styles = re.findall(r'<style>(.*?)</style>', content, re.DOTALL)
-        total_inline_css = sum(len(s) for s in inline_styles)
+        # dark_override_gen.py 自动生成的深色覆写块（页内 <style> 带 dark-override-gen 标记）：
+        # 这是「为不套用主站主题系统的独立/资源页补一套深色变量映射」的产物，标注明确、可重生成，
+        # 不是临时修补。从其长度中扣除后再比阈值，避免误伤；其余块仍按原判据照常检查。
+        override_blocks = [s for s in inline_styles if 'dark-override-gen' in s]
+        legit_inline_css = sum(len(s) for s in inline_styles if 'dark-override-gen' not in s)
         # v2 article template（templates/article-v2.html）的完整内联样式约 5500 字符，属设计标准非临时修补
         is_v2_template = any('--font-serif' in s or '.article-header .cat' in s for s in inline_styles)
-        if total_inline_css > 6000 and 'tools/' not in rel and 'bridge/' not in rel and not is_v2_template:
-            issues.append(f"{rel}: 行内 style 过长 ({total_inline_css}字符)，可能为临时修补")
+        if legit_inline_css > 6000 and 'tools/' not in rel and 'bridge/' not in rel and not is_v2_template:
+            issues.append(f"{rel}: 行内 style 过长 ({legit_inline_css}字符，已扣除自动生成的深色覆写块)，可能为临时修补")
         
         # Check 2: 标题长度健康区间（SEO/GEO 对齐，非硬性审美上限）
         # 依据：Bing/Google 中文标题 SERP 截断点约 30 字（上限≈60 字符），过短(<15)则无搜索意图承诺、
