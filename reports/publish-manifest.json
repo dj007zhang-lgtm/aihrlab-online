@@ -6314,5 +6314,29 @@
     ],
     "sitemap_urls_before": 361,
     "sitemap_urls_after": 361
+  },
+  {
+    "date": "2026-11-06 06:24",
+    "commit": "b8a3db0ee12c5388ef5002134c76c06a60253f6e",
+    "message": "内容发布：腾讯AI减法：关掉元器QClaw把算力压向核心赛道（资源压强而非减员）；同步索引/标签/sitemap/llms",
+    "files_count": 14,
+    "files": [
+      "articles/index.html",
+      "articles/tencent-ai-subtraction-2026.html",
+      "assets/images/banners/tencent-ai-subtraction-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/agent.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/flattening.html",
+      "tags/index.html",
+      "tags/org-change.html"
+    ],
+    "sitemap_urls_before": 362,
+    "sitemap_urls_after": 362
   }
 ]
