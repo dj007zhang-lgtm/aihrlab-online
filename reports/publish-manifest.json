@@ -6338,5 +6338,26 @@
     ],
     "sitemap_urls_before": 362,
     "sitemap_urls_after": 362
+  },
+  {
+    "date": "2026-11-07 06:12",
+    "commit": "050197bf117b478036c2284d2fe9156f2169e274",
+    "message": "feat: 大厂AI组织变阵三台重排取代部门赛马（bigtech-ai-restructure-three-tier-2026）",
+    "files_count": 11,
+    "files": [
+      "articles/bigtech-ai-restructure-three-tier-2026.html",
+      "articles/index.html",
+      "assets/images/banners/bigtech-ai-restructure-three-tier-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/org-change.html"
+    ],
+    "sitemap_urls_before": 363,
+    "sitemap_urls_after": 363
   }
 ]
