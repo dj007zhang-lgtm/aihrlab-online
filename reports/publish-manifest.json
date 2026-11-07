@@ -6393,5 +6393,17 @@
     ],
     "sitemap_urls_before": 363,
     "sitemap_urls_after": 363
+  },
+  {
+    "date": "2026-11-07 23:31",
+    "commit": "75137dcf12421b87ba1cdc1c8feee45218255cea",
+    "message": "chore(governance): 登记 E-029/E-030 逃逸账本（覆盖核验装饰化、gitignore 发布盲区）",
+    "files_count": 2,
+    "files": [
+      "ci/escape-ledger.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 363,
+    "sitemap_urls_after": 363
   }
 ]
