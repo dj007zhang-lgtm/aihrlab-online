@@ -6359,5 +6359,39 @@
     ],
     "sitemap_urls_before": 363,
     "sitemap_urls_after": 363
+  },
+  {
+    "date": "2026-11-07 23:22",
+    "commit": "d630a37a6ff50119a5e8086aadfc97dc47e82c28",
+    "message": "feat(analytics): 测评完成匿名埋点 + 读数链 + 覆盖核验入闸",
+    "files_count": 24,
+    "files": [
+      ".gitignore",
+      "assets/js/analytics-loader.js",
+      "assets/js/assessment-tracking.js",
+      "brief/index.html",
+      "brief/lines/ai-payoff-gap.html",
+      "brief/lines/hr-seat-not-skill-gap.html",
+      "brief/lines/intake-capacity-gap.html",
+      "brief/signal-brief-001.html",
+      "reports/assessment-data-readout.md",
+      "reports/events.md",
+      "scripts/assessment_readout.py",
+      "scripts/build_publish_list.py",
+      "scripts/classify_local_vs_remote.py",
+      "scripts/publish.py",
+      "tools/ai-risk-test/assets/app.js",
+      "tools/ai-risk-test/index.html",
+      "tools/bigfive/index.html",
+      "tools/disc-test/index.html",
+      "tools/dri-quiz.html",
+      "tools/dri-self-assessment.html",
+      "tools/holland/index.html",
+      "tools/mbti/index.html",
+      "tools/tarot-test/index.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 363,
+    "sitemap_urls_after": 363
   }
 ]
