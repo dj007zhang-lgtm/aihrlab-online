@@ -67,6 +67,7 @@ html[data-theme="dark"] [style*="color:#27ae60" i]{color:#6EE7B7 !important}
 html[data-theme="dark"] [style*="background:#f5f5f5" i]{background:#16191D !important}
 html[data-theme="dark"] [style*="color:#222" i]{color:#ECEAE4 !important}
 </style><script src="/assets/js/analytics-loader.js" defer></script>
+<script src="/assets/js/assessment-tracking.js" defer></script>
 <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
 
 <link rel="stylesheet" href="../assets/css/article.css">
@@ -227,6 +228,7 @@ function showResult() {
   else if (ratio >= 0.4) { grade = '🟠 觉醒期'; desc = '您的组织已意识到DRI的价值，但落地程度有限。建议从一个试点项目开始，建立DRI成功案例后再推广。'; }
   else { grade = '🔴 起步阶段'; desc = '您的组织尚未建立系统性的DRI机制。建议从领导力承诺和责任清晰度两个维度入手，这是所有高效组织的基础。'; }
 
+  try{ if(window.aihrAssessmentComplete) window.aihrAssessmentComplete('dri-self', ratio>=0.8?'leader':ratio>=0.6?'explorer':ratio>=0.4?'awakening':'start'); }catch(e){}
   document.getElementById('rcGrade').textContent = grade;
   document.getElementById('rcScore').textContent = totalScore;
   document.getElementById('rcDesc').textContent = desc;

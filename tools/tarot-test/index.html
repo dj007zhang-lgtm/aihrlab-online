@@ -239,6 +239,7 @@
     .mini{max-width:min(100%,72ch);margin-left:auto;margin-right:auto}
 </style>
 <script src="/assets/js/analytics-loader.js" defer></script>
+<script src="/assets/js/assessment-tracking.js" defer></script>
 <script src="/assets/js/qa-config.js" defer></script><script src="/assets/js/search.js" defer></script>
 
 <link rel="stylesheet" href="/assets/css/article.css">
@@ -475,6 +476,7 @@ function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; 
 function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
 
 function showSynthesis(){
+  try{ if(window.aihrAssessmentComplete) window.aihrAssessmentComplete('tarot', 'completed', String(GEN)); }catch(e){}
   const ELEM = {
     '火':{ psy:'意志与行动的动能', trait:'向外创造、点燃、推进' },
     '水':{ psy:'情感与潜意识的流动', trait:'向内感受、联结、流动' },

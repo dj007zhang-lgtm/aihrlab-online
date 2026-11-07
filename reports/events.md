@@ -23,9 +23,9 @@
 | `engagement_pause` | engagement | 页面切到后台 | `total_engaged_seconds` | 有效停留 |
 | `page_exit` | engagement | 离开页面 | `max_scroll_depth` | 跳出率的替代解释变量 |
 | `internal_link_click` | engagement | 站内链接点击（未分类者） | `target` | 二跳意向 |
-| `cta_click` | engagement | 导航栏/文中 CTA 点击 | `cta_type` | 路径选择 |
 | `hub_click` | conversion | 站内点击 → `/hub/` 专题枢纽 | `target` | **P0-2 枢纽承接率** |
 | `assessment_start` | conversion | 站内点击 → `/tools/` 测评 | `target` | 测评承接率 |
+| `assessment_complete` | conversion | 答完并生成结果（每会话每次测评一次） | `label` = `测评ID:结果类别`；`target` = 测评 ID；`result_type` = 匿名结果类别 | **测评完成次数 + 结果类型分布** |
 | `copilot_open` | conversion | 站内点击 → `/ask/` AI 问答 | `target` | Copilot 承接率 |
 | `next_path_click` | conversion | 「读完这篇，下一步」模块点击 | `target_type: hub\|article\|assessment\|copilot` | **P0-2 主度量** |
 
@@ -36,8 +36,9 @@
 | `page_path` | 当前页路径 | 缺省自动取 `location.pathname` |
 | `target` | 被点击/曝光的对象（href 或组件 id） | 无 href 时退化为元素文本前 80 字 |
 | `target_type` | 转化目标类型 | 仅 `next_path_click` 必填 |
-| `label` | 百度统计事件标签 | 缺省取 `target`，截断 255 字 |
-| `value` | 数值（仅数值型事件） | `scroll_depth` 用 |
+| `label` | 百度统计事件标签 | 缺省取 `target`，截断 255 字；`assessment_complete` 固定为 `测评ID:结果类别`，按此分组读数 |
+| `value` | 数值（仅数值型事件） | `scroll_depth` 用；测评完成事件**不传 value**，不采分数 |
+| `result_type` | 测评的匿名结果类别 | 仅 `assessment_complete` 使用；无天然类别的测评填 `completed`。禁止写入分数、答卷或用户标识 |
 
 ## 三、采集机制
 
@@ -47,6 +48,12 @@
 3. **自动分类**：`main.js` 模块 10 对站内 `<a>` 点击按 URL 自动归类
    （`/ask/` → `copilot_open`，`/tools/` → `assessment_start`，`/hub/` → `hub_click`，其余 → `internal_link_click`）。
 4. **调试**：URL 加 `?aihr_debug=1`，控制台逐条打印；本地环形缓冲 `window.__aihrEvents`（最近 50 条）供 QA 实测。
+5. **测评完成（2026-11-05）**：`assets/js/assessment-tracking.js` 暴露 `window.aihrAssessmentComplete(id, type, runKey)`，
+   各测评工具在「结果生成」时机调用一次，内部统一走 `aihrTrack('assessment_complete', ...)`。
+   `type` 只放匿名结果类别，函数内清洗掉 emoji / 标点 / 空白并截断 32 字；
+   同一浏览器会话内按 `测评ID + runKey` 去重，防止刷新结果页虚增完成数。
+   `runKey` 由「再测一次」时改变，允许重测另计；不传时退化为结果类别。
+   无天然结果类别的测评（AI 风险、塔罗）传 `completed`，只贡献完成次数、不参与类型分布。
 
 ## 四、已停用的历史命名（禁止复活）
 
@@ -55,9 +62,13 @@
 | `qr_modal_open` | 已废（2026-09-21） | 7 篇历史文章内联脚本已归口到 `gate_open` |
 | `gate_view`（GA4 版） | 已重接 | 同名保留，但改为经 `aihrTrack` 发送 |
 | `engagement-tracking.js` | 文件已停用 | 逻辑并入 `main.js` 模块 0/10，文件留空壳防 404 |
+| `cta_click` | 已废（2026-11-05 登记，实际 2026-09-26 已失效） | 随 `main.js` 模块 8（P1 订阅 CTA 强化）整体下线：站点定位为独立知识载体、不做公众号导流，全站常驻订阅条 / 文中关注 CTA / 导航订阅锚点均已移除，**不存在可采集的 CTA 元素**。该事件当年只登记、从未接线，`check_analytics_coverage.py` A7 报出字典漂移后据实归档，不是为过门而删名 |
 
 ## 五、核验
 
-- 脚本：`python3 scripts/check_analytics_coverage.py`（断言覆盖率 100%、无 gtag 残留、字典与代码无漂移）
+- 脚本：`python3 scripts/check_analytics_coverage.py`（断言覆盖率 100%、无 gtag 残留、字典与代码无漂移）。
+  **2026-11-05 起接入 `scripts/publish.py` 为 STEP 2.8 阻断门**，此前该脚本注册了但不在发布链里，属装饰性工具。
 - 人力核验：线上访问任一文章页加 `?aihr_debug=1`，控制台应出现 `gate_view` / `qr_code_view`；
   次日百度统计「事件分析」应能看到 `gate` 类事件非零。
+- 测评读数：百度统计「访问分析 → 事件分析」导出 `assessment_complete` 的 label 明细，
+  按 `测评ID:结果类别` 分组即为完成次数与类型分布。口径与样本量纪律见 `reports/assessment-data-readout.md`。

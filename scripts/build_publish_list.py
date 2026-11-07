@@ -73,6 +73,11 @@ def decide(p):
         return False, "内部项目草稿（非读者向）"
     if RUNTIME_STATE.search(base):
         return False, "运行时状态/日志（每次跑都变，制造虚假差异）"
+    if p == "reports/publish-manifest.json":
+        # 发布台账由 publish.py STEP 6 的独立小提交管理。内容批次带上它会造成
+        # 同一文件两次写入；且上次发布中断后本地台账会领先远程一条印记，
+        # 混进内容批次容易把「台账补齐」误当成内容改动。
+        return False, "发布台账（由 publish.py STEP 6 独立提交管理，不进内容批次）"
     return True, ""
 
 

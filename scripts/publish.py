@@ -175,6 +175,23 @@ def run_visual_quality():
     return proc.returncode == 0
 
 
+def run_analytics_coverage():
+    """STEP 2.8  埋点覆盖率与事件字典一致性（scripts/check_analytics_coverage.py）
+
+    2026-11-05 接入。此前该脚本已存在却不在发布链里，属 E-026 式装饰性工具：
+    A1（部署页统计脚本装载）与 A7（字典事件都有代码发送点）长期 FAIL 无人拦截。
+    测评完成埋点上线后，埋点完整性直接决定数据能不能信，因此升为阻断门。
+    """
+    print("\n" + "=" * 60)
+    print("STEP 2.8/3  埋点覆盖与事件字典一致性 scripts/check_analytics_coverage.py")
+    print("=" * 60)
+    proc = subprocess.run(
+        [sys.executable, "scripts/check_analytics_coverage.py"],
+        cwd=SITE_ROOT,
+    )
+    return proc.returncode == 0
+
+
 def count_sitemap_urls():
     """sitemap.xml 当前 URL 数（发布印记用，监测覆盖率是否骤减）。"""
     p = os.path.join(SITE_ROOT, "sitemap.xml")
@@ -294,6 +311,14 @@ def main():
               " 修复上述 BLOCK 项后重试。本次未做任何远程写入。")
         sys.exit(1)
     print("\n✅ 视觉品质门禁通过（排版尺度合规、对比度达标、无新增冲突定义、源版与压缩版已同步）。")
+
+    # STEP 2.8: 埋点覆盖与事件字典一致性（2026-11-05 从装饰性工具升为阻断门）
+    if not run_analytics_coverage():
+        print("\n❌ 埋点覆盖核验未通过（有部署页未装载统计脚本 / 事件字典与代码漂移）"
+              " —— 推送已中止。")
+        print("   修复上述 FAIL 项后重试。本次未做任何远程写入。")
+        sys.exit(1)
+    print("\n✅ 埋点覆盖核验通过（统计装载 100%、事件字典与代码无漂移）。")
 
     # STEP 3: 原子推送
     print("\n" + "=" * 60)

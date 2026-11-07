@@ -48,6 +48,7 @@
     next_path_click: "conversion",
     copilot_open: "conversion",
     assessment_start: "conversion",
+    assessment_complete: "conversion",
     hub_click: "conversion"
   };
 

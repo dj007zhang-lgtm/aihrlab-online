@@ -53,6 +53,17 @@ print("[2/5] 列出可发布候选（tracked + untracked-not-ignored）...", fil
 candidates = set(
     p for p in run(["git", "ls-files", "-co", "--exclude-standard"]).split("\n") if p
 )
+# 远程已存在、本地磁盘也存在的 ignored 文件同样是可发布真源。只按
+# --exclude-standard 取候选时，被通配 *.md 忽略的 reports/events.md 一类文件，
+# 其本地改动会永久进不了发布清单，等于线上文档被冻结（E-028 扫描盲区）。
+# SAME 的文件不会进发布清单，补入后只有真正 DIFFER 的才会被纳入，故安全。
+remote_ignored = {
+    p for p in remote
+    if p not in candidates and os.path.isfile(os.path.join(REPO, p))
+}
+if remote_ignored:
+    print("    补入远程已存在但被忽略的本地文件: %d" % len(remote_ignored), file=sys.stderr)
+    candidates |= remote_ignored
 print("    候选: %d" % len(candidates), file=sys.stderr)
 
 print("[3/5] 本地 / 远程 blob 比对 ...", file=sys.stderr)

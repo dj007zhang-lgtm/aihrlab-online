@@ -271,6 +271,7 @@
   }
 
   function finishQuiz() {
+    try{ if(window.aihrAssessmentComplete) window.aihrAssessmentComplete('ai-risk', 'completed'); }catch(e){}
     showView('result');
     renderResult();
   }
