@@ -6405,5 +6405,28 @@
     ],
     "sitemap_urls_before": 363,
     "sitemap_urls_after": 363
+  },
+  {
+    "date": "2026-11-08 06:17",
+    "commit": "07c42fb47d194fa0f903e75950dee0e87544520f",
+    "message": "feat: 新增大厂实践《微软6万人的自愿离职：AI把组织层级重新定价》并同步索引/sitemap/标签归档",
+    "files_count": 13,
+    "files": [
+      "articles/index.html",
+      "articles/microsoft-veo-ai-reallocation-2026.html",
+      "assets/images/banners/microsoft-veo-ai-reallocation-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/ai-native.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/x.html"
+    ],
+    "sitemap_urls_before": 364,
+    "sitemap_urls_after": 364
   }
 ]
