@@ -390,6 +390,35 @@
       "escape_reason": "E-027（2026-11-02）已登记「align_og_title.py SCAN_DIRS 不覆盖 glossary 等目录」，但登记后工具的 glob 仍未修——登记≠修复。发布链 lint_diff 扫发布文件能拦住，但日常专项修复工具持续输出假零，会诱导「og 已对齐」的错误结论。",
       "fix": "① align_og_title.py glob 扩展为全站真实分布（根目录/articles/hub/assessments/resources/products/glossary/tools/cards/ask，含 tools/**）；② F5 注入验证：改 glossary og:title 后 dry-run 报「待替换 1 处」、恢复后报 0——真零可证；③ glossary/index.html 三处标题已修并随 P1/P2 批次上线。",
       "lesson": "工具输出「0 处」时必须能区分「检查过且干净」与「根本没扫到」。扫描范围按当年栏目写死是结构性缺陷：新增目录的那一刻起工具开始静默失明。逃逸账本登记了的问题若无人认领修复时限，登记本身会变成安慰剂。"
+    },
+    {
+      "id": "E-029",
+      "date": "2026-11-07",
+      "system": "AIHRlab-网站",
+      "symptom": "check_analytics_coverage.py 已存在、且能报出真实缺陷（改动前基线 exit 1：A1 有 5 个 brief/ 页缺 analytics-loader.js；A7 报 cta_click 字典有登记、代码从无发送点），却根本不在 publish.py 门禁链里，两项 FAIL 长期无人拦截。与 E-026 同型的装饰性工具。",
+      "found_by": "本轮为「拿到测评数据」做改动前基线核验时手动跑该脚本，exit 1",
+      "escape_reason": "publish.py 的 STEP 链只登记了 quality_gate / stability_guard / qa_guardian / visual_quality；覆盖核验是独立脚本，仅在人工想起来时可见，规则登记了但不生效",
+      "fm": "F5",
+      "fix": "publish.py 新增 run_analytics_coverage() 为 STEP 2.8 阻断门；同批补齐 5 个 brief 页的 loader，把 cta_click 据实移入停用表（随 main.js 模块 8 于 2026-09-26 下线，站点已无可采集 CTA 元素，非为过门删名）。修后 A1 100%、A7 15/15、字典 15 事件全有发送点；本次发布 STEP 2.8 实测通过。",
+      "asserted": true,
+      "rule": "scripts/publish.py:STEP 2.8 → scripts/check_analytics_coverage.py A1/A7",
+      "owner": "自动化",
+      "status": "closed"
+    },
+    {
+      "id": "E-030",
+      "date": "2026-11-07",
+      "system": "AIHRlab-网站",
+      "symptom": ".gitignore 通配 *.md 使 reports/events.md 变 untracked-ignored；classify_local_vs_remote.py 只取 git ls-files -co --exclude-standard，导致刚改好的事件字典进不了发布清单，线上字典被永久冻结。首次生成的 19 文件清单里既没有 events.md，也没有新建的 assessment-data-readout.md。",
+      "found_by": "发布前审校清单时发现两个关键文档缺失，回溯 CSV 发现它们连候选都没进",
+      "escape_reason": "候选集定义把『被 gitignore 忽略』等同于『不该发布』，但远程 tree 中已存在的文件显然是本该维护的真源；属 E-028 扫描盲区家族第五次，靠静态规则取样本，站点规则一变即静默失明",
+      "fm": "F5",
+      "fix": "classify 补入『远程 tree 已存在且本地磁盘存在』的 ignored 文件（实测补入 12 个、只有 events.md 是 DIFFER，SAME 不进清单，故无副作用）；.gitignore 加精确例外 !reports/events.md / !reports/assessment-data-readout.md；build_publish_list.py 显式排除 reports/publish-manifest.json（由 publish.py STEP 6 独立提交管理，避免同文件两次写入）。",
+      "asserted": true,
+      "rule": "scripts/classify_local_vs_remote.py:remote_ignored + .gitignore 例外 + scripts/build_publish_list.py 排除规则",
+      "owner": "自动化",
+      "status": "closed",
+      "lesson": "A/B 实证：修前清单 19 文件且不含 events.md，修后 23 文件且含 events.md 与读数文档；发布后 E-017 远程 blob 逐项断言确认 13 个关键文件内容齐备。『远程已有』是判断真源的硬证据，不该被本地 ignore 规则覆盖。"
     }
   ],
   "failure_modes": {
