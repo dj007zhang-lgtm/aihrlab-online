@@ -419,6 +419,20 @@
       "owner": "自动化",
       "status": "closed",
       "lesson": "A/B 实证：修前清单 19 文件且不含 events.md，修后 23 文件且含 events.md 与读数文档；发布后 E-017 远程 blob 逐项断言确认 13 个关键文件内容齐备。『远程已有』是判断真源的硬证据，不该被本地 ignore 规则覆盖。"
+    },
+    {
+      "id": "E-031",
+      "date": "2026-11-09",
+      "system": "AIHRlab-网站",
+      "symptom": "发文标题在 sync-articles.py 跑完之后再次修改，导致 article-index.json / articles/index.html / 分类标签页卡片标题停留旧值（旧标题 31 字超 ≤28 上限），与正文 H1 不一致；首轮发布后线上索引卡显示旧标题，正文已为最终标题",
+      "found_by": "主理人发布后独立 REST 核验（二级核验）发现索引标题与正文 H1 不一致",
+      "escape_reason": "sync 是一次性生成器，门禁从不把『生成物索引的 title』与『源文章 h1』做跨文件比对；Gate16 文章索引完整性关只校验索引条目『中文+非重复』，不校验其 title 是否与源正文一致；改标题后未重跑 sync 也无任何断言拦截",
+      "fm": "F2",
+      "fix": "纪律补强：改标题后必须重跑 sync-articles.py 再发布；建议后续在 quality_gate 或 sync 自检中加『索引标题==正文 H1』断言，把一致性变成会失败的判据",
+      "asserted": false,
+      "rule": null,
+      "owner": "主理人",
+      "status": "open（待补断言：索引标题与正文H1一致性）"
     }
   ],
   "failure_modes": {
