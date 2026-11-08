@@ -6469,5 +6469,17 @@
     ],
     "sitemap_urls_before": 365,
     "sitemap_urls_after": 365
+  },
+  {
+    "date": "2026-11-09 06:22",
+    "commit": "18a0dd1a944cdd7772003972eb1d123b9cda0b92",
+    "message": "chore: 注册逃逸 E-031 索引标题与正文H1一致性缺口",
+    "files_count": 2,
+    "files": [
+      "ci/escape-ledger.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 365,
+    "sitemap_urls_after": 365
   }
 ]
