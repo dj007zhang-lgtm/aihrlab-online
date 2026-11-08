@@ -6428,5 +6428,28 @@
     ],
     "sitemap_urls_before": 364,
     "sitemap_urls_after": 364
+  },
+  {
+    "date": "2026-11-09 06:16",
+    "commit": "a6587cf4c8ebd5fcb5e25ad5e982071e0a2ea7d6",
+    "message": "feat: 阿里成立TokenFoundry：吴泳铭直管AI商业化",
+    "files_count": 13,
+    "files": [
+      "articles/alibaba-token-foundry-2026.html",
+      "articles/index.html",
+      "assets/images/banners/alibaba-token-foundry-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/ai-native.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/org-change.html"
+    ],
+    "sitemap_urls_before": 365,
+    "sitemap_urls_after": 365
   }
 ]
