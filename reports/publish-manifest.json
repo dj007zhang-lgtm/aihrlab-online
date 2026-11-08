@@ -6451,5 +6451,23 @@
     ],
     "sitemap_urls_before": 365,
     "sitemap_urls_after": 365
+  },
+  {
+    "date": "2026-11-09 06:18",
+    "commit": "1bb02efca81459efeff94a2a618cebf7499ef6e9",
+    "message": "fix: 同步修正阿里TokenFoundry文章索引与卡片标题（对齐正文H1）",
+    "files_count": 8,
+    "files": [
+      "articles/index.html",
+      "assets/js/article-index.json",
+      "categories/bigtech.html",
+      "tags/ai-native.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/org-change.html",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 365,
+    "sitemap_urls_after": 365
   }
 ]
