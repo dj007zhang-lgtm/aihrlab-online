@@ -1006,3 +1006,9 @@ URL: https://www.aihrlab.online/articles/microsoft-veo-ai-reallocation-2026.html
 分类: 大厂实践
 日期: 2026-11-09
 摘要: 2026 年 11 月 5 日（AASTOCKS 报道），阿里巴巴合并通义大模型事业部与未来生活实验室，成立 Token Foundry 事业部，由集团 CEO 吴泳铭直接负责。这不是又设一个 AI 部门，而是把模型能力变成可计价的商品，并把生产线指挥权收到 CEO 手里。对 HR 的硬判断：编制从人头计数转向产能单元计数，考核从榜单转向 Token 商品化率，激励从项目奖金转向内部市场化定价。
+
+### 210. 字节撤编商业化AI团队：算力与编制压向Seed世界模型
+URL: https://www.aihrlab.online/articles/bytedance-commercial-genai-dissolved-2026.html
+分类: 大厂实践
+日期: 2026-11-10
+摘要: 2026 年 11 月 2 日（芯流报道，凤凰网科技等跟进），字节跳动商业化 GenAI 团队三位核心负责人在 7 月至 10 月相继离场，团队正式撤编，剩余人员转岗，字节官方未公开回应。根因是算力从把模型变成钱的商业化线，迁向吴永辉负责的 Seed 世界模型。对 HR 的硬判断：编制跟着战略资源走而非人头走，组织的存续由它所服务的算力决定。
