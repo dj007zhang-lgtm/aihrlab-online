@@ -6481,5 +6481,30 @@
     ],
     "sitemap_urls_before": 365,
     "sitemap_urls_after": 365
+  },
+  {
+    "date": "2026-11-10 06:24",
+    "commit": "94fa0bfaec9ee81ff23bf0898bbbad38a141429c",
+    "message": "content: 字节撤编商业化AI团队 算力压向Seed世界模型 + 四源同步",
+    "files_count": 15,
+    "files": [
+      "about.html",
+      "articles/bytedance-commercial-genai-dissolved-2026.html",
+      "articles/index.html",
+      "assets/images/banners/bytedance-commercial-genai-dissolved-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/bigtech.html",
+      "index.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/org-change.html",
+      "tags/talent.html"
+    ],
+    "sitemap_urls_before": 366,
+    "sitemap_urls_after": 366
   }
 ]
