@@ -6655,5 +6655,21 @@
     ],
     "sitemap_urls_before": 366,
     "sitemap_urls_after": 366
+  },
+  {
+    "date": "2026-11-10 12:08",
+    "commit": "21300824671649a1979ab2932584e535a3bb3eeb",
+    "message": "chore(site): 清除 justify 影子规则并登记 E-038 门禁误拦修复",
+    "files_count": 6,
+    "files": [
+      "assets/css/style.css",
+      "assets/css/style.min.css",
+      "ci/escape-ledger.json",
+      "ci/unpublished-pages.txt",
+      "ci/visual-baseline.json",
+      "sitemap.xml"
+    ],
+    "sitemap_urls_before": 366,
+    "sitemap_urls_after": 366
   }
 ]
