@@ -520,6 +520,20 @@
    "rule": "P6 标题字距契约 / P7 标题字体 token；--self-test 注入「撤销 !important」必须 FAIL",
    "owner": "publish.py STEP 2.9（自动）",
    "status": "closed"
+  },
+  {
+   "id": "E-038",
+   "date": "2026-11-10",
+   "system": "AIHRlab-网站",
+   "symptom": "两次假阳性阻断发布：①lint_diff 用 R-OG-TITLE-EQUALS-H1 拦下 templates/article-shell.html（{{H1}} vs {{TITLE}} 占位符被当真实标题比对）；②qa_guardian lesson_assertions 把 outputs/architecture-preview/ 再生预览页当站点页，R-META-CROSS-PAGE-CONTAMINATION 报 4 处「同题两页」",
+   "found_by": "本轮发布实操（publish.py STEP 0.5 / STEP 2.5 各拦一次）",
+   "escape_reason": "门禁对「产物页」的定义与实际扫描范围不一致：lint_diff/qa_guardian 复用 scan_file 却未区分模板占位符与渲染产物；walk_html 的 SKIP_DIRS 排除了 templates/ 却漏了 outputs/——生成器一跑，预览页就进全站语料",
+   "fm": "F5",
+   "fix": "①模板 h1 直接改用 {{TITLE}} 占位符（与 og:title/twitter:title 同一来源，同源不变式成为模板字面事实，无需豁免），render_article EXPECTED 3→4 同步；②SKIP_DIRS 补 outputs/projects，与 build_publish_list 排除口径对齐；③顺手删除被权威段遮蔽的 .article-body p justify 影子规则（E-035 同型熵源）",
+   "asserted": true,
+   "rule": "lint_diff templates/article-shell.html EXIT=0；qa_guardian 全站扫描不含 outputs 内页；正文 p computed text-align=left",
+   "owner": "publish.py STEP 0.5 / 2.5（自动）",
+   "status": "closed"
   }
  ],
  "failure_modes": {

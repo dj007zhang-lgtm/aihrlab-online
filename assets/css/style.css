@@ -101,7 +101,6 @@
 
 /* ===== 阅读体验重构（2026-07-17）：互动组件 / 进度条 / 等距段落 ===== */
 /* 正文段落等距节奏 */
-.article-content p,.article-body p,.article-section p{text-align:justify;text-justify:inter-character}
 /* 阅读进度条 */
 .reading-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:9999;transition:width .08s linear}
 /* 互动组件基础样式 */

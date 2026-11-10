@@ -5,4 +5,3 @@
 #
 # 用途：登记页不进 sitemap —— 收录线上不存在的页面等于提交软 404。
 
-templates/article-shell.html
