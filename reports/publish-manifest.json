@@ -6671,5 +6671,31 @@
     ],
     "sitemap_urls_before": 366,
     "sitemap_urls_after": 366
+  },
+  {
+    "date": "2026-11-11 06:35",
+    "commit": "49227d9c6075a5891c5836bf6658c7d4b5420834",
+    "message": "feat(content): 百度把AI云拆成两层：决策权交给97年原生代",
+    "files_count": 16,
+    "files": [
+      "articles/baidu-acg-two-layer-2026.html",
+      "articles/index.html",
+      "assets/images/banners/baidu-acg-two-layer-2026.webp",
+      "assets/js/article-index.json",
+      "assets/js/tags.json",
+      "categories/ai-org.html",
+      "categories/bigtech.html",
+      "categories/org-change.html",
+      "llms-full.txt",
+      "sitemap.xml",
+      "tags/ai-native.html",
+      "tags/ai-transformation.html",
+      "tags/bigtech.html",
+      "tags/index.html",
+      "tags/leadership.html",
+      "tags/org-change.html"
+    ],
+    "sitemap_urls_before": 367,
+    "sitemap_urls_after": 367
   }
 ]
