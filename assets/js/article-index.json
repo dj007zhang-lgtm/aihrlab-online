@@ -1259,6 +1259,18 @@
     ]
   },
   {
+    "title": "百度把AI云拆成两层：决策权交给97年原生代",
+    "url": "baidu-acg-two-layer-2026",
+    "category": "大厂实践",
+    "date": "2026-11-11",
+    "tags": [
+      "大厂实践",
+      "组织变革",
+      "AI转型",
+      "智能组织"
+    ]
+  },
+  {
     "title": "百度取消T/P序列：AI时代的人才价值重估",
     "url": "baidu-tp-reform",
     "category": "大厂实践",
@@ -2811,7 +2823,7 @@
   {
     "title": "小米超 2000 亿研发背后：5 个委员会分权，职能型架构撑不住了",
     "url": "xiaomi-2026-org-evolution",
-    "category": "AI组织变革",
+    "category": "组织变革",
     "date": "2026-05-10",
     "tags": [
       "AI原生组织",
