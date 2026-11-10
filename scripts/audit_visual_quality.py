@@ -79,6 +79,11 @@ def save_baseline(b):
     with open(BASELINE_PATH, "w", encoding="utf-8") as f:
         json.dump(b, f, ensure_ascii=False, indent=1)
 
+
+def baseline_verdict(cur, base):
+    """存量债棘轮：绝对处数上升即 BLOCK；下降由调用方下调基线，持平放行。"""
+    return "BLOCK" if cur > base else "PASS"
+
 # 外部阈值
 T_FONT_MIN, T_FONT_MAX = 15.0, 25.0          # B1
 T_LH_MIN, T_LH_MAX = 1.50, 1.80              # B2（CJK 适配：120-145% → 150-180%）
@@ -592,40 +597,41 @@ def check_decor(rules):
 
 
 def check_conflicts(rules, tokens=None):
-    """B9：同选择器 + 同属性 多处定义，最终效果由源码顺序决定"""
-    out = {"items": [], "block": 0, "warn": 0}
+    """B9：同一作用域内「单选择器 + 属性」被定义多次即计一组重复定义。
+
+    口径修正 2026-11-10（E-035）：旧版用「整条选择器串」做键、且只在值不同时才报，
+    于是 `.a,.b{padding}` 与 `.a,.b,.c{padding}` 这类真实重复被整串不等掩盖，
+    同值重复也被当作「同值异写」跳过。实测 style.css 有 209 组重复定义，
+    门禁却报「0 冲突、持平于基线 0」= 装饰性假零。
+    现改为逐选择器计数，同值重复也计入（多处定义本身就是排版不稳定的机制）。
+    C1 作用域隔离保留：@media / @keyframes 内部各自成作用域。
+    """
+    out = {"items": [], "block": 0, "warn": 0, "metric": 0, "groups": set()}
     seen = defaultdict(list)
     for r in rules:
-        # 键用「整条选择器串」，不用 split 后的单个选择器。
-        # 理由：h1,h2,h3{font-weight} 与 h1{font-weight} 是「基础 + 特化」的正常层叠，
-        #       不是冲突；只有同一条选择器串被定义多次且值不同才是真冲突。
-        for prop, val in r["decls"]:
-            seen[(r.get("scope", ()), r["sel_raw"], prop)].append((val, r["file"], r["line"]))
+        for s in r["sels"]:
+            for prop, val in r["decls"]:
+                seen[(r.get("scope", ()), s, prop)].append((val, r["file"], r["line"]))
     bad = 0
-    same_value_diff_written = 0   # 归一化后相等 = 仅写法不同，非冲突
-    for (scope, s, prop), lst in sorted(seen.items(), key=lambda x: (str(x[0][0]), x[0][1], x[0][2])):
-        if len(lst) > 1:
-            raw_vals = set(v for v, _, _ in lst)
-            norm_vals = set(norm_value(v, tokens) for v, _, _ in lst)
-            if len(raw_vals) > 1 and len(norm_vals) == 1:
-                same_value_diff_written += 1
-                continue
-            if len(norm_vals) > 1:
-                bad += 1
-                locs = ",".join("%s:%d=%s" % (f, l, v[:20]) for v, f, l in lst)
-                tag = ("[%s] " % "/".join(scope)) if scope else ""
-                out["items"].append((
-                    "BLOCK", "B9",
-                    "%s%s { %s } 被定义 %d 次且值不同 → 生效值取决于源码顺序（%s）"
-                    % (tag, s, prop, len(lst), locs)))
-                out["block"] += 1
-    if same_value_diff_written:
+    samples = []
+    for key, lst in sorted(seen.items(), key=lambda x: (str(x[0][0]), x[0][1], x[0][2])):
+        if len(lst) <= 1:
+            continue
+        bad += 1
+        out["groups"].add(key)
+        if len(samples) < 6:
+            scope, sel, prop = key
+            tag = ("[%s] " % "/".join(scope)) if scope else ""
+            samples.append("%s%s{%s} ×%d" % (tag, sel, prop, len(lst)))
+    out["metric"] = bad
+    out["block"] = bad
+    if bad:
         out["items"].append((
-            "INFO", "B9",
-            "另有 %d 组「同值异写」已按等价处理（如 #FFF/#ffffff、0.25rem/.25rem），不计冲突"
-            % same_value_diff_written))
-    if not bad:
-        out["items"].append(("PASS", "B9", "无冲突定义"))
+            "BLOCK", "B9",
+            "同一作用域内 (单选择器,属性) 被定义多次：%d 组；样例：%s"
+            % (bad, "；".join(samples))))
+    else:
+        out["items"].append(("PASS", "B9", "无重复定义"))
     return out
 
 
@@ -700,26 +706,25 @@ def check_conflicts_per_page(css_files, html_files, tokens):
         if len(keys) >= 1:
             combos.add(tuple(sorted(keys)))
 
-    merged = {"items": [], "block": 0, "warn": 0}
-    seen = set()
+    # 按「页面实际加载组合」逐组判，再把重复定义组按 (作用域,单选择器,属性) 去重。
+    # 不用消息文本去重：同一组在不同页面组合里文本相同但样例顺序可能不同，
+    # 且我们要的是可比较的绝对组数（metric），不是 BLOCK 行数。
+    groups = set()
     for combo in sorted(combos):
         rules = []
         for k in combo:
             for p in by_key[k]:
                 rules += parse_css(p)
-        res = check_conflicts(rules, tokens)
-        for sev, code, msg in res["items"]:
-            if code != "B9" or msg in seen:
-                continue
-            seen.add(msg)
-            merged["items"].append((sev, code, msg))
-        merged["block"] += res["block"]
-        merged["warn"] += res["warn"]
-    # 去重后重算：同一条冲突可能被多个页面组合重复计 block
-    merged["block"] = sum(1 for s, c, _ in merged["items"] if s == "BLOCK")
-    merged["warn"] = sum(1 for s, c, _ in merged["items"] if s == "WARN")
-    if not merged["items"]:
-        merged["items"].append(("PASS", "B9", "无冲突定义（按页面加载组合分组判定）"))
+        groups |= check_conflicts(rules, tokens)["groups"]
+    n = len(groups)
+    merged = {"items": [], "block": 0, "warn": 0, "metric": n, "groups": groups}
+    if n:
+        merged["items"].append((
+            "BLOCK", "B9",
+            "按页面实际加载组合判定：重复定义 %d 组（存量债，只降不升；新增一组即 BLOCK）" % n))
+        merged["block"] = 1
+    else:
+        merged["items"].append(("PASS", "B9", "无重复定义（按页面加载组合分组判定）"))
     return merged
 
 
@@ -987,6 +992,22 @@ def self_test():
             ok = bool(got) and any(g[0] in ("WARN", "BLOCK") for g in got)
         print("  %-18s %s → %s" % (name, code, "抓到" if ok else "漏掉"))
         ok_all = ok_all and ok
+
+    # B9 棘轮注入（F5）：多一组重复定义必须让 metric 上升，且基线判定必须 BLOCK。
+    # 这一条专门验证「门禁会 BLOCK」，而不只是「规则能报一行」。
+    p9 = os.path.join(tmp, "b9.css")
+    open(p9, "w", encoding="utf-8").write(
+        ".article-body p{color:red}\n.article-body p{color:blue}\n")
+    g0 = check_conflicts(parse_css(p9), {})
+    open(p9, "w", encoding="utf-8").write(
+        ".article-body p{color:red}\n.article-body p{color:blue}\n"
+        ".article-body h2{margin:0}\n.article-body h2{margin:1px}\n")
+    g1 = check_conflicts(parse_css(p9), {})
+    ratchet_ok = (g0["metric"] == 1 and g1["metric"] == g0["metric"] + 1
+                  and baseline_verdict(g1["metric"], g0["metric"]) == "BLOCK")
+    print("  %-18s %s → %s" % ("B9 棘轮会 BLOCK", "B9", "抓到" if ratchet_ok else "漏掉"))
+    ok_all = ok_all and ratchet_ok
+
     print("自检结论：", "全部命中" if ok_all else "存在漏检（门禁不可用）")
     return 0 if ok_all else 2
 
@@ -1082,16 +1103,14 @@ def main():
                     new_rows.append((s, c, m))
         else:
             base = baseline[code]
-            if cur > base:
-                verdict = "BLOCK"
-                tag = "[较基线 %d → %d 变差] " % (base, cur)
-            elif cur < base:
+            verdict = baseline_verdict(cur, base)
+            if cur < base:
                 baseline[code] = cur
                 changed = True
-                verdict = "PASS"
                 tag = "[较基线 %d → %d 改善] " % (base, cur)
+            elif cur > base:
+                tag = "[较基线 %d → %d 变差] " % (base, cur)
             else:
-                verdict = "PASS"
                 tag = "[持平于基线 %d] " % base
             # verdict 作用于该项所有非 INFO 行：
             #   B9（逐条 BLOCK 项）→ 逐条改判；

@@ -192,6 +192,25 @@ def run_analytics_coverage():
     return proc.returncode == 0
 
 
+def run_design_parity():
+    """STEP 2.9  设计契约等价核验（scripts/architecture/verify_parity.py）
+
+    2026-11-10 接入。此前 ci/design-contract.json 与 verify_parity.py 都没有生产消费者：
+    契约里的断点写的是 520/768/1024，而现网实际是 8 个宽度断点；核验器依赖
+    outputs/architecture-preview/ 里从没生成过的预览文件，直接跑必然崩。
+    两者同属 E-026 式装饰品。现在核验器逐条回查现网 CSS 的权威段、B9 棘轮、
+    构建同步与 MD 判断密度结构字段，任一漂移即 BLOCK。
+    """
+    print("\n" + "=" * 60)
+    print("STEP 2.9/3  设计契约等价核验 scripts/architecture/verify_parity.py")
+    print("=" * 60)
+    proc = subprocess.run(
+        [sys.executable, "scripts/architecture/verify_parity.py"],
+        cwd=SITE_ROOT,
+    )
+    return proc.returncode == 0
+
+
 def count_sitemap_urls():
     """sitemap.xml 当前 URL 数（发布印记用，监测覆盖率是否骤减）。"""
     p = os.path.join(SITE_ROOT, "sitemap.xml")
@@ -319,6 +338,14 @@ def main():
         print("   修复上述 FAIL 项后重试。本次未做任何远程写入。")
         sys.exit(1)
     print("\n✅ 埋点覆盖核验通过（统计装载 100%、事件字典与代码无漂移）。")
+
+    # STEP 2.9: 设计契约等价核验（2026-11-10 从装饰性规格升为阻断门）
+    if not run_design_parity():
+        print("\n❌ 设计契约核验未通过（契约数值与现网 CSS 漂移 / B9 棘轮上升 /"
+              " 构建未同步 / MD 判断密度字段缺失）—— 推送已中止。")
+        print("   修复上述 FAIL 项后重试。本次未做任何远程写入。")
+        sys.exit(1)
+    print("\n✅ 设计契约核验通过（契约数值与现网一致、重复定义未上升、构建已同步）。")
 
     # STEP 3: 原子推送
     print("\n" + "=" * 60)

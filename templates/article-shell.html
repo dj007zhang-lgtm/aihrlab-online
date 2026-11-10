@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{DATE}}">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:image" content="{{OG_IMAGE}}">
+<meta property="og:site_name" content="AIHR数智引擎">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<link rel="stylesheet" href="/assets/css/style.min.css">
+<link rel="stylesheet" href="/assets/css/article.css">
+<script src="/assets/js/analytics-loader.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+<script type="application/ld+json">
+{{JSONLD}}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="/index.html" class="site-logo">AIHR<span class="logo-dot">数智引擎</span></a><nav class="site-nav"><a href="/articles/index.html">文章</a><a href="/hub/index.html">专题</a><a href="/resources/index.html">资源</a><a href="/tools/index.html">测评</a></nav></div></header>
+<main>
+<article class="article" itemscope itemtype="https://schema.org/Article">
+<header class="article-header"><h1>{{TITLE}}</h1><p class="article-lead">{{LEAD}}</p><time datetime="{{DATE}}">{{DATE}}</time></header>
+<div class="article-body">
+{{SPINE_BLOCK}}
+{{BODY}}
+{{COUNTERPOINT_BLOCK}}
+{{SOURCES_BLOCK}}
+</div>
+{{RELATED_BLOCK}}
+{{CLUSTER_BLOCK}}
+</article>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><a href="/index.html" class="site-logo">AIHR<span class="logo-dot">数智引擎</span></a><p>AI 时代组织变革实验室。聚焦 AI 驱动组织变革、大厂组织架构调整、AI 人才战略与智能组织设计。</p></div></div><div class="footer-bottom">&copy; 2026 AIHR数智引擎. 内容基于公开信息与原创分析，转载请注明来源。</div></footer>
+<script src="/assets/js/content-protect.js" defer></script>
+</body>
+</html>

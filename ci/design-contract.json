@@ -1,0 +1,156 @@
+{
+    "_comment": "设计架构单一真相源。生产消费者：scripts/architecture/verify_parity.py（publish.py STEP 2.9 阻断门）与 scripts/audit_visual_quality.py 的 B9 棘轮。禁止把本节数值写死进产物页；重复定义数值只准引用 ci/visual-baseline.json。",
+    "version": "1.0.0",
+    "date": "2026-11-09",
+    "status": "S1 生效：2026-11-10 接入 publish.py STEP 2.9，契约数值由脚本逐条回查现网 CSS，任一漂移即 BLOCK；变更须答 PRODUCT-ARCHITECTURE-v2 §0.2 变更四问",
+    "principle": "先定关系再定数值。色阶是原料，语义是角色，组件是用法；引用方向单向自下而上，禁止反向与跨层。",
+    "external_benchmarks": {
+        "_measured": "2026-11-09 实抓各站首页 CSS（非印象、非二手转述）",
+        "radix_colors": {
+            "measured": {
+                "css_vars": 1291,
+                "unique_hex": 1503,
+                "color_step_tokens": 1513,
+                "space_scale_tokens": 552,
+                "media_breakpoints": 36,
+                "line_height": "var(--line-height-1..4)，分别出现 103/75/50/18 次"
+            },
+            "transferable": "色阶 × 语义角色分离；连行高与间距都 token 化；明暗双主题由同一色阶派生",
+            "non_transferable": "它是组件库产品，1500+ 色值来自全色族 × 12 级 × 双主题；内容站照搬即过度工程"
+        },
+        "butterick_practical_typography": {
+            "measured": {
+                "css_vars": 0,
+                "unique_hex": 23,
+                "line_height_modes": [
+                    "1.25",
+                    "1.35",
+                    "1.4",
+                    "1.45"
+                ],
+                "content_max_width": "1000px",
+                "media_breakpoints": 3
+            },
+            "transferable": "靠结构一致性而非变量数量达成秩序；3 个断点就够了；正文列宽是一个全局决策",
+            "non_transferable": "英文行高 1.25–1.45 与 serif 节奏。CJK 等效行高 1.50–1.80，抄了会挤成一团"
+        },
+        "distill_pub": {
+            "measured": {
+                "css_vars": 0,
+                "unique_hex": 12,
+                "content_max_width": "500px",
+                "line_height_modes": [
+                    "1.4em",
+                    "1.5em"
+                ],
+                "media_breakpoints": 4
+            },
+            "transferable": "极窄正文列 + 图注/边注作为版式一等公民；12 个颜色也能做出高级感",
+            "non_transferable": "交互式图表与科研配图资源，本站无图库与制图流程"
+        },
+        "smashing_magazine": {
+            "measured": {
+                "font_size_rem_em_ratio": 0.93,
+                "media_breakpoints": 20,
+                "css_vars": 15
+            },
+            "transferable": "字号几乎全部走相对单位，字阶是系统不是清单",
+            "non_transferable": "20 个断点服务媒体站的多栏广告与卡片流，本站是单列长文"
+        },
+        "stratechery": {
+            "measured": "HTTP 403，本轮未取到 CSS；不编造参数",
+            "transferable": null,
+            "non_transferable": null
+        }
+    },
+    "token_layers": {
+        "L0_scale": {
+            "purpose": "原料层：只有数值，不带语义",
+            "existing": [
+                "--ink-0..950 (12 级)",
+                "--brand-50..900 (10 级)",
+                "--data/warm/success/warning/danger/info 各阶",
+                "--fs-1..13 (13 档, ratio 1.1, anchor 17px)"
+            ],
+            "rule": "只允许被 L1 引用，禁止出现在产物 HTML"
+        },
+        "L1_semantic": {
+            "purpose": "角色层：一义一名",
+            "existing": [
+                "--bg",
+                "--text",
+                "--text-secondary",
+                "--line",
+                "--accent",
+                "--surface",
+                "--mark-danger"
+            ],
+            "rule": "只允许引用 L0，禁止直接写 hex；禁止新增同义别名（--insight-bg 与 --callout-bg 属已登记债）"
+        },
+        "L2_component": {
+            "purpose": "用法层：组件类，不含颜色数值",
+            "existing": [
+                ".insight-box"
+            ],
+            "rule": "只允许引用 L1；禁止裸 hex、禁止页内 <style> 覆写全局排版"
+        }
+    },
+    "typography": {
+        "body_font_size": "17.5px",
+        "body_line_height": 1.75,
+        "line_height_note": "CJK 等效 1.50–1.80；不采用 Butterick 英文 1.25–1.45",
+        "measure": "720px",
+        "measure_note": "CJK 22.5–45 汉字/行；正文列宽一次定全局",
+        "align": "left",
+        "cjk_justify": "forbidden",
+        "heading_letter_spacing": 0,
+        "type_scale": {
+            "steps": 13,
+            "ratio": 1.1,
+            "anchor_px": 17
+        },
+        "heading_font_family_token": "--font-heading-cjk",
+        "heading_font_weight": 600,
+        "heading_note": "中文标题禁用负字距；由 style.css 权威段以 letter-spacing:0 !important 锁定，页内 <style> 无法覆写"
+    },
+    "layout": {
+        "article_contract": "单一 ArticleLayout：正文列 / 边注轨 / 图注轨 / 相关阅读由同一布局派生，禁止逐页调宽度",
+        "breakpoints": [
+            480,
+            560,
+            640,
+            720,
+            768,
+            980,
+            1024,
+            1180
+        ],
+        "breakpoint_note": "2026-11-10 实测订正：旧契约写 520/768/1024，但 520 只是内容 max-width，不是媒体断点；现网实际 8 个宽度断点。目标仍是 Butterick 式极简 3 断点，此处如实登记差距，并以 max_breakpoints=8 做只降不升棘轮，禁止再新增断点。",
+        "spacing_scale": {
+            "required": true,
+            "min_steps": 6,
+            "status": "S1 待建（当前无间距 token，是实测缺口）；本轮未新增规格，先锁住不退化"
+        },
+        "max_breakpoints": 8,
+        "breakpoint_target": [
+            520,
+            768,
+            1024
+        ]
+    },
+    "color_usage_rules": {
+        "neutral_area_min_ratio": 0.8,
+        "accent_usage": "只用于链接、CTA、信号线、状态标记；禁止大面积底色与渐变",
+        "dark_theme": "由同一 L0 色阶派生，禁止另造一套覆写规则",
+        "debt_reference": "P3 深色覆写块 282 处 [style*=...] !important 是反面样本：靠精确匹配硬码接管，不是设计系统"
+    },
+    "forbidden": [
+        "产物页 style 属性出现裸 hex",
+        "产物页新增 <style> 覆盖全局排版",
+        "同选择器多处定义：数值唯一来源 ci/visual-baseline.json 的 B9，只降不升，新增一组即 BLOCK",
+        "新颜色不进 L0 直接进 L1",
+        "@font-face / 外链字体文件 / 外链字体域名（B14 红线）",
+        "装饰三件套（渐变 / 斜体 / 边框阴影）用于图注与引用块",
+        "中文标题使用负字距，或绕过 style.css 权威段的 !important 字距契约"
+    ]
+}

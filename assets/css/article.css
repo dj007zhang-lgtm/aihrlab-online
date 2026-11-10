@@ -17,7 +17,7 @@
     /* 分类标签 pill */
     .article-header .cat {display:inline-block;font-size:var(--fs-1);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-pale);padding:.3em .9em;border-radius:50px;margin-bottom:.8rem}
     /* H1 主标题 */
-    .article-header h1 {font-size:var(--fs-12);font-weight:800;line-height:1.28;letter-spacing:-.02em;margin:.8rem 0;color:var(--text)}
+    .article-header h1 {margin:.8rem 0}
     /* Meta 行（日期 · 来源 · 分类 · 阅读时长）*/
     .article-meta {color:var(--text-muted);font-size:var(--fs-3);line-height:1.6}
     .article-meta span {margin:0 .35em}

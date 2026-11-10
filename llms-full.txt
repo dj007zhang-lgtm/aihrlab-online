@@ -306,7 +306,7 @@
 - URL: https://www.aihrlab.online/articles/recruitment-ai-fullstack.html
 - 摘要: 搜索首页/文章/招聘全链路AI落地2026-06-03阅读 168招聘智能化招聘全链路AI落地：从JD撰写到面试出题的Agent化AI面试官已成为校招标配，全球招聘需求下滑20%。本篇文章拆解从JD生成、人才寻访到自动化面试的完整AI链路，帮助HR从执行者转型为招聘流程架构师。
 
-### 72. 腾讯活水计划：内部人才流动机制与HR启示
+### 72. 腾讯活水计划：8.7 万正编、流失率 15.9%，2025 年取消绩效门槛
 - URL: https://www.aihrlab.online/articles/tencent-huoshui-internal-mobility.html
 - 摘要: 腾讯活水计划是内部人才流动机制，2025年放宽参与条件、取消绩效限制（据南方都市报报道）。腾讯2025年ESG报告显示正编员工约8.7万人、整体流失率15.9%（较2024年20.1%下降）。报告未公开活水转岗具体人次，网传数字无官方来源。本文基于公开资料拆解机制设计逻辑与HR方法论。
 
@@ -334,7 +334,7 @@
 - URL: https://www.aihrlab.online/articles/wwdc-2026-hr-insights.html
 - 摘要: 搜索首页全部文章WWDC 2026 终评WWDC2026：Apple Intelligence 2.0给HR启示2026年6月15日 · AIHR数智引擎 · WWDC 20262026年6月9日，WWDC 2026开幕。这是库克作为CEO主持的最后一届WWDC——9月他将转任董事长，CT...
 
-### 80. 组织进化论：拆解小米2026战略背后的组织变革
+### 80. 小米超 2000 亿研发背后：5 个委员会分权，职能型架构撑不住了
 - URL: https://www.aihrlab.online/articles/xiaomi-2026-org-evolution.html
 - 摘要: 搜索首页/全部文章/小米2026组织变革2026年，小米宣布2026-2030年研发投入超2000亿元，其中单年研发投入达400亿元。但在管理者的视角中，比
 
@@ -448,7 +448,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 - URL: https://www.aihrlab.online/articles/hr-bigfive-recruitment-screening.html
 - 摘要: 大五人格（OCEAN）是招聘初筛中性价比最高、证据积累最充分的性格框架。但它有一条不可逾越的边界：它是早期信号，不是终裁门槛。尽责性（Conscientiousness）是跨岗位预测工作绩效最稳健的单一维度（Barrick & Mount 1991 元分析，覆盖 117 项独立研究）；其余四个维度只
 
-### 104. 华为历任HR一号位：一部组织能力的进化史
+### 104. 华为 HR 一号位：从吕克、李杰到郑良材，三十年怎么把人管成铁军
 - URL: https://www.aihrlab.online/articles/huawei-hr-leaders-history.html
 - 摘要: 华为的核心竞争力不是产品技术，而是组织能力、干部铁军与人力资源体系。本文梳理 1987—2026 年华为 HR 体系的六个时代演进，复盘李杰、吕克、郑良材等历任 HR 一号位的管理实践，以及「以岗定级、以级定薪、人岗匹配、易岗易薪」等硬核工具的来龙去脉。当你在研究 AI 时代如何重构组织时，华为这三
 
@@ -562,7 +562,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 /articles/adkar-ai-transformation.html | ADKAR 复盘：AI 转型为何卡在落地 | AI 转型卡在落地，根因是变革管理失败而非技术失败。用 Prosci 的 ADKAR 模型拆解 88% 未投产、约 6% 落地率背后的卡点：多数组织停在 Desire（不愿变）与 Ability（不会变）。给出 HR 一号位把变革管理产品化的可落地框架。
 
 /articles/ai-rebuild-training-coach-2026.html | AI重构培训：从批量灌输到按需教练 | 麦肯锡说HR要从培训转向筛选，但筛选造不出能力；当AI原生组织最稀缺的编排力仍需内部培养，AI把企业培训从批量灌输重构为任务流中按需发生的教练时刻。
-/articles/hr-skill-graph-2026.html | 技能图谱是什么：HR 构建方法论 | 技能图谱=连接「人—能力—工作」的可检索事实网，区别于岗位说明书与能力模型；BCG 2026 仅 11% 企业建成企业级技能架构，它是技能本位组织、AI 评估、数字员工编排的共同底座，HR 从采集-标准化-关联-验证-调度五步自建。
+/articles/hr-skill-graph-2026.html | 技能图谱是什么：BCG 说仅 11% 企业建成，HR 怎么从 0 搭 | 技能图谱=连接「人—能力—工作」的可检索事实网，区别于岗位说明书与能力模型；BCG 2026 仅 11% 企业建成企业级技能架构，它是技能本位组织、AI 评估、数字员工编排的共同底座，HR 从采集-标准化-关联-验证-调度五步自建。
 /articles/ai-hr-key-reports-2026.html | 2026 HR×AI 关键报告索引：数据与方法论 | 2026 年 HR×AI 六份权威报告（Gartner/BCG+WFPMA/Microsoft/WEF/Deloitte/PwC）核心数据与 HR 行动含义索引；每份一个决定性数字，逼 HR 重新配置判断权。
 /articles/ai-evaluation-split-2026.html | AI把评估拆成两半：2026人才判断权重构 | Gartner 2026 预测 75% 招聘到 2027 年测 AI 能力、50% 组织到 2026 年底要求无 AI 评估；评估权分裂的本质是判断权重定价，HR 一号位要守住组织判断权。
 
@@ -598,7 +598,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 - URL: https://www.aihrlab.online/articles/eu-ai-act-recruitment-compliance-2026.html
 - 摘要: 欧盟《AI 法案》（Regulation 2024/1689）把招聘、选型、候选人评估等雇佣 AI 列为 Annex III 高风险系统。使用方（deployer）即便不在欧盟、即便未自研也要担责，须保留人类监督、告知候选人、提供决策因素说明。合规截止日按 2026 年 Digital Omnibus 修订推至 2027-12-02。监管逻辑戳中组织本质：招聘 AI 重写人才信息网络与利益分配网络。
 
-### 140. 技能图谱：组织能力地图怎么搭才不是摆设
+### 140. 技能图谱不是买平台：Gloat 百万级节点，多数组织输在治理
 - URL: https://www.aihrlab.online/articles/skills-graph-2026.html
 - 摘要: 技能图谱（skills graph）把组织能力拆成可量化、带关系的技能节点，连接「谁会什么—工作要什么—战略缺什么」，是技能本位组织（SBO）的数据底座而非岗位说明书升级版。Mercer 2025/2026 显示仅 38% 组织有统一企业级技能库；Workday 2025 显示仅 32% 管理者相信现有技能匹配未来需求；Gloat 2026 图谱含 240 万节点、1,870 万关系。多数失败不在技术而在治理：定义、验证、治理三件事，验证还需含无 AI 的人类判断以防 GenAI 虚高技能。
 
@@ -638,7 +638,7 @@ Generated: 2026-06-30 | 更新：2026-07-19 | AIHR数智引擎 | www.aihrlab.onl
 - URL: https://www.aihrlab.online/articles/mckinsey-atomic-capabilities-2026.html
 - 摘要: 麦肯锡把组织能力拆成不可再分的「原子能力」单元，真正的难点不在列出 18 种维度，而在工程化：把能力单元映射到任务流、接成技能图谱、嵌进工作流。多数组织停在了清单这一步，因为没解决能力单元如何被调用。
 
-### 148. 赛马机制：用组织冗余竞速，替代中央指派
+### 148. 赛马机制：微信是张小龙团队赛出来的，多数公司却赛完就清零
 - URL: https://www.aihrlab.online/articles/bytedance-tencent-horse-race-2026.html
 - 摘要: 赛马机制是多团队并行竞速、胜者上位的组织结构选择，本质是用内部冗余竞速替代中央计划，换取信息发现速度。它常败在「冗余有了、记忆没建」，多个团队跑完就清零、不复盘、不沉淀，于是同样的组织错误反复发生。
 

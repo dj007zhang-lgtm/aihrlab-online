@@ -13,7 +13,7 @@ import hashlib
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 
-SKIP_DIRS = {"templates", "_wip", "node_modules", ".git", "__pycache__", "assets", "compare", "bridge", "ask", "glossary", "categories", "tags"}
+SKIP_DIRS = {"templates", "_wip", "node_modules", ".git", "__pycache__", "assets", "compare", "bridge", "ask", "glossary", "categories", "tags", "outputs", "projects"}
 
 CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 

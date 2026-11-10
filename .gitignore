@@ -18,6 +18,8 @@ __pycache__/
 # 否则本地改动永远进不了发布清单（E-028 扫描盲区：线上文档被冻结）
 !reports/events.md
 !reports/assessment-data-readout.md
+!content/**/*.md
+!reports/architecture-playbook-2026-11-09.md
 
 # Google API credentials (DO NOT COMMIT)
 gsc_service_account.json
